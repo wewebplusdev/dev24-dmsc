@@ -177,7 +177,7 @@ if(Paging_CountChecked('CheckBoxID',document.myForm.TotalCheckBoxID.value)>0) {
 					</td>
 
 					<td class="divRightTitleTb" valign="middle" align="left"><span class="fontTitlTbRight"><?= $langTxt["us:subject"] ?></span></td>
-					<td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?= $langTxt["txt:typeuser"] ?></span></td>
+					<!-- <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?= $langTxt["txt:typeuser"] ?></span></td> -->
 					<td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?= $langTxt["mg:status"] ?></span></td>
 					<td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?= $langTxt["us:credate"] ?></span></td>
 					<td width="12%" class="divRightTitleTbR" valign="middle" align="center"><span class="fontTitlTbRight"><?= $langTxt["mg:manage"] ?></span></td>
@@ -276,7 +276,7 @@ if(Paging_CountChecked('CheckBoxID',document.myForm.TotalCheckBoxID.value)>0) {
 								</table>
 
 							</td>
-							<td class="divRightContantOverTb" valign="top" align="center"> <span class="fontContantTbupdate"><?= $valUesrTypeShow ?></span> </td>
+							<!-- <td class="divRightContantOverTb" valign="top" align="center"> <span class="fontContantTbupdate"><?= $valUesrTypeShow ?></span> </td> -->
 							<td class="divRightContantOverTb" valign="top" align="center">
 								<div id="load_status<?= $valID ?>">
 									<? if ($valStatus == "Enable") { ?>

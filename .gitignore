@@ -1,4 +1,4 @@
-upload/*
-front/temp/template/*
-logs/*
+*.zip
 *.logs
+upload/*
+front/temp/*
