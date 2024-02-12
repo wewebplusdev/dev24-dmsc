@@ -1,0 +1,10 @@
+upstream target_server {
+    server service-api:3500;
+    server service-api-server-2:3501;
+}
+
+server {
+    location / {
+        proxy_pass http://target_server/;
+    }
+}

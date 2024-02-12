@@ -1,0 +1,29 @@
+version: "1"
+services:
+  service-api:
+    image: service-api
+    build:
+      context: ./volumes
+      dockerfile: Dockerfile
+    volumes:
+      - ./volumes/src:/usr/src/app # Mount local machine folder to container
+      - /usr/src/app/node_modules # Does not mount node_modules folder from local machine
+    environment:
+      NODE_ENV: production
+    networks:
+      env_developer : {}
+    command: nodemon -L app.js # docker container add flag "-L" to use nodemon
+    
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./volumes/src/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - service-api
+    ports:
+      - 4040:80
+    networks:
+      env_developer : {}
+networks:
+  env_developer:
+    external: true
