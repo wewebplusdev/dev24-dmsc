@@ -1,0 +1,4 @@
+upload/*
+front/temp/template/*
+logs/*
+*.logs
