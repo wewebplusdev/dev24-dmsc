@@ -21,7 +21,7 @@ function getNameSeo($valTable, $valField) {
 ## Core Title  ######################################################
 $fornt_name_keywords =getNameSeo($core_tb_setting,$core_tb_setting."_titleB");
 $fornt_name_description =getNameSeo($core_tb_setting,$core_tb_setting."_titleB");
-$core_name_title =getNameSeo($core_tb_setting,$core_tb_setting."_titleB");
+$core_name_title ="ยินดีต้อนรับเข้าสู่ระบบบริการจัดการเว็บไซต์ : " . getNameSeo($core_tb_setting,$core_tb_setting."_titleB");
 $valNameSystem = getNameSeo($core_tb_setting,$core_tb_setting."_subject");
 $valTitleSystem = getNameSeo($core_tb_setting,$core_tb_setting."_title");
 $valPicSystem = getNameSeo($core_tb_setting,$core_tb_setting."_pic");

@@ -1,36 +1,47 @@
-<?php
+<?
 ## Mod Table ###################################
-$mod_tb_root = "md_logs";
+$mod_tb_root = "md_ab";
+$mod_tb_root_lang = "md_abl";
+$mod_tb_root_sylang = "sy_lang";
+$mod_tb_fileTemp = "md_abtp";
+$mod_tb_file = "md_abf";
+
 ## Mod Folder ###################################
-$mod_fd_root = "mod_logs_api";
+$mod_fd_root = "mod_ablist";
 
 ## Setting Value ###################################
-$modTxtShowPic=array("การแสดงผลรูปภาพ","ไม่แสดงผล","แสดงผล");
-$modTxtColor=array("","สีขาว","สีเขียว");
-$modTxtOldWebsite=array("","ปิดเชื่อมโยง","เปิดเชื่อมโยง");
-$modTxtTypeAccess=array(
-    "",
-    "Get Token",
-    "Get User",
-    );
+$modTxtShowPic=array("แสดงรูปภาพในหน้ารายละเอียด","ไม่แสดง","แสดง");
+$modStatus = array("Enable", "Disable");
+
+## set Default Lang ################################
+$default_lang_set ="Thai";
 
 ## URL Search ###################################
-$mod_url_search_th = "detail.php";
-$mod_url_search_en = "detail-en.php";
+ $mod_url_search_th = "news/detail";
+ $mod_url_search_en = "news/detail";
 
+ if ($masterkey == 'daily') {
+    $mod_fd_frontUrl = "news-daily";
+ }else if($masterkey == 'job') {
+    $mod_fd_frontUrl = "news-career";
+ }
 
 ## Size Photo ###################################
-$sizeWidthPic="440";
-$sizeHeightPic="100";
+$sizeWidthPic="780";
+$sizeHeightPic="485";
 
 $sizeWidthOff="50";
 $sizeHeightOff="50";
 
-$sizeWidthMap="1920";
-$sizeHeightMap="744";
+$sizeWidthAlbum="980";
+$sizeHeightAlbum="490";
 
-$sizeWidthQrcode="100";
-$sizeHeightQrcode="100";
+$sizeWidthAlbumOff="250";
+$sizeHeightAlbumOff="125";
+
+## Mod Path RSS ###################################
+$mod_fullpath_pictures  = $core_fullpath_rss."/".$masterkey."/pictures";
+
 ## Mod Path ###################################
 
 $mod_path_html        = $core_pathname_upload."/".$masterkey."/html";
@@ -41,6 +52,7 @@ $mod_path_file_fornt  = $core_pathname_upload_fornt."/".$masterkey."/file";
 
 $mod_path_pictures        = $core_pathname_upload."/".$masterkey."/pictures";
 $mod_path_pictures_fornt  = $core_pathname_upload_fornt."/".$masterkey."/pictures";
+
 
 
 $mod_path_office        = $core_pathname_upload."/".$masterkey."/office";
@@ -55,19 +67,11 @@ $mod_path_album_fornt  = $core_pathname_upload_fornt."/".$masterkey."/album";
 $mod_path_vdo        = $core_pathname_upload."/".$masterkey."/vdo";
 $mod_path_vdo_fornt  = $core_pathname_upload_fornt."/".$masterkey."/vdo";
 
-$mod_path_minisite_folder        = "../../front/controller/script/minisite";
-$mod_path_minisite_folderCopy        = "../../front/controller/script/mnreminisite";
 
-## Mod Value ###################################
-$valModPermissionGroupID ="11";
-$core_main_theme = array(
-	"1" => array("color" => "../img/page/min1.jpg", "file" => "1"),
-	"2" => array("color" => "../img/page/min2.jpg", "file" => "2"),
-    "3" => array("color" => "../img/page/min3.jpg", "file" => "3"),
-    "4" => array("color" => "../img/page/min4.jpg", "file" => "4"),
-    "5" => array("color" => "../img/page/min5.jpg", "file" => "5")
-
+$mod_inputseach = array("inputGh"
+    ,"inputTh"
+    ,"inputSearch"
+    ,"inputSrchStatus"
 );
 
-$mod_inputseach = array("inputSearch","inputGh");
 ?>
