@@ -14,7 +14,7 @@ if ($_REQUEST['execute'] == "insert") {
    $maxOrder = $Row[0] + 1;
 
    $insert = array();
-   $insert[$mod_tb_root . "_language"] = "'" . $_SESSION[$valSiteManage . 'core_session_language'] . "'";
+   $insert[$mod_tb_root . "_language"] = "'" . $_REQUEST['inputLt'] . "'";
    $insert[$mod_tb_root . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
    $insert[$mod_tb_root . "_crebyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
    $insert[$mod_tb_root . "_creby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
@@ -30,11 +30,11 @@ if ($_REQUEST['execute'] == "insert") {
    $Query = wewebQueryDB($coreLanguageSQL, $sql);
    $contantID = wewebInsertID($coreLanguageSQL);
    foreach ($arrLang as $keyLang => $valueLang) {
-      if ($valueLang['key'] == $_SESSION[$valSiteManage . 'core_session_language']) {
+      if ($valueLang['key'] == $_REQUEST['inputLt']) {
          $insertLang = array();
          $insertLang[$mod_tb_root_lang . "_cid"] = "'" . $contantID . "'";
          $insertLang[$mod_tb_root_lang . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
-         $insertLang[$mod_tb_root_lang . "_language"] = "'" . $_SESSION[$valSiteManage . 'core_session_language'] . "'";
+         $insertLang[$mod_tb_root_lang . "_language"] = "'" . $_REQUEST['inputLt'] . "'";
          $insertLang[$mod_tb_root_lang . "_subject"] = "'" . changeQuot($_REQUEST['inputSubject']) . "'";
          $insertLang[$mod_tb_root_lang . "_url"] = "'" . changeQuot($_REQUEST['inputurl']) . "'";
          $insertLang[$mod_tb_root_lang . "_target"] = "'" . changeQuot($_REQUEST['inputmenutarget']) . "'";
@@ -44,7 +44,6 @@ if ($_REQUEST['execute'] == "insert") {
          $insertLang[$mod_tb_root_lang . "_lastdate"] = "NOW()";
 
          $sqllang = "INSERT INTO " . $mod_tb_root_lang . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
-         // print_pre($sqllang);
          $Querylang = wewebQueryDB($coreLanguageSQL, $sqllang);
       } else {
          $insertLang = array();
@@ -71,4 +70,6 @@ if ($_REQUEST['execute'] == "insert") {
    <?php include_once './inc-inputsearch.php'; ?>
 
 </form>
-<script language="JavaScript" type="text/javascript"> document.myFormAction.submit();</script>
+<script language="JavaScript" type="text/javascript">
+   document.myFormAction.submit();
+</script>

@@ -15,21 +15,22 @@ $valLinkNav1 = "../core/index.php";
 
 
 $sql = "SELECT   ";
-$sql .= "   " . $mod_tb_root . "_id ,
-" . $mod_tb_root . "_credate ,
-" . $mod_tb_root . "_crebyid,
-" . $mod_tb_root . "_status,
-" . $mod_tb_root . "_sdate  	 	 ,
-" . $mod_tb_root . "_edate  	,
-" . $mod_tb_root_lang . "_lastdate ,
-" . $mod_tb_root_lang . "_lastbyid ,
-" . $mod_tb_root . "_view,
-" . $mod_tb_root_lang . "_subject  ,
-" . $mod_tb_root_lang . "_htmlfilename   , 
-" . $mod_tb_root_lang . "_metatitle  	 	 ,  
-" . $mod_tb_root_lang . "_description  	 	 , 
-" . $mod_tb_root_lang . "_keywords  , 
-" . $mod_tb_root_lang . "_id ";
+$sql .= "   " . $mod_tb_root . "_id as id,
+" . $mod_tb_root . "_credate as credate,
+" . $mod_tb_root . "_crebyid as crebyid,
+" . $mod_tb_root . "_status as status,
+" . $mod_tb_root . "_sdate as sdate,
+" . $mod_tb_root . "_edate as edate,
+" . $mod_tb_root_lang . "_lastdate as lastdate,
+" . $mod_tb_root_lang . "_lastbyid as lastbyid,
+" . $mod_tb_root . "_view as view,
+" . $mod_tb_root_lang . "_subject as subject,
+" . $mod_tb_root_lang . "_htmlfilename as htmlfilename, 
+" . $mod_tb_root_lang . "_metatitle as metatitle,
+" . $mod_tb_root_lang . "_description as description, 
+" . $mod_tb_root_lang . "_keywords as keyword, 
+" . $mod_tb_root_lang . "_id as lid,
+" . $mod_tb_root . "_icon as icon";
 $sql .= "    FROM " . $mod_tb_root . " INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid
 WHERE " . $mod_tb_root . "_masterkey='" . $_REQUEST["masterkey"] . "'  AND  " . $mod_tb_root . "_id='" . $_REQUEST['valEditID'] . "' AND " . $mod_tb_root_lang . "_language = '" . $_REQUEST['inputLt'] . "' ";
 
@@ -69,6 +70,8 @@ $valMetatitle = rechangeQuot($Row[11]);
 $valDescription = rechangeQuot($Row[12]);
 $valKeywords = rechangeQuot($Row[13]);
 $valSGid = $Row[14];
+$valPicName = $Row['icon'];
+$valPic = $mod_path_pictures . "/" . $Row['icon'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
@@ -85,6 +88,7 @@ logs_access('3', 'View');
 
   <title><?= $core_name_title ?></title>
   <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
+  <?php require_once "../assets/inc/module-js.php"; ?>
 </head>
 
 <body>
@@ -139,17 +143,41 @@ logs_access('3', 'View');
         <tr>
           <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
             <span class="formFontSubjectTxt"><?= $langMod["txt:subject"] ?></span><br />
-            <span class="formFontTileTxt"><?= $langMod["txt:subjectDe"] ?></span>          </td>
+            <span class="formFontTileTxt"><?= $langMod["txt:subjectDe"] ?></span>
+          </td>
         </tr>
 
         <tr>
           <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:subject"] ?>:<span class="fontContantAlert"></span></td>
           <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-            <div class="formDivView"><?= $valSubject ?></div>          </td>
+            <div class="formDivView"><?= $valSubject ?></div>
+          </td>
         </tr>
       </table>
       <br />
-      
+      <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+        <tr>
+          <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+            <span class="formFontSubjectTxt"><?= $langMod["txt:pic"] ?></span><br />
+            <span class="formFontTileTxt"><?= $langMod["txt:picDe"] ?></span>
+          </td>
+        </tr>
+        <tr>
+          <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
+          <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+            <div class="formDivView">
+              <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
+            </div>
+          </td>
+        </tr>
+        <tr style="display:none;">
+          <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $modTxtShowPic[0] ?>:<span class="fontContantAlert"></span></td>
+          <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+            <div class="formDivView"><?= $modTxtShowPic[$valPicShow] ?></div>
+          </td>
+        </tr>
+      </table>
+      <br />
       <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
         <tr>
           <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -170,7 +198,7 @@ logs_access('3', 'View');
           </td>
         </tr>
       </table>
-      
+
       <br />
       <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
         <tr>
@@ -395,11 +423,11 @@ logs_access('3', 'View');
       };
       ply = new jeroenwijering.Player(cnt, src, cfg);
     }
-	
-$(function() {
-	
-	$('.tool-items').hide();
-});
+
+    $(function() {
+
+      $('.tool-items').hide();
+    });
   </script>
 
 

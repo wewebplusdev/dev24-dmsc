@@ -24,7 +24,7 @@ if ($_REQUEST['execute'] == "insert") {
    }
 
    if ($_POST['inputHtml'] != "") {
-      $filename = $_POST["valEditID"] . "-" . $_SESSION[$valSiteManage . 'core_session_language'] . "-" . $randomNumber . ".html";
+      $filename = $_POST["valEditID"] . "-" . $_POST['inputLt'] . "-" . $randomNumber . ".html";
       $HTMLToolContent = str_replace("\\\"", "\"", $_POST['inputHtml']);
       $fp = fopen($mod_path_html . "/" . $filename, "w");
       chmod($mod_path_html . "/" . $filename, 0777);
@@ -64,13 +64,14 @@ if ($_REQUEST['execute'] == "insert") {
    $sql = "INSERT INTO " . $mod_tb_root . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
    $Query = wewebQueryDB($coreLanguageSQL, $sql);
    $contantID1 = wewebInsertID($coreLanguageSQL);
+   $array_sch = array();
    foreach ($arrLang as $keyLang => $valueLang) {
-      if ($valueLang['key'] == $_SESSION[$valSiteManage . 'core_session_language']) {
+      if ($valueLang['key'] == $_POST['inputLt']) {
 
          $insertLang = array();
          $insertLang[$mod_tb_root_lang . "_cid"] = "'" . $contantID1 . "'";
          $insertLang[$mod_tb_root_lang . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
-         $insertLang[$mod_tb_root_lang . "_language"] = "'" . $_SESSION[$valSiteManage . 'core_session_language'] . "'";
+         $insertLang[$mod_tb_root_lang . "_language"] = "'" . $_POST['inputLt'] . "'";
          $insertLang[$mod_tb_root_lang . "_subject"] = "'" . changeQuot($_REQUEST['inputSubject']) . "'";
          $insertLang[$mod_tb_root_lang . "_htmlfilename"] = "'" . $filename . "'";
          $insertLang[$mod_tb_root_lang . "_description"] = "'" . changeQuot($_REQUEST['inputTagDescription']) . "'";
@@ -81,11 +82,10 @@ if ($_REQUEST['execute'] == "insert") {
          $insertLang[$mod_tb_root_lang . "_lastdate"] = "NOW()";
 
          $sqllang = "INSERT INTO " . $mod_tb_root_lang . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
-         // print_pre($sqllang);
          $Querylang = wewebQueryDB($coreLanguageSQL, $sqllang);
          $contantID = wewebInsertID($coreLanguageSQL);
+         $contantLID = $contantID;
       } else {
-
          $insertLang = array();
          $insertLang[$mod_tb_root_lang . "_cid"] = "'" . $contantID1 . "'";
          $insertLang[$mod_tb_root_lang . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
@@ -96,12 +96,10 @@ if ($_REQUEST['execute'] == "insert") {
 
          $sqllang = "INSERT INTO " . $mod_tb_root_lang . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
          $Querylang = wewebQueryDB($coreLanguageSQL, $sqllang);
+         $contantLID = wewebInsertID($coreLanguageSQL);
       }
+      $array_sch[$valueLang['key']] = $contantLID;
    }
-
-
-
-
 
    $sql_filetemp = "SELECT " . $mod_tb_fileTemp . "_id," . $mod_tb_fileTemp . "_filename," . $mod_tb_fileTemp . "_name  FROM " . $mod_tb_fileTemp . " WHERE " . $mod_tb_fileTemp . "_contantid 	='" . $_REQUEST['valEditID'] . "' ORDER BY " . $mod_tb_fileTemp . "_id ASC";
    $query_filetemp = wewebQueryDB($coreLanguageSQL, $sql_filetemp);
@@ -116,7 +114,7 @@ if ($_REQUEST['execute'] == "insert") {
          $insert[$mod_tb_file . "_contantid"] = "'" . $contantID . "'";
          $insert[$mod_tb_file . "_filename"] = "'" . $downloadFile . "'";
          $insert[$mod_tb_file . "_name"] = "'" . $downloadName . "'";
-         $insert[$mod_tb_file . "_language"] = "'" . $_SESSION[$valSiteManage . 'core_session_language'] . "'";
+         $insert[$mod_tb_file . "_language"] = "'" . $_POST['inputLt'] . "'";
 
          $sql = "INSERT INTO " . $mod_tb_file . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
          $Query = wewebQueryDB($coreLanguageSQL, $sql);
@@ -132,25 +130,41 @@ if ($_REQUEST['execute'] == "insert") {
    ## URL Search ###################################
    $txt_value_to = encodeStr($contantID);
 
-   $valUrlSearchTH = $mod_url_search_th . "?d=" . $txt_value_to;
-   $valUrlSearchEN = $mod_url_search_en . "?d=" . $txt_value_to;
+   $valUrlSearchTH = $mod_url_search_th . "/" . $txt_value_to;
 
-   $insertSch = array();
-   $insertSch[$core_tb_search . "_language"] = "'" . $_SESSION[$valSiteManage . 'core_session_language'] . "'";
-   $insertSch[$core_tb_search . "_gid"] = "'" . $contantID1 . "'";
-   $insertSch[$core_tb_search . "_contantid"] = "'" . $contantID . "'";
-   $insertSch[$core_tb_search . "_masterkey"] = "'" . $_POST["masterkey"] . "'";
-   $insertSch[$core_tb_search . "_subject"] = "'" . changeQuot($_POST["inputSubject"]) . "'";
-   $insertSch[$core_tb_search . "_title"] = "'" . changeQuot($_POST["inputDescription"]) . "'";
-   $insertSch[$core_tb_search . "_keyword"] = "'" . addslashes($_POST["inputSubject"]) . " " . addslashes($_POST["inputDescription"]) . " " . htmlspecialchars($_POST['inputHtml']) . "'";
-   $insertSch[$core_tb_search . "_url"] = "'" . $valUrlSearchTH . "'";
-   $insertSch[$core_tb_search . "_edate"] = "'" . DateFormatInsert($_POST["edateInput"]) . "'";
-   $insertSch[$core_tb_search . "_sdate"] = "'" . DateFormatInsert($_POST["sdateInput"]) . "'";
-   $insertSch[$core_tb_search . "_status"] = "'Disable'";
-   $insertSch[$core_tb_search . "_pic"] = "'" . $_POST["picname"] . "'";
-   $sqlSch = "INSERT " . $core_tb_search . " (" . implode(",", array_keys($insertSch)) . ") VALUES (" . implode(",", array_values($insertSch)) . ")";
-   // print_pre($sqlSch);die;
-   $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
+   
+   foreach ($array_sch as $keySch => $valueSch) {
+      if ($keySch == $_POST['inputLt']) {
+         $insertSch = array();
+         $insertSch[$core_tb_search . "_language"] = "'" . $_POST['inputLt'] . "'";
+         $insertSch[$core_tb_search . "_gid"] = "'" . $contantID1 . "'";
+         $insertSch[$core_tb_search . "_contantid"] = "'" . $valueSch . "'";
+         $insertSch[$core_tb_search . "_masterkey"] = "'" . $_POST["masterkey"] . "'";
+         $insertSch[$core_tb_search . "_subject"] = "'" . changeQuot($_POST["inputSubject"]) . "'";
+         $insertSch[$core_tb_search . "_title"] = "'" . changeQuot($_POST["inputDescription"]) . "'";
+         $insertSch[$core_tb_search . "_keyword"] = "'" . addslashes($_POST["inputSubject"]) . " " . addslashes($_POST["inputDescription"]) . " " . htmlspecialchars($_POST['inputHtml']) . "'";
+         $insertSch[$core_tb_search . "_url"] = "'" . $valUrlSearchTH . "'";
+         $insertSch[$core_tb_search . "_edate"] = "'" . DateFormatInsert($_POST["edateInput"]) . "'";
+         $insertSch[$core_tb_search . "_sdate"] = "'" . DateFormatInsert($_POST["sdateInput"]) . "'";
+         $insertSch[$core_tb_search . "_status"] = "'Disable'";
+         $insertSch[$core_tb_search . "_pic"] = "'" . $_POST["picname"] . "'";
+         $sqlSch = "INSERT " . $core_tb_search . " (" . implode(",", array_keys($insertSch)) . ") VALUES (" . implode(",", array_values($insertSch)) . ")";
+         $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
+      }else{
+         $insertSch = array();
+         $insertSch[$core_tb_search . "_language"] = "'" . $keySch . "'";
+         $insertSch[$core_tb_search . "_gid"] = "'" . $contantID1 . "'";
+         $insertSch[$core_tb_search . "_contantid"] = "'" . $valueSch . "'";
+         $insertSch[$core_tb_search . "_masterkey"] = "'" . $_POST["masterkey"] . "'";
+         $insertSch[$core_tb_search . "_url"] = "'" . $valUrlSearchTH . "'";
+         $insertSch[$core_tb_search . "_edate"] = "'" . DateFormatInsert($_POST["edateInput"]) . "'";
+         $insertSch[$core_tb_search . "_sdate"] = "'" . DateFormatInsert($_POST["sdateInput"]) . "'";
+         $insertSch[$core_tb_search . "_status"] = "'Disable'";
+         $insertSch[$core_tb_search . "_pic"] = "'" . $_POST["picname"] . "'";
+         $sqlSch = "INSERT " . $core_tb_search . " (" . implode(",", array_keys($insertSch)) . ") VALUES (" . implode(",", array_values($insertSch)) . ")";
+         $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
+      }
+   }
 }
 ?>
 <? include("../lib/disconnect.php"); ?>

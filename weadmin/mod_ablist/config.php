@@ -17,14 +17,8 @@ $modStatus = array("Enable", "Disable");
 $default_lang_set ="Thai";
 
 ## URL Search ###################################
- $mod_url_search_th = "news/detail";
- $mod_url_search_en = "news/detail";
-
- if ($masterkey == 'daily') {
-    $mod_fd_frontUrl = "news-daily";
- }else if($masterkey == 'job') {
-    $mod_fd_frontUrl = "news-career";
- }
+ $mod_url_search_th = "|weweb|";
+ $mod_url_search_en = "|weweb|";
 
 ## Size Photo ###################################
 $sizeWidthPic="780";

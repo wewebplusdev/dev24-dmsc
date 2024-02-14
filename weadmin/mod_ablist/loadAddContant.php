@@ -28,6 +28,9 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       <title><?= $core_name_title ?></title>
 
       <script language="JavaScript"  type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
+      
+      <?php require_once "../assets/inc/module-js.php"; ?>
+
       <script language="JavaScript" type="text/javascript">
          function executeSubmit() {
             with (document.myForm) {
