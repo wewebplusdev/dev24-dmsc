@@ -143,17 +143,13 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
                <td>
-                  <input name="sdateInput" type="text" id="sdateInput" placeholder="<?= $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle sdateInputSe" />
-
+                  <input name="sdateInput" type="text" id="sdateInput" placeholder="<?= $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle " style="width: 97%;"/>
                </td>
                <td>
-                  <input name="edateInput" type="text" id="edateInput" placeholder="<?= $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle edateInputSe" />
-
+                  <input name="edateInput" type="text" id="edateInput" placeholder="<?= $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle " />
                </td>
-               <td></td>
             </tr>
             <tr>
-
                <td>
                   <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="0"><?= $langMod["tit:typeAccessSle"] ?> </option>
@@ -163,7 +159,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                      ?>
                         <option value="<?= $iType ?>" <? if ($_REQUEST['inputGh'] == $iType) { ?> selected="selected" <? } ?>><?= $modTxtTypeAccess[$iType] ?></option>
                      <? } ?>
-
                   </select>
                </td>
                <td id="boxSelectTest">
@@ -171,45 +166,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
                <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
             </tr>
-
          </table>
-
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
-
-
-      <!-- <div class="divRightHeadSearch" >
-
-     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
-
-                 <tr>
-                 <td class="selectSearch1">
-                         <input name="sdateInput" type="text"  id="sdateInput"  placeholder="<?= $langMod["tit:sSedate"] ?>" value="<?= trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle" />
-                 </td>
-                 <td class="selectSearch1">
-                         <input name="edateInput" type="text"  id="edateInput"  placeholder="<?= $langMod["tit:eSedate"] ?>" value="<?= trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle" />
-                 </td>
-                 <td   id="boxSelectTest"  class="textSearch2">
-             <input name="inputSearch" type="text"  id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle"  placeholder="<?= $langTxt["sch:search"] ?>" /></td>
-                     <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();"  type="button" class="btnSearch"  value=" "  /></td>
-                 </tr>
-             </table>
-
-             </div> -->
-
-
-
       <div class="divRightHead">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
@@ -219,8 +177,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                      <tr>
                         <td align="right">
                            <? if ($valPermission == "RW") { ?>
-
-
                               <div class="btnExport" title="<?= $langTxt["btn:export"] ?>" onclick="
                                                       document.myFormExport.action = 'exportReport.php';
                                                       document.myFormExport.submit();

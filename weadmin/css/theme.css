@@ -3536,9 +3536,10 @@ a:visited {
 
 .formInputSearchStyle {width: -webkit-fill-available;}
 
-.divRightHeadSearch .bottonSearchStyle,
-.divRightHeadSearch .bottonSearch {width: 0% !important; padding-right: 0 !important;}
+/* .divRightHeadSearch .bottonSearchStyle,
+.divRightHeadSearch .bottonSearch {width: 0% !important; padding-right: 0 !important;} */
 
+.divRightHeadSearch .bottonSearchStyle {width: 0% !important; padding-right: 0 !important;}
 
 /* edit by ohm2 28/11/66 */
 
@@ -3622,4 +3623,11 @@ a:visited {
 
 .icon-active.themeActive.active ~ .title {
     color: #1542B9;
+}
+
+.formInputSearchStyle.sdateInput {width: 97%}
+
+.info{
+    color: #00529B;
+  background-color: #BDE5F8;
 }

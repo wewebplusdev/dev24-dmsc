@@ -147,7 +147,7 @@ $valinTheme = '1';
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
                <td class="divRightNavTb" align="left" id="defTop"><span class="fontContantTbNav"><a href="<?php echo $valLinkNav1 ?>" target="_self"><?php echo $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <a href="javascript:void(0)" onclick="btnBackPage('index.php')" target="_self"><?php echo $langMod["tit:inpName"] ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo $langMod["txt:titleadd"] ?>
-                     <?php if ($_SESSION[$valSiteManage . 'core_session_languageT'] == 2 || $_SESSION[$valSiteManage . 'core_session_languageT'] == 3) { ?>(<?php echo $langTxt["lg:thai"] ?>)
+                     <?php if ($_SESSION[$valSiteManage . 'core_session_languageT'] == 2 || $_SESSION[$valSiteManage . 'core_session_languageT'] == 3) { ?>(<?php echo $_REQUEST['inputLt']; ?>)
                   <?php } ?>
                   </span></td>
                <td class="divRightNavTb" align="right">
@@ -162,7 +162,7 @@ $valinTheme = '1';
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
                <td height="77" align="left"><span class="fontHeadRight"><?php echo $langMod["txt:titleadd"] ?>
-                     <?php if ($_SESSION[$valSiteManage . 'core_session_languageT'] == 2 || $_SESSION[$valSiteManage . 'core_session_languageT'] == 3) { ?>(<?php echo $langTxt["lg:thai"] ?>)
+                     <?php if ($_SESSION[$valSiteManage . 'core_session_languageT'] == 2 || $_SESSION[$valSiteManage . 'core_session_languageT'] == 3) { ?>(<?php echo $_REQUEST['inputLt'] ?>)
                   <?php } ?>
                   </span></td>
                <td align="left">

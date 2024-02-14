@@ -191,8 +191,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
           <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:inpName"] ?><span class="fontContantAlert">*</span></td>
           <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" onblur="checkDuplicateValue('ControlKey')" class="formInputContantTb" /></td>
         </tr>
-
-
         <tr>
           <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:controlkey"] ?><span class="fontContantAlert">*</span></td>
           <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -200,21 +198,18 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             <span class="formFontNoteTxt"><?= $langMod["inp:notecontrolkey"] ?></span>
           </td>
         </tr>
-
         <tr>
           <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:secretkey"] ?><span class="fontContantAlert"></span></td>
           <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
             <input name="inputSecretKeyHidden" id="inputSecretKeyHidden" type="hidden" class="formInputContantTb" readonly />
-            <textarea name="inputSecretKey" id="inputSecretKey" cols="45" rows="5" class="formTextareaContantTb" disabled="disabled"></textarea>
-
+            <input name="inputSecretKey" id="inputSecretKey" type="text" class="formInputContantTb info" disabled="disabled" />
+            <!-- <textarea name="inputSecretKey" id="inputSecretKey" cols="45" rows="5" class="formTextareaContantTb" disabled="disabled"></textarea> -->
           </td>
         </tr>
         <tr>
           <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:noteg"] ?><span class="fontContantAlert"></span></td>
           <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-
             <textarea name="inputComment" id="inputComment" cols="45" rows="5" class="formTextareaContantTb"></textarea>
-
           </td>
         </tr>
       </table>
