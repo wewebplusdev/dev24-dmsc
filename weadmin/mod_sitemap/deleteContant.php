@@ -44,6 +44,10 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
    }
 }
 logs_access('3', 'Delete');
+
+// load inc
+require_once './inc/function-mod.php';
+
 ?>
 <?php include("../lib/disconnect.php"); ?>
 <form action="index.php" method="post" name="myFormAction" id="myFormAction">
@@ -54,4 +58,6 @@ logs_access('3', 'Delete');
    <input name="module_orderby" type="hidden" id="module_orderby" value="<?php echo $_REQUEST['module_orderby'] ?>" />
    <?php include_once './inc-inputsearch.php'; ?>
 </form>
-<script language="JavaScript" type="text/javascript"> document.myFormAction.submit();</script>
+<script language="JavaScript" type="text/javascript">
+   document.myFormAction.submit();
+</script>

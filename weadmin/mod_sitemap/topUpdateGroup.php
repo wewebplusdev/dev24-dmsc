@@ -21,6 +21,10 @@ $sql = "UPDATE " . $mod_tb_group . " SET " . implode(",", $update) . " WHERE " .
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
 
 logs_access('3', 'Sort Group');
+
+// load inc
+require_once './inc/function-mod.php';
+
 ?>
 <?php include("../lib/disconnect.php"); ?>
 <form action="group.php" method="post" name="myFormAction" id="myFormAction">

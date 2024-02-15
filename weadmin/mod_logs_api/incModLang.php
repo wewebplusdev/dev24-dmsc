@@ -130,6 +130,7 @@ if($_SESSION[$valSiteManage."core_session_language"]=="Eng"){
 		$langMod["home:access"]="การเข้าถึง";
 		$langMod["home:accesscode"]="รหัสการเข้าถึง";
 		$langMod["tit:typeAccessSle"]= "เลือกประเภทบริการ";
+		$langMod["tit:typeAPI"]= "เลือกระบบเข้าใช้งาน";
 		$langMod["tit:tokendata"]= "Token";
 		$langMod["tit:Sessiondata"]= "Session ID";
 		$langMod["export:no"]= "ลำดับ";

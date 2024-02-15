@@ -127,7 +127,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
                      <tbody>
                         <tr>
-                           <td width="49%">
+                           <td>
                               <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                                  <option value="0"><?php echo $langMod["tit:selectg"]; ?></option>
                                  <?php
@@ -143,7 +143,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                                  <?php } ?>
                               </select>
                            </td>
-                           <td width="49%">
+                           <td>
                               <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                                  <option value="">เลือกสถานะ</option>
                                  <?php
@@ -166,6 +166,17 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                         <tr>
                            <td width="49%">
                               <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+               <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                     <tbody>
+                        <tr>
+                           <td class="bottonSearch" align="right">
+                              <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
                            </td>
                         </tr>
                      </tbody>

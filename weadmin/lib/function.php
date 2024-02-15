@@ -501,6 +501,42 @@ function timeFormatReal($DateTime) {
     return $timeArr[0] . ":" . $timeArr[1];
 }
 
+//#################################################
+function DateFormatInsertNoTimeAccpet($DateTime) {
+    //#################################################
+        global $core_session_language;
+        if ($DateTime == "") {
+            $DateTime = "00-00-0000";
+        }
+        
+        $Time = "00:00:00";
+        $DateArr = explode("-", $DateTime);
+        if ($core_session_language == "Thai") {
+            if ($DateArr[2] >= 1) {
+                $dataYear = $DateArr[2]-543;
+            } else {
+                $dataYear = "0000";
+            }
+        } else {
+            $dataYear = $DateArr[0];
+        }
+    
+        if ($DateArr[1] >= 1) {
+            $dataM = $DateArr[1];
+        } else {
+            $dataM = "00";
+        }
+    
+        if ($DateArr[0] >= 1) {
+            $dataD = $DateArr[0];
+        } else {
+            $dataD = "00";
+        }
+    
+    
+        return $dataYear . "-" . $dataM . "-" . $dataD;
+    }
+
 ############################################
 
 function getUserEng($myUserID) {

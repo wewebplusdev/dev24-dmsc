@@ -1,6 +1,7 @@
 <?php
 ## Mod Table ###################################
 $mod_tb_root = "md_logs";
+$mod_tb_key = "md_usk";
 ## Mod Folder ###################################
 $mod_fd_root = "mod_logs_api";
 
@@ -8,6 +9,9 @@ $mod_fd_root = "mod_logs_api";
 $modTxtShowPic=array("การแสดงผลรูปภาพ","ไม่แสดงผล","แสดงผล");
 $modTxtColor=array("","สีขาว","สีเขียว");
 $modTxtOldWebsite=array("","ปิดเชื่อมโยง","เปิดเชื่อมโยง");
+$modMasterkeyAccess=array(
+    "usk",
+    );
 $modTxtTypeAccess=array(
     "",
     "Get Token",
@@ -69,5 +73,5 @@ $core_main_theme = array(
 
 );
 
-$mod_inputseach = array("inputSearch","inputGh");
+$mod_inputseach = array("inputSearch","inputGh","inputGh2");
 ?>

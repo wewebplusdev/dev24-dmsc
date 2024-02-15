@@ -59,6 +59,9 @@ include("config.php");
         }
 
         logs_access('3', 'Update Group');
+
+        // load inc
+        require_once './inc/function-mod.php';
     ?>
     <?php } ?>
     <?php include("../lib/disconnect.php"); ?>

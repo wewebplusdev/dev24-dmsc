@@ -59,8 +59,11 @@ if ($_REQUEST['execute'] == "insert") {
       }
    }
 
-
    logs_access('3', 'Insert Group');
+
+
+   // load inc
+   require_once './inc/function-mod.php';
 }
 ?>
 <?php include("../lib/disconnect.php"); ?>

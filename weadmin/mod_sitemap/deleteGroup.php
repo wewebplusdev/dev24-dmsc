@@ -44,6 +44,10 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
    }
 }
 logs_access('3', 'Delete Group');
+
+// load inc
+require_once './inc/function-mod.php';
+
 ?>
 <?php include("../lib/disconnect.php"); ?>
 <form action="group.php" method="post" name="myFormAction" id="myFormAction">

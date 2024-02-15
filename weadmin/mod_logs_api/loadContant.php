@@ -118,8 +118,11 @@ if (!empty($_REQUEST['inputGh2'])) {
 
    if ($_REQUEST['inputGh'] >= 1) {
       $keySearchGh = $modTxtTypeAccess[$_REQUEST['inputGh']];
-
       $sqlSearch = $sqlSearch . "  AND " . $mod_tb_root . "_action ='" . $keySearchGh . "'   ";
+   }
+
+   if (!empty($_REQUEST['inputGh2'])) {
+      $sqlSearch = $sqlSearch . "  AND " . $mod_tb_root . "_sname ='" . $_REQUEST['inputGh2'] . "'   ";
    }
 
 
@@ -151,43 +154,86 @@ if (!empty($_REQUEST['inputGh2'])) {
             <tr>
                <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?php echo $valLinkNav1 ?>" target="_self"><?php echo $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo $valNav2 ?></span></td>
                <td class="divRightNavTb" align="right">
-
-
-
                </td>
             </tr>
          </table>
       </div>
-      <div class="divRightHeadSearch table-insub">
+      <div class="divRightHeadSearch tableHeadFilter table-insub">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
-               <td>
-                  <input style="margin-bottom: 10px;" name="sdateInput" type="text" id="sdateInput" placeholder="<?php echo $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle sdateInput"/>
+               <td width="48%">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                     <tr>
+                        <td>
+                           <input style="margin-bottom: 10px;" name="sdateInput" type="text" id="sdateInput" placeholder="<?php echo $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle sdateInput" />
+                        </td>
+                     </tr>
+                  </table>
                </td>
-               <td>
-                  <input style="margin-bottom: 10px;" name="edateInput" type="text" id="edateInput" placeholder="<?php echo $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle" />
+               <td width="48%">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                     <tr>
+                        <td>
+                           <input style="margin-bottom: 10px;" name="edateInput" type="text" id="edateInput" placeholder="<?php echo $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle" />
+                        </td>
+                     </tr>
+                  </table>
                </td>
             </tr>
             <tr>
+               <td width="48%">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                     <tr>
+                        <td>
+                           <select name="inputGh2" id="inputGh2" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                              <option value="0"><?php echo $langMod["tit:typeAPI"] ?> </option>
+                              <?php
+                              $sql_key = "SELECT
+                              " . $mod_tb_key . "_id as id,
+                              " . $mod_tb_key . "_subject as subject 
+                              FROM " . $mod_tb_key . " 
+                              WHERE " . $mod_tb_key . "_masterkey = '" . $modMasterkeyAccess[0] . "' 
+                              ORDER BY " . $mod_tb_key . "_order DESC";
+                              $query_key = wewebQueryDB($coreLanguageSQL, $sql_key);
+                              while ($rows_key = wewebFetchArrayDB($coreLanguageSQL, $query_key)) {
+                              ?>
+                                 <option value="<?php echo $rows_key['id'] ?>" <?php if ($_REQUEST['inputGh2'] == $rows_key['id']) { ?> selected="selected" <?php } ?>><?php echo $rows_key['subject'] ?></option>
+                              <?php } ?>
+                           </select>
+                        </td>
+                        <td>
+                           <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                              <option value="0"><?php echo $langMod["tit:typeAccessSle"] ?> </option>
+                              <?php
+                              $countTypeAccessArray = count($modTxtTypeAccess);
+                              for ($iType = 1; $iType < $countTypeAccessArray; $iType++) {
+                              ?>
+                                 <option value="<?php echo $iType ?>" <?php if ($_REQUEST['inputGh'] == $iType) { ?> selected="selected" <?php } ?>><?php echo $modTxtTypeAccess[$iType] ?></option>
+                              <?php } ?>
+                           </select>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+               <td width="48%">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                     <tr>
+                        <td>
+                           <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
+                        </td>
+                     </tr>
+                  </table>
+               </td>
                <td>
-                  <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
-                     <option value="0"><?php echo $langMod["tit:typeAccessSle"] ?> </option>
-                     <?php
-                     $countTypeAccessArray = count($modTxtTypeAccess);
-                     for ($iType = 1; $iType < $countTypeAccessArray; $iType++) {
-                     ?>
-                        <option value="<?php echo $iType ?>" <?php if ($_REQUEST['inputGh'] == $iType) { ?> selected="selected" <?php } ?>><?php echo $modTxtTypeAccess[$iType] ?></option>
-                     <?php } ?>
-                  </select>
-               </td>
-               <td id="boxSelectTest">
-                  <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
-               </td>
-               <td class="bottonSearch" align="right">
-                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                     <tr>
+                        <td align="right">
+                           <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+                        </td>
+                     </tr>
+                  </table>
                </td>
             </tr>
-
          </table>
       </div>
       <div class="divRightHead">
@@ -228,7 +274,7 @@ if (!empty($_REQUEST['inputGh2'])) {
             $sql .= $sqlWhere;
             $sql .= $sqlSearch;
 
-            //                 print_pre($sql);
+            // print_pre($sql);
             $query = wewebQueryDB($coreLanguageSQL, $sql);
             $count_totalrecord = wewebNumRowsDB($coreLanguageSQL, $query);
 
@@ -260,7 +306,7 @@ if (!empty($_REQUEST['inputGh2'])) {
                   $valStatusCode = $row['sid'];
                   $valNameService = rechangeQuot($row['action']);
                   $valName = rechangeQuot($row['sname']);
-                  if ($valName == "") {
+                  if (empty($valName)) {
                      $valName = "-";
                   }
 
@@ -284,24 +330,6 @@ if (!empty($_REQUEST['inputGh2'])) {
                   } else {
                      $valDivTr = "divSubOverTb";
                   }
-                  /*
-                                   $sql_s = "SELECT
-                                   " . $core_tb_setting . "." . $core_tb_setting . "_id as id,
-                                   " . $core_tb_setting . "." . $core_tb_setting . "_subject as subject,
-                                   " . $core_tb_setting . "." . $core_tb_setting . "_title as title,
-                                   " . $core_tb_setting . "." . $core_tb_setting . "_masterkey as masterkey
-                                   FROM
-                                   " . $core_tb_setting . "
-                                   WHERE
-                                   1=1 ";
-                                   $sql_s .= " and " . $core_tb_setting . "." . $core_tb_setting . "_status = 'Enable'";
-                                   $sql_s .= " and " . $core_tb_setting . "." . $core_tb_setting . "_issite = '1'";
-                                   $sql_s .= " and " . $core_tb_setting . "." . $core_tb_setting . "_id = '" . $row['minisite'] . "'";
-                                   $sql_s .= " order by " . $core_tb_setting . "." . $core_tb_setting . "_order desc";
-                                   $query_s = wewebQueryDB($coreLanguageSQL, $sql_s);
-                                   $row_s = wewebFetchArrayDB($coreLanguageSQL, $query_s);
-                                   $valNameMinisite = $row_s['subject'] ? $row_s['subject'] : '-';
-                                  */
             ?>
                   <tr class="<?php echo $valDivTr ?>">
                      <td class="divRightContantOverTbL" valign="top" align="left">

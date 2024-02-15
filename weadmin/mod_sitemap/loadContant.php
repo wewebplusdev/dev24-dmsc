@@ -29,9 +29,26 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery.toolbar.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scripttoolbarjs.js?v=<?php echo date('YmdHis'); ?>"></script>
+   <script language="JavaScript" type="text/javascript" src="./js/script.js?v=1"></script>
 </head>
 
 <body>
+
+   <script>
+      $(document).ready(function(){
+         (async()=>{
+            let inputGh = parseInt(document.myForm.inputGh.value);
+            if (inputGh > 0) {
+               await openSelectSub('./openSelectSubGroupSch.php', '#boxSch2');
+               let inputGh2 = parseInt(document.myFormHome.inputGh2.value);
+               if (inputGh2 > 0) {
+                  $('#myForm #inputGh2').val(inputGh2);
+               }
+            }
+         })();
+      });
+   </script>
+
    <?php
    // Check to set default value #########################
    $module_default_pagesize = $core_default_pagesize;
@@ -81,6 +98,14 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    if ($_REQUEST["inputSrchStatus"] != '') {
       $sqlSearch .= " AND " . $mod_tb_root . "_status='" . $_REQUEST["inputSrchStatus"] . "' ";
    }
+
+   if (!empty($_REQUEST["inputGh"])) {
+      $sqlSearch .= " AND " . $mod_tb_root . "_gid='" . $_REQUEST["inputGh"] . "' ";
+   }
+
+   if (!empty($_REQUEST["inputGh2"])) {
+      $sqlSearch .= " AND " . $mod_tb_root . "_sgid='" . $_REQUEST["inputGh2"] . "' ";
+   }
    ?>
    <form action="?" method="post" name="myForm" id="myForm">
       <input name="masterkey" type="hidden" id="masterkey" value="<?php echo $_REQUEST['masterkey'] ?>" />
@@ -119,24 +144,69 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       <div class="divRightHeadSearch">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
+               <td style="width: 48%;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                                 <option value="0"><?php echo $langMod["tit:selectg"]; ?></option>
+                                 <?php
+                                 $sql_group = "SELECT " . $mod_tb_group . "_id," . $mod_tb_group_lang . "_subject FROM " . $mod_tb_group . " INNER JOIN " . $mod_tb_group_lang . " ON " . $mod_tb_group . "_id = " . $mod_tb_group_lang . "_cid WHERE  " . $mod_tb_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_group_lang . "_language='Thai'  ";
+                                 $sql_group .= " ORDER BY " . $mod_tb_group . "_order DESC";
+                                 $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+                                 while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
+                                    $row_groupid = $row_group[0];
+                                    $row_groupname = $row_group[1];
+                                 ?>
+                                    <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
+                                    </option>
+                                 <?php } ?>
+                              </select>
+                           </td>
+                           <td id="boxSch2">
+                              <select onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                                 <option value="0"><?php echo $langMod["tit:selectsg"]; ?></option>
+                              </select>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+               <td style="width: 48%;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                     <tbody>
+                        <tr>
+                           <td>
+                              <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                                 <option value="">เลือกสถานะ</option>
+                                 <?php
+                                 foreach ($modStatus as $status) {
+                                    $selected = $_REQUEST["inputSrchStatus"] == $status ? "selected" : "";
+                                 ?>
+                                    <option value="<?= $status ?>" <?= $selected ?>><?= $status ?></option>
+                                 <?php
+                                 }
+                                 ?>
+                              </select>
+                           </td>
+                           <td>
+                              <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
                <td>
-                  <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
-                     <option value="">เลือกสถานะ</option>
-                     <?php
-                     foreach ($modStatus as $status) {
-                        $selected = $_REQUEST["inputSrchStatus"] == $status ? "selected" : "";
-                     ?>
-                        <option value="<?= $status ?>" <?= $selected ?>><?= $status ?></option>
-                     <?php
-                     }
-                     ?>
-                  </select>
-               </td>
-               <td id="boxSelectTest">
-                  <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
-               </td>
-               <td class="bottonSearch" align="right">
-                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                     <tbody>
+                        <tr>
+                           <td class="bottonSearch" align="right">
+                              <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
                </td>
             </tr>
          </table>
