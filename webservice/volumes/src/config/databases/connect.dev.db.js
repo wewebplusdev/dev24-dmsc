@@ -10,6 +10,6 @@ exports.connectDB = function() {
         host: "db",
         user: "root", 
         password: "MYSQL_ROOT_PASSWORD",
-        database: "template_website",
+        database: "2024_dmsc",
     });
 }

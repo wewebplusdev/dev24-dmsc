@@ -219,4 +219,9 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 
 	$langMod["dev22:moneyyear"] = "ปีงบประมาณ";
 	$langMod["dev22:moneyyearSel"] = "เลือกปีงบประมาณ";
+	$langMod["tit:linkvdoc"] = "ลิงก์";
+	$langMod["tit:typevdoc"] = "การแสดงผล";
+	$langMod["txt:subjectLink"] = "ข้อมูลเชื่อมโยงภายนอก";
+	$langMod["txt:subjectLinkDe"] = "โปรดป้อนข้อมูลลิงค์และการแสดงผล เพื่อใช้ในการแสดงผลเนื้อหาในหน้ารวมข้อมูลทั้งหมดของเมนูนี้บนเว็บไซต์ของคุณ";
+	$langMod["tit:picdefault"] = "รูปเริ่มต้น";
 }

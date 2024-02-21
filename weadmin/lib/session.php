@@ -12,7 +12,7 @@ foreach( $_GET as $xVarName => $xVarvalue ) {
     ${$xVarName} = $xVarvalue;
 }
 
-foreach( $_POST as $xVarName => $xVarvalue ) {
+foreach($_POST as $xVarName => $xVarvalue ) {
     ${$xVarName} = $xVarvalue;
 }
 

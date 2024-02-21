@@ -2,3 +2,4 @@
 *.logs
 upload/*
 front/temp/*
+webservice/volumes/src/node_modules/*

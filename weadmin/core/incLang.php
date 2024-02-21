@@ -1,33 +1,30 @@
-<?
- //print_pre($_SESSION[$valSiteManage . 'core_session_id']);
-if($_SESSION[$valSiteManage . 'core_session_id']>=1 || $_SESSION[$valSiteManage."core_session_level"]=="SuperAdmin"){
-   
+<?php
 
-	if(count($_SESSION[$valSiteManage."core_session_multilang"])<=0){
-	 $sql = "SELECT 
-		".$core_tb_lang.".".$core_tb_lang."_id,
-		".$core_tb_lang.".".$core_tb_lang."_subject,
-		".$core_tb_lang.".".$core_tb_lang."_display,
-		".$core_tb_lang.".".$core_tb_lang."_status
-		FROM ".$core_tb_lang."";
-		$querySubjectHead=wewebQueryDB($coreLanguageSQL,$sql);
-		// $querySubjectHead2=wewebQueryDB($coreLanguageSQL,$sql);
-		$count_recordHead=wewebNumRowsDB($coreLanguageSQL,$querySubjectHead);
-		$core_lang_def_array = array();
-		
-		if($count_recordHead>=1){
-		  foreach($querySubjectHead as $key => $value){
-			  array_push($core_lang_def_array, 
-					array(
-						"id" => 	$value['0'],
-						"key" => 	$value['1']
-					)
-				);
-			}
-		}
-		
-		$_SESSION[$valSiteManage."core_session_multilang"]=$core_lang_def_array;
-	}
+if ($_SESSION[$valSiteManage . 'core_session_id'] >= 1 || $_SESSION[$valSiteManage . "core_session_level"] == "SuperAdmin") {
+    if (gettype($_SESSION[$valSiteManage . "core_session_multilang"]) != 'array' || count($_SESSION[$valSiteManage . "core_session_multilang"]) <= 0) {
+        $sql = "SELECT 
+		" . $core_tb_lang . "." . $core_tb_lang . "_id,
+		" . $core_tb_lang . "." . $core_tb_lang . "_subject,
+		" . $core_tb_lang . "." . $core_tb_lang . "_display,
+		" . $core_tb_lang . "." . $core_tb_lang . "_status
+		FROM " . $core_tb_lang . "";
+        $querySubjectHead = wewebQueryDB($coreLanguageSQL, $sql);
+        $count_recordHead = wewebNumRowsDB($coreLanguageSQL, $querySubjectHead);
+        $core_lang_def_array = array();
+
+        if ($count_recordHead >= 1) {
+            foreach ($querySubjectHead as $key => $value) {
+                array_push(
+                    $core_lang_def_array,
+                    array(
+                        "id" =>     $value['0'],
+                        "key" =>     $value['1']
+                    )
+                );
+            }
+        }
+        $_SESSION[$valSiteManage . "core_session_multilang"] = $core_lang_def_array;
+    }
 }
 
 if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
@@ -222,19 +219,18 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
     $langTxt["txt:aboutDe"] = "This information is used to set up a website to your website";
     $langTxt["ab:subject"] = "Name system";
     $langTxt["ab:title"] = "Name system(EN)";
-    $langTxt["ab:titleback"]= "The title is the system";
+    $langTxt["ab:titleback"] = "The title is the system";
 
     $langTxt["txt:pic"] = "Logo";
     $langTxt["txt:picDe"] = "The image logo, for use in the picture display of content";
-    $langTxt["inp:album"] ="Select image";
-    $langTxt["inp:notepic"] ="หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 150x150 พิกเซล";
-
+    $langTxt["inp:album"] = "Select image";
+    $langTxt["inp:notepic"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 150x150 พิกเซล";
 } else {
     $langTxt["nav:setting"] = "ตั้งค่าระบบ";
     $langTxt["nav:home1"] = "ยินดีต้อนรับเข้าสู่ระบบ";
     $langTxt["nav:detail"] = "ระบบนี้สร้างขึ้นมาเพื่อใช้ในการบริการจัดการเว็บไซต์. ลงชื่อเข้าใช้ด้วยบัญชีของคุณ";
     $langTxt["nav:home2"] = "หน้าหลัก";
-    $langTxt["nav:sign"]=">";
+    $langTxt["nav:sign"] = ">";
     $langTxt["nav:menuManage2"] = "เมนูการใช้งาน";
 
     $langTxt["login:user"] = "ชื่อผู้ใช้งาน";
@@ -249,7 +245,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
     $langTxt["login:price"] = "ประหยัดค่าใช้จ่าย";
     $langTxt["login:priceDe"] = "คุณสามารถเปลี่ยนข้อมูลบนเว็บไซตเองได้ โดยใช้ไม่ต้องมีค่าใช้จ่ายเพิ่มเติมในระยะยาว ไม่ว่าจะเป็นค่าออกแบบเนื้อ ค่าเพิ่มเนื้อในเว็บไซต์ ฯลฯ";
     $langTxt["login:alert"] = "คุณกรอกชื่อผู้ใช้งาน/รหัสผ่านไม่ถูกต้อง";
-$langTxt["login:footecopy"] = "&copy; ".date('Y')." Department of Medical Sciences Ministry of Public Health ";
+    $langTxt["login:footecopy"] = "&copy; " . date('Y') . " Department of Medical Sciences Ministry of Public Health ";
     $langTxt["login:footecontact"] = "Copyright &copy; DMSC All rights reserved.";
 
     $langTxt["menu:logout"] = "ออกจากระบบ";
@@ -288,7 +284,7 @@ $langTxt["login:footecopy"] = "&copy; ".date('Y')." Department of Medical Scienc
     $langTxt["mg:inpwindows4"] = "Services";
     $langTxt["mg:inpwindows5"] = "About us";
     $langTxt["mg:inpwindows6"] = "Contact us";
-    
+
 
 
 
@@ -434,53 +430,52 @@ $langTxt["login:footecopy"] = "&copy; ".date('Y')." Department of Medical Scienc
 
     $langTxt["lgFull:thai"] = "Thai";
     $langTxt["lgFull:eng"] = "English";
- //   $langTxt["lgFull:chi"] = "Chinese";
+    //   $langTxt["lgFull:chi"] = "Chinese";
 
- $langTxt["txt:about"] = "ข้อมูลข้อความของระบบ";
- $langTxt["txt:aboutDe"] = "ข้อมูลนี้คือส่วนที่ใช้ในการตั้งค่าเว็บไซต์ในเว็บไซต์ของคุณ";
- $langTxt["ab:subject"] = "ชื่อระบบ";
- $langTxt["ab:title"] = "ชื่อระบบอังกฤษ";
-$langTxt["ab:titleback"]= "ชื่อหัวข้อระบบ";
+    $langTxt["txt:about"] = "ข้อมูลข้อความของระบบ";
+    $langTxt["txt:aboutDe"] = "ข้อมูลนี้คือส่วนที่ใช้ในการตั้งค่าเว็บไซต์ในเว็บไซต์ของคุณ";
+    $langTxt["ab:subject"] = "ชื่อระบบ";
+    $langTxt["ab:title"] = "ชื่อระบบอังกฤษ";
+    $langTxt["ab:titleback"] = "ชื่อหัวข้อระบบ";
 
-$langTxt["txt:pic"] = "รูปภาพ LOGO";
-$langTxt["txt:picDe"] = "ข้อมูลรูปภาพ LOGO เพื่อใช้ในการแสดงผลรูปภาพของเนื้อหานี้";
-$langTxt["inp:album"] ="เลือกรูปภาพ";
-$langTxt["inp:notepic"] ="หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 150x150 พิกเซล";
-$langTxt["mg:show"] = "การแสดงผล";
-$langTxt["inp:logo"]="รูปภาพ LOGO";
-$langTxt["inp:mainimg"]="รูปภาพ Main image";
-$langTxt["inp:Rightimg"]="รูปภาพ Right image";
-$langTxt["inp:Leftimg"]="รูปภาพ Left image";
-$langTxt["inp:Coverimg"] = "รูปภาพ Cover Image";
-$langTxt["inp:imgno"] = "รูปภาพที่";
-
-
-$langTxt["txt:pic2"] = "รูปภาพ Header";
-$langTxt["txt:pic2De"] = "ข้อมูลรูปภาพ Header เพื่อใช้ในการแสดงผลรูปภาพของเนื้อหานี้";
-$langTxt["inp:notepic2"] ="หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 500x180 พิกเซล";
+    $langTxt["txt:pic"] = "รูปภาพ LOGO";
+    $langTxt["txt:picDe"] = "ข้อมูลรูปภาพ LOGO เพื่อใช้ในการแสดงผลรูปภาพของเนื้อหานี้";
+    $langTxt["inp:album"] = "เลือกรูปภาพ";
+    $langTxt["inp:notepic"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 150x150 พิกเซล";
+    $langTxt["mg:show"] = "การแสดงผล";
+    $langTxt["inp:logo"] = "รูปภาพ LOGO";
+    $langTxt["inp:mainimg"] = "รูปภาพ Main image";
+    $langTxt["inp:Rightimg"] = "รูปภาพ Right image";
+    $langTxt["inp:Leftimg"] = "รูปภาพ Left image";
+    $langTxt["inp:Coverimg"] = "รูปภาพ Cover Image";
+    $langTxt["inp:imgno"] = "รูปภาพที่";
 
 
-$langTxt["txt:pic3"] = "รูปภาพ Background";
-$langTxt["txt:pic3De"] = "ข้อมูลรูปภาพ Background เพื่อใช้ในการแสดงผลรูปภาพของเนื้อหานี้";
-$langTxt["inp:notepic3"] ="หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 1920x840 พิกเซล";
-
-	
-$langTxt["mini:siteth"] = "ชื่อ URL (TH)";
-$langTxt["mini:siteen"] = "ชื่อ URL (EN)";
-
-$langMod["tit:typevdo"] = "การแสดงผล ";
-
-$langTxt["us:position"] = "ตำแหน่ง";
-
-$langTxt["txt:typeuser"] = "ประเภทผู้ใช้งาน";
-$langTxt["txt:typeuserSel"] = "เลือกประเภทผู้ใช้งาน";
+    $langTxt["txt:pic2"] = "รูปภาพ Header";
+    $langTxt["txt:pic2De"] = "ข้อมูลรูปภาพ Header เพื่อใช้ในการแสดงผลรูปภาพของเนื้อหานี้";
+    $langTxt["inp:notepic2"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 500x180 พิกเซล";
 
 
-$langTxt["us:selectUnitMain"] = "เลือกหน่วยงานหลัก";
-$langTxt["us:unitMain"] = "หน่วยงานหลัก";
-$langTxt["us:selectUnitSub"] = "เลือกหน่วยงานย่อย";
-$langTxt["us:unitSub"] = "หน่วยงานย่อย";
+    $langTxt["txt:pic3"] = "รูปภาพ Background";
+    $langTxt["txt:pic3De"] = "ข้อมูลรูปภาพ Background เพื่อใช้ในการแสดงผลรูปภาพของเนื้อหานี้";
+    $langTxt["inp:notepic3"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 1920x840 พิกเซล";
 
-$langTxt["tit:selectlang"] = "เลือกภาษา";
+
+    $langTxt["mini:siteth"] = "ชื่อ URL (TH)";
+    $langTxt["mini:siteen"] = "ชื่อ URL (EN)";
+
+    $langMod["tit:typevdo"] = "การแสดงผล ";
+
+    $langTxt["us:position"] = "ตำแหน่ง";
+
+    $langTxt["txt:typeuser"] = "ประเภทผู้ใช้งาน";
+    $langTxt["txt:typeuserSel"] = "เลือกประเภทผู้ใช้งาน";
+
+
+    $langTxt["us:selectUnitMain"] = "เลือกหน่วยงานหลัก";
+    $langTxt["us:unitMain"] = "หน่วยงานหลัก";
+    $langTxt["us:selectUnitSub"] = "เลือกหน่วยงานย่อย";
+    $langTxt["us:unitSub"] = "หน่วยงานย่อย";
+
+    $langTxt["tit:selectlang"] = "เลือกภาษา";
 }
-?>

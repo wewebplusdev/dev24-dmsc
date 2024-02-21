@@ -155,7 +155,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                         <div class="formDivRadioL"><input name="inputmenutarget" id="inputmenutarget"  type="radio"  class="formRadioContantTb"   value="2"  /></div>
                         <div class="formDivRadioR"><?php echo $modTxtTarget[2] ?></div>
                      </label>
-                     </label>    </td>
+                     </label>
+                  </td>
                </tr>
 
             </table>

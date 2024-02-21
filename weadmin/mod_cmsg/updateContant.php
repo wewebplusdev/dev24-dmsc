@@ -58,12 +58,21 @@ include("config.php");
          $update = array();
          $update[] = $mod_tb_root_lang . "_subject='" . changeQuot($_POST['inputSubject']) . "'";
          $update[] = $mod_tb_root_lang . "_title='" . changeQuot($_POST['inputDescription']) . "'";
-         $update[] = $mod_tb_root_lang . "_htmlfilename  	='" . $filename . "'";
+
+         if ($_POST['inputTypeC'] == 1) {
+            $update[] = $mod_tb_root_lang . "_htmlfilename  	='" . $filename . "'";
+         }
+         $update[] = $mod_tb_root_lang . "_typec='" . changeQuot($_POST['inputTypeC']) . "'";
+         $update[] = $mod_tb_root_lang . "_picType='" . changeQuot($_POST['inputTypePic']) . "'";
+         $update[] = $mod_tb_root_lang . "_picDefault='" . changeQuot($_POST['inputPicD']) . "'";
+         $update[] = $mod_tb_root_lang . "_urlc='" . changeQuot($_POST['inputurlC']) . "'";
+         $update[] = $mod_tb_root_lang . "_target='" . changeQuot($_POST['inputmenutarget']) . "'";
+
+         $update[] = $mod_tb_root_lang . "_type='" . $_POST["inputType"] . "'";
+         $update[] = $mod_tb_root_lang . "_filevdo='" . $_POST['vdoname'] . "'";
          $update[] = $mod_tb_root_lang . "_description='" . changeQuot($_POST['inputTagDescription']) . "'";
          $update[] = $mod_tb_root_lang . "_keywords='" . changeQuot($_POST['inputTagKeywords']) . "'";
          $update[] = $mod_tb_root_lang . "_metatitle='" . changeQuot($_POST['inputTagTitle']) . "'";
-         $update[] = $mod_tb_root_lang . "_picshow='" . $_POST["inputTypePic"] . "'";
-         $update[] = $mod_tb_root_lang . "_type='" . $_POST["inputType"] . "'";
          $update[] = $mod_tb_root_lang . "_lastbyid='" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
          $update[] = $mod_tb_root_lang . "_lastby='" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
          $update[] = $mod_tb_root_lang . "_lastdate=NOW()";
@@ -79,8 +88,14 @@ include("config.php");
          $insertLang[$mod_tb_root_lang . "_language"] = "'" . $_POST['inputLt'] . "'";
          $insertLang[$mod_tb_root_lang . "_subject"] = "'" . changeQuot($_REQUEST['inputSubject']) . "'";
          $insertLang[$mod_tb_root_lang . "_title"] = "'" . changeQuot($_REQUEST['inputDescription']) . "'";
+
+         $insertLang[$mod_tb_root_lang . "_typec"] = "'" . changeQuot($_REQUEST['inputTypeC']) . "'";
+         $insertLang[$mod_tb_root_lang . "_picType"] = "'" . changeQuot($_REQUEST['inputTypePic']) . "'";
+         $insertLang[$mod_tb_root_lang . "_picDefault"] = "'" . changeQuot($_REQUEST['inputPicD']) . "'";
+         $insertLang[$mod_tb_root_lang . "_urlc"] = "'" . changeQuot($_REQUEST['inputurlC']) . "'";
+         $insertLang[$mod_tb_root_lang . "_target"] = "'" . changeQuot($_REQUEST['inputmenutarget']) . "'";
+
          $insertLang[$mod_tb_root_lang . "_pic"] = "'" . $_POST["picname"] . "'";
-         $insertLang[$mod_tb_root_lang . "_picshow"] = "'" . $_POST["inputTypePic"] . "'";
          $insertLang[$mod_tb_root_lang . "_type"] = "'" . $_POST["inputType"] . "'";
          $insertLang[$mod_tb_root_lang . "_url"] = "'" . changeQuot($_REQUEST['inputurl']) . "'";
          $insertLang[$mod_tb_root_lang . "_filevdo"] = "'" . $_POST["vdoname"] . "'";
@@ -125,6 +140,13 @@ include("config.php");
          $updateSch[] = $core_tb_search . "_url='" . $valUrlSearchTH . "'";
          $updateSch[] = $core_tb_search . "_sdate  	='" . DateFormatInsert($_REQUEST['sdateInput']) . "'";
          $updateSch[] = $core_tb_search . "_edate  	='" . DateFormatInsert($_REQUEST['edateInput']) . "'";
+
+         $updateSch[] = $core_tb_search . "_typec='" . changeQuot($_REQUEST['inputTypeC']) . "'";
+         $updateSch[] = $core_tb_search . "_picType='" . changeQuot($_REQUEST['inputTypePic']) . "'";
+         $updateSch[] = $core_tb_search . "_picDefault='" . changeQuot($_REQUEST['inputPicD']) . "'";
+         $updateSch[] = $core_tb_search . "_urlc='" . changeQuot($_REQUEST['inputurlC']) . "'";
+         $updateSch[] = $core_tb_search . "_target='" . changeQuot($_REQUEST['inputmenutarget']) . "'";
+         
          $sqlSch = "UPDATE " . $core_tb_search . " SET " . implode(",", $updateSch) . " WHERE " . $core_tb_search . "_contantid='" . $valCid . "'  AND " . $core_tb_search . "_masterkey='" . $_POST["masterkey"] . "' ";
          $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
       }else{
@@ -153,6 +175,13 @@ include("config.php");
          $insertSch[$core_tb_search . "_sdate"] = "'" . DateFormatInsert($_POST["sdateInput"]) . "'";
          $insertSch[$core_tb_search . "_status"] = "'" . $row_root['status'] . "'";
          $insertSch[$core_tb_search . "_pic"] = "'" . $row_root['picname'] . "'";
+         
+         $insertSch[$core_tb_search . "_typec"] = "'" . $_POST["inputTypeC"] . "'";
+         $insertSch[$core_tb_search . "_picType"] = "'" . $_POST["inputTypePic"] . "'";
+         $insertSch[$core_tb_search . "_picDefault"] = "'" . $_POST["inputPicD"] . "'";
+         $insertSch[$core_tb_search . "_urlc"] = "'" . $_POST["inputurlC"] . "'";
+         $insertSch[$core_tb_search . "_target"] = "'" . $_POST["inputmenutarget"] . "'";
+
          $sqlSch = "INSERT " . $core_tb_search . " (" . implode(",", array_keys($insertSch)) . ") VALUES (" . implode(",", array_values($insertSch)) . ")";
          $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
       }

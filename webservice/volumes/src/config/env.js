@@ -1,12 +1,12 @@
 var NODE_ENV = 'DEV';
 if (NODE_ENV == 'DEV') {
     var configDB = require('./databases/connect.dev.db');
-    var hostBackend = 'http://localhost:3000'; // backend
-    var hostFrontend = 'http://localhost:3300'; // frontend
+    var hostBackend = 'http://localhost:8080'; // backend
+    var hostFrontend = 'http://localhost:8080'; // frontend
 }else{
     var configDB = require('./databases/connect.prod.db');
-    var hostBackend = 'http://localhost:3000'; // backend
-    var hostFrontend = 'http://localhost:3300'; // frontend
+    var hostBackend = 'http://localhost:8080'; // backend
+    var hostFrontend = 'http://localhost:8080'; // frontend
 }
 var returncode = require('./returncode');
 var fieldDB = require('./databases/field_db');

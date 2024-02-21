@@ -291,10 +291,14 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
 " . $mod_tb_root . "_view,
 " . $mod_tb_root . "_sgid,
 " . $mod_tb_root . "_masterkey,
-" . $mod_tb_root . "_order ";
+" . $mod_tb_root . "_order,
+" . $mod_tb_root_lang . "_picType as picType,
+" . $core_tb_nopic . "_masterkey as masterkey_pic,
+" . $core_tb_nopic . "_file as picDefault ";
 
             $sql = $sql . "  FROM " . $mod_tb_root . "";
             $sql = $sql . "  INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid";
+            $sql = $sql . "  LEFT JOIN " . $core_tb_nopic . " ON " . $core_tb_nopic . "_id = " . $mod_tb_root_lang . "_picDefault";
 
             $sql = $sql . "  WHERE " . $mod_tb_root . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND  " . $mod_tb_root_lang . "_language = 'Thai'";
 
@@ -376,14 +380,6 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                   $valDateCredate = dateFormatReal($row[2]);
                   $valTimeCredate = timeFormatReal($row[2]);
                   $valStatus = $row[3];
-                  // $valNameEn=rechangeQuot($row[4]);
-                  // $valNameEn=chechNullVal($valNameEn);
-                  $valPic = $mod_path_office . "/" . $row[4];
-                  if (is_file($valPic)) {
-                     $valPic = $valPic;
-                  } else {
-                     $valPic = "../img/btn/nopic.jpg";
-                  }
 
                   $valView = number_format($row[5]);
                   $valgid = $row[6];
@@ -391,6 +387,23 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                   $valSubGroupName = $arr_subgroup[$valgid] != '' ? $arr_subgroup[$valgid] : "-";
 
                   $valMasterkeys = $row[7];
+                  $valPicType = $row['picType'];
+
+                  if ($valPicType == 2) {
+                     $valPic = $mod_path_office . "/" . $row[4];
+                     if (is_file($valPic)) {
+                        $valPic = $valPic;
+                     } else {
+                        $valPic = "../img/btn/nopic.jpg";
+                     }
+                  }else{
+                     $valPic = $core_pathname_upload . "/" . $row['masterkey_pic'] . "/office/" . $row['picDefault'];
+                     if (is_file($valPic)) {
+                        $valPic = $valPic;
+                     } else {
+                        $valPic = "../img/btn/nopic.jpg";
+                     } 
+                  }
 
                   if ($valStatus == "Enable") {
                      $valStatusClass = "fontContantTbEnable";

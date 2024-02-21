@@ -14,8 +14,6 @@ $default_lang_set ="Thai";
 $mod_path_html        = $core_pathname_upload."/".$masterkey."/html";
 $mod_path_html_fornt  = $core_pathname_upload_fornt."/".$masterkey."/html";
 
-// $mod_fix_masterkey = array("lcf");
-
 $mod_inputseach = array("inputGh"
     ,"inputTh"
     ,"inputSearch"

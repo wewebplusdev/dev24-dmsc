@@ -1,7 +1,7 @@
 version: "1"
 services:
-  service-api:
-    image: service-api
+  dmsc-service-api:
+    image: dmsc-service-api
     build:
       context: ./volumes
       dockerfile: Dockerfile
@@ -14,12 +14,12 @@ services:
       env_developer : {}
     command: nodemon -L app.js # docker container add flag "-L" to use nodemon
     
-  nginx:
+  dmsc-nginx:
     image: nginx:latest
     volumes:
       - ./volumes/src/conf.d:/etc/nginx/conf.d
     depends_on:
-      - service-api
+      - dmsc-service-api
     ports:
       - 4040:80
     networks:

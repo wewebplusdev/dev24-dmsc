@@ -67,8 +67,12 @@ if ($_REQUEST['execute'] == "insert") {
             $insertLang[$mod_tb_root_lang . "_language"] = "'" . $_SESSION[$valSiteManage . 'core_session_language'] . "'";
             $insertLang[$mod_tb_root_lang . "_subject"] = "'" . changeQuot($_REQUEST['inputSubject']) . "'";
             $insertLang[$mod_tb_root_lang . "_title"] = "'" . changeQuot($_REQUEST['inputDescription']) . "'";
+            $insertLang[$mod_tb_root_lang . "_typec"] = "'" . changeQuot($_REQUEST['inputTypeC']) . "'";
+            $insertLang[$mod_tb_root_lang . "_picType"] = "'" . changeQuot($_REQUEST['inputTypePic']) . "'";
+            $insertLang[$mod_tb_root_lang . "_picDefault"] = "'" . changeQuot($_REQUEST['inputPicD']) . "'";
+            $insertLang[$mod_tb_root_lang . "_urlc"] = "'" . changeQuot($_REQUEST['inputurlC']) . "'";
+            $insertLang[$mod_tb_root_lang . "_target"] = "'" . changeQuot($_REQUEST['inputmenutarget']) . "'";
             $insertLang[$mod_tb_root_lang . "_pic"] = "'" . $_POST["picname"] . "'";
-            $insertLang[$mod_tb_root_lang . "_picshow"] = "'" . $_POST["inputTypePic"] . "'";
             $insertLang[$mod_tb_root_lang . "_type"] = "'" . $_POST["inputType"] . "'";
             $insertLang[$mod_tb_root_lang . "_url"] = "'" . changeQuot($_REQUEST['inputurl']) . "'";
             $insertLang[$mod_tb_root_lang . "_filevdo"] = "'" . $_POST["vdoname"] . "'";
@@ -168,7 +172,13 @@ if ($_REQUEST['execute'] == "insert") {
             $insertSch[$core_tb_search . "_edate"] = "'" . DateFormatInsert($_POST["edateInput"]) . "'";
             $insertSch[$core_tb_search . "_sdate"] = "'" . DateFormatInsert($_POST["sdateInput"]) . "'";
             $insertSch[$core_tb_search . "_status"] = "'Disable'";
-            $insertSch[$core_tb_search . "_pic"] = "'" . $_POST["picname"] . "'";
+            
+            $insertSch[$core_tb_search . "_typec"] = "'" . changeQuot($_POST["inputTypeC"]) . "'";
+            $insertSch[$core_tb_search . "_picType"] = "'" . changeQuot($_POST["inputTypePic"]) . "'";
+            $insertSch[$core_tb_search . "_picDefault"] = "'" . changeQuot($_POST["inputPicD"]) . "'";
+            $insertSch[$core_tb_search . "_urlc"] = "'" . changeQuot($_POST["inputurlC"]) . "'";
+            $insertSch[$core_tb_search . "_target"] = "'" . changeQuot($_POST["inputmenutarget"]) . "'";
+
             $sqlSch = "INSERT " . $core_tb_search . " (" . implode(",", array_keys($insertSch)) . ") VALUES (" . implode(",", array_values($insertSch)) . ")";
             $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
          }else{

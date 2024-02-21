@@ -19,7 +19,9 @@ $mod_tb_permisGroup = "md_cmsp";
 $mod_fd_root = "mod_cmsg";
 
 ## Setting Value ###################################
-$modTxtShowPic = array("แสดงรูปภาพในหน้ารายละเอียด", "ไม่แสดง", "แสดง");
+$modTxtShowCase = array("ประเภทการแสดงผล", "แสดงรายละเอียด", "เอกสารดาวน์โหลด", "เชื่อมโยงภายนอก");
+$modTxtShowPic = array("ประเภทการแสดงผลรูปภาพ", "เลือกจากระบบ", "อัพโหลด");
+$modTxtTarget = array("", "เปิดหน้าต่างเดิม", "เปิดหน้าต่างใหม่");
 $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 

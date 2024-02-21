@@ -21,6 +21,7 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "nodejs-base64": "^2.0.0",
+    "php-unserialize": "^0.0.1",
     "util": "^0.12.5"
   },
   "devDependencies": {

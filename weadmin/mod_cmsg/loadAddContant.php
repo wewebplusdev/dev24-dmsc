@@ -40,7 +40,7 @@ $valinTheme = '1';
    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
    <meta name="robots" content="noindex, nofollow" />
    <meta name="googlebot" content="noindex, nofollow" />
-   <link href="../css/bootstrap.min.css" rel="stylesheet" />
+   <!-- <link href="../css/bootstrap.min.css" rel="stylesheet" /> -->
    <link href="../css/theme.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
    <link href="../css/table_css.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
    <link href="js/uploadfile.css" rel="stylesheet" />
@@ -51,6 +51,7 @@ $valinTheme = '1';
    <!-- <script src="https://code.jquery.com/jquery-1.11.3.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js?v=<?php echo date('Ymdhis'); ?>"></script>
+   <script language="JavaScript" type="text/javascript" src="./js/script.js?v=<?php echo date('Ymdhis'); ?>"></script>
 
    <script language="JavaScript" type="text/javascript">
       function executeSubmit() {
@@ -80,15 +81,34 @@ $valinTheme = '1';
             //   jQuery("#inputDescription").removeClass("formInputContantTbAlertY");
             // }
 
-            var alleditDetail = CKEDITOR.instances.editDetail.getData();
-            if (alleditDetail == "") {
-               jQuery("#inputEditHTML").addClass("formInputContantTbAlertY");
-               window.location.hash = '#inputEditHTML';
-               return false;
-            } else {
-               jQuery("#inputEditHTML").removeClass("formInputContantTbAlertY");
+            let inputTypeC = document.myForm.inputTypeC.value;
+            if (inputTypeC == 1) {
+               var alleditDetail = CKEDITOR.instances.editDetail.getData();
+               if (alleditDetail == "") {
+                  jQuery("#inputEditHTML").addClass("formInputContantTbAlertY");
+                  window.location.hash = '#inputEditHTML';
+                  return false;
+               } else {
+                  jQuery("#inputEditHTML").removeClass("formInputContantTbAlertY");
+               }
+               jQuery('#inputHtml').val(alleditDetail);
+            }else if(inputTypeC == 3){
+               if (isBlank(inputurlC)) {
+                  inputurlC.focus();
+                  jQuery("#inputurlC").addClass("formInputContantTbAlertY");
+                  return false;
+               } else {
+                  jQuery("#inputurlC").removeClass("formInputContantTbAlertY");
+               }
+
+               if (inputurlC.value == "http://") {
+                  inputurlC.focus();
+                  jQuery("#inputurlC").addClass("formInputContantTbAlertY");
+                  return false;
+               } else {
+                  jQuery("#inputurlC").removeClass("formInputContantTbAlertY");
+               }
             }
-            jQuery('#inputHtml').val(alleditDetail);
          }
 
          insertContactNew('insertContant.php');
@@ -233,6 +253,25 @@ $valinTheme = '1';
                   <textarea name="inputDescription" id="inputDescription" cols="45" rows="5" class="formTextareaContantTb"></textarea>
                </td>
             </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowCase[0] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="1" checked="checked" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[1] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="2" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[2] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="3" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[3] ?></div>
+                  </label>
+               </td>
+            </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
@@ -245,8 +284,55 @@ $valinTheme = '1';
             <tr>
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
-
             <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="1" type="radio" class="formRadioContantTb" checked="checked" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowPic[1] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="2" type="radio" class="formRadioContantTb" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowPic[2] ?></div>
+                  </label>
+                  </label>
+               </td>
+            </tr>
+            <tr class="layout_type1 PicDefault">
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:picdefault"]; ?><span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <ul class="selectLayout">
+                        <?php
+                        $sql_nopic = "SELECT " . $core_tb_nopic . "_id as id
+                        ," . $core_tb_nopic . "_masterkey as masterkey
+                        ," . $core_tb_nopic . "_subject as subject
+                        ," . $core_tb_nopic . "_file as file 
+                        FROM " . $core_tb_nopic . " 
+                        WHERE " . $core_tb_nopic . "_masterkey = '" . $core_masterkey_nopic . "'
+                        AND " . $core_tb_nopic . "_status != 'Disable'
+                        ORDER BY " . $core_tb_nopic . "_order DESC
+                        ";
+                        $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
+                        foreach ($query_nopic as $key => $value) {
+                           $valPic_layout1 = $core_pathname_upload . "/" . $value['masterkey'] . "/pictures/" . $value['file'];
+                        ?>
+                           <li>
+                              <div class="checkboxLayout">
+                                    <input type="radio" name="inputPicD" value="<?php echo $value['id']; ?>" <?php if($key == 0){ echo "checked"; } ?>>
+                                    <div class="cover">
+                                       <img src="<?php echo $valPic_layout1; ?>">
+                                    </div>
+                                    <div class="layout-title"><?php echo $value['subject']; ?></div>
+                              </div>
+                           </li>
+                        <?php
+                        }
+                        ?>
+                  </ul>
+               </td>
+            </tr>
+            <tr class="PicUpload" style="display: none;">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="file-input-wrapper">
@@ -261,24 +347,42 @@ $valinTheme = '1';
                   </div>
                </td>
             </tr>
-            <tr style="display: none;">
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?></td>
+         </table>
+         <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeLink" style="display: none;">
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:subjectLink"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo $langMod["txt:subjectLinkDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="7" align="right" valign="top" height="15"></td>
+            </tr>
+            <tr id="boxInputlink">
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoc"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlC" id="inputurlC" cols="45" rows="5" class="formTextareaContantTb">http://</textarea><br />
+                  <span class="formFontNoteTxt"><?php echo $langMod["edit:linknote"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdoc"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <label>
-                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="1" type="radio" class="formRadioContantTb" /></div>
-                     <div class="formDivRadioR"><?php echo $modTxtShowPic[1] ?></div>
+                     <div class="formDivRadioL"><input name="inputmenutarget" id="inputmenutarget" type="radio" class="formRadioContantTb" value="1" checked="checked" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtTarget[1] ?></div>
                   </label>
 
                   <label>
-                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="2" type="radio" class="formRadioContantTb" checked="checked" /></div>
-                     <div class="formDivRadioR"><?php echo $modTxtShowPic[2] ?></div>
+                     <div class="formDivRadioL"><input name="inputmenutarget" id="inputmenutarget" type="radio" class="formRadioContantTb" value="2" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtTarget[2] ?></div>
                   </label>
                   </label>
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeLink" style="display: none;"/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:title"] ?></span><br />
@@ -301,29 +405,9 @@ $valinTheme = '1';
                   </div>
                </td>
             </tr>
-
-            <tr style="display: none;">
-               <td colspan="7" align="right" valign="top" height="15"></td>
-            </tr>
-
-
-            <tr style="display: none;">
-               <td width="18%" align="right" valign="top" class="formLeftContantTb">ใช้รูปภาพอ้างอิง</td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <label>
-                     <div class="formDivRadioL"><input name="inputTypeTheme" id="inputTypeTheme" value="1" type="radio" class="formRadioContantTb" checked="checked" onclick="jQuery('#imgClickLink1').hide();jQuery('#imgClickLink2').hide();" /></div>
-                     <div class="formDivRadioR">ไม่ใช้รูปภาพอ้างอิง</div>
-                  </label>
-
-                  <label>
-                     <div class="formDivRadioL"><input name="inputTypeTheme" id="inputTypeTheme" value="2" type="radio" class="formRadioContantTb" onclick="jQuery('#imgClickLink1').show();jQuery('#imgClickLink2').show();" /></div>
-                     <div class="formDivRadioR">ใช้รูปภาพอ้างอิง</div>
-                  </label>
-               </td>
-            </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeDetail" />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:album"] ?></span><br />
@@ -346,8 +430,8 @@ $valinTheme = '1';
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeDetail" />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:video"] ?></span><br />
@@ -356,22 +440,6 @@ $valinTheme = '1';
             </tr>
             <tr>
                <td colspan="7" align="right" valign="top" height="15"></td>
-            </tr>
-
-            <tr style="display: none;">
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:typevideo"] ?></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <label>
-                     <div class="formDivRadioL"><input name="inputTypeMain" id="inputTypeMain" value="1" type="radio" class="formRadioContantTb" checked="checked" onclick="oncheck(1);" /></div>
-                     <div class="formDivRadioR"><?php echo $langMod["tit:typevideo2"] ?></div>
-                  </label>
-
-                  <label>
-                     <div class="formDivRadioL"><input name="inputTypeMain" id="inputTypeMain" value="2" type="radio" class="formRadioContantTb" onclick="oncheck(2);" /></div>
-                     <div class="formDivRadioR"><?php echo $langMod["tit:typevideo1"] ?></div>
-                  </label>
-                  </label>
-               </td>
             </tr>
 
             <tr id="boxInputType" class="typeMain" style="display: none;">
@@ -413,8 +481,8 @@ $valinTheme = '1';
             </tr>
 
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeDetail" />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDownload">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:attfile"] ?></span><br />
@@ -443,9 +511,8 @@ $valinTheme = '1';
                </td>
             </tr>
          </table>
-
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeDownload" />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:seo"] ?></span><br />
@@ -475,7 +542,7 @@ $valinTheme = '1';
                </td>
             </tr>
          </table>
-         <br/>
+         <br class="TypeDetail" />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">

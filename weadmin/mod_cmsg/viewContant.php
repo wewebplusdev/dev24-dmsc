@@ -35,7 +35,13 @@ $sql .= "   " . $mod_tb_root . "_id as id,
 " . $mod_tb_root_lang . "_keywords as keyword,
 " . $mod_tb_root_lang . "_picshow as picshow,
 " . $mod_tb_root . "_gid as gid,
-" . $mod_tb_root . "_sgid as sgid ";
+" . $mod_tb_root . "_sgid as sgid, 
+" . $mod_tb_root_lang . "_typec as typec,
+" . $mod_tb_root_lang . "_picType as picType,
+" . $mod_tb_root_lang . "_picDefault as picDefault,
+" . $mod_tb_root_lang . "_urlc as urlc,
+" . $mod_tb_root_lang . "_target as target 
+";
 $sql .= "    FROM " . $mod_tb_root . " INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid
 WHERE " . $mod_tb_root . "_masterkey='" . $_REQUEST["masterkey"] . "'  AND  " . $mod_tb_root . "_id='" . $_REQUEST['valEditID'] . "' AND " . $mod_tb_root_lang . "_language = '" . $_REQUEST['inputLt'] . "' ";
 
@@ -83,6 +89,12 @@ $valPicShow = $Row['picshow'];
 $valSGid = $Row['lid'];
 $valGid = $Row['gid'];
 $valSubGid = $Row['sgid'];
+
+$valTypeC = $Row['typec'] ? $Row['typec'] : 1;
+$valpicType = $Row['picType'] ? $Row['picType'] : 1;
+$valpicDefault = $Row['picDefault'];
+$valUrlC = $Row['urlc'];
+$valTarget = $Row['target'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
@@ -189,6 +201,12 @@ logs_access('3', 'View');
                   <div class="formDivView"><?= $valTitle ?></div>
                </td>
             </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowCase[0] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $modTxtShowCase[$valTypeC] ?></div>
+               </td>
+            </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
@@ -199,6 +217,43 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $modTxtShowPic[$valpicType] ?></div>
+               </td>
+            </tr>
+            <tr <?php if ($valpicType == 2) { echo 'style="display:none;"'; } ?>>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView">
+                     <?php
+                     $sql_nopic2 = "";
+                     $sql_nopic = "SELECT " . $core_tb_nopic . "_id as id
+                        ," . $core_tb_nopic . "_masterkey as masterkey
+                        ," . $core_tb_nopic . "_subject as subject
+                        ," . $core_tb_nopic . "_file as file 
+                        FROM " . $core_tb_nopic . " 
+                        WHERE " . $core_tb_nopic . "_masterkey = '" . $core_masterkey_nopic . "'
+                        AND " . $core_tb_nopic . "_status != 'Disable' ";
+                     $sql_nopic2 .= $sql_nopic . " AND " . $core_tb_nopic . "_id = '" . $valpicDefault . "'";
+                     $sql_nopic .= " ORDER BY " . $core_tb_nopic . "_order DESC";
+                     $sql_nopic2 .= " ORDER BY " . $core_tb_nopic . "_order DESC";
+                     $query_nopic2 = wewebQueryDB($coreLanguageSQL, $sql_nopic2);
+                     $numRows_nopic = wewebNumRowsDB($coreLanguageSQL, $query_nopic2);
+                     if ($numRows_nopic == 1) {
+                        $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic2);
+                        $valPic = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                     } else {
+                        $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
+                        $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic);
+                        $valPic = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                     }
+                     ?>
+                     <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
+                  </div>
+               </td>
+            </tr>
+            <tr <?php if ($valpicType == 1) { echo 'style="display:none;"'; } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
@@ -206,15 +261,30 @@ logs_access('3', 'View');
                   </div>
                </td>
             </tr>
-            <tr style="display:none;">
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $modTxtShowPic[0] ?>:<span class="fontContantAlert"></span></td>
+         </table>
+         <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 3) { echo 'style="display:none;"'; } ?>>
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:subject"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo $langMod["txt:subjectDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoc"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $modTxtShowPic[$valPicShow] ?></div>
+                  <div class="formDivView"><a href="<?php echo $valUrlC ?>" target="_blank"><?php echo $valUrlC ?></a></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdoc"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $modTxtTarget[$valTarget] ?></div>
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br <?php if ($valTypeC != 3) { echo 'style="display:none;"'; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?= $langMod["txt:title"] ?></span><br />
@@ -236,8 +306,8 @@ logs_access('3', 'View');
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?= $langMod["txt:album"] ?></span><br />
@@ -278,8 +348,8 @@ logs_access('3', 'View');
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?= $langMod["txt:video"] ?></span><br />
@@ -321,8 +391,8 @@ logs_access('3', 'View');
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC == 3) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?= $langMod["txt:attfile"] ?></span><br />
@@ -361,9 +431,8 @@ logs_access('3', 'View');
                </td>
             </tr>
          </table>
-
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br <?php if ($valTypeC == 3) { echo 'style="display:none;"'; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?= $langMod["txt:seo"] ?></span><br />
@@ -389,7 +458,7 @@ logs_access('3', 'View');
                </td>
             </tr>
          </table>
-         <br />
+         <br <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">

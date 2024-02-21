@@ -35,6 +35,11 @@ $sql .= "
 			" . $mod_tb_root_lang . "_picshow as picshow"
    . "," . $mod_tb_root . "_sgid as sgid"
    . "," . $mod_tb_root_lang . "_id as lid"
+   . "," . $mod_tb_root_lang . "_typec as typec"
+   . "," . $mod_tb_root_lang . "_picType as picType"
+   . "," . $mod_tb_root_lang . "_picDefault as picDefault"
+   . "," . $mod_tb_root_lang . "_urlc as urlc"
+   . "," . $mod_tb_root_lang . "_target as target"
    . " ";
 
 $sql .= " FROM " . $mod_tb_root . " INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid
@@ -82,6 +87,11 @@ $valPicShow = $Row['picshow'];
 
 $valSubGid = $Row['sgid'];
 $valSGid = $Row['lid'];
+$valTypeC = $Row['typec'] ? $Row['typec'] : 1;
+$valpicType = $Row['picType'] ? $Row['picType'] : 1;
+$valpicDefault = $Row['picDefault'];
+$valUrlC = $Row['urlc'];
+$valTarget = $Row['target'];
 
 if (!empty($valSGid)) {
    $valcid = $valSGid;
@@ -110,7 +120,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta name="robots" content="noindex, nofollow" />
    <meta name="googlebot" content="noindex, nofollow" />
-   <link href="../css/bootstrap.min.css" rel="stylesheet" />
+   <!-- <link href="../css/bootstrap.min.css" rel="stylesheet" /> -->
    <link href="../css/theme.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
    <link href="../css/table_css.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
    <link href="js/uploadfile.css" rel="stylesheet" />
@@ -119,6 +129,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <link href="../js/select2/css/select2.css" rel="stylesheet" />
    <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
+   <script language="JavaScript" type="text/javascript" src="./js/script.js"></script>
    <script language="JavaScript" type="text/javascript">
       function executeSubmit() {
          with(document.myForm) {
@@ -146,15 +157,34 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             // 	jQuery("#inputDescription").removeClass("formInputContantTbAlertY");
             // }
 
-            var alleditDetail = CKEDITOR.instances.editDetail.getData();
-            if (alleditDetail == "") {
-               jQuery("#inputEditHTML").addClass("formInputContantTbAlertY");
-               window.location.hash = '#inputEditHTML';
-               return false;
-            } else {
-               jQuery("#inputEditHTML").removeClass("formInputContantTbAlertY");
+            let inputTypeC = document.myForm.inputTypeC.value;
+            if (inputTypeC == 1) {
+               var alleditDetail = CKEDITOR.instances.editDetail.getData();
+               if (alleditDetail == "") {
+                  jQuery("#inputEditHTML").addClass("formInputContantTbAlertY");
+                  window.location.hash = '#inputEditHTML';
+                  return false;
+               } else {
+                  jQuery("#inputEditHTML").removeClass("formInputContantTbAlertY");
+               }
+               jQuery('#inputHtml').val(alleditDetail);
+            }else if(inputTypeC == 3){
+               if (isBlank(inputurlC)) {
+                  inputurlC.focus();
+                  jQuery("#inputurlC").addClass("formInputContantTbAlertY");
+                  return false;
+               } else {
+                  jQuery("#inputurlC").removeClass("formInputContantTbAlertY");
+               }
+
+               if (inputurlC.value == "http://") {
+                  inputurlC.focus();
+                  jQuery("#inputurlC").addClass("formInputContantTbAlertY");
+                  return false;
+               } else {
+                  jQuery("#inputurlC").removeClass("formInputContantTbAlertY");
+               }
             }
-            jQuery('#inputHtml').val(alleditDetail);
          }
          updateContactNew('updateContant.php');
       }
@@ -296,6 +326,25 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   <textarea name="inputDescription" id="inputDescription" cols="45" rows="5" class="formTextareaContantTb"><?php echo $valTitle ?></textarea>
                </td>
             </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowCase[0] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="1" <?php if($valTypeC == 1){ echo 'checked="checked"'; } ?> /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[1] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="2" <?php if($valTypeC == 2){ echo 'checked="checked"'; } ?>/></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[2] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="3" <?php if($valTypeC == 3){ echo 'checked="checked"'; } ?>/></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[3] ?></div>
+                  </label>
+               </td>
+            </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
@@ -308,8 +357,58 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             <tr>
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
-
             <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="1" type="radio" class="formRadioContantTb" <?php if($valpicType == 1){ echo 'checked="checked"'; } ?> /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowPic[1] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="2" type="radio" class="formRadioContantTb" <?php if($valpicType == 2){ echo 'checked="checked"'; } ?>/></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowPic[2] ?></div>
+                  </label>
+                  </label>
+               </td>
+            </tr>
+            <tr class="layout_type1 PicDefault" <?php if($valpicType == 2){ echo 'style="display:none;"'; } ?>>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:picdefault"]; ?><span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <ul class="selectLayout">
+                        <?php
+                        $sql_nopic = "SELECT " . $core_tb_nopic . "_id as id
+                        ," . $core_tb_nopic . "_masterkey as masterkey
+                        ," . $core_tb_nopic . "_subject as subject
+                        ," . $core_tb_nopic . "_file as file 
+                        FROM " . $core_tb_nopic . " 
+                        WHERE " . $core_tb_nopic . "_masterkey = '" . $core_masterkey_nopic . "'
+                        AND " . $core_tb_nopic . "_status != 'Disable'
+                        ORDER BY " . $core_tb_nopic . "_order DESC
+                        ";
+                        $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
+                        if (empty($valpicDefault)) {
+                           $valpicDefault = $query_nopic->fields['id'];
+                        }
+                        foreach ($query_nopic as $key => $value) {
+                           $valPic_layout1 = $core_pathname_upload . "/" . $value['masterkey'] . "/pictures/" . $value['file'];
+                        ?>
+                           <li>
+                              <div class="checkboxLayout">
+                                    <input type="radio" name="inputPicD" value="<?php echo $value['id']; ?>" <?php if($valpicDefault == $value['id']){ echo "checked"; } ?>>
+                                    <div class="cover">
+                                       <img src="<?php echo $valPic_layout1; ?>">
+                                    </div>
+                                    <div class="layout-title"><?php echo $value['subject']; ?></div>
+                              </div>
+                           </li>
+                        <?php
+                        }
+                        ?>
+                  </ul>
+               </td>
+            </tr>
+            <tr class="PicUpload" <?php if($valpicType == 1){ echo 'style="display:none;"'; } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="file-input-wrapper">
@@ -328,26 +427,42 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   </div>
                </td>
             </tr>
-            <tr style="display: none;">
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?></td>
+         </table>
+         <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeLink" <?php if($valTypeC != 3){ echo "style='display:none;'"; } ?>>
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:subjectLink"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo $langMod["txt:subjectLinkDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="7" align="right" valign="top" height="15"></td>
+            </tr>
+            <tr id="boxInputlink">
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoc"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlC" id="inputurlC" cols="45" rows="5" class="formTextareaContantTb"><?php echo $valUrlC ?></textarea><br />
+                  <span class="formFontNoteTxt"><?php echo $langMod["edit:linknote"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdoc"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <label>
-                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="1" type="radio" class="formRadioContantTb" <?php if ($valPicShow != 2) { ?> checked="checked" <?php } ?> />
-                     </div>
-                     <div class="formDivRadioR"><?php echo $modTxtShowPic[1] ?></div>
+                     <div class="formDivRadioL"><input name="inputmenutarget" id="inputmenutarget" type="radio" class="formRadioContantTb" value="1" <?php if($valTarget == 1){ echo 'checked="checked"'; } ?> /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtTarget[1] ?></div>
                   </label>
 
                   <label>
-                     <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="2" type="radio" class="formRadioContantTb" <?php if ($valPicShow == 2) { ?> checked="checked" <?php } ?> />
-                     </div>
-                     <div class="formDivRadioR"><?php echo $modTxtShowPic[2] ?></div>
+                     <div class="formDivRadioL"><input name="inputmenutarget" id="inputmenutarget" type="radio" class="formRadioContantTb" value="2" <?php if($valTarget == 2){ echo 'checked="checked"'; } ?>/></div>
+                     <div class="formDivRadioR"><?php echo $modTxtTarget[2] ?></div>
                   </label>
                   </label>
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeLink" <?php if($valTypeC != 3){ echo "style='display:none;'"; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:title"] ?></span><br />
@@ -371,8 +486,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:album"] ?></span><br />
@@ -416,8 +531,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
             </tr>
          </table>
-         <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:video"] ?></span><br />
@@ -472,9 +587,9 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
             </tr>
          </table>
-         <br />
+         <br class="TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>/>
 
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDownload" <?php if($valTypeC == 3){ echo "style='display:none;'"; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?= $langMod["txt:attfile"] ?></span><br />
@@ -522,10 +637,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
             </tr>
          </table>
-
-         <br />
-
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <br class="TypeDownload" <?php if($valTypeC != 2){ echo "style='display:none;'"; } ?>/>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:seo"] ?></span><br />
@@ -555,7 +668,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
             </tr>
          </table>
-         <br />
+         <br class="TypeDetail" <?php if($valTypeC != 1){ echo "style='display:none;'"; } ?>/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">

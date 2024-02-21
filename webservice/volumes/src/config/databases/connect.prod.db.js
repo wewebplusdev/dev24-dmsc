@@ -6,6 +6,6 @@ exports.connectDB = function() {
         host: "db",
         user: "root", 
         password: "MYSQL_ROOT_PASSWORD",
-        database: "2023_dmcr_eslip"
+        database: "2024_dmsc"
     });
 }

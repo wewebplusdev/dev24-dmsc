@@ -1,4 +1,4 @@
-<?
+<?php
 include("../lib/session.php");
 include("../lib/config.php");
 include("../lib/connect.php");

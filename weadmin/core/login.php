@@ -19,9 +19,6 @@ $queryMaster = wewebQueryDB($coreLanguageSQL, $sqlMaster);
 $recordMaster = wewebNumRowsDB($coreLanguageSQL, $queryMaster);
 
 if ($recordMaster >= 1) {
-
-
-
 	$_SESSION[$valSiteManage . "core_session_logout"] = 1;
 	$_SESSION[$valSiteManage . "core_session_id"] = 0;
 	$_SESSION[$valSiteManage . "core_session_name"] = "Private Member";
@@ -35,8 +32,6 @@ if ($recordMaster >= 1) {
 	</script>
 	<?
 } else {
-
-
 	$_SESSION[$valSiteManage . "core_session_logout"] = 1;
 	$sql = "SELECT
  " . $core_tb_staff . "_id,

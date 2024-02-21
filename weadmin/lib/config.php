@@ -51,6 +51,9 @@ $core_tb_user = "sy_usr";
 $core_tb_minisite = "md_mit";
 $core_tb_lang = "sy_lang";
 $core_tb_langgoo = "sy_langgoogle";
+$core_tb_nopic = "md_nopic";
+
+$core_masterkey_nopic = "nopic";
 
 ## Other Table  ######################################################
 $other_tb_geography = "ot_geo";

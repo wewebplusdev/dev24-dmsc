@@ -4,8 +4,9 @@ global $valSiteManage;
 $core_session_language = $_SESSION[$valSiteManage . 'core_session_language'];
 ########################################################################################
 
-function logs_access($action, $actionType) {
-########################################################################################
+function logs_access($action, $actionType)
+{
+    ########################################################################################
     global $core_pathname_logs, $masterkey, $menukeyid, $execute, $core_tb_log, $valSiteManage, $coreLanguageSQL;
 
     $CurrentPath = $core_pathname_logs . "";
@@ -164,14 +165,14 @@ function logs_access($action, $actionType) {
             /* ################## End Insert Access User DB ########################## */
         }
     } else {
-
     }
 }
 
 ############################################
 
-function get_real_ip() {
-############################################
+function get_real_ip()
+{
+    ############################################
     $ip = false;
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -190,7 +191,7 @@ function get_real_ip() {
                         break;
                     }
                 } else {
-                    if (ip2long($ips[$i]) != - 1) {
+                    if (ip2long($ips[$i]) != -1) {
                         $ip = $ips[$i];
                         break;
                     }
@@ -203,8 +204,9 @@ function get_real_ip() {
 
 ############################################
 
-function _getURL() {
-############################################
+function _getURL()
+{
+    ############################################
     $Parameter = (strlen($_SERVER["QUERY_STRING"]) > 0) ? "?" . $_SERVER["QUERY_STRING"] : "";
     return 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER["PHP_SELF"] . $Parameter; #$_SERVER['REQUEST_URI'];
 }
@@ -223,28 +225,30 @@ function _getURL() {
 //     return $valChangeQuot;
 // }
 
-function changeQuot($Data) {
+function changeQuot($Data)
+{
     ############################################
     global $dbConnect;
 
 
-        if(!is_numeric($Data) && !is_array($Data)){
-            $valTrim = trim($Data);
-        }else{
-            $valTrim = $Data;
-        }
-        $valChangeQuot=wewebEscape($dbConnect,$valTrim);
-        //$valChangeQuot=str_replace("'","&rsquo;",str_replace('"','&quot;',$valChangeQuot));
-        $valChangeQuot= str_replace("'","&rsquo;",str_replace('"','&quot;',$valChangeQuot));
-
-        return $valChangeQuot;
+    if (!is_numeric($Data) && !is_array($Data)) {
+        $valTrim = trim($Data);
+    } else {
+        $valTrim = $Data;
     }
+    $valChangeQuot = wewebEscape($dbConnect, $valTrim);
+    //$valChangeQuot=str_replace("'","&rsquo;",str_replace('"','&quot;',$valChangeQuot));
+    $valChangeQuot = str_replace("'", "&rsquo;", str_replace('"', '&quot;', $valChangeQuot));
+
+    return $valChangeQuot;
+}
 
 
 ############################################
 
-function sanitize($input) {
-############################################
+function sanitize($input)
+{
+    ############################################
     global $coreLanguageSQL;
 
     if (get_magic_quotes_gpc()) { //check if magic_quotes is on;
@@ -266,11 +270,12 @@ function sanitize($input) {
 //     return $valChangeQuot;
 // }
 
-function rechangeQuot($Data) {
+function rechangeQuot($Data)
+{
     ############################################
-        $valChangeQuot=htmlspecialchars(str_replace("&rsquo;","'",str_replace('&quot;','"',$Data)));
-        return $valChangeQuot;
-    }
+    $valChangeQuot = htmlspecialchars(str_replace("&rsquo;", "'", str_replace('&quot;', '"', $Data)));
+    return $valChangeQuot;
+}
 
 ############################################
 //
@@ -318,9 +323,10 @@ function rechangeQuot($Data) {
 
 ## encodeStr ##
 
-function encodeStr($variable) {
+function encodeStr($variable)
+{
 
-############################################
+    ############################################
     $key = "xitgmLwmp";
     $index = 0;
     $temp = "";
@@ -342,7 +348,8 @@ function encodeStr($variable) {
 
 ## decodeStr ##
 
-function decodeStr($enVariable) {
+function decodeStr($enVariable)
+{
     $enVariable = str_replace("WewEb", "%", $enVariable);
     $enVariable = str_rot13($enVariable);
     $enVariable = urldecode($enVariable);
@@ -365,8 +372,9 @@ function decodeStr($enVariable) {
 
 //echo decodeStr("oKA3p0kNoKOaMKElnJ54oD%3Q%3Q");
 //#################################################
-function DateFormat($DateTime) {
-//#################################################
+function DateFormat($DateTime)
+{
+    //#################################################
     global $core_session_language;
     $DateTime = date("Y-m-d H:i", strtotime($DateTime));
 
@@ -383,8 +391,9 @@ function DateFormat($DateTime) {
 }
 
 //#################################################
-function DateFormatPdf($DateTime) {
-//#################################################
+function DateFormatPdf($DateTime)
+{
+    //#################################################
     global $core_session_language;
     $DateTime = date("Y-m-d H:i", strtotime($DateTime));
 
@@ -401,8 +410,9 @@ function DateFormatPdf($DateTime) {
 }
 
 //#################################################
-function DateFormatPdfChk($DateTime) {
-//#################################################
+function DateFormatPdfChk($DateTime)
+{
+    //#################################################
     global $core_session_language;
     $DateTime = date("Y-m-d H:i", strtotime($DateTime));
 
@@ -418,8 +428,9 @@ function DateFormatPdfChk($DateTime) {
 }
 
 //#################################################
-function DateFormatPdfTime($DateTime) {
-//#################################################
+function DateFormatPdfTime($DateTime)
+{
+    //#################################################
     global $core_session_language;
     $DateTime = date("Y-m-d H:i", strtotime($DateTime));
 
@@ -435,8 +446,9 @@ function DateFormatPdfTime($DateTime) {
     return $Time;
 }
 //#################################################
-function datetimeFormatReal($DateTime,$type=true) {
-//#################################################
+function datetimeFormatReal($DateTime, $type = true)
+{
+    //#################################################
     global $core_session_language;
     if ($DateTime == "0000-00-00 00:00:00") {
         $valReturnData = "";
@@ -452,16 +464,17 @@ function datetimeFormatReal($DateTime,$type=true) {
 
             if ($core_session_language == "Thai")
                 $DateArr[0] = ($DateArr[0] + 543);
-            $valReturnData = $DateArr[2] . "/" . $DateArr[1] . "/" . $DateArr[0]." ".$Time;
-        }else {
+            $valReturnData = $DateArr[2] . "/" . $DateArr[1] . "/" . $DateArr[0] . " " . $Time;
+        } else {
             $valReturnData = "-";
         }
     }
     return $valReturnData;
 }
 //#################################################
-function dateFormatReal($DateTime,$type=true) {
-//#################################################
+function dateFormatReal($DateTime, $type = true)
+{
+    //#################################################
     global $core_session_language;
     if ($DateTime == "0000-00-00 00:00:00") {
         $valReturnData = "";
@@ -478,7 +491,7 @@ function dateFormatReal($DateTime,$type=true) {
             if ($core_session_language == "Thai")
                 $DateArr[0] = ($DateArr[0] + 543);
             $valReturnData = $DateArr[2] . "/" . $DateArr[1] . "/" . $DateArr[0];
-        }else {
+        } else {
             $valReturnData = "-";
         }
     }
@@ -486,8 +499,9 @@ function dateFormatReal($DateTime,$type=true) {
 }
 
 //#################################################
-function timeFormatReal($DateTime) {
-//#################################################
+function timeFormatReal($DateTime)
+{
+    //#################################################
     global $core_session_language;
     $DateTime = date("Y-m-d H:i", strtotime($DateTime));
 
@@ -502,45 +516,47 @@ function timeFormatReal($DateTime) {
 }
 
 //#################################################
-function DateFormatInsertNoTimeAccpet($DateTime) {
+function DateFormatInsertNoTimeAccpet($DateTime)
+{
     //#################################################
-        global $core_session_language;
-        if ($DateTime == "") {
-            $DateTime = "00-00-0000";
-        }
-        
-        $Time = "00:00:00";
-        $DateArr = explode("-", $DateTime);
-        if ($core_session_language == "Thai") {
-            if ($DateArr[2] >= 1) {
-                $dataYear = $DateArr[2]-543;
-            } else {
-                $dataYear = "0000";
-            }
-        } else {
-            $dataYear = $DateArr[0];
-        }
-    
-        if ($DateArr[1] >= 1) {
-            $dataM = $DateArr[1];
-        } else {
-            $dataM = "00";
-        }
-    
-        if ($DateArr[0] >= 1) {
-            $dataD = $DateArr[0];
-        } else {
-            $dataD = "00";
-        }
-    
-    
-        return $dataYear . "-" . $dataM . "-" . $dataD;
+    global $core_session_language;
+    if ($DateTime == "") {
+        $DateTime = "00-00-0000";
     }
 
+    $Time = "00:00:00";
+    $DateArr = explode("-", $DateTime);
+    if ($core_session_language == "Thai") {
+        if ($DateArr[2] >= 1) {
+            $dataYear = $DateArr[2] - 543;
+        } else {
+            $dataYear = "0000";
+        }
+    } else {
+        $dataYear = $DateArr[0];
+    }
+
+    if ($DateArr[1] >= 1) {
+        $dataM = $DateArr[1];
+    } else {
+        $dataM = "00";
+    }
+
+    if ($DateArr[0] >= 1) {
+        $dataD = $DateArr[0];
+    } else {
+        $dataD = "00";
+    }
+
+
+    return $dataYear . "-" . $dataM . "-" . $dataD;
+}
+
 ############################################
 
-function getUserEng($myUserID) {
-############################################
+function getUserEng($myUserID)
+{
+    ############################################
     global $core_db_name, $core_tb_staff, $coreLanguageSQL;
 
 
@@ -550,14 +566,15 @@ function getUserEng($myUserID) {
     if ($RecordCount >= 1) {
         $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
         $name_return = $Row[0] . " " . $Row[1];
-        return($name_return);
+        return ($name_return);
     }
 }
 
 ############################################
 
-function getUserThai($myUserID) {
-############################################
+function getUserThai($myUserID)
+{
+    ############################################
     global $core_db_name, $core_tb_staff, $coreLanguageSQL;
 
     $sql = "SELECT " . $core_tb_staff . "_fnamethai," . $core_tb_staff . "_lnamethai  FROM " . $core_tb_staff . " WHERE " . $core_tb_staff . "_id='" . $myUserID . "'";
@@ -567,13 +584,14 @@ function getUserThai($myUserID) {
         $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
         $name_return = $Row[0] . " " . $Row[1];
     }
-    return($name_return);
+    return ($name_return);
 }
 
 ############################################
 
-function getUserPermissionOnMenu($myUserID, $myMenuID) {
-############################################
+function getUserPermissionOnMenu($myUserID, $myMenuID)
+{
+    ############################################
     global $core_db_name, $core_tb_permission, $coreLanguageSQL;
 
     $sql = "SELECT " . $core_tb_permission . "_permission  FROM " . $core_tb_permission . " WHERE " . $core_tb_permission . "_menuid='" . $myMenuID . "' AND " . $core_tb_permission . "_perid='" . $myUserID . "'";
@@ -582,16 +600,17 @@ function getUserPermissionOnMenu($myUserID, $myMenuID) {
     if ($RecordCount >= 1) {
         $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
 
-        return($Row[0]);
+        return ($Row[0]);
     } else {
-        return("NA");
+        return ("NA");
     }
 }
 
 ############################################
 
-function resize($img, $w, $h, $newfilename) {
-############################################
+function resize($img, $w, $h, $newfilename)
+{
+    ############################################
     //Check if GD extension is loaded
     if (!extension_loaded('gd') && !extension_loaded('gd2')) {
         trigger_error("GD is not loaded", E_USER_WARNING);
@@ -601,13 +620,17 @@ function resize($img, $w, $h, $newfilename) {
     //Get Image size info
     $imgInfo = getimagesize($img);
     switch ($imgInfo[2]) {
-        case 1: $im = imagecreatefromgif($img);
+        case 1:
+            $im = imagecreatefromgif($img);
             break;
-        case 2: $im = imagecreatefromjpeg($img);
+        case 2:
+            $im = imagecreatefromjpeg($img);
             break;
-        case 3: $im = imagecreatefrompng($img);
+        case 3:
+            $im = imagecreatefrompng($img);
             break;
-        default: trigger_error('Unsupported filetype!', E_USER_WARNING);
+        default:
+            trigger_error('Unsupported filetype!', E_USER_WARNING);
             break;
     }
 
@@ -631,7 +654,7 @@ function resize($img, $w, $h, $newfilename) {
     $newImg = imagecreatetruecolor($nWidth, $nHeight);
 
     /* Check if this image is PNG or GIF, then set if Transparent */
-    if (($imgInfo[2] == 1) OR ( $imgInfo[2] == 3)) {
+    if (($imgInfo[2] == 1) or ($imgInfo[2] == 3)) {
         imagealphablending($newImg, false);
         imagesavealpha($newImg, true);
         $transparent = imagecolorallocatealpha($newImg, 255, 255, 255, 127);
@@ -641,13 +664,17 @@ function resize($img, $w, $h, $newfilename) {
 
     //Generate the file, and rename it to $newfilename
     switch ($imgInfo[2]) {
-        case 1: imagegif($newImg, $newfilename);
+        case 1:
+            imagegif($newImg, $newfilename);
             break;
-        case 2: imagejpeg($newImg, $newfilename);
+        case 2:
+            imagejpeg($newImg, $newfilename);
             break;
-        case 3: imagepng($newImg, $newfilename);
+        case 3:
+            imagepng($newImg, $newfilename);
             break;
-        default: trigger_error('Failed resize image!', E_USER_WARNING);
+        default:
+            trigger_error('Failed resize image!', E_USER_WARNING);
             break;
     }
 
@@ -656,8 +683,9 @@ function resize($img, $w, $h, $newfilename) {
 
 ############################################
 
-function load_picmemberBack($creid) {
-############################################
+function load_picmemberBack($creid)
+{
+    ############################################
     global $core_tb_staff, $coreLanguageSQL;
 
     $sql_pic = "SELECT " . $core_tb_staff . "_picture FROM " . $core_tb_staff . " WHERE   " . $core_tb_staff . "_id 	='" . $creid . "'";
@@ -670,8 +698,9 @@ function load_picmemberBack($creid) {
 
 ############################################
 
-function getNameMenu($myID) {
-############################################
+function getNameMenu($myID)
+{
+    ############################################
     global $core_db_name, $core_tb_menu, $core_session_language, $valSiteManage, $coreLanguageSQL;
 
     $sql = "SELECT " . $core_tb_menu . "_namethai, " . $core_tb_menu . "_nameeng FROM " . $core_tb_menu . " WHERE " . $core_tb_menu . "_id='" . $myID . "'";
@@ -685,35 +714,38 @@ function getNameMenu($myID) {
             $txt_name_menu = $Row[1];
         }
         $name_return = $txt_name_menu;
-        return($name_return);
+        return ($name_return);
     }
 }
 
 ####################################################
 
-function txtReplaceHTML($data) {
-####################################################
+function txtReplaceHTML($data)
+{
+    ####################################################
     $dataHTML = str_replace("\\", "", $data);
     return $dataHTML;
 }
 
 ####################################################
 
-function get_IconSize($LinkRelativePath) {
-####################################################
+function get_IconSize($LinkRelativePath)
+{
+    ####################################################
     $filesize = @filesize($LinkRelativePath);
     if ($filesize < 10485) {
         $sizeFile = number_format($filesize / 1024, 2) . " Kb";
     } else {
         $sizeFile = number_format($filesize / (1024 * 1024), 2) . " Mb";
     }
-    return($sizeFile);
+    return ($sizeFile);
 }
 
 ####################################################
 
-function get_Icon($DownloadFile) {
-####################################################
+function get_Icon($DownloadFile)
+{
+    ####################################################
     $ImageType = strstr($DownloadFile, '.');
     if ($ImageType == ".pdf") {
         $TypeImgFile = "../img/iconfile/1.png";
@@ -734,13 +766,14 @@ function get_Icon($DownloadFile) {
     } else {
         $TypeImgFile = "../img/iconfile/8.png";
     }
-    return($TypeImgFile);
+    return ($TypeImgFile);
 }
 
 ############################################
 
-function getSystemLang() {
-############################################
+function getSystemLang()
+{
+    ############################################
     global $core_db_name, $core_tb_setting, $coreLanguageSQL;
 
     $sql = "SELECT " . $core_tb_setting . "_lang FROM " . $core_tb_setting . " WHERE " . $core_tb_setting . "_id>=1";
@@ -751,14 +784,15 @@ function getSystemLang() {
         $txt_name_menu = $Row[0];
 
         $name_return = $txt_name_menu;
-        return($name_return);
+        return ($name_return);
     }
 }
 
 ############################################
 
-function getSystemLangType() {
-############################################
+function getSystemLangType()
+{
+    ############################################
     global $core_db_name, $core_tb_setting, $coreLanguageSQL;
 
     $sql = "SELECT " . $core_tb_setting . "_type FROM " . $core_tb_setting . " WHERE " . $core_tb_setting . "_id>=1";
@@ -769,39 +803,42 @@ function getSystemLangType() {
         $txt_name_menu = $Row[0];
 
         $name_return = $txt_name_menu;
-        return($name_return);
+        return ($name_return);
     }
 }
 
 ############################################
 
-function getSystemLangTxt($langVal, $thaiVal, $engVal) {
-############################################
+function getSystemLangTxt($langVal, $thaiVal, $engVal)
+{
+    ############################################
     global $core_db_name, $core_tb_setting;
     if ($langVal == "Thai") {
         $txt_name_lang = $thaiVal;
     } else {
         $txt_name_lang = $engVal;
     }
-    return($txt_name_lang);
+    return ($txt_name_lang);
 }
 
 ############################################
 
-function chechNullVal($valCheck) {
-############################################
+function chechNullVal($valCheck)
+{
+    ############################################
     if (trim($valCheck) == "") {
         $txt_name_check = "-";
     } else {
         $txt_name_check = $valCheck;
     }
-    return($txt_name_check);
+    return ($txt_name_check);
 }
 
 ############################################
 
-function utf8_strlen($s) {
-############################################
+function utf8_strlen($s)
+{
+    ############################################
     $c = strlen($s);
     $l = 0;
     for ($i = 0; $i < $c; ++$i) {
@@ -814,8 +851,9 @@ function utf8_strlen($s) {
 
 ############################################
 
-function txtLimit($s, $n) {
-############################################
+function txtLimit($s, $n)
+{
+    ############################################
     $txtcount = utf8_strlen($s);
     if ($txtcount > $n)
         return iconv_substr($s, 0, $n, "UTF-8") . "..";
@@ -824,8 +862,9 @@ function txtLimit($s, $n) {
 }
 
 //#################################################
-function DateFormatInsertCre($DateTime) {
-//#################################################
+function DateFormatInsertCre($DateTime)
+{
+    //#################################################
     global $core_session_language;
 
     if ($DateTime == "") {
@@ -862,48 +901,52 @@ function DateFormatInsertCre($DateTime) {
 }
 
 //#################################################
-function ADDSTAMP($add,$to,$msg,$count,$gid){
-//#################################################
-return $msg." ".$add." - ".$to." | ".$count." | ".$gid;
+function ADDSTAMP($add, $to, $msg, $count, $gid)
+{
+    //#################################################
+    return $msg . " " . $add . " - " . $to . " | " . $count . " | " . $gid;
 }
 
 ############################################
-	function getNameMember($memID){
-############################################
-global $coreLanguageSQL;
-		$sql_pic="SELECT
+function getNameMember($memID)
+{
+    ############################################
+    global $coreLanguageSQL;
+    $sql_pic = "SELECT
 		md_mem_id ,
 		md_mem_fname ,
 		md_mem_lname
-		FROM md_mem WHERE   md_mem_id 	= '".$memID."'";
-		$query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-		$row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-		$txt_member_name=changeQuot($row_pic[1]);
-		$txt_member_nameTh=changeQuot($row_pic[2]);
-		$textReturn = $txt_member_name." ".$txt_member_nameTh;
+		FROM md_mem WHERE   md_mem_id 	= '" . $memID . "'";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_member_name = changeQuot($row_pic[1]);
+    $txt_member_nameTh = changeQuot($row_pic[2]);
+    $textReturn = $txt_member_name . " " . $txt_member_nameTh;
 
-		return $textReturn;
-	}
+    return $textReturn;
+}
 
 ############################################
-	function getNameStampGroup($GID){
-############################################
-global $coreLanguageSQL;
-		$sql_pic="SELECT
+function getNameStampGroup($GID)
+{
+    ############################################
+    global $coreLanguageSQL;
+    $sql_pic = "SELECT
 		md_mestg_id ,
 		md_mestg_subject
-		FROM md_mestg WHERE   md_mestg_id 	= '".$GID."'";
-		$query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-		$row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-		$txt_member_name=changeQuot($row_pic[1]);
-		$textReturn = $txt_member_name;
+		FROM md_mestg WHERE   md_mestg_id 	= '" . $GID . "'";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_member_name = changeQuot($row_pic[1]);
+    $textReturn = $txt_member_name;
 
-		return $textReturn;
-	}
+    return $textReturn;
+}
 
 //#################################################
-function DateFormatInsert($DateTime) {
-//#################################################
+function DateFormatInsert($DateTime)
+{
+    //#################################################
     global $core_session_language;
     if ($DateTime == "") {
         $DateTime = "00-00-0000";
@@ -934,10 +977,10 @@ function DateFormatInsert($DateTime) {
         $dataD = "00";
     }
 
-	$valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $Time;
-//	 if ($core_session_language != "Thai") {
-//	 	$valReturn =  $DateTime;
-//	 }
+    $valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $Time;
+    //	 if ($core_session_language != "Thai") {
+    //	 	$valReturn =  $DateTime;
+    //	 }
     return $valReturn;
 }
 
@@ -993,15 +1036,16 @@ function DateFormatInsert2($DateTime, $Hour = "00", $Minute = "00")
 
 
 //#################################################
-function DateFormatInsertTimeSp($DateTime) {
-//#################################################
+function DateFormatInsertTimeSp($DateTime)
+{
+    //#################################################
     global $core_session_language;
     if ($DateTime == "") {
         $DateTime = "00-00-0000";
-		$DateTimeSp = "";
-    }else{
-		$DateTimeSp = $DateTime;
-	}
+        $DateTimeSp = "";
+    } else {
+        $DateTimeSp = $DateTime;
+    }
 
     $Time = "00:00:00";
 
@@ -1027,21 +1071,22 @@ function DateFormatInsertTimeSp($DateTime) {
     } else {
         $dataD = "00";
     }
-	if ($DateTimeSp == "") {
-	$valReturn ="NULL";
-	}else{
-	$valReturn = "'".$dataYear . "-" . $dataM . "-" . $dataD . " " . $Time."'";
-	}
-//	 if ($core_session_language != "Thai") {
-//	 	$valReturn =  $DateTime;
-//	 }
+    if ($DateTimeSp == "") {
+        $valReturn = "NULL";
+    } else {
+        $valReturn = "'" . $dataYear . "-" . $dataM . "-" . $dataD . " " . $Time . "'";
+    }
+    //	 if ($core_session_language != "Thai") {
+    //	 	$valReturn =  $DateTime;
+    //	 }
     return $valReturn;
 }
 
 
 //#################################################
-function DateFormatInsertNoTime($DateTime) {
-//#################################################
+function DateFormatInsertNoTime($DateTime)
+{
+    //#################################################
     global $core_session_language;
     if ($DateTime == "") {
         $DateTime = "00-00-0000";
@@ -1077,8 +1122,9 @@ function DateFormatInsertNoTime($DateTime) {
 }
 
 //#################################################
-function DateFormatInsertRe($DateTime) {
-//#################################################
+function DateFormatInsertRe($DateTime)
+{
+    //#################################################
     global $core_session_language;
 
     if ($DateTime != "") {
@@ -1102,8 +1148,9 @@ function DateFormatInsertRe($DateTime) {
 }
 
 //#################################################
-function DateFormatInsertReDate($DateTime) {
-//#################################################
+function DateFormatInsertReDate($DateTime)
+{
+    //#################################################
     global $core_session_language;
 
     if ($DateTime != "") {
@@ -1118,7 +1165,7 @@ function DateFormatInsertReDate($DateTime) {
             $dataYear = $DateArr[0];
         }
 
-        $valReturnData =  $dataYear. "-" . $DateArr[1] . "-" . $DateArr[2];
+        $valReturnData =  $dataYear . "-" . $DateArr[1] . "-" . $DateArr[2];
     } else {
         $valReturnData = "";
     }
@@ -1128,9 +1175,10 @@ function DateFormatInsertReDate($DateTime) {
 
 
 //#################################################
-function encodeURL($variable) {
-//#################################################
-//-- ฟังก์ชั่นการเข้ารหัส ตัวแปรแบบ GET ผ่าน URL
+function encodeURL($variable)
+{
+    //#################################################
+    //-- ฟังก์ชั่นการเข้ารหัส ตัวแปรแบบ GET ผ่าน URL
 
     $key = "xitgmLwmp";
     $index = 0;
@@ -1153,10 +1201,11 @@ function encodeURL($variable) {
 }
 
 //#################################################
-function decodeURL($enVariable) {
-//#################################################
-//-- ฟังก์ชั่นการถอดรหัส ตัวแปรแบบ GET ผ่าน URL
-// การใช้งาน decodeURL($_SERVER["QUERY_STRING"]);
+function decodeURL($enVariable)
+{
+    //#################################################
+    //-- ฟังก์ชั่นการถอดรหัส ตัวแปรแบบ GET ผ่าน URL
+    // การใช้งาน decodeURL($_SERVER["QUERY_STRING"]);
     $key = "xitgmLwmp";
 
     $ex = explode("WP=", $enVariable);
@@ -1191,8 +1240,9 @@ function decodeURL($enVariable) {
 
 ############################################
 
-function loadNameProvince($pid) {
-############################################
+function loadNameProvince($pid)
+{
+    ############################################
     global $coreLanguageSQL;
 
     $sql_pic = "SELECT ot_pro_NAME  FROM ot_pro WHERE   ot_pro_ID 	='" . $pid . "'";
@@ -1205,8 +1255,9 @@ function loadNameProvince($pid) {
 
 ############################################
 
-function loadNameAmp($pid) {
-############################################
+function loadNameAmp($pid)
+{
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_re_amphur_name  FROM md_re_amphur WHERE   md_re_amphur_id 	='" . $pid . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1218,8 +1269,9 @@ function loadNameAmp($pid) {
 
 ############################################
 
-function loadNameDis($pid) {
-############################################
+function loadNameDis($pid)
+{
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_re_district_name  FROM md_re_district WHERE   md_re_district_id 	='" . $pid . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1231,8 +1283,9 @@ function loadNameDis($pid) {
 
 ############################################
 
-function loadNameCounty($pid) {
-############################################
+function loadNameCounty($pid)
+{
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT ot_cty_name  FROM ot_cty WHERE   ot_cty_id 	='" . $pid . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1244,8 +1297,9 @@ function loadNameCounty($pid) {
 
 ############################################
 
-function loadNameNation($pid) {
-############################################
+function loadNameNation($pid)
+{
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT ot_nat_name  FROM ot_nat WHERE   ot_nat_id 	='" . $pid . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1257,20 +1311,22 @@ function loadNameNation($pid) {
 
 ####################################################
 
-function txtReplaceDownload($data) {
-####################################################
+function txtReplaceDownload($data)
+{
+    ####################################################
     $dataHTML = str_replace(" ", "_", $data);
     return $dataHTML;
 }
 
 ####################################################
 
-function strip_tags_content($text, $tags = '', $invert = FALSE) {
-####################################################
+function strip_tags_content($text, $tags = '', $invert = FALSE)
+{
+    ####################################################
     preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
     $tags = array_unique($tags[1]);
 
-    if (is_array($tags) AND count($tags) > 0) {
+    if (is_array($tags) and count($tags) > 0) {
         if ($invert == FALSE) {
             return preg_replace('@<(?!(?:' . implode('|', $tags) . ')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
         } else {
@@ -1287,8 +1343,9 @@ function strip_tags_content($text, $tags = '', $invert = FALSE) {
 
 ############################################
 
-function loadNameCityIDservice($valCityID) { // หา ID City ของ Webservices
-############################################
+function loadNameCityIDservice($valCityID)
+{ // หา ID City ของ Webservices
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htg_cityid  FROM md_htg WHERE   md_htg_id 	='" . $valCityID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1300,8 +1357,9 @@ function loadNameCityIDservice($valCityID) { // หา ID City ของ Webserv
 
 ############################################
 
-function loadNameCityTypeServ($valCityID) { // หาประเภท City ของ Database
-############################################
+function loadNameCityTypeServ($valCityID)
+{ // หาประเภท City ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htg_typeServ  FROM md_htg WHERE   md_htg_id 	='" . $valCityID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1313,8 +1371,9 @@ function loadNameCityTypeServ($valCityID) { // หาประเภท City ข
 
 ############################################
 
-function loadNameCityIDserviceType($valCityID, $valTypeServ) { // หา ID City ของ Database
-############################################
+function loadNameCityIDserviceType($valCityID, $valTypeServ)
+{ // หา ID City ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htg_id  FROM md_htg WHERE   md_htg_cityid 	='" . $valCityID . "' AND md_htg_typeServ 	='" . $valTypeServ . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1326,8 +1385,9 @@ function loadNameCityIDserviceType($valCityID, $valTypeServ) { // หา ID City
 
 ############################################
 
-function loadNameCityName($valCityID, $valTypeServ) { // หาชื่อ City ของ Database
-############################################
+function loadNameCityName($valCityID, $valTypeServ)
+{ // หาชื่อ City ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htg_subject  FROM md_htg WHERE   md_htg_id 	='" . $valCityID . "' AND md_htg_typeServ 	='" . $valTypeServ . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1344,8 +1404,9 @@ function loadNameCityName($valCityID, $valTypeServ) { // หาชื่อ City
 
 ############################################
 
-function loadNameRegionIDservice($valRegionID) {  // หา ID Region ของ Webservices
-############################################
+function loadNameRegionIDservice($valRegionID)
+{  // หา ID Region ของ Webservices
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htr_locationid  FROM md_htr WHERE   md_htr_id 	='" . $valRegionID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1357,8 +1418,9 @@ function loadNameRegionIDservice($valRegionID) {  // หา ID Region ของ 
 
 ############################################
 
-function loadNameRegionTypeServ($valRegionID) { // หาประเภท Region ของ Database
-############################################
+function loadNameRegionTypeServ($valRegionID)
+{ // หาประเภท Region ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htr_typeServ  FROM md_htr WHERE   md_htr_id 	='" . $valRegionID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1370,8 +1432,9 @@ function loadNameRegionTypeServ($valRegionID) { // หาประเภท Regi
 
 ############################################
 
-function loadNameRegionIDserviceType($valRegionID, $valTypeServ) {  // หา ID Region ของ Database
-############################################
+function loadNameRegionIDserviceType($valRegionID, $valTypeServ)
+{  // หา ID Region ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htr_id  FROM md_htr WHERE   md_htr_locationid 	='" . $valRegionID . "' AND md_htr_typeServ 	='" . $valTypeServ . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1383,8 +1446,9 @@ function loadNameRegionIDserviceType($valRegionID, $valTypeServ) {  // หา ID
 
 ############################################
 
-function loadNameRegionName($valRegionID, $valTypeServ) { // หาชื่อ Region ของ Database
-############################################
+function loadNameRegionName($valRegionID, $valTypeServ)
+{ // หาชื่อ Region ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htr_subject  FROM md_htr WHERE   md_htr_id 	='" . $valRegionID . "' AND md_htr_typeServ 	='" . $valTypeServ . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1400,8 +1464,9 @@ function loadNameRegionName($valRegionID, $valTypeServ) { // หาชื่อ 
 
 ############################################
 
-function loadNameHotelIDservice($valHotelID) { // หา ID Hotel ของ Webservices
-############################################
+function loadNameHotelIDservice($valHotelID)
+{ // หา ID Hotel ของ Webservices
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_hts_hotelID  FROM md_hts WHERE   md_hts_id 	='" . $valHotelID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1413,8 +1478,9 @@ function loadNameHotelIDservice($valHotelID) { // หา ID Hotel ของ Webs
 
 ############################################
 
-function loadNameHotelTypeServ($valHotelID) { // หาประเภท Hotel ของ Database
-############################################
+function loadNameHotelTypeServ($valHotelID)
+{ // หาประเภท Hotel ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_hts_typeServ  FROM md_hts WHERE   md_hts_id 	='" . $valHotelID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1426,8 +1492,9 @@ function loadNameHotelTypeServ($valHotelID) { // หาประเภท Hotel 
 
 ############################################
 
-function loadNameHotelName($valHotelID, $valTypeServ) { // หาชื่อ Region ของ Database
-############################################
+function loadNameHotelName($valHotelID, $valTypeServ)
+{ // หาชื่อ Region ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_hts_subject  FROM md_hts WHERE   md_hts_id 	='" . $valHotelID . "' AND md_hts_typeServ 	='" . $valTypeServ . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1443,8 +1510,9 @@ function loadNameHotelName($valHotelID, $valTypeServ) { // หาชื่อ Re
 
 ############################################
 
-function loadNameRoomIDservice($valHotelID) { // หา ID Room ของ Webservices
-############################################
+function loadNameRoomIDservice($valHotelID)
+{ // หา ID Room ของ Webservices
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htm_roomid  FROM md_htm WHERE   md_htm_id 	='" . $valHotelID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1456,8 +1524,9 @@ function loadNameRoomIDservice($valHotelID) { // หา ID Room ของ Webser
 
 ############################################
 
-function loadNameRoomTypeServ($valRoomID) { // หาประเภท Hotel ของ Database
-############################################
+function loadNameRoomTypeServ($valRoomID)
+{ // หาประเภท Hotel ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htm_typeServ  FROM md_htm WHERE   md_htm_id 	='" . $valRoomID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1469,8 +1538,9 @@ function loadNameRoomTypeServ($valRoomID) { // หาประเภท Hotel �
 
 ############################################
 
-function loadNameRoomName($valRoomID, $valTypeServ) { // หาชื่อ Region ของ Database
-############################################
+function loadNameRoomName($valRoomID, $valTypeServ)
+{ // หาชื่อ Region ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT md_htm_subject  FROM md_htm WHERE   md_htm_id 	='" . $valRoomID . "' AND md_htm_typeServ 	='" . $valTypeServ . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1484,8 +1554,9 @@ function loadNameRoomName($valRoomID, $valTypeServ) { // หาชื่อ Regi
 
 ############################################
 
-function checkValueContantBank($valContantData) { // หาชื่อ Region ของ Database
-############################################
+function checkValueContantBank($valContantData)
+{ // หาชื่อ Region ของ Database
+    ############################################
     if (trim($valContantData) == "") {
         $valReturnValue = "-";
     } else {
@@ -1497,8 +1568,9 @@ function checkValueContantBank($valContantData) { // หาชื่อ Region �
 
 ############################################
 
-function checkValueDateBank($valContantData) { // หาชื่อ Region ของ Database
-############################################
+function checkValueDateBank($valContantData)
+{ // หาชื่อ Region ของ Database
+    ############################################
     if (trim($valContantData) == "0000-00-00 00:00:00" || $valContantData == "") {
         $valReturnValue = "-";
     } else {
@@ -1509,10 +1581,11 @@ function checkValueDateBank($valContantData) { // หาชื่อ Region ข�
 }
 
 //#################################################
-function DateDiff($strDate1, $strDate2) {
-//#################################################
+function DateDiff($strDate1, $strDate2)
+{
+    //#################################################
 
-    $Date = (strtotime($strDate2) - strtotime($strDate1)) / ( 60 * 60 * 24 );  // 1 day = 60*60*24
+    $Date = (strtotime($strDate2) - strtotime($strDate1)) / (60 * 60 * 24);  // 1 day = 60*60*24
     return $Date;
 }
 
@@ -1536,25 +1609,27 @@ $thai_month_arr = array(
     "12" => "ธันวาคม"
 );
 
-function thai_date($time) {
+function thai_date($time)
+{
     global $thai_day_arr, $thai_month_arr;
     $time = strtotime($time);
     $thai_date_return = "" . $thai_day_arr[date("w", $time)];
-    $thai_date_return.= " " . date("d", $time);
-    $thai_date_return.=" " . $thai_month_arr[date("n", $time)];
-    $thai_date_return.= " " . (date("Yํ", $time) + 543);
+    $thai_date_return .= " " . date("d", $time);
+    $thai_date_return .= " " . $thai_month_arr[date("n", $time)];
+    $thai_date_return .= " " . (date("Yํ", $time) + 543);
     //$thai_date_return.= "  ".date("H:i",$time)." น.";
     return $thai_date_return;
 }
 
-function thai_dateShort($time) {
+function thai_dateShort($time)
+{
     global $thai_day_arr, $thai_month_arr;
     $time = strtotime($time);
     // $thai_date_return="".$thai_day_arr[date("w",$time)];
-    $thai_date_return="";
-    $thai_date_return.= " " . date("d", $time);
-    $thai_date_return.=" " . $thai_month_arr[date("n", $time)];
-    $thai_date_return.= " " . (date("Yํ", $time) + 543);
+    $thai_date_return = "";
+    $thai_date_return .= " " . date("d", $time);
+    $thai_date_return .= " " . $thai_month_arr[date("n", $time)];
+    $thai_date_return .= " " . (date("Yํ", $time) + 543);
     //$thai_date_return.= "  ".date("H:i",$time)." น.";
     return $thai_date_return;
 }
@@ -1563,7 +1638,8 @@ function thai_dateShort($time) {
 
 /* ############################################### */
 
-function loadSendEmailTo($mailTo, $mailFrom, $subjectMail, $messageMail, $typeMail) {
+function loadSendEmailTo($mailTo, $mailFrom, $subjectMail, $messageMail, $typeMail)
+{
     /* ############################################### */
     if ($typeMail == 1) {
         $subject = "=?utf-8?B?" . base64_encode($subjectMail) . "?=";
@@ -1609,8 +1685,9 @@ function loadSendEmailTo($mailTo, $mailFrom, $subjectMail, $messageMail, $typeMa
 ############################################
 ############################################
 
-function dateCalAddDay($valDate, $valAdd) { // หาชื่อ Room ของ Database
-############################################
+function dateCalAddDay($valDate, $valAdd)
+{ // หาชื่อ Room ของ Database
+    ############################################
     $valRealDayStrtime = strtotime($valDate);
     $valRealReturn = thai_dateShort(date("Y-m-d", strtotime($valAdd . ' day', $valRealDayStrtime)));
 
@@ -1619,78 +1696,105 @@ function dateCalAddDay($valDate, $valAdd) { // หาชื่อ Room ของ
 
 ####################################################
 
-function ShowDateShortTh($myDate) {
-####################################################
+function ShowDateShortTh($myDate)
+{
+    ####################################################
     $myDateArray = explode("-", $myDate);
     $myDay = sprintf("%d", $myDateArray[2]);
     switch ($myDateArray[1]) {
-        case "01" : $myMonth = "มกราคม";
+        case "01":
+            $myMonth = "มกราคม";
             break;
-        case "02" : $myMonth = "กุมภาพันธ์";
+        case "02":
+            $myMonth = "กุมภาพันธ์";
             break;
-        case "03" : $myMonth = "มีนาคม";
+        case "03":
+            $myMonth = "มีนาคม";
             break;
-        case "04" : $myMonth = "เมษายน";
+        case "04":
+            $myMonth = "เมษายน";
             break;
-        case "05" : $myMonth = "พฤษภาคม";
+        case "05":
+            $myMonth = "พฤษภาคม";
             break;
-        case "06" : $myMonth = "มิถุนายน";
+        case "06":
+            $myMonth = "มิถุนายน";
             break;
-        case "07" : $myMonth = "กรกฎาคม";
+        case "07":
+            $myMonth = "กรกฎาคม";
             break;
-        case "08" : $myMonth = "สิงหาคม";
+        case "08":
+            $myMonth = "สิงหาคม";
             break;
-        case "09" : $myMonth = "กันยายน";
+        case "09":
+            $myMonth = "กันยายน";
             break;
-        case "10" : $myMonth = "ตุลาคม";
+        case "10":
+            $myMonth = "ตุลาคม";
             break;
-        case "11" : $myMonth = "พฤศจิกายน";
+        case "11":
+            $myMonth = "พฤศจิกายน";
             break;
-        case "12" : $myMonth = "ธันวาคม";
+        case "12":
+            $myMonth = "ธันวาคม";
             break;
     }
     $myYear = sprintf("%d", $myDateArray[0]) + 543;
-    return($myDay . " " . $myMonth . " " . $myYear);
+    return ($myDay . " " . $myMonth . " " . $myYear);
 }
 
-function ShowTh2($myDate) {
-####################################################
+function ShowTh2($myDate)
+{
+    ####################################################
     $myDateArray = explode("-", $myDate);
     $myDay = sprintf("%d", $myDateArray[2]);
     switch ($myDateArray[1]) {
-        case "01" : $myMonth = "ม.ค.";
+        case "01":
+            $myMonth = "ม.ค.";
             break;
-        case "02" : $myMonth = "ก.พ.";
+        case "02":
+            $myMonth = "ก.พ.";
             break;
-        case "03" : $myMonth = "มี.ค.";
+        case "03":
+            $myMonth = "มี.ค.";
             break;
-        case "04" : $myMonth = "เม.ย.";
+        case "04":
+            $myMonth = "เม.ย.";
             break;
-        case "05" : $myMonth = "พ.ค.";
+        case "05":
+            $myMonth = "พ.ค.";
             break;
-        case "06" : $myMonth = "มิ.ย.";
+        case "06":
+            $myMonth = "มิ.ย.";
             break;
-        case "07" : $myMonth = "ก.ค.";
+        case "07":
+            $myMonth = "ก.ค.";
             break;
-        case "08" : $myMonth = "ส.ค.";
+        case "08":
+            $myMonth = "ส.ค.";
             break;
-        case "09" : $myMonth = "ก.ย.";
+        case "09":
+            $myMonth = "ก.ย.";
             break;
-        case "10" : $myMonth = "ต.ค.";
+        case "10":
+            $myMonth = "ต.ค.";
             break;
-        case "11" : $myMonth = "พ.ย.";
+        case "11":
+            $myMonth = "พ.ย.";
             break;
-        case "12" : $myMonth = "ธ.ค.";
+        case "12":
+            $myMonth = "ธ.ค.";
             break;
     }
     $myYear = sprintf("%d", $myDateArray[0]) + 543;
-    return($myDay . " " . $myMonth . " " . $myYear);
+    return ($myDay . " " . $myMonth . " " . $myYear);
 }
 
 ############################################
 
-function getMasterIDRegister($masterkey, $valPath) { // หาชื่อ Room ของ Database
-############################################
+function getMasterIDRegister($masterkey, $valPath)
+{ // หาชื่อ Room ของ Database
+    ############################################
     global $coreLanguageSQL;
     $sql_pic = "SELECT sy_mnu_id  FROM sy_mnu WHERE   sy_mnu_masterkey 	='" . $masterkey . "' AND sy_mnu_linkpath 	 	='" . $valPath . "'";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
@@ -1702,9 +1806,10 @@ function getMasterIDRegister($masterkey, $valPath) { // หาชื่อ Room 
 
 ############################################
 
-function getMasterEmailRegister($valMemID) { // หาชื่อ Room ของ Database
-############################################
-global $coreLanguageSQL;
+function getMasterEmailRegister($valMemID)
+{ // หาชื่อ Room ของ Database
+    ############################################
+    global $coreLanguageSQL;
     $sql_pic = "SELECT md_mem_email  FROM md_mem WHERE   md_mem_id	='" . $valMemID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
     $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
@@ -1715,9 +1820,10 @@ global $coreLanguageSQL;
 
 ############################################
 
-function getReportTestID($valTestID) { // หาชื่อ Room ของ Database
-############################################
-global $coreLanguageSQL;
+function getReportTestID($valTestID)
+{ // หาชื่อ Room ของ Database
+    ############################################
+    global $coreLanguageSQL;
     $sql_pic = "SELECT md_prd_reportid  FROM md_prd WHERE   md_prd_id	='" . $valTestID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
     $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
@@ -1728,30 +1834,31 @@ global $coreLanguageSQL;
 
 ############################################
 
-function thainumDigit($valNum) {
-############################################
+function thainumDigit($valNum)
+{
+    ############################################
     $valChgNumber = str_replace(array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), array("o", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"), $valNum);
 
     return $valChgNumber;
-}
-
-;
+};
 
 ####################################################
 
-function ShowTimeShortTh($myDate) {
-####################################################
+function ShowTimeShortTh($myDate)
+{
+    ####################################################
     $myDateArray = explode(" ", $myDate);
     $myDateArray = explode(":", $myDateArray[1]);
     $myReturn = $myDateArray[0] . ":" . $myDateArray[1];
-    return($myReturn);
+    return ($myReturn);
 }
 
 ############################################
 
-function getProblemUnitName($id) { // หาชื่อ Room ของ Database
-############################################
-global $coreLanguageSQL;
+function getProblemUnitName($id)
+{ // หาชื่อ Room ของ Database
+    ############################################
+    global $coreLanguageSQL;
     $sql_pic = "SELECT sy_unt_subject  FROM sy_unt WHERE   sy_unt_id	='" . $id . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
     $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
@@ -1765,9 +1872,10 @@ global $coreLanguageSQL;
 
 ############################################
 
-function getProblemPartName($id) { // หาชื่อ Room ของ Database
-############################################
-global $coreLanguageSQL;
+function getProblemPartName($id)
+{ // หาชื่อ Room ของ Database
+    ############################################
+    global $coreLanguageSQL;
     $sql_pic = "SELECT sy_pat_subject  FROM sy_pat WHERE   sy_pat_id	='" . $id . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
     $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
@@ -1781,9 +1889,10 @@ global $coreLanguageSQL;
 
 ############################################
 
-function getMasterEmailUser($valMemID) { // หาชื่อ Room ของ Database
-############################################
-global $coreLanguageSQL;
+function getMasterEmailUser($valMemID)
+{ // หาชื่อ Room ของ Database
+    ############################################
+    global $coreLanguageSQL;
     $sql_pic = "SELECT sy_stf_email  FROM sy_stf WHERE   sy_stf_id	='" . $valMemID . "' ";
     $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
     $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
@@ -1794,8 +1903,9 @@ global $coreLanguageSQL;
 
 ############################################
 
-function dateDiv($t1, $t2) { // ส่งวันที่ที่ต้องการเปรียบเทียบ ในรูปแบบ มาตรฐาน 2006-03-27 21:39:12
-############################################
+function dateDiv($t1, $t2)
+{ // ส่งวันที่ที่ต้องการเปรียบเทียบ ในรูปแบบ มาตรฐาน 2006-03-27 21:39:12
+    ############################################
     $t1Arr = splitTime($t1);
     $t2Arr = splitTime($t2);
 
@@ -1818,8 +1928,9 @@ function dateDiv($t1, $t2) { // ส่งวันที่ที่ต้อง
 
 ############################################
 
-function dateDivMin($t1, $t2) { // ส่งวันที่ที่ต้องการเปรียบเทียบ ในรูปแบบ มาตรฐาน 2006-03-27 21:39:12
-############################################
+function dateDivMin($t1, $t2)
+{ // ส่งวันที่ที่ต้องการเปรียบเทียบ ในรูปแบบ มาตรฐาน 2006-03-27 21:39:12
+    ############################################
     $t1Arr = splitTime($t1);
     $t2Arr = splitTime($t2);
 
@@ -1842,8 +1953,9 @@ function dateDivMin($t1, $t2) { // ส่งวันที่ที่ต้อ
 
 ############################################
 
-function splitTime($time) { // เวลาในรูปแบบ มาตรฐาน 2006-03-27 21:39:12
-############################################
+function splitTime($time)
+{ // เวลาในรูปแบบ มาตรฐาน 2006-03-27 21:39:12
+    ############################################
     $timeArr["Y"] = substr($time, 2, 2);
     $timeArr["M"] = substr($time, 5, 2);
     $timeArr["D"] = substr($time, 8, 2);
@@ -1856,8 +1968,9 @@ function splitTime($time) { // เวลาในรูปแบบ มาตร
 
 ############################################
 
-function getUserPositionNameThai($myUserID) {
-############################################
+function getUserPositionNameThai($myUserID)
+{
+    ############################################
     global $core_db_name, $core_tb_staff, $coreLanguageSQL;
 
     $sql = "SELECT " . $core_tb_staff . "_position  FROM " . $core_tb_staff . " WHERE " . $core_tb_staff . "_id='" . $myUserID . "'";
@@ -1867,13 +1980,14 @@ function getUserPositionNameThai($myUserID) {
         $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
         $name_return = $Row[0];
     }
-    return($name_return);
+    return ($name_return);
 }
 
 ############################################
 
-function getFileDirect($myMenuID) {
-############################################
+function getFileDirect($myMenuID)
+{
+    ############################################
     global $core_db_name, $core_tb_menu, $coreLanguageSQL;
 
     $sql = "SELECT " . $core_tb_menu . "_linkpath  FROM " . $core_tb_menu . " WHERE " . $core_tb_menu . "_id='" . $myMenuID . "'";
@@ -1886,16 +2000,17 @@ function getFileDirect($myMenuID) {
         $txtPathMod = $txt_menu_modType[1];
         $txtPathModFile = $txt_menu_modType[2];
     }
-    return($txtPathModFile);
+    return ($txtPathModFile);
 }
 
 ############################################
-function loadNameMain($mid) {
-############################################
-global $coreLanguageSQL;
+function loadNameMain($mid)
+{
+    ############################################
+    global $coreLanguageSQL;
     $sql_pic = "SELECT md_mem_fname, md_mem_lname FROM md_mem WHERE   md_mem_id 	='" . $mid . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL,$sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL,$query_pic);
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
     $txt_pic_funtion = $row_pic[0] . " " . $row_pic[1];
 
     return $txt_pic_funtion;
@@ -1903,32 +2018,35 @@ global $coreLanguageSQL;
 
 ########################################
 
-function print_pre($array) {
+function print_pre($array)
+{
     echo "<pre class='printPRE'>";
     echo "<textarea>";
 
     print_r($array);
 
     echo "</textarea>";
-      echo "</pre>";
+    echo "</pre>";
     echo "<style>.printPRE{ z-index:1000; position: relative;background: #000;color: red;}</style>";
 }
 
 
 //#################################################
-function ranDomStr($length,$id){
-//#################################################
-	$str2ran = $id.'abcdefghijklmnpqrstuvwxyz123456789';
-	$str_result = "";
-	while(strlen($str_result)<$length){
-			$str_result .= substr($str2ran,(rand()%strlen($str2ran)),1);
-	}
-	return($str_result);
+function ranDomStr($length, $id)
+{
+    //#################################################
+    $str2ran = $id . 'abcdefghijklmnpqrstuvwxyz123456789';
+    $str_result = "";
+    while (strlen($str_result) < $length) {
+        $str_result .= substr($str2ran, (rand() % strlen($str2ran)), 1);
+    }
+    return ($str_result);
 }
 
 //#################################################
-function generateRandomString($length = 3) {
-//#################################################
+function generateRandomString($length = 3)
+{
+    //#################################################
     $characters = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -1939,24 +2057,26 @@ function generateRandomString($length = 3) {
 }
 
 ############################################
-function loadNameOtherMem($mid) {
-############################################
-global $coreLanguageSQL;
+function loadNameOtherMem($mid)
+{
+    ############################################
+    global $coreLanguageSQL;
     $sql_pic = "SELECT md_meo_subject FROM md_meo WHERE   md_meo_id 	='" . $mid . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL,$sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL,$query_pic);
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
     $txt_pic_funtion = $row_pic[0];
 
     return $txt_pic_funtion;
 }
 
 
-function checkpageText($modLang) {
+function checkpageText($modLang)
+{
     $page = basename($_SERVER['PHP_SELF']);
-  //  print_pre($page);
+    //  print_pre($page);
     switch ($page) {
 
-## contant ##
+            ## contant ##
         case 'loadAddContant.php':
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
 
@@ -1969,7 +2089,7 @@ function checkpageText($modLang) {
             break;
 
 
-## group ##
+            ## group ##
 
         case 'loadAddGroup.php':
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
@@ -1985,7 +2105,7 @@ function checkpageText($modLang) {
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("ข้อมูล", "ข้อมูล"));
             break;
 
-## set ##
+            ## set ##
 
         case 'loadAddSet.php':
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
@@ -2000,7 +2120,7 @@ function checkpageText($modLang) {
             break;
 
 
-## ob ##
+            ## ob ##
 
         case 'loadAddOb.php':
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
@@ -2014,7 +2134,7 @@ function checkpageText($modLang) {
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("ข้อมูล", "ข้อมูล"));
             break;
 
-## mem ##
+            ## mem ##
 
         case 'loadAddMem.php':
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
@@ -2028,19 +2148,19 @@ function checkpageText($modLang) {
             return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("ข้อมูล", "ข้อมูล"));
             break;
 
-  ## Task ##
+            ## Task ##
 
-          case 'loadAddTask.php':
-              return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
-              break;
+        case 'loadAddTask.php':
+            return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
+            break;
 
-          case 'loadEditTask.php':
-              return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
-              break;
+        case 'loadEditTask.php':
+            return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("กรุณากรอก", "กรุณาเลือก"));
+            break;
 
-          case 'viewTask.php':
-              return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("ข้อมูล", "ข้อมูล"));
-              break;
+        case 'viewTask.php':
+            return rePTxt($modLang, array("ข้อมูล", "โปรดป้อน"), "De", array("ข้อมูล", "ข้อมูล"));
+            break;
 
 
         default:
@@ -2049,7 +2169,8 @@ function checkpageText($modLang) {
     }
 }
 
-function rePTxt($txt, $txtChange, $type = null, $txtTo) {
+function rePTxt($txt, $txtChange, $type = null, $txtTo = array())
+{
     // edit at 27-02-2018 ereg_ -> str_
     $listChang = array("รูปภาพ", "ไฟล์", "วีดีโอ");
     $txtCheck = "^(" . implode("|", $txtChange) . ")";
@@ -2070,8 +2191,8 @@ function rePTxt($txt, $txtChange, $type = null, $txtTo) {
 
                 $checkTxtSame = array();
                 foreach ($txtChange as  $valueNew) {
-                    $txt = str_replace("^".$valueNew.$valueNew, $valueNew, $txt);
-                     $txt = str_replace("^".$valueNew." ", $valueNew, $txt);
+                    $txt = str_replace("^" . $valueNew . $valueNew, $valueNew, $txt);
+                    $txt = str_replace("^" . $valueNew . " ", $valueNew, $txt);
                 }
 
 
@@ -2087,7 +2208,8 @@ function rePTxt($txt, $txtChange, $type = null, $txtTo) {
 }
 
 
-function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate") {
+function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
+{
     if (!empty($dbname)) {
         //   $sqlReturn = " and (( " . $dbname . "." . $dbname . "_sdate <= Now() and " . $dbname . "." . $dbname . "_edate >= Now() ) ";
         //   $sqlReturn .= " or ( " . $dbname . "." . $dbname . "_sdate Is Null and " . $dbname . "." . $dbname . "_edate Is Null )) ";
@@ -2106,26 +2228,28 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate") {
 }
 
 
-function checkdateexpire($date) {
+function checkdateexpire($date)
+{
     //print_pre($date);
-if(!empty($date) && $date != "0000-00-00 00:00:00"){
-    $startdate = $date;
-    $expire = strtotime($startdate);
-    $today = strtotime("today midnight");
+    if (!empty($date) && $date != "0000-00-00 00:00:00") {
+        $startdate = $date;
+        $expire = strtotime($startdate);
+        $today = strtotime("today midnight");
 
-    if ($today >= $expire) {
-        return "expire";
+        if ($today >= $expire) {
+            return "expire";
+        } else {
+            return "active";
+        }
     } else {
         return "active";
     }
-} else {
-     return "active";
-}
 
     //return $date;
 }
 
-function getip() {
+function getip()
+{
 
     $ip = false;
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -2145,7 +2269,7 @@ function getip() {
                         break;
                     }
                 } else {
-                    if (ip2long($ips[$i]) != - 1) {
+                    if (ip2long($ips[$i]) != -1) {
                         $ip = $ips[$i];
                         break;
                     }
@@ -2155,293 +2279,311 @@ function getip() {
     }
     return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
 }
-function randomNameUpdate($valType=null) {
-    if($valType==1){
-        $valRandomName =date('Ydm')."".time() . rand(111111111,999999999);
-   }else if($valType==3){
-        $valRandomName = rand(111111111,999999999);
-    }else{
-        $valRandomName =date('Ydm')."".time() . rand(111111111,999999999);
+function randomNameUpdate($valType = null)
+{
+    if ($valType == 1) {
+        $valRandomName = date('Ydm') . "" . time() . rand(111111111, 999999999);
+    } else if ($valType == 3) {
+        $valRandomName = rand(111111111, 999999999);
+    } else {
+        $valRandomName = date('Ydm') . "" . time() . rand(111111111, 999999999);
     }
     return $valRandomName;
 }
 
 
-function getSqlFieldLang($valLangMain) {
+function getSqlFieldLang($valLangMain)
+{
 
-	if($valLangMain=="Thai"){
-		$valSqlField="";
-	}else{
-		$valSqlField="en";
-	}
-   return $valSqlField;
+    if ($valLangMain == "Thai") {
+        $valSqlField = "";
+    } else {
+        $valSqlField = "en";
+    }
+    return $valSqlField;
 }
 
 ############################################
-function loadMenuSiteFolder($valMenuID){ // หาประเภท Hotel ของ Database
+function loadMenuSiteFolder($valMenuID)
+{ // หาประเภท Hotel ของ Database
     ############################################
-        global $coreLanguageSQL;
-            $sql_pic="SELECT md_mit_urlminisite  FROM md_mit WHERE   md_mit_memid 	='".$valMenuID."' ";
-            $query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-            $row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-            $txt_pic_funtion=rechangeQuot($row_pic[0]);
+    global $coreLanguageSQL;
+    $sql_pic = "SELECT md_mit_urlminisite  FROM md_mit WHERE   md_mit_memid 	='" . $valMenuID . "' ";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_pic_funtion = rechangeQuot($row_pic[0]);
 
-            return $txt_pic_funtion;
-    }
+    return $txt_pic_funtion;
+}
 ############################################
-function loadGetURLMinisiteByMod($valTypeUrl,$valWebsite,$valMenuID,$valLang,$valFolder,$valID){ // หา ID Hotel ของ Webservices
+function loadGetURLMinisiteByMod($valTypeUrl, $valWebsite, $valMenuID, $valLang, $valFolder, $valID)
+{ // หา ID Hotel ของ Webservices
     ############################################
-            $valMinisite=loadMenuSiteFolder($valMenuID);
-            if($valTypeUrl==1){
-                if($valID==""){
-                    //$valWebsiteReturn =$valWebsite."/".$valMinisite."/".$valLang."/".$valFolder;
-                    $valWebsiteReturn =$valMinisite."/".$valLang."/".$valFolder;
-                }else{
-                    //$valWebsiteReturn =$valWebsite."/".$valMinisite."/".$valLang."/".$valFolder."/".$valID;
-                    $valWebsiteReturn =$valMinisite."/".$valLang."/".$valFolder."/".$valID;
-                }
-            }else{
-                $valWebsiteArray =explode("://", $valWebsite);
-                if($valID==""){
-                    $valWebsiteReturn =$valWebsiteArray[0]."://".$valWebsiteArray[1]."/".$valMinisite."/".$valLang."/".$valFolder;
-                }else{
-                    $valWebsiteReturn =$valWebsiteArray[0]."://".$valWebsiteArray[1]."/".$valMinisite."/".$valLang."/".$valFolder."/".$valID;
-                }
-            }
-
-            return $valWebsiteReturn;
-    }
-
-
-###########################################
-function loadGetURLByMod($valWebsite,$valLang,$valFolder,$valID,$valGID=null){ // หา ID Hotel ของ Webservices
-    ############################################
-    $valWebsiteArray =explode("://", $valWebsite);
-    if($valID==""){
-        $valWebsiteReturn =$valWebsiteArray[0]."://".$valWebsiteArray[1]."/".$valLang."/".$valFolder;
-    }elseif(!empty($valGID)){
-        $valWebsiteReturn =$valWebsiteArray[0]."://".$valWebsiteArray[1]."/".$valLang."/".$valFolder."/".$valGID."/".$valID;
-    }else {
-        $valWebsiteReturn =$valWebsiteArray[0]."://".$valWebsiteArray[1]."/".$valLang."/".$valFolder."/".$valID;
+    $valMinisite = loadMenuSiteFolder($valMenuID);
+    if ($valTypeUrl == 1) {
+        if ($valID == "") {
+            //$valWebsiteReturn =$valWebsite."/".$valMinisite."/".$valLang."/".$valFolder;
+            $valWebsiteReturn = $valMinisite . "/" . $valLang . "/" . $valFolder;
+        } else {
+            //$valWebsiteReturn =$valWebsite."/".$valMinisite."/".$valLang."/".$valFolder."/".$valID;
+            $valWebsiteReturn = $valMinisite . "/" . $valLang . "/" . $valFolder . "/" . $valID;
+        }
+    } else {
+        $valWebsiteArray = explode("://", $valWebsite);
+        if ($valID == "") {
+            $valWebsiteReturn = $valWebsiteArray[0] . "://" . $valWebsiteArray[1] . "/" . $valMinisite . "/" . $valLang . "/" . $valFolder;
+        } else {
+            $valWebsiteReturn = $valWebsiteArray[0] . "://" . $valWebsiteArray[1] . "/" . $valMinisite . "/" . $valLang . "/" . $valFolder . "/" . $valID;
+        }
     }
 
     return $valWebsiteReturn;
+}
+
+
+###########################################
+function loadGetURLByMod($valWebsite, $valLang, $valFolder, $valID, $valGID = null)
+{ // หา ID Hotel ของ Webservices
+    ############################################
+    $valWebsiteArray = explode("://", $valWebsite);
+    if ($valID == "") {
+        $valWebsiteReturn = $valWebsiteArray[0] . "://" . $valWebsiteArray[1] . "/" . $valLang . "/" . $valFolder;
+    } elseif (!empty($valGID)) {
+        $valWebsiteReturn = $valWebsiteArray[0] . "://" . $valWebsiteArray[1] . "/" . $valLang . "/" . $valFolder . "/" . $valGID . "/" . $valID;
+    } else {
+        $valWebsiteReturn = $valWebsiteArray[0] . "://" . $valWebsiteArray[1] . "/" . $valLang . "/" . $valFolder . "/" . $valID;
     }
+
+    return $valWebsiteReturn;
+}
 
 
 
 
 ############################################
-function loadGetURLMinisiteByType($valTypeUrl,$valMinisite,$valWebsite){ // หา ID Hotel ของ Webservices
+function loadGetURLMinisiteByType($valTypeUrl, $valMinisite, $valWebsite)
+{ // หา ID Hotel ของ Webservices
     ############################################
-            if($valTypeUrl==1){
-                $valWebsiteReturn =$valWebsite."/".$valMinisite."/th";
-            }else{
-                $valWebsiteArray =explode("://", $valWebsite);
-                $valWebsiteReturn =$valWebsiteArray[0]."://".$valMinisite.".".$valWebsiteArray[1];
-            }
-
-            return $valWebsiteReturn;
+    if ($valTypeUrl == 1) {
+        $valWebsiteReturn = $valWebsite . "/" . $valMinisite . "/th";
+    } else {
+        $valWebsiteArray = explode("://", $valWebsite);
+        $valWebsiteReturn = $valWebsiteArray[0] . "://" . $valMinisite . "." . $valWebsiteArray[1];
     }
+
+    return $valWebsiteReturn;
+}
 
 
 
 ##################### Start Minisite #######################################
 
 ############################################
-function fulldelete($location) {
+function fulldelete($location)
+{
     ############################################
-        if (is_dir($location)) {
-            $currdir = opendir($location);
-            while ($file = readdir($currdir)) {
-                if ($file  <> ".." && $file  <> ".") {
-                    $fullfile = $location."/".$file;
-                    if (is_dir($fullfile)) {
-                        if (!fulldelete($fullfile)) {
-                            return false;
-                        }
-                    } else {
-                        if (!unlink($fullfile)) {
-                            return false;
-                        }
+    if (is_dir($location)) {
+        $currdir = opendir($location);
+        while ($file = readdir($currdir)) {
+            if ($file  <> ".." && $file  <> ".") {
+                $fullfile = $location . "/" . $file;
+                if (is_dir($fullfile)) {
+                    if (!fulldelete($fullfile)) {
+                        return false;
+                    }
+                } else {
+                    if (!unlink($fullfile)) {
+                        return false;
                     }
                 }
             }
-            closedir($currdir);
-            if (! rmdir($location)) {
-                return false;
-            }
-        } else {
-            if (!unlink($location)) {
-                return false;
-            }
         }
-        return true;
+        closedir($currdir);
+        if (!rmdir($location)) {
+            return false;
+        }
+    } else {
+        if (!unlink($location)) {
+            return false;
+        }
     }
+    return true;
+}
 
 ############################################
-function loadMenuSiteUnit($valMenuID){ // หาประเภท Hotel ของ Database
+function loadMenuSiteUnit($valMenuID)
+{ // หาประเภท Hotel ของ Database
     ############################################
-        global $coreLanguageSQL,$core_tb_staff;
-        $valUserID=$valMenuID;
-        $sqlStf="SELECT ".$core_tb_staff."_typeusermini  FROM ".$core_tb_staff." WHERE   ".$core_tb_staff."_id 	='".$valUserID."' ";
-        $queryStf=wewebQueryDB($coreLanguageSQL,$sqlStf);
-        $rowStf=wewebFetchArrayDB($coreLanguageSQL,$queryStf);
-        $valStfTypeUserMini=rechangeQuot($rowStf[0]);
-        if($valStfTypeUserMini>=1){
-            $valMenuID=$valStfTypeUserMini;
-        }else{
-            $valMenuID=$valMenuID;
-        }
-            $sql_pic="SELECT md_mit_id  FROM md_mit WHERE   md_mit_memid 	='".$valMenuID."' ";
-            $query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-            $row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-            $txt_pic_funtion=rechangeQuot($row_pic[0]);
-
-            return $txt_pic_funtion;
+    global $coreLanguageSQL, $core_tb_staff;
+    $valUserID = $valMenuID;
+    $sqlStf = "SELECT " . $core_tb_staff . "_typeusermini  FROM " . $core_tb_staff . " WHERE   " . $core_tb_staff . "_id 	='" . $valUserID . "' ";
+    $queryStf = wewebQueryDB($coreLanguageSQL, $sqlStf);
+    $rowStf = wewebFetchArrayDB($coreLanguageSQL, $queryStf);
+    $valStfTypeUserMini = rechangeQuot($rowStf[0]);
+    if ($valStfTypeUserMini >= 1) {
+        $valMenuID = $valStfTypeUserMini;
+    } else {
+        $valMenuID = $valMenuID;
     }
+    $sql_pic = "SELECT md_mit_id  FROM md_mit WHERE   md_mit_memid 	='" . $valMenuID . "' ";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_pic_funtion = rechangeQuot($row_pic[0]);
 
-    ############################################
-function loadMasterKeySite($valUserID,$valKey){ // หาประเภท Hotel ของ Database
-    ############################################
-        global $core_tb_staff,$coreLanguageSQL;
-        $sqlStf="SELECT ".$core_tb_staff."_typeusermini  FROM ".$core_tb_staff." WHERE   ".$core_tb_staff."_id 	='".$valUserID."' ";
-        $queryStf=wewebQueryDB($coreLanguageSQL,$sqlStf);
-        $rowStf=wewebFetchArrayDB($coreLanguageSQL,$queryStf);
-        $valStfTypeUserMini=rechangeQuot($rowStf[0]);
-        if($valStfTypeUserMini>=1){
-            $masterkey= str_replace(''.$valStfTypeUserMini.'', '', $valKey);
-            $masterkey=$valStfTypeUserMini.$masterkey;
-        }else{
-            $masterkey= str_replace(''.$valUserID.'', '', $valKey);
-            $masterkey=$valUserID.$masterkey;
-        }
-
-            return $masterkey;
-    }
-
-    ############################################
-function loadMasterMemSite($valSiteID,$valKey){ // หาประเภท Hotel ของ Database
-    ############################################
-        global $mod_tb_root,$coreLanguageSQL;
-        $sqlStf="SELECT ".$mod_tb_root."_memid  FROM ".$mod_tb_root." WHERE   ".$mod_tb_root."_id 	='".$valSiteID."'  Limit 0,1  ";
-        $queryStf=wewebQueryDB($coreLanguageSQL,$sqlStf);
-        $rowStf=wewebFetchArrayDB($coreLanguageSQL,$queryStf);
-        $valStfTypeUserMini=rechangeQuot($rowStf[0]);
-         $masterkey=loadMasterKeySite($valStfTypeUserMini,$valKey);
-
-            return $masterkey;
-    }
+    return $txt_pic_funtion;
+}
 
 ############################################
-function loadMiniUserIDSite($valUserID){ // หาประเภท Hotel ของ Database
+function loadMasterKeySite($valUserID, $valKey)
+{ // หาประเภท Hotel ของ Database
     ############################################
-        global $core_tb_staff,$coreLanguageSQL;
-        $sqlStf="SELECT ".$core_tb_staff."_typeusermini  FROM ".$core_tb_staff." WHERE   ".$core_tb_staff."_id 	='".$valUserID."' ";
-        $queryStf=wewebQueryDB($coreLanguageSQL,$sqlStf);
-        $rowStf=wewebFetchArrayDB($coreLanguageSQL,$queryStf);
-        $valStfTypeUserMini=rechangeQuot($rowStf[0]);
-        if($valStfTypeUserMini>=1){
-            $valMenuID=$valStfTypeUserMini;
-        }else{
-            $valMenuID=$valUserID;
-        }
-
-            return $valMenuID;
+    global $core_tb_staff, $coreLanguageSQL;
+    $sqlStf = "SELECT " . $core_tb_staff . "_typeusermini  FROM " . $core_tb_staff . " WHERE   " . $core_tb_staff . "_id 	='" . $valUserID . "' ";
+    $queryStf = wewebQueryDB($coreLanguageSQL, $sqlStf);
+    $rowStf = wewebFetchArrayDB($coreLanguageSQL, $queryStf);
+    $valStfTypeUserMini = rechangeQuot($rowStf[0]);
+    if ($valStfTypeUserMini >= 1) {
+        $masterkey = str_replace('' . $valStfTypeUserMini . '', '', $valKey);
+        $masterkey = $valStfTypeUserMini . $masterkey;
+    } else {
+        $masterkey = str_replace('' . $valUserID . '', '', $valKey);
+        $masterkey = $valUserID . $masterkey;
     }
 
-    ############################################
-function loadGetMenuNameHome($valContantID,$valTable,$valTableField){ // หา ID Hotel ของ Webservices
-    ############################################
-        global $coreLanguageSQL;
-            $sql_pic="SELECT ".$valTableField."  FROM ".$valTable." WHERE   ".$valTable."_id 	='".$valContantID."' ";
-            $query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-            $row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-            $txt_pic_funtion=rechangeQuot($row_pic[0]);
+    return $masterkey;
+}
 
-            return $txt_pic_funtion;
+############################################
+function loadMasterMemSite($valSiteID, $valKey)
+{ // หาประเภท Hotel ของ Database
+    ############################################
+    global $mod_tb_root, $coreLanguageSQL;
+    $sqlStf = "SELECT " . $mod_tb_root . "_memid  FROM " . $mod_tb_root . " WHERE   " . $mod_tb_root . "_id 	='" . $valSiteID . "'  Limit 0,1  ";
+    $queryStf = wewebQueryDB($coreLanguageSQL, $sqlStf);
+    $rowStf = wewebFetchArrayDB($coreLanguageSQL, $queryStf);
+    $valStfTypeUserMini = rechangeQuot($rowStf[0]);
+    $masterkey = loadMasterKeySite($valStfTypeUserMini, $valKey);
+
+    return $masterkey;
+}
+
+############################################
+function loadMiniUserIDSite($valUserID)
+{ // หาประเภท Hotel ของ Database
+    ############################################
+    global $core_tb_staff, $coreLanguageSQL;
+    $sqlStf = "SELECT " . $core_tb_staff . "_typeusermini  FROM " . $core_tb_staff . " WHERE   " . $core_tb_staff . "_id 	='" . $valUserID . "' ";
+    $queryStf = wewebQueryDB($coreLanguageSQL, $sqlStf);
+    $rowStf = wewebFetchArrayDB($coreLanguageSQL, $queryStf);
+    $valStfTypeUserMini = rechangeQuot($rowStf[0]);
+    if ($valStfTypeUserMini >= 1) {
+        $valMenuID = $valStfTypeUserMini;
+    } else {
+        $valMenuID = $valUserID;
     }
+
+    return $valMenuID;
+}
+
+############################################
+function loadGetMenuNameHome($valContantID, $valTable, $valTableField)
+{ // หา ID Hotel ของ Webservices
+    ############################################
+    global $coreLanguageSQL;
+    $sql_pic = "SELECT " . $valTableField . "  FROM " . $valTable . " WHERE   " . $valTable . "_id 	='" . $valContantID . "' ";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_pic_funtion = rechangeQuot($row_pic[0]);
+
+    return $txt_pic_funtion;
+}
 
 
 
 ############################################
-function str_replaceExport($valSql,$typeReplaca){
-############################################
-    $valReplaceBefore =" ";
-    $valReplaceAfter ="|x|";
-    if($typeReplaca>=1){
-            $valReplacaReturn =str_replace($valReplaceBefore,$valReplaceAfter,$valSql);
-    }else{
-            $valReplacaReturn =str_replace($valReplaceAfter,$valReplaceBefore,$valSql);
-            $valReplacaReturn =str_replace('\\','',$valReplacaReturn);
+function str_replaceExport($valSql, $typeReplaca)
+{
+    ############################################
+    $valReplaceBefore = " ";
+    $valReplaceAfter = "|x|";
+    if ($typeReplaca >= 1) {
+        $valReplacaReturn = str_replace($valReplaceBefore, $valReplaceAfter, $valSql);
+    } else {
+        $valReplacaReturn = str_replace($valReplaceAfter, $valReplaceBefore, $valSql);
+        $valReplacaReturn = str_replace('\\', '', $valReplacaReturn);
     }
 
     return $valReplacaReturn;
 }
 
 ############################################
-function loadProvinceMemberEn($provinceID){
+function loadProvinceMemberEn($provinceID)
+{
     ############################################
-        global $other_tb_province,$coreLanguageSQL;
-             $sql_pic="SELECT ".$other_tb_province."_NAMEeng FROM  ".$other_tb_province." WHERE    ".$other_tb_province."_ID 	='".$provinceID."'";
-            $query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-            $row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-            $txt_pic_funtion=$row_pic[0];
+    global $other_tb_province, $coreLanguageSQL;
+    $sql_pic = "SELECT " . $other_tb_province . "_NAMEeng FROM  " . $other_tb_province . " WHERE    " . $other_tb_province . "_ID 	='" . $provinceID . "'";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_pic_funtion = $row_pic[0];
 
-            return $txt_pic_funtion;
+    return $txt_pic_funtion;
 }
 
 ############################################
-function loadProvinceMember($provinceID){
-############################################
-        global $other_tb_province,$coreLanguageSQL;
-             $sql_pic="SELECT ".$other_tb_province."_NAME FROM  ".$other_tb_province." WHERE    ".$other_tb_province."_ID 	='".$provinceID."'";
-            $query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-            $row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-            $txt_pic_funtion=$row_pic[0];
+function loadProvinceMember($provinceID)
+{
+    ############################################
+    global $other_tb_province, $coreLanguageSQL;
+    $sql_pic = "SELECT " . $other_tb_province . "_NAME FROM  " . $other_tb_province . " WHERE    " . $other_tb_province . "_ID 	='" . $provinceID . "'";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_pic_funtion = $row_pic[0];
 
-            return $txt_pic_funtion;
+    return $txt_pic_funtion;
 }
 
 
 //#################################################
-function DateFormatTime($DateTime) {
-//#################################################
-        global $System_Session_Language;
+function DateFormatTime($DateTime)
+{
+    //#################################################
+    global $System_Session_Language;
 
-        $DateTimeArr = explode(" ",$DateTime);
-        $Date = $DateTimeArr[0];
-        $Time = $DateTimeArr[1];
+    $DateTimeArr = explode(" ", $DateTime);
+    $Date = $DateTimeArr[0];
+    $Time = $DateTimeArr[1];
 
-        $DateArr = explode("-",$Date);
+    $DateArr = explode("-", $Date);
 
-        if ($System_Session_Language=="Thai") $DateArr[0] = ($DateArr[0] + 543)- 2500;
+    if ($System_Session_Language == "Thai") $DateArr[0] = ($DateArr[0] + 543) - 2500;
 
-        return $DateArr[2]."/".$DateArr[1]."/".$DateArr[0]." ".$Time;
+    return $DateArr[2] . "/" . $DateArr[1] . "/" . $DateArr[0] . " " . $Time;
 }
 
 ############################################
-function loadAmphurMember($provinceID){
-############################################
-        global $other_tb_amphur,$coreLanguageSQL;
-             $sql_pic="SELECT ".$other_tb_amphur."_NAME FROM  ".$other_tb_amphur." WHERE    ".$other_tb_amphur."_ID 	='".$provinceID."'";
-            $query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-            $row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-            $txt_pic_funtion=$row_pic[0];
+function loadAmphurMember($provinceID)
+{
+    ############################################
+    global $other_tb_amphur, $coreLanguageSQL;
+    $sql_pic = "SELECT " . $other_tb_amphur . "_NAME FROM  " . $other_tb_amphur . " WHERE    " . $other_tb_amphur . "_ID 	='" . $provinceID . "'";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_pic_funtion = $row_pic[0];
 
-            return $txt_pic_funtion;
+    return $txt_pic_funtion;
 }
 
 ############################################
-function loadDistrictMember($provinceID){
-############################################
-        global $other_tb_district,$coreLanguageSQL;
-             $sql_pic="SELECT ".$other_tb_district."_NAME FROM  ".$other_tb_district." WHERE    ".$other_tb_district."_ID 	='".$provinceID."'";
-            $query_pic=wewebQueryDB($coreLanguageSQL,$sql_pic);
-            $row_pic=wewebFetchArrayDB($coreLanguageSQL,$query_pic);
-            $txt_pic_funtion=$row_pic[0];
+function loadDistrictMember($provinceID)
+{
+    ############################################
+    global $other_tb_district, $coreLanguageSQL;
+    $sql_pic = "SELECT " . $other_tb_district . "_NAME FROM  " . $other_tb_district . " WHERE    " . $other_tb_district . "_ID 	='" . $provinceID . "'";
+    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
+    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
+    $txt_pic_funtion = $row_pic[0];
 
-            return $txt_pic_funtion;
+    return $txt_pic_funtion;
 }
 
 function TimeHourFormatInsertRe($DateTime)
@@ -2484,7 +2626,7 @@ function TimeMinFormatInsertRe($DateTime)
 }
 function oldCount($input)
 {
-   return isset($input) && is_array($input) ? count($input) : 0;
+    return isset($input) && is_array($input) ? count($input) : 0;
 }
 
 #### api update txt save files json ####
@@ -2520,17 +2662,17 @@ function oldCount($input)
 
 
 ############################################
-function encodeStrOneaccoount($variable) { 
-############################################
+function encodeStrOneaccoount($variable)
+{
+    ############################################
     $key = "xitgmLwmp";
     $index = 0;
-    $temp="";
-    $variable = str_replace("=","?O",$variable);
-    for($i=0; $i < strlen($variable); $i++)
-    {
-                            $temp .= $variable[$i].$key[$index];      
-                            $index++;
-                            if($index >= strlen($key)) $index = 0;
+    $temp = "";
+    $variable = str_replace("=", "?O", $variable);
+    for ($i = 0; $i < strlen($variable); $i++) {
+        $temp .= $variable[$i] . $key[$index];
+        $index++;
+        if ($index >= strlen($key)) $index = 0;
     }
     $variable = strrev($temp);
     $variable = base64_encode($variable);
@@ -2539,4 +2681,18 @@ function encodeStrOneaccoount($variable) {
     $variable = str_rot13($variable);
     return $variable;
 }
-?>
+
+function rechangeQuot_code($Data)
+{
+    ############################################
+    $valChangeQuot = htmlspecialchars(str_replace("&rsquo;", "'", str_replace('&quot;', '"', $Data)));
+    return $valChangeQuot;
+}
+function changeQuot_code($Data)
+{
+    ############################################
+    $valTrim = trim($Data);
+    $valChangeQuot = $valTrim;
+    $valChangeQuot = str_replace("'", "&rsquo;", str_replace('"', '&quot;', $valChangeQuot));
+    return $valChangeQuot;
+}
