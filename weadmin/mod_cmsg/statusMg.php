@@ -12,13 +12,25 @@ $statusid = $_POST['Valuestatusid'];
 $loadderstatus = $_POST['Valueloadderstatus'];
 $filestatus = $_POST['Valuefilestatus'];
 
+$sqlSch = "SELECT " . $tablename . "_masterkey  FROM " . $tablename . " WHERE  " . $tablename . "_id='" . $statusid . "' ";
+$querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
+$rowSch = wewebFetchArrayDB($coreLanguageSQL, $querySch);
+$valMasterkey = $rowSch[0];
 
-if ($statusname == "Enable") {
-	$inputstatusname = "Disable";
-} else if ($statusname == "Disable") {
-	$inputstatusname = "Home";
-} else if ($statusname == "Home") {
-	$inputstatusname = "Enable";
+if(!in_array($valMasterkey, $array_masterkey_group)){
+	if ($statusname == "Enable") {
+		$inputstatusname = "Disable";
+	} else if ($statusname == "Disable") {
+		$inputstatusname = "Home";
+	} else if ($statusname == "Home") {
+		$inputstatusname = "Enable";
+	}
+}else{
+	if ($statusname == "Enable") {
+		$inputstatusname = "Disable";
+	} else if ($statusname == "Disable") {
+		$inputstatusname = "Enable";
+	}
 }
 
 
@@ -27,18 +39,11 @@ $sql = "UPDATE " . $tablename . " SET "
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
 
 if ($tablename == $mod_tb_root) {
-	$sqlSch = "SELECT " . $tablename . "_masterkey  FROM " . $tablename . " WHERE  " . $tablename . "_id='" . $statusid . "' ";
-	$querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
-	$rowSch = wewebFetchArrayDB($coreLanguageSQL, $querySch);
-	$valMasterkey = $rowSch[0];
-
 	$updateSch = array();
 	$updateSch[] = $core_tb_search . "_status  	='$inputstatusname'";
 	$sqlUpdateSch = "UPDATE " . $core_tb_search . " SET " . implode(",", $updateSch) . " WHERE " . $core_tb_search . "_contantid='" . $statusid . "'  AND  " . $core_tb_search . "_masterkey 	='" . $valMasterkey . "'";
 	$querylUpdateSch = wewebQueryDB($coreLanguageSQL, $sqlUpdateSch);
 }
-
-
 
 ?>
 <?php if ($inputstatusname == "Enable") { ?>

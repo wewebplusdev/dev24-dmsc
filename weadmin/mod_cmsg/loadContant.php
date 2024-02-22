@@ -159,6 +159,7 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                         <?php echo $langMod["meu:group"] ?>
                      </a>
                   </div> -->
+                  <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
                   <div class="menuSubMod">
                      <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:group"] ?>
@@ -169,6 +170,7 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                         <?php echo $langMod["meu:contant"] ?>
                      </a>
                   </div>
+                  <?php } ?>
                   <!-- ######### End Menu Sub Mod ########## -->
                </td>
             </tr>
@@ -179,6 +181,7 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
 
             <tr>
+               <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
                <td>
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                      <tr>
@@ -201,12 +204,8 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                         </td>
                      </tr>
                   </table>
-
-
-
-
                </td>
-               </td>
+               <?php } ?>
                <td id="boxSelectTest">
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                      <tr>

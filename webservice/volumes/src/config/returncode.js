@@ -8,5 +8,5 @@ module.exports = {
     "missing_method": { code: 1005, msg: "Missing method" },
     "missing_data": { code: 400, msg: "Data Not found." },
     "connect_db_fail": { code: 500, msg: "Database connect fail." },
-    "error_wrong": { code: 500, msg: "Server something went wrong." },
+    "error_wrong": { code: 500, msg: "Internal server error." },
 }

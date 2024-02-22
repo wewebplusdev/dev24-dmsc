@@ -128,7 +128,7 @@ if ($_REQUEST['execute'] == "insert") {
    logs_access('3', 'Insert');
 
    ## URL Search ###################################
-   $txt_value_to = encodeStr($contantID);
+   $txt_value_to = $contantID;
 
    $valUrlSearchTH = $mod_url_search_th . "/" . $txt_value_to;
 

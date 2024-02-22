@@ -1,5 +1,5 @@
 <?php
-include("../../webadmin/lib/session.php");
+include("../../weadmin/lib/session.php");
 if($_SESSION[$valSiteManage . 'core_session_id']<=0){
 	header("Location: ../../");
 	die();

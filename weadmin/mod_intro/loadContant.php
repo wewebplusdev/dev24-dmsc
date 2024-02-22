@@ -7,9 +7,21 @@ include("../core/incLang.php");
 include("incModLang.php");
 include("config.php");
 
+$arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
+$arrLangNew = array();
+foreach ($arrLang as $keyLang => $valueLang) {
+  if ($valueLang['key'] == $_SESSION[$valSiteManage . "core_session_language"]) {
+    $arrLangNew[] = array(
+      'id' => $valueLang['id'],
+      'key' => $valueLang['key'],
+    );
+  }
+}
+$arrLang = $arrLangNew;
+$langShow = $_POST['inputLang'] ? $_POST['inputLang'] : $_SESSION[$valSiteManage . "core_session_language"];
+
 $valNav1 = $langTxt["nav:home2"];
 $valLinkNav1 = "../core/index.php";
-$arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 $valNav2 = getNameMenu($_REQUEST["menukeyid"]);
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 ?>

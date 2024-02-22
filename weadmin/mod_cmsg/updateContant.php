@@ -120,9 +120,9 @@ include("config.php");
       logs_access('3', 'Update');
 
       ## URL Search ###################################
-      $txt_value_to = encodeStr($_POST["valEditID"]);
+      $txt_value_to = $_POST["valEditID"];
 
-      $valUrlSearchTH = $mod_url_search_th . "?d=" . $txt_value_to;
+      $valUrlSearchTH = $mod_url_search_th . "/" . $txt_value_to;
 
       // check seach isset
       $sql_sch = "SELECT * 

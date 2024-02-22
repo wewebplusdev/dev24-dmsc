@@ -25,6 +25,9 @@ $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "�
 $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
+## Hide Group ###################################
+$array_masterkey_group = array('plc');
+
 $modPeriodType = array(
     1 => "ตามช่วงเวลา",
     2 => "ระบุข้อความ"

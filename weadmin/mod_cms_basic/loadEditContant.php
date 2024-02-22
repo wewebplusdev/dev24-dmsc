@@ -259,7 +259,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             </tr>
          </table>
          <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+         <!-- <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?= $langMod["txt:seo"] ?></span><br />
@@ -269,7 +269,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             <tr>
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
-
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["inp:seotitle"] ?><span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputTagTitle" id="inputTagTitle" type="text" class="formInputContantTb" value="<?= $valMetatitle ?>" /><br />
@@ -289,7 +288,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
             </tr>
          </table>
-         <br />
+         <br /> -->
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">

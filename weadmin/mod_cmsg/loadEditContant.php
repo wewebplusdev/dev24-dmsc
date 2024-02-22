@@ -133,6 +133,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <script language="JavaScript" type="text/javascript">
       function executeSubmit() {
          with(document.myForm) {
+            <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
             if (inputGroupID.value == 0) {
                inputGroupID.focus();
                jQuery("#inputGroupID").addClass("formInputContantTbAlertY");
@@ -140,6 +141,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             } else {
                jQuery("#inputGroupID").removeClass("formInputContantTbAlertY");
             }
+            <?php } ?>
 
             if (isBlank(inputSubject)) {
                inputSubject.focus();
@@ -298,6 +300,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
 
+            <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -316,6 +319,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   </select>
                </td>
             </tr>
+            <?php } ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:subject"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" class="formInputContantTb" value="<?php echo $valSubject ?>" /></td>

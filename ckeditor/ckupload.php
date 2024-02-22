@@ -1,5 +1,5 @@
 <?
-include("../webadmin/lib/session.php");
+include("../weadmin/lib/session.php");
 	$url = 'upload/files/'.time()."_".$_FILES['upload']['name'];
 	$urlSite="/dev24-dmsc/ckeditor/";
 	// $urlSite="/ckeditor/";

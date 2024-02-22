@@ -32,8 +32,6 @@ foreach( $_FILES as $xVarName => $xVarvalue ) {
     ${$xVarName} = $xVarvalue['tmp_name'];
 }
 
-
-
 // Session Handle Current User Information ------------------
 if (!isset($_SESSION[$valSiteManage . 'core_session_id'])) {
     $_SESSION[$valSiteManage . 'core_session_id'] = 0;
@@ -82,21 +80,8 @@ if (!isset($_SESSION[$valSiteManage . 'core_session_multilang'])) {
     $_SESSION[$valSiteManage . 'core_session_multilang']= array();
 }
 
-
-
 ## Core Cketitor #############################################
-//$_SESSION["myRoxySession"] = "/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
-//
-//if (!empty($_SESSION[$valSiteManage . "core_session_id"])) {
-//    if ($_SESSION[$valSiteManage . "core_session_id"] >= 1) {
-//        if (!is_dir("../../" . $_SESSION["myRoxySession"])) {
-//            mkdir("../../" . $_SESSION["myRoxySession"], 0777);
-//        }
-//    }
-//}
-
-## Core Cketitor #############################################
-$_SESSION["myBackOfficeSession"] = "/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
+$_SESSION["myBackOfficeSession"] = "/dev24-dmsc/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
 $valFolderCkEditor = "/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
 if (!empty($_SESSION[$valSiteManage . "core_session_id"])) {
     if ($_SESSION[$valSiteManage . "core_session_id"] >= 1) {
