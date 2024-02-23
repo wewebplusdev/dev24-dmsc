@@ -9,6 +9,7 @@ exports.init = function (req, res) {
     funcRoute(req, res, {
         "getWebSetting": "getWebSetting",
         "getIntro": "getIntro",
+        "acceptLogsPDPA": "acceptLogsPDPA",
     });
 }
 
@@ -27,6 +28,7 @@ async function getWebSetting(req, res) {
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['sy_lang'] = config.fieldDB.masterkey.sm
+    config_array_masterkey['lcf'] = config.fieldDB.masterkey.lcf
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -132,8 +134,10 @@ async function getWebSetting(req, res) {
             ,${config_array_db['md_abl']}_title as title 
             FROM ${config_array_db['md_ab']} 
             INNER JOIN ${config_array_db['md_abl']} ON ${config_array_db['md_abl']}_cid = ${config_array_db['md_ab']}_id
-            WHERE ${config_array_db['md_ab']}_status != 'Disable'
+            WHERE ${config_array_db['md_ab']}_status != 'Disable' 
+            AND ${config_array_db['md_ab']}_masterkey = '${config_array_masterkey['lcf']}' 
             `;
+            console.log(sql_facebook);
             const select_facebook = await query(sql_facebook);
             if (select_facebook.length > 0) {
                 result.item.facebook = select_facebook[0].title;
@@ -219,6 +223,79 @@ async function getIntro(req, res) {
             } else {
                 result.code = code.missing_data.code;
                 result.msg = code.missing_data.msg;
+            }
+        } catch (error) {
+            result.code = code.error_wrong.code;
+            result.msg = code.error_wrong.msg;
+        }
+    }
+    res.json(result);
+}
+
+async function acceptLogsPDPA(req, res) {
+    const method = req.body.method;
+    const browser = req.body.browser;
+    const client = req.body.user;
+    const secretkey = req.body.secretkey;
+    const uniqid = req.body.uniqid;
+    const result = general.checkParam([method, browser, client, secretkey]);
+    const code = config.returncode;
+
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_pdpa'] = config.fieldDB.main.md_pdpa
+    config_array_db['md_usk'] = config.fieldDB.main.md_usk
+
+    // db masterkey
+    let config_array_masterkey = new Array();
+    config_array_masterkey['accept'] = config.fieldDB.masterkey.accept
+
+    var setime_zone = new Date().toLocaleString('de-DE', {timeZone: 'Asia/Bangkok'}).split(' ');
+    var date_now = setime_zone[0].split('.');
+    date_now = date_now[2].replace(',', '') + "-" + ("0" + date_now[1]).slice(-2) + "-" + ("0" + date_now[0]).slice(-2);
+    var time_now = setime_zone[1].split(':');
+    time_now = ("0" + time_now[0]).slice(-2) + ":" + ("0" + time_now[1]).slice(-2) + ":" + ("0" + time_now[2]).slice(-2);
+
+    if (result.code == code.success.code) {
+        let conn = config.configDB.connectDB();
+        const query = util.promisify(conn.query).bind(conn);
+        let arr_data = [];
+        try {
+            let sql_usk = `SELECT 
+            ${config_array_db['md_usk']}_id as id 
+            ,${config_array_db['md_usk']}_masterkey as masterkey 
+            ,${config_array_db['md_usk']}_controlkey as controlkey 
+            ,${config_array_db['md_usk']}_secretkey as secretkey 
+            ,${config_array_db['md_usk']}_credate as credate 
+            FROM ${config_array_db['md_usk']} WHERE ${config_array_db['md_usk']}_controlkey = '${client}' 
+            AND ${config_array_db['md_usk']}_secretkey = '${secretkey}'
+            AND ${config_array_db['md_usk']}_status != 'Disable'
+            `;
+            const select_lang = await query(sql_usk);
+            if (select_lang.length > 0) {
+                let insert = new Array();
+                insert[`${config_array_db['md_pdpa']}_masterkey`] = `'${config_array_masterkey['accept']}'`;
+                insert[`${config_array_db['md_pdpa']}_credate`] = `'${date_now} ${time_now}'`;
+                let ipAddress = modulus.getClientIP();
+                insert[`${config_array_db['md_pdpa']}_ipaddress`] = `'${ipAddress ? ipAddress : ''}'`;
+                insert[`${config_array_db['md_pdpa']}_accesstoken`] = `'${uniqid}'`;
+                insert[`${config_array_db['md_pdpa']}_browser`] = `'${browser}'`;
+                // Construct SQL query
+                let columns = Object.keys(insert).join(",");
+                let values = Object.values(insert).join(",");
+                let queryData = `INSERT INTO ${config_array_db['md_pdpa']} (${columns}) VALUES (${values})`;
+    
+                const insert_data = await query(queryData);
+                if (insert_data?.insertId > 0) {
+                    result.code = code.success.code;
+                    result.msg = code.success.msg;
+                }else{
+                    result.code = 400;
+                    result.msg = 'Insert data fail.';
+                }
+            }else{
+                result.code = 400;
+                result.msg = 'Permission Access denie.';
             }
         } catch (error) {
             result.code = code.error_wrong.code;

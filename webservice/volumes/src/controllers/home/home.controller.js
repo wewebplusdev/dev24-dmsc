@@ -8,12 +8,13 @@ const axios = require('axios');
 const { base64encode, base64decode } = require('nodejs-base64');
 var fs = require('fs');
 
-exports.init = function(req, res) {
+exports.init = function (req, res) {
     funcRoute(req, res, {
         "getPopup": "getPopup",
         "getTopgraphic": "getTopgraphic",
         "getNews": "getNews",
         "getHtmlMainpageAbout": "getHtmlMainpageAbout",
+        "getPolicy": "getPolicy",
     });
 }
 
@@ -76,8 +77,8 @@ async function getPopup(req, res) {
                 // Find max page size
                 let numberofpage;
                 if (count_totalrecord > limit) {
-                    numberofpage = Math.ceil(count_totalrecord/limit);
-                }else{
+                    numberofpage = Math.ceil(count_totalrecord / limit);
+                } else {
                     numberofpage = 1;
                 }
                 // Recover page show into range
@@ -88,8 +89,8 @@ async function getPopup(req, res) {
                     module_pageshow = page;
                 }
                 // Select only paging range
-                let recordstart = (module_pageshow-1)*module_pagesize;
-                limit_order = recordstart+","+module_pagesize;
+                let recordstart = (module_pageshow - 1) * module_pagesize;
+                limit_order = recordstart + "," + module_pagesize;
                 sql += `LIMIT ${limit_order}`
                 const select = await query(sql);
                 if (select.length > 0) {
@@ -101,13 +102,13 @@ async function getPopup(req, res) {
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].pic = {
-                            'real' : modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                            'pictures' : modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                            'office' : modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                            'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                            'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                            'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
                         }
                         arr_data[i].createDate = {
-                            full : new Date(select[i].credate),
-                            style : new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
+                            full: new Date(select[i].credate),
+                            style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
                         };
                     }
                     result._currentPage = parseInt(module_pageshow);
@@ -118,17 +119,17 @@ async function getPopup(req, res) {
                     result._currentRemain = (currentReMain > 0) ? currentReMain : 0;
                     result._maxPage = numberofpage;
                     result.item = arr_data;
-                }else{
+                } else {
                     result.code = code.missing_data.code;
                     result.msg = code.missing_data.msg;
                 }
-            }else{
+            } else {
                 result.code = code.missing_data.code;
-                result.msg = code.missing_data.msg; 
+                result.msg = code.missing_data.msg;
             }
         } catch (error) {
             result.code = code.error_wrong.code;
-            result.msg = code.error_wrong.msg; 
+            result.msg = code.error_wrong.msg;
         }
     }
     res.json(result);
@@ -193,8 +194,8 @@ async function getTopgraphic(req, res) {
                 // Find max page size
                 let numberofpage;
                 if (count_totalrecord > limit) {
-                    numberofpage = Math.ceil(count_totalrecord/limit);
-                }else{
+                    numberofpage = Math.ceil(count_totalrecord / limit);
+                } else {
                     numberofpage = 1;
                 }
                 // Recover page show into range
@@ -205,8 +206,8 @@ async function getTopgraphic(req, res) {
                     module_pageshow = page;
                 }
                 // Select only paging range
-                let recordstart = (module_pageshow-1)*module_pagesize;
-                limit_order = recordstart+","+module_pagesize;
+                let recordstart = (module_pageshow - 1) * module_pagesize;
+                limit_order = recordstart + "," + module_pagesize;
                 sql += `LIMIT ${limit_order}`
                 const select = await query(sql);
                 if (select.length > 0) {
@@ -218,13 +219,13 @@ async function getTopgraphic(req, res) {
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].pic = {
-                            'real' : modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                            'pictures' : modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                            'office' : modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                            'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                            'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                            'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
                         }
                         arr_data[i].createDate = {
-                            full : new Date(select[i].credate),
-                            style : new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
+                            full: new Date(select[i].credate),
+                            style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
                         };
                     }
                     result._currentPage = parseInt(module_pageshow);
@@ -235,17 +236,17 @@ async function getTopgraphic(req, res) {
                     result._currentRemain = (currentReMain > 0) ? currentReMain : 0;
                     result._maxPage = numberofpage;
                     result.item = arr_data;
-                }else{
+                } else {
                     result.code = code.missing_data.code;
                     result.msg = code.missing_data.msg;
                 }
-            }else{
+            } else {
                 result.code = code.missing_data.code;
-                result.msg = code.missing_data.msg; 
+                result.msg = code.missing_data.msg;
             }
         } catch (error) {
             result.code = code.error_wrong.code;
-            result.msg = code.error_wrong.msg; 
+            result.msg = code.error_wrong.msg;
         }
     }
     res.json(result);
@@ -299,8 +300,8 @@ async function getNews(req, res) {
                     arr_data_group[i].subject = select_group[i].subject;
                     arr_data_group[i].title = select_group[i].title;
                     arr_data_group[i].createDate = {
-                        full : new Date(select_group[i].credate),
-                        style : new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select_group[i].credate))
+                        full: new Date(select_group[i].credate),
+                        style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select_group[i].credate))
                     };
                 }
                 result.item = {};
@@ -348,8 +349,8 @@ async function getNews(req, res) {
                     // Find max page size
                     let numberofpage;
                     if (count_totalrecord > limit) {
-                        numberofpage = Math.ceil(count_totalrecord/limit);
-                    }else{
+                        numberofpage = Math.ceil(count_totalrecord / limit);
+                    } else {
                         numberofpage = 1;
                     }
                     // Recover page show into range
@@ -360,8 +361,8 @@ async function getNews(req, res) {
                         module_pageshow = page;
                     }
                     // Select only paging range
-                    let recordstart = (module_pageshow-1)*module_pagesize;
-                    limit_order = recordstart+","+module_pagesize;
+                    let recordstart = (module_pageshow - 1) * module_pagesize;
+                    limit_order = recordstart + "," + module_pagesize;
                     sql_list += `LIMIT ${limit_order}`
                     const select = await query(sql_list);
                     if (select.length > 0) {
@@ -381,10 +382,10 @@ async function getNews(req, res) {
                                 const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
                                 arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                                 arr_data[i].target = `_target`;
-                            }else if(select[i].typec == 3){
+                            } else if (select[i].typec == 3) {
                                 arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                                 arr_data[i].target = (select[i].target == 1) ? '_slef' : '_blank';
-                            }else{
+                            } else {
                                 const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
                                 arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                                 arr_data[i].target = `_slef`;
@@ -392,20 +393,20 @@ async function getNews(req, res) {
                             if (select[i].picType == 1) {
                                 let defaultPic = default_pic[select[i].picDefault];
                                 arr_data[i].pic = {
-                                    'real' : modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
-                                    'pictures' : modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
-                                    'office' : modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
+                                    'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
+                                    'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
+                                    'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
                                 }
-                            }else{
+                            } else {
                                 arr_data[i].pic = {
-                                    'real' : modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                    'pictures' : modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                    'office' : modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
                                 }
                             }
                             arr_data[i].createDate = {
-                                full : new Date(select[i].credate),
-                                style : new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
+                                full: new Date(select[i].credate),
+                                style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
                             };
                         }
                         result._currentPage = parseInt(module_pageshow);
@@ -416,21 +417,21 @@ async function getNews(req, res) {
                         result._currentRemain = (currentReMain > 0) ? currentReMain : 0;
                         result._maxPage = numberofpage;
                         result.item.list = arr_data;
-                    }else{
+                    } else {
                         result.code = code.missing_data.code;
                         result.msg = code.missing_data.msg;
                     }
-                }else{
+                } else {
                     result.code = code.missing_data.code;
-                    result.msg = code.missing_data.msg; 
+                    result.msg = code.missing_data.msg;
                 }
-            }else{
+            } else {
                 result.code = code.missing_data.code;
-                result.msg = code.missing_data.msg; 
+                result.msg = code.missing_data.msg;
             }
         } catch (error) {
             result.code = code.error_wrong.code;
-            result.msg = code.error_wrong.msg; 
+            result.msg = code.error_wrong.msg;
         }
     }
     res.json(result);
@@ -496,18 +497,168 @@ async function getHtmlMainpageAbout(req, res) {
                     contentHTML = await modulus.getTextReplace(contentHTML);
                     arr_data[i].html = contentHTML;
                     arr_data[i].createDate = {
-                        full : new Date(select[i].credate),
-                        style : new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
+                        full: new Date(select[i].credate),
+                        style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
                     };
                 }
                 result.item = arr_data;
-            }else{
+            } else {
                 result.code = code.missing_data.code;
-                result.msg = code.missing_data.msg; 
+                result.msg = code.missing_data.msg;
             }
         } catch (error) {
             result.code = code.error_wrong.code;
-            result.msg = code.error_wrong.msg; 
+            result.msg = code.error_wrong.msg;
+        }
+    }
+    res.json(result);
+}
+
+async function getPolicy(req, res) {
+    const method = req.body.method;
+    const language = req.body.language;
+    const order = req.body.order;
+    const page = req.body.page;
+    const limit = req.body.limit;
+    const result = general.checkParam([method, language, order, page, limit]);
+    const code = config.returncode;
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_cms'] = config.fieldDB.main.md_cms
+    config_array_db['md_cmsl'] = config.fieldDB.main.md_cmsl
+    config_array_db['md_cmg'] = config.fieldDB.main.md_cmg
+    config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
+    // db masterkey
+    let config_array_masterkey = new Array();
+    config_array_masterkey['plc'] = config.fieldDB.masterkey.plc
+
+    if (result.code == code.success.code) {
+        let conn = config.configDB.connectDB();
+        const query = util.promisify(conn.query).bind(conn);
+        try {
+            result.code = code.success.code;
+            result.msg = code.success.msg;
+            let sql_list = `SELECT 
+                ${config_array_db['md_cms']}_id as id 
+                ,${config_array_db['md_cms']}_masterkey as masterkey 
+                ,${config_array_db['md_cms']}_sdate as sdate 
+                ,${config_array_db['md_cms']}_edate as edate 
+                ,${config_array_db['md_cms']}_credate as credate 
+                ,${config_array_db['md_cms']}_gid as gid 
+                ,${config_array_db['md_cmsl']}_subject as subject 
+                ,${config_array_db['md_cmsl']}_title as title 
+                ,${config_array_db['md_cmsl']}_typec as typec 
+                ,${config_array_db['md_cmsl']}_picType as picType 
+                ,${config_array_db['md_cmsl']}_picDefault as picDefault 
+                ,${config_array_db['md_cmsl']}_pic as pic 
+                ,${config_array_db['md_cmsl']}_urlc as urlc 
+                ,${config_array_db['md_cmsl']}_target as target 
+                FROM ${config_array_db['md_cms']} 
+                INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
+                WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['plc']}' 
+                AND ${config_array_db['md_cms']}_status != 'Disable' 
+                AND ${config_array_db['md_cmsl']}_language = '${language}' 
+                AND ${config_array_db['md_cmsl']}_subject != '' 
+                AND 
+                (
+                    (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND ${config_array_db['md_cms']}_edate ='0000-00-00 00:00:00') OR
+                    (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR
+                    (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND ${config_array_db['md_cms']}_edate = '0000-00-00 00:00:00') OR
+                    (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW()))
+                )
+                ORDER BY ${config_array_db['md_cms']}_order ${order} 
+                `;
+            const select_list = await query(sql_list);
+            if (select_list.length > 0) {
+                let count_totalrecord;
+                let module_pagesize = limit;
+                // Find total data
+                if (select_list.length >= 1) {
+                    total_data = select_list.length;
+                    count_totalrecord = total_data;
+                }
+                // Find max page size
+                let numberofpage;
+                if (count_totalrecord > limit) {
+                    numberofpage = Math.ceil(count_totalrecord / limit);
+                } else {
+                    numberofpage = 1;
+                }
+                // Recover page show into range
+                let module_pageshow = page;
+                if (module_pageshow > numberofpage) {
+                    module_pageshow = numberofpage;
+                } else {
+                    module_pageshow = page;
+                }
+                // Select only paging range
+                let recordstart = (module_pageshow - 1) * module_pagesize;
+                limit_order = recordstart + "," + module_pagesize;
+                sql_list += `LIMIT ${limit_order}`
+                const select = await query(sql_list);
+                if (select.length > 0) {
+                    let arr_data = [];
+                    result.code = code.success.code;
+                    result.msg = code.success.msg;
+                    const short_language = await modulus.getCoreLanguage(language);
+                    const default_pic = await modulus.getDefaultPic();
+                    for (let i = 0; i < select.length; i++) {
+                        arr_data[i] = {};
+                        arr_data[i].masterkey = select[i].masterkey;
+                        arr_data[i].subject = select[i].subject;
+                        arr_data[i].title = select[i].title;
+                        arr_data[i].gid = select[i].gid;
+                        arr_data[i].typec = select[i].typec;
+                        if (select[i].typec == 2) {
+                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
+                            arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}`;
+                            arr_data[i].target = `_target`;
+                        } else if (select[i].typec == 3) {
+                            arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
+                            arr_data[i].target = (select[i].target == 1) ? '_slef' : '_blank';
+                        } else {
+                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
+                            arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}`;
+                            arr_data[i].target = `_slef`;
+                        }
+                        if (select[i].picType == 1) {
+                            let defaultPic = default_pic[select[i].picDefault];
+                            arr_data[i].pic = {
+                                'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
+                                'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
+                                'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
+                            }
+                        } else {
+                            arr_data[i].pic = {
+                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                            }
+                        }
+                        arr_data[i].createDate = {
+                            full: new Date(select[i].credate),
+                            style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
+                        };
+                    }
+                    result._currentPage = parseInt(module_pageshow);
+                    result._currentLimit = parseInt(module_pagesize);
+                    result._numOfRows = select.length;
+                    result._maxRecordCount = select_list.length;
+                    let currentReMain = parseInt(select_list.length) - (parseInt(module_pagesize) * parseInt(module_pageshow));
+                    result._currentRemain = (currentReMain > 0) ? currentReMain : 0;
+                    result._maxPage = numberofpage;
+                    result.item = arr_data;
+                } else {
+                    result.code = code.missing_data.code;
+                    result.msg = code.missing_data.msg;
+                }
+            } else {
+                result.code = code.missing_data.code;
+                result.msg = code.missing_data.msg;
+            }
+        } catch (error) {
+            result.code = code.error_wrong.code;
+            result.msg = code.error_wrong.msg;
         }
     }
     res.json(result);
@@ -534,7 +685,7 @@ function funcRoute(req, res, mapFuncs) {
             break;
         }
     }
-    if (!foundFunction){
+    if (!foundFunction) {
         res.json({ code: code.unknown_method.code, msg: code.unknown_method.msg });
     }
 }

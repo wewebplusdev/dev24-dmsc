@@ -16,6 +16,7 @@ const main = {
     "md_cmg": "md_cmg",
     "md_cmgl": "md_cmgl",
     "md_nopic": "md_nopic",
+    "md_pdpa": "md_pdpa",
 }
 
 //Masterkey
@@ -29,11 +30,17 @@ const masterkey = {
     "nw": "nw",
     "nopic": "nopic",
     "mph": "mph",
+    "plc": "plc",
+    "accept": "accept",
 }
 
 //urlPage
 const url_page = {
     "nw": {
+        "1": "detailAll",
+        "2": "downloadAll",
+    },
+    "plc": {
         "1": "detailAll",
         "2": "downloadAll",
     },

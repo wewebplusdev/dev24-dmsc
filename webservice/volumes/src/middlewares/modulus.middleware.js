@@ -84,9 +84,13 @@ exports.getDefaultPic = async function () {
 }
 
 exports.getUrlWebsite = async function (masterkey, type) {
-    if (config.fieldDB.url_page[masterkey][type] !== undefined) {
-        return `${config.hostFrontend}/${config.fieldDB.url_page[masterkey][type]}`;
-    } else {
+    try {
+        if (config.fieldDB.url_page[masterkey][type] !== undefined) {
+            return `${config.hostFrontend}/${config.fieldDB.url_page[masterkey][type]}`;
+        } else {
+            return "";
+        }
+    } catch (error) {
         return "";
     }
 }
@@ -108,4 +112,23 @@ exports.getTextReplace = async function (data) {
     result = result.replace(`/ckeditor/upload/`, `${config.hostFrontend}/ckeditor/upload/`);
     result = result.replace(`\\`, ``);
     return result;
+}
+
+exports.getClientIP = function(){
+    var result = '';
+    const { networkInterfaces } = require('os');
+
+    const nets = networkInterfaces();
+    let results = "";
+
+    for (const name of Object.keys(nets)) {
+        for (const net of nets[name]) {
+            // Skip over non-IPv4 and internal (i.e. 127.0.0.1) addresses
+            if (net.family === 'IPv4' && !net.internal) {
+                results = net.address;
+            }
+        }
+    }
+    result = results;
+    return result
 }
