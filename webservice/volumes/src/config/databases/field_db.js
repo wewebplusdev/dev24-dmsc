@@ -15,6 +15,8 @@ const main = {
     "md_cmsl": "md_cmsl",
     "md_cmg": "md_cmg",
     "md_cmgl": "md_cmgl",
+    "md_cma": "md_cma",
+    "md_cmf": "md_cmf",
     "md_nopic": "md_nopic",
     "md_pdpa": "md_pdpa",
 }
@@ -32,6 +34,11 @@ const masterkey = {
     "mph": "mph",
     "plc": "plc",
     "accept": "accept",
+    "ab": "ab",
+    "hc": "hc",
+    "km": "km",
+    "faq": "faq",
+    "wel": "wel",
 }
 
 //urlPage
@@ -39,10 +46,30 @@ const url_page = {
     "nw": {
         "1": "detailAll",
         "2": "downloadAll",
+        "group": "listAll",
+    },
+    "km": {
+        "1": "detailAll",
+        "2": "downloadAll",
+        "group": "listAll",
     },
     "plc": {
         "1": "detailAll",
         "2": "downloadAll",
+    },
+    "ab": {
+        "1": "detailAll",
+        "2": "downloadAll",
+    },
+    "hc": {
+        "1": "detailAll",
+        "2": "downloadAll",
+    },
+    "faq": {
+        "1": "faqs",
+    },
+    "wel": {
+        "group": "listAll",
     },
 }
 

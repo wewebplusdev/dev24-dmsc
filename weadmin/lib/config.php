@@ -16,6 +16,10 @@ if($data_set_show_error==0){
 ## Core Folder Local  ######################################################
 $core_pathname_folderlocal = "/dev24-dmsc";
 
+## Core Login session  ######################################################
+$core_login_lifetime = 60 * 60; // 60 minutes
+$core_login_last_activity = 15 * 60; // 15 minutes
+
 ## Core Upload  ######################################################
 $core_pathname_upload = "../../upload";
 $core_pathname_upload_fornt = "upload";

@@ -26,7 +26,9 @@ $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
 ## Hide Group ###################################
-$array_masterkey_group = array('plc');
+$array_masterkey_group = array('plc', 'ab', 'hc', 'faq');
+
+$array_masterkey_group_home = array('nw');
 
 $modPeriodType = array(
     1 => "ตามช่วงเวลา",

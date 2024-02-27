@@ -26,6 +26,8 @@ if ($recordMaster >= 1) {
 	$_SESSION[$valSiteManage . "core_session_language"] = "Thai";
 	$_SESSION[$valSiteManage . "core_session_languageT"] = "1";
 	$_SESSION[$valSiteManage . "core_session_usrcar"] = 0;
+	$_SESSION[$valSiteManage . "core_session_login_time"]	= time();
+	$_SESSION[$valSiteManage . "core_session_last_activity"]	= time();
 ?>
 	<script language="JavaScript" type="text/javascript">
 		document.location.href = "core/index.php";
@@ -65,6 +67,8 @@ if ($recordMaster >= 1) {
 				$_SESSION[$valSiteManage . "core_session_languageT"]	= getSystemLangType();
 				$_SESSION[$valSiteManage . "core_session_typeproblem"]	= $Row[5];
 				$_SESSION[$valSiteManage . "core_session_typeusermini"]	= $Row[6];
+				$_SESSION[$valSiteManage . "core_session_login_time"]	= time();
+				$_SESSION[$valSiteManage . "core_session_last_activity"]	= time();
 				if ($_SESSION[$valSiteManage . "core_session_typeusermini"] != 0) {
 					$_SESSION[$valSiteManage . "core_session_password"] = $myPassword;
 					$_SESSION[$valSiteManage . "core_session_username"] = $Row[7];

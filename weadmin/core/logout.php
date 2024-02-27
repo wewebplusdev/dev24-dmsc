@@ -18,6 +18,8 @@ $_SESSION[$valSiteManage . "core_session_permission"] = "";
 $_SESSION[$valSiteManage . "core_session_logout"] = "";
 $_SESSION[$valSiteManage . 'core_session_usrcar'] = 0;
 $_SESSION[$valSiteManage . "core_session_typeproblem"] = 0;
+$_SESSION[$valSiteManage . "core_session_login_time"] = 0;
+$_SESSION[$valSiteManage . "core_session_last_activity"] = 0;
 unset($_SESSION[$valSiteManage."core_session_multilang"]);
 ?>
 <script language="JavaScript"  type="text/javascript">

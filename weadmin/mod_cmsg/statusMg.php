@@ -17,7 +17,7 @@ $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
 $rowSch = wewebFetchArrayDB($coreLanguageSQL, $querySch);
 $valMasterkey = $rowSch[0];
 
-if(!in_array($valMasterkey, $array_masterkey_group)){
+if(!in_array($valMasterkey, $array_masterkey_group) && in_array($valMasterkey, $array_masterkey_group_home)){
 	if ($statusname == "Enable") {
 		$inputstatusname = "Disable";
 	} else if ($statusname == "Disable") {

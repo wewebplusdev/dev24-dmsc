@@ -1,7 +1,7 @@
 <?php
 
 ob_start();
-session_cache_expire(1280);
+session_cache_expire(30);
 $cache_expire = session_cache_expire();
 @session_start();
 

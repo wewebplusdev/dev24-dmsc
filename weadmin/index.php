@@ -16,6 +16,8 @@ $_SESSION[$valSiteManage . "core_session_language"] = "Thai";
 $_SESSION[$valSiteManage . "core_session_groupid"] = 0;
 $_SESSION[$valSiteManage . "core_session_permission"] = "";
 $_SESSION[$valSiteManage . "core_session_logout"] = "";
+$_SESSION[$valSiteManage . "core_session_login_time"] = 0;
+$_SESSION[$valSiteManage . "core_session_last_activity"] = 0;
 
 include("core/incLang.php");
 ?>
