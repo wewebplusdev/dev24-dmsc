@@ -41,6 +41,7 @@ include("core/incLang.php");
     <script language="JavaScript" type="text/javascript" src="js/jquery-1.9.0.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/jquery.blockUI.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/scriptCoreWeweb.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=<?php echo $recaptcha_sitekey ?>"></script>
 
     <script language="JavaScript" type="text/javascript">
         jQuery(function() {
@@ -56,9 +57,26 @@ include("core/incLang.php");
                     }
                 }
                 checkLoginUser();
+                // reload
+                load_recaptch();
                 return false;
             });
+
+            // ready
+            load_recaptch();
         });
+
+        function load_recaptch() {
+            grecaptcha.ready(function() {
+            // do request for recaptcha token
+            // response is promise with passed token
+                grecaptcha.execute($('#g-recaptcha-response').data('secret'), {action:'validate_captcha'})
+                        .then(function(token) {
+                    // add token value to form
+                    document.getElementById('g-recaptcha-response').value = token;
+                });
+            });
+        }
     </script>
 
     <style type="text/css">
@@ -192,12 +210,16 @@ include("core/incLang.php");
                         </div>
                     </div>
                     <div class="form-btn">
-                        <input class="btn btn-primary" name="input" type="submit" value="<?= $langTxt["login:btn"] ?>"/>
+                        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="<?php echo $recaptcha_sitekey ?>">
+                        <input class="btn btn-primary" name="input" type="submit" value="<?= $langTxt["login:btn"] ?>" />
                     </div>
                 </form>
 
                 <div style="display:none;" id="loadAlertLogin">
                     <img src="img/btn/error.png" align="absmiddle" hspace="10" /><?= $langTxt["login:alert"] ?>
+                </div>
+                <div style="display:none;margin-top: 15px;" id="loadAlertRecaptcha">
+                    <img src="img/btn/error.png" align="absmiddle" hspace="10" /><?= $langTxt["recaptcha:alert"] ?>
                 </div>
                 <div style="display:none;margin-top: 15px;" id="loadAlertLoginOA">
 

@@ -249,9 +249,5 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["info:titlecallape"] = "กลุ่มบริษัทที่ปรึกษาในการดำเนินงาน";
   $langMod["info:titlecallapede"] = "ข้อมูลนี้คือส่วนที่ใช้ในการตั้งผล".$langMod["info:titlecallape"]."ในเว็บไซต์ของคุณ";
   $langMod["txt:duty"] = "ที่ปรึกษาด้าน";
-  $langMod["info:tel"] = "เบอร์โทรติดต่อสอบถามข้อมูล";
-  $langMod["info:tel2"] = "เบอร์โทรศัพท์มือถือ";
-  $langMod["info:email"] = "อีเมล์ติดต่อ/สอบถามข้อมูล";
-  $langMod["info:email2"] = "อีเมล์สอบถามข้อมูลการตรวจวิเคราะห์";
-  $langMod["info:email3"] = "อีเมล์สอบถามข้อมูล";
+
 }

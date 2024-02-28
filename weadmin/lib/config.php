@@ -154,4 +154,7 @@ $arrTypeUser = array(
     '2' => 'Domain User One Account'
 );
 
+$recaptcha_sitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
+$recaptcha_secretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
+
 ?>

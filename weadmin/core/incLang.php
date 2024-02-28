@@ -478,4 +478,5 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
     $langTxt["us:unitSub"] = "หน่วยงานย่อย";
 
     $langTxt["tit:selectlang"] = "เลือกภาษา";
+    $langTxt["recaptcha:alert"] = "เกิดข้อผิดพลาดในการตรวจสอบความปลอดภัย";
 }
