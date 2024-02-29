@@ -9,6 +9,7 @@ $mod_fd_root = "mod_topgraphic";
 
 ## Setting Value ###################################
 $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "เปิดหน้าต่างใหม่");
+$modTxtType = array("ประเภทข้อมูล", "รูปภาพ", "วีดีโอ");
 $modStatus = array("Enable", "Disable");
 
 ## Size Pic ###################################

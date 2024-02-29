@@ -186,7 +186,9 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 					" . $mod_tb_root_lang . "." . $mod_tb_root_lang . "_subject,
 					" . $mod_tb_root . "_lastdate,
 					" . $mod_tb_root . "_status,
-					" . $mod_tb_root_lang . "." . $mod_tb_root_lang . "_pic";
+					" . $mod_tb_root_lang . "." . $mod_tb_root_lang . "_pic,
+					" . $mod_tb_root_lang . "." . $mod_tb_root_lang . "_type as type 
+               ";
 
             // SQL SELECT #########################
             $sql = "SELECT " . $sqlSelect . "    FROM " . $mod_tb_root . " ";
@@ -237,7 +239,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   $valTimeCredate = timeFormatReal($row[2]);
                   $valStatus = $row[3];
                   $valPic = $mod_path_office . "/" . $row[4];
-                  if (is_file($valPic)) {
+                  $valType = $row['type'];
+                  if (is_file($valPic) && $valType == 1) {
                      $valPic = $valPic;
                   } else {
                      $valPic = "../img/btn/nopic.jpg";

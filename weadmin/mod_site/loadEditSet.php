@@ -15,67 +15,45 @@ $valLinkNav1 = "../core/index.php";
 $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
 $sql = "SELECT
-" . $mod_tb_set . "_id,
-" . $mod_tb_set . "_credate ,
-" . $mod_tb_set . "_crebyid,
-" . $mod_tb_set . "_lastdate,
-" . $mod_tb_set . "_lastbyid,
-" . $mod_tb_setlang . "_description,
-" . $mod_tb_setlang . "_keywords,
-" . $mod_tb_setlang . "_metatitle,
-" . $mod_tb_setlang . "_subject,
-" . $mod_tb_setlang . "_social,
-" . $mod_tb_setlang . "_config,
-" . $mod_tb_setlang . "_addresspic,
-" . $mod_tb_setlang . "_subjectoffice,
-" . $mod_tb_setlang . "_qr,
-" . $mod_tb_setlang . "_hotlinepic,
-" . $mod_tb_setlang . "_hotline,
+" . $mod_tb_set . "_id as id,
+" . $mod_tb_set . "_credate as credate,
+" . $mod_tb_set . "_crebyid as crebyid,
+" . $mod_tb_set . "_lastdate as lastdate,
+" . $mod_tb_set . "_lastbyid as lastbyid,
+" . $mod_tb_setlang . "_description as description,
+" . $mod_tb_setlang . "_keywords as keywords,
+" . $mod_tb_setlang . "_metatitle as metatitle,
+" . $mod_tb_setlang . "_subject as subject,
+" . $mod_tb_setlang . "_social as social,
+" . $mod_tb_setlang . "_config as config,
+" . $mod_tb_setlang . "_addresspic as addresspic,
+" . $mod_tb_setlang . "_subjectoffice as subjectoffice,
 " . $mod_tb_setlang . "_fac as fac,
-" . $mod_tb_setlang . "_callape as callape,
-" . $mod_tb_setlang . "_piccallape as piccallape,
 " . $mod_tb_setlang . "_title as title
 
  FROM " . $mod_tb_set . " INNER JOIN " . $mod_tb_setlang . " ON " . $mod_tb_set . "_id = " . $mod_tb_setlang . "_containid
- WHERE " . $mod_tb_set . "_id='" . $_REQUEST["valEditID"] . "'  AND " . $mod_tb_set . "_masterkey='" . $_REQUEST["masterkey"] . "'  ";
+ WHERE " . $mod_tb_set . "_id='" . $_REQUEST["valEditID"] . "'  
+ AND " . $mod_tb_set . "_masterkey='" . $_REQUEST["masterkey"] . "' 
+ AND " . $mod_tb_setlang . "_id='" . $_REQUEST["valCid"] . "' 
+ AND " . $mod_tb_setlang . "_language='" . $_REQUEST["inputLt"] . "'  ";
 
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
 $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
-// print_pre($Row);
-$valID = $Row[0];
-$valCredate = DateFormat($Row[1]);
-$valCreby = $Row[2];
-$valLastdate = DateFormat($Row[3]);
-$valLastby = $Row[4];
-$valDescription = rechangeQuot($Row[5]);
-$valKeywords = rechangeQuot($Row[6]);
-$valMetatitle = rechangeQuot($Row[7]);
-$valSubject = $Row[8];
-// $valSubjecten = $Row[9];
-
+$valID = $Row['id'];
+$valCredate = DateFormat($Row['credate']);
+$valCreby = $Row['crebyid'];
+$valLastdate = DateFormat($Row['lastdate']);
+$valLastby = $Row['lastbyid'];
+$valDescription = rechangeQuot($Row['description']);
+$valKeywords = rechangeQuot($Row['keywords']);
+$valMetatitle = rechangeQuot($Row['metatitle']);
+$valSubject = $Row['subject'];
 $valTitle = rechangeQuot($Row['title']);
-//$valTitleEn = rechangeQuot($Row[10]);
-
 $valTitle = $Row[$mod_tb_setlang . "_title"];
-// $valTitleEn = $Row[$mod_tb_setlang . "_titleen"];
+$ValSocial = unserialize($Row['social']);
+$ValConfig = unserialize($Row['config']);
+$valSubjectOffice = rechangeQuot($Row['subjectoffice']);
 
-
-// $valPicName = $Row[15];
-// $valPic = $mod_path_pictures . "/" . $Row[15];
-
-$ValSocial = unserialize($Row['' . $mod_tb_setlang . '_social']);
-$ValConfig = unserialize($Row['' . $mod_tb_setlang . '_config']);
-$valSubjectOffice = rechangeQuot($Row[12]);
-
-
-$valOrName = $Row[13];
-$valQr = $mod_path_pictures . "/" . $Row[13];
-
-$valHotlineName = $Row[15];
-$valHotline = $mod_path_pictures . "/" . $Row[14];
-
-$valHotlineNameH = $Row[23];
-$valHotlineH = $mod_path_pictures . "/" . $Row[23];
 $ValFac2 = unserialize($Row['fac']);
 foreach ($ValFac2 as $key => $value4) {
     foreach ($value4 as $keyinner4 => $valueinner4) {
@@ -83,23 +61,6 @@ foreach ($ValFac2 as $key => $value4) {
     }
 }
 
-$callape = unserialize($Row['callape']);
-foreach ($callape as $keyvaluecallape => $valuecallape) {
-    foreach ($valuecallape as $keyinnervaluecallape => $valueinnervaluecallape) {
-        $valCallape[$keyinnervaluecallape][$keyvaluecallape] = $valueinnervaluecallape;
-    }
-}
-
-$valCallapeNamePic1 = $Row['piccallape1'];
-$valPicCallape1 = $mod_path_pictures . "/" . $Row['piccallape1'];
-$valCallapeNamePic2 = $Row['piccallape2'];
-$valPicCallape2 = $mod_path_pictures . "/" . $Row['piccallape2'];
-$valCallapeNamePic3 = $Row['piccallape3'];
-$valPicCallape3 = $mod_path_pictures . "/" . $Row['piccallape3'];
-$valCallapeNamePic4 = $Row['piccallape4'];
-$valPicCallape4 = $mod_path_pictures . "/" . $Row['piccallape4'];
-// print_pre($valCallape);
-// print_pre($ValFac2);
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 
 $myRand = time() . rand(111, 999);
@@ -118,6 +79,96 @@ $myRand = time() . rand(111, 999);
     <script language="JavaScript" type="text/javascript">
         function executeSubmit() {
             with(document.myForm) {
+
+                if (isBlank(inputSubject)) {
+                    inputSubject.focus();
+                    jQuery("#inputSubject").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#inputSubject").removeClass("formInputContantTbAlertY");
+                }
+
+
+                if (isBlank(inputOffice)) {
+                    inputOffice.focus();
+                    jQuery("#inputOffice").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#inputOffice").removeClass("formInputContantTbAlertY");
+                }
+
+                if (isBlank(inputTagTitle)) {
+                    inputTagTitle.focus();
+                    jQuery("#inputTagTitle").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#inputTagTitle").removeClass("formInputContantTbAlertY");
+                }
+                if (isBlank(inputTagDescription)) {
+                    inputTagDescription.focus();
+                    jQuery("#inputTagDescription").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#inputTagDescription").removeClass("formInputContantTbAlertY");
+                }
+
+                if (isBlank(inputTagKeywords)) {
+                    inputTagKeywords.focus();
+                    jQuery("#inputTagKeywords").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#inputTagKeywords").removeClass("formInputContantTbAlertY");
+                }
+
+                // if (isBlank(socialFb)) {
+                //     socialFb.focus();
+                //     jQuery("#socialFb").addClass("formInputContantTbAlertY");
+                //     return false;
+                // } else {
+                //     jQuery("#socialFb").removeClass("formInputContantTbAlertY");
+                // }
+
+                // if (isBlank(socialLk)) {
+                //     socialLk.focus();
+                //     jQuery("#socialLk").addClass("formInputContantTbAlertY");
+                //     return false;
+                // } else {
+                //     jQuery("#socialLk").removeClass("formInputContantTbAlertY");
+                // }
+
+
+                // if (isBlank(socialYt)) {
+                //     socialYt.focus();
+                //     jQuery("#socialYt").addClass("formInputContantTbAlertY");
+                //     return false;
+                // } else {
+                //     jQuery("#socialYt").removeClass("formInputContantTbAlertY");
+                // }
+
+                // if (isBlank(socialTw)) {
+                //     socialTw.focus();
+                //     jQuery("#socialTw").addClass("formInputContantTbAlertY");
+                //     return false;
+                // } else {
+                //     jQuery("#socialTw").removeClass("formInputContantTbAlertY");
+                // }
+
+                if (isBlank(infoSubject)) {
+                    infoSubject.focus();
+                    jQuery("#infoSubject").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#infoSubject").removeClass("formInputContantTbAlertY");
+                }
+
+                if (isBlank(infoAddress)) {
+                    infoAddress.focus();
+                    jQuery("#infoAddress").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#infoAddress").removeClass("formInputContantTbAlertY");
+                }
+
                 if (isBlank(infoTel)) {
                     infoTel.focus();
                     jQuery("#infoTel").addClass("formInputContantTbAlertY");
@@ -164,6 +215,14 @@ $myRand = time() . rand(111, 999);
                     return false;
                 } else {
                     jQuery("#infoEmail3").removeClass("formInputContantTbAlertY");
+                }
+
+                if (isBlank(infoEmail4)) {
+                    infoEmail4.focus();
+                    jQuery("#infoEmail4").addClass("formInputContantTbAlertY");
+                    return false;
+                } else {
+                    jQuery("#infoEmail4").removeClass("formInputContantTbAlertY");
                 }
 
                 if (isBlank(glati)) {
@@ -253,8 +312,137 @@ $myRand = time() . rand(111, 999);
         </div>
         <div class="divRightMain">
             <br />
-            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+                <tr>
+                    <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:about"] ?>
+                            <!-- (<?php echo  $langTxt["lg:thai"] ?>) -->
+                        </span><br />
+                        <span class="formFontTileTxt"><?php echo  $langMod["txt:aboutDe"] ?>
+                            <!-- (<?php echo  $langTxt["lg:thai"] ?>) -->
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" align="right" valign="top" height="15"></td>
+                </tr>
 
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["ab:subject"] ?>
+                        <!-- (<?php echo  $langTxt["lg:thai"] ?>) --> <span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" class="formInputContantTb" value="<?php echo  $valSubject ?>" /></td>
+                </tr>
+
+
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:titleOffice"] ?>
+                        <!-- (<?php echo  $langTxt["lg:thai"] ?>) --> <span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputOffice" id="inputOffice" type="text" class="formInputContantTb" value="<?php echo  $valSubjectOffice ?>" /></td>
+                </tr>
+            </table>
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " style="display:none;">
+                <tr>
+                    <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:about"] ?>
+                            <!-- (<?php echo  $langTxt["lg:eng"] ?>) -->
+                        </span><br />
+                        <span class="formFontTileTxt"><?php echo  $langMod["txt:aboutDe"] ?>
+                            <!-- (<?php echo  $langTxt["lg:thai"] ?>) -->
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" align="right" valign="top" height="15"></td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["ab:subject"] ?>
+                        <!-- (<?php echo  $langTxt["lg:eng"] ?>) --> <span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubjecten" id="inputSubjecten" type="text" class="formInputContantTb" value="<?php echo  $valSubjecten ?>" /></td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["ab:office"] ?>
+                        <!-- (<?php echo  $langTxt["lg:eng"] ?>) --> <span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputOfficeen" id="inputOfficeen" type="text" class="formInputContantTb" value="<?php echo  $valSubjectOfficeen ?>" /></td>
+                </tr>
+
+            </table>
+            <!-- ###### START TEXT FRONT WEBSIDE EDIT ###### -->
+            <br />
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+                <tr>
+                    <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:seo"] ?></span><br />
+                        <span class="formFontTileTxt"><?php echo  $langMod["txt:seoDe"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" align="right" valign="top" height="15"></td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["inp:seotitle"] ?><span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputTagTitle" id="inputTagTitle" type="text" class="formInputContantTb" value="<?php echo  $valMetatitle ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["inp:seotitlenote"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["inp:seodes"] ?><span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputTagDescription" id="inputTagDescription" type="text" class="formInputContantTb" value="<?php echo  $valDescription ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["inp:seodesnote"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["inp:seokey"] ?><span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputTagKeywords" id="inputTagKeywords" type="text" class="formInputContantTb" value="<?php echo  $valKeywords ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["inp:seokeynote"] ?></span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <!-- add social media by nut -->
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+                <tr>
+                    <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:setSocial"] ?></span><br />
+                        <span class="formFontTileTxt"><?php echo  $langMod["txt:setSocialDe"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" align="right" valign="top" height="15"></td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:emailInfo"]; ?><span class="fontContantAlert"> </span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo  $langMod["social:tel"] ?>][link]" id="socialIg" type="text" class="formInputContantTb" value="<?php echo  $ValSocial[$langMod["social:tel"]]['link'] ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["info:telde"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["social:fb"] ?> <?php echo  $langMod['social:link']; ?><span class="fontContantAlert"> </span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo  $langMod["social:fb"] ?>][link]" id="socialFb" type="text" class="formInputContantTb" value="<?php echo  $ValSocial[$langMod["social:fb"]]['link'] ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["social:tw"] ?> <?php echo  $langMod['social:link']; ?><span class="fontContantAlert"> </span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo $langMod["social:tw"] ?>][link]" id="socialTw" type="text" class="formInputContantTb" value="<?php echo $ValSocial[$langMod["social:tw"]]['link'] ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["social:li"] ?> <?php echo  $langMod['social:link']; ?><span class="fontContantAlert"></span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo  $langMod["social:li"] ?>][link]" id="socialLi" type="text" class="formInputContantTb" value="<?php echo  $ValSocial[$langMod["social:li"]]['link'] ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
                 <tr>
                     <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                         <span class="formFontSubjectTxt"><?php echo  $langMod["info:title"] ?></span><br />
@@ -265,19 +453,38 @@ $myRand = time() . rand(111, 999);
                     <td colspan="7" align="right" valign="top" height="15"></td>
                 </tr>
                 <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:office"] ?><span class="fontContantAlert">*</span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <input class="formInputContantTb" name="info[subject]" id="infoSubject" value="<?php echo  $ValConfig['subject'] ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb">
+                        <?php echo  $langMod['info:address']; ?>
+                        <span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <textarea name="info[address]" id="infoAddress" cols="45" rows="5" class="formTextareaContantTb"><?php echo  trim($ValConfig['address']) ?></textarea>
+                        <br />
+                    </td>
+                </tr>
+
+                <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:tel"] ?><span class="fontContantAlert">*</span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb">
                         <input class="formInputContantTb" name="info[tel]" id="infoTel" value="<?php echo  $ValConfig['tel'] ?>" /><br />
                         <span class="formFontNoteTxt"><?php echo  $langMod["info:telde"] ?></span>
                     </td>
                 </tr>
+
                 <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:tel"] ?><span class="fontContantAlert">*</span></td>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:tel2"] ?><span class="fontContantAlert">*</span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb">
                         <input class="formInputContantTb" name="info[tel2]" id="infoTel2" value="<?php echo  $ValConfig['tel2'] ?>" /><br />
                         <span class="formFontNoteTxt"><?php echo  $langMod["info:telde"] ?></span>
                     </td>
                 </tr>
+
                 <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:fax"] ?><span class="fontContantAlert">*</span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -285,6 +492,7 @@ $myRand = time() . rand(111, 999);
                         <span class="formFontNoteTxt"><?php echo  $langMod["info:faxde"] ?></span>
                     </td>
                 </tr>
+
                 <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:email"] ?><span class="fontContantAlert">*</span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -292,18 +500,45 @@ $myRand = time() . rand(111, 999);
                         <span class="formFontNoteTxt"><?php echo  $langMod["info:emailde"] ?></span>
                     </td>
                 </tr>
+
                 <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:email"] ?><span class="fontContantAlert">*</span></td>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:email2"] ?><span class="fontContantAlert">*</span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb">
                         <input class="formInputContantTb" name="info[email2]" id="infoEmail2" value="<?php echo  $ValConfig['email2'] ?>" /> <br />
                         <span class="formFontNoteTxt"><?php echo  $langMod["info:emailde"] ?></span>
                     </td>
                 </tr>
+
                 <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:email"] ?><span class="fontContantAlert">*</span></td>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:email3"] ?><span class="fontContantAlert">*</span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb">
                         <input class="formInputContantTb" name="info[email3]" id="infoEmail3" value="<?php echo  $ValConfig['email3'] ?>" /> <br />
                         <span class="formFontNoteTxt"><?php echo  $langMod["info:emailde"] ?></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["info:email4"] ?><span class="fontContantAlert">*</span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <input class="formInputContantTb" name="info[email4]" id="infoEmail4" value="<?php echo  $ValConfig['email4'] ?>" /> <br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["info:emailde"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb">
+                        <?php echo  $langMod['info:latiture'] ?>
+                        <span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <input name="info[glati]" id="glati" value="<?php echo  $ValConfig['glati'] ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb">
+                        <?php echo  $langMod['info:longtiture'] ?><span class="fontContantAlert">*</span>
+                    </td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <input name="info[glongti]" id="glongti" value="<?php echo  $ValConfig['glongti'] ?>" />
                     </td>
                 </tr>
             </table>
@@ -321,182 +556,9 @@ $myRand = time() . rand(111, 999);
     <?php include("../lib/disconnect.php"); ?>
     <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
     <script type="text/javascript" language="javascript">
-        /*################################# Upload Pic #######################*/
-        function ajaxFileUpload() {
-            var valuepicname = jQuery("input#picname").val();
-
-            jQuery.blockUI({
-                message: jQuery('#tallContent'),
-                css: {
-                    border: 'none',
-                    padding: '35px',
-                    backgroundColor: '#000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-
-
-            jQuery.ajaxFileUpload({
-                url: 'loadInsertPic.php?myID=<?php echo  $myRand ?>&masterkey=<?php echo  $_REQUEST['masterkey'] ?>&langt=<?php echo  $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo  $_REQUEST['menukeyid'] ?>',
-                secureuri: false,
-                fileElementId: 'fileToUpload',
-                dataType: 'json',
-                success: function(data, status) {
-                    if (typeof(data.error) != 'undefined') {
-
-                        if (data.error != '') {
-                            alert(data.error);
-
-                        } else {
-                            jQuery("#boxPicNew").show();
-                            jQuery("#boxPicNew").html(data.msg);
-                            setTimeout(jQuery.unblockUI, 200);
-                        }
-                    }
-                },
-                error: function(data, status, e) {
-                    alert(e);
-                }
-            })
-            return false;
-
-        }
-
-        /*################################# Upload QR #######################*/
-        function ajaxFileUploadQR() {
-            var valuepicname = jQuery("input#picQR").val();
-
-            jQuery.blockUI({
-                message: jQuery('#tallContent'),
-                css: {
-                    border: 'none',
-                    padding: '35px',
-                    backgroundColor: '#000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-
-
-            jQuery.ajaxFileUpload({
-                url: 'loadInsertPicQR.php?myID=<?php echo  $myRand ?>&masterkey=<?php echo  $_REQUEST['masterkey'] ?>&langt=<?php echo  $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo  $_REQUEST['menukeyid'] ?>',
-                secureuri: false,
-                fileElementId: 'fileToUploadQR',
-                dataType: 'json',
-                success: function(data, status) {
-                    if (typeof(data.error) != 'undefined') {
-
-                        if (data.error != '') {
-                            alert(data.error);
-
-                        } else {
-                            jQuery("#boxPicQR").show();
-                            jQuery("#boxPicQR").html(data.msg);
-                            setTimeout(jQuery.unblockUI, 200);
-                        }
-                    }
-                },
-                error: function(data, status, e) {
-                    alert(e);
-                }
-            })
-            return false;
-
-        }
-        /*################################# Upload hotline #######################*/
-        function ajaxFileUploadHT() {
-            var valuepicname = jQuery("input#picHT").val();
-
-            jQuery.blockUI({
-                message: jQuery('#tallContent'),
-                css: {
-                    border: 'none',
-                    padding: '35px',
-                    backgroundColor: '#000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-
-
-            jQuery.ajaxFileUpload({
-                url: 'loadInsertPicHT.php?myID=<?php echo  $myRand ?>&masterkey=<?php echo  $_REQUEST['masterkey'] ?>&langt=<?php echo  $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo  $_REQUEST['menukeyid'] ?>',
-                secureuri: false,
-                fileElementId: 'fileToUploadHT',
-                dataType: 'json',
-                success: function(data, status) {
-                    if (typeof(data.error) != 'undefined') {
-
-                        if (data.error != '') {
-                            alert(data.error);
-
-                        } else {
-                            jQuery("#boxPicHT").show();
-                            jQuery("#boxPicHT").html(data.msg);
-                            setTimeout(jQuery.unblockUI, 200);
-                        }
-                    }
-                },
-                error: function(data, status, e) {
-                    alert(e);
-                }
-            })
-            return false;
-
-        }
         /*################################# Upload multi #######################*/
         function ajaxFileUpload_mul(inputID, filename, eleID, classID, keyID) {
-        var valuepicname = jQuery(inputID).val();
-
-        jQuery.blockUI({
-            message: jQuery('#tallContent'),
-            css: {
-                border: 'none',
-                padding: '35px',
-                backgroundColor: '#000',
-                '-webkit-border-radius': '10px',
-                '-moz-border-radius': '10px',
-                opacity: .9,
-                color: '#fff'
-            }
-        });
-
-        jQuery.ajaxFileUpload({
-            url: filename + '?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>' + '&element='+eleID + '&keyid='+keyID,
-            secureuri: false,
-            fileElementId: eleID,
-            dataType: 'json',
-            success: function(data, status) {
-                if (typeof(data.error) != 'undefined') {
-
-                    if (data.error != '') {
-                        alert(data.error);
-
-                    } else {
-                        jQuery(classID).show();
-                        jQuery(classID).html(data.msg);
-                        setTimeout(jQuery.unblockUI, 200);
-                    }
-                }
-            },
-            error: function(data, status, e) {
-                alert(e);
-            }
-        })
-        return false;
-
-    }
-
-        /*################################# Upload hotline Head #######################*/
-        function ajaxFileUploadHTh() {
-            var valuepicname = jQuery("input#picHTh").val();
+            var valuepicname = jQuery(inputID).val();
 
             jQuery.blockUI({
                 message: jQuery('#tallContent'),
@@ -511,11 +573,10 @@ $myRand = time() . rand(111, 999);
                 }
             });
 
-
             jQuery.ajaxFileUpload({
-                url: 'loadInsertPicHTh.php?myID=<?php echo  $myRand ?>&masterkey=<?php echo  $_REQUEST['masterkey'] ?>&langt=<?php echo  $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo  $_REQUEST['menukeyid'] ?>',
+                url: filename + '?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>' + '&element=' + eleID + '&keyid=' + keyID,
                 secureuri: false,
-                fileElementId: 'fileToUploadHTh',
+                fileElementId: eleID,
                 dataType: 'json',
                 success: function(data, status) {
                     if (typeof(data.error) != 'undefined') {
@@ -524,8 +585,8 @@ $myRand = time() . rand(111, 999);
                             alert(data.error);
 
                         } else {
-                            jQuery("#boxPicHTh").show();
-                            jQuery("#boxPicHTh").html(data.msg);
+                            jQuery(classID).show();
+                            jQuery(classID).html(data.msg);
                             setTimeout(jQuery.unblockUI, 200);
                         }
                     }
@@ -535,184 +596,6 @@ $myRand = time() . rand(111, 999);
                 }
             })
             return false;
-
-        }
-        /*############################# Upload File ####################################*/
-
-        function ajaxFileUploadDocpresent() {
-            var valuefilename = jQuery("input#inputFileName").val();
-            jQuery.blockUI({
-                message: jQuery('#tallContent'),
-                css: {
-                    border: 'none',
-                    padding: '35px',
-                    backgroundColor: '#000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-
-
-            jQuery.ajaxFileUpload({
-                url: 'loadUpdateFilepre.php?myID=<?php echo $_REQUEST["valEditID"] ?>&masterkey=<?php echo $_REQUEST["masterkey"] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&nametodoc=' + valuefilename + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
-                secureuri: true,
-                fileElementId: 'inputFileUpload',
-                dataType: 'json',
-                success: function(data, status) {
-                    if (typeof(data.error) != 'undefined') {
-
-                        if (data.error != '') {
-                            alert(data.error);
-                        } else {
-                            jQuery("#boxFileNewpresent").show();
-                            jQuery("#boxFileNewpresent").html(data.msg);
-                            document.myForm.inputFileName.value = "";
-                            setTimeout(jQuery.unblockUI, 200);
-                        }
-
-                    }
-                },
-                error: function(data, status, e) {
-                    alert(e);
-                }
-            })
-
-            return false;
-
-        }
-
-        function ajaxFileUploadDocAchieve() {
-            var valuefilename = jQuery("input#inputFileName4").val();
-            jQuery.blockUI({
-                message: jQuery('#tallContent'),
-                css: {
-                    border: 'none',
-                    padding: '35px',
-                    backgroundColor: '#000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-
-
-            jQuery.ajaxFileUpload({
-                url: 'loadUpdateFileAch.php?myID=<?php echo $_REQUEST["valEditID"] ?>&masterkey=<?php echo $_REQUEST["masterkey"] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&nametodoc=' + valuefilename + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
-                secureuri: true,
-                fileElementId: 'inputFileUpload4',
-                dataType: 'json',
-                success: function(data, status) {
-                    if (typeof(data.error) != 'undefined') {
-
-                        if (data.error != '') {
-                            alert(data.error);
-                        } else {
-                            jQuery("#boxFileNewachieve").show();
-                            jQuery("#boxFileNewachieve").html(data.msg);
-                            document.myForm.inputFileName.value = "";
-                            setTimeout(jQuery.unblockUI, 200);
-                        }
-
-                    }
-                },
-                error: function(data, status, e) {
-                    alert(e);
-                }
-            })
-
-            return false;
-
-        }
-
-        function ajaxFileUploadDocprofile() {
-            var valuefilename = jQuery("input#inputFileName2").val();
-            jQuery.blockUI({
-                message: jQuery('#tallContent'),
-                css: {
-                    border: 'none',
-                    padding: '35px',
-                    backgroundColor: '#000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-
-
-            jQuery.ajaxFileUpload({
-                url: 'loadUpdateFilepro.php?myID=<?php echo $_REQUEST["valEditID"] ?>&masterkey=<?php echo $_REQUEST["masterkey"] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&nametodoc=' + valuefilename + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
-                secureuri: true,
-                fileElementId: 'inputFileUpload2',
-                dataType: 'json',
-                success: function(data, status) {
-                    if (typeof(data.error) != 'undefined') {
-
-                        if (data.error != '') {
-                            alert(data.error);
-                        } else {
-                            jQuery("#boxFileNewprofile").show();
-                            jQuery("#boxFileNewprofile").html(data.msg);
-                            document.myForm.inputFileName.value = "";
-                            setTimeout(jQuery.unblockUI, 200);
-                        }
-
-                    }
-                },
-                error: function(data, status, e) {
-                    alert(e);
-                }
-            })
-
-            return false;
-
-        }
-
-        function ajaxFileUploadDoc() {
-            var valuefilename = jQuery("input#inputFileName3").val();
-            jQuery.blockUI({
-                message: jQuery('#tallContent'),
-                css: {
-                    border: 'none',
-                    padding: '35px',
-                    backgroundColor: '#000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-
-
-            jQuery.ajaxFileUpload({
-                url: 'loadUpdateFile.php?myID=<?php echo $_REQUEST["valEditID"] ?>&masterkey=<?php echo $_REQUEST["masterkey"] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&nametodoc=' + valuefilename + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
-                secureuri: true,
-                fileElementId: 'inputFileUpload3',
-                dataType: 'json',
-                success: function(data, status) {
-                    if (typeof(data.error) != 'undefined') {
-
-                        if (data.error != '') {
-                            alert(data.error);
-                        } else {
-                            jQuery("#boxFileNew").show();
-                            jQuery("#boxFileNew").html(data.msg);
-                            document.myForm.inputFileName.value = "";
-                            setTimeout(jQuery.unblockUI, 200);
-                        }
-
-                    }
-                },
-                error: function(data, status, e) {
-                    alert(e);
-                }
-            })
-
-            return false;
-
         }
     </script>
 </body>

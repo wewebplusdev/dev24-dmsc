@@ -22,7 +22,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 //   $arrLang = $arrLangNew;
 // }
 
-$langShow = $_POST['inputLang'] ? $_POST['inputLang'] : $_SESSION[$valSiteManage . "core_session_language"]; 
+$langShow = $_POST['inputLang'] ? $_POST['inputLang'] : $_SESSION[$valSiteManage . "core_session_language"];
 
 $valClassNav = 2;
 $valNav1 = $langTxt["nav:home2"];

@@ -51,7 +51,7 @@ include("config.php");
                                 <input name="inputGh" type="hidden" id="inputGh" value="<?php echo $_REQUEST['inputGh'] ?>" />
                                 <input name="valEditID" type="hidden" id="valEditID" value="<?php echo $_REQUEST['valEditID'] ?>" />
                                 <input name="inputLt" type="hidden" id="inputLt" value="<?php echo $_REQUEST['inputLt'] ?>" />
-                               
+                                <input name="valCid" type="hidden" id="valCid" value="<?php echo $_REQUEST['valCid'] ?>" />
                             </form>
                             <div class="mRightBackOffice" id="boxContantLoad">
                                 <?php include("../core/incWaitting.php") ?>

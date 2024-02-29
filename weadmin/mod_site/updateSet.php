@@ -14,43 +14,6 @@ include("config.php");
     <body>
         <?php
         if ($execute == "update") {
-            // print_pre($_POST);die;
-            $update=array();
-            $update[] = $mod_tb_setlang . "_metatitle='" . changeQuot($_POST['inputTagTitle']) . "'";
-            $update[] = $mod_tb_setlang . "_description  	='" . changeQuot($_POST['inputTagDescription']) . "'";
-            $update[] = $mod_tb_setlang . "_keywords  	='" . changeQuot($_POST['inputTagKeywords']) . "'";
-
-            // $update[] = $mod_tb_set . "_metatitleen en    ='" . changeQuot($_POST['inputTagKeywordsEN']) . "'";
-
-            $update[] = $mod_tb_setlang . "_subject='" . changeQuot($_POST['inputSubject']) . "'";
-            // $update[] = $mod_tb_set . "_subjecten='" . changeQuot($_POST['inputSubjecten']) . "'";
-
-            $update[] = $mod_tb_setlang . "_subjectoffice  	='" . changeQuot($_POST['inputOffice']) . "'";
-            // $update[] = $mod_tb_set . "_subjectofficeen  	='" . changeQuot($_POST['inputOfficeen']) . "'";
-
-            $update[] = $mod_tb_setlang . "_social  	='" . serialize($_POST['social']) . "'";
-
-            $update[] = $mod_tb_setlang . "_config  	='" . serialize($_POST['info']) . "'"; 
-            // $update[] = $mod_tb_set . "_slogan  	='" . serialize($_POST['slogan']) . "'";
-            // $update[] = $mod_tb_set . "_sloganen  	='" . serialize($_POST['sloganen']) . "'";
-            $update[] = $mod_tb_setlang . "_fac  	='" . serialize($_POST['inputfaction']) . "'";
-            $update[] = $mod_tb_setlang . "_addresspic  	='" . $_POST['picname'] . "'";
-            $update[] = $mod_tb_setlang . "_qr  	='" . $_POST['picQR'] . "'";
-            $update[] = $mod_tb_setlang . "_hotlinepic  	='" . $_POST['picHT'] . "'";
-
-            //  $update[] = $mod_tb_set . "_hotline  	='" . $_POST['picHTh'] . "'";
-
-            $update[] = $mod_tb_setlang . "_callape  	='" . serialize($_POST['callape']) . "'";
-            $update[] = $mod_tb_setlang . "_piccallape  	='" . $_POST['picnameCallape'] . "'";
-            // $update[] = $mod_tb_setlang . "_language  	='" . $_REQUEST['inputLt'] . "'";
-            $update[] = $mod_tb_set . "_piccallape  	='" . $_POST['picnameCallape'] . "'";
-            // $update[] = $mod_tb_set . "_piccallape3  	='" . $_POST['picnameCallape3'] . "'";
-            // $update[] = $mod_tb_set . "_piccallape4  	='" . $_POST['picnameCallape4'] . "'";
-
-            $sql = "UPDATE " . $mod_tb_setlang . " SET " . implode(",", $update) . " WHERE " . $mod_tb_setlang . "_containid='" . $_POST["valEditID"] . "' AND  " . $mod_tb_setlang . "_language='" . $_REQUEST['inputLt'] ."'";
-            // print_pre($sql);die;
-            $Query=wewebQueryDB($coreLanguageSQL,$sql);
-           
             $updatemain = array();
             $updatemain[] = $mod_tb_set . "_lastbyid='" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
             $updatemain[] = $mod_tb_set . "_lastby='" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
@@ -59,8 +22,41 @@ include("config.php");
             $sql = "UPDATE " . $mod_tb_set . " SET " . implode(",", $updatemain) . " WHERE " . $mod_tb_set . "_id='" . $_POST["valEditID"] . "' ";
             $Query=wewebQueryDB($coreLanguageSQL,$sql);
 
+            $sqlcheck = "SELECT " . $mod_tb_setlang . "_id FROM " . $mod_tb_setlang . " WHERE " . $mod_tb_setlang . "_language = '" . $_REQUEST['inputLt'] . "' AND " . $mod_tb_setlang . "_containid = '" . $_POST["valEditID"] . "'";
+            $Querycheck = wewebQueryDB($coreLanguageSQL, $sqlcheck);
+            $count_check = wewebNumRowsDB($coreLanguageSQL, $Querycheck);
+            if ($count_check > 0) {
+                $update=array();
+                $update[] = $mod_tb_setlang . "_metatitle='" . changeQuot($_POST['inputTagTitle']) . "'";
+                $update[] = $mod_tb_setlang . "_description  	='" . changeQuot($_POST['inputTagDescription']) . "'";
+                $update[] = $mod_tb_setlang . "_keywords  	='" . changeQuot($_POST['inputTagKeywords']) . "'";
+                $update[] = $mod_tb_setlang . "_subject='" . changeQuot($_POST['inputSubject']) . "'";
+                $update[] = $mod_tb_setlang . "_subjectoffice  	='" . changeQuot($_POST['inputOffice']) . "'";
+                $update[] = $mod_tb_setlang . "_social  	='" . serialize($_POST['social']) . "'";
+                $update[] = $mod_tb_setlang . "_config  	='" . serialize($_POST['info']) . "'"; 
+                $update[] = $mod_tb_setlang . "_fac  	='" . serialize($_POST['inputfaction']) . "'";
+                $update[] = $mod_tb_setlang . "_addresspic  	='" . $_POST['picname'] . "'";
+                $sql = "UPDATE " . $mod_tb_setlang . " SET " . implode(",", $update) . " WHERE " . $mod_tb_setlang . "_containid='" . $_POST["valEditID"] . "' AND  " . $mod_tb_setlang . "_language='" . $_REQUEST['inputLt'] ."'";
+                $Query=wewebQueryDB($coreLanguageSQL,$sql);
+            }else{
+                $insertlang = array();
+                $insertlang[$mod_tb_setlang . "_containid"] = "'" . $_POST["valEditID"] . "'";
+                $insertlang[$mod_tb_setlang . "_language"] = "'" . $_REQUEST['inputLt'] . "'";
+                $insertlang[$mod_tb_setlang . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
+                $insertlang[$mod_tb_setlang . "_metatitle"] = "'" . changeQuot($_POST['inputTagTitle']) . "'";
+                $insertlang[$mod_tb_setlang . "_description"] = "'" . changeQuot($_POST['inputTagDescription']) . "'";
+                $insertlang[$mod_tb_setlang . "_keywords"] = "'" . changeQuot($_POST['inputTagKeywords']) . "'";
+                $insertlang[$mod_tb_setlang . "_subject"] = "'" . changeQuot($_POST['inputSubject']) . "'";
+                $insertlang[$mod_tb_setlang . "_subjectoffice"] = "'" . changeQuot($_POST['inputOffice']) . "'";
+                $insertlang[$mod_tb_setlang . "_social"] = "'" . serialize($_POST['social']) . "'";
+                $insertlang[$mod_tb_setlang . "_config"] = "'" . serialize($_POST['info']) . "'";
+                $insertlang[$mod_tb_setlang . "_fac"] = "'" . serialize($_POST['inputfaction']) . "'";
+                $insertlang[$mod_tb_setlang . "_addresspic"] = "'" . $_POST['picname'] . "'";
+                $sqlInsert = "INSERT INTO " . $mod_tb_setlang . "(" . implode(",", array_keys($insertlang)) . ") VALUES (" . implode(",", array_values($insertlang)) . ")";
+                $queryInsert = wewebQueryDB($coreLanguageSQL, $sqlInsert);
+            }
+
             logs_access('3', 'Update Group');
-            // print_pre($sql);
             ?>
         <?php } ?>
         <?php include("../lib/disconnect.php"); ?>
@@ -71,6 +67,7 @@ include("config.php");
             <input name="module_pagesize" type="hidden" id="module_pagesize" value="<?php echo  $_REQUEST['module_pagesize'] ?>" />
             <input name="module_orderby" type="hidden" id="module_orderby" value="<?php echo  $_REQUEST['module_orderby'] ?>" />
             <input name="inputSearch" type="hidden" id="inputSearch" value="<?php echo  $_REQUEST['inputSearch'] ?>" />
+            <input name="inputLang" type="hidden" id="inputLang" value="<?php echo  $_REQUEST['inputLt'] ?>" />
         </form>
         <script language="JavaScript" type="text/javascript"> document.myFormAction.submit();</script>
     </body></html>

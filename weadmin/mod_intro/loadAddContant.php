@@ -45,13 +45,23 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   jQuery("#inputurl").removeClass("formInputContantTbAlertY");
                }
 
-
                if (inputurl.value == "http://") {
                   inputurl.focus();
                   jQuery("#inputurl").addClass("formInputContantTbAlertY");
                   return false;
                } else {
                   jQuery("#inputurl").removeClass("formInputContantTbAlertY");
+               }
+
+               let input_type = $('input[name="inputType"]:checked').val();
+               if (input_type == 2) {
+                  if (inputurlc.value == "http://" || isBlank(inputurlc)) {
+                     inputurlc.focus();
+                     jQuery("#inputurlc").addClass("formInputContantTbAlertY");
+                     return false;
+                  } else {
+                     jQuery("#inputurlc").removeClass("formInputContantTbAlertY");
+                  }
                }
             }
             insertContactNew('insertContant.php');
@@ -155,9 +165,9 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                         <div class="formDivRadioL"><input name="inputmenutarget" id="inputmenutarget"  type="radio"  class="formRadioContantTb"   value="2"  /></div>
                         <div class="formDivRadioR"><?php echo $modTxtTarget[2] ?></div>
                      </label>
-                     </label>    </td>
+                     </label>
+                  </td>
                </tr>
-
             </table>
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
@@ -167,8 +177,22 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                      <span class="formFontTileTxt"><?php echo $langMod["txt:picDe"] ?></span>    </td>
                </tr>
                <tr ><td colspan="7" align="right"  valign="top"   height="15" ></td></tr>
-
                <tr >
+                  <td width="18%" align="right"  valign="top"  class="formLeftContantTb" ><?php echo $modTxtType[0] ?><span class="fontContantAlert">*</span></td>
+                  <td width="82%" colspan="6" align="left"  valign="top"  class="formRightContantTb" >
+                     <label>
+                        <div class="formDivRadioL"><input name="inputType" id="inputType" type="radio"  class="formRadioContantTb"  value="1" checked="checked" onchange="$('.typePic').show();$('.typeYoutube').hide();"/></div>
+                        <div class="formDivRadioR"><?php echo $modTxtType[1] ?></div>
+                     </label>
+
+                     <label>
+                        <div class="formDivRadioL"><input name="inputType" id="inputType"  type="radio"  class="formRadioContantTb"   value="2" onchange="$('.typePic').hide();$('.typeYoutube').show();"/></div>
+                        <div class="formDivRadioR"><?php echo $modTxtType[2] ?></div>
+                     </label>
+                     </label>
+                  </td>
+               </tr>
+               <tr class="typePic">
                   <td width="18%" align="right"  valign="top"  class="formLeftContantTb" ><?php echo $langMod["inp:album"] ?></td>
                   <td width="82%" colspan="6" align="left"  valign="top"  class="formRightContantTb" >
                      <div class="file-input-wrapper">
@@ -180,10 +204,15 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                      <div class="clearAll"></div>
                      <div id="boxPicNew" class="formFontTileTxt">
                         <input type="hidden" name="picname" id="picname" />
-                     </div></td>
+                     </div>
+                  </td>
                </tr>
-
-
+               <tr class="typeYoutube" style="display: none;">
+                  <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoYoutube"] ?></td>
+                  <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlc" id="inputurlc" cols="45" rows="5" class="formTextareaContantTb">http://</textarea><br />
+                     <span class="formFontNoteTxt"><?php echo $langMod["tit:linkvdonotec"] ?></span>
+                  </td>
+               </tr>
             </table>
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">

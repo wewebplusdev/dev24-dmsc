@@ -38,5 +38,7 @@ if($_SESSION[$valSiteManage."core_session_language"]=="Eng"){
 		$langMod["tit:selectt"] ="เลือกรุ่นศูนย์บริการ";
 		
 		$langMod["tit:inpName"] = "ชื่อ".getNameMenu($_REQUEST["menukeyid"]);
+		$langMod["tit:linkvdonotec"] = "หมายเหตุ : ลิงค์ที่ใช่ คือ URL youtube.com เท่านั้น";
+		$langMod["tit:linkvdoYoutube"] = "Youtube";
 }
 ?>

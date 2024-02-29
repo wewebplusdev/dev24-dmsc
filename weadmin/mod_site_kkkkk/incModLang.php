@@ -36,7 +36,6 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["social:li"] = "Line";
   $langMod["social:ig"] = "Instagram";
   $langMod["social:lk"] = "Linkedin";
-  $langMod["social:tel"] = "Tel";
 
 
   $langMod["social:note"] = "Note: Please enter the URL name, prefixed with \" http: // \". For example: http://www.google.com. Etc. " . " <br> "
@@ -149,7 +148,6 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["social:li"] = "Line";
   $langMod["social:ig"] = "Instagram";
   $langMod["social:lk"] = "Linkedin";
-  $langMod["social:tel"] = "Tel";
 
 
   $langMod["social:note"] = "หมายเหตุ : กรุณากรอกชื่อ URL นำหน้าด้วย \"http://\" เช่น http://www.google.com เป็นต้น" . "<br>" . "กรณีไม่มีชื่อ URL ให้ใส่เครื่องหมาย #";
@@ -220,7 +218,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 
 
   $langMod["ab:office"] = "ชื่อบริษัท";
-  $langMod["txt:office"] = "ชื่อกระทรวง";
+  $langMod["txt:office"] = "ชื่อเรียก";
 
   $langMod["txt:slogan"] = "ข้อมูลสโลแกน";
   $langMod["txt:sloganDe"] = "ข้อมูลนี้คือส่วนที่ใช้ในการตั้งค่าสโลแกนในเว็บไซต์ของคุณ";
@@ -253,7 +251,6 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["txt:duty"] = "ที่ปรึกษาด้าน";
   $langMod["info:tel"] = "เบอร์โทรติดต่อสอบถามข้อมูล";
   $langMod["info:tel2"] = "เบอร์โทรศัพท์มือถือ";
-  $langMod["info:emailInfo"] = "เบอร์โทรศัพท์";
   $langMod["info:email"] = "อีเมล์";
   $langMod["info:email2"] = "อีเมล์ติดต่อ/สอบถามข้อมูล";
   $langMod["info:email3"] = "อีเมล์สอบถามข้อมูลการตรวจวิเคราะห์";

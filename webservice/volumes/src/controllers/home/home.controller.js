@@ -48,6 +48,8 @@ async function getPopup(req, res) {
             ,${config_array_db['md_tgpl']}_pic as pic 
             ,${config_array_db['md_tgpl']}_url as url 
             ,${config_array_db['md_tgpl']}_target as target 
+            ,${config_array_db['md_tgpl']}_type as type 
+            ,${config_array_db['md_tgpl']}_urlc as urlc 
             FROM ${config_array_db['md_tgp']} 
             INNER JOIN ${config_array_db['md_tgpl']} ON ${config_array_db['md_tgpl']}_cid = ${config_array_db['md_tgp']}_id
             WHERE ${config_array_db['md_tgp']}_masterkey = '${config_array_masterkey['popup']}' 
@@ -101,11 +103,18 @@ async function getPopup(req, res) {
                         arr_data[i].id = select[i].id;
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].subject = select[i].subject;
-                        arr_data[i].pic = {
-                            'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                            'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                            'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                        arr_data[i].type = select[i].type;
+                        if (select[i].type == 1) {
+                            arr_data[i].pic = {
+                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                            }
+                        }else{
+                            arr_data[i].video = select[i].urlc;
                         }
+                        arr_data[i].url = select[i].url;
+                        arr_data[i].target = (select[i].target == 2) ? '_blank' : '_self';
                         arr_data[i].createDate = {
                             full: new Date(select[i].credate),
                             style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))

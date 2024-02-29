@@ -54,9 +54,7 @@ include("config.php");
                                 <input name="module_pagesize" type="hidden" id="module_pagesize" value="<?php echo  $_REQUEST['module_pagesize'] ?>" />
                                 <input name="module_orderby" type="hidden" id="module_orderby" value="<?php echo  $_REQUEST['module_orderby'] ?>" />
                                 <input name="valEditID" type="hidden" id="valEditID" value="" />
-                                <input name="inputLt" type="hidden" id="inputLt" value="<?php echo $_REQUEST['inputLt'] ?>" />
-                                <input name="valCid" type="hidden" id="valCid" value="<?php echo $_REQUEST['valCid'] ?>" />
-                                <?php include_once './inc-inputsearch.php'; ?>
+                                <input name="inputLt" type="hidden" id="inputLt" value="" />
                             </form>
                             <div class="mRightBackOffice" id="boxContantLoad">
                                 <?php include("../core/incWaitting.php") ?>

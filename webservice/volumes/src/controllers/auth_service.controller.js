@@ -41,8 +41,11 @@ exports.auth = async function (req, res) {
             if (select_permis.length == 1) {
                 if (apptoken == config.jwtToken) {
                     const appInfo = {
-                        app_token: apptoken,
+                        app_token: config_array_param['controllkey'],
                     }
+                    // const appInfo = {
+                    //     app_token: apptoken,
+                    // }
                     var tokenid = await generateToken(appInfo);
                     result.tokenid = tokenid;
 

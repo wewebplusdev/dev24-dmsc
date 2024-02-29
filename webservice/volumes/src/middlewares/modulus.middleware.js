@@ -114,21 +114,6 @@ exports.getTextReplace = async function (data) {
     return result;
 }
 
-exports.getClientIP = function(){
-    var result = '';
-    const { networkInterfaces } = require('os');
-
-    const nets = networkInterfaces();
-    let results = "";
-
-    for (const name of Object.keys(nets)) {
-        for (const net of nets[name]) {
-            // Skip over non-IPv4 and internal (i.e. 127.0.0.1) addresses
-            if (net.family === 'IPv4' && !net.internal) {
-                results = net.address;
-            }
-        }
-    }
-    result = results;
-    return result
+exports.getClientIP = function(req){
+    return req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(":").pop();
 }

@@ -14,16 +14,20 @@ exports.init = function (req, res) {
         "getPolicyDetail": "getPolicyDetail",
         "getHelp": "getHelp",
         "getHelpDetail": "getHelpDetail",
+        "LogsViewWebsite": "LogsViewWebsite",
     });
 }
 
 async function getWebSetting(req, res) {
     const method = req.body.method;
+    const language = req.body.language ? req.body.language : 'Thai';
     const result = general.checkParam([method]);
     const code = config.returncode;
 
     // db tables
     let config_array_db = new Array();
+    config_array_db['md_sit'] = config.fieldDB.main.md_sit
+    config_array_db['md_sitl'] = config.fieldDB.main.md_sitl
     config_array_db['sy_lang'] = config.fieldDB.main.sy_lang
     config_array_db['sy_langfront'] = config.fieldDB.main.sy_langfront
     config_array_db['md_ab'] = config.fieldDB.main.md_ab
@@ -33,12 +37,71 @@ async function getWebSetting(req, res) {
     let config_array_masterkey = new Array();
     config_array_masterkey['sy_lang'] = config.fieldDB.masterkey.sm
     config_array_masterkey['lcf'] = config.fieldDB.masterkey.lcf
+    config_array_masterkey['set'] = config.fieldDB.masterkey.set
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
         result.item = {};
         let arr_data_language = [];
+
+        // ################## Start Setting ##################
+        try {
+            let sql_setting = `SELECT 
+            ${config_array_db['md_sit']}_id as id 
+            ,${config_array_db['md_sit']}_masterkey as masterkey 
+            ,${config_array_db['md_sitl']}_subject as subject 
+            ,${config_array_db['md_sitl']}_title as title 
+            ,${config_array_db['md_sitl']}_description as description 
+            ,${config_array_db['md_sitl']}_keywords as keywords 
+            ,${config_array_db['md_sitl']}_metatitle as metatitle 
+            ,${config_array_db['md_sitl']}_social as social 
+            ,${config_array_db['md_sitl']}_config as config 
+            ,${config_array_db['md_sitl']}_subjectoffice as subjectoffice 
+            FROM ${config_array_db['md_sit']} 
+            INNER JOIN ${config_array_db['md_sitl']} ON ${config_array_db['md_sitl']}_containid = ${config_array_db['md_sit']}_id
+            WHERE ${config_array_db['md_sit']}_masterkey = '${config_array_masterkey['set']}' 
+            AND ${config_array_db['md_sitl']}_language = '${language}' 
+            AND ${config_array_db['md_sitl']}_subject != '' 
+            `;
+            const select_setting = await query(sql_setting);
+            if (select_setting.length > 0) {
+                result.code = code.success.code;
+                result.msg = code.success.msg;
+                let arr_data_setting = {};
+
+                for (let i = 0; i < select_setting.length; i++) {
+                    arr_data_setting.subject = select_setting[i].subject;
+                    arr_data_setting.subjectoffice = select_setting[i].subjectoffice;
+                    arr_data_setting.metatitle = select_setting[i].metatitle;
+                    arr_data_setting.keywords = select_setting[i].keywords;
+                    arr_data_setting.description = select_setting[i].description;
+                    let social = PHPUnserialize.unserialize(select_setting[i].social);
+                    for (const [key, value] of Object.entries(social)) {
+                        // Create a new display object if it doesn't exist
+                        if (!arr_data_setting.social) {
+                            arr_data_setting.social = {};
+                        }
+                        arr_data_setting.social[key] = value;
+                    }
+                    let config = PHPUnserialize.unserialize(select_setting[i].config);
+                    for (const [key, value] of Object.entries(config)) {
+                        // Create a new display object if it doesn't exist
+                        if (!arr_data_setting.config) {
+                            arr_data_setting.config = {};
+                        }
+                        arr_data_setting.config[key] = value;
+                    }
+                }
+                result.item.setting = arr_data_setting;
+            } else {
+                result.item.setting = null;
+            }
+        } catch (error) {
+            result.item.setting = null;
+        }
+        // ################## End Setting ##################
+
         // ################## Start Language ##################
         try {
             let sql_lang = `SELECT 
@@ -191,6 +254,8 @@ async function getIntro(req, res) {
             ,${config_array_db['md_intl']}_pic as pic 
             ,${config_array_db['md_intl']}_url as url 
             ,${config_array_db['md_intl']}_target as target 
+            ,${config_array_db['md_intl']}_type as type 
+            ,${config_array_db['md_intl']}_urlc as urlc 
             FROM ${config_array_db['md_int']} 
             INNER JOIN ${config_array_db['md_intl']} ON ${config_array_db['md_intl']}_cid = ${config_array_db['md_int']}_id
             WHERE ${config_array_db['md_int']}_status != 'Disable' 
@@ -212,11 +277,18 @@ async function getIntro(req, res) {
                     arr_data[i] = {};
                     arr_data[i].masterkey = select_intro[i].masterkey;
                     arr_data[i].subject = select_intro[i].subject;
-                    arr_data[i].pic = {
-                        'real': modulus.getUploadPath(select_intro[i].masterkey, 'real', select_intro[i].pic),
-                        'pictures': modulus.getUploadPath(select_intro[i].masterkey, 'pictures', select_intro[i].pic),
-                        'office': modulus.getUploadPath(select_intro[i].masterkey, 'office', select_intro[i].pic),
+                    arr_data[i].type = select_intro[i].type;
+                    if (select_intro[i].type == 1) {
+                        arr_data[i].pic = {
+                            'real': modulus.getUploadPath(select_intro[i].masterkey, 'real', select_intro[i].pic),
+                            'pictures': modulus.getUploadPath(select_intro[i].masterkey, 'pictures', select_intro[i].pic),
+                            'office': modulus.getUploadPath(select_intro[i].masterkey, 'office', select_intro[i].pic),
+                        }
+                    }else{
+                        arr_data[i].video = select_intro[i].urlc;
                     }
+                    arr_data[i].url = select_intro[i].url;
+                    arr_data[i].target = (select_intro[i].target == 2) ? '_blank' : '_self';
                     arr_data[i].createDate = {
                         full: new Date(select_intro[i].credate),
                         style: new Intl.DateTimeFormat('th', { dateStyle: 'long', }).format(new Date(select_intro[i].credate))
@@ -262,7 +334,6 @@ async function acceptLogsPDPA(req, res) {
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
-        let arr_data = [];
         try {
             let sql_usk = `SELECT 
             ${config_array_db['md_usk']}_id as id 
@@ -279,7 +350,7 @@ async function acceptLogsPDPA(req, res) {
                 let insert = new Array();
                 insert[`${config_array_db['md_pdpa']}_masterkey`] = `'${config_array_masterkey['accept']}'`;
                 insert[`${config_array_db['md_pdpa']}_credate`] = `'${date_now} ${time_now}'`;
-                let ipAddress = modulus.getClientIP();
+                let ipAddress = modulus.getClientIP(req);
                 insert[`${config_array_db['md_pdpa']}_ipaddress`] = `'${ipAddress ? ipAddress : ''}'`;
                 insert[`${config_array_db['md_pdpa']}_accesstoken`] = `'${uniqid}'`;
                 insert[`${config_array_db['md_pdpa']}_browser`] = `'${browser}'`;
@@ -1021,6 +1092,77 @@ async function getHelpDetail(req, res) {
             } else {
                 result.code = code.missing_data.code;
                 result.msg = code.missing_data.msg;
+            }
+        } catch (error) {
+            result.code = code.error_wrong.code;
+            result.msg = code.error_wrong.msg;
+        }
+    }
+    res.json(result);
+}
+
+async function LogsViewWebsite(req, res) {
+    const method = req.body.method;
+    const browser = req.body.browser;
+    const client = req.body.user;
+    const secretkey = req.body.secretkey;
+    const uniqid = req.body.uniqid;
+    const result = general.checkParam([method, browser, client, secretkey]);
+    const code = config.returncode;
+
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_logs_view'] = config.fieldDB.main.md_logs_view
+    config_array_db['md_usk'] = config.fieldDB.main.md_usk
+
+    // db masterkey
+    let config_array_masterkey = new Array();
+    config_array_masterkey['accept'] = config.fieldDB.masterkey.accept
+
+    var setime_zone = new Date().toLocaleString('de-DE', {timeZone: 'Asia/Bangkok'}).split(' ');
+    var date_now = setime_zone[0].split('.');
+    date_now = date_now[2].replace(',', '') + "-" + ("0" + date_now[1]).slice(-2) + "-" + ("0" + date_now[0]).slice(-2);
+    var time_now = setime_zone[1].split(':');
+    time_now = ("0" + time_now[0]).slice(-2) + ":" + ("0" + time_now[1]).slice(-2) + ":" + ("0" + time_now[2]).slice(-2);
+
+    if (result.code == code.success.code) {
+        let conn = config.configDB.connectDB();
+        const query = util.promisify(conn.query).bind(conn);
+        try {
+            let sql_usk = `SELECT 
+            ${config_array_db['md_usk']}_id as id 
+            ,${config_array_db['md_usk']}_masterkey as masterkey 
+            ,${config_array_db['md_usk']}_controlkey as controlkey 
+            ,${config_array_db['md_usk']}_secretkey as secretkey 
+            ,${config_array_db['md_usk']}_credate as credate 
+            FROM ${config_array_db['md_usk']} WHERE ${config_array_db['md_usk']}_controlkey = '${client}' 
+            AND ${config_array_db['md_usk']}_secretkey = '${secretkey}'
+            AND ${config_array_db['md_usk']}_status != 'Disable'
+            `;
+            const select_lang = await query(sql_usk);
+            if (select_lang.length > 0) {
+                let insert = new Array();
+                insert[`${config_array_db['md_logs_view']}_credate`] = `'${date_now} ${time_now}'`;
+                let ipAddress = modulus.getClientIP(req);
+                insert[`${config_array_db['md_logs_view']}_ipaddress`] = `'${ipAddress ? ipAddress : ''}'`;
+                insert[`${config_array_db['md_logs_view']}_accesstoken`] = `'${uniqid}'`;
+                insert[`${config_array_db['md_logs_view']}_browser`] = `'${browser}'`;
+                // Construct SQL query
+                let columns = Object.keys(insert).join(",");
+                let values = Object.values(insert).join(",");
+                let queryData = `INSERT INTO ${config_array_db['md_logs_view']} (${columns}) VALUES (${values})`;
+    
+                const insert_data = await query(queryData);
+                if (insert_data?.insertId > 0) {
+                    result.code = code.success.code;
+                    result.msg = code.success.msg;
+                }else{
+                    result.code = 400;
+                    result.msg = 'Insert data fail.';
+                }
+            }else{
+                result.code = 400;
+                result.msg = 'Permission Access denie.';
             }
         } catch (error) {
             result.code = code.error_wrong.code;

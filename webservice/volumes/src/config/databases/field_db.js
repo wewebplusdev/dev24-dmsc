@@ -2,6 +2,8 @@
 const main = {
     "sy_stf": "sy_stf",
     "sy_grp": "sy_grp",
+    "md_sit": "md_sit",
+    "md_sitl": "md_sitl",
     "md_tgp": "md_tgp",
     "md_tgpl": "md_tgpl",
     "md_usk": "md_usk",
@@ -19,6 +21,8 @@ const main = {
     "md_cmf": "md_cmf",
     "md_nopic": "md_nopic",
     "md_pdpa": "md_pdpa",
+    "md_logs_view": "md_logs_view",
+    "md_logs": "md_logs",
 }
 
 //Masterkey
@@ -39,6 +43,7 @@ const masterkey = {
     "km": "km",
     "faq": "faq",
     "wel": "wel",
+    "set": "set",
 }
 
 //urlPage
@@ -73,8 +78,16 @@ const url_page = {
     },
 }
 
+//method_api
+const method_api = {
+    "gettoken": "gettoken",
+    "getuser": "getuser",
+    "getWebSetting": "getWebSetting",
+}
+
 module.exports = {
     main: main,
     masterkey: masterkey,
     url_page: url_page,
+    method_api: method_api,
 }

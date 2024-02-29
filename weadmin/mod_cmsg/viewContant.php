@@ -265,6 +265,21 @@ logs_access('3', 'View');
             </tr>
          </table>
          <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?= $langMod["txt:view"] ?></span><br />
+                  <span class="formFontTileTxt"><?= $langMod["txt:viewDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowCase[0] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $modTxtShowCase[$valTypeC] ?></div>
+               </td>
+            </tr>
+         </table>
+         <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 3) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">

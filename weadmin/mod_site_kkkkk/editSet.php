@@ -1,11 +1,4 @@
 <?php
-//include("../lib/session.php");
-//include("../lib/config.php");
-//include("../lib/connect.php");
-//include("../lib/function.php");
-//include("../lib/checkMember.php");
-//include("../core/incLang.php");
-//include("config.php");
 include("../lib/session.php");
 include("../lib/config.php");
 include("../lib/connect.php");
@@ -21,13 +14,15 @@ include("config.php");
         <meta name="robots" content="noindex, nofollow"/>
         <meta name="googlebot" content="noindex, nofollow"/>
         <link href="../css/theme.css" rel="stylesheet"/>
-        <title><?php echo  $core_name_title ?></title>
+        <title><?php echo $core_name_title ?></title>
         <script language="JavaScript"  type="text/javascript" src="../js/jquery-1.9.0.js"></script>
         <script language="JavaScript"  type="text/javascript" src="../js/jquery.blockUI.js"></script>
         <script language="JavaScript"  type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
+        <script language="JavaScript"  type="text/javascript" src="../js/checkemail.js"></script>
+        <script language="JavaScript"  type="text/javascript" src="js/scriptContact.js"></script>
         <script type="text/javascript">
             jQuery(function () {
-                boxContantLoad('../<?php echo  $mod_fd_root ?>/loadSet.php');
+                boxContantLoad('../<?php echo $mod_fd_root ?>/loadEditSet.php');
             });
         </script>
 
@@ -47,16 +42,16 @@ include("config.php");
                         </td>
                         <td  align="left" class="borderLeft" valign="top">
                             <form action="?" method="post" name="myFormHome" id="myFormHome">
-                                <input name="masterkey" type="hidden" id="masterkey" value="<?php echo  $_REQUEST['masterkey'] ?>" />
-                                <input name="menukeyid" type="hidden" id="menukeyid" value="<?php echo  $_REQUEST['menukeyid'] ?>" />
-                                <input name="inputSearch" type="hidden" id="inputSearch" value="<?php echo  $_REQUEST['inputSearch'] ?>" />
-                                <input name="module_pageshow" type="hidden" id="module_pageshow" value="<?php echo  $_REQUEST['module_pageshow'] ?>" />
-                                <input name="module_pagesize" type="hidden" id="module_pagesize" value="<?php echo  $_REQUEST['module_pagesize'] ?>" />
-                                <input name="module_orderby" type="hidden" id="module_orderby" value="<?php echo  $_REQUEST['module_orderby'] ?>" />
-                                <input name="valEditID" type="hidden" id="valEditID" value="" />
+                                <input name="masterkey" type="hidden" id="masterkey" value="<?php echo $_REQUEST['masterkey'] ?>" />
+                                <input name="menukeyid" type="hidden" id="menukeyid" value="<?php echo $_REQUEST['menukeyid'] ?>" />
+                                <input name="inputSearch" type="hidden" id="inputSearch" value="<?php echo $_REQUEST['inputSearch'] ?>" />
+                                <input name="module_pageshow" type="hidden" id="module_pageshow" value="<?php echo $_REQUEST['module_pageshow'] ?>" />
+                                <input name="module_pagesize" type="hidden" id="module_pagesize" value="<?php echo $_REQUEST['module_pagesize'] ?>" />
+                                <input name="module_orderby" type="hidden" id="module_orderby" value="<?php echo $_REQUEST['module_orderby'] ?>" />
+                                <input name="inputGh" type="hidden" id="inputGh" value="<?php echo $_REQUEST['inputGh'] ?>" />
+                                <input name="valEditID" type="hidden" id="valEditID" value="<?php echo $_REQUEST['valEditID'] ?>" />
                                 <input name="inputLt" type="hidden" id="inputLt" value="<?php echo $_REQUEST['inputLt'] ?>" />
-                                <input name="valCid" type="hidden" id="valCid" value="<?php echo $_REQUEST['valCid'] ?>" />
-                                <?php include_once './inc-inputsearch.php'; ?>
+                               
                             </form>
                             <div class="mRightBackOffice" id="boxContantLoad">
                                 <?php include("../core/incWaitting.php") ?>

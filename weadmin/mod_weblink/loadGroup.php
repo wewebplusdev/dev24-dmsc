@@ -104,19 +104,14 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?php echo $valLinkNav1 ?>" target="_self"><?php echo $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo $valNav2 ?></span></td>
                <td class="divRightNavTb" align="right">
                   <!-- ######### Start Menu Sub Mod ########## -->
-                  <!-- <div class="menuSubMod">
-                     <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
-                     <?php echo $langMod["meu:group"] ?>
+                  <div class="menuSubMod">
+                     <a href="setting.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
+                        <?php echo $langMod["tit:setting"] ?>
                      </a>
-                  </div> -->
+                  </div>
                   <div class="menuSubMod active">
                      <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:group"] ?>
-                     </a>
-                  </div>
-                  <div class="menuSubMod">
-                     <a href="index.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
-                        <?php echo $langMod["meu:contant"] ?>
                      </a>
                   </div>
                   <!-- ######### End Menu Sub Mod ########## -->

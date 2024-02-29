@@ -3,6 +3,7 @@ const axios = require('axios');
 const jwt = require('jsonwebtoken');
 var formidable = require('formidable');
 var fs = require('fs');
+const util = require('util');
 
 exports.checkParam = function(param) {
     var code = config.returncode;
@@ -52,6 +53,8 @@ exports.verifyToken = async function(req, res, next) {
             }else {
                 let check_nexts = check_next(req.path);
                 if (check_nexts) {
+                    // insert logs access
+                    client_access_api(req, authData, 1001);
                     res.json(authData);
                 }else{
                     req.body.authData = authData;
@@ -63,6 +66,39 @@ exports.verifyToken = async function(req, res, next) {
     } else {
         res.json(config.returncode.not_allow);
     }
+}
+
+exports.logs_access_api = async function (req, authData, code) {
+    client_access_api(req, authData, code);
+}
+
+async function client_access_api(req, authData, code){
+    const method = req.body.method ? req.body.method : req?.route?.path?.split('/')?.pop();
+
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_logs'] = config.fieldDB.main.md_logs
+
+    var setime_zone = new Date().toLocaleString('de-DE', {timeZone: 'Asia/Bangkok'}).split(' ');
+    var date_now = setime_zone[0].split('.');
+    date_now = date_now[2].replace(',', '') + "-" + ("0" + date_now[1]).slice(-2) + "-" + ("0" + date_now[0]).slice(-2);
+    var time_now = setime_zone[1].split(':');
+    time_now = ("0" + time_now[0]).slice(-2) + ":" + ("0" + time_now[1]).slice(-2) + ":" + ("0" + time_now[2]).slice(-2);
+    
+    let conn = config.configDB.connectDB();
+    const query = util.promisify(conn.query).bind(conn);
+
+    let insert = new Array();
+    insert[`${config_array_db['md_logs']}_action`] = `'${method}'`;
+    insert[`${config_array_db['md_logs']}_sid`] = `'${code ? code : 404}'`; //status code
+    insert[`${config_array_db['md_logs']}_sname`] = `'${authData.appInfo.app_token}'`; // site name
+    insert[`${config_array_db['md_logs']}_time`] = `'${date_now} ${time_now}'`;
+    insert[`${config_array_db['md_logs']}_token`] = `'${req.token}'`;
+    // Construct SQL query
+    let columns = Object.keys(insert).join(",");
+    let values = Object.values(insert).join(",");
+    let queryData = `INSERT INTO ${config_array_db['md_logs']} (${columns}) VALUES (${values})`;
+    const insert_data = await query(queryData);
 }
 
 function addDataInBody(req, res) {

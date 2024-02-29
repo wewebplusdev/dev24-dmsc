@@ -91,7 +91,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       }
 
       if ($_REQUEST['module_orderby'] == "") {
-         $module_orderby = $mod_tb_root_subgroup . "_order";
+         $module_orderby = $mod_tb_root_group . "_order";
       } else {
          $module_orderby = $_REQUEST['module_orderby'];
       }
@@ -125,7 +125,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                         </div>
 
                         <div class="menuSubMod">
-                           <a  href="subgroup.php?masterkey=<?= $_REQUEST['masterkey'] ?>&menukeyid=<?= $_REQUEST['menukeyid'] ?>">
+                           <a  href="group.php?masterkey=<?= $_REQUEST['masterkey'] ?>&menukeyid=<?= $_REQUEST['menukeyid'] ?>">
                               <?= $langMod["meu:contant"] ?>
                            </a>
                         </div>
@@ -185,46 +185,45 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 
                </tr>
                <?
-// SQL SELECT #########################
+            // SQL SELECT #########################
                $sql = "SELECT
-" . $mod_tb_root_subgroup . "_id," . $mod_tb_root_subgroup_lang . "_subject," . $mod_tb_root_subgroup . "_lastdate," . $mod_tb_root_subgroup . "_status," . $mod_tb_root_subgroup . "_pic
+               " . $mod_tb_root_group . "_id,
+               " . $mod_tb_root_group_lang . "_subject,
+               " . $mod_tb_root_group . "_lastdate,
+               " . $mod_tb_root_group . "_status 
 
- FROM " . $mod_tb_root_subgroup . " LEFT JOIN " . $mod_tb_root_subgroup_lang . " ON " . $mod_tb_root_subgroup . "." . $mod_tb_root_subgroup . "_id = " . $mod_tb_root_subgroup_lang . "." . $mod_tb_root_subgroup_lang . "_cid";
-               $sql = $sql . "  WHERE " . $mod_tb_root_subgroup . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND  " . $mod_tb_root_subgroup_lang . "." . $mod_tb_root_subgroup_lang . "_language = 'Thai'";
-               // $sql = $sql . "  WHERE " . $mod_tb_root_subgroup . "_masterkey ='" . $_REQUEST['masterkey'] . "'   ";
-               // $sql = $sql . "  AND " . $mod_tb_root_subgroup . "_typeInfo != 1   ";
-
+               FROM " . $mod_tb_root_group . " LEFT JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "." . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "." . $mod_tb_root_group_lang . "_cid";
+               $sql = $sql . "  WHERE " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND  " . $mod_tb_root_group_lang . "." . $mod_tb_root_group_lang . "_language = 'Thai'";
 
                if ($_REQUEST["inputSrchStatus"] != '') {
-                  $sql = $sql . "  AND    " . $mod_tb_root_subgroup . "_status='" . $_REQUEST["inputSrchStatus"] . "'  ";
+                  $sql = $sql . "  AND    " . $mod_tb_root_group . "_status='" . $_REQUEST["inputSrchStatus"] . "'  ";
                }
 
                if ($inputSearch != "") {
                   $sql = $sql . "  AND  (
-		" . $mod_tb_root_subgroup_lang . "_subject LIKE '%$inputSearch%'  ) ";
+		            " . $mod_tb_root_group_lang . "_subject LIKE '%$inputSearch%'  ) ";
                }
 
-//                print_pre($sql);
                $query = wewebQueryDB($coreLanguageSQL, $sql);
                $count_totalrecord = wewebNumRowsDB($coreLanguageSQL, $query);
 
-// Find max page size #########################
+               // Find max page size #########################
                if ($count_totalrecord > $module_pagesize) {
                   $numberofpage = ceil($count_totalrecord / $module_pagesize);
                } else {
                   $numberofpage = 1;
                }
 
-// Recover page show into range #########################
+               // Recover page show into range #########################
                if ($module_pageshow > $numberofpage) {
                   $module_pageshow = $numberofpage;
                }
 
-// Select only paging range #########################
+               // Select only paging range #########################
                $recordstart = ($module_pageshow - 1) * $module_pagesize;
 
                $sql .= " ORDER BY $module_orderby $module_adesc ";
-//               print_pre($sql);
+
                //  $sql .= " LIMIT $recordstart , $module_pagesize  ";
                $query = wewebQueryDB($coreLanguageSQL, $sql);
                $count_record = wewebNumRowsDB($coreLanguageSQL, $query);
@@ -232,52 +231,35 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                $index = 1;
                $valDivTr = "divSubOverTb";
 
-// Select permission #########################
+               // Select permission #########################
                $sqlPermis = "Select
-   " . $mod_tb_permis . "." . $mod_tb_permis . "_id as _id,
-   " . $mod_tb_permis . "." . $mod_tb_permis . "_name as  _name,
-   " . $mod_tb_permis . "." . $mod_tb_permis . "_credate,
-   " . $mod_tb_permis . "." . $mod_tb_permis . "_status,
-   " . $mod_tb_permis . "." . $mod_tb_permis . "_lv
- From
-   " . $mod_tb_permis . "
- Where " . $mod_tb_permis . "." . $mod_tb_permis . "_lv = 'staff'  ORDER BY " . $mod_tb_permis . "." . $mod_tb_permis . "_order DESC  ";
-               /*
-                 $sqlPermis = "SELECT
-                 ".$mod_tb_root_group."_id,
-                 ".$mod_tb_root_group."_subject
-                 FROM
-                 ".$mod_tb_root_group."
-                 WHERE
-                 ".$mod_tb_root_group."_status != 'Disable' AND ".$mod_tb_root_group."_masterkey = '".$masterkeyAgen."'
-                 ";
-                */
-//                  print_pre($sqlPermis);
+                  " . $mod_tb_permis . "." . $mod_tb_permis . "_id as _id,
+                  " . $mod_tb_permis . "." . $mod_tb_permis . "_name as  _name,
+                  " . $mod_tb_permis . "." . $mod_tb_permis . "_credate,
+                  " . $mod_tb_permis . "." . $mod_tb_permis . "_status,
+                  " . $mod_tb_permis . "." . $mod_tb_permis . "_lv
+               From
+                  " . $mod_tb_permis . "
+               Where " . $mod_tb_permis . "." . $mod_tb_permis . "_lv = 'staff'  ORDER BY " . $mod_tb_permis . "." . $mod_tb_permis . "_order DESC  ";
                $listadmin = $dbConnect->execute($sqlPermis);
 
-// Select data permission #########################
+               // Select data permission #########################
                $listCheckerPer = "Select
-  " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_misid,
-  " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_cmgid
-From
-  " . $mod_tb_permisGroup . "
-WHERE " . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'
-  ";
-//   print_pre($listCheckerPer);
-               // $listPermis = $dbConnect->execute($listCheckerPer);
+               " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_misid,
+               " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_cmgid
+               From
+               " . $mod_tb_permisGroup . "
+               WHERE " . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'
+               ";
                $listPermis = wewebQueryDB($coreLanguageSQL, $listCheckerPer);
                $listAllowPer = array();
                foreach ($listPermis as $genlistCheck) {
                   $listAllowPer[$genlistCheck['md_cmsp_cmgid']][$genlistCheck['md_cmsp_misid']] = true;
                }
 
-
-               // print_pre($listAllowPer);
-
                if ($count_record > 0) {
                   while ($index < $count_record + 1) {
                      $row = wewebFetchArrayDB($coreLanguageSQL, $query);
-                     // print_pre($row);
                      $valID = $row[0];
                      $valName = rechangeQuot($row[1]);
                      $valDateCredate = dateFormatReal($row[2]);
@@ -315,9 +297,9 @@ WHERE " . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'
                                  <td align="left">
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                        <tr>
-                                          <td width="39" align="left" valign="top">
+                                          <!-- <td width="39" align="left" valign="top">
                                              <div style="width:29px; height:29px;  background:url(<?php echo $valPic ?>) center no-repeat; background-size: cover;background-repeat: no-repeat; border-radius: 50%;  "></div>
-                                          </td>
+                                          </td> -->
                                           <td align="left" style="padding-left:10px; " valign="top">
                                              <a href="javascript:void(0)" class="btnview" onclick="
                                                    document.myFormHome.valEditID.value = '<?= $valID ?>';

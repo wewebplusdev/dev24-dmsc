@@ -224,4 +224,6 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["txt:subjectLink"] = "ข้อมูลเชื่อมโยงภายนอก";
 	$langMod["txt:subjectLinkDe"] = "โปรดป้อนข้อมูลลิงค์และการแสดงผล เพื่อใช้ในการแสดงผลเนื้อหาในหน้ารวมข้อมูลทั้งหมดของเมนูนี้บนเว็บไซต์ของคุณ";
 	$langMod["tit:picdefault"] = "รูปเริ่มต้น";
+	$langMod["txt:view"] = "ข้อมูลการแสดงผล";
+	$langMod["txt:viewDe"] = "โปรดป้อนการแสดงผลเพื่อใช้ในการแสดงผลในหน้าเว็บไซต์ของคุณ";
 }

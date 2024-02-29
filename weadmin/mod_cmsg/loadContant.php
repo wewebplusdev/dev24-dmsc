@@ -86,12 +86,12 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 <body>
    <?php
    $callGauthen = "Select
-" . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_cmgid as idG
-From
-" . $mod_tb_permisGroup . "
-Where
-" . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_misid = " . $_SESSION[$valSiteManage . "core_session_groupid"] . "
-AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'";
+   " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_cmgid as idG
+   From
+   " . $mod_tb_permisGroup . "
+   Where
+   " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_misid = " . $_SESSION[$valSiteManage . "core_session_groupid"] . "
+   AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'";
    $listAuthen = $dbConnect->execute($callGauthen);
    $listGAllow = array();
    foreach ($listAuthen as $key => $value) {
@@ -154,13 +154,8 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?php echo $valLinkNav1 ?>" target="_self"><?php echo $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo $valNav2 ?></span></td>
                <td class="divRightNavTb" align="right">
                   <!-- ######### Start Menu Sub Mod ########## -->
-                  <!-- <div class="menuSubMod">
-                     <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
-                        <?php echo $langMod["meu:group"] ?>
-                     </a>
-                  </div> -->
                   <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
-                  <div class="menuSubMod">
+                  <!-- <div class="menuSubMod">
                      <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:group"] ?>
                      </a>
@@ -169,7 +164,7 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                      <a href="index.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:contant"] ?>
                      </a>
-                  </div>
+                  </div> -->
                   <?php } ?>
                   <!-- ######### End Menu Sub Mod ########## -->
                </td>
@@ -189,7 +184,27 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                            <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
                               <option value=""><?php echo $langMod["meu:group"]; ?></option>
                               <?php
-                              $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai' ORDER BY " . $mod_tb_root_group . "_order DESC ";
+                              $sql_group = "SELECT 
+                              " . $mod_tb_root_group . "_id,
+                              " . $mod_tb_root_group_lang . "_subject 
+                              FROM " . $mod_tb_root_group . " 
+                              INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid 
+                              WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' 
+                              AND " . $mod_tb_root_group_lang . "_language='Thai' ";
+                              $sqlChecklist = array();
+                              if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
+                                 foreach ($listGAllow as $idGroup) {
+                                    $sqlChecklist[] = $mod_tb_root_group . "_id = '".$idGroup."' ";
+                                 }
+                                 if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                                    $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
+                                 }
+                              }else{
+                                 if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                                    $sql_group .= " and 1=0 ";
+                                 }
+                              }
+                              $sql_group .= "ORDER BY " . $mod_tb_root_group . "_order DESC";
                               $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
                               while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
                                  $row_groupid = $row_group[0];
@@ -309,12 +324,16 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
                $sql = $sql . "  AND " . $mod_tb_root . "_sgid ='" . $_REQUEST['inputSubGh'] . "'   ";
             } else {
                $sqlChecklist = array();
-               if (count($listGAllow)) {
+               if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
                   foreach ($listGAllow as $idGroup) {
-                     $sqlChecklist[] = $mod_tb_root . "_sgid = $idGroup ";
+                     $sqlChecklist[] = $mod_tb_root . "_gid = $idGroup ";
                   }
                   if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
                      $sql .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
+                  }
+               }else{
+                  if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                     $sql .= " and 1=0 ";
                   }
                }
             }
@@ -344,7 +363,7 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
             }
             // OR
             // ".$mod_tb_root."_subjecten LIKE '%$inputSearch%'
-            //print_pre($sql);
+            // print_pre($sql);
             $query = wewebQueryDB($coreLanguageSQL, $sql);
             $count_totalrecord = wewebNumRowsDB($coreLanguageSQL, $query);
 

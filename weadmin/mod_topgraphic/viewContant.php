@@ -14,18 +14,20 @@ $valLinkNav1 = "../core/index.php";
 
 $sql = "SELECT   ";
 $sql .= "
-			" . $mod_tb_root . "_id ,
-			" . $mod_tb_root . "_credate ,
-			" . $mod_tb_root . "_crebyid,
-			" . $mod_tb_root . "_status,
-			" . $mod_tb_root . "_sdate      ,
-			" . $mod_tb_root . "_edate    ,
-			" . $mod_tb_root_lang . "_lastdate,
-			" . $mod_tb_root_lang . "_subject ,
-			" . $mod_tb_root_lang . "_lastbyid,
-			" . $mod_tb_root_lang . "_target,
-			" . $mod_tb_root_lang . "_pic ,
-			" . $mod_tb_root_lang . "_url
+			" . $mod_tb_root . "_id as id,
+			" . $mod_tb_root . "_credate as credate,
+			" . $mod_tb_root . "_crebyid as crebyid,
+			" . $mod_tb_root . "_status as status,
+			" . $mod_tb_root . "_sdate as sdate,
+			" . $mod_tb_root . "_edate as edate,
+			" . $mod_tb_root_lang . "_lastdate as lastdate,
+			" . $mod_tb_root_lang . "_subject as subject,
+			" . $mod_tb_root_lang . "_lastbyid as lastbyid,
+			" . $mod_tb_root_lang . "_target as target,
+			" . $mod_tb_root_lang . "_pic as pic,
+			" . $mod_tb_root_lang . "_url as url,
+			" . $mod_tb_root_lang . "_type as type,
+			" . $mod_tb_root_lang . "_urlc as urlc 
 			";
 $sql .= "  FROM  " . $mod_tb_root . "";
 $sql .= "  INNER JOIN " . $mod_tb_root_lang . "  ";
@@ -33,39 +35,40 @@ $sql .= "  ON  " . $mod_tb_root . " ." . $mod_tb_root . "_id = " . $mod_tb_root_
 $sql .= "  WHERE " . $mod_tb_root . "_masterkey='" . $_REQUEST["masterkey"] . "'  AND  " . $mod_tb_root . "_id='" . $_REQUEST['valEditID'] . "' AND " . $mod_tb_root_lang . "_language = '" . $_REQUEST['inputLt'] . "'";
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
 $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
-$valID = $Row[0];
-$valCredate = DateFormat($Row[1]);
-$valCreby = $Row[2];
-$valStatus = $Row[3];
+$valID = $Row['id'];
+$valCredate = DateFormat($Row['credate']);
+$valCreby = $Row['crebyid'];
+$valStatus = $Row['status'];
 if ($valStatus == "Enable") {
    $valStatusClass = "fontContantTbEnable";
 } else {
    $valStatusClass = "fontContantTbDisable";
 }
 
-if ($Row[4] == "0000-00-00 00:00:00" || $Row[4] == "") {
+if ($Row['sdate'] == "0000-00-00 00:00:00" || $Row['sdate'] == "") {
    $valSdate = "-";
 } else {
-   $valSdate = DateFormatReal($Row[4]);
+   $valSdate = DateFormatReal($Row['sdate']);
 }
-if ($Row[5] == "0000-00-00 00:00:00" || $Row[5] == "") {
+if ($Row['edate'] == "0000-00-00 00:00:00" || $Row['edate'] == "") {
    $valEdate = "-";
 } else {
-   $valEdate = DateFormatReal($Row[5]);
+   $valEdate = DateFormatReal($Row['edate']);
 }
 
-$valLastdate = DateFormat($Row[6]);
-$valSubject = rechangeQuot($Row[7]);
-$valLastby = $Row[8];
+$valLastdate = DateFormat($Row['lastdate']);
+$valSubject = rechangeQuot($Row['subject']);
+$valLastby = $Row['lastyid'];
 
-$valTarget = $Row[9];
-$valPicName = $Row[10];
-$valPic = $mod_path_pictures . "/" . $Row[10];
+$valTarget = $Row['target'];
+$valPicName = $Row['pic'];
+$valPic = $mod_path_pictures . "/" . $Row['pic'];
 if (!is_file($valPic)) {
-   $valPic = $mod_path_real . "/" . $Row[10];
+   $valPic = $mod_path_real . "/" . $Row['pic'];
 }
-//print_pre($valPic);
-$valUrl = rechangeQuot($Row[11]);
+$valUrl = rechangeQuot($Row['url']);
+$valType = rechangeQuot($Row['type']);
+$valUrlc = rechangeQuot($Row['urlc']);
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
 logs_access('3', 'View');
@@ -169,25 +172,39 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtType[0] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $modTxtType[$valType] ?></div>
+               </td>
+            </tr>
+            <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
-                     <?php if (is_file($valPic)) {
+                  <?php
+                     if ($valType == 1) {
+                        if (is_file($valPic)) {
                      ?>
-                        <a href="<?php echo $valPic ?>" target="_blank"><img style="float:left;border:#c8c7cc solid 1px;max-width:650px;" src="<?php echo $valPic ?>" /></a>
-
-                     <?php } else { ?>
-
-                        <img src='<?php echo "../img/btn/nopic.jpg" ?>' style="float:left;border:#c8c7cc solid 1px;max-width:300;" />
-
-                     <?php } ?>
-
-
-
+                           <a href="<?php echo $valPic ?>" target="_blank"><img style="float:left;border:#c8c7cc solid 1px;max-width:650px;" src="<?php echo $valPic ?>" /></a>
+                        <?php } else { ?>
+                           <img src='<?php echo "../img/btn/nopic.jpg" ?>' style="float:left;border:#c8c7cc solid 1px;max-width:300;" />
+                        <?php }
+                     } else {
+                        if ($valUrlc != "") {
+                           $myUrlArray = explode("v=", $valUrlc);
+                           $myUrlCut = $myUrlArray[1];
+                           $myUrlCutArray = explode("&", $myUrlCut);
+                           $myUrlCutAnd = $myUrlCutArray[0];
+                        ?>
+                           <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/<?= $myUrlCutAnd ?>" frameborder="0" allowfullscreen style="z-index:-1999; "></iframe>
+                        <? } else { ?>
+                           -
+                     <?
+                        }
+                     } ?>
                   </div>
                </td>
             </tr>
-
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">

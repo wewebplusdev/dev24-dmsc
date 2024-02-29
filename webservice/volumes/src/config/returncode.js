@@ -9,4 +9,5 @@ module.exports = {
     "missing_data": { code: 400, msg: "Data Not found." },
     "connect_db_fail": { code: 500, msg: "Database connect fail." },
     "error_wrong": { code: 500, msg: "Internal server error." },
+    "unknown_code": { code: 1009, msg: "Unknown code." },
 }

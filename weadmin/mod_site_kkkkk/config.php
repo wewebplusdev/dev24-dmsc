@@ -32,7 +32,4 @@ $mod_path_pictures_fornt  = $core_pathname_upload_fornt."/".$masterkey."/picture
 $mod_path_file        = $core_pathname_upload."/".$masterkey."/file";
 $mod_path_file_fornt  = $core_pathname_upload_fornt."/".$masterkey."/file";
 
-$mod_inputseach = array(
-    "inputLang",
-);
 ?>

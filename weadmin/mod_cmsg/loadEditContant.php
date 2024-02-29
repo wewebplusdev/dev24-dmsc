@@ -100,18 +100,18 @@ if (!empty($valSGid)) {
 }
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 
-// $callGauthen = "Select
-// " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_cmgid as idG
-// From
-// " . $mod_tb_permisGroup . "
-// Where
-// " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_misid = " . $_SESSION[$valSiteManage . "core_session_groupid"] . "
-// AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'";
-// $listAuthen = $dbConnect->execute($callGauthen);
-// $listGAllow = array();
-// foreach ($listAuthen as $key => $value) {
-//    $listGAllow[] = $value['idG'];
-// }
+$callGauthen = "Select
+" . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_cmgid as idG
+From
+" . $mod_tb_permisGroup . "
+Where
+" . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_misid = " . $_SESSION[$valSiteManage . "core_session_groupid"] . "
+AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'";
+$listAuthen = $dbConnect->execute($callGauthen);
+$listGAllow = array();
+foreach ($listAuthen as $key => $value) {
+   $listGAllow[] = $value['idG'];
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -307,7 +307,21 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb">
                      <option value="0"><?php echo $langMod["tit:selectg"] ?></option>
                      <?php
-                     $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='" . $_REQUEST['inputLt'] . "' ORDER BY " . $mod_tb_root_group . "_order DESC ";
+                     $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai'  ";
+                     $sqlChecklist = array();
+                     if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
+                        foreach ($listGAllow as $idGroup) {
+                           $sqlChecklist[] = $mod_tb_root_group . "_id = '".$idGroup."' ";
+                        }
+                        if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                           $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
+                        }
+                     }else{
+                        if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                           $sql_group .= " and 1=0 ";
+                        }
+                     }
+                     $sql_group .= " ORDER BY " . $mod_tb_root_group . "_order DESC";
                      $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
                      while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
                         $row_groupid = $row_group[0];
@@ -328,25 +342,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:title"] ?><span class="fontContantAlert"></span></td>
                <td colspan="6" align="left" valign="top" class="formRightContantTb">
                   <textarea name="inputDescription" id="inputDescription" cols="45" rows="5" class="formTextareaContantTb"><?php echo $valTitle ?></textarea>
-               </td>
-            </tr>
-            <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowCase[0] ?><span class="fontContantAlert">*</span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <label>
-                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="1" <?php if($valTypeC == 1){ echo 'checked="checked"'; } ?> /></div>
-                     <div class="formDivRadioR"><?php echo $modTxtShowCase[1] ?></div>
-                  </label>
-
-                  <label>
-                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="2" <?php if($valTypeC == 2){ echo 'checked="checked"'; } ?>/></div>
-                     <div class="formDivRadioR"><?php echo $modTxtShowCase[2] ?></div>
-                  </label>
-
-                  <label>
-                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="3" <?php if($valTypeC == 3){ echo 'checked="checked"'; } ?>/></div>
-                     <div class="formDivRadioR"><?php echo $modTxtShowCase[3] ?></div>
-                  </label>
                </td>
             </tr>
          </table>
@@ -429,6 +424,37 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                         <input type="hidden" name="picname" id="picname" value="<?php echo $valPicName ?>" />
                      <?php } ?>
                   </div>
+               </td>
+            </tr>
+         </table>
+         <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:view"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo $langMod["txt:viewDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="7" align="right" valign="top" height="15"></td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowCase[0] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="1" <?php if($valTypeC == 1){ echo 'checked="checked"'; } ?> /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[1] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="2" <?php if($valTypeC == 2){ echo 'checked="checked"'; } ?>/></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[2] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputTypeC" id="inputTypeC" type="radio" class="formRadioContantTb" value="3" <?php if($valTypeC == 3){ echo 'checked="checked"'; } ?>/></div>
+                     <div class="formDivRadioR"><?php echo $modTxtShowCase[3] ?></div>
+                  </label>
                </td>
             </tr>
          </table>
