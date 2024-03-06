@@ -77,7 +77,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["tit:inpName"] = "Name " . getNameMenu($_REQUEST["menukeyid"]);
 } else {
 
-	$langMod["meu:group"] = "กลุ่ม" . getNameMenu($_REQUEST["menukeyid"]);
+	$langMod["meu:group"] = "" . getNameMenu($_REQUEST["menukeyid"]);
 	$langMod["meu:subgroup"] = "กลุ่มย่อย" . getNameMenu($_REQUEST["menukeyid"]);
 	$langMod["meu:contant"] = getNameMenu($_REQUEST["menukeyid"]);
 
@@ -224,4 +224,10 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["txt:subjectLink"] = "ข้อมูลเชื่อมโยงภายนอก";
 	$langMod["txt:subjectLinkDe"] = "โปรดป้อนข้อมูลลิงค์และการแสดงผล เพื่อใช้ในการแสดงผลเนื้อหาในหน้ารวมข้อมูลทั้งหมดของเมนูนี้บนเว็บไซต์ของคุณ";
 	$langMod["tit:picdefault"] = "รูปเริ่มต้น";
+
+	$langMod["meu:group2"] = "กลุ่ม" . getNameMenu($_REQUEST["menukeyid"]);
+	$langMod["tit:subjectg2"] = "ชื่อ" . $langMod["meu:group2"];
+	$langMod["tit:selectg2"] = "เลือก" . $langMod["meu:group2"];
+	$langMod["txt:subjectg2"] = "ข้อมูล" . $langMod["meu:group2"];
+	$langMod["txt:subjectg2De"] = "โปรดป้อนชื่อ" . $langMod["meu:group2"] . " เพื่อใช้ในการแสดงผลในหน้าเว็บไซต์ของคุณ";
 }

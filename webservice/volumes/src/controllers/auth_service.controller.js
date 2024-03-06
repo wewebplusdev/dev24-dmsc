@@ -48,16 +48,43 @@ exports.auth = async function (req, res) {
                     // }
                     var tokenid = await generateToken(appInfo);
                     result.tokenid = tokenid;
-
+                    
                     result.create_at = timeStampNow;
                     result.expire_at = timeStampExpire;
+
+                    // logs
+                    const authData = {
+                        appInfo: {app_token:config_array_param['controllkey']},
+                        tokenid: tokenid,
+                        code: result.code,
+                        msg: result.msg
+                    }
+                    general.logs_access_api(req, authData, result.code);
                 } else {
                     result.code = code.unsuccess.code;
                     result.msg = "Invalid App Token.";
+
+                    // logs
+                    const authData = {
+                        appInfo: {app_token:config_array_param['controllkey']},
+                        tokenid: "",
+                        code: result.code,
+                        msg: result.msg
+                    }
+                    general.logs_access_api(req, authData, result.code);
                 }
             } else {
                 result.code = code.unsuccess.code;
                 result.msg = "Invalid User.";
+
+                // logs
+                const authData = {
+                    appInfo: {app_token:'Unknown User'},
+                    tokenid: "",
+                    code: result.code,
+                    msg: result.msg
+                }
+                general.logs_access_api(req, authData, result.code);
             }
         } catch (error) {
             result.code = code.error_wrong.code;

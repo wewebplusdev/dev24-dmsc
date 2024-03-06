@@ -117,12 +117,16 @@ if (!empty($_REQUEST['inputGh2'])) {
    }
 
    if ($_REQUEST['inputGh'] >= 1) {
-      $keySearchGh = $modTxtTypeAccess[$_REQUEST['inputGh']];
+      $keySearchGh = $_REQUEST['inputGh'];
       $sqlSearch = $sqlSearch . "  AND " . $mod_tb_root . "_action ='" . $keySearchGh . "'   ";
    }
 
    if (!empty($_REQUEST['inputGh2'])) {
-      $sqlSearch = $sqlSearch . "  AND " . $mod_tb_root . "_sname ='" . $_REQUEST['inputGh2'] . "'   ";
+      if ($_REQUEST['inputGh2'] == 999) {
+         $sqlSearch = $sqlSearch . "  AND " . $mod_tb_root . "_uid ='0'   ";
+      }else{
+         $sqlSearch = $sqlSearch . "  AND " . $mod_tb_root . "_uid ='" . $_REQUEST['inputGh2'] . "'   ";
+      }
    }
 
 
@@ -187,6 +191,7 @@ if (!empty($_REQUEST['inputGh2'])) {
                         <td>
                            <select name="inputGh2" id="inputGh2" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                               <option value="0"><?php echo $langMod["tit:typeAPI"] ?> </option>
+                              <option value="999" <?php if ($_REQUEST['inputGh2'] == 999) { ?> selected="selected" <?php } ?>>Unknown User</option>
                               <?php
                               $sql_key = "SELECT
                               " . $mod_tb_key . "_id as id,
@@ -205,10 +210,9 @@ if (!empty($_REQUEST['inputGh2'])) {
                            <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                               <option value="0"><?php echo $langMod["tit:typeAccessSle"] ?> </option>
                               <?php
-                              $countTypeAccessArray = count($modTxtTypeAccess);
-                              for ($iType = 1; $iType < $countTypeAccessArray; $iType++) {
+                              foreach ($modTxtTypeAccess as $keymodTxtTypeAccess => $valuemodTxtTypeAccess) {
                               ?>
-                                 <option value="<?php echo $iType ?>" <?php if ($_REQUEST['inputGh'] == $iType) { ?> selected="selected" <?php } ?>><?php echo $modTxtTypeAccess[$iType] ?></option>
+                                 <option value="<?php echo $keymodTxtTypeAccess ?>" <?php if ($_REQUEST['inputGh'] == $keymodTxtTypeAccess) { ?> selected="selected" <?php } ?>><?php echo $valuemodTxtTypeAccess ?></option>
                               <?php } ?>
                            </select>
                         </td>
@@ -302,7 +306,8 @@ if (!empty($_REQUEST['inputGh2'])) {
             if ($count_record > 0) {
                while ($index < $count_record + 1) {
                   $row = wewebFetchArrayDB($coreLanguageSQL, $query);
-                  $valStatusType = $row['type'];
+                  // $valStatusType = $row['type'];
+                  $valStatusType = $modTxtTypeCode[$row['sid']];
                   $valStatusCode = $row['sid'];
                   $valNameService = rechangeQuot($row['action']);
                   $valName = rechangeQuot($row['sname']);
@@ -464,6 +469,23 @@ if (!empty($_REQUEST['inputGh2'])) {
                      </tr>
                   </table>
                </td>
+            </tr>
+         </table>
+         <table width="96%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 20px;">
+            <tr>
+               <td>500 : Internal server error.<td>
+            </tr>
+            <tr>
+               <td>1000 : Unsuccess.<td>
+            </tr>
+            <tr>
+               <td>1001 : Success.<td>
+            </tr>
+            <tr>
+               <td>1007 : Tokenid is not available.<td>
+            </tr>
+            <tr>
+               <td>1008 : Unknown method.<td>
             </tr>
          </table>
          <input name="TotalCheckBoxID" type="hidden" id="TotalCheckBoxID" value="<?php echo $index - 1 ?>" />

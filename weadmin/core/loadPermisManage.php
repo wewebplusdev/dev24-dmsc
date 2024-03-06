@@ -98,9 +98,9 @@ $valNav2 = $langTxt["nav:perManage2"];
                               <option value="0"><?= $langTxt["pr:select"] ?></option>
                               <option value="admin" <? if ($_REQUEST['inputGh'] == "admin") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select1"] ?></option>
                               <option value="staff" <? if ($_REQUEST['inputGh'] == "staff") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select2"] ?></option>
-                              <?php if ($_SESSION[$valSiteManage . "core_session_groupid"] == 0) { ?>
+                              <!-- <?php if ($_SESSION[$valSiteManage . "core_session_groupid"] == 0) { ?>
                                  <option value="minisite" <? if ($_REQUEST['inputGh'] == "minisite") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select3"] ?></option>
-                              <?php } ?>
+                              <?php } ?> -->
                            </select>
                         </td>
                         <td align="right"><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb" /></td>

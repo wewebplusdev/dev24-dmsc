@@ -480,11 +480,11 @@ async function getPolicy(req, res) {
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
-                            arr_data[i].target = (select[i].target == 1) ? '_slef' : '_blank';
+                            arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                         } else {
                             const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}`;
-                            arr_data[i].target = `_slef`;
+                            arr_data[i].target = `_self`;
                         }
                         if (select[i].picType == 1) {
                             let defaultPic = default_pic[select[i].picDefault];
@@ -661,10 +661,10 @@ async function getPolicyDetail(req, res) {
                         arr_data[i].target = `_self`;
                     } else if (select[i].typec == 3) {
                         arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
-                        arr_data[i].target = (select[i].target == 1) ? '_slef' : '_blank';
+                        arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                     } else {
                         const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
-                        arr_data[i].target = `_slef`;
+                        arr_data[i].target = `_self`;
                         arr_data[i].htmllink = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename);
                         let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 1);
                         let contentHTML = await modulus.getContentFromUrl(html_url);
@@ -841,11 +841,11 @@ async function getHelp(req, res) {
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
-                            arr_data[i].target = (select[i].target == 1) ? '_slef' : '_blank';
+                            arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                         } else {
                             const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}`;
-                            arr_data[i].target = `_slef`;
+                            arr_data[i].target = `_self`;
                         }
                         if (select[i].picType == 1) {
                             let defaultPic = default_pic[select[i].picDefault];
@@ -1022,10 +1022,10 @@ async function getHelpDetail(req, res) {
                         arr_data[i].target = `_self`;
                     } else if (select[i].typec == 3) {
                         arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
-                        arr_data[i].target = (select[i].target == 1) ? '_slef' : '_blank';
+                        arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                     } else {
                         const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
-                        arr_data[i].target = `_slef`;
+                        arr_data[i].target = `_self`;
                         arr_data[i].htmllink = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename);
                         let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 1);
                         let contentHTML = await modulus.getContentFromUrl(html_url);
@@ -1174,9 +1174,27 @@ async function LogsViewWebsite(req, res) {
 
 function funcRoute(req, res, mapFuncs) {
     if (req.body.method === undefined && (req.method === "POST" || req.method === "PUT" || req.method === "DELETE")) {
+        // logs
+        const authData = {
+            appInfo: {app_token:req.body.authData.appInfo.app_token},
+            tokenid: req.token,
+            code: code.missing_method.code,
+            msg: code.missing_method.msg
+        }
+        general.logs_access_api(req, authData, code.missing_method.code);
+
         res.json({ code: code.missing_method.code, msg: code.missing_method.msg });
         return 0;
     } else if (req.query.method === undefined && req.method === "GET") {
+        // logs
+        const authData = {
+            appInfo: {app_token:req.body.authData.appInfo.app_token},
+            tokenid: req.token,
+            code: code.missing_method.code,
+            msg: code.missing_method.msg
+        }
+        general.logs_access_api(req, authData, code.missing_method.code);
+        
         res.json({ code: code.missing_method.code, msg: code.missing_method.msg });
         return 0;
     }
@@ -1193,7 +1211,26 @@ function funcRoute(req, res, mapFuncs) {
             break;
         }
     }
+
     if (!foundFunction){
+        // logs
+        const authData = {
+            appInfo: {app_token:req.body.authData.appInfo.app_token},
+            tokenid: req.token,
+            code: code.unknown_method.code,
+            msg: code.unknown_method.msg
+        }
+        general.logs_access_api(req, authData, code.unknown_method.code);
+
         res.json({ code: code.unknown_method.code, msg: code.unknown_method.msg });
     }
+
+    // logs
+    const authData = {
+        appInfo: {app_token:req.body.authData.appInfo.app_token},
+        tokenid: req.token,
+        code: code.success.code,
+        msg: code.success.msg
+    }
+    general.logs_access_api(req, authData, code.success.code);
 }

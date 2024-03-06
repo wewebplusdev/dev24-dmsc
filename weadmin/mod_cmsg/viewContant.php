@@ -174,7 +174,7 @@ logs_access('3', 'View');
             </tr>
             <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["meu:group"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["meu:group2"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?php

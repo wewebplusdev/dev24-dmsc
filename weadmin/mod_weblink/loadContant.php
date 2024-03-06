@@ -157,7 +157,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                   <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
                   <!-- <div class="menuSubMod">
                      <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
-                        <?php echo $langMod["meu:group"] ?>
+                        <?php echo $langMod["meu:group2"] ?>
                      </a>
                   </div>
                   <div class="menuSubMod active">
@@ -182,7 +182,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                      <tr>
                         <td>
                            <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
-                              <option value=""><?php echo $langMod["meu:group"]; ?></option>
+                              <option value=""><?php echo $langMod["tit:selectg2"]; ?></option>
                               <?php
                               $sql_group = "SELECT 
                               " . $mod_tb_root_group . "_id,

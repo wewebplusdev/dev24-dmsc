@@ -44,6 +44,7 @@ const masterkey = {
     "faq": "faq",
     "wel": "wel",
     "set": "set",
+    "sv": "sv",
 }
 
 //urlPage

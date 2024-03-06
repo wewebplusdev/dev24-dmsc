@@ -31,15 +31,14 @@ logs_access('3', 'Export');
     <table border="1" cellspacing="1" cellpadding="2" align="left">
         <tbody>
             <tr>
-      <td width="56" height="30" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php  echo $langMod["export:no"]?></td>
-      <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php  echo  $langMod["mg:subject"] ?></td>
-      <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langTxt["us:creby"] ?></td>
-      <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langMod["home:accesscode"] ?></td>
-      <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langMod["home:access"] ?></td>
-      <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php  echo  $langMod["tit:tokendata"] ?></td>
-      <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php  echo $langMod["tit:Sessiondata"]?></td>
-      <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langTxt["home:date"] ?></td>            
-      </tr>
+                <td width="56" height="30" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langMod["export:no"] ?></td>
+                <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo  $langMod["mg:subject"] ?></td>
+                <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langTxt["us:creby"] ?></td>
+                <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langMod["home:accesscode"] ?></td>
+                <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langMod["home:access"] ?></td>
+                <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo  $langMod["tit:tokendata"] ?></td>
+                <td width="175" align="center" bgcolor="#eeeeee" class="bold" valign="middle"><?php echo $langTxt["home:date"] ?></td>
+            </tr>
 
             <?php
             $sql = str_replaceExport($_POST['sql_export'], "0");
@@ -51,19 +50,20 @@ logs_access('3', 'Export');
             if ($count_record >= 1) {
                 $index = $count_record;
                 while ($row = wewebFetchArrayDB($coreLanguageSQL, $query)) {
-                        $valStatusType = $row['type'];
-                        $valStatusCode = $row['sid'];
-                        $valNameService = rechangeQuot($row['action']);
-						$valName = rechangeQuot($row['sname']);
-						if($valName==""){
-							$valName="-";
-						}
+                    // $valStatusType = $row['type'];
+                    $valStatusType = $modTxtTypeCode[$row['sid']];
+                    $valStatusCode = $row['sid'];
+                    $valNameService = rechangeQuot($row['action']);
+                    $valName = rechangeQuot($row['sname']);
+                    if ($valName == "") {
+                        $valName = "-";
+                    }
 
-                        $valDateCredate = dateFormatReal($row['credate']);
-                        $valTimeCredate = timeFormatReal($row['credate']);
-						
-						 $valNameSesionID = rechangeQuot($row['sessid']);
-						  $valNameToken = rechangeQuot($row['token']);
+                    $valDateCredate = dateFormatReal($row['credate']);
+                    $valTimeCredate = timeFormatReal($row['credate']);
+
+                    $valNameSesionID = rechangeQuot($row['sessid']);
+                    $valNameToken = rechangeQuot($row['token']);
 
             ?>
 
@@ -74,8 +74,7 @@ logs_access('3', 'Export');
                         <td align="center" valign="middle"><?php echo $valStatusCode ?></td>
                         <td align="center" valign="middle"><?php echo $valStatusType ?></td>
                         <td align="center" valign="middle"><?php echo $valNameToken; ?></td>
-                        <td align="center" valign="middle"><?php echo $valNameSesionID; ?></td>
-                        <td align="center" valign="middle">'<?php echo $valDateCredate." ".$valTimeCredate ?></td>
+                        <td align="center" valign="middle">'<?php echo $valDateCredate . " " . $valTimeCredate ?></td>
                     </tr>
 
             <?php

@@ -218,10 +218,10 @@ foreach ($listAuthen as $key => $value) {
 
             <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group"]; ?><span class="fontContantAlert">*</span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group2"]; ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb">
-                     <option value="0"><?php echo $langMod["tit:selectg"]; ?></option>
+                     <option value="0"><?php echo $langMod["tit:selectg2"]; ?></option>
                      <?php
                      $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai'  ";
                      $sqlChecklist = array();

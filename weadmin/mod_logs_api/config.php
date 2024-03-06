@@ -13,9 +13,15 @@ $modMasterkeyAccess=array(
     "usk",
     );
 $modTxtTypeAccess=array(
-    "",
-    "Get Token",
-    "Get User",
+    "gettoken" => "Get Token",
+    "getuser" => "Get User",
+    );
+$modTxtTypeCode=array(
+    "500" => "Internal server error.",
+    "1000" => "Unsuccess.",
+    "1001" => "Success.",
+    "1007" => "Tokenid is not available.",
+    "1008" => "Unknown method.",
     );
 
 ## URL Search ###################################
