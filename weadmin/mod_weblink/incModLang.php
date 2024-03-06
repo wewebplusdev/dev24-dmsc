@@ -224,6 +224,9 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["txt:subjectLink"] = "ข้อมูลเชื่อมโยงภายนอก";
 	$langMod["txt:subjectLinkDe"] = "โปรดป้อนข้อมูลลิงค์และการแสดงผล เพื่อใช้ในการแสดงผลเนื้อหาในหน้ารวมข้อมูลทั้งหมดของเมนูนี้บนเว็บไซต์ของคุณ";
 	$langMod["tit:picdefault"] = "รูปเริ่มต้น";
+	$langMod["tit:keywords"] = "Keywords";
+	$langMod["tit:numbers"] = "จำนวน";
+	$langMod["tit:suffix"] = "หน่วย";
 
 	$langMod["meu:group2"] = "กลุ่ม" . getNameMenu($_REQUEST["menukeyid"]);
 	$langMod["tit:subjectg2"] = "ชื่อ" . $langMod["meu:group2"];

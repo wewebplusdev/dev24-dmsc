@@ -115,14 +115,9 @@ if (!empty($_FILES['fileToUpload']['error'])) {
       $thumbnail = resize($imgReal, $w, $h, $newfilename);
 
       $update = array();
-      $update[] = $mod_tb_root_group . "_pic  	='" . $picname . "'";
-      $sql = "UPDATE " . $mod_tb_root_group . " SET " . implode(",", $update) . " WHERE " . $mod_tb_root_group . "_id='" . $_REQUEST["myID"] . "'  ";
+      $update[] = $mod_tb_root_group_lang . "_pic  	='" . $picname . "'";
+      $sql = "UPDATE " . $mod_tb_root_group_lang . " SET " . implode(",", $update) . " WHERE " . $mod_tb_root_group_lang . "_id='" . $_REQUEST["myID"] . "'  ";
       $Query = wewebQueryDB($coreLanguageSQL, $sql);
-
-      $updateSch[] = $core_tb_search . "_pic  	='" . $picname . "'";
-      $sqlSch = "UPDATE " . $core_tb_search . " SET " . implode(",", $updateSch) . " WHERE " . $core_tb_search . "_contantid='" . $_REQUEST["myID"] . "'  AND " . $core_tb_search . "_masterkey='" . $_REQUEST["masterkey"] . "' ";
-      //print_pre($sqlSch);
-      $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
 
       $msg .= "<img src=\"" . $mod_path_pictures . "/" . $picname . "\"  style=\"float:left;border:#c8c7cc solid 1px;max-width:600px;\"   />";
       $msg .= "<div style=\"width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;\" onclick=\"delPicUpload(\'deletePicG.php\')\"  title=\"Delete file\" ><img src=\"../img/btn/delete.png\" width=\"22\" height=\"22\"  border=\"0\"/></div>";

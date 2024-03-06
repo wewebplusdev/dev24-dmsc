@@ -12,15 +12,19 @@ $valClassNav = 2;
 $valNav1 = $langTxt["nav:home2"];
 $valLinkNav1 = "../core/index.php";
 
-$sql = "SELECT   ";
-$sql .= "   " . $mod_tb_root_group . "_id as id,
-            " . $mod_tb_root_group . "_credate as credate,
-            " . $mod_tb_root_group . "_crebyid as crebyid,
-            " . $mod_tb_root_group . "_status as status,
-            " . $mod_tb_root_group . "_lastdate as lastdate,
-            " . $mod_tb_root_group . "_lastbyid as lastbyid";
+$sql = "SELECT 
+" . $mod_tb_root_group . "_id as id,
+" . $mod_tb_root_group . "_credate as credate,
+" . $mod_tb_root_group . "_crebyid as crebyid,
+" . $mod_tb_root_group . "_status as status,
+" . $mod_tb_root_group . "_lastdate as lastdate,
+" . $mod_tb_root_group . "_lastbyid as lastbyid";
 
 $sql .= "   , " . $mod_tb_root_group_lang . "_subject as subject, " . $mod_tb_root_group_lang . "_title as title, " . $mod_tb_root_group_lang . "_pic as pic";
+$sql .= "
+," . $mod_tb_root_group_lang . "_desc as descript
+," . $mod_tb_root_group_lang . "_number as number
+," . $mod_tb_root_group_lang . "_suffix as suffix ";
 $sql .= " FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE " . $mod_tb_root_group . "_masterkey='" . $_REQUEST["masterkey"] . "'  AND  " . $mod_tb_root_group_lang . "_cid='" . $_REQUEST['valEditID'] . "' AND  " . $mod_tb_root_group_lang . "_language='" . $_REQUEST['inputLt'] . "'";
 // print_pre($sql);
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
@@ -42,6 +46,10 @@ $valSubject = rechangeQuot($Row['subject']);
 $valTitle = rechangeQuot($Row['title']);
 $valPicName = $Row['pic'];
 $valPic = $mod_path_pictures . "/" . $Row['pic'];
+$valDesc = $Row['descript'];
+$valNumber = $Row['number'];
+$valSuffix = $Row['suffix'];
+
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
 logs_access('3', 'View Group');
@@ -118,7 +126,6 @@ logs_access('3', 'View Group');
                   <span class="formFontTileTxt"><?php echo $langMod["txt:subjectgDe"] ?></span>
                </td>
             </tr>
-
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:subjectg"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -127,6 +134,32 @@ logs_access('3', 'View Group');
                   </div>
                </td>
             </tr>
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_pic_number)){ ?>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:keywords"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView">
+                     <?php echo $valDesc ?>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:numbers"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView">
+                     <?php echo number_format($valNumber) ?>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:suffix"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView">
+                     <?php echo $valSuffix ?>
+                  </div>
+               </td>
+            </tr>
+            <?php } ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:noteg"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -134,8 +167,8 @@ logs_access('3', 'View Group');
                </td>
             </tr>
          </table>
-         <br style="display: none;"/>
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " style="display: none;">
+         <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:pic"] ?></span><br />

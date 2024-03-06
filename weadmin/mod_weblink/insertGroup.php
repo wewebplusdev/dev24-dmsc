@@ -39,7 +39,9 @@ if ($_REQUEST['execute'] == "insert") {
             $insertlang[$mod_tb_root_group_lang . "_subject"] = "'" . changeQuot($_REQUEST['inputSubject']) . "'";
             $insertlang[$mod_tb_root_group_lang . "_title"] = "'" . changeQuot($_REQUEST['inputComment']) . "'";
             $insertlang[$mod_tb_root_group_lang . "_pic"] = "'" . changeQuot($_REQUEST['picname']) . "'";
-         
+            $insertlang[$mod_tb_root_group_lang . "_desc"] = "'" . changeQuot($_REQUEST['inputKeywords']) . "'";
+            $insertlang[$mod_tb_root_group_lang . "_number"] = "'" . changeQuot($_REQUEST['inputNumbers']) . "'";
+            $insertlang[$mod_tb_root_group_lang . "_suffix"] = "'" . changeQuot($_REQUEST['inputSuffix']) . "'";
             $sql = "INSERT INTO " . $mod_tb_root_group_lang . "(" . implode(",", array_keys($insertlang)) . ") VALUES (" . implode(",", array_values($insertlang)) . ")";
             $Query = wewebQueryDB($coreLanguageSQL, $sql);
          }else{

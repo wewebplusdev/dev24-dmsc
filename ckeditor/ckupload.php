@@ -1,8 +1,8 @@
-<?
+<?php
 require_once("../weadmin/lib/session.php");
-	$url = 'upload/files/'.time()."_".$_FILES['upload']['name'];
-	$urlSite="/dev24-dmsc/ckeditor/";
-	// $urlSite="/ckeditor/";
+$url = 'upload/files/'.time()."_".$_FILES['upload']['name'];
+$urlSite="/dev24-dmsc/ckeditor/";
+// $urlSite="/ckeditor/";
 
 if($_SESSION[$valSiteManage . 'core_session_id']>=1){
 

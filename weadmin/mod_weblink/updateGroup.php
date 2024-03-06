@@ -37,6 +37,9 @@ include("config.php");
          $updatelang = array();
          $updatelang[] = $mod_tb_root_group_lang . "_subject='" . changeQuot($_POST['inputSubject']) . "'";
          $updatelang[] = $mod_tb_root_group_lang . "_title  	='" . changeQuot($_POST['inputComment']) . "'";
+         $updatelang[] = $mod_tb_root_group_lang . "_desc  	='" . changeQuot($_POST['inputKeywords']) . "'";
+         $updatelang[] = $mod_tb_root_group_lang . "_number  	='" . changeQuot($_POST['inputNumbers']) . "'";
+         $updatelang[] = $mod_tb_root_group_lang . "_suffix  	='" . changeQuot($_POST['inputSuffix']) . "'";
 
          $sql = "UPDATE " . $mod_tb_root_group_lang . " SET " . implode(",", $updatelang) . " WHERE " . $mod_tb_root_group_lang . "_id='" . $id . "' ";
          $Query = wewebQueryDB($coreLanguageSQL, $sql);

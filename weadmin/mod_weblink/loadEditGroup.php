@@ -19,7 +19,11 @@ $sql = "SELECT
 " . $mod_tb_root_group . "_status as status,
 " . $mod_tb_root_group_lang . "_subject as subject,
 " . $mod_tb_root_group_lang . "_title as title,
-" . $mod_tb_root_group_lang . "_pic as pic 
+" . $mod_tb_root_group_lang . "_pic as pic,
+" . $mod_tb_root_group_lang . "_id as lid,
+" . $mod_tb_root_group_lang . "_desc as descript,
+" . $mod_tb_root_group_lang . "_number as number,
+" . $mod_tb_root_group_lang . "_suffix as suffix 
 FROM " . $mod_tb_root_group . "
 INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid
 WHERE " . $mod_tb_root_group_lang . "_masterkey='" . $_POST["masterkey"] . "' 
@@ -37,6 +41,10 @@ $valSubject = rechangeQuot($Row['subject']);
 $valTitle = rechangeQuot($Row['title']);
 $valPicName = $Row['pic'];
 $valPic = $mod_path_pictures . "/" . $Row['pic'];
+$valSGid = $Row['lid'];
+$valDesc = $Row['descript'];
+$valNumber = $Row['number'];
+$valSuffix = $Row['suffix'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 ?>
@@ -56,8 +64,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <script language="JavaScript" type="text/javascript">
       function executeSubmit() {
          with(document.myForm) {
-
-
             if (isBlank(inputSubject)) {
                inputSubject.focus();
                jQuery("#inputSubject").addClass("formInputContantTbAlertY");
@@ -65,15 +71,32 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             } else {
                jQuery("#inputSubject").removeClass("formInputContantTbAlertY");
             }
-
-
-
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_pic_number)){ ?>
+            if (isBlank(inputKeywords)) {
+               inputKeywords.focus();
+               jQuery("#inputKeywords").addClass("formInputContantTbAlertY");
+               return false;
+            } else {
+               jQuery("#inputKeywords").removeClass("formInputContantTbAlertY");
+            }
+            if (isBlank(inputNumbers)) {
+               inputNumbers.focus();
+               jQuery("#inputNumbers").addClass("formInputContantTbAlertY");
+               return false;
+            } else {
+               jQuery("#inputNumbers").removeClass("formInputContantTbAlertY");
+            }
+            if (isBlank(inputSuffix)) {
+               inputSuffix.focus();
+               jQuery("#inputSuffix").addClass("formInputContantTbAlertY");
+               return false;
+            } else {
+               jQuery("#inputSuffix").removeClass("formInputContantTbAlertY");
+            }
+            <?php } ?>
          }
-
          updateContactNew('updateGroup.php');
-
       }
-
 
       function loadCheckUser() {
          with(document.myForm) {
@@ -83,8 +106,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             checkUsermember(inputValuename);
          }
       }
-
-
 
       jQuery(document).ready(function() {
 
@@ -115,6 +136,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       <input name="valEditID" type="hidden" id="valEditID" value="<?php echo $_REQUEST['valEditID'] ?>" />
       <input name="inputLt" type="hidden" id="inputLt" value="<?php echo $_REQUEST['inputLt'] ?>" />
       <input name="inputgroupID" type="hidden" id="inputgroupID" value="<?php echo $_REQUEST['inputgroupID'] ?>" />
+      <input name="valCid" type="hidden" id="valCid" value="<?= $valSGid ?>" />
 
       <?php include_once './inc-inputsearch.php'; ?>
       <div class="divRightNav">
@@ -165,10 +187,20 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:subjectg"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" class="formInputContantTb" value="<?php echo $valSubject ?>" /></td>
             </tr>
-            <!--               <tr >
-                  <td width="18%" align="right"  valign="top"  class="formLeftContantTb" ><?php echo $langMod["tit:color"] ?><span class="fontContantAlert">*</span></td>
-                  <td width="82%" colspan="6" align="left"  valign="top"  class="formRightContantTb" ><input name="inputColor" id="inputColor" type="text"  class="izzyColor" value="<?php echo $valColor ?>" style="border: 1px solid <?php echo $valColor ?>;" /></td>
-               </tr>-->
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_pic_number)){ ?>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:keywords"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputKeywords" id="inputKeywords" type="text" class="formInputContantTb" value="<?php echo $valDesc ?>" /></td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:numbers"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputNumbers" id="inputNumbers" type="text" class="formInputContantTbshot" value="<?php echo $valNumber ?>" /></td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:suffix"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSuffix" id="inputSuffix" type="text" class="formInputContantTb" value="<?php echo $valSuffix ?>" /></td>
+            </tr>
+            <?php } ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:noteg"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -177,7 +209,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             </tr>
          </table>
          <br />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " style="display: none;">
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langMod["txt:pic"] ?></span><br />
@@ -201,7 +233,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   <div id="boxPicNew" class="formFontTileTxt">
                      <?php if (is_file($valPic)) { ?>
                         <img src="<?php echo $valPic ?>" style="float:left;border:#c8c7cc solid 1px;max-width:600px;" />
-                        <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePic.php')" title="Delete file"><img src="../img/btn/delete.png" width="22" height="22" border="0" /></div>
+                        <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePicG.php')" title="Delete file"><img src="../img/btn/delete.png" width="22" height="22" border="0" /></div>
                         <input type="hidden" name="picname" id="picname" value="<?php echo $valPicName ?>" />
                      <?php } ?>
                   </div>
@@ -224,7 +256,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             </tr>
          </table>
          <br />
-
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
                <td colspan="7" align="right" valign="top" height="20"></td>
@@ -257,7 +288,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 
 
          jQuery.ajaxFileUpload({
-            url: 'loadUpdatePicG.php?myID=<?php echo $_POST["valEditID"] ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
+            url: 'loadUpdatePicG.php?myID=<?php echo $valSGid ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
             secureuri: false,
             fileElementId: 'fileToUpload',
             dataType: 'json',
