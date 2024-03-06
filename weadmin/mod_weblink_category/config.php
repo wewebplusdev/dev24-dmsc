@@ -26,7 +26,7 @@ $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
 ## Hide Group ###################################
-$array_masterkey_group = array("rein");
+$array_masterkey_group = array("");
 
 $modPeriodType = array(
     1 => "ตามช่วงเวลา",
