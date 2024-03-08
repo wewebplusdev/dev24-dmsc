@@ -4,7 +4,7 @@ on:
     branches: [ main, staging, developer ]
   pull_request:
     branches: [ main, staging, developer ]
-# jobs:
+jobs:
 #   sonarcloud:
 #     name: SonarCloud
 #     runs-on: ubuntu-latest
