@@ -31,6 +31,8 @@ jobs:
           sudo rm -rf *
           echo "Start Deploy webservice..."
           sudo cp -r /home/website/webservice /wwwroot
+          echo "copy .env"
+          sudo cp -r /home/env/.env /wwwroot/webservice/src
           echo "Starting Docker Image webservice"
           cd / 
           cd wwwroot/webservice
