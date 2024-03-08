@@ -51,3 +51,4 @@ jobs:
           echo "website is running..."
 
           echo "Deployment successfully..."
+          sudo rm -rf /home/website/*
