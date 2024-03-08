@@ -1,5 +1,5 @@
 *.zip
 *.logs
-upload/*
-front/temp/*
-webservice/volumes/src/node_modules/*
+**upload**
+**front/temp**
+**node_modules**

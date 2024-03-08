@@ -4,7 +4,19 @@ on:
     branches: [ main, staging, developer ]
   pull_request:
     branches: [ main, staging, developer ]
-jobs:
+# jobs:
+#   sonarcloud:
+#     name: SonarCloud
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 1  # Shallow clones should be disabled for a better relevancy of analysis
+#       - name: SonarCloud Scan
+#         uses: SonarSource/sonarcloud-github-action@master
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   deploy:
     # needs: [ sonarcloud ]
     name: Auto Deploy
@@ -17,3 +29,13 @@ jobs:
           sudo rm -rf /home/website/*
           sudo cp -r * /home/website/
           sudo rm -rf *
+          echo "Start Deploy webservice..."
+          sudo cp -r /home/website/webservice /wwwroot
+          echo "Starting Docker Image webservice"
+          cd / 
+          cd wwwroot/webservice
+          docker compose down
+          docker compose up --build -d
+          echo "webservice is running..."
+
+          echo "Deployment successfully..."

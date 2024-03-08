@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  dmsc-service-api:
+    container_name: dmsc-service-api
+    image: dmsc-service-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/usr/src/app # Mount local machine folder to container
+      - /usr/src/app/node_modules # Does not mount node_modules folder from local machine
+    # environment:
+    #   NODE_ENV: production
+    networks:
+      env_developer : {}
+    command: nodemon -L app.js # docker container add flag "-L" to use nodemon
+    
+  dmsc-nginx:
+    container_name: nginx-sv
+    image: nginx:latest
+    volumes:
+      - ./src/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - dmsc-service-api
+    ports:
+      - 4040:80
+    networks:
+      env_developer : {}
+networks:
+  env_developer:
+    external: true
