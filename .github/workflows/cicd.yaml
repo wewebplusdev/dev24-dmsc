@@ -21,7 +21,7 @@ jobs:
     # needs: [ sonarcloud ]
     name: Auto Deploy
     runs-on: 
-      - aws-ubuntu-2204
+      - aws-dmsc-runner
     steps:
       - uses: actions/checkout@v2
       - run: |
