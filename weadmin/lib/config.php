@@ -3,7 +3,7 @@ date_default_timezone_set('Asia/Bangkok');
 ini_set('memory_limit', '128M');
 
 ## Show Error  ######################################################
-$data_set_show_error = 0;  //  1 = Show Error , 0 = Hide Error
+$data_set_show_error = 1;  //  1 = Show Error , 0 = Hide Error
 
 if($data_set_show_error==0){
 	error_reporting(0);
