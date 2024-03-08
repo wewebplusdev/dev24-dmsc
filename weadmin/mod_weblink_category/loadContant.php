@@ -385,7 +385,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
             // order by 2 fields จะ order ข้ามวันยังไงก็ไม่มีผล เพราะจะ order ได้สูงสุดแค่วันตัวเอง
             $sql .= " ORDER BY $module_orderby $module_adesc, " . $mod_tb_root . "_order DESC  LIMIT $recordstart , $module_pagesize ";
-            print_pre($sql);
+            // print_pre($sql);
             $query = wewebQueryDB($coreLanguageSQL, $sql);
             $count_record = wewebNumRowsDB($coreLanguageSQL, $query);
 
