@@ -1,0 +1,19 @@
+name: Auto Deploy
+on:
+  push:
+    branches: [ main, staging, developer ]
+  pull_request:
+    branches: [ main, staging, developer ]
+jobs:
+  deploy:
+    # needs: [ sonarcloud ]
+    name: Auto Deploy
+    runs-on: 
+      - aws-ubuntu-2204
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "Start Deploy..."
+          sudo rm -rf /home/website/*
+          sudo cp -r * /home/website/
+          sudo rm -rf *

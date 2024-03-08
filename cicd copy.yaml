@@ -1,0 +1,42 @@
+name: Auto Deploy
+on:
+  push:
+    branches: [ main, staging, developer ]
+  pull_request:
+    branches: [ main, staging, developer ]
+
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  # deploy:
+  #   needs: [ sonarcloud ]
+  #   name: Auto Deploy
+  #   runs-on: 
+  #     - aws-ubuntu-2204
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - run: |
+  #         echo "Start Deploy..."
+  #         sudo rm -rf /home/service-api/*
+  #         sudo cp -r * /home/service-api/
+  #         sudo rm -rf *
+  #         echo "Start merge file to Production..."
+  #         sudo cp -r /home/service-api /wwwroot
+  #         echo "End merge file to Production..."
+  #         echo "Deployment successfully..."
+  #         echo "Starting Docker Image..."
+  #         cd / 
+  #         cd wwwroot/service-api
+  #         docker compose down
+  #         docker compose up --build -d
+  #         echo "Serivce is running..."
