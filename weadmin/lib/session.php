@@ -236,7 +236,7 @@ global $coreLanguageSQL;
 
 
 ## Core security upload  #############################################
-$core_session_main_url = "https://" . $_SERVER["HTTP_HOST"] . "/weadmin/index.php";
+$core_session_main_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http' . "://" . $_SERVER["HTTP_HOST"] . "/weadmin/index.php";
 
 $redirect_pathname = explode("/", $_SERVER['PHP_SELF']);
 $result_lastpath = $redirect_pathname[count($redirect_pathname) - 2];
