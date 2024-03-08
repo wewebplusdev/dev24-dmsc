@@ -42,7 +42,7 @@ jobs:
 
           echo "Starting Deploy website..."
           sudo cp -r /home/website /wwwroot
-          sudo rm -rf /home/website/webservice
+          sudo rm -rf /wwwroot/website/webservice
           echo "Starting Docker Image website"
           cd / 
           cd wwwroot/website

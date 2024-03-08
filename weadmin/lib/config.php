@@ -88,9 +88,9 @@ $_ENV = array(
     //     "name" => "mommycle_web",
     // ),
     "STAGING" => array(
-        "hostname" => "192.168.1.129",
+        "hostname" => "DB",
         "username" => "root",
-        "password" => "IySY?Pk7!!mH",
+        "password" => "dmscp@ssmariadb",
         "name" => "2024_dmsc",
     ),
     "DEV" => array(
