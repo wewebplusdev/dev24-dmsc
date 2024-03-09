@@ -21,18 +21,17 @@ jobs:
           echo "copy .env"
           sudo cp -r /home/env/.env /wwwroot/webservice/src
           echo "Starting Docker Image webservice"
-          cd / 
-          cd wwwroot/webservice
+          cd /wwwroot/webservice
           docker compose down
           docker compose up --build -d
           echo "webservice is running..."
 
           echo "Starting Deploy website..."
           sudo cp -r /home/website /wwwroot
+          sudo cp -r /home/env/.htaccess /wwwroot
           sudo rm -rf /wwwroot/website/webservice
           echo "Starting Docker Image website"
-          cd / 
-          cd wwwroot/website
+          cd /wwwroot/website
           docker compose down
           docker compose up --build -d
           echo "website is running..."
