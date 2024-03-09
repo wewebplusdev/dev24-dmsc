@@ -8,47 +8,31 @@ jobs:
     runs-on: 
       - aws-dmsc-runner
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Pull repository
-        run: |
+      - uses: actions/checkout@v2
+      - run: |
+          echo "Start Deploy..."
           sudo rm -rf /home/website/*
           sudo cp -r * /home/website/
-          echo "Pull repository successfully..."
           sudo rm -rf *
-          echo "Clean up directory _work."
-
-      - name: Deploy API
-        run: |
-          cd /wwwroot/webservice
-          docker compose down
+          echo "Starting Deploy webservice..."
           sudo cp -r /home/website/webservice /wwwroot
           echo "copy .env"
           sudo cp -r /home/env/.env /wwwroot/webservice/src
-
-      - name: Build & Start Container Image API
-        run: |
+          echo "Starting Docker Image webservice"
           cd /wwwroot/webservice
-          docker compose up --build -d
-          echo "service api is running..."
-
-      - name: Deploy front-end & back-end
-        run: |
-          cd /wwwroot/website
           docker compose down
+          docker compose up --build -d
+          echo "webservice is running..."
+
+          echo "Starting Deploy website..."
           sudo cp -r /home/website /wwwroot
-          echo "copy .htaccess"
           sudo cp -r /home/env/.htaccess /wwwroot/website
           sudo rm -rf /wwwroot/website/webservice
-
-      - name: Build & Start Container Image front-end & back-end
-        run: |
+          echo "Starting Docker Image website"
           cd /wwwroot/website
+          docker compose down
           docker compose up --build -d
           echo "website is running..."
 
-      - name: Clean up project temp
-        run: |
+          echo "Deployment successfully..."
           sudo rm -rf /home/website/*
-          echo "Clean up successfully..."
