@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 services:
   php8-apache:
     container_name: php8-apache
@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/var/www/html/
     ports:
-      - 8080:80
+      - 80:80
     environment:
       TZ: "Asia/Bangkok"
     networks:

@@ -14,7 +14,16 @@ if($data_set_show_error==0){
 }
 
 ## Core Folder Local  ######################################################
-$core_pathname_folderlocal = "/dev24-dmsc";
+$core_pathname_folderlocal = "";
+
+if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
+    $_CORE_ENV = "DEV";
+    $core_pathname_folderlocal = "/dev24-dmsc";
+}elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
+    $_CORE_ENV = "PROD";
+}else{
+    $_CORE_ENV = "STAGING";
+}
 
 ## Core Login session  ######################################################
 $core_login_lifetime = 60 * 60; // 60 minutes
@@ -72,14 +81,6 @@ $core_icon_maxsize = 75;
 $core_icon_librarypath = "../img/iconmenu";
 
 ## Database Connect #################################################
-if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
-    $_CORE_ENV = "DEV";
-}elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
-    $_CORE_ENV = "PROD";
-}else{
-    $_CORE_ENV = "STAGING";
-}
-
 $_ENV = array(
     // "PROD" => array(
     //     "hostname" => "localhost",
