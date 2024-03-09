@@ -28,7 +28,7 @@ jobs:
 
           echo "Starting Deploy website..."
           sudo cp -r /home/website /wwwroot
-          sudo cp -r /home/env/.htaccess /wwwroot
+          sudo cp -r /home/env/.htaccess /wwwroot/website
           sudo rm -rf /wwwroot/website/webservice
           echo "Starting Docker Image website"
           cd /wwwroot/website
