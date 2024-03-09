@@ -2,6 +2,7 @@ version: '3.8'
 services:
   php8-apache:
     container_name: php8-apache
+    restart: always
     build: 
       context: .
       dockerfile: Dockerfile
