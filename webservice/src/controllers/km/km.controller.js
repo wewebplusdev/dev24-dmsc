@@ -120,6 +120,7 @@ async function getKmGroup(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -280,6 +281,7 @@ async function getKm(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -497,6 +499,7 @@ async function getKmDetail(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }

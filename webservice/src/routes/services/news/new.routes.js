@@ -5,5 +5,5 @@ var serviceName = "news";
 var news_api = require('../../../controllers/news/news.controller');
 
 module.exports = function(app) {
-    app.all('/service-api/' + serviceName, general.verifyToken, news_api.init);
+    app.all('/service-api/v1/' + serviceName, general.verifyToken, news_api.init);
 }

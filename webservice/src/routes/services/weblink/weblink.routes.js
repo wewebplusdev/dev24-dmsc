@@ -5,5 +5,5 @@ var serviceName = "weblink";
 var weblink_api = require('../../../controllers/weblink/weblink.controller');
 
 module.exports = function(app) {
-    app.all('/service-api/' + serviceName, general.verifyToken, weblink_api.init);
+    app.all('/service-api/v1/' + serviceName, general.verifyToken, weblink_api.init);
 }

@@ -5,5 +5,5 @@ var serviceName = "setting";
 var setting_api = require('../../../controllers/_setting/setting.controller');
 
 module.exports = function(app) {
-    app.all('/service-api/' + serviceName, general.verifyToken, setting_api.init);
+    app.all('/service-api/v1/' + serviceName, general.verifyToken, setting_api.init);
 }

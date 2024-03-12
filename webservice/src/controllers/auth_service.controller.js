@@ -90,6 +90,7 @@ exports.auth = async function (req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
 
     res.json(result);

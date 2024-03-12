@@ -161,6 +161,7 @@ async function getAbout(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -372,6 +373,7 @@ async function getAboutDetail(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }

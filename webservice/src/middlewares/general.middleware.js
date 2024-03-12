@@ -77,59 +77,62 @@ async function client_access_api(req, authData, code){
     const method = req.body.method ? req.body.method : req?.route?.path?.split('/')?.pop();
     const app_token = authData?.appInfo?.app_token ? authData.appInfo.app_token : 'Unknown User';
 
-    
-
     let conn = config.configDB.connectDB();
     const query = util.promisify(conn.query).bind(conn);
+    try {
+        // db tables
+        let config_array_db = new Array();
+        config_array_db['md_logs'] = config.fieldDB.main.md_logs
+        config_array_db['md_usk'] = config.fieldDB.main.md_usk
     
-    // db tables
-    let config_array_db = new Array();
-    config_array_db['md_logs'] = config.fieldDB.main.md_logs
-    config_array_db['md_usk'] = config.fieldDB.main.md_usk
-
-    let userId = 0;
-    let response = "Unsuccess.";
-    if (code == 1001) {
-        response = "Success.";
-        try {
-            let sql = `SELECT 
-            ${config_array_db['md_usk']}_id as id 
-            ,${config_array_db['md_usk']}_masterkey as masterkey 
-            ,${config_array_db['md_usk']}_controlkey as controlkey 
-            ,${config_array_db['md_usk']}_secretkey as secretkey 
-            ,${config_array_db['md_usk']}_credate as credate 
-            FROM ${config_array_db['md_usk']} WHERE ${config_array_db['md_usk']}_controlkey = '${app_token}' 
-            AND ${config_array_db['md_usk']}_status != 'Disable'
-            `;
-            let sql_permis = sql;
-            const select_permis = await query(sql_permis);
-            if (select_permis.length > 0) {
-                userId = select_permis[0].id;
+        let userId = 0;
+        let response = "Unsuccess.";
+        if (code == 1001) {
+            response = "Success.";
+            try {
+                let sql = `SELECT 
+                ${config_array_db['md_usk']}_id as id 
+                ,${config_array_db['md_usk']}_masterkey as masterkey 
+                ,${config_array_db['md_usk']}_controlkey as controlkey 
+                ,${config_array_db['md_usk']}_secretkey as secretkey 
+                ,${config_array_db['md_usk']}_credate as credate 
+                FROM ${config_array_db['md_usk']} WHERE ${config_array_db['md_usk']}_controlkey = '${app_token}' 
+                AND ${config_array_db['md_usk']}_status != 'Disable'
+                `;
+                let sql_permis = sql;
+                const select_permis = await query(sql_permis);
+                if (select_permis.length > 0) {
+                    userId = select_permis[0].id;
+                }
+            } catch (error) {
+                userId = 0;
             }
-        } catch (error) {
-            userId = 0;
         }
-    }
-
-    var setime_zone = new Date().toLocaleString('de-DE', {timeZone: 'Asia/Bangkok'}).split(' ');
-    var date_now = setime_zone[0].split('.');
-    date_now = date_now[2].replace(',', '') + "-" + ("0" + date_now[1]).slice(-2) + "-" + ("0" + date_now[0]).slice(-2);
-    var time_now = setime_zone[1].split(':');
-    time_now = ("0" + time_now[0]).slice(-2) + ":" + ("0" + time_now[1]).slice(-2) + ":" + ("0" + time_now[2]).slice(-2);
     
-    let insert = new Array();
-    insert[`${config_array_db['md_logs']}_action`] = `'${method}'`;
-    insert[`${config_array_db['md_logs']}_sid`] = `'${code ? code : 500}'`; //status code
-    insert[`${config_array_db['md_logs']}_sname`] = `'${app_token}'`; // site name
-    insert[`${config_array_db['md_logs']}_time`] = `'${date_now} ${time_now}'`;
-    insert[`${config_array_db['md_logs']}_token`] = `'${req.token ? req.token : ''}'`;
-    insert[`${config_array_db['md_logs']}_type`] = `'${response}'`;
-    insert[`${config_array_db['md_logs']}_uid`] = `'${userId}'`;
-    // Construct SQL query
-    let columns = Object.keys(insert).join(",");
-    let values = Object.values(insert).join(",");
-    let queryData = `INSERT INTO ${config_array_db['md_logs']} (${columns}) VALUES (${values})`;
-    const insert_data = await query(queryData);
+        var setime_zone = new Date().toLocaleString('de-DE', {timeZone: 'Asia/Bangkok'}).split(' ');
+        var date_now = setime_zone[0].split('.');
+        date_now = date_now[2].replace(',', '') + "-" + ("0" + date_now[1]).slice(-2) + "-" + ("0" + date_now[0]).slice(-2);
+        var time_now = setime_zone[1].split(':');
+        time_now = ("0" + time_now[0]).slice(-2) + ":" + ("0" + time_now[1]).slice(-2) + ":" + ("0" + time_now[2]).slice(-2);
+        
+        let insert = new Array();
+        insert[`${config_array_db['md_logs']}_action`] = `'${method}'`;
+        insert[`${config_array_db['md_logs']}_sid`] = `'${code ? code : 500}'`; //status code
+        insert[`${config_array_db['md_logs']}_sname`] = `'${app_token}'`; // site name
+        insert[`${config_array_db['md_logs']}_time`] = `'${date_now} ${time_now}'`;
+        insert[`${config_array_db['md_logs']}_token`] = `'${req.token ? req.token : ''}'`;
+        insert[`${config_array_db['md_logs']}_type`] = `'${response}'`;
+        insert[`${config_array_db['md_logs']}_uid`] = `'${userId}'`;
+        // Construct SQL query
+        let columns = Object.keys(insert).join(",");
+        let values = Object.values(insert).join(",");
+        let queryData = `INSERT INTO ${config_array_db['md_logs']} (${columns}) VALUES (${values})`;
+        const insert_data = await query(queryData);
+    } catch (error) {
+        console.log('client_access_api');
+        console.log(code.error_wrong.msg);
+    }
+    conn.destroy();
 }
 
 function addDataInBody(req, res) {

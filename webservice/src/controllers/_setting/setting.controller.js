@@ -20,7 +20,7 @@ exports.init = function (req, res) {
 
 async function getWebSetting(req, res) {
     const method = req.body.method;
-    const language = req.body.language ? req.body.language : 'Thai';
+    let language = req.body.language ? req.body.language : 'Thai';
     const result = general.checkParam([method]);
     const code = config.returncode;
 
@@ -38,12 +38,30 @@ async function getWebSetting(req, res) {
     config_array_masterkey['sy_lang'] = config.fieldDB.masterkey.sm
     config_array_masterkey['lcf'] = config.fieldDB.masterkey.lcf
     config_array_masterkey['set'] = config.fieldDB.masterkey.set
-
+    
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
         result.item = {};
         let arr_data_language = [];
+
+        // ################## Start Set Default Language ##################
+        let sql_lang_set = `SELECT 
+        ${config_array_db['sy_lang']}_id as id 
+        ,${config_array_db['sy_lang']}_subject as subject 
+        ,${config_array_db['sy_lang']}_short as short 
+        ,${config_array_db['sy_lang']}_display as display 
+        FROM ${config_array_db['sy_lang']} WHERE ${config_array_db['sy_lang']}_status != 'Disable' 
+        AND ${config_array_db['sy_lang']}_subject = '${language}' 
+        `;
+        const select_lang_set = await query(sql_lang_set);
+        if (select_lang_set.length == 1) {
+            result.item.current_lang = select_lang_set[0]['subject'];
+        }else{
+            language = 'Thai'
+            result.item.current_lang = 'Thai';
+        }
+        // ################## Start Set Default Language ##################
 
         // ################## Start Setting ##################
         try {
@@ -214,6 +232,7 @@ async function getWebSetting(req, res) {
             result.item.facebook = null;
         }
         // ################## End Live Chat Facebook ##################
+        conn.destroy();
     }
     res.json(result);
 }
@@ -303,6 +322,7 @@ async function getIntro(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -375,6 +395,7 @@ async function acceptLogsPDPA(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -525,6 +546,7 @@ async function getPolicy(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -736,6 +758,7 @@ async function getPolicyDetail(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -886,6 +909,7 @@ async function getHelp(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -1097,6 +1121,7 @@ async function getHelpDetail(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
@@ -1168,11 +1193,13 @@ async function LogsViewWebsite(req, res) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
         }
+        conn.destroy();
     }
     res.json(result);
 }
 
 function funcRoute(req, res, mapFuncs) {
+
     if (req.body.method === undefined && (req.method === "POST" || req.method === "PUT" || req.method === "DELETE")) {
         // logs
         const authData = {
