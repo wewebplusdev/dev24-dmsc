@@ -6,7 +6,7 @@
  * and open the template in the editor.
 */
 
-$mainPage = new mainPage;
+// $mainPage = new mainPage;
 
 #### SETTING
 $settingWeb = array();
