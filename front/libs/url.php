@@ -48,7 +48,7 @@ class url
         }
 
         foreach ($this->listcheckurl as $valueCheckurl) {
-            if (!empty($this->segment[0]) && !empty($valueCheckurl  )) {
+            if (!empty($this->segment[0]) && !empty($valueCheckurl)) {
                 if (strpos($this->segment[0], $valueCheckurl) !== false) {
                     $listnewsegment = explode($valueCheckurl, $this->segment[0]);
                     $this->segment[0] = str_replace("-", "", $valueCheckurl);
@@ -94,7 +94,6 @@ class url
     public function page()
     {
         $folderpage = _DIR . '/front/controller/script/' . $this->segment[0] . "/";
-        //  print_pre($folderpage);
         if (file_exists($folderpage)) {
             $statuspage = $this->checkpagefile($folderpage);
             if (!empty($statuspage)) {
@@ -108,7 +107,6 @@ class url
             } else {
                 return $this->setpagedefault();
             }
-
         } else {
             return $this->setpagedefault();
         }
@@ -117,11 +115,20 @@ class url
     public function setpagedefault()
     {
         global $url_show_default;
-        $path = _DIR . '/front/controller/script/' . $url_show_default;
-        $loderpage['pagename'] = $url_show_default;
-        $loderpage['load'][] = $path . "/lang/" . $this->pagelang[2] . ".php";
-        foreach ($this->listfilemodulus as $value) {
-            $loderpage['load'][] = $path . "/" . $value;
+        if (!empty($this->segment[0])) {
+            $path = _DIR . '/front/controller/script/404';
+            $loderpage['pagename'] = '404';
+            $loderpage['load'][] = $path . "/lang/" . $this->pagelang[2] . ".php";
+            foreach ($this->listfilemodulus as $value) {
+                $loderpage['load'][] = $path . "/" . $value;
+            }
+        } else {
+            $path = _DIR . '/front/controller/script/' . $url_show_default;
+            $loderpage['pagename'] = $url_show_default;
+            $loderpage['load'][] = $path . "/lang/" . $this->pagelang[2] . ".php";
+            foreach ($this->listfilemodulus as $value) {
+                $loderpage['load'][] = $path . "/" . $value;
+            }
         }
         return $loderpage;
     }
@@ -136,19 +143,18 @@ class url
         }
         return true;
     }
-    
+
     public function loadmodulus($array)
     {
         $listfile = array("config.php", "class.php", "modulus.php", "index.php");
         $loderpage = array();
         foreach ($array as $value) {
             $path = _DIR . '/front/controller/script/' . $value . "/";
-           
+
             foreach ($listfile as $isfile) {
                 $loderpage[] = $path . $isfile;
             }
         }
         return $loderpage;
     }
-
 }

@@ -6,16 +6,28 @@ class mainPage extends controller
     
     public function __construct()
     {
+        // super class init
         parent::__construct();
-
-        $settingWeb = self::load_setting_web();
-        if ($settingWeb->code === 1001) {
-            $this->settingWeb = $settingWeb->item;
+        try {
+            if ($this->token_revoke) {
+                $settingWeb = self::load_setting_web();
+                if ($settingWeb->code === 1001) {
+                    $_SESSION['settingWeb'] = $settingWeb->item;
+                    $this->settingWeb = $_SESSION['settingWeb'];
+                }
+            }
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
+
     }
-    
+
     private function load_setting_web()
     {
+        if (empty($this->token_access)) {
+            return false;
+        }
+
         $url = self::_URL_API . "/setting";
         $header = [
             'Content-Type: application/json',

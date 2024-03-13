@@ -88,7 +88,7 @@ $lang_default = "th";
 
 ## url ##
 $url_show_lang = true;
-$url_show_default = "home";
+$url_show_default = "intro";
 
 ## config path system ##
 $path_template = array(

@@ -614,6 +614,7 @@ async function getService(req, res) {
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
                 ,${config_array_db['md_cmsl']}_target as target 
                 ,${config_array_db['md_cms']}_tid as tid 
+                ,'${config_array_db['md_cms']}' as tb 
                 FROM ${config_array_db['md_cms']} 
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                 WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['sv']}' 
@@ -629,6 +630,7 @@ async function getService(req, res) {
                 )
                 ORDER BY ${config_array_db['md_cms']}_order ${order} 
                 `;
+                console.log(sql_list);
                 const select_list = await query(sql_list);
                 if (select_list.length > 0) {
                     let count_totalrecord;
@@ -667,6 +669,8 @@ async function getService(req, res) {
                             arr_data[i] = {};
                             arr_data[i].id = select[i].id;
                             arr_data[i].masterkey = select[i].masterkey;
+                            arr_data[i].language = language;
+                            arr_data[i].tb = select[i].tb;
                             arr_data[i].subject = select[i].subject;
                             arr_data[i].title = select[i].title;
                             arr_data[i].gid = select[i].gid;

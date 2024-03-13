@@ -1,17 +1,52 @@
 <?php
 abstract class controller
 {
-    // const _URL_API = 'http://192.168.101.39:4040/service-api/v1';
-    const _URL_API = 'http://192.168.1.101:4040/service-api/v1';
+    // const _URL_API = 'http://192.168.1.101:4040/service-api/v1';
+    const _URL_API = 'http://192.168.101.39:4040/service-api/v1';
+    const _APP_TOKEN = 'website-token-api';
+    const _APP_USER = 'dmsc-website-api';
+    const _APP_SERCRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
     public $token_access;
     public $language;
+    public $token_revoke;
 
     public function __construct()
     {
-        $this->token_access = $_COOKIE['web_token'] ? base64_decode($_COOKIE['web_token']) : '';
-        $this->language = $_COOKIE['web_language'];
+        global $url;
+        try {
+            $this->token_access = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';
+            $this->language = $url->pagelang[4];
+            $this->token_revoke = $_COOKIE['token_revoke'] ? $_COOKIE['token_revoke'] : '';
 
-        // print_pre();
+            if (!empty($this->token_access)) {
+                // revoke token
+                if (empty($this->token_revoke) || empty($_SESSION['settingWeb'])) {
+                    $load_check_auth = self::load_check_auth();
+                    if ($load_check_auth->code === 1007) {
+                        // authentication token
+                        $auth_webservice = self::auth_webservice();
+                        if ($auth_webservice->code === 1001) {
+                            setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
+                            setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
+                            self::revoke_token($auth_webservice);
+                        }
+                    }else{
+                        setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
+                        $this->token_revoke = 1;
+                    }
+                }
+            }else{
+                // authentication token
+                $auth_webservice = self::auth_webservice();
+                if ($auth_webservice->code === 1001) {
+                    setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
+                    setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
+                    self::revoke_token($auth_webservice);
+                }
+            }
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
     }
 
     function search_engine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
@@ -57,6 +92,39 @@ abstract class controller
             $list['pic'] = "";
         }
         $smarty->assign("seo", $list);
+    }
+
+    private function revoke_token($auth_webservice){
+        global $url;
+        $this->token_access = $auth_webservice->tokenid;
+        $this->language = $url->pagelang[4];
+        $this->token_revoke = 1;
+    }
+
+    private function auth_webservice(){
+        $url = self::_URL_API . "/gettoken";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $data = [
+            "apptoken" => self::_APP_TOKEN,
+            "user" => self::_APP_USER,
+            "secretkey" => self::_APP_SERCRET,
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
+    }
+
+    private function load_check_auth()
+    {
+        $url = self::_URL_API . "/getuser";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', '');
+        return $response;
     }
 
     protected static function sendCURL($url, $header, $type, $data = NULL)
