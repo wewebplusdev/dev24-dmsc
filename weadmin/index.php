@@ -199,6 +199,7 @@ include("core/incLang.php");
                                                 </div>
                                             </div>
                                             <div class="form-btn">
+                                                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="<?php echo $recaptcha_sitekey ?>">
                                                 <input class="btn btn-primary" name="input" type="submit" value="<?= $langTxt["login:btn"] ?>" onclick="submitLogin();" />
                                             </div>
                                         </form>
