@@ -1,8 +1,8 @@
 <?php
-
 abstract class controller
 {
-    const _URL_API = 'http://192.168.101.39:4040/service-api/v1';
+    // const _URL_API = 'http://192.168.101.39:4040/service-api/v1';
+    const _URL_API = 'http://192.168.1.101:4040/service-api/v1';
     public $token_access;
     public $language;
 
@@ -10,6 +10,8 @@ abstract class controller
     {
         $this->token_access = $_COOKIE['web_token'] ? base64_decode($_COOKIE['web_token']) : '';
         $this->language = $_COOKIE['web_language'];
+
+        // print_pre();
     }
 
     function search_engine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
