@@ -4486,15 +4486,15 @@ a:visited {
 
 @font-face {
     font-family: "feather";
-    src: url("../webfonts/feather.eot?t=1501841394106");
+    src: url("../fonts/feather.eot?t=1501841394106");
     /* IE9*/
-    src: url("../webfonts/feather.eot?t=1501841394106#iefix") format("embedded-opentype"),
+    src: url("../fonts/feather.eot?t=1501841394106#iefix") format("embedded-opentype"),
         /* IE6-IE8 */
-        url("../webfonts/feather.woff?t=1501841394106") format("woff"),
+        url("../fonts/feather.woff?t=1501841394106") format("woff"),
         /* chrome, firefox */
-        url("../webfonts/feather.ttf?t=1501841394106") format("truetype"),
+        url("../fonts/feather.ttf?t=1501841394106") format("truetype"),
         /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-        url("../webfonts/feather.svg?t=1501841394106#feather") format("svg");
+        url("../fonts/feather.svg?t=1501841394106#feather") format("svg");
     /* iOS 4.1- */
 }
 
