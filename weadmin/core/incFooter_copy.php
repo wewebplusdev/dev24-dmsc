@@ -1,3 +1,21 @@
+<!-- <div class="footerBackOffice">
+    <div class="imgLogo"><?= $langTxt["login:footecopy"] ?> <i class="versionsmall"><?php echo 'Current PHP Version: ' . phpversion(); ?></i></div>
+    <div class="divLogin"><?= $langTxt["login:footecontact"] ?></div>
+</div> -->
+
+<!-- <script type="text/javascript">
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200){  
+            $('.divRightHead').addClass('fixed');
+            $('.divRightMain').addClass('tiny');
+        }
+        else{
+            $('.divRightHead').removeClass('fixed');
+            $('.divRightMain').removeClass('tiny');
+        }
+    });
+</script> -->
+
 <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
 <script type="text/javascript">
     $(window).scroll(function() {
@@ -32,15 +50,22 @@
 <div class="footerBackOffice f-main">
     <div>
 	    <div class="imgLogo">
-            <?= $langTxt["login:footecopy"]; ?>
+            <?php echo $langTxt["login:footecopy"]; ?> 
         </div>
-	    <div class="divLogin">
-            <?= $langTxt["login:footecontact"]; ?>
+        <div class="divLogin">
+            <?php echo $langTxt["login:footecontact"]; ?>
             <br><br>
             <i class="versionsmall mt-3"><?php echo 'Current PHP Version: ' . phpversion(); ?></i>
         </div>
 	</div>
+    <!-- Copyright © DMCR All rights reserved. -->
 </div>
+<!-- <style>
+    .versionsmall {
+        color: #616161;
+    }
+</style> -->
+
 <div id="scrollToTopBtn">
     <?= $langTxt["btn:gototop"] ?> <img src="../img/btn/top.png"  align="absmiddle"/>
 </div>
@@ -49,9 +74,9 @@
 <div class="clearAll"></div>
 <? include("../lib/disconnect.php"); ?>
 
-<!-- <style type="text/css">
+<style type="text/css">
     .fontContantTbTime a{
         color: #999;
     }
     .fontContantTbTime a:hover{color: #2671c2;}
-</style> -->
+</style>

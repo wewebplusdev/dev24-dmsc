@@ -1,16 +1,7 @@
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<link href="../js/select2/css/selectList2.css?v=<?php echo date('YmdHis'); ?>" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-
 <link href="../css/font-awesome.min.css" rel="stylesheet"/>
-<meta id="viewport_meta" name="viewport" content="width=1360" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<div class="headBackOffice" style="display: none;">
-    <div class="imgLogo">
-        <a href="../core/index.php"><img src="<?=$core_pathname_crupload?>/<?=$valPicSystem?>" height="38" /></a>
-    </div>
+
+<div class="headBackOffice">
+  <div class="imgLogo"><a href="../core/index.php"><img src="<?=$core_pathname_crupload?>/<?=$valPicSystem?>" height="38" /></a></div>
     <div class="txtLogoLogin">
             <h1 class="titleInner"><?=$valNameSystem?></h1>
             <h3 class="subtitleInner"><?=$valTitleSystem?></h3>
@@ -74,7 +65,7 @@
     </div>
 </div>
 <div class="clearAll"></div>
-<!-- <div class="menuSub" id="divSubMenuTop">
+<div class="menuSub" id="divSubMenuTop">
     <div class="menuSubManage" >
         <ul>
         <? if ($_SESSION[$valSiteManage . "core_session_groupid"] == "11" && $_SESSION[$valSiteManage . "core_session_typeusermini"] == 0) { ?>
@@ -92,7 +83,7 @@
             <li><a href="javascript:void(0)"onclick="checkLogoutUser();" title="<?= $langTxt["menu:logout"] ?>"><span class="fa fa-sign-out"></span><?= $langTxt["menu:logout"] ?></a></li>
         </ul>
     </div>
-</div> -->
+</div>
 <div class="clearAll"></div>
 
 <input id="pathTojs" type="hidden" value="<?=$core_pathname_folderlocal;?>">

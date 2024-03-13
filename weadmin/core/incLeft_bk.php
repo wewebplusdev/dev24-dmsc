@@ -1,69 +1,5 @@
-<div class="row no-gutters align-items-center">
-    <div class="col">
-        <div class="logo">
-            <a href="../core/index.php">
-                <!-- <img src="../img/logo-default.png" alt=""> -->
-                <img src="<?=$core_pathname_crupload?>/<?=$valPicSystem?>" />
-                <div class="title">
-                    <?=$valNameSystem?>
-                    <small><?=$valTitleSystem?></small>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-auto">
-        <div class="divLogin dropdown">
-            <div class="divLogin-name">
-                <?php echo  $_SESSION[$valSiteManage . "core_session_name"] ?>
-            </div>
-            <a href="javascript:void(0)" data-toggle="dropdown" title="<?php echo  $langTxt["menu:topmenu"] ?>">
-                <div class="divLogin-img">
-                    <?php
-                    $valPicProfileTop = load_picmemberBack($_SESSION[$valSiteManage . "core_session_id"]);
-                    if (is_file($valPicProfileTop)) {
-                        $valPicProfileTop = $valPicProfileTop;
-                    } else {
-                        $valPicProfileTop = "../img/btn/nouser.jpg";
-                    }
-
-                    if ($_SESSION[$valSiteManage . "core_session_level"] == "SuperAdmin") {
-                        $valLinkViewUser = "#";
-                    } else {
-                        $valLinkViewUser = "../core/userView.php";
-                    }
-                    ?>
-                    <div style="background:url(<?php echo  $valPicProfileTop ?>) center no-repeat; background-size: cover; background-repeat: no-repeat;"></div>
-                </div>
-            </a>
-
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="<?php echo  $valLinkViewUser ?>" title="ข้อมูลผู้ใช้งาน">ข้อมูลผู้ใช้งาน</a></li>
-                <?php if ($_SESSION[$valSiteManage . "core_session_level"] == "SuperAdmin" || $_SESSION[$valSiteManage . "core_session_level"] == "admin") { ?>
-                    <li><a href="../core/userManage.php" title="<?php echo  $langTxt["nav:userManage2"] ?>"><?php echo  $langTxt["nav:userManage2"] ?></a></li>
-                    <li><a href="../core/permisManage.php"  title="<?php echo  $langTxt["nav:perManage2"] ?>"><?php echo  $langTxt["nav:perManage2"] ?></a></li><?php } ?>
-                <?php if ($_SESSION[$valSiteManage . "core_session_level"] == "SuperAdmin") { ?>
-                    <li><a href="../core/menuManage.php" title="<?php echo  $langTxt["nav:menuManage2"] ?>"><?php echo  $langTxt["nav:menuManage2"] ?></a></li>
-                    <li><a href="../core/setting.php" title="<?php echo  $langTxt["nav:setting"] ?>"><?php echo  $langTxt["nav:setting"] ?></a></li>
-                <?php } ?>
-                <li class="logout"><a href="javascript:void(0)"onclick="checkLogoutUser();" title="<?php echo  $langTxt["menu:logout"] ?>"><?php echo  $langTxt["menu:logout"] ?></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-auto">
-      <div class="divBtn-menu">
-         <a href="javascript:void(0);" title="เมนู">
-            <span class="feather icon-menu"></span>
-         </a>
-      </div>
-   </div>
-</div>
-
 <div class="navControl">
-    <div class="divBtnmenu-close">
-        <span class="feather icon-chevron-right"></span>
-    </div>
-    <div class="overflow-y">
-      <div class="divLeftMenu">
+    <div class="<? if ($menukeyid == '') { ?>divLeftMenuOver<? } else { ?>divLeftMenu<? } ?>">
         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="divLeftMenuTb">
             <tr>
                 <!-- <td width="31"  align="left" valign="top">
@@ -71,9 +7,7 @@
                 </td> -->
                 <td align="left" valign="top">
                     <a href="../core/index.php" title="<?= $langTxt["nav:home2"] ?>" class="<? if ($menukeyid == '') { ?>fontContantB<? } else { ?><? } ?>">
-                        <span class="material-symbols-outlined">
-                            home
-                        </span>
+                        <span class="fa"><img src="../img/iconmenu/1283582620_045.png" /></span>
                         <?= $langTxt["nav:home2"] ?>
                     </a>
                 </td>
@@ -139,38 +73,43 @@
                             <tr>
                                 <!-- <td width="31"  align="left" valign="top">
                                     <? if ($RowMenu[$core_tb_menu . "_icon"]) { ?><img src="<?= $RowMenu[$core_tb_menu . "_icon"] ?>" border="0" align="absmiddle" /><?
-                                    } else {
-                                        echo " - ";
-                                    }
-                                        ?>
+                                                                                                                                                                    } else {
+                                                                                                                                                                        echo " - ";
+                                                                                                                                                                    }
+                                                                                                                                                                        ?>
                                 </td> -->
                                 <td align="left" valign="top">
                                     <a href="javascript:void(0)" class="<? if ($status_open == $myMenuID) { ?>fontContantB<? } else { ?><? } ?>">
-                                        <?php if($RowMenu[$core_tb_menu . "_icontype"] == 1  || $RowMenu[$core_tb_menu . "_icontype"] == ""){ ?>
-                                            <span class="fa">
-                                                <? if ($RowMenu[$core_tb_menu . "_icon"]) { ?><img src="<?= $RowMenu[$core_tb_menu . "_icon"] ?>" border="0" align="absmiddle" /><?
-                                                } else {
-                                                    echo " - ";
-                                                }
-                                                    ?>
-                                            </span>
-                                        <?php }else{ ?>
-                                            <span class="material-symbols-outlined "><?php echo $RowMenu[$core_tb_menu . "_classname"]; ?></span>
-                                        <?php } ?>
+                                        <span class="fa">
+                                            <? if ($RowMenu[$core_tb_menu . "_icon"]) { ?><img src="<?= $RowMenu[$core_tb_menu . "_icon"] ?>" border="0" align="absmiddle" /><?
+                                                                                                                                                                            } else {
+                                                                                                                                                                                echo " - ";
+                                                                                                                                                                            }
+                                                                                                                                                                                ?>
+                                        </span>
                                         <?= $txt_menu_lan ?>
                                         <span class="fa angle fa-angle-down"></span>
                                     </a>
+                                    <!-- <div style="float:right"><img src="<?= $valNavImgNew ?>" /></div> -->
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div class="clearAll"></div>
+                    <?
+                    if ($_SESSION[$valSiteManage . "core_session_groupid"] == '11') {
+                        $valStyMiniUser = '';
+                    } else {
+                        $valStyMiniUser = 'style="height:0px;display:none;"';
+                    }
+
+                    ?>
                     <div <? if ($status_open == $ParentID) { ?><? } else { ?><?= $valStyMiniUser ?><? } ?> id="boxSubMenuLeftShow<?= $ParentID ?>" class="divmenu">
                         <?
                         if ($RecordCountSub >= 1) {
                         ?>
-                            <!-- <div class="divLeftSubMenuEnd"></div> --> 
-                            <?
+                            <!--                    <div class="divLeftSubMenuEnd"></div>
+                            --> <?
                                 while ($RowSub = wewebFetchArrayDB($coreLanguageSQL, $Query2)) {
 
                                     $masterkeyName = $RowSub[$core_tb_menu . "_masterkey"];
@@ -208,10 +147,10 @@
                                                 <td align="left" valign="top">
                                                     <a href="<?= $linkFileTo ?>" target="<?= $linkTaget ?>" class="<? if ($menukeyid == $myMenuID) { ?>fontContantSubMenu<? } else { ?><? } ?>">
                                                         <? if ($RowSub[$core_tb_menu . "_icon"]) { ?><img src="<?= $RowSub[$core_tb_menu . "_icon"] ?>" border="0" align="absmiddle" hspace="5" height="16" width="16" /><?
-                                                        } else {
-                                                            echo " - ";
-                                                        }
-                                                            ?>
+                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                            echo " - ";
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                            ?>
                                                         <?= $txt_menu_sublan ?>
                                                     </a>
                                                 </td>
@@ -233,26 +172,20 @@
                             <tr>
                                 <!-- <td width="31"  align="left" valign="top">
                                     <? if ($RowMenu[$core_tb_menu . "_icon"]) { ?><img src="<?= $RowMenu[$core_tb_menu . "_icon"] ?>" border="0" align="absmiddle"  /><?
-                                    } else {
-                                        echo " - ";
-                                    }
-                                        ?>      
+                                                                                                                                                                    } else {
+                                                                                                                                                                        echo " - ";
+                                                                                                                                                                    }
+                                                                                                                                                                        ?>      
                                 </td> -->
                                 <td align="left" valign="top">
                                     <a href="<?= $linkFileTo ?>" target="<?= $linkTaget ?>" class="<? if ($menukeyid == $myMenuID) { ?>fontContantB<? } else { ?><? } ?>">
-                                        <?php if($RowMenu[$core_tb_menu . "_icontype"] == 1  || $RowMenu[$core_tb_menu . "_icontype"] == ""){ ?>
-                                            <span class="fa">
-                                                <? if ($RowMenu[$core_tb_menu . "_icon"]) { ?><img src="<?= $RowMenu[$core_tb_menu . "_icon"] ?>" border="0" align="absmiddle" /><?
-                                                } else {
-                                                    echo " - ";
-                                                }
-                                                ?>
+                                        <span class="fa">
+                                            <? if ($RowMenu[$core_tb_menu . "_icon"]) { ?><img src="<?= $RowMenu[$core_tb_menu . "_icon"] ?>" border="0" align="absmiddle" /><?
+                                                                                                                                                                            } else {
+                                                                                                                                                                                echo " - ";
+                                                                                                                                                                            }
+                                                                                                                                                                                ?>
                                         </span>
-                                        <?php }else{ ?>
-                                            <span class="material-symbols-outlined">
-                                                <?php echo $RowMenu[$core_tb_menu . "_classname"]; ?>
-                                            </span>
-                                        <?php } ?>
                                         <?= $txt_menu_lan ?>
                                     </a>
                                 </td>
@@ -266,22 +199,21 @@
         } // End  while 
     } // End if >=1
     ?>
-
-        <div class="divLeftMenu -LogOut">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="divLeftMenuTb">
-                <tr>
-                    <td align="left" valign="top">
-                        <a href="javascript:void(0)" onclick="checkLogoutUser();" title="<?= $langTxt["menu:logout"] ?>">
-                            <span class="material-symbols-outlined">
-                                logout
-                            </span>
-                            <?= $langTxt["menu:logout"] ?>
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="clearAll"></div>
+    <div class="divLeftMenu">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="divLeftMenuTb">
+            <tr>
+                <!-- <td width="31"  align="left" valign="top">
+                    <img src="../img/iconmenu/1283582582_150.png" width="16" height="16" />
+                </td> -->
+                <td align="left" valign="top">
+                    <a href="javascript:void(0)" onclick="checkLogoutUser();" title="<?= $langTxt["menu:logout"] ?>">
+                        <span class="fa"><img src="../img/iconmenu/1283582582_150.png" /></span>
+                        <?= $langTxt["menu:logout"] ?>
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
+    <div class="clearAll"></div>
+    <div style="height:100px;"></div>
 </div>
-<div class="navControl-overlay"></div>
