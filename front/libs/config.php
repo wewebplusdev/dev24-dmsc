@@ -67,7 +67,6 @@ $_ENV = array(
         "name" => "2024_dmsc",
     ),
 );
-print_r($_ENV[$_CORE]);
 
 $core_db_charecter_set = array('charset' => "utf8", 'collation' => "utf8_general_ci");
 
