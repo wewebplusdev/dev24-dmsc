@@ -7730,12 +7730,13 @@ a[rel="viewAlbum"] img {
     }
 
     .mLeftBackOffice .logo img {
-        width: 40px;
+        /* width: 40px; */
+        height: 40px;
         margin-right: 7px;
     }
 
     .mLeftBackOffice .logo a .title {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .mLeftBackOffice .logo a small {
@@ -7867,7 +7868,7 @@ a[rel="viewAlbum"] img {
     }
 
     .mRightBackOffice>form {
-        margin-top: 90px;
+        margin-top: 35px;
     }
 
     .divRightHeadSearch {
