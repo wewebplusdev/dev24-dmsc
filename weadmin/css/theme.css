@@ -2,8 +2,8 @@
 @import url(../css/font.css);
 
 :root {
-    --color-primary: #045238;
-    --color-primary-hover: #d5e5d2;
+    --color-primary: #006838;
+    --color-primary-hover: #55a27e;
     --color-secondary: #d6be58;
     --color-secondary-hover: #f4ecc6;
 
@@ -2554,7 +2554,7 @@ a:visited {
     top: 0;
     bottom: auto;
     padding: 10px 25px;
-    background-color: #0065cd;
+    background-color: var(--color-primary);
     border-bottom: 3px solid #ccc;
 }
 
@@ -4199,7 +4199,7 @@ a:visited {
 }
 
 .divRightMain .tbBoxListwBorder tbody>tr:first-child td {
-    background-color: #267ce8;
+    background-color: var(--color-primary);
 }
 
 .divRightMain .tbBoxListwBorder tbody>tr:first-child td.divRightTitleTb {
@@ -4447,7 +4447,7 @@ a:visited {
 
 .divRightInnerBigBoxHome .divRightTitleHomeBoxAll>tbody>tr:first-child>td {
     border-bottom: 1px solid var(--color-border);
-    background-color: #267ce8;
+    background-color: var(--color-primary);
 }
 
 .divRightTrHomeLog b {
