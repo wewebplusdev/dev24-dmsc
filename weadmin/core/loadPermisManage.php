@@ -21,8 +21,8 @@ $valNav2 = $langTxt["nav:perManage2"];
 
    <link href="../css/theme.css" rel="stylesheet" />
    <title><?= $core_name_title ?></title>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script type="text/javascript" language="javascript">
 

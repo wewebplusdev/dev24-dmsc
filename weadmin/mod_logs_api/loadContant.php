@@ -31,9 +31,9 @@ if (!empty($_REQUEST['inputGh2'])) {
    <link href="../css/theme.css" rel="stylesheet" />
    <title><?php echo $core_name_title ?></title>
    <link rel="stylesheet" href="../js/jquery-ui-1.9.0.css">
-   <script language="JavaScript" type="text/javascript" src="../js/jquery-3.7.0.min.js"></script>
+   <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-3.7.0.min.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery-ui-1.13.2.js"></script>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script type="text/javascript" language="javascript">
       jQuery(document).ready(function() {

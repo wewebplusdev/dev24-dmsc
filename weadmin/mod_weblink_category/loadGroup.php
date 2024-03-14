@@ -25,8 +25,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
    <link href="../css/theme.css" rel="stylesheet" />
    <link href="../js/jquery.toolbar.css" rel="stylesheet" />
    <title><?php echo $core_name_title ?></title>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery.toolbar.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scripttoolbarjs.js?v=<?php echo date('YmdHis'); ?>"></script>
