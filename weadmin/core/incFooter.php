@@ -1,7 +1,7 @@
 <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
 <script type="text/javascript">
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 260){  
+        if ($(this).scrollTop() > 120){  
             $('.mLeftBackOffice').addClass('tiny');
             $('.divRightHead').addClass('fixed');
             $('.divRightNav').addClass('fixed');

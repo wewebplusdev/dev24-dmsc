@@ -1004,7 +1004,7 @@ textarea {
     /* max-width: 1180px; */
     min-height: 700px;
     margin: 0 auto;
-    padding: 110px 0 0 0;
+    padding: 100px 0 0 0;
 }
 
 .mRightBackOffice .divRightMain>table:not(:last-child) {
@@ -2553,7 +2553,7 @@ a:visited {
     width: 100% !important;
     top: 0;
     bottom: auto;
-    padding: 10px 25px;
+    padding: 14px 25px 17px 25px;
     background-color: var(--color-primary);
     border-bottom: 3px solid #ccc;
 }
@@ -2577,11 +2577,11 @@ a:visited {
     font-weight: bold;
     line-height: 1.5em;
     color: #fff;
-    margin-top: -1px;
+    margin-top: -4px;
 }
 
 .mLeftBackOffice .logo img {
-    width: 50px;
+    height: 50px;
     margin-right: 10px;
     margin-bottom: 0;
 }
@@ -6379,7 +6379,7 @@ td.buttonSearchStyle {
     position: fixed;
     z-index: 500;
     left: 0;
-    top: 85px;
+    top: 88px;
     padding: 10px 25px;
     background-color: rgba(0, 0, 0, 0.1);
     -webkit-backdrop-filter: blur(8px);
@@ -6413,7 +6413,7 @@ td.buttonSearchStyle {
     position: fixed;
     z-index: 500;
     left: 0;
-    top: 110px;
+    top: 112px;
     padding: 10px 25px;
     z-index: 999;
     pointer-events: none;
