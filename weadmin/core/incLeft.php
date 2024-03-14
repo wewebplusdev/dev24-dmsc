@@ -70,7 +70,7 @@
                     <img src="../img/iconmenu/1283582620_045.png" width="16" height="16" />
                 </td> -->
                 <td align="left" valign="top">
-                    <a href="../core/index.php" title="<?= $langTxt["nav:home2"] ?>" class="<? if ($menukeyid == '') { ?>fontContantB<? } else { ?><? } ?>">
+                    <a href="../core/index.php" title="<?= $langTxt["nav:home2"] ?>">
                         <span class="material-symbols-outlined">
                             home
                         </span>
@@ -165,7 +165,7 @@
                         </table>
                     </div>
                     <div class="clearAll"></div>
-                    <div <? if ($status_open == $ParentID) { ?><? } else { ?><?= $valStyMiniUser ?><? } ?> id="boxSubMenuLeftShow<?= $ParentID ?>" class="divmenu">
+                    <div <? if ($status_open == $ParentID) { ?><? } else { ?>style="height:0px;display:none;"<? } ?> id="boxSubMenuLeftShow<?= $ParentID ?>" class="divmenu">
                         <?
                         if ($RecordCountSub >= 1) {
                         ?>
