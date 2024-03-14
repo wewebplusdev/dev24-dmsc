@@ -274,8 +274,11 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
     $langTxt["mg:inpshow"] = "การแสดงผล";
     $langTxt["mg:inpwindows"] = "เปิดหน้าต่างเดิม";
     $langTxt["mg:inpwindowsnew"] = "เปิดหน้าต่างใหม่";
-    $langTxt["mg:inpicon"] = "ไอคอน";
-    $langTxt["mg:inpiconAd"] = "เลือกไอคอน";
+    $langTxt["mg:inpicon"] = "รูปภาพ";
+    $langTxt["mg:inpiconP"] = "ไอคอน";
+    $langTxt["mg:inpiconclass"] = "ไอคอน";
+    $langTxt["mg:inpiconAd"] = "เลือกรูปภาพ";
+    $langTxt["mg:inpiconclassS"] = "เลือกไอคอน";
     $langTxt["mg:inpnthai"] = "ชื่อเมนูไทย";
     $langTxt["mg:inpneng"] = "ชื่อเมนูอังกฤษ";
     $langTxt["mg:inpwindows1"] = "Home";
