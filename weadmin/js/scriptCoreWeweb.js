@@ -2735,18 +2735,18 @@ $(".divRightHead .borderBottom tr")
     });
 
 // topbar
-let scrollToTopBtn = $("#scrollToTopBtn");
+var scrollToTopID = "#scrollToTopBtn";
 // Show the button when user scrolls down 40px from the top
 $(window).scroll(function () {
     if ($(this).scrollTop() > 40) {
-        scrollToTopBtn.addClass("show");
+        $(scrollToTopID).addClass("show");
     } else {
-        scrollToTopBtn.removeClass("show");
+        $(scrollToTopID).removeClass("show");
     }
 });
 
 // Scroll to the top when the button is clicked
-scrollToTopBtn.click(function () {
+$(scrollToTopID).click(function () {
     $("html, body").animate({ scrollTop: 0 }, 400);
     return false;
 });
