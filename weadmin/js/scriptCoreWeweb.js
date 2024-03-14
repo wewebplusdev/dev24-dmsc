@@ -2694,6 +2694,7 @@ $('input[name="pagination_jumppage"]').keyup(function (e) {
 $(function () {
     var var_conf_select2 = $("#input_conf_select2").val();
     if (var_conf_select2 == 1) {
+
     } else {
         if ($("select").length > 0) {
             $("select").select2();
