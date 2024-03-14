@@ -95,10 +95,15 @@ exports.getDefaultPic = async function () {
     }
 }
 
-exports.getUrlWebsite = async function (masterkey, type) {
+exports.getUrlWebsite = async function (masterkey, type, short_language = '') {
     try {
         if (config.fieldDB.url_page[masterkey][type] !== undefined) {
-            return `${config.hostFrontend}/${config.fieldDB.url_page[masterkey][type]}`;
+            if (!!short_language.trim()) {
+                console.log(`${config.hostFrontend}/${short_language}/${config.fieldDB.url_page[masterkey][type]}`);
+                return `${config.hostFrontend}/${short_language}/${config.fieldDB.url_page[masterkey][type]}`;
+            }else{
+                return `${config.hostFrontend}/${config.fieldDB.url_page[masterkey][type]}`;
+            }
         } else {
             return "";
         }

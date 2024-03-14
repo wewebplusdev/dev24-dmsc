@@ -45,6 +45,8 @@ const masterkey = {
     "wel": "wel",
     "set": "set",
     "sv": "sv",
+    "rein": "rein",
+    "ab": "ab",
 }
 
 //urlPage
@@ -75,6 +77,10 @@ const url_page = {
         "1": "faqs",
     },
     "wel": {
+        "group": "listAll",
+    },
+    "rein": {
+        "1": "detailAll",
         "group": "listAll",
     },
 }

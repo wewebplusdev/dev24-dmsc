@@ -1,6 +1,6 @@
 <?php
 
-class pageredirectage extends controller
+class reverse_proxy extends controller
 {
     public function __construct()
     {
@@ -8,25 +8,18 @@ class pageredirectage extends controller
         parent::__construct();
     }
 
-    public function load_url_redirect($req)
+    public function load_fetch_api($data, $controller)
     {
         if (empty($this->token_access)) {
             return false;
         }
         
-        $url = $this->URL_API . "/api";
+        $url = $this->URL_API . "/" . $controller;
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,
         ];
-        $data = [
-            "method" => "loadRedirect",
-            "table" => $req['table'],
-            "masterkey" => $req['masterkey'],
-            "id" => $req['id'],
-            "language" => $req['language'],
-            "action" => $req['action'],
-        ];
+        
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
     }

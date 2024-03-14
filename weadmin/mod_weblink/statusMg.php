@@ -17,10 +17,20 @@ $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
 $rowSch = wewebFetchArrayDB($coreLanguageSQL, $querySch);
 $valMasterkey = $rowSch[0];
 
-if ($statusname == "Enable") {
-	$inputstatusname = "Disable";
-} else if ($statusname == "Disable") {
-	$inputstatusname = "Enable";
+if (in_array($valMasterkey, $array_masterkey_home)) {
+	if ($statusname == "Enable") {
+		$inputstatusname = "Home";
+	} else if ($statusname == "Home") {
+		$inputstatusname = "Disable";
+	} else if ($statusname == "Disable") {
+		$inputstatusname = "Enable";
+	}
+}else{
+	if ($statusname == "Enable") {
+		$inputstatusname = "Disable";
+	} else if ($statusname == "Disable") {
+		$inputstatusname = "Enable";
+	}
 }
 
 

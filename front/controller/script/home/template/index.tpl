@@ -96,7 +96,7 @@
                 <li><a href="javascript:void(0);" class="services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</a></li>
             {/foreach}
         </ul>
-        <div class="d-flex flex-row p-2">
+        <div class="d-flex flex-row p-2" id="service-append">
             {foreach $load_services->item->list as $keyload_services_list => $valueload_services_list}
                 <div class="card" style="width: 18rem;">
                     <a {if $valueload_services_list->url neq "#" && $valueload_services_list->url neq ""}href="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}" target="{$valueload_services_list->target}"{else}href="javascript:void(0);"{/if} >
@@ -111,5 +111,77 @@
     {/if}
     {* End Services *}
 
+    {* Start Innovation *}
+    {if $load_innovation->_numOfRows gte 1}
+        <h2>Innovation</h2>
+        <div class="d-flex flex-row p-2" id="service-append">
+            {foreach $load_innovation->item as $keyload_innovation_list => $valueload_innovation_list}
+                <div class="card" style="width: 18rem;">
+                    <a href="{$valueload_innovation_list->url}" target="{$valueload_innovation_list->target}">
+                        <img src="{$valueload_innovation_list->pic->pictures}" class="card-img-top" alt="{$valueload_innovation_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <div class="card-body">
+                            <h5 class="card-title">{$valueload_innovation_list->subject}</h5>
+                            <div class="desc">{$valueload_innovation_list->des}</div>
+                            <div class="desc">{$valueload_innovation_list->number|number_format}</div>
+                            <div class="desc">{$valueload_innovation_list->suffix}</div>
+                        </div>
+                    </a>
+                </div>
+            {/foreach}
+        </div>
+    {/if}
+    {* End Innovation *}
+
+    {* Start About *}
+    {if $load_about->_numOfRows gte 1}
+        <h2>About</h2>
+        <div class="d-flex flex-row p-2" id="service-append">
+        {foreach $load_about->item as $keyload_about_list => $valueload_about_list}
+            <div class="card" style="width: 18rem;">
+                    <a href="{$valueload_about_list->url}" target="{$valueload_about_list->target}">
+                        <img src="{$valueload_about_list->pic->pictures}" class="card-img-top" alt="{$valueload_about_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <div class="card-body">
+                            <h5 class="card-title">{$valueload_about_list->subject}</h5>
+                        </div>
+                    </a>
+                </div>
+        {/foreach}
+        </div>
+    {/if}
+    {* End About *}
+
+    {* Start About *}
+    {if count($array_news_list) gte 1}
+        <h2>News</h2>
+        {if gettype($array_news_list['group']) eq 'array' && count($array_news_list['group']) gte 1}
+            <ul>
+                {foreach $array_news_list['group'] as $keyarray_news_group => $array_news_group}
+                    <li><a href="javascript:void(0);" data-id="{$array_news_group->id}">{$array_news_group->subject}</a></li>
+                {/foreach}
+            </ul>
+        {/if}
+
+        {if gettype($array_news_list['list']) eq 'array' && count($array_news_list['list']) gte 1}
+            <div class="d-flex flex-row p-2" id="service-append">
+                {foreach $array_news_list['list'] as $keyload_news_list => $valueload_news_list}
+                    {if $valueload_news_list->typec eq 3}
+                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_news_list->tb|page_redirect:$valueload_news_list->masterkey:$valueload_news_list->id:$valueload_news_list->language}"}
+                    {else}
+                        {assign var="news_url" value="{$valueload_news_list->url}"}
+                    {/if}
+                    <div class="card" style="width: 18rem;">
+                        <a href="{$news_url}" target="{$valueload_news_list->target}">
+                            <img src="{$valueload_news_list->pic->pictures}" class="card-img-top" alt="{$valueload_news_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                            <div class="card-body">
+                                <h5 class="card-title">{$valueload_news_list->subject}</h5>
+                            </div>
+                        </a>
+                    </div>
+                {/foreach}
+            </div>
+        {/if}
+
+    {/if}
+    {* End About *}
 
 </div>

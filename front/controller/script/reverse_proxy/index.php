@@ -1,27 +1,20 @@
 <?php
+header('Content-Type: application/json; charset=utf-8');
 $menuActive = "pageredirect";
+$reverse_proxy = new reverse_proxy;
 
-$pageredirectage = new pageredirectage;
+$jsonData = file_get_contents('php://input');
+$resultData =json_decode($jsonData, true);
+$data = [
+    "method" => $resultData['method'],
+    "language" => $reverse_proxy->language,
+    "gid" => $resultData['gid'],
+    "order" => $resultData['order'],
+    "page" => $resultData['page'],
+    "limit" => $resultData['limit'],
+];
 
-if (!empty($url->segment[1])) {
-    $case_slug = explode("|", $url->segment[1]);
-    $array_req = array(
-        'table' => decodeStr($case_slug[0]),
-        'masterkey' => decodeStr($case_slug[1]),
-        'id' => decodeStr($case_slug[2]),
-        'language' => decodeStr($case_slug[3]),
-        'action' => 'link',
-    );
+$load_fetch_api = $reverse_proxy->load_fetch_api($data, $resultData['controller']);
 
-    // call redirect 
-    $load_url_redirect = $pageredirectage->load_url_redirect($array_req);
-    if ($load_url_redirect->code === 1001 && !empty($load_url_redirect->item->url)) {
-        header('location:' . $load_url_redirect->item->url);
-    }else{
-        header('location:' . $linklang . "/home");
-    }
-}else{
-    header('location:' . $linklang . "/home");
-}
-
+echo json_encode($load_fetch_api);
 exit(0);

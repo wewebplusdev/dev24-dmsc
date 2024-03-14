@@ -28,6 +28,7 @@ $modStatusHome = array("Enable", "Disable", "Home");
 ## Hide Group ###################################
 $array_masterkey_pic_number = array("rein");
 $array_masterkey_group = array();
+$array_masterkey_home = array('rein');
 
 $modPeriodType = array(
     1 => "ตามช่วงเวลา",

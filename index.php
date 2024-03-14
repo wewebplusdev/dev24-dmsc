@@ -3,6 +3,9 @@
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
     $path_root = "/dev24-dmsc"; #ถ้า root ไม่ได้อยู่ public
     $_CORE_ENV = "DEV";
+}elseif($_SERVER['HTTP_HOST'] == 'project.wewebcloud.com'){
+    $_CORE_ENV = "WEWEB";
+    $path_root = "/dev24-dmsc"; #ถ้า root อยู่ public
 }elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
     $_CORE_ENV = "PROD";
     $path_root = ""; #ถ้า root อยู่ public

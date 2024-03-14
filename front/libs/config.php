@@ -60,6 +60,12 @@ $_ENV = array(
         "password" => "dmscp@ssmariadb",
         "name" => "2024_dmsc",
     ),
+    "WEWEB" => array(
+        "hostname" => "127.0.0.1",
+        "username" => "root",
+        "password" => "IySY?Pk7!!mH",
+        "name" => "2024_dmsc",
+    ),
     "DEV" => array(
         "hostname" => "DB",
         "username" => "root",

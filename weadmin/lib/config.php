@@ -19,6 +19,9 @@ $core_pathname_folderlocal = "";
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
     $_CORE_ENV = "DEV";
     $core_pathname_folderlocal = "/dev24-dmsc";
+}elseif($_SERVER['HTTP_HOST'] == 'project.wewebcloud.com'){
+    $_CORE_ENV = "WEWEB";
+    $core_pathname_folderlocal = "/dev24-dmsc";
 }elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
     $_CORE_ENV = "PROD";
 }else{
@@ -92,6 +95,12 @@ $_ENV = array(
         "hostname" => "DB",
         "username" => "root",
         "password" => "dmscp@ssmariadb",
+        "name" => "2024_dmsc",
+    ),
+    "WEWEB" => array(
+        "hostname" => "127.0.0.1",
+        "username" => "root",
+        "password" => "IySY?Pk7!!mH",
         "name" => "2024_dmsc",
     ),
     "DEV" => array(

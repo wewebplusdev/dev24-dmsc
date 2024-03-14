@@ -36,5 +36,5 @@ html, body {
 </style>
 
 <div class="flex-center position-ref full-height">
-    <div class="message" style="padding: 10px;">Coming Soon...</div>
+    <div class="message" style="padding: 10px;">A new look coming soon.</div>
 </div>

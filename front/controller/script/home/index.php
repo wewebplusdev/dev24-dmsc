@@ -15,6 +15,29 @@ switch ($url->segment[0]) {
         // call services
         $load_services = $homePage->load_services();
         $smarty->assign("load_services", $load_services);
+        // call innovation
+        $load_innovation = $homePage->load_innovation();
+        $smarty->assign("load_innovation", $load_innovation);
+        // call about
+        $load_about = $homePage->load_about();
+        $smarty->assign("load_about", $load_about);
+        // call news
+        $load_news = $homePage->load_news();
+        $array_news_list = array();
+        if (gettype($load_news->item->group) == 'array' && count($load_news->item->group) > 0) {
+            foreach ($load_news->item->group as $keyNewsGroup => $valueNewsGroup) {
+                $array_news_list['group'][] = $valueNewsGroup;
+            }
+        }
+        if (gettype($load_news->item->list) == 'array' && count($load_news->item->list) > 0) {
+            foreach ($load_news->item->list as $keyNewsList => $valueNewsList) {
+                $array_news_list['list'][$valueNewsList->gid][] = $valueNewsList;
+            }
+        }
+        print_pre($array_news_list);
+        // print_pre($load_news);
+        $smarty->assign("array_news_list", $array_news_list);
+        $smarty->assign("load_news", $load_news);
 
         /*## Start SEO #####*/
         $seo_desc = "";

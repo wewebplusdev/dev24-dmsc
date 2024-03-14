@@ -73,4 +73,70 @@ class homePage extends controller
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
     }
+
+    public function load_innovation()
+    {
+        if (empty($this->token_access)) {
+            return false;
+        }
+        
+        $url = $this->URL_API . "/home";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $data = [
+            "method" => "getInnovationGroup",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
+    }
+
+    public function load_about()
+    {
+        if (empty($this->token_access)) {
+            return false;
+        }
+        
+        $url = $this->URL_API . "/home";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $data = [
+            "method" => "getAbout",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
+    }
+
+    public function load_news()
+    {
+        if (empty($this->token_access)) {
+            return false;
+        }
+        
+        $url = $this->URL_API . "/home";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $data = [
+            "method" => "getNews",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
+    }
 }
