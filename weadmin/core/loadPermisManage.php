@@ -90,29 +90,34 @@ $valNav2 = $langTxt["nav:perManage2"];
             <tr>
                <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?= $valLinkNav1 ?>" target="_self"><?= $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?= $valNav2 ?></span></td>
                <td class="divRightNavTb" align="right">
-                  <table border="0" cellspacing="0" cellpadding="0" align="right">
-                     <tr>
-                        <td>
-                           <select name="inputGh" id="inputGh" class="formSelectSearch" onchange="document.myForm.submit();
-                                               ">
-                              <option value="0"><?= $langTxt["pr:select"] ?></option>
-                              <option value="admin" <? if ($_REQUEST['inputGh'] == "admin") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select1"] ?></option>
-                              <option value="staff" <? if ($_REQUEST['inputGh'] == "staff") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select2"] ?></option>
-                              <!-- <?php if ($_SESSION[$valSiteManage . "core_session_groupid"] == 0) { ?>
-                                 <option value="minisite" <? if ($_REQUEST['inputGh'] == "minisite") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select3"] ?></option>
-                              <?php } ?> -->
-                           </select>
-                        </td>
-                        <td align="right"><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb" /></td>
-                        <td align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
-                     </tr>
-                  </table>
-
 
                </td>
             </tr>
          </table>
       </div>
+      <div class="divRightHeadSearch" >
+         <table border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
+            <tr>
+               <td class="selectSearch2">
+                  <select name="inputGh" id="inputGh" onchange="document.myForm.submit();"  class="formSelectSearch" >
+                     <option value="0"><?= $langTxt["pr:select"] ?></option>
+                     <option value="admin" <? if ($_REQUEST['inputGh'] == "admin") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select1"] ?></option>
+                     <option value="staff" <? if ($_REQUEST['inputGh'] == "staff") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select2"] ?></option>
+                     <!-- <?php if ($_SESSION[$valSiteManage . "core_session_groupid"] == 0) { ?>
+                        <option value="minisite" <? if ($_REQUEST['inputGh'] == "minisite") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select3"] ?></option>
+                     <?php } ?> -->
+                  </select>
+               </td>
+               <td class="textSearch2">
+                  <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb formInputSearchStyle" />
+               </td>
+               <td class="buttonSearchStyle">
+                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+               </td>
+            </tr>
+         </table>
+      </div>
+
       <div class="divRightHead">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
@@ -139,7 +144,7 @@ $valNav2 = $langTxt["nav:perManage2"];
             </tr>
          </table>
       </div>
-      <div class="divRightMain">
+      <div class="divRightMain list-responsive">
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>

@@ -142,12 +142,13 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
          <div class="divRightHeadSearch" >
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
-
                <tr>
-
-                  <td   id="boxSelectTest" >
-                     <input name="inputSearch" type="text"  id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchI"  placeholder="<?= $langTxt["sch:search"] ?>" /></td>
-                  <td style="padding-right:10px;" align="right" width="6%"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();"  type="button" class="btnSearch"  value=" "  /></td>
+                  <td id="boxSelectTest">
+                     <input name="inputSearch" type="text"  id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchI"  placeholder="<?= $langTxt["sch:search"] ?>" />
+                  </td>
+                  <td style="padding-right:10px;" align="right" width="6%">
+                     <input name="searchOk" id="searchOk" onClick="document.myForm.submit();"  type="button" class="btnSearch"  value=" "  />
+                  </td>
                </tr>
             </table>
 

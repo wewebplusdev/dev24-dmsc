@@ -119,48 +119,24 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       <div class="divRightHeadSearch">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
-               <td style="width: 48%;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                     <tbody>
-                        <tr>
-                           <td>
-                              <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
-                                 <option value="">เลือกสถานะ</option>
-                                 <?php
-                                 foreach ($modStatus as $status) {
-                                    $selected = $_REQUEST["inputSrchStatus"] == $status ? "selected" : "";
-                                 ?>
-                                    <option value="<?= $status ?>" <?= $selected ?>><?= $status ?></option>
-                                 <?php
-                                 }
-                                 ?>
-                              </select>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
+               <td class="selectSearch2">
+                  <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                     <option value="">เลือกสถานะ</option>
+                     <?php
+                     foreach ($modStatus as $status) {
+                        $selected = $_REQUEST["inputSrchStatus"] == $status ? "selected" : "";
+                     ?>
+                        <option value="<?= $status ?>" <?= $selected ?>><?= $status ?></option>
+                     <?php
+                     }
+                     ?>
+                  </select>
                </td>
-               <td style="width: 48%;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                     <tbody>
-                        <tr>
-                           <td width="49%">
-                              <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
+               <td class="textSearch2">
+                  <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
                </td>
-               <td>
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                     <tbody>
-                        <tr>
-                           <td class="bottonSearch" align="right">
-                              <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
+               <td class="buttonSearchStyle">
+                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
                </td>
             </tr>
          </table>
@@ -198,7 +174,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             </tr>
          </table>
       </div>
-      <div class="divRightMain">
+      <div class="divRightMain list-responsive">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td width="3%" class="divRightTitleTbL" valign="middle" align="center">
