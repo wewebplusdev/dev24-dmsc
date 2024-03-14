@@ -6,6 +6,9 @@ $homePage = new homePage;
 
 switch ($url->segment[0]) {
     default:
+        // call popup
+        $load_popup = $homePage->load_popup();
+        $smarty->assign("load_popup", $load_popup);
         // call top graphic
         $load_topgraphic = $homePage->load_topgraphic();
         $smarty->assign("load_topgraphic", $load_topgraphic);

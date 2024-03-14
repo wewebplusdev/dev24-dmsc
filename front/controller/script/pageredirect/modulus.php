@@ -14,7 +14,7 @@ class pageredirectage extends controller
             return false;
         }
         
-        $url = self::_URL_API . "/api";
+        $url = $this->URL_API . "/api";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,

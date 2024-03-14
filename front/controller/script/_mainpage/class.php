@@ -1,18 +1,26 @@
 <?php
 abstract class controller
 {
-    // const _URL_API = 'http://192.168.1.101:4040/service-api/v1';
-    const _URL_API = 'http://192.168.101.39:4040/service-api/v1';
     const _APP_TOKEN = 'website-token-api';
     const _APP_USER = 'dmsc-website-api';
     const _APP_SERCRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
     public $token_access;
     public $language;
     public $token_revoke;
+    public $URL_API;
 
     public function __construct()
     {
-        global $url;
+        global $url, $_CORE_ENV;
+
+        if ($_CORE_ENV == 'DEV') {
+            $this->URL_API = 'http://192.168.101.39:4040/service-api/v1';
+        }else if($_CORE_ENV == 'PROD'){
+            $this->URL_API = 'http://13.229.72.11/:4040/service-api/v1';
+        }else{
+            $this->URL_API = 'http://13.229.72.11/:4040/service-api/v1';
+        }
+
         try {
             $this->token_access = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';
             $this->language = $url->pagelang[4];
@@ -102,7 +110,7 @@ abstract class controller
     }
 
     private function auth_webservice(){
-        $url = self::_URL_API . "/gettoken";
+        $url = $this->URL_API . "/gettoken";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,
@@ -118,7 +126,7 @@ abstract class controller
 
     private function load_check_auth()
     {
-        $url = self::_URL_API . "/getuser";
+        $url = $this->URL_API . "/getuser";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,

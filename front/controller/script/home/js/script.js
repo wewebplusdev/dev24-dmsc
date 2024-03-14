@@ -1,8 +1,6 @@
 // services filter
 $('.services-filter').on('click', async function(){
-    console.log('xxx');
     let gid = $(this).data('id');
-    console.log(gid);
 
     const settings = {
         "url": `${path}/reverse_proxy`,
@@ -15,6 +13,5 @@ $('.services-filter').on('click', async function(){
             "gid": gid,
         }),
     };
-
     const result = await $.ajax(settings);
 });

@@ -27,8 +27,8 @@ class mainPage extends controller
         if (empty($this->token_access)) {
             return false;
         }
-
-        $url = self::_URL_API . "/setting";
+        
+        $url = $this->URL_API . "/setting";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,

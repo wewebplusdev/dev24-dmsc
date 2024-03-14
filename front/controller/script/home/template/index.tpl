@@ -1,5 +1,4 @@
 <div class="container">
-
     <a href="{$ul}/home">
         <img src="{$languageFrontWeb->brandImg->display->$currentLangWeb}" alt="">
         <h2>{$settingWeb.subject}</h2>
@@ -13,6 +12,52 @@
         {/foreach}
     </ul>
 
+    {* Start Popup *}
+    {if $load_popup->_numOfRows gte 1}
+        <h2>Popup</h2>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Popup btn
+        </button>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                {foreach $load_popup->item as $keyPopup => $valuePopup}
+                    {if $valuePopup->type eq 1}
+                        <img src="{$valuePopup->pic->pictures}" class="card-img-top" alt="{$valuePopup->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <div class="card-body">
+                            <h5 class="card-title">{$valuePopup->subject}</h5>
+                            <a {if $valuePopup->url neq "#" && $valuePopup->url neq ""}href="{$valuePopup->url}" target="{$valuePopup->target}"{else}href="javascript:void(0);"{/if} class="btn btn-primary">Link</a>
+                        </div>
+                    {else}
+                        {$myUrlArray = "v="|explode:$valuePopup->video}
+                        {$myUrlCut = $myUrlArray[1]}
+                        {$myUrlCutArray = "&"|explode:$myUrlCut}
+                        {$myUrlCutAnd= $myUrlCutArray.0}
+                        <div class="detail-vdo">
+                            <div class="iframe-container" data-aos="fade-up">
+                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" allow="autoplay" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    {/if}
+                {/foreach}
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    {/if}
+    {* End Popup *}
 
     {* Start Top Graphic *}
     {if $load_topgraphic->_numOfRows gte 1}

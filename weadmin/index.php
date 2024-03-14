@@ -33,11 +33,7 @@ include("core/incLang.php");
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
-
-
     <title><?= $core_name_title ?></title>
-
-
     <script language="JavaScript" type="text/javascript" src="js/jquery-1.9.0.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/jquery.blockUI.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/scriptCoreWeweb.js"></script>
@@ -171,10 +167,10 @@ include("core/incLang.php");
 
 </head>
 
-<body class="new_login" style="background: url('../upload/core/<?= $valPicBgSystem ?>') center;background-size: cover;">
+<body class="new_login" style="background: url('../upload/core/<?php echo $valPicBgSystem ?>') center;background-size: cover;">
     <div class="loginBack">
         <div class="login-form">
-            <div class="header" style="background: url('../upload/core/<?= $valPicHeaderSystem ?>') center;">
+            <div class="header" style="background: url('../upload/core/<?php echo $valPicHeaderSystem ?>') center;">
                 <div class="brand">
                     <img src="../upload/core/<?= $valPicSystem ?>" alt="">
                 </div>
