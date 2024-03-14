@@ -2,7 +2,7 @@ version: "3.9"
 services:
   dmsc-service-api:
     container_name: dmsc-service-api
-    restart: always
+    # restart: always
     image: dmsc-service-api
     build:
       context: .
