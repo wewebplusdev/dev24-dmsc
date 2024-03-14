@@ -126,8 +126,8 @@ foreach ($listAuthen as $key => $value) {
    <link href="js/uploadfile.css" rel="stylesheet" />
 
    <title><?php echo $core_name_title ?></title>
-   <link href="../js/select2/css/select2.css" rel="stylesheet" />
-   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
+   <!-- <link href="../js/select2/css/select2.css" rel="stylesheet" />
+   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script language="JavaScript" type="text/javascript" src="./js/script.js"></script>
    <script language="JavaScript" type="text/javascript">
@@ -304,7 +304,7 @@ foreach ($listAuthen as $key => $value) {
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group2"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb">
+                  <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb select2">
                      <option value="0"><?php echo $langMod["tit:selectg2"] ?></option>
                      <?php
                      $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai'  ";

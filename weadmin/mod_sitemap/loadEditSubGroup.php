@@ -186,7 +186,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb">
+                  <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb select2">
                      <option value="0"><?php echo $langMod["tit:selectg"] ?></option>
                      <?php
                      $sql_group = "SELECT " . $mod_tb_group . "_id," . $mod_tb_group_lang . "_subject FROM " . $mod_tb_group . " INNER JOIN " . $mod_tb_group_lang . " ON " . $mod_tb_group . "_id = " . $mod_tb_group_lang . "_cid WHERE  " . $mod_tb_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_group_lang . "_language='" . $_REQUEST['inputLt'] . "' ORDER BY " . $mod_tb_group . "_order DESC ";
