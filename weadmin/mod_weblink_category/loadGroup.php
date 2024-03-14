@@ -120,11 +120,9 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          </table>
       </div>
       <div class="divRightHeadSearch">
-
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
-
             <tr>
-               <td>
+               <td class="selectSearch2">
                   <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="">เลือกสถานะ</option>
                      <?php
@@ -137,18 +135,17 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                      ?>
                   </select>
                </td>
-               <td id="boxSelectTest">
+               <td id="boxSelectTest" class="textSearch2">
                   <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td class="buttonSearchStyle">
+                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+               </td>
             </tr>
-
          </table>
-
       </div>
 
       <div class="divRightHead">
-
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
                <td height="77" align="left"><span class="fontHeadRight"><?php echo $valNav2 ?></span></td>
@@ -181,8 +178,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
             </tr>
          </table>
       </div>
-      <div class="divRightMain">
-
+      <div class="divRightMain list-responsive">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td width="3%" class="divRightTitleTbL" valign="middle" align="center">
@@ -190,7 +186,6 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                </td>
 
                <td align="left" valign="middle" class="divRightTitleTb"><span class="fontTitlTbRight"><?php echo $langMod["tit:subjectg"] ?></span></td>
-
 
 
                <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["mg:status"] ?></span></td>

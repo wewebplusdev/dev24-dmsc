@@ -179,57 +179,49 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
       </div>
       <div class="divRightHeadSearch">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
-
             <tr>
                <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
-               <td>
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
-                     <tr>
-                        <td>
-                           <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
-                              <option value=""><?php echo $langMod["meu:group"]; ?></option>
-                              <?php
-                              $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai' ORDER BY " . $mod_tb_root_group . "_order DESC ";
-                              $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
-                              while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
-                                 $row_groupid = $row_group[0];
-                                 $row_groupname = $row_group[1];
-                                 $row_groupnameeng = $row_group[2];
-                                 $valNameShow = $row_groupname;
-                              ?>
-                                 <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $valNameShow ?>
-                                 </option>
-                              <?php } ?>
-                           </select>
-                        </td>
-                     </tr>
-                  </table>
-               </td>
+                  <td class="selectSearch2">
+                     <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
+                        <option value=""><?php echo $langMod["meu:group"]; ?></option>
+                        <?php
+                        $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai' ORDER BY " . $mod_tb_root_group . "_order DESC ";
+                        $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+                        while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
+                           $row_groupid = $row_group[0];
+                           $row_groupname = $row_group[1];
+                           $row_groupnameeng = $row_group[2];
+                           $valNameShow = $row_groupname;
+                        ?>
+                           <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $valNameShow ?>
+                           </option>
+                        <?php } ?>
+                     </select>
+                  </td>
                <?php } ?>
-               <td id="boxSelectTest">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
-                     <tr>
-                        <td width="50%"> <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
-                              <option value="">เลือกสถานะ</option>
-                              <?php
-                              foreach ($modStatus as $status) {
-                                 $selected = $_REQUEST["inputSrchStatus"] == $status ? "selected" : "";
-                              ?>
-                                 <option value="<?= $status ?>" <?= $selected ?>><?= $status ?></option>
-                              <?php
-                              }
-                              ?>
-                           </select></td>
-                        <td> <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" /></td>
-                     </tr>
-                  </table>
-
-
+               <td id="boxSelectTest" class="selectSearch2">
+                  <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
+                     <option value="">เลือกสถานะ</option>
+                     <?php
+                     foreach ($modStatus as $status) {
+                        $selected = $_REQUEST["inputSrchStatus"] == $status ? "selected" : "";
+                     ?>
+                        <option value="<?= $status ?>" <?= $selected ?>><?= $status ?></option>
+                     <?php
+                     }
+                     ?>
+                  </select>
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td>
+                  <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
+               </td>
+               <td class="buttonSearchStyle">
+                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+               </td>
             </tr>
          </table>
       </div>
+
       <div class="divRightHead">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
@@ -263,9 +255,7 @@ AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_R
             </tr>
          </table>
       </div>
-      <div class="divRightMain showJumpPage">
-
-
+      <div class="divRightMain showJumpPage list-responsive">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td width="3%" class="divRightTitleTbL" valign="middle" align="center">

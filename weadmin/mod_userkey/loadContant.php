@@ -118,21 +118,20 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
         </div>
         <div style="clear:both;"></div>
         <div class="divRightHeadSearch">
-
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
-
                 <tr>
-                    <td class="selectSearch2">
-
+                    <!-- <td class="selectSearch2">
+                    </td> -->
+                    <td id="boxSelectTest" class="textSearch2">
+                        <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
                     </td>
-
-                    <td id="boxSelectTest" class="textSearch2"><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" /></td>
-                    <td class="bottonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+                    <td class="buttonSearchStyle">
+                        <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+                    </td>
                 </tr>
-
             </table>
-
         </div>
+
         <div class="divRightHead">
             <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
                 <tr>
@@ -165,7 +164,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                 </tr>
             </table>
         </div>
-        <div class="divRightMain">
+        <div class="divRightMain list-responsive">
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
                 <tr>
                     <td width="3%" class="divRightTitleTbL" valign="middle" align="center">

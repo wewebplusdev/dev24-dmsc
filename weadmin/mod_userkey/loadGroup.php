@@ -105,7 +105,7 @@ if($_REQUEST['inputSearch']!="") {
 
                 <tr>
                     <td id="boxSelectTest"><input name="inputSearch" type="text"  id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchI"  placeholder="<?= $langTxt["sch:search"] ?>" /></td>
-                    <td class="bottonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();"  type="button" class="btnSearch"  value=" "  /></td>
+                    <td class="buttonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();"  type="button" class="btnSearch"  value=" "  /></td>
                 </tr>
                 
             </table>

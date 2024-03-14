@@ -272,8 +272,6 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          </table>
       </div>
       <div class="divRightMain showJumpPage list-responsive">
-
-
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td width="3%" class="divRightTitleTbL" valign="middle" align="center">

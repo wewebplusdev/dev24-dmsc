@@ -140,22 +140,19 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 
 
          <div class="divRightHeadSearch" >
-
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
                <tr>
-                  <td id="boxSelectTest">
-                     <input name="inputSearch" type="text"  id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchI"  placeholder="<?= $langTxt["sch:search"] ?>" />
+                  <td id="boxSelectTest" class="textSearch2">
+                     <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchI" placeholder="<?= $langTxt["sch:search"] ?>" />
                   </td>
-                  <td style="padding-right:10px;" align="right" width="6%">
-                     <input name="searchOk" id="searchOk" onClick="document.myForm.submit();"  type="button" class="btnSearch"  value=" "  />
+                  <td class="buttonSearchStyle">
+                     <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" "  />
                   </td>
                </tr>
             </table>
-
          </div>
 
          <div class="divRightHead">
-
             <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center" >
                <tr>
                   <td height="77" align="left"><span class="fontHeadRight"><?= $langMod["tit:setting"] ?></span></td>
@@ -174,8 +171,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </tr>
             </table>
          </div>
-         <div class="divRightMain" >
-
+         <div class="divRightMain list-responsive">
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center"   class="tbBoxListwBorder">
                <tr ><td width="3%"  class="divRightTitleTbL"  valign="middle" align="center" >
                      <input name="CheckBoxAll" type="checkbox"  id="CheckBoxAll"  value="Yes" onClick="Paging_CheckAll(this, 'CheckBoxID', document.myForm.TotalCheckBoxID.value)"   class="formCheckboxHead" />    </td>

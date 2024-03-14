@@ -3459,7 +3459,7 @@ a:visited {
     width: 96%!important;
 }
 
-.bottonSearch {
+.buttonSearch {
     padding-right: 2%!important;
     width: 4%!important;
 }
@@ -3536,10 +3536,10 @@ a:visited {
 
 .formInputSearchStyle {width: -webkit-fill-available;}
 
-/* .divRightHeadSearch .bottonSearchStyle,
-.divRightHeadSearch .bottonSearch {width: 0% !important; padding-right: 0 !important;} */
+/* .divRightHeadSearch .buttonSearchStyle,
+.divRightHeadSearch .buttonSearch {width: 0% !important; padding-right: 0 !important;} */
 
-.divRightHeadSearch .bottonSearchStyle {width: 0% !important; padding-right: 0 !important;}
+.divRightHeadSearch .buttonSearchStyle {width: 0% !important; padding-right: 0 !important;}
 
 /* edit by ohm2 28/11/66 */
 
