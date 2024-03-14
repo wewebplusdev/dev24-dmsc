@@ -42,7 +42,7 @@
             <a href="<?= $valLinkViewUser ?>"><?= $_SESSION[$valSiteManage . "core_session_name"] ?></a>
         </div>
         <div class="divLogin-btn">
-            <a href="javascript:void(0)"onclick="clickInSubMenuTop()" id="showSubMenuTop" title="<?= $langTxt["menu:topmenu"] ?>">
+            <a href="javascript:void(0)" onclick="clickInSubMenuTop()" id="showSubMenuTop" title="<?= $langTxt["menu:topmenu"] ?>">
                 <span class="fa fa-bars"></span>
             </a>
         </div>
@@ -67,7 +67,7 @@
                     ?>
                     <div style="width:29px; height:29px;  background:url(<?= $valPicProfileTop ?>) center no-repeat; border:#ffffff solid 1px;  background-size: cover;background-repeat: no-repeat;   "><a href="<?= $valLinkViewUser ?>"><img src="../img/btn/boxprofile.png" /></a></div></td>
                 <td style="padding-right:10px;" ><a href="<?= $valLinkViewUser ?>"><?= $_SESSION[$valSiteManage . "core_session_name"] ?></a></td>
-                <td><a href="javascript:void(0)"onclick="clickInSubMenuTop()" id="showSubMenuTop" title="<?= $langTxt["menu:topmenu"] ?>"><img src="../img/btn/submenu.png" /></a></td>
+                <td><a href="javascript:void(0)" onclick="clickInSubMenuTop()" id="showSubMenuTop" title="<?= $langTxt["menu:topmenu"] ?>"><img src="../img/btn/submenu.png" /></a></td>
             </tr>
         </table> -->
 
