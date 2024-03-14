@@ -49,9 +49,9 @@
 <div class="clearAll"></div>
 <? include("../lib/disconnect.php"); ?>
 
-<!-- <style type="text/css">
+<style type="text/css">
     .fontContantTbTime a{
         color: #999;
     }
     .fontContantTbTime a:hover{color: #2671c2;}
-</style> -->
+</style>
