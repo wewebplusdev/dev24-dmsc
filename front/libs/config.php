@@ -67,7 +67,6 @@ $_ENV = array(
         "name" => "2024_dmsc",
     ),
 );
-print_r($_ENV[$_CORE]);
 
 $core_db_charecter_set = array('charset' => "utf8", 'collation' => "utf8_general_ci");
 
@@ -88,7 +87,7 @@ $lang_default = "th";
 
 ## url ##
 $url_show_lang = true;
-$url_show_default = "intro";
+$url_show_default = "coming";
 
 ## config path system ##
 $path_template = array(
