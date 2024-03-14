@@ -16,9 +16,9 @@ abstract class controller
         if ($_CORE_ENV == 'DEV') {
             $this->URL_API = 'http://192.168.101.39:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
-            $this->URL_API = 'http://13.229.72.11/:4040/service-api/v1';
+            $this->URL_API = 'http://13.229.72.11:4040/service-api/v1';
         }else{
-            $this->URL_API = 'http://13.229.72.11/:4040/service-api/v1';
+            $this->URL_API = 'http://13.229.72.11:4040/service-api/v1';
         }
 
         try {
