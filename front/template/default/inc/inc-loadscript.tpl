@@ -1,5 +1,5 @@
 
-<script src="{$template}/assets/js/jquery-3.6.0.js"></script>
+<script src="{$template}/assets/js/libs/jquery-3.6.0.js"></script>
 <script src="{$template}/assets/js/cookie.js"></script>
 
 <script type="module" src="{$template}/assets/js/controller.js{$lastModify}"></script>
