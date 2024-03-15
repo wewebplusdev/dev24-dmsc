@@ -1,0 +1,49 @@
+div.swal2-popup{
+    border-radius: 0;
+    width: 26em;
+    padding-bottom: 40px;
+    color: var(--color-default);
+    background-color: var(--color-light);
+}
+div.swal2-icon{
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+h2.swal2-title{
+    padding-top: 15px;
+    font-size: var(--typo-default);
+    font-weight: var(--fw-normal);
+    color: var(--color-primary);
+}
+div.swal2-html-container{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 3em;
+    margin-right: 3em;
+    font-size: var(--typo-default);
+    font-weight: var(--fw-normal);
+    color: var(--color-primary);
+    overflow: visible;
+    line-height: 1.4em;
+}
+.swal2-actions{
+    .btn{
+        margin: 0 5px;
+    }
+}
+
+
+// @supports (backdrop-filter: none) {
+//     div.swal2-container.swal2-backdrop-show, 
+//     div.swal2-container.swal2-noanimation{
+//         background-color: rgba(255,255,255,0.2);
+//         -webkit-backdrop-filter: blur(30px);
+//         backdrop-filter: blur(30px);
+//     }
+// }
+// @supports not (backdrop-filter: none) {
+//     div.swal2-container.swal2-backdrop-show, 
+//     div.swal2-container.swal2-noanimation{
+//         background-color: rgba(255,255,255,0.8);
+//     }
+// }

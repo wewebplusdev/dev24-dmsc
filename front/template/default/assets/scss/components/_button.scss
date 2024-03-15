@@ -1,0 +1,96 @@
+.btn{
+	background: none; 
+	position: relative; 
+	padding: 0 10px; 
+	min-width: 120px; 
+	height: 50px; 
+	line-height: 48px; 
+	border: 1px solid transparent; 
+	border-radius: 0;
+	font-size: var(--typo-default); 
+	font-weight: var(--fw-normal);
+	&.fluid{
+		min-width: inherit; 
+		width: 100%;
+	}
+	&:focus{
+	    box-shadow: none;
+	}
+	&.btn-xs{
+
+	}
+	&.btn-sm{
+
+	}
+	&.btn-lg{
+
+	}
+}
+
+.btn:not(:disabled):not(.disabled).active:focus, 
+.btn:not(:disabled):not(.disabled):active:focus, 
+.show > .btn.dropdown-toggle:focus{
+	box-shadow: none;
+}
+
+.btn-primary,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:not(:disabled):not(.disabled).active, 
+.btn-primary:not(:disabled):not(.disabled):active, 
+.show > .btn-primary.dropdown-toggle{
+	color: #fff; 
+	background-color: var(--color-primary); 
+	border-color: transparent;
+}
+.btn-primary:hover,
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.btn-primary:active:focus,
+.btn-primary.actitve:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.btn-primary:focus:hover,
+.btn-primary.focus:hover{
+	color: #fff; 
+	background-color: var(--color-primary); 
+	border-color: transparent;
+}
+.btn-primary.disabled,
+.btn-primary.disabled:hover{
+	color: #fff; 
+	background-color: var(--color-primary); 
+	border-color: transparent; 
+	opacity: 0.5;
+}
+
+.btn-outline-light,
+.btn-outline-light:focus,
+.btn-outline-light.focus,
+.btn-outline-light:not(:disabled):not(.disabled).active, 
+.btn-outline-light:not(:disabled):not(.disabled):active, 
+.show > .btn-outline-light.dropdown-toggle{
+	color: #fff; 
+	background-color: transparent; 
+	border-color: var(--color-light);
+}
+.btn-outline-light:hover,
+.btn-outline-light:active:hover,
+.btn-outline-light.active:hover,
+.btn-outline-light:active:focus,
+.btn-outline-light.actitve:focus,
+.btn-outline-light:active.focus,
+.btn-outline-light.active.focus,
+.btn-outline-light:focus:hover,
+.btn-outline-light.focus:hover{
+	color: var(--color-black); 
+	background-color: var(--color-light); 
+	border-color: transparent;
+}
+.btn-outline-light.disabled,
+.btn-outline-light.disabled:hover{
+	color: #fff; 
+	background-color: transparent; 
+	border-color: var(--color-light);
+	opacity: 0.5;
+}

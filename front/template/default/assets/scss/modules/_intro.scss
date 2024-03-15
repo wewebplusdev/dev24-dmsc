@@ -1,0 +1,20 @@
+.intro-page {
+    .ratio {--bs-aspect-ratio: calc(100vh - 150px);}
+}
+.intro-content {
+    background-color: var(--color-default);
+    // height: 150px;
+}
+
+.intro-content .height {
+    height: 150px;
+}
+
+@media (max-width: 767px) {
+    .intro-content .symbol {
+        text-align: center;
+    }
+    .intro-content .action {
+        text-align: center;
+    }
+}

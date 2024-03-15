@@ -1,0 +1,18 @@
+$--nav-size-container: 40px;
+$--nav-lang-container: 40px;
+.nav-size{
+    a,
+    button{display: inline-block;width: $--nav-size-container;height: $--nav-size-container;line-height:$--nav-size-container;text-align:center;transition:all 200ms ease;
+        &.size-small{font-size: 100%;}
+        &.size-medium{font-size: 150%;}
+        &.size-large{font-size: 200%;}
+        &.active{color: var(--color-white);background: var(--color-primary);}
+    }
+    .label{}
+}
+.nav-lang{
+    a,
+    button{display: block;width: $--nav-lang-container;height: $--nav-lang-container;line-height:$--nav-lang-container;text-align:center;transition:all 200ms ease;
+        &.active{color: var(--color-white);background: var(--color-primary);}
+    }
+}

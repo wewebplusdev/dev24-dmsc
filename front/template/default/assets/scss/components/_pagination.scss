@@ -1,0 +1,135 @@
+.pagination-block {
+    margin-top: 45px;
+     
+}
+
+.default-pagination {
+    .pagination-label {
+        display: flex;
+        align-items: center;
+        strong {
+            display: block;
+            min-width: 45px;
+            height: 45px;
+            text-align: center;
+            line-height: 43px;
+            border-radius: 50%;
+            margin: 0 10px;
+            background-color: var(--color-dark);
+            font-weight: var(--fw-normal);
+            font-size: var(--typo-default);
+            color: var(--color-light);
+        }
+    }  
+    .pagination{
+        margin: 0;
+        li {
+            display: inline-block; 
+            vertical-align: middle;
+            &.jump-page {
+                .form-group {
+                    .select2-container .select2-selection--single {
+                        height: 45px;
+                    }
+                    .select2-container--default .select2-selection--single .select2-selection__rendered {
+                        line-height: 45px;
+                        width: 90px;
+                    }
+                    .select2-container--default .select2-selection--single .select2-selection__arrow {
+                        height: 45px;
+                    }
+                    .select2-container--default .select2-selection--single .select2-selection__placeholder {
+                        font-size: var(--typo-default);
+                    }
+                }
+            }
+            &.active{
+                .link{
+                    color: var(--color-light);
+                    border-color: transparent;
+                    background: none;
+                    background-color: var(--color-primary);
+                }
+            }
+            &+ li{
+                margin-left: 10px;
+            }
+        }
+        // li + li{
+        //     margin-left: 10px;
+        // }
+        .page-item .link{
+            display: block; 
+            min-width: 45px; 
+            height: 45px; 
+            padding: 0 5px; 
+            text-align: center; 
+            line-height: 43px; 
+            border-radius: 50%;
+            background-color: var(--color-transparent);
+            font-weight: var(--fw-normal);
+            font-size: var(--typo-default); 
+            color: var(--color-dark);
+            border: 1px solid var(--color-dark);
+            text-decoration: none;
+            &:hover{
+                color: var(--color-light);
+                background-color: var(--color-dark);
+                // text-decoration: none;
+            }
+            &.link-text{
+                border-color: transparent;
+                background-color: transparent;
+                &:hover{
+                    border-color: transparent;
+                    background-color: transparent;
+                }
+            }
+        }
+        // .previous-page .link,
+        // .next-page .link {
+        //     min-width: 35px;
+        //     height: 35px;
+        //     line-height: 33px;
+        // }
+        .first-page .link,
+        .last-page .link {
+            font-weight: var(--fw-normal);
+            font-size: var(--typo-default); 
+            line-height: 43px; 
+            color: var(--color-dark);
+            text-decoration: none;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .default-pagination .pagination-label {
+        justify-content: center;
+    }
+    .default-pagination .pagination {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .default-pagination .pagination .page-item .link {
+        min-width: 35px;
+        height: 35px;
+        line-height: 33px;
+    }
+    .default-pagination .pagination-label strong{
+        min-width: 35px;
+        height: 35px;
+        line-height: 33px;
+    }
+    .default-pagination .pagination li.jump-page .form-group .select2-container .select2-selection--single {
+        height: 35px;
+    }
+    .default-pagination .pagination li.jump-page .form-group .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 35px;
+    }
+    .default-pagination .pagination li.jump-page .form-group .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 35px;
+    }
+}

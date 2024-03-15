@@ -1,0 +1,187 @@
+.form-default .form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+.form-default .form-label {
+    margin-bottom: 10px;
+    font-weight: var(--fw-normal);
+    font-size: var(--typo-xs);
+    color: var(--color-default);
+    line-height: 1.2em;
+}
+.form-default .form-control {
+    line-height: 1.2em;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: none;
+    font-size: var(--typo-default);
+    color: var(--color-default);
+    font-weight: var(--fw-normal);
+    &::-webkit-input-placeholder {
+        color: var(--color-gray);
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color: var(--color-gray);
+        opacity: 1;
+    }
+    &::placeholder {
+        color: var(--color-gray);
+        opacity: 1;
+    }
+}
+.form-default .form-note {
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    margin-top: 4px;
+    font-size: var(--typo-xs);
+    color: var(--color-gray);
+}
+.form-default .form-control:focus {
+    border-color: var(--color-border);
+    text-shadow: none;
+}
+.form-default .block-control {
+    position: relative;
+}
+.form-default .has-error .form-control:focus {
+    box-shadow: none;
+}
+.form-default .has-success .form-control:focus {
+    box-shadow: none;
+}
+
+.form-default .floating-label {
+    color: var(--color-default);
+    font-size: var(--typo-xs);
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    top: 9px;
+    transition: all 200ms ease-out;
+}
+.form-default .form-control:focus ~ .floating-label,
+.form-default .form-control:not(:focus):valid ~ .floating-label {
+    color: var(--color-default);
+    font-size: var(--typo-xs);
+    left: 0;
+    top: -22px;
+}
+
+.form-control-feedback {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+}
+.form-control-feedback:before {
+    display: none;
+}
+.form-control-feedback.glyphicon-ok {
+    background: url("../img/icon/checked.png") center no-repeat;
+    background-size: 16px;
+}
+.form-control-feedback.glyphicon-remove {
+    background: url("../img/icon/cancel.png") center no-repeat;
+    background-size: 16px;
+}
+
+.radio-control {
+    position: relative;
+    display: inline-block;
+}
+.radio-control .icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-border);
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+.radio-control .title {
+    margin: 0;
+    font-size: var(--typo-default);
+    font-weight: var(--fw-normal);
+    color: var(--color-default);
+    padding-left: 30px;
+    line-height: 1.2em;
+    display: block;
+}
+.radio-control input[type="radio"] {
+    margin-top: 0;
+    position: absolute;
+    z-index: 5;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.radio-control input[type="radio"]:checked ~ .icon {
+    border-color: transparent;
+    border-color: var(--color-border);
+}
+.radio-control input[type="radio"]:checked ~ .icon:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: var(--color-default);
+    border-radius: 50%;
+}
+
+.checkbox-control {
+    position: relative;
+    display: inline-block;
+}
+.checkbox-control .icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-border);
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+}
+.checkbox-control .title {
+    margin: 0;
+    font-size: var(--typo-default);
+    font-weight: var(--fw-normal);
+    color: var(--color-default);
+    padding-left: 30px;
+    line-height: 1.2em;
+    display: block;
+}
+.checkbox-control input[type="checkbox"] {
+    margin-top: 0;
+    position: absolute;
+    z-index: 5;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.checkbox-control input[type="checkbox"]:checked ~ .icon {
+    border-color: transparent;
+    background-color: var(--color-default);
+}
+.checkbox-control input[type="checkbox"]:checked ~ .icon:before {
+    font-family: "feahter";
+    content: "\e83f";
+}

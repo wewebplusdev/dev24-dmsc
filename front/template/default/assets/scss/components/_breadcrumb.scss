@@ -1,0 +1,37 @@
+.breadcrumb-block{margin-bottom: 20px;}
+.breadcrumb{
+	background-color: transparent; 
+	margin: 5px 0 0 0; 
+	padding: 0;
+    border-radius: 0;
+    .breadcrumb-item{
+        & + .breadcrumb-item{
+            &:before{
+                font-family: 'feather';
+                content: '\e844';
+                padding: 0 6px;
+                float: left;
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+    .link{
+        float: left;
+        display: block;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &.-nolimit{
+            max-width: inherit; 
+        }
+        &.active{
+            color: var(--color-primary);
+        }
+    }
+    .breadcrumb-item,
+    .link{
+        color: var(--color-default);
+    }
+}

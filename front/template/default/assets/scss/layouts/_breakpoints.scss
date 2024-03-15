@@ -1,0 +1,27 @@
+@media (min-width: 1200px) {
+	.container{max-width: inherit; width: 1210px;}
+}
+
+@media (max-width: 1600px) {
+	.container{max-width: inherit; width: 1210px;}
+}
+
+@media (max-width: 1440px) {
+	.container{max-width: inherit; width: 1210px;}
+}
+
+@media (max-width: 1199px) {
+	.container{max-width: inherit; width: 970px;}
+}
+
+@media (max-width: 991px) {
+	.container{max-width: inherit; width: 100%;}
+}
+
+@media (max-width: 767px) {
+	.container{max-width: inherit; width: 100%;}
+}
+
+@media (max-width: 575px) {
+	.container{max-width: inherit; width: 100%;}
+}
