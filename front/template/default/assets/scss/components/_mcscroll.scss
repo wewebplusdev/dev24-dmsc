@@ -1,0 +1,35 @@
+:root {
+    --mcscroll-w: 8px;
+}
+.mCustomScrollbar {
+    .mCSB_inside > .mCSB_container {
+        // margin-right: 18px;
+    }
+    .mCSB_scrollTools {
+        width: var(--mcscroll-w);
+        top: 5px;
+        right: 0;
+        bottom: 5px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .mCSB_scrollTools .mCSB_draggerRail{
+        background-color: rgba($color: #434343, $alpha: 0.1);
+    }
+    .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+    .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+    .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+    .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+        background-color: var(--color-primary);
+    }
+    .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+    .mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+        background-color: var(--color-primary);
+    }
+    .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+        width: var(--mcscroll-w);
+    }
+    .mCSB_scrollTools .mCSB_draggerRail {
+        width: var(--mcscroll-w);
+    }
+}

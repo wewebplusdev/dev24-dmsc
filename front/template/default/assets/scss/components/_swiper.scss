@@ -1,22 +1,71 @@
 $--swiper-nav-position: -60px;
 
-.default-swiper{overflow: visible;
-    .swiper-slide{transition:all 200ms ease;opacity: 0;
-        &.swiper-slide-visible{opacity: 1;}
-        &.swiper-slide-active{opacity: 1;}
+.default-swiper {
+    overflow: visible;
+    .swiper-slide {
+        transition: all 200ms ease;
+        opacity: 0;
+        &.swiper-slide-visible {
+            opacity: 1;
+        }
+        &.swiper-slide-active {
+            opacity: 1;
+        }
     }
     // .swiper-pagination {position: relative;bottom: 0;}
-    // .swiper-horizontal > .swiper-pagination-bullets, 
+    // .swiper-horizontal > .swiper-pagination-bullets,
     // .swiper-pagination-bullets.swiper-pagination-horizontal,
-    // .swiper-pagination-custom, 
+    // .swiper-pagination-custom,
     // .swiper-pagination-fraction {bottom: 0; margin-top: 30px;}
     .swiper-button-prev,
-    .swiper-rtl .swiper-button-next{left: $--swiper-nav-position;}
-    .swiper-button-next, 
-    .swiper-rtl .swiper-button-prev{right: $--swiper-nav-position;}
+    .swiper-rtl .swiper-button-next {
+        left: $--swiper-nav-position;
+    }
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+        right: $--swiper-nav-position;
+    }
 }
-.attachSwiper{
-    .swiper-slide{
-        &.swiper-slide-active+.swiper-slide-next{opacity: 1;}
+.attachSwiper {
+    .swiper-slide {
+        &.swiper-slide-active + .swiper-slide-next {
+            opacity: 1;
+        }
+    }
+}
+
+.swiper {
+    .swiper-pagination-bullet{
+        width: 10px;
+        height: 10px;
+    }
+    .autoplay-progress {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        z-index: 10;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: var(--swiper-theme-color);
+    }
+
+    .autoplay-progress svg {
+        --progress: 0;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        stroke-width: 4px;
+        stroke: var(--swiper-theme-color);
+        fill: none;
+        stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+        stroke-dasharray: 125.6;
+        transform: rotate(-90deg);
     }
 }

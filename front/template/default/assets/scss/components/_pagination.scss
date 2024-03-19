@@ -16,7 +16,7 @@
             border-radius: 50%;
             margin: 0 10px;
             background-color: var(--color-dark);
-            font-weight: var(--fw-normal);
+            font-weight: var(--fw-regular);
             font-size: var(--typo-default);
             color: var(--color-light);
         }
@@ -67,7 +67,7 @@
             line-height: 43px; 
             border-radius: 50%;
             background-color: var(--color-transparent);
-            font-weight: var(--fw-normal);
+            font-weight: var(--fw-regular);
             font-size: var(--typo-default); 
             color: var(--color-dark);
             border: 1px solid var(--color-dark);
@@ -94,7 +94,7 @@
         // }
         .first-page .link,
         .last-page .link {
-            font-weight: var(--fw-normal);
+            font-weight: var(--fw-regular);
             font-size: var(--typo-default); 
             line-height: 43px; 
             color: var(--color-dark);

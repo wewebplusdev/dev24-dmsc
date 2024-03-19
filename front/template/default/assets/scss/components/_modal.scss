@@ -1,0 +1,71 @@
+.popup-modal {
+    .modal-content {
+        border: none;
+        border-radius: 0;
+        box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.16);
+    }
+    .modal-body {
+        padding: 0;
+    }
+    .btn-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        background: transparent;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        color: var(--color-light);
+        filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.7));
+        .material-symbols-rounded {
+            font-size: 48px;
+        }
+    }
+    .cover {
+        padding-top: 57%;
+    }
+    .popup-slide {
+        .swiper-button-prev,
+        .swiper-rtl .swiper-button-next {
+            left: -80px;
+        }
+        .swiper-button-next,
+        .swiper-rtl .swiper-button-prev {
+            right: -80px;
+        }
+        .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+        .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+            background: var(--color-light);
+            // opacity: 1;
+            filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2));
+        }
+        .swiper-horizontal > .swiper-pagination-bullets,
+        .swiper-pagination-bullets.swiper-pagination-horizontal,
+        .swiper-pagination-custom,
+        .swiper-pagination-fraction {
+            bottom: 30px;
+        }
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .popup-modal .modal-dialog {
+        max-width: 1024px;
+    }
+}
+@media (min-width: 1200px) {
+    .popup-modal .modal-dialog {
+        max-width: 1180px;
+    }
+}
+@media (min-width: 1441px) {
+    .popup-modal .modal-dialog {
+        max-width: 1280px;
+    }
+}

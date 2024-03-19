@@ -4,7 +4,7 @@
 }
 .form-default .form-label {
     margin-bottom: 10px;
-    font-weight: var(--fw-normal);
+    font-weight: var(--fw-regular);
     font-size: var(--typo-xs);
     color: var(--color-default);
     line-height: 1.2em;
@@ -18,7 +18,7 @@
     box-shadow: none;
     font-size: var(--typo-default);
     color: var(--color-default);
-    font-weight: var(--fw-normal);
+    font-weight: var(--fw-regular);
     &::-webkit-input-placeholder {
         color: var(--color-gray);
         opacity: 1;
@@ -108,7 +108,7 @@
 .radio-control .title {
     margin: 0;
     font-size: var(--typo-default);
-    font-weight: var(--fw-normal);
+    font-weight: var(--fw-regular);
     color: var(--color-default);
     padding-left: 30px;
     line-height: 1.2em;
@@ -160,7 +160,7 @@
 .checkbox-control .title {
     margin: 0;
     font-size: var(--typo-default);
-    font-weight: var(--fw-normal);
+    font-weight: var(--fw-regular);
     color: var(--color-default);
     padding-left: 30px;
     line-height: 1.2em;
@@ -184,4 +184,22 @@
 .checkbox-control input[type="checkbox"]:checked ~ .icon:before {
     font-family: "feahter";
     content: "\e83f";
+}
+
+.form-search {
+    .btn-link {
+        background: transparent;
+        outline: none;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        &:not(:disabled):not(.disabled).active:focus,
+        &:not(:disabled):not(.disabled):active:focus,
+        .show > .btn-link.dropdown-toggle:focus {
+            box-shadow: none;
+        }
+        svg.feather {
+            stroke-width: 3px;
+        }
+    }
 }

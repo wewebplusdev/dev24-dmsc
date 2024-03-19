@@ -2,6 +2,10 @@
 	.container{max-width: inherit; width: 1210px;}
 }
 
+@media (min-width: 1441px) {
+	.container{max-width: inherit; width: 1310px;}
+}
+
 @media (max-width: 1600px) {
 	.container{max-width: inherit; width: 1210px;}
 }

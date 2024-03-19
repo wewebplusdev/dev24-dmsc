@@ -1,6 +1,6 @@
 :root {
-    --color-primary: #000;
-    --color-secondary: #000;
+    --color-primary: #209972;
+    --color-secondary: #01377d;
     --color-success: #28a745;
     --color-info: #17a2b8;
     --color-warning: #ffc107;
@@ -10,93 +10,89 @@
     --color-white: #fff;
     --color-dark: #000;
     --color-black: #000;
-    --color-default: #666;
+    --color-default: #666666;
 
-    --color-border: #666;
+    --color-border: #D6D6D6;
 
-    --fw-light: 100;
-    --fw-normal: 300;
+    --fw-light: 300;
+    --fw-regular: 400;
     --fw-medium: 500;
+    // --fw-semiBold: 600;
     --fw-bold: 600;
-    
-    --typo-xs: 18px; 
-    --typo-sm: 22px; 
-    --typo-md: 24px; 
-    --typo-lg: 30px; 
-    --typo-xl: 34px; 
+    --fw-black: 900;
+
+    --typo-xs: 18px;
+    --typo-sm: 22px;
+    --typo-md: 24px;
+    --typo-lg: 30px;
+    --typo-xl: 34px;
     --typo-default: 20px;
 
     --rounded: 0.375rem;
     --rounded-md: 0.675rem;
 
-    // --shadow: 0 3px 6px rgba(0,0,0,0.1); 
+    // --shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-.text-primary{
+.text-primary {
     color: var(--color-primary) !important;
 }
-.text-secondary{
+.text-secondary {
     color: var(--color-secondary) !important;
 }
-.text-success{
+.text-success {
     color: var(--color-success) !important;
 }
-.text-info{
+.text-info {
     color: var(--color-info) !important;
 }
-.text-warning{
+.text-warning {
     color: var(--color-warning) !important;
 }
-.text-danger{
+.text-danger {
     color: var(--color-danger) !important;
 }
-.text-gray{
+.text-gray {
     color: var(--color-gray) !important;
 }
-.text-light{
+.text-light {
     color: var(--color-light) !important;
 }
-.text-dark{
+.text-dark {
     color: var(--color-dark) !important;
 }
-.text-default{
+.text-default {
     color: var(--color-default) !important;
 }
 
-
-
-
-.fw-light{
+.fw-light {
     font-weight: var(--fw-light);
 }
-.fw-normal{
-    font-weight: var(--fw-normal);
+.fw-normal {
+    font-weight: var(--fw-regular);
 }
-.fw-medium{
+.fw-medium {
     font-weight: var(--fw-medium);
 }
-.fw-bold{
+.fw-bold {
     font-weight: var(--fw-bold);
 }
 
-
-
-
-.typo-xs{
+.typo-xs {
     font-size: var(--typo-xs);
 }
-.typo-sm{
+.typo-sm {
     font-size: var(--typo-sm);
 }
-.typo-md{
+.typo-md {
     font-size: var(--typo-md);
 }
-.typo-lg{
+.typo-lg {
     font-size: var(--typo-lg);
 }
-.typo-xl{
+.typo-xl {
     font-size: var(--typo-xl);
 }
-.typo-default{
+.typo-default {
     font-size: var(--typo-default);
 }
