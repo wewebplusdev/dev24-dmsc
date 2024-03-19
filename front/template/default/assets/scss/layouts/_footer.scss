@@ -1,6 +1,9 @@
 .layout-footer {
     .link {
         color: var(--color-default);
+        &:hover {
+            color: var(--color-secondary);
+        }
     }
     .contact {
         .icon {
@@ -54,14 +57,22 @@
                     background-color: #14171a;
                 }
             }
+            &.yt{
+                .rounded-0 {
+                    background-color: #F61C0D;
+                }
+            }
             &.line {
                 .rounded-0 {
                     background-color: #21ce24;
                 }
             }
+            &:hover {
+                opacity: 0.75;
+            }
         }
     }
-    .ipv6{
+    .ipv6 {
         width: 90px;
     }
     .followus {
@@ -82,6 +93,9 @@
     }
     .sitemap {
         color: var(--color-secondary);
+        &:hover {
+            color: var(--color-primary);
+        }
     }
     .copyright {
         margin: 0;
@@ -110,7 +124,7 @@
             font-weight: var(--fw-bold);
             color: var(--color-secondary);
             margin: 0;
-            .link{
+            .link {
                 color: var(--color-secondary);
             }
         }

@@ -112,28 +112,35 @@
                   <div class="social">
                     <ul class="item-list">
                       <li>
-                        <a href="" class="link tele">
+                        <a href="" class="link tele" title="Telephone">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/old-typical-phone.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
-                        <a href="" class="link fb">
+                        <a href="https://www.facebook.com/DMScNews/" class="link fb" title="Facebook" target="_blank">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/facebook.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
-                        <a href="" class="link tw">
+                        <a href="https://twitter.com/DMScNew" class="link tw" title="X" target="_blank">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/twitter.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
-                        <a href="" class="link line">
+                        <a href="https://www.youtube.com/user/DMSCLive" class="link yt" title="YouTube" target="_blank">
+                          <div class="rounded-0">
+                            <img src="<?php echo $core_template; ?>/img/icon/youtube.svg" alt="" class="icon">
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://line.me/R/ti/p/%40009xhxof" class="link line" title="Line" target="_blank">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/line.svg" alt="" class="icon">
                           </div>
