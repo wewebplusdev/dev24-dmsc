@@ -26,7 +26,7 @@ $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
 ## Hide Group ###################################
-$array_masterkey_group = array('plc', 'ab', 'hc', 'faq');
+$array_masterkey_group = array('plc', 'ab', 'hc', 'faq', 'dcio');
 
 $array_masterkey_group_home = array('nw', 'ab');
 $array_masterkey_group_home2 = array('ab');
@@ -39,8 +39,6 @@ $modPeriodType = array(
 ## URL Search ###################################
 $mod_url_search_th = "|weweb|";
 $mod_url_search_en = "|weweb|";
-
-$mod_url_search_front = "http://edailyreport.dmcr.go.th/milestone/detail/|id|";
 
 ## Size Photo ###################################
 $sizeWidthPic = "600";

@@ -439,6 +439,7 @@ async function getPolicy(req, res) {
                 ,${config_array_db['md_cmsl']}_pic as pic 
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
                 ,${config_array_db['md_cmsl']}_target as target 
+                ,'${config_array_db['md_cms']}' as tb 
                 FROM ${config_array_db['md_cms']} 
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                 WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['plc']}' 
@@ -494,6 +495,8 @@ async function getPolicy(req, res) {
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
+                        arr_data[i].language = language;
+                        arr_data[i].tb = select[i].tb;
                         arr_data[i].typec = select[i].typec;
                         if (select[i].typec == 2) {
                             const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);

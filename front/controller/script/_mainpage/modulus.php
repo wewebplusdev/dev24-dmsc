@@ -40,4 +40,26 @@ class mainPage extends controller
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
     }
+
+    function load_policy()
+    {
+        if (empty($this->token_access)) {
+            return false;
+        }
+        
+        $url = $this->URL_API . "/setting";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $data = [
+            "method" => "getPolicy",
+            "language" => $this->language,
+            "order" => "DESC",
+            "page" => 1,
+            "limit" => 15
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
+    }
 }

@@ -1,4 +1,3 @@
-const axios = require('axios');
 const general = require('../../../middlewares/general.middleware');
 
 var serviceName = "faq";

@@ -34,10 +34,7 @@ switch ($url->segment[0]) {
                 $array_news_list['list'][$valueNewsList->gid][] = $valueNewsList;
             }
         }
-        print_pre($array_news_list);
-        // print_pre($load_news);
         $smarty->assign("array_news_list", $array_news_list);
-        $smarty->assign("load_news", $load_news);
 
         /*## Start SEO #####*/
         $seo_desc = "";

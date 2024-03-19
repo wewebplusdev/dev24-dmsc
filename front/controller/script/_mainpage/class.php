@@ -15,6 +15,7 @@ abstract class controller
 
         if ($_CORE_ENV == 'DEV') {
             $this->URL_API = 'http://192.168.101.39:4040/service-api/v1';
+            // $this->URL_API = 'http://192.168.1.101:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
             $this->URL_API = 'http://13.229.72.11:4040/service-api/v1';
         }else{
@@ -119,6 +120,23 @@ abstract class controller
             "apptoken" => self::_APP_TOKEN,
             "user" => self::_APP_USER,
             "secretkey" => self::_APP_SERCRET,
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
+    }
+
+    function load_insert_logs($req){
+        $url = $this->URL_API . "/setting";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $data = [
+            "user" => self::_APP_USER,
+            "secretkey" => self::_APP_SERCRET,
+            "method" => $req['method'],
+            "browser" => $req['browser'],
+            "uniqid" => $req['uniqid'],
         ];
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
