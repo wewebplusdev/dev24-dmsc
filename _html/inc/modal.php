@@ -34,7 +34,7 @@
                                 <div class="swiper-slide">
                                     <figure class="cover">
                                         <picture>
-                                            <img src="assets/img/upload/popup.jpg" alt="popup">
+                                            <img src="<?php echo $core_template; ?>/img/upload/popup.jpg" alt="popup">
                                         </picture>
                                     </figure>
                                 </div>
