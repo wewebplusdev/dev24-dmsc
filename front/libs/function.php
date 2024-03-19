@@ -100,7 +100,7 @@ function sqlupdate($array, $dbname, $key, $where = null)
     } else {
         $sql_update = "Select * From " . $dbname . " where " . $listWhere;
     }
-   
+
     $result_update = $db->Execute($sql_update);
 
     $updateSQL = $db->GetUpdateSQL($result_update, $array);
@@ -433,7 +433,7 @@ function pagepagination($uri, $limit = null)
         } else {
             $pageOn['on'] = 1;
         }
-    }else{
+    } else {
         $pageOn['on'] = 1;
     }
     return $pageOn;
@@ -762,6 +762,13 @@ function DateFormatInsert($DateTime, $timeAgre = null)
     return $valReturn;
 }
 
-function page_redirect($table = '', $masterkey = '', $id = '', $language = ''){
+function page_redirect($table = '', $masterkey = '', $id = '', $language = '')
+{
     return encodeStr($table) . "|" . encodeStr($masterkey) . "|" . encodeStr($id) . "|" . encodeStr($language);
+}
+
+
+function chkSyntaxAnd($var)
+{
+    return str_replace("&", "And", $var);
 }

@@ -47,11 +47,25 @@ const masterkey = {
     "sv": "sv",
     "rein": "rein",
     "ab": "ab",
+    "nwa": "nwa",
+    "lar": "lar",
+    "dcio": "dcio",
+    "cal": "cal",
 }
 
 //urlPage
 const url_page = {
     "nw": {
+        "1": "detailAll",
+        "2": "downloadAll",
+        "group": "listAll",
+    },
+    "nwa": {
+        "1": "detailAll",
+        "2": "downloadAll",
+        "group": "listAll",
+    },
+    "lar": {
         "1": "detailAll",
         "2": "downloadAll",
         "group": "listAll",
@@ -69,6 +83,10 @@ const url_page = {
         "1": "detailAll",
         "2": "downloadAll",
     },
+    "dcio": {
+        "1": "detailAll",
+        "2": "downloadAll",
+    },
     "hc": {
         "1": "detailAll",
         "2": "downloadAll",
@@ -82,6 +100,11 @@ const url_page = {
     "rein": {
         "1": "detailAll",
         "group": "listAll",
+    },
+    "cal": {
+        "1": "calendar/detail",
+        "2": "downloadAll",
+        "group": "calendarAll",
     },
 }
 

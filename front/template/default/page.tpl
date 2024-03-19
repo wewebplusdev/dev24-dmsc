@@ -11,6 +11,7 @@
     <div class="global-container bg-drop">
         {include file="{$incfile.header}" title=title}
         {include file="{$fileInclude|templateInclude}" title=pageContent}
+        {include file="{$incfile.footer}" title=title}
         {include file="{$incfile.modal}" title=title}
     </div>
     {include file="{$incfile.loadscript}" title=title}

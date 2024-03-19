@@ -8,6 +8,10 @@
 
 $mainPage = new mainPage;
 
+#### POLICY
+$load_policy = $mainPage->load_policy();
+$smarty->assign("load_policy", $load_policy);
+
 #### SETTING
 $settingWeb = array();
 $settingWeb['subject'] = $mainPage->settingWeb->setting->subject;
@@ -30,4 +34,4 @@ $smarty->assign("languageFrontWeb", $languageFrontWeb);
 $smarty->assign("lcfWeb", $lcfWeb);
 $smarty->assign("sitemapWeb", $sitemapWeb);
 $smarty->assign("currentLangWeb", $currentLangWeb);
-// print_pre($languageWeb);
+// print_pre($sitemapWeb);

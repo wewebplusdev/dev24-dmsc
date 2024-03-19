@@ -1,5 +1,4 @@
 const config = require('../config/env');
-const axios = require('axios');
 const jwt = require('jsonwebtoken');
 var formidable = require('formidable');
 var fs = require('fs');

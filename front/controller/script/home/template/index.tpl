@@ -150,7 +150,7 @@
     {/if}
     {* End About *}
 
-    {* Start About *}
+    {* Start News *}
     {if count($array_news_list) gte 1}
         <h2>News</h2>
         {if gettype($array_news_list['group']) eq 'array' && count($array_news_list['group']) gte 1}
@@ -163,25 +163,23 @@
 
         {if gettype($array_news_list['list']) eq 'array' && count($array_news_list['list']) gte 1}
             <div class="d-flex flex-row p-2" id="service-append">
-                {foreach $array_news_list['list'] as $keyload_news_list => $valueload_news_list}
-                    {if $valueload_news_list->typec eq 3}
+                {foreach $array_news_list['list'] as $keyNews => $valueNews}
+                    {foreach $valueNews as $keySubNews => $valueload_news_list}
                         {assign var="news_url" value="{$ul}/pageredirect/{$valueload_news_list->tb|page_redirect:$valueload_news_list->masterkey:$valueload_news_list->id:$valueload_news_list->language}"}
-                    {else}
-                        {assign var="news_url" value="{$valueload_news_list->url}"}
-                    {/if}
-                    <div class="card" style="width: 18rem;">
-                        <a href="{$news_url}" target="{$valueload_news_list->target}">
-                            <img src="{$valueload_news_list->pic->pictures}" class="card-img-top" alt="{$valueload_news_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                            <div class="card-body">
-                                <h5 class="card-title">{$valueload_news_list->subject}</h5>
-                            </div>
-                        </a>
-                    </div>
+                        <div class="card" style="width: 18rem;">
+                            <a href="{$news_url}" target="{$valueload_news_list->target}">
+                                <img src="{$valueload_news_list->pic->pictures}" class="card-img-top" alt="{$valueload_news_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                                <div class="card-body">
+                                    <h5 class="card-title">{$valueload_news_list->subject}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    {/foreach}
                 {/foreach}
             </div>
         {/if}
 
     {/if}
-    {* End About *}
+    {* End News *}
 
 </div>

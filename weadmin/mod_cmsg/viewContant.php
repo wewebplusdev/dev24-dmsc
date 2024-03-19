@@ -203,12 +203,6 @@ logs_access('3', 'View');
                   <div class="formDivView"><?= $valTitle ?></div>
                </td>
             </tr>
-            <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowCase[0] ?>:<span class="fontContantAlert"></span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?php echo $modTxtShowCase[$valTypeC] ?></div>
-               </td>
-            </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">

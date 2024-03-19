@@ -37,8 +37,6 @@ $modPeriodType = array(
 $mod_url_search_th = "|weweb|";
 $mod_url_search_en = "|weweb|";
 
-$mod_url_search_front = "http://edailyreport.dmcr.go.th/milestone/detail/|id|";
-
 ## Size Photo ###################################
 $sizeWidthPic = "600";
 $sizeHeightPic = "600";

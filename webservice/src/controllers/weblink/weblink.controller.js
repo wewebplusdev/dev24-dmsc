@@ -4,7 +4,6 @@ const general = require('../../middlewares/general.middleware');
 const modulus = require('../../middlewares/modulus.middleware');
 const code = config.returncode;
 const ip = require("ip");
-const axios = require('axios');
 const { base64encode, base64decode } = require('nodejs-base64');
 var fs = require('fs');
 

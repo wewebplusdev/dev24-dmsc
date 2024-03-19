@@ -4,7 +4,6 @@ const general = require('../../middlewares/general.middleware');
 const modulus = require('../../middlewares/modulus.middleware');
 const code = config.returncode;
 const ip = require("ip");
-const axios = require('axios');
 const { base64encode, base64decode } = require('nodejs-base64');
 var fs = require('fs');
 
@@ -22,6 +21,7 @@ async function getNewsGroup(req, res) {
     const order = req.body.order;
     const page = req.body.page;
     const limit = req.body.limit;
+    const id = req.body.id;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -49,9 +49,11 @@ async function getNewsGroup(req, res) {
                 WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['nw']}' 
                 AND ${config_array_db['md_cmg']}_status != 'Disable' 
                 AND ${config_array_db['md_cmgl']}_language = '${language}' 
-                AND ${config_array_db['md_cmgl']}_subject != '' 
-                ORDER BY ${config_array_db['md_cmg']}_order ${order} 
-                `;
+                AND ${config_array_db['md_cmgl']}_subject != '' `;
+            if (parseInt(id) > 0) {
+                sql_list = sql_list + ` AND ${config_array_db['md_cmg']}_id = '${id}' `;
+            }
+            sql_list = sql_list + ` ORDER BY ${config_array_db['md_cmg']}_order ${order} `;
             const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
