@@ -11,11 +11,6 @@ const language = $("html").attr("lang");
 
 $(document).ready(function () {
 
-  // $('.main-menu .nav-link.dropdown-toggle').click(function () {
-  //   $('.main-menu > .nav-item > .nav-link').removeClass('active');
-  //   $(this).addClass('active');
-  // });
-
   $('.full-dropdown-menu').on('click', function (event) {
     event.stopPropagation();
   });
@@ -79,6 +74,8 @@ $(document).ready(function () {
   $('.nav-search .close-search').click(function () {
     $('.nav-search').removeClass('open')
   });
+
+  var lazyLoadInstance = new LazyLoad({});
 
   // const progressCircle = document.querySelector(".autoplay-progress svg");
   // const progressContent = document.querySelector(".autoplay-progress span");
