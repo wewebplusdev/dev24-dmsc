@@ -8,7 +8,7 @@
             <div class="subtitle">กระทรวงสาธารณสุข</div>
           </div>
           <div class="col-auto col-right">
-            <div class="title">098 915 6809</div>
+            <div class="title"><a href="tel:098 915 6809" class="link">098 915 6809</a></div>
             <div class="subtitle"><img src="<?php echo $core_template; ?>/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
           </div>
         </div>
@@ -40,7 +40,7 @@
                 <div class="col">
                   <p class="desc">
                     <span class="d-block">ติดต่อสอบถามข้อมูล</span>
-                    02 589 9850 ถึง 8
+                    <a href="tel:02 589 9850" class="link">02 589 9850 ถึง 8</a>
                   </p>
                 </div>
               </div>
@@ -55,7 +55,7 @@
                 <div class="col">
                   <p class="desc">
                     <span class="d-block">โทรสาร</span>
-                    02 591 5974
+                    <a href="fax:02 591 5974" class="link">02 591 5974</a>
                   </p>
                 </div>
               </div>
@@ -70,15 +70,17 @@
                 <div class="col">
                   <p class="desc">
                     <span class="d-block">อีเมล์</span>
-                    <span class="d-block">prdmsc@dmsc.mail.go.th</span>
-                    <span class="d-block">info@dmsc.mail.go.th</span>
+                    <a href="mailto:prdmsc@dmsc.mail.go.th" class="link"><span class="d-block">prdmsc@dmsc.mail.go.th</span></a>
+                    <a href="mailto:info@dmsc.mail.go.th" class="link"><span class="d-block">info@dmsc.mail.go.th</span></a>
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-auto">
-            <div class="contact">
+          <!-- Force next columns to break to new line -->
+          <div class="w-100 p-0"></div>
+          <div class="col-md">
+            <div class="contact pt-md-3">
               <div class="row no-gutters">
                 <div class="col-auto">
                   <img src="<?php echo $core_template; ?>/img/icon/contact-icon-fax.svg" alt="" class="icon">
@@ -86,44 +88,52 @@
                 <div class="col">
                   <p class="desc">
                     <span class="d-block">ข้อมูลโดย ฝ่ายประชาสัมพันธ์ สำนักงานเลขานุการกรม</span>
-                    <span class="d-block">E-mail : prdmsc@dmsc.mail.go.th</span>
+                    <span class="d-block">E-mail : <a href="prdmsc@dmsc.mail.go.th" class="link">prdmsc@dmsc.mail.go.th</a></span>
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-auto">
-            <div class="followus">
-              <div class="row no-gutters align-items-center">
+            <div class="ipv6">
+              <picture>
+                <source srcset="<?php echo $core_template; ?>/img/static/ipv6.webp" type="image/webp">
+                <img src="<?php echo $core_template; ?>/img/static/ipv6.png" alt="" class="icon">
+              </picture>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="followus pt-md-3">
+              <div class="row no-gutters align-items-center justify-content-md-end">
                 <div class="col-auto">
                   Follow us:
                 </div>
-                <div class="col">
+                <div class="col-auto">
                   <div class="social">
                     <ul class="item-list">
                       <li>
-                        <a href="" class="link">
+                        <a href="" class="link tele">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/old-typical-phone.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
-                        <a href="" class="link">
+                        <a href="" class="link fb">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/facebook.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
-                        <a href="" class="link">
+                        <a href="" class="link tw">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/twitter.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
-                        <a href="" class="link">
+                        <a href="" class="link line">
                           <div class="rounded-0">
                             <img src="<?php echo $core_template; ?>/img/icon/line.svg" alt="" class="icon">
                           </div>
