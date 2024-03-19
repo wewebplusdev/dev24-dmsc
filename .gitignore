@@ -4,3 +4,6 @@
 front/temp/*
 **node_modules**
 webservice/src/.env
+gulpfile.js
+package.json
+package-lock.json
