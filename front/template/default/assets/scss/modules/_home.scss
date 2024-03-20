@@ -1,14 +1,96 @@
 .top-graphic {
+  .default-swiper {
+    overflow: hidden;
+  }
   .cover {
     padding-top: 40%;
   }
 }
 
 .wg-services {
-  padding: 80px 0;
+  padding: 80px 0 140px 0;
   background-image: url("../img/background/bg-services.png");
   @include bg($position: top center);
   min-height: 600px;
+}
+.service-category {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  .service-category-list {
+    position: relative;
+    margin: -20px;
+    .item {
+      padding: 20px;
+    }
+    .default-swiper {
+      overflow: visible;
+      .swiper-slide {
+        opacity: 0;
+        visibility: hidden;
+        &.swiper-slide-visible.swiper-slide-fully-visible {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        height: 44px;
+      }
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 44px;
+      }
+    }
+  }
+  .btn {
+    position: relative;
+    font-size: var(--typo-sm);
+    color: var(--color-secondary);
+    border: 1px solid transparent;
+    height: 60px;
+    line-height: 58px;
+    width: 100%;
+    min-width: 100px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--color-secondary);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        1em 100%,
+        0 calc(100% - 1em),
+        0 0,
+        2px 2px,
+        2px calc(100% - 1em - 0.83px),
+        calc(1em + 0.83px) calc(100% - 2px),
+        calc(100% - 2px) calc(100% - 2px),
+        calc(100% - 2px) 2px,
+        2px 2px
+      );
+    }
+    &.selected {
+      color: var(--color-light);
+      background: var(--color-secondary);
+      // padding-right: 40px;
+      &::before {
+        display: none;
+      }
+      &::after {
+        @include google-icon;
+        content: "\f508";
+        display: inline;
+        font-size: 34px;
+        position: relative;
+        top: 10px;
+        margin-right: -5px;
+      }
+    }
+  }
 }
 
 .service-list {
@@ -82,13 +164,47 @@
       }
     }
   }
-  .swiper {
+  .default-swiper {
+    overflow: visible;
     &.swiper-grid {
       height: 820px;
+    }
+    .swiper-slide {
+      opacity: 0;
+      visibility: hidden;
+      &.swiper-slide-visible.swiper-slide-fully-visible {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+      position: relative;
+      bottom: auto;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .swiper-pagination-bullet {
+      color: var(--color-light);
+      background: var(--color-light);
     }
   }
 }
 
 .section {
   // padding: 40px 0;
+  .whead {
+    .title {
+      font-size: 48px;
+      font-weight: var(--fw-bold);
+      color: var(--color-secondary);
+    }
+    .desc {
+      font-size: 36px;
+      font-weight: var(--fw-regular);
+      color: var(--color-primary);
+    }
+  }
 }

@@ -17,7 +17,7 @@
         chevron_right
       </span> -->
       <div class="top-graphic">
-        <div class="swiper">
+        <div class="swiper default-swiper">
           <div class="swiper-wrapper">
             <?php for ($i = 1; $i <= 3; $i++) { ?>
               <div class="swiper-slide">
@@ -39,10 +39,62 @@
       <div class="section">
         <div class="wg-services lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-services.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-services@2x.webp">
           <div class="container">
-            บริการ
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="whead">
+                  <h2 class="title">บริการ</h2>
+                  <p class="desc">Services</p>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="action">
+                  <a href="" class="btn btn-primary">ดูทั้งหมด</a>
+                </div>
+              </div>
+            </div>
+            <div class="service-category">
+              <div class="service-category-list">
+                <div class="swiper default-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="item">
+                        <button type="button" class="btn selected">การแพทย์</button>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="item">
+                        <button type="button" class="btn">งานวิจัย</button>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="item">
+                        <button type="button" class="btn selected">นวัตกรรม</button>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="item">
+                        <button type="button" class="btn">ห้องปฏิบัติการ</button>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="item">
+                        <button type="button" class="btn">ระบบออนไลน์</button>
+                      </div>
+                    </div>
+                    <!-- <div class="swiper-slide">
+                      <div class="item">
+                        <button type="button" class="btn">Lorem ipsum dolor sit amet consec</button>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+              </div>
+            </div>
             <div class="service-list">
               <div class="service-slide">
-                <div class="swiper">
+                <div class="swiper default-swiper">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="item">
@@ -317,6 +369,8 @@
                       </div>
                     </div>
                   </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
                   <div class="swiper-pagination"></div>
                 </div>
               </div>
@@ -341,11 +395,25 @@
       },
     });
 
+    var scSwiper = new Swiper(".service-category-list .swiper", {
+      slidesPerView: 5,
+      watchSlidesProgress: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
     var serviceSwiper = new Swiper(".service-slide .swiper", {
       slidesPerView: 5,
+      watchSlidesProgress: true,
       grid: {
         rows: 3,
         // fill: "row"
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       pagination: {
         el: ".swiper-pagination",
