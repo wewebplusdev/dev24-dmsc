@@ -402,116 +402,141 @@
 
           <div class="row no-gutters">
             <div class="col">
-              <div class="wg-research-group -left">
-                <div class="row">
-                  <div class="col">
-                    <div class="whead">
-                      <h2 class="title">การทดสอบความชำนาญ</h2>
-                      <p class="desc">DMSC PT</p>
-                      <div class="total">120</div>
-                      <div class="unit">แผนการทดสอบ</div>
+              <a href="" class="link">
+                <div class="wg-research-group -left">
+                  <div class="row">
+                    <div class="col">
+                      <div class="whead">
+                        <h2 class="title">การทดสอบความชำนาญ</h2>
+                        <p class="desc">DMSC PT</p>
+                        <div class="total">120</div>
+                        <div class="unit">แผนการทดสอบ</div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="graphic">
+                        <picture>
+                          <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01@2x.webp" data-="" type="image/webp">
+                          <img src="<?php echo $core_template; ?>/img/static/wg-research-graphic-01.png" data-src="<?php echo $core_template; ?>/img/static/wg-research-graphic-01@2x.png" alt="" class="lazy">
+                        </picture>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-auto">
-                    <div class="graphic">
-                      <picture>
-                        <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01@2x.webp" data-="" type="image/webp">
-                        <img src="<?php echo $core_template; ?>/img/static/wg-research-graphic-01.png" data-src="<?php echo $core_template; ?>/img/static/wg-research-graphic-01@2x.png" alt="" class="lazy">
-                      </picture>
-                    </div>
+                  <div class="bg-obj">
+                    <img src="<?php echo $core_template; ?>/img/background/bg-test-tube.svg" alt="" class="lazy">
                   </div>
                 </div>
-                <div class="bg-obj">
-                  <img src="<?php echo $core_template; ?>/img/background/bg-test-tube.svg" alt="" class="lazy">
-                </div>
-              </div>
+              </a>
             </div>
             <div class="col">
-              <div class="wg-research-group -right">
-                <div class="row">
-                  <div class="col">
-                    <div class="whead">
-                      <h2 class="title">รายการให้บริการตรวจวิเคราะห์</h2>
-                      <p class="desc">Analysis service</p>
-                      <div class="total">1,873</div>
-                      <div class="unit">รายการ</div>
+              <a href="" class="link">
+                <div class="wg-research-group -right">
+                  <div class="row">
+                    <div class="col">
+                      <div class="whead">
+                        <h2 class="title">รายการให้บริการตรวจวิเคราะห์</h2>
+                        <p class="desc">Analysis service</p>
+                        <div class="total">1,873</div>
+                        <div class="unit">รายการ</div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="graphic">
+                        <picture>
+                          <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02@2x.webp" data-="" type="image/webp">
+                          <img src="<?php echo $core_template; ?>/img/static/wg-research-graphic-02.png" data-src="<?php echo $core_template; ?>/img/static/wg-research-graphic-02@2x.png" alt="" class="lazy">
+                        </picture>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-auto">
-                    <div class="graphic">
-                      <picture>
-                        <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02@2x.webp" data-="" type="image/webp">
-                        <img src="<?php echo $core_template; ?>/img/static/wg-research-graphic-02.png" data-src="<?php echo $core_template; ?>/img/static/wg-research-graphic-02@2x.png" alt="" class="lazy">
-                      </picture>
-                    </div>
+                  <div class="bg-obj">
+                    <img src="<?php echo $core_template; ?>/img/background/bg-microscope.svg" alt="" class="lazy">
                   </div>
                 </div>
-                <div class="bg-obj">
-                  <img src="<?php echo $core_template; ?>/img/background/bg-microscope.svg" alt="" class="lazy">
-                </div>
-              </div>
+              </a>
             </div>
           </div>
 
-          <div class="wg-research-list">
+          <div class="wg-research-list lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-research.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-research@2x.webp">
             <div class="container">
               <div class="swiper default-swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <div class="item">
-                      <div class="wg-research-group">
-                        <div class="card">
-                          <div class="card-body">
-                            <div class="whead">
-                              <h2 class="title">องค์ความรู้</h2>
-                              <p class="desc">Knowledge</p>
-                              <div class="total">1,262</div>
-                              <div class="unit">รายการ</div>
+                      <a href="" class="link">
+                        <div class="wg-research-group">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="whead">
+                                <h2 class="title">องค์ความรู้</h2>
+                                <p class="desc">Knowledge</p>
+                                <div class="total">1,262</div>
+                                <div class="unit">
+                                  รายการ
+                                  <span class="material-symbols-rounded">
+                                    expand_circle_right
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
+                          <div class="bg-obj">
+                            <img src="<?php echo $core_template; ?>/img/background/bg-math.svg" alt="" class="lazy">
+                          </div>
                         </div>
-                        <div class="bg-obj">
-                          <img src="<?php echo $core_template; ?>/img/background/bg-math.svg" alt="" class="lazy">
-                        </div>
-                      </div>
+                      </a>
                     </div>
                   </div>
                   <div class="swiper-slide">
                     <div class="item">
-                      <div class="wg-research-group">
-                        <div class="card">
-                          <div class="card-body">
-                            <div class="whead">
-                              <h2 class="title">นวัตกรรม</h2>
-                              <p class="desc">Innovation</p>
-                              <div class="total">233</div>
-                              <div class="unit">รายการ</div>
+                      <a href="" class="link">
+                        <div class="wg-research-group">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="whead">
+                                <h2 class="title">นวัตกรรม</h2>
+                                <p class="desc">Innovation</p>
+                                <div class="total">233</div>
+                                <div class="unit">
+                                  รายการ
+                                  <span class="material-symbols-rounded">
+                                    expand_circle_right
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
+                          <div class="bg-obj">
+                            <img src="<?php echo $core_template; ?>/img/background/bg-science.svg" alt="" class="lazy">
+                          </div>
                         </div>
-                        <div class="bg-obj">
-                          <img src="<?php echo $core_template; ?>/img/background/bg-science.svg" alt="" class="lazy">
-                        </div>
-                      </div>
+                      </a>
                     </div>
                   </div>
                   <div class="swiper-slide">
                     <div class="item">
-                      <div class="wg-research-group">
-                        <div class="card">
-                          <div class="card-body">
-                            <div class="whead">
-                              <h2 class="title">เทคโนโลยี</h2>
-                              <p class="desc">Technology</p>
-                              <div class="total">40</div>
-                              <div class="unit">รายการ</div>
+                      <a href="" class="link">
+                        <div class="wg-research-group">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="whead">
+                                <h2 class="title">เทคโนโลยี</h2>
+                                <p class="desc">Technology</p>
+                                <div class="total">40</div>
+                                <div class="unit">
+                                  รายการ
+                                  <span class="material-symbols-rounded">
+                                    expand_circle_right
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
+                          <div class="bg-obj">
+                            <img src="<?php echo $core_template; ?>/img/background/bg-experiment.svg" alt="" class="lazy">
+                          </div>
                         </div>
-                        <div class="bg-obj">
-                          <img src="<?php echo $core_template; ?>/img/background/bg-experiment.svg" alt="" class="lazy">
-                        </div>
-                      </div>
+                      </a>
                     </div>
                   </div>
                 </div>
