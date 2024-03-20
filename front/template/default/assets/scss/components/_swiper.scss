@@ -17,6 +17,18 @@ $--swiper-nav-position: -60px;
         color: var(--color-secondary);
         height: 55px;
     }
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        @include google-icon;
+    }
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after {
+        content: "\e5e0";
+    }
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after {
+        content: "\e5e1";
+    }
     .swiper-button-next::after,
     .swiper-button-prev::after {
         font-size: 55px;
