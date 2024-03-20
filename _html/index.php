@@ -404,7 +404,7 @@
             <div class="col">
               <a href="" class="link">
                 <div class="wg-research-group -left">
-                  <div class="row">
+                  <div class="row no-gutters">
                     <div class="col">
                       <div class="whead">
                         <h2 class="title">การทดสอบความชำนาญ</h2>
@@ -431,7 +431,7 @@
             <div class="col">
               <a href="" class="link">
                 <div class="wg-research-group -right">
-                  <div class="row">
+                  <div class="row no-gutters">
                     <div class="col">
                       <div class="whead">
                         <h2 class="title">รายการให้บริการตรวจวิเคราะห์</h2>
@@ -544,6 +544,14 @@
                 <div class="swiper-button-prev"></div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section section-iii">
+        <div class="wg-about">
+          <div class="container">
+
           </div>
         </div>
       </div>

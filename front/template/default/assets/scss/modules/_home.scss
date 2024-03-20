@@ -241,6 +241,7 @@
         position: relative;
         top: 10px;
         margin-left: 10px;
+        transition: all 200ms ease;
       }
     }
   }
@@ -253,6 +254,7 @@
   .bg-obj {
     position: absolute;
     pointer-events: none;
+    transition: all 400ms ease-in-out;
   }
   &.-left {
     text-align: right;
@@ -271,7 +273,7 @@
       flex-direction: row-reverse;
     }
     .graphic {
-      left: 10px;
+      left: 0;
     }
     .bg-obj {
       bottom: 0;
@@ -299,7 +301,7 @@
       }
     }
     .graphic {
-      right: 30px;
+      right: 10px;
     }
     .bg-obj {
       bottom: 0;
@@ -315,6 +317,18 @@
     background: var(--color-primary);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 2.5em 100%, 0 calc(100% - 2.5em));
   }
+  &:hover {
+    .bg-obj {
+      transform: scale(1.2);
+    }
+    .whead {
+      .unit {
+        span {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
 }
 .wg-research-list {
   padding-bottom: 80px;
@@ -322,6 +336,7 @@
   background-repeat: no-repeat;
   background-position: top center;
   .wg-research-group {
+    overflow: hidden;
     filter: drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.1));
     .card {
       color: var(--color-light);
