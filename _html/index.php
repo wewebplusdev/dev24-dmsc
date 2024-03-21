@@ -13,9 +13,6 @@
 
     <section class="layout-body">
 
-      <!-- <span class="material-symbols-rounded">
-        chevron_right
-      </span> -->
       <div class="top-graphic">
         <div class="swiper default-swiper">
           <div class="swiper-wrapper">
@@ -454,7 +451,7 @@
               </a>
             </div>
           </div>
-          <div class="wg-research-list lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-research.png" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-research@2x.png">
+          <div class="wg-research-list lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-research.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-research@2x.webp">
             <div class="container">
               <div class="swiper default-swiper">
                 <div class="swiper-wrapper">
@@ -633,6 +630,17 @@
                 <source srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.webp" data-="" type="image/webp">
                 <img src="<?php echo $core_template; ?>/img/static/wg-about-graphic.png" data-src="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.png" alt="" class="lazy">
               </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section section-iv">
+        <div class="wg-news">
+          <div class="container">
+            <div class="row">
+              <div class="col"></div>
+              <div class="col-auto"></div>
             </div>
           </div>
         </div>
