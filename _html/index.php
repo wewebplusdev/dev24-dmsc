@@ -782,9 +782,9 @@
                       <img src="<?php echo $core_template; ?>/img/background/bg-destination.svg" alt="" class="lazy">
                     </div>
                     <p class="subtitle">ตรวจสอบ<br>หน่วยบริการใกล้คุณ</p>
-                    <div class="action">
-                      <a href="" class="btn btn-primary">คลิกเลย</a>
-                    </div>
+                  </div>
+                  <div class="action">
+                    <a href="" class="btn btn-primary">คลิกเลย</a>
                   </div>
                 </div>
                 <div class="bg" data-aos="fade-right">

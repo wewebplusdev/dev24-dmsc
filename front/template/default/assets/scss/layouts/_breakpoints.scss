@@ -1,31 +1,69 @@
 @media (min-width: 1200px) {
-	.container{max-width: inherit; width: 1210px;}
+	.container {
+		max-width: inherit;
+		width: 1210px;
+	}
 }
 
 @media (min-width: 1441px) {
-	.container{max-width: inherit; width: 1310px;}
+	.container {
+		max-width: inherit;
+		width: 1310px;
+	}
 }
 
 @media (max-width: 1600px) {
-	.container{max-width: inherit; width: 1210px;}
+	.container {
+		max-width: inherit;
+		width: 1210px;
+	}
 }
 
 @media (max-width: 1440px) {
-	.container{max-width: inherit; width: 1210px;}
+	.container {
+		max-width: inherit;
+		width: 1210px;
+	}
+
+	.btn {
+		height: 54px;
+		line-height: 54px;
+		min-width: 160px;
+	}
+	.swiper-default .swiper-pagination-bullet {
+		height: 16px;
+		width: 16px;
+	}
+	.swiper-default .swiper-pagination-bullet:after {
+		width: 40px;
+		height: 40px;
+	}
 }
 
 @media (max-width: 1199px) {
-	.container{max-width: inherit; width: 970px;}
+	.container {
+		max-width: inherit;
+		width: 970px;
+	}
 }
 
 @media (max-width: 991px) {
-	.container{max-width: inherit; width: 100%;}
+	.container {
+		max-width: inherit;
+		width: 100%;
+	}
 }
 
 @media (max-width: 767px) {
-	.container{max-width: inherit; width: 100%;}
+	.container {
+		max-width: inherit;
+		width: 100%;
+	}
 }
 
 @media (max-width: 575px) {
-	.container{max-width: inherit; width: 100%;}
+	.container {
+		max-width: inherit;
+		width: 100%;
+	}
 }

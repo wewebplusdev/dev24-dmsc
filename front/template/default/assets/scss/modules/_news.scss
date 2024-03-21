@@ -4,7 +4,7 @@
   background-color: transparent;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.75em), calc(100% - 1.75em) 100%, 0 100%);
   transform: all 200ms ease;
-  .card-body{
+  .card-body {
     padding: 30px;
   }
   .thumbnail {
@@ -31,7 +31,7 @@
   .action {
     font-size: var(--typo-xs);
     color: var(--color-primary);
-    span{
+    span {
       position: relative;
       top: 5px;
     }
@@ -51,5 +51,16 @@
 @media (max-width: 1600px) {
   .news-card .card-body {
     padding: 25px;
+  }
+  .news-card .title {
+    font-size: var(--typo-default);
+  }
+}
+@media (max-width: 1440px) {
+  .news-card .title {
+    font-size: var(--typo-xs);
+  }
+  .news-card .desc {
+    font-size: 16px;
   }
 }

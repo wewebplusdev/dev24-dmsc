@@ -263,6 +263,63 @@
         width: 50px;
     }
 }
+@media (max-width: 1440px) {
+    .layout-header {
+        height: 110px;
+    }
+    .layout-header .navbar {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+    .layout-header .top-bar .nav-lang {
+        top: 10px;
+    }
+    .layout-header .nav-lang a,
+    .layout-header .nav-lang button {
+        height: 26px;
+        width: 26px;
+        line-height: 26px;
+    }
+    .layout-header .navbar-brand .brand-logo {
+        width: 58px;
+    }
+    .layout-header .navbar-brand .brand-txt .title {
+        font-size: 17px;
+    }
+    .layout-header .navbar-brand .brand-txt .subtitle {
+        font-size: 11px;
+    }
+    .layout-header .main-menu .nav-link,
+    .layout-header .top-bar .nav-lang .nav-label {
+        font-size: 14px;
+    }
+    .layout-header .form-search .btn-link svg {
+        width: 22px;
+        height: 22px;
+    }
+    .layout-header .nav-search.open .form-control {
+        font-size: 18px;
+    }
+    .layout-header.tiny {
+        height: 85px;
+    }
+    .layout-header.tiny .navbar {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+    .layout-header.tiny .navbar-brand .brand-logo {
+        width: 44px;
+    }
+    .layout-header.tiny .navbar-brand .brand-txt .title {
+        font-size: 12px;
+    }
+    .layout-header.tiny .navbar-brand .brand-txt .subtitle {
+        font-size: 9px;
+    }
+    .layout-header.tiny .full-dropdown-menu {
+        top: 85px !important;
+    }
+}
 @media (max-width: 991px) {
     .layout-header .navbar {
         padding: 0;

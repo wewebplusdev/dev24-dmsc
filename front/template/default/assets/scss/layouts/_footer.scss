@@ -196,3 +196,11 @@
   }
   .layout-footer .footer-bar{font-size: 16px;}
 }
+@media (max-width: 1440px) {
+  .layout-footer .footer-top .title {
+    font-size: 38px;
+  }
+  .layout-footer .footer-top .subtitle {
+    font-size: 28px;
+  }
+}
