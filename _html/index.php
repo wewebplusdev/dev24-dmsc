@@ -33,12 +33,12 @@
         </div>
       </div>
 
-      <div class="section section-i" data-aos="fade-up">
+      <div class="section section-i overflow-hidden" data-aos="fade-up">
         <div class="wg-services lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-services.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-services@2x.webp">
           <div class="container">
             <div class="row align-items-center">
               <div class="col">
-                <div class="whead" data-aos="fade-right">
+                <div class="whead mb-0" data-aos="fade-right">
                   <h2 class="title">บริการ</h2>
                   <p class="subtitle">Services</p>
                 </div>
@@ -382,7 +382,7 @@
             <div class="container">
               <div class="row align-items-center">
                 <div class="col">
-                  <div class="whead">
+                  <div class="whead mb-0">
                     <h2 class="title">งานวิจัยและนวัตกรรม</h2>
                     <p class="subtitle">Research & Innovation</p>
                   </div>
@@ -498,6 +498,30 @@
                           </div>
                           <div class="bg-obj">
                             <img src="<?php echo $core_template; ?>/img/background/bg-science.svg" alt="" class="lazy">
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="item">
+                      <a href="" class="link">
+                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="whead">
+                                <h3 class="title">เทคโนโลยี</h3>
+                                <p class="subtitle">Technology</p>
+                                <div class="total">40</div>
+                                <div class="unit">
+                                  รายการ
+                                  <span class="material-symbols-rounded">expand_circle_right</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bg-obj">
+                            <img src="<?php echo $core_template; ?>/img/background/bg-experiment.svg" alt="" class="lazy">
                           </div>
                         </div>
                       </a>

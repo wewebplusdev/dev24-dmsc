@@ -1,173 +1,198 @@
 .layout-footer {
+  .link {
+    color: var(--color-default);
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+  .contact {
+    .icon {
+      padding-top: 4px;
+      margin-right: 15px;
+      max-width: 37px;
+    }
+    .desc {
+      font-size: var(--typo-default);
+      font-weight: var(--fw-regular);
+      line-height: 1.4em;
+    }
+  }
+  .social {
+    ul.item-list {
+      > li {
+        + li {
+          margin-left: 5px;
+        }
+      }
+    }
     .link {
-        color: var(--color-default);
-        &:hover {
-            color: var(--color-secondary);
-        }
-    }
-    .contact {
-        .icon {
-            padding-top: 4px;
-            margin-right: 15px;
-            max-width: 37px;
-        }
-        .desc {
-            font-size: var(--typo-default);
-            font-weight: var(--fw-regular);
-            line-height: 1.4em;
-        }
-    }
-    .social {
-        ul.item-list {
-            > li {
-                + li {
-                    margin-left: 5px;
-                }
-            }
-        }
-        .link {
-            .icon {
-                height: 22px;
-            }
-            .rounded-0 {
-                background-color: var(--color-gray);
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .icon {
-                filter: grayscale(1) brightness(100) invert(1);
-            }
-            &.tele {
-                .rounded-0 {
-                    background-color: #0e629d;
-                }
-            }
-            &.fb {
-                .rounded-0 {
-                    background-color: #092b89;
-                    // background-color: #4267B2;
-                }
-            }
-            &.tw {
-                .rounded-0 {
-                    // background-color: #03bff3;
-                    background-color: #14171a;
-                }
-            }
-            &.yt{
-                .rounded-0 {
-                    background-color: #F61C0D;
-                }
-            }
-            &.line {
-                .rounded-0 {
-                    background-color: #21ce24;
-                }
-            }
-            &:hover {
-                opacity: 0.75;
-            }
-        }
-    }
-    .ipv6 {
-        width: 90px;
-    }
-    .followus {
-        .social {
-            margin-left: 15px;
-        }
-    }
-    .policy {
-        ul.item-list {
-            margin: 0 -10px;
-            > li {
-                padding: 0 10px;
-                + li {
-                    border-left: 1px solid var(--color-default);
-                }
-            }
-        }
-    }
-    .sitemap {
-        color: var(--color-secondary);
-        &:hover {
-            color: var(--color-primary);
-        }
-    }
-    .copyright {
-        margin: 0;
-    }
-    .visitors {
+      .icon {
+        height: 22px;
+      }
+      .rounded-0 {
+        background-color: var(--color-gray);
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
-        .box {
-            margin-left: 15px;
-            border: 1px solid;
-            border-radius: var(--rounded);
-            line-height: 38px;
-            padding: 0 15px;
+        justify-content: center;
+      }
+      .icon {
+        filter: grayscale(1) brightness(100) invert(1);
+      }
+      &.tele {
+        .rounded-0 {
+          background-color: #0e629d;
         }
-    }
-    .footer-content {
-        background-color: var(--color-light);
-        background-image: url("../img/background/bg-footer.png");
-        @include bg;
-        background-blend-mode: luminosity;
-    }
-    .footer-top {
-        padding: 60px 0;
-        .title {
-            font-size: 48px;
-            font-weight: var(--fw-bold);
-            color: var(--color-secondary);
-            margin: 0;
-            .link {
-                color: var(--color-secondary);
-            }
+      }
+      &.fb {
+        .rounded-0 {
+          background-color: #092b89;
+          // background-color: #4267B2;
         }
-        .subtitle {
-            font-size: 36px;
-            font-weight: var(--fw-regular);
-            color: var(--color-primary);
-            margin-bottom: 0;
-            margin-top: 10px;
-            .icon {
-                margin-top: -2px;
-                margin-right: 10px;
-            }
+      }
+      &.tw {
+        .rounded-0 {
+          // background-color: #03bff3;
+          background-color: #14171a;
         }
-        .col-left {
-            text-align: left;
+      }
+      &.yt {
+        .rounded-0 {
+          background-color: #f61c0d;
         }
-        .col-right {
-            text-align: right;
+      }
+      &.line {
+        .rounded-0 {
+          background-color: #21ce24;
         }
+      }
+      &:hover {
+        opacity: 0.75;
+      }
     }
-    .footer-middle {
-        border-top: 1px solid #cccccc;
-        margin-top: -1px;
-        padding: 60px 0;
-        > .row {
-            margin: -30px -15px;
-            > div {
-                padding: 30px 15px;
-            }
+  }
+  .ipv6 {
+    width: 90px;
+  }
+  .followus {
+    .social {
+      margin-left: 15px;
+    }
+  }
+  .policy {
+    ul.item-list {
+      margin: 0 -10px;
+      > li {
+        padding: 0 10px;
+        + li {
+          border-left: 1px solid var(--color-default);
         }
+      }
     }
-    .footer-bottom {
-        border-top: 1px solid #cccccc;
-        margin-top: -1px;
-        padding: 20px 0;
-        font-size: var(--typo-xs);
+  }
+  .sitemap {
+    color: var(--color-secondary);
+    &:hover {
+      color: var(--color-primary);
     }
-    .footer-bar {
-        font-size: var(--typo-xs);
-        font-weight: var(--fw-regular);
-        color: var(--color-light);
-        background: linear-gradient(to right, #01377d 0%, #2ab170 100%);
-        padding: 10px 0;
+  }
+  .copyright {
+    margin: 0;
+  }
+  .visitors {
+    display: flex;
+    align-items: center;
+    .box {
+      margin-left: 15px;
+      border: 1px solid;
+      border-radius: var(--rounded);
+      line-height: 38px;
+      padding: 0 15px;
     }
+  }
+  .footer-content {
+    background-color: var(--color-light);
+    background-image: url("../img/background/bg-footer.png");
+    @include bg;
+    background-blend-mode: luminosity;
+  }
+  .footer-top {
+    padding: 60px 0;
+    .title {
+      font-size: 48px;
+      font-weight: var(--fw-bold);
+      color: var(--color-secondary);
+      margin: 0;
+      .link {
+        color: var(--color-secondary);
+      }
+    }
+    .subtitle {
+      font-size: 36px;
+      font-weight: var(--fw-regular);
+      color: var(--color-primary);
+      margin-bottom: 0;
+      margin-top: 10px;
+      .icon {
+        margin-top: -2px;
+        margin-right: 10px;
+      }
+    }
+    .col-left {
+      text-align: left;
+    }
+    .col-right {
+      text-align: right;
+    }
+  }
+  .footer-middle {
+    border-top: 1px solid #cccccc;
+    margin-top: -1px;
+    padding: 60px 0;
+    > .row {
+      margin: -30px -15px;
+      > div {
+        padding: 30px 15px;
+      }
+    }
+  }
+  .footer-bottom {
+    border-top: 1px solid #cccccc;
+    margin-top: -1px;
+    padding: 20px 0;
+    font-size: var(--typo-xs);
+  }
+  .footer-bar {
+    font-size: var(--typo-xs);
+    font-weight: var(--fw-regular);
+    color: var(--color-light);
+    background: linear-gradient(to right, #01377d 0%, #2ab170 100%);
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 1600px) {
+  .layout-footer .footer-top .title {
+    font-size: 44px;
+  }
+  .layout-footer .footer-top .subtitle {
+    font-size: 32px;
+  }
+  .layout-footer .contact .icon {
+    max-width: 36px;
+  }
+  .layout-footer .contact .desc {
+    font-size: var(--typo-xs);
+  }
+  .layout-footer .ipv6 {
+    width: 85px;
+  }
+  .layout-footer .policy {
+    font-size: 16px;
+  }
+  .layout-footer .sitemap {
+    font-size: 16px;
+  }
+  .layout-footer .footer-bar{font-size: 16px;}
 }

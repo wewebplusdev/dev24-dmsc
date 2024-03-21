@@ -390,6 +390,9 @@
   }
   .swiper-default {
     overflow: visible;
+    // .swiper-wrapper {
+    //   overflow: hidden;
+    // }
     .swiper-slide {
       .item {
         opacity: 0;
@@ -686,5 +689,56 @@
     .desc {
       line-height: 1.5em;
     }
+  }
+}
+
+@media (max-width: 1600px) {
+  .section .whead .title {
+    font-size: 44px;
+  }
+  .section .whead .subtitle {
+    font-size: 32px;
+  }
+  .service-category .btn {
+    font-size: var(--typo-default);
+  }
+  .service-list .item .thumbnail {
+    width: 90px;
+  }
+  .service-list .item .card-body {
+    padding: 25px 20px;
+  }
+  .wg-research-group .whead .title {
+    font-size: 36px;
+  }
+  .wg-research-group .whead .subtitle {
+    font-size: 28px;
+  }
+  .wg-research-group .whead .total {
+    font-size: 70px;
+  }
+  .wg-research-group .graphic {
+    width: 400px;
+  }
+  .wg-research-group.-left .bg-obj img {
+    height: 160px;
+  }
+  .wg-research-group.-right .bg-obj img {
+    height: 160px;
+  }
+  .wg-about .graphic {
+    bottom: -140px;
+    margin-left: -480px;
+    width: 850px;
+  }
+  .wg-news .wg-news-tab {
+    width: 880px;
+    padding-right: 170px;
+  }
+  .wg-lab .bg {
+    width: 56vw;
+  }
+  .wg-contact .bg {
+    width: 44vw;
   }
 }

@@ -6,6 +6,7 @@
     height: 140px;
     background: var(--color-light);
     z-index: 1001;
+    transition: height 400ms ease;
     // .navbar-nav .dropdown-menu{margin-top: 14px;border-radius: 0;}
     .top-bar {
         position: relative;
@@ -99,7 +100,7 @@
         }
     }
     .nav-search {
-        margin-left: 15px;
+        margin-left: 10px;
         svg.feather {
             stroke-width: 3px;
         }
@@ -229,6 +230,39 @@
     }
 }
 
+@media (max-width: 1600px) {
+    .layout-header {
+        height: 122px;
+    }
+    .layout-header .navbar {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+    .layout-header .navbar-brand .brand-logo {
+        width: 68px;
+    }
+    .layout-header .navbar-brand .brand-txt .title {
+        font-size: 18px;
+    }
+    .layout-header .navbar-brand .brand-txt .subtitle {
+        font-size: 12px;
+    }
+    .layout-header .main-menu .nav-link {
+        font-size: 15px;
+    }
+    .layout-header .top-bar .nav-lang .nav-label {
+        font-size: 15px;
+    }
+    .layout-header .nav-lang a,
+    .layout-header .nav-lang button {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+    }
+    .layout-header.tiny .navbar-brand .brand-logo {
+        width: 50px;
+    }
+}
 @media (max-width: 991px) {
     .layout-header .navbar {
         padding: 0;
