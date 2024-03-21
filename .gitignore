@@ -1,6 +1,6 @@
 *.zip
 *.logs
-**upload**
+**upload
 front/temp/*
 **node_modules**
 webservice/src/.env
