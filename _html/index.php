@@ -745,6 +745,98 @@
         </div>
       </div>
 
+      <div class="section section-v overflow-hidden" style="position: relative;">
+        <div class="container">
+          <div class="row no-gutters">
+            <div class="col-lg-7 col-md-6 col-12" style="position: unset;">
+              <div class="wg-lab">
+                <div class="content">
+                  <div class="whead">
+                    <h2 class="title">บริการตรวจวิเคราะห์<br>ทางห้องปฏิบัติการ</h2>
+                    <p class="subtitle">Lab</p>
+                    <div class="bg-obj">
+                      <img src="<?php echo $core_template; ?>/img/background/bg-destination.svg" alt="" class="lazy">
+                    </div>
+                    <p class="subtitle">ตรวจสอบ<br>หน่วยบริการใกล้คุณ</p>
+                    <div class="action">
+                      <a href="" class="btn btn-primary">คลิกเลย</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg">
+                  <picture>
+                    <source srcset="<?php echo $core_template; ?>/img/background/bg-wg-lab.webp" data-srcset="<?php echo $core_template; ?>/img/background/bg-wg-lab@2x.webp" type="image/webp">
+                    <img src="<?php echo $core_template; ?>/img/background/bg-wg-lab.png" data-src="<?php echo $core_template; ?>/img/background/bg-wg-lab@2x.png" alt="" class="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-12" style="position: unset;">
+              <div class="wg-contact">
+                <div class="content">
+                  <div class="whead">
+                    <h2 class="title">ติดต่อ/<br>สอบถามข้อมูล</h2>
+                    <p class="subtitle">Contact</p>
+                  </div>
+                  <div class="contact-list">
+                    <div class="row no-gutters">
+                      <div class="col-auto">
+                        <img src="<?php echo $core_template; ?>/img/icon/contact-icon-email.svg" alt="" class="icon">
+                      </div>
+                      <div class="col">
+                        <p class="desc">
+                          <span class="d-block">ติดต่อ/สอบถามข้อมูล</span>
+                          <span class="d-block">E-mail : <a href="prdmsc@dmsc.mail.go.th" class="link">prdmsc@dmsc.mail.go.th</a></span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col-auto">
+                        <img src="<?php echo $core_template; ?>/img/icon/contact-icon-email.svg" alt="" class="icon">
+                      </div>
+                      <div class="col">
+                        <p class="desc">
+                          <span class="d-block">สอบถามข้อมูลการตรวจวิเคราะห์</span>
+                          <span class="d-block">E-mail : <a href="onestop@dmsc.mail.go.th" class="link">onestop@dmsc.mail.go.th</a></span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col-auto">
+                        <img src="<?php echo $core_template; ?>/img/icon/contact-icon-telephone.svg" alt="" class="icon">
+                      </div>
+                      <div class="col">
+                        <p class="desc">
+                          <span class="d-block">โทรศัพท์. <a href="tel:0-2589-9850" class="link">0-2589-9850</a> ถึง 8 ต่อ 99968</span>
+                          <span class="d-block">มือถือ. <a href="tel:098-915-6809" class="link">098-915-6809</a></span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col-auto">
+                        <img src="<?php echo $core_template; ?>/img/icon/contact-icon-email.svg" alt="" class="icon">
+                      </div>
+                      <div class="col">
+                        <p class="desc">
+                          <span class="d-block">รับ-ส่งหนังสือราชการ</span>
+                          <span class="d-block">E-mail : <a href="saraban@dmsc.mail.go.th" class="link">saraban@dmsc.mail.go.th</a></span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg">
+                  <picture>
+                    <source srcset="<?php echo $core_template; ?>/img/background/bg-wg-contact.webp" data-srcset="<?php echo $core_template; ?>/img/background/bg-wg-contact@2x.webp" type="image/webp">
+                    <img src="<?php echo $core_template; ?>/img/background/bg-wg-contact.png" data-src="<?php echo $core_template; ?>/img/background/bg-wg-contact@2x.png" alt="" class="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <?php include('inc/footer.php'); ?>

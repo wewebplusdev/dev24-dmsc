@@ -65,7 +65,7 @@
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
-                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-fax.svg" alt="" class="icon">
+                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-email.svg" alt="" class="icon">
                 </div>
                 <div class="col">
                   <p class="desc">
