@@ -1,7 +1,7 @@
 <header class="layout-header">
   <div class="top-bar">
     <div class="container">
-      <div class="nav-lang" data-aos="fade-left">
+      <div class="nav-lang" data-aos="fade-down" data-aos-delay="200">
         <div class="row justify-content-end align-items-center gutters-10">
           <div class="col-auto">
             <div class="nav-label">เลือกภาษา</div>
@@ -24,7 +24,7 @@
   </div>
   <nav class="navbar navbar-expand-lg">
     <div class="container align-items-lg-end">
-      <a class="navbar-brand" href="index.php">
+      <a class="navbar-brand" href="index.php" data-aos="fade-right">
         <div class="brand-logo">
           <img src="<?php echo $core_template; ?>/img/static/brand-header.png" alt="DMSC LOGO">
         </div>
@@ -37,7 +37,7 @@
           </div>
         </div>
       </a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-aos="fade-left">
         <div class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -48,11 +48,11 @@
       <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
         <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php" title="หน้าหลัก">หน้าหลัก</a>
+            <a class="nav-link active" aria-current="page" href="index.php" title="หน้าหลัก" data-aos="fade-left">หน้าหลัก</a>
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="javascript:void;" title="เกี่ยวกับหน่วยงาน" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">เกี่ยวกับหน่วยงาน</a>
+              <a class="nav-link dropdown-toggle" href="javascript:void;" title="เกี่ยวกับหน่วยงาน" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">เกี่ยวกับหน่วยงาน</a>
               <div class="dropdown-menu full-dropdown-menu" aria-labelledby="my-dropdown">
                 <div class="container-dropdown-menu">
                   <div class="submenu-row">
@@ -122,7 +122,7 @@
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="javascript:void(0)" title="ซีไอโอ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ซีไอโอ</a>
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)" title="ซีไอโอ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">ซีไอโอ</a>
               <div class="dropdown-menu full-dropdown-menu" aria-labelledby="my-dropdown">
                 <div class="container-dropdown-menu">
                   <div class="submenu-row">
@@ -163,25 +163,25 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="news.php" title="ข่าว">ข่าว</a>
+            <a class="nav-link" href="news.php" title="ข่าว" data-aos="fade-left">ข่าว</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="knowledge.php" title="คลังความรู้">คลังความรู้</a>
+            <a class="nav-link" href="knowledge.php" title="คลังความรู้" data-aos="fade-left">คลังความรู้</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="service.php" title="บริการ">บริการ</a>
+            <a class="nav-link" href="service.php" title="บริการ" data-aos="fade-left">บริการ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="information.php" title="ระบบสารสนเทศ">ระบบสารสนเทศ</a>
+            <a class="nav-link" href="information.php" title="ระบบสารสนเทศ" data-aos="fade-left">ระบบสารสนเทศ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="bigdata.php" title="Big Data">Big Data</a>
+            <a class="nav-link" href="bigdata.php" title="Big Data" data-aos="fade-left">Big Data</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.php" title="ติดต่อ">ติดต่อ</a>
+            <a class="nav-link" href="contact.php" title="ติดต่อ" data-aos="fade-left">ติดต่อ</a>
           </li>
         </ul>
-        <div class="nav-search">
+        <div class="nav-search" data-aos="fade-left">
           <form class="form-default form-search" role="search">
             <div class="input-group">
               <a href="javascript:void(0)" class="btn-link">

@@ -1,6 +1,15 @@
 const path = $("base").attr("href");
 const language = $("html").attr("lang");
 
+$(function () {
+  AOS.init({
+    duration: 1000,
+    once: true,
+    // offset: 0,
+    // anchorPlacement: 'top-bottom',
+  });
+});
+
 (function ($) {
   $(window).on("load", function () {
     $(".mCustomScrollbar").mCustomScrollbar({

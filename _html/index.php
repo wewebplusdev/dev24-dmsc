@@ -13,7 +13,7 @@
 
     <section class="layout-body">
 
-      <div class="top-graphic">
+      <div class="top-graphic" data-aos="fade-down">
         <div class="swiper swiper-default">
           <div class="swiper-wrapper">
             <?php for ($i = 1; $i <= 3; $i++) { ?>
@@ -33,23 +33,23 @@
         </div>
       </div>
 
-      <div class="section section-i">
+      <div class="section section-i" data-aos="fade-up">
         <div class="wg-services lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-services.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-services@2x.webp">
           <div class="container">
             <div class="row align-items-center">
               <div class="col">
-                <div class="whead">
+                <div class="whead" data-aos="fade-right">
                   <h2 class="title">บริการ</h2>
                   <p class="subtitle">Services</p>
                 </div>
               </div>
               <div class="col-auto">
-                <div class="action">
+                <div class="action" data-aos="fade-left">
                   <a href="" class="btn btn-primary">ดูทั้งหมด</a>
                 </div>
               </div>
             </div>
-            <div class="service-category">
+            <div class="service-category" data-aos="fade-left" data-aos-delay="400">
               <div class="service-category-list">
                 <div class="swiper swiper-default">
                   <div class="swiper-wrapper">
@@ -89,7 +89,7 @@
                 </div>
               </div>
             </div>
-            <div class="service-list">
+            <div class="service-list" data-aos="fade-up">
               <div class="service-slide">
                 <div class="swiper swiper-default">
                   <div class="swiper-wrapper">
@@ -378,7 +378,7 @@
 
       <div class="section section-ii">
         <div class="wg-research">
-          <div class="wg-research-main">
+          <div class="wg-research-main" data-aos="fade-up">
             <div class="container">
               <div class="row align-items-center">
                 <div class="col">
@@ -396,7 +396,7 @@
             </div>
           </div>
           <div class="row no-gutters">
-            <div class="col-md">
+            <div class="col-md" data-aos="fade-right">
               <a href="" class="link">
                 <div class="wg-research-group -left">
                   <div class="row no-gutters">
@@ -423,7 +423,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md">
+            <div class="col-md" data-aos="fade-left">
               <a href="" class="link">
                 <div class="wg-research-group -right">
                   <div class="row no-gutters">
@@ -458,7 +458,7 @@
                   <div class="swiper-slide">
                     <div class="item">
                       <a href="" class="link">
-                        <div class="wg-research-group">
+                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                           <div class="card">
                             <div class="card-body">
                               <div class="whead">
@@ -482,7 +482,7 @@
                   <div class="swiper-slide">
                     <div class="item">
                       <a href="" class="link">
-                        <div class="wg-research-group">
+                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                           <div class="card">
                             <div class="card-body">
                               <div class="whead">
@@ -506,7 +506,7 @@
                   <div class="swiper-slide">
                     <div class="item">
                       <a href="" class="link">
-                        <div class="wg-research-group">
+                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                           <div class="card">
                             <div class="card-body">
                               <div class="whead">
@@ -536,11 +536,11 @@
         </div>
       </div>
 
-      <div class="section section-iii">
+      <div class="section section-iii" data-aos="fade-up">
         <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.webp">
           <div class="container">
             <div class="row align-items-center no-gutters">
-              <div class="col-md">
+              <div class="col-md" data-aos="fade-right">
                 <div class="content">
                   <div class="whead">
                     <h2 class="title">กรมวิทยาศาสตร์การแพทย์</h2>
@@ -563,7 +563,7 @@
                   <div class="row no-gutters">
                     <div class="col-6">
                       <a href="" class="link">
-                        <div class="wg-about-group">
+                        <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
                           <div class="card">
                             <div class="card-body">
                               <h3 class="title">ประวัติ<br>ความเป็นมา</h3>
@@ -583,7 +583,7 @@
                     </div>
                     <div class="col-6">
                       <a href="" class="link">
-                        <div class="wg-about-group">
+                        <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
                           <div class="card">
                             <div class="card-body">
                               <h3 class="title">วิสัยทัศน์ & พันธกิจ & ยุทธศาสตร์</h3>
@@ -603,7 +603,7 @@
                     </div>
                     <div class="col-6">
                       <a href="" class="link">
-                        <div class="wg-about-group">
+                        <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
                           <div class="card">
                             <div class="card-body">
                               <h3 class="title">โครงสร้าง<br>หน่วยงาน</h3>
@@ -625,7 +625,7 @@
                 </div>
               </div>
             </div>
-            <div class="graphic">
+            <div class="graphic" data-aos="fade-up" data-aos-delay="400">
               <picture>
                 <source srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.webp" data-="" type="image/webp">
                 <img src="<?php echo $core_template; ?>/img/static/wg-about-graphic.png" data-src="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.png" alt="" class="lazy">
@@ -640,7 +640,7 @@
           <div class="container">
             <div class="row no-gutters">
               <div class="col-md">
-                <div class="wg-news-nav">
+                <div class="wg-news-nav" data-aos="fade-left" data-aos-delay="200">
                   <div class="whead">
                     <h2 class="title">ข่าวสาร</h2>
                     <p class="subtitle">NEWS</p>
@@ -658,7 +658,7 @@
                 </div>
               </div>
               <div class="col-md-auto">
-                <div class="wg-news-tab wg-news-list">
+                <div class="wg-news-tab wg-news-list" data-aos="fade-up">
                   <div class="tab-content" id="news-tabContent">
                     <div class="tab-pane fade show active" id="news-01" role="tabpanel" aria-labelledby="news-01-tab">
                       <div class="wg-news-slide">
@@ -750,7 +750,7 @@
           <div class="row no-gutters">
             <div class="col-lg-7 col-md-6 col-12" style="position: unset;">
               <div class="wg-lab">
-                <div class="content">
+                <div class="content" data-aos="fade-right">
                   <div class="whead">
                     <h2 class="title">บริการตรวจวิเคราะห์<br>ทางห้องปฏิบัติการ</h2>
                     <p class="subtitle">Lab</p>
@@ -763,7 +763,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="bg">
+                <div class="bg" data-aos="fade-right">
                   <picture>
                     <source srcset="<?php echo $core_template; ?>/img/background/bg-wg-lab.webp" data-srcset="<?php echo $core_template; ?>/img/background/bg-wg-lab@2x.webp" type="image/webp">
                     <img src="<?php echo $core_template; ?>/img/background/bg-wg-lab.png" data-src="<?php echo $core_template; ?>/img/background/bg-wg-lab@2x.png" alt="" class="lazy">
@@ -773,7 +773,7 @@
             </div>
             <div class="col-lg-5 col-md-6 col-12" style="position: unset;">
               <div class="wg-contact">
-                <div class="content">
+                <div class="content" data-aos="fade-left">
                   <div class="whead">
                     <h2 class="title">ติดต่อ/<br>สอบถามข้อมูล</h2>
                     <p class="subtitle">Contact</p>
@@ -825,7 +825,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="bg">
+                <div class="bg" data-aos="fade-left">
                   <picture>
                     <source srcset="<?php echo $core_template; ?>/img/background/bg-wg-contact.webp" data-srcset="<?php echo $core_template; ?>/img/background/bg-wg-contact@2x.webp" type="image/webp">
                     <img src="<?php echo $core_template; ?>/img/background/bg-wg-contact.png" data-src="<?php echo $core_template; ?>/img/background/bg-wg-contact@2x.png" alt="" class="lazy">

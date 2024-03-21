@@ -3,11 +3,11 @@
     <div class="container">
       <div class="footer-top">
         <div class="row">
-          <div class="col-md col-left">
+          <div class="col-md col-left" data-aos="fade-left">
             <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
             <div class="subtitle">กระทรวงสาธารณสุข</div>
           </div>
-          <div class="col-auto col-right">
+          <div class="col-auto col-right" data-aos="fade-right">
             <div class="title"><a href="tel:098 915 6809" class="link">098 915 6809</a></div>
             <div class="subtitle"><img src="<?php echo $core_template; ?>/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
           </div>
@@ -15,7 +15,7 @@
       </div>
       <div class="footer-middle">
         <div class="row justify-content-between">
-          <div class="col-md-auto">
+          <div class="col-md-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto">
+          <div class="col-md-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -46,7 +46,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto">
+          <div class="col-md-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -61,7 +61,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto">
+          <div class="col-md-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -79,7 +79,7 @@
           </div>
           <!-- Force next columns to break to new line -->
           <div class="w-100 p-0"></div>
-          <div class="col-md">
+          <div class="col-md" data-aos="fade-up">
             <div class="contact pt-md-3">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -94,7 +94,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto">
+          <div class="col-md-auto" data-aos="fade-up">
             <div class="ipv6">
               <picture>
                 <source srcset="<?php echo $core_template; ?>/img/static/ipv6.webp" type="image/webp">
@@ -102,7 +102,7 @@
               </picture>
             </div>
           </div>
-          <div class="col-md">
+          <div class="col-md" data-aos="fade-up">
             <div class="followus pt-md-3">
               <div class="row no-gutters align-items-center justify-content-md-end">
                 <div class="col-auto">
@@ -156,7 +156,7 @@
       </div>
       <div class="footer-bottom">
         <div class="row">
-          <div class="col-md">
+          <div class="col-md" data-aos="fade-left">
             <div class="policy">
               <ul class="item-list">
                 <li><a href="" class="link">นโยบายและแนวปฏิบัติในการรักษาความมั่นคงปลอดภัยด้านสารสนเทศ</a></li>
@@ -165,14 +165,14 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-auto">
+          <div class="col-md-auto" data-aos="fade-right">
             <a href="" class="link sitemap">แผนผังเว็บไซต์</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="footer-bar">
+  <div class="footer-bar" data-aos="fade-up">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md">
