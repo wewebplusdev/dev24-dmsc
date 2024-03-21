@@ -34,4 +34,4 @@ $smarty->assign("languageFrontWeb", $languageFrontWeb);
 $smarty->assign("lcfWeb", $lcfWeb);
 $smarty->assign("sitemapWeb", $sitemapWeb);
 $smarty->assign("currentLangWeb", $currentLangWeb);
-// print_pre($sitemapWeb);
+// print_pre($currentLangWeb);
