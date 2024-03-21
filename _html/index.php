@@ -671,7 +671,7 @@
                                     <div class="news-card card">
                                       <div class="thumbnail">
                                         <figure class="cover">
-                                          <img src="<?php echo $core_template; ?>/img/upload/news-thumb.jpg" alt="">
+                                          <img src="<?php echo $core_template; ?>/img/uploads/news-thumb.jpg" alt="">
                                         </figure>
                                       </div>
                                       <div class="card-body">
