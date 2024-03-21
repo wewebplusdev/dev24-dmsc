@@ -43,7 +43,7 @@
               <div class="col">
                 <div class="whead">
                   <h2 class="title">บริการ</h2>
-                  <p class="desc">Services</p>
+                  <p class="subtitle">Services</p>
                 </div>
               </div>
               <div class="col-auto">
@@ -381,14 +381,13 @@
 
       <div class="section section-ii">
         <div class="wg-research">
-
           <div class="wg-research-main">
             <div class="container">
               <div class="row align-items-center">
                 <div class="col">
                   <div class="whead">
                     <h2 class="title">งานวิจัยและนวัตกรรม</h2>
-                    <p class="desc">Research & Innovation</p>
+                    <p class="subtitle">Research & Innovation</p>
                   </div>
                 </div>
                 <div class="col-auto">
@@ -399,7 +398,6 @@
               </div>
             </div>
           </div>
-
           <div class="row no-gutters">
             <div class="col">
               <a href="" class="link">
@@ -407,8 +405,8 @@
                   <div class="row no-gutters">
                     <div class="col">
                       <div class="whead">
-                        <h2 class="title">การทดสอบความชำนาญ</h2>
-                        <p class="desc">DMSC PT</p>
+                        <h3 class="title">การทดสอบความชำนาญ</h3>
+                        <p class="subtitle">DMSC PT</p>
                         <div class="total">120</div>
                         <div class="unit">แผนการทดสอบ</div>
                       </div>
@@ -434,8 +432,8 @@
                   <div class="row no-gutters">
                     <div class="col">
                       <div class="whead">
-                        <h2 class="title">รายการให้บริการตรวจวิเคราะห์</h2>
-                        <p class="desc">Analysis service</p>
+                        <h3 class="title">รายการให้บริการตรวจวิเคราะห์</h3>
+                        <p class="subtitle">Analysis service</p>
                         <div class="total">1,873</div>
                         <div class="unit">รายการ</div>
                       </div>
@@ -456,7 +454,6 @@
               </a>
             </div>
           </div>
-
           <div class="wg-research-list lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-research.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-research@2x.webp">
             <div class="container">
               <div class="swiper default-swiper">
@@ -468,14 +465,12 @@
                           <div class="card">
                             <div class="card-body">
                               <div class="whead">
-                                <h2 class="title">องค์ความรู้</h2>
-                                <p class="desc">Knowledge</p>
+                                <h3 class="title">องค์ความรู้</h3>
+                                <p class="subtitle">Knowledge</p>
                                 <div class="total">1,262</div>
                                 <div class="unit">
                                   รายการ
-                                  <span class="material-symbols-rounded">
-                                    expand_circle_right
-                                  </span>
+                                  <span class="material-symbols-rounded">expand_circle_right</span>
                                 </div>
                               </div>
                             </div>
@@ -494,14 +489,12 @@
                           <div class="card">
                             <div class="card-body">
                               <div class="whead">
-                                <h2 class="title">นวัตกรรม</h2>
-                                <p class="desc">Innovation</p>
+                                <h3 class="title">นวัตกรรม</h3>
+                                <p class="subtitle">Innovation</p>
                                 <div class="total">233</div>
                                 <div class="unit">
                                   รายการ
-                                  <span class="material-symbols-rounded">
-                                    expand_circle_right
-                                  </span>
+                                  <span class="material-symbols-rounded">expand_circle_right</span>
                                 </div>
                               </div>
                             </div>
@@ -520,14 +513,12 @@
                           <div class="card">
                             <div class="card-body">
                               <div class="whead">
-                                <h2 class="title">เทคโนโลยี</h2>
-                                <p class="desc">Technology</p>
+                                <h3 class="title">เทคโนโลยี</h3>
+                                <p class="subtitle">Technology</p>
                                 <div class="total">40</div>
                                 <div class="unit">
                                   รายการ
-                                  <span class="material-symbols-rounded">
-                                    expand_circle_right
-                                  </span>
+                                  <span class="material-symbols-rounded">expand_circle_right</span>
                                 </div>
                               </div>
                             </div>
@@ -549,9 +540,100 @@
       </div>
 
       <div class="section section-iii">
-        <div class="wg-about">
+        <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.webp" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.webp">
           <div class="container">
-
+            <div class="row align-items-center no-gutters">
+              <div class="col">
+                <div class="content">
+                  <div class="whead">
+                    <h2 class="title">กรมวิทยาศาสตร์การแพทย์</h2>
+                    <p class="subtitle">กระทรวงสาธารณสุข</p>
+                    <div class="line"></div>
+                    <p class="desc">
+                      กรมวิทยาศาสตร์การแพทย์มีภารกิจด้านการวิจัย
+                      และพัฒนาเพื่อสร้างองค์ความรู้และสารสนเทศ
+                      ด้านวิทยาศาสตร์การแพทย์ ในการเฝ้าระวัง
+                      ป้องกันรักษาโรค
+                    </p>
+                  </div>
+                  <div class="action">
+                    <a href="" class="btn btn-primary">อ่านต่อ</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="wg-about-group-list">
+                  <div class="row no-gutters">
+                    <div class="col-6">
+                      <a href="" class="link">
+                        <div class="wg-about-group">
+                          <div class="card">
+                            <div class="card-body">
+                              <h3 class="title">ประวัติ<br>ความเป็นมา</h3>
+                              <div class="grphic-obj">
+                                <div class="contain">
+                                  <img src="<?php echo $core_template; ?>/img/static/wg-about-feather-pen.svg" alt="" class="img-contain lazy">
+                                </div>
+                              </div>
+                              <div class="action">
+                                อ่านต่อ
+                                <span class="material-symbols-rounded">expand_circle_right</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-6">
+                      <a href="" class="link">
+                        <div class="wg-about-group">
+                          <div class="card">
+                            <div class="card-body">
+                              <h3 class="title">วิสัยทัศน์ & พันธกิจ & ยุทธศาสตร์</h3>
+                              <div class="grphic-obj">
+                                <div class="contain">
+                                  <img src="<?php echo $core_template; ?>/img/static/wg-about-flag.svg" alt="" class="img-contain lazy">
+                                </div>
+                              </div>
+                              <div class="action">
+                                อ่านต่อ
+                                <span class="material-symbols-rounded">expand_circle_right</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-6">
+                      <a href="" class="link">
+                        <div class="wg-about-group">
+                          <div class="card">
+                            <div class="card-body">
+                              <h3 class="title">โครงสร้าง<br>หน่วยงาน</h3>
+                              <div class="grphic-obj">
+                                <div class="contain">
+                                  <img src="<?php echo $core_template; ?>/img/static/wg-about-flow.svg" alt="" class="img-contain lazy">
+                                </div>
+                              </div>
+                              <div class="action">
+                                อ่านต่อ
+                                <span class="material-symbols-rounded">expand_circle_right</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="graphic">
+              <picture>
+                <source srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.webp" data-="" type="image/webp">
+                <img src="<?php echo $core_template; ?>/img/static/wg-about-graphic.png" data-src="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.png" alt="" class="lazy">
+              </picture>
+            </div>
           </div>
         </div>
       </div>
