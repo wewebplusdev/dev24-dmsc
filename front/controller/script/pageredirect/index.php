@@ -12,9 +12,10 @@ if (!empty($url->segment[1])) {
         'language' => decodeStr($case_slug[3]),
         'action' => 'link',
     );
-
+    
     // call redirect 
     $load_url_redirect = $pageredirectage->load_url_redirect($array_req);
+    // print_pre($load_url_redirect);die;
     if ($load_url_redirect->code === 1001 && !empty($load_url_redirect->item->url)) {
         header('location:' . $load_url_redirect->item->url);
     }else{

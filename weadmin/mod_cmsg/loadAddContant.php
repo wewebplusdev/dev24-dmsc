@@ -566,8 +566,8 @@ foreach ($listAuthen as $key => $value) {
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:dateTime"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:dateTimeDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:dateTime"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:dateTimeDe"] ?></span>
                </td>
             </tr>
             <tr>
@@ -576,12 +576,12 @@ foreach ($listAuthen as $key => $value) {
 
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb">วันเริ่มต้น<span class="fontContantAlert"></span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="sdateInputC" id="sdateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?= $valSdate ?>" /></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="sdateInputC" id="sdateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?php echo  $valSdate ?>" /></td>
             </tr>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb">วันสิ้นสุด<span class="fontContantAlert"></span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="edateInputC" id="edateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?= $valEdate ?>" /><br />
-                  <span class="formFontNoteTxt"><?= $langMod["inp:notedate"] ?></span>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="edateInputC" id="edateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?php echo  $valEdate ?>" /><br />
+                  <span class="formFontNoteTxt"><?php echo  $langMod["inp:notedate"] ?></span>
                </td>
             </tr>
          </table>

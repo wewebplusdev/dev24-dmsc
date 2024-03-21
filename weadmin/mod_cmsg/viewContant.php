@@ -111,21 +111,21 @@ logs_access('3', 'View');
    <link href="../css/theme.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
    <link href="../css/table_css.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
 
-   <title><?= $core_name_title ?></title>
+   <title><?php echo  $core_name_title ?></title>
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
 </head>
 
 <body>
    <form action="?" method="get" name="myForm" id="myForm">
       <input name="execute" type="hidden" id="execute" value="update" />
-      <input name="masterkey" type="hidden" id="masterkey" value="<?= $_REQUEST['masterkey'] ?>" />
-      <input name="menukeyid" type="hidden" id="menukeyid" value="<?= $_REQUEST['menukeyid'] ?>" />
-      <input name="module_pageshow" type="hidden" id="module_pageshow" value="<?= $_REQUEST['module_pageshow'] ?>" />
-      <input name="module_pagesize" type="hidden" id="module_pagesize" value="<?= $_REQUEST['module_pagesize'] ?>" />
-      <input name="module_orderby" type="hidden" id="module_orderby" value="<?= $_REQUEST['module_orderby'] ?>" />
+      <input name="masterkey" type="hidden" id="masterkey" value="<?php echo  $_REQUEST['masterkey'] ?>" />
+      <input name="menukeyid" type="hidden" id="menukeyid" value="<?php echo  $_REQUEST['menukeyid'] ?>" />
+      <input name="module_pageshow" type="hidden" id="module_pageshow" value="<?php echo  $_REQUEST['module_pageshow'] ?>" />
+      <input name="module_pagesize" type="hidden" id="module_pagesize" value="<?php echo  $_REQUEST['module_pagesize'] ?>" />
+      <input name="module_orderby" type="hidden" id="module_orderby" value="<?php echo  $_REQUEST['module_orderby'] ?>" />
 
-      <input name="valEditID" type="hidden" id="valEditID" value="<?= $_REQUEST['valEditID'] ?>" />
-      <input name="inputLt" type="hidden" id="inputLt" value="<?= $_REQUEST['inputLt'] ?>" />
+      <input name="valEditID" type="hidden" id="valEditID" value="<?php echo  $_REQUEST['valEditID'] ?>" />
+      <input name="inputLt" type="hidden" id="inputLt" value="<?php echo  $_REQUEST['inputLt'] ?>" />
 
       <?php include_once './inc-inputsearch.php'; ?>
 
@@ -133,7 +133,7 @@ logs_access('3', 'View');
          <div class="divRightNav">
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
                <tr>
-                  <td class="divRightNavTb" align="left" id="defTop"><span class="fontContantTbNav"><a href="<?= $valLinkNav1 ?>" target="_self"><?= $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <a href="javascript:void(0)" onclick="btnBackPage('index.php')" target="_self"><?= $langMod["tit:inpName"] ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?= $langMod["txt:titleview"] ?> (<?= $_REQUEST['inputLt'] ?>)</span></td>
+                  <td class="divRightNavTb" align="left" id="defTop"><span class="fontContantTbNav"><a href="<?php echo  $valLinkNav1 ?>" target="_self"><?php echo  $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <a href="javascript:void(0)" onclick="btnBackPage('index.php')" target="_self"><?php echo  $langMod["tit:inpName"] ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo  $langMod["txt:titleview"] ?> (<?php echo  $_REQUEST['inputLt'] ?>)</span></td>
                   <td class="divRightNavTb" align="right">
                   </td>
                </tr>
@@ -143,18 +143,18 @@ logs_access('3', 'View');
       <div class="divRightHead">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
-               <td height="77" align="left"><span class="fontHeadRight"><?= $langMod["txt:titleview"] ?>(<?= $_REQUEST['inputLt'] ?>)</span></td>
+               <td height="77" align="left"><span class="fontHeadRight"><?php echo  $langMod["txt:titleview"] ?>(<?php echo  $_REQUEST['inputLt'] ?>)</span></td>
                <td align="left">
                   <table border="0" cellspacing="0" cellpadding="0" align="right">
                      <tr>
                         <td align="right">
                            <? if ($_REQUEST['viewID'] <= 0) { ?>
                               <? if ($valPermission == "RW") { ?>
-                                 <div class="btnEditView" title="<?= $langTxt["btn:edit"] ?>" onclick="
-                                                document.myFormHome.valEditID.value =<?= $valID ?>;
-                                                editContactNew('../<?= $mod_fd_root ?>/editContant.php')"></div>
+                                 <div class="btnEditView" title="<?php echo  $langTxt["btn:edit"] ?>" onclick="
+                                                document.myFormHome.valEditID.value =<?php echo  $valID ?>;
+                                                editContactNew('../<?php echo  $mod_fd_root ?>/editContant.php')"></div>
                               <? } ?>
-                              <div class="btnBack" title="<?= $langTxt["btn:back"] ?>" onclick="btnBackPage('index.php')"></div>
+                              <div class="btnBack" title="<?php echo  $langTxt["btn:back"] ?>" onclick="btnBackPage('index.php')"></div>
                            <? } ?>
                         </td>
                      </tr>
@@ -168,13 +168,13 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:subject"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:subjectDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:subject"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:subjectDe"] ?></span>
                </td>
             </tr>
             <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["meu:group2"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["meu:group2"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?php
@@ -192,15 +192,15 @@ logs_access('3', 'View');
             </tr>
             <?php } ?>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:subject"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["tit:subject"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valSubject ?></div>
+                  <div class="formDivView"><?php echo  $valSubject ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:title"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["tit:title"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valTitle ?></div>
+                  <div class="formDivView"><?php echo  $valTitle ?></div>
                </td>
             </tr>
          </table>
@@ -208,8 +208,8 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:pic"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:picDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:pic"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:picDe"] ?></span>
                </td>
             </tr>
             <tr>
@@ -245,7 +245,7 @@ logs_access('3', 'View');
                         $valPic = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
                      }
                      ?>
-                     <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
+                     <img src="<?php echo  $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?php echo  "../img/btn/nopic.jpg" ?>'" />
                   </div>
                </td>
             </tr>
@@ -253,7 +253,7 @@ logs_access('3', 'View');
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
-                     <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
+                     <img src="<?php echo  $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?php echo  "../img/btn/nopic.jpg" ?>'" />
                   </div>
                </td>
             </tr>
@@ -262,8 +262,8 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:view"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:viewDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:view"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:viewDe"] ?></span>
                </td>
             </tr>
             <tr>
@@ -298,8 +298,8 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:title"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:titleDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:title"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:titleDe"] ?></span>
                </td>
             </tr>
             <tr>
@@ -321,12 +321,12 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:album"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:albumDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:album"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:albumDe"] ?></span>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["txt:album"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:album"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?
@@ -344,10 +344,10 @@ logs_access('3', 'View');
                            $imageType = strstr($downloadFile, '.');
                      ?>
                            <? if ($_REQUEST['viewID'] <= 0) { ?>
-                              <a rel="viewAlbum" title="" href="<?= $mod_path_album . "/reB_" . $downloadFile ?>">
-                                 <img src="<?= $mod_path_album . "/reO_" . $downloadFile ?>" width="50" height="50" style="float:left;border:#c8c7cc solid 1px;margin-bottom:15px;margin-right:15px;" /></a>
+                              <a rel="viewAlbum" title="" href="<?php echo  $mod_path_album . "/reB_" . $downloadFile ?>">
+                                 <img src="<?php echo  $mod_path_album . "/reO_" . $downloadFile ?>" width="50" height="50" style="float:left;border:#c8c7cc solid 1px;margin-bottom:15px;margin-right:15px;" /></a>
                            <? } else { ?>
-                              <img src="<?= $mod_path_album . "/reO_" . $downloadFile ?>" width="50" height="50" style="float:left;border:#c8c7cc solid 1px;margin-bottom:15px;margin-right:15px;" />
+                              <img src="<?php echo  $mod_path_album . "/reO_" . $downloadFile ?>" width="50" height="50" style="float:left;border:#c8c7cc solid 1px;margin-bottom:15px;margin-right:15px;" />
                            <? } ?>
                         <?
                         }
@@ -363,12 +363,12 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:video"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:videoDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:video"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:videoDe"] ?></span>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["txt:video"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:video"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?
@@ -390,7 +390,7 @@ logs_access('3', 'View');
                            $myUrlCutArray = explode("&", $myUrlCut);
                            $myUrlCutAnd = $myUrlCutArray[0];
                         ?>
-                           <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/<?= $myUrlCutAnd ?>" frameborder="0" allowfullscreen style="z-index:-1999; "></iframe>
+                           <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/<?php echo  $myUrlCutAnd ?>" frameborder="0" allowfullscreen style="z-index:-1999; "></iframe>
                         <? } else { ?>
                            -
                      <?
@@ -406,12 +406,12 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC == 3) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:attfile"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:attfileDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:attfile"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:attfileDe"] ?></span>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["txt:attfile"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:attfile"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?
@@ -429,7 +429,7 @@ logs_access('3', 'View');
                            $imageType = strstr($downloadFile, '.');
                      ?>
 
-                           <div style="float:left; width:100%; height:30px; margin-bottom:15px;"><img src="<?= get_Icon($downloadFile) ?>" align="absmiddle" width="30" /><a href="../<?= $mod_fd_root ?>/download.php?linkPath=<?= $linkRelativePath ?>&amp;downloadFile=<?= $downloadFile ?>"><?= $downloadName . "" . $imageType ?></a> | <?= $langMod["file:type"] ?>: <?= $imageType ?> | <?= $langMod["file:size"] ?>: <?= get_IconSize($linkRelativePath) ?> | <?= $langMod["file:download"] ?>: <?= number_format($countDownload) ?></div>
+                           <div style="float:left; width:100%; height:30px; margin-bottom:15px;"><img src="<?php echo  get_Icon($downloadFile) ?>" align="absmiddle" width="30" /><a href="../<?php echo  $mod_fd_root ?>/download.php?linkPath=<?php echo  $linkRelativePath ?>&amp;downloadFile=<?php echo  $downloadFile ?>"><?php echo  $downloadName . "" . $imageType ?></a> | <?php echo  $langMod["file:type"] ?>: <?php echo  $imageType ?> | <?php echo  $langMod["file:size"] ?>: <?php echo  get_IconSize($linkRelativePath) ?> | <?php echo  $langMod["file:download"] ?>: <?php echo  number_format($countDownload) ?></div>
                            <div></div>
 
                      <?
@@ -446,26 +446,26 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:seo"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:seoDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:seo"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:seoDe"] ?></span>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["inp:seotitle"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["inp:seotitle"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valMetatitle ?></div>
+                  <div class="formDivView"><?php echo  $valMetatitle ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["inp:seodes"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["inp:seodes"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valDescription ?></div>
+                  <div class="formDivView"><?php echo  $valDescription ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["inp:seokey"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["inp:seokey"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valKeywords ?></div>
+                  <div class="formDivView"><?php echo  $valKeywords ?></div>
                </td>
             </tr>
          </table>
@@ -473,24 +473,24 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langTxt["us:titleinfo"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langTxt["us:titleinfoDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langTxt["us:titleinfo"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langTxt["us:titleinfoDe"] ?></span>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:view"] ?>:</td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["tit:view"] ?>:</td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valView ?></div>
+                  <div class="formDivView"><?php echo  $valView ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langTxt["us:credate"] ?>:</td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langTxt["us:credate"] ?>:</td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valCredate ?></div>
+                  <div class="formDivView"><?php echo  $valCredate ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langTxt["us:creby"] ?>:</td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langTxt["us:creby"] ?>:</td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?
@@ -504,13 +504,13 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langTxt["us:lastdate"] ?>:</td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langTxt["us:lastdate"] ?>:</td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?= $valLastdate ?></div>
+                  <div class="formDivView"><?php echo  $valLastdate ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langTxt["us:creby"] ?>:</td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langTxt["us:creby"] ?>:</td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?
@@ -524,16 +524,16 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langTxt["mg:status"] ?>:</td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langTxt["mg:status"] ?>:</td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
 
                      <? if ($valStatus == "Enable") { ?>
-                        <span class="<?= $valStatusClass ?>"><?= $valStatus ?></span>
+                        <span class="<?php echo  $valStatusClass ?>"><?php echo  $valStatus ?></span>
                      <? } else if ($valStatus == "Home") { ?>
-                        <span class="<?= $valStatusClass ?>"><?= $valStatus ?></span>
+                        <span class="<?php echo  $valStatusClass ?>"><?php echo  $valStatus ?></span>
                      <? } else { ?>
-                        <span class="<?= $valStatusClass ?>"><?= $valStatus ?></span>
+                        <span class="<?php echo  $valStatusClass ?>"><?php echo  $valStatus ?></span>
                      <? } ?>
                   </div>
                </td>
@@ -547,7 +547,7 @@ logs_access('3', 'View');
                   <td colspan="7" align="right" valign="top" height="20"></td>
                </tr>
                <tr>
-                  <td colspan="7" align="right" valign="middle" class="formEndContantTb"><a href="#defTop" title="<?= $langTxt["btn:gototop"] ?>"><?= $langTxt["btn:gototop"] ?> <img src="../img/btn/top.png" align="absmiddle" /></a></td>
+                  <td colspan="7" align="right" valign="middle" class="formEndContantTb"><a href="#defTop" title="<?php echo  $langTxt["btn:gototop"] ?>"><?php echo  $langTxt["btn:gototop"] ?> <img src="../img/btn/top.png" align="absmiddle" /></a></td>
                </tr>
             <? } ?>
             </table>
@@ -570,27 +570,27 @@ logs_access('3', 'View');
       </script>
    <? } ?>
 
-   <script type='text/javascript' src='../<?= $mod_fd_root ?>/swfobject.js'></script>
-   <script type='text/javascript' src='../<?= $mod_fd_root ?>/silverlight.js'></script>
-   <script type='text/javascript' src='../<?= $mod_fd_root ?>/wmvplayer.js'></script>
+   <script type='text/javascript' src='../<?php echo  $mod_fd_root ?>/swfobject.js'></script>
+   <script type='text/javascript' src='../<?php echo  $mod_fd_root ?>/silverlight.js'></script>
+   <script type='text/javascript' src='../<?php echo  $mod_fd_root ?>/wmvplayer.js'></script>
    <script type='text/javascript'>
-      var filename = "<?= $filename ?>";
-      var filetype = "<?= $filetype ?>";
+      var filename = "<?php echo  $filename ?>";
+      var filetype = "<?php echo  $filetype ?>";
       var cnt = document.getElementById("areaPlayer");
       if (filetype == "flv") {
-         var s1 = new SWFObject('../<?= $mod_fd_root ?>/player.swf', 'player', '560', '315', '9');
+         var s1 = new SWFObject('../<?php echo  $mod_fd_root ?>/player.swf', 'player', '560', '315', '9');
          s1.addParam('allowfullscreen', 'true');
          s1.addParam('wmode', 'transparent');
          s1.addParam('allowscriptaccess', 'always');
-         s1.addParam('flashvars', 'file=<?= $mod_path_vdo ?>/' + filename);
+         s1.addParam('flashvars', 'file=<?php echo  $mod_path_vdo ?>/' + filename);
          s1.write('areaPlayer');
       } else /* if(filetype=="wmv")*/ {
 
-         var src = '../<?= $mod_fd_root ?>/wmvplayer.xaml';
+         var src = '../<?php echo  $mod_fd_root ?>/wmvplayer.xaml';
          var cfg = "";
          var ply;
          cfg = {
-            file: '<?= $mod_path_vdo ?>/' + filename,
+            file: '<?php echo  $mod_path_vdo ?>/' + filename,
             image: '',
             height: '315',
             width: '560',

@@ -208,6 +208,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td align="left" valign="middle" class="divRightTitleTb"><span class="fontTitlTbRight"><?php echo $langMod["tit:subjectg"] ?></span></td>
                <?php if ($_SESSION[$valSiteManage . 'core_session_languageT'] == 2) { ?>
                <?php } ?>
+               <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langMod["tit:view"] ?></span></td>
                <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["mg:status"] ?></span></td>
                <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["us:lastdate"] ?></span></td>
                <td width="8%" class="divRightTitleTbR" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["mg:manage"] ?></span></td>
@@ -219,7 +220,9 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 					" . $mod_tb_group_lang . "." . $mod_tb_group_lang . "_subject,
 					" . $mod_tb_group . "_lastdate,
 					" . $mod_tb_group . "_status,
-					" . $mod_tb_group_lang . "." . $mod_tb_group_lang . "_pic";
+					" . $mod_tb_group_lang . "." . $mod_tb_group_lang . "_pic,
+					" . $mod_tb_group . "." . $mod_tb_group . "_view as view 
+               ";
 
             // SQL SELECT #########################
             $sql = "SELECT " . $sqlSelect . "    FROM " . $mod_tb_group . " ";
@@ -275,6 +278,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   } else {
                      $valPic = "../img/btn/nopic.jpg";
                   }
+                  $valView = number_format($row['view']);
 
                   if ($valStatus == "Enable") {
                      $valStatusClass = "fontContantTbEnable";
@@ -307,7 +311,9 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                            </tr>
                         </table>
                      </td>
-
+                     <td class="divRightContantOverTb" valign="top" align="center">
+                        <span class="fontContantTbupdate"><?php echo $valView ?></span>
+                     </td>
                      <td class="divRightContantOverTb" valign="top" align="center">
                         <?php if ($valPermission == "RW") { ?>
                            <div id="load_status<?php echo $valID ?>">

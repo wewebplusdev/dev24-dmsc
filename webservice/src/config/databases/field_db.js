@@ -23,6 +23,12 @@ const main = {
     "md_pdpa": "md_pdpa",
     "md_logs_view": "md_logs_view",
     "md_logs": "md_logs",
+    "md_mnu": "md_mnu",
+    "md_mnul": "md_mnul",
+    "md_mnug": "md_mnug",
+    "md_mnugl": "md_mnugl",
+    "md_mnusg": "md_mnusg",
+    "md_mnusgl": "md_mnusgl",
 }
 
 //Masterkey

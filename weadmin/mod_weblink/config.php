@@ -85,35 +85,4 @@ $mod_inputseach = array(
     , "inputTh"
     , "inputSearch"
 );
-
-$mod_distance = array(
-    5, 10, 15, 20, 25, 30
-);
-
-function match_todog($cid, $gid) {
-   global $coreLanguageSQL;
-
-   $sql = "SELECT md_todog_id FROM md_todog WHERE md_todog_cid=$cid AND md_todog_gid=$gid";
-   $query = wewebQueryDB($coreLanguageSQL, $sql);
-   $numrow = wewebNumRowsDB($coreLanguageSQL, $query);
-   if ($numrow > 0) {
-      return true;
-   }
-
-   return false;
-}
-
-function select_radius() {
-   global $coreLanguageSQL;
-
-   $sql = "SELECT md_radius_subject FROM md_radius WHERE 1 ORDER BY md_radius_subject ASC";
-   $query = wewebQueryDB($coreLanguageSQL, $sql);
-   $out = array();
-   while ($result = wewebFetchArrayDB($coreLanguageSQL, $query)) {
-      $out[] = $result[0];
-   }
-
-   return $out;
-}
-
 ?>

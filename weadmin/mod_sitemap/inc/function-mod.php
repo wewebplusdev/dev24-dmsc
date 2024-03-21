@@ -5,7 +5,7 @@ class sitemapWebsite {
     private $menu_masterkey;
 
     function __construct($masterkey){
-        global $valSiteManage;
+        global $valSiteManage, $mod_tb_root, $mod_tb_group, $mod_tb_subgroup;
 
         $this->menu_masterkey = $masterkey;
 
@@ -15,21 +15,42 @@ class sitemapWebsite {
             foreach ($site_lang as $valueLang) {
                 $callGroup = self::callGroup($this->menu_masterkey, $valueLang['key']);
                 foreach ($callGroup as $keycallGroup => $valuecallGroup) {
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['id'] = $valuecallGroup['id'];
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['subject'] = $valuecallGroup['subject'];
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['url'] = $valuecallGroup['url'];
-                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['target'] = $valuecallGroup['target'];
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['tb'] = $mod_tb_group;
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['masterkey'] = $_REQUEST['masterkey'];
+                    if ($valuecallGroup['target'] == 2) {
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['target'] = '_blank';
+                    }else{
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['target'] = '_self';
+                    }
 
                     $callSubGroup = self::callSubGroup($this->menu_masterkey, $valueLang['key'], $valuecallGroup['id']);
                     foreach ($callSubGroup as $valuecallSubGroup) {
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['id'] = $valuecallSubGroup['id'];
                         $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['subject'] = $valuecallSubGroup['subject'];
                         $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['url'] = $valuecallSubGroup['url'];
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['target'] = $valuecallSubGroup['target'];
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['tb'] = $mod_tb_subgroup;
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['masterkey'] = $_REQUEST['masterkey'];
+                        if ($valuecallSubGroup['target'] == 2) {
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['target'] = '_blank';
+                        }else{
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['target'] = '_self';
+                        }
 
-                        $callContent = self::callContent($this->menu_masterkey, $valueLang['key'], $valuecallGroup['id'], $valuecallGroup['id']);
+                        $callContent = self::callContent($this->menu_masterkey, $valueLang['key'], $valuecallGroup['id'], $valuecallSubGroup['id']);
                         foreach ($callContent as $valuecallContent) {
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['id'] = $valuecallContent['id'];
                             $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['subject'] = $valuecallContent['subject'];
                             $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['url'] = $valuecallContent['url'];
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['target'] = $valuecallContent['target'];
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['tb'] = $mod_tb_root;
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['masterkey'] = $_REQUEST['masterkey'];
+                            if ($valuecallContent['target'] == 2) {
+                                $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['target'] = '_blank';
+                            }else{
+                                $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['target'] = '_self';
+                            }
                         }
                     }
                 }

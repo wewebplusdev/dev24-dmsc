@@ -103,7 +103,8 @@ function checkLoginUser() {
         }
     });
 }
-function initialize() {
+
+function initialize(action = true) {
     let lat_attribute = $('#latInput').val();
     let long_attribute = $('#longInput').val();
     let lat_marker = '';
@@ -117,8 +118,6 @@ function initialize() {
         lat_marker = lat_attribute;
         long_marker = long_attribute;
     }
-    console.log(lat_marker);
-    console.log(long_marker);
     const map = new google.maps.Map(document.getElementById("map_canvas"), {
         zoom: 7,
         center: { lat: parseFloat(lat_marker), lng: parseFloat(long_marker) },
@@ -128,16 +127,18 @@ function initialize() {
     var myMarker = new google.maps.Marker({
         position: new google.maps.LatLng(parseFloat(lat_marker), parseFloat(long_marker)),
         map,
-        draggable: true
+        draggable: action
     });
-    // new google.maps.LatLng(parseFloat(valueSubEach[9]), parseFloat(valueSubEach[10])),
-    // console.log(myMarker);
-    google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-        //  document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(6) + ' Current Lng: ' + evt.latLng.lng().toFixed(6) + '</p>';
-        $('#latInput').val(evt.latLng.lat().toFixed(6));
-        $('#longInput').val(evt.latLng.lng().toFixed(6));
-    });
+
+    if (action) {
+        google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+            //  document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(6) + ' Current Lng: ' + evt.latLng.lng().toFixed(6) + '</p>';
+            $('#latInput').val(evt.latLng.lat().toFixed(6));
+            $('#longInput').val(evt.latLng.lng().toFixed(6));
+        });
+    }
 }
+
 function activeDate(){
     let inputDate = $('#dateInput').val();
     if(inputDate === ''){

@@ -772,3 +772,7 @@ function chkSyntaxAnd($var)
 {
     return str_replace("&", "And", $var);
 }
+
+function check_url($url){
+    return ($url != "" && $url != "#") ? true : false;
+}

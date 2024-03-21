@@ -3,6 +3,11 @@
 
 <head>
     {include file="{$incfile.metatag}" title=title}
+    
+    <!-- Cookie Consent by https://www.cookiewow.com -->
+    <script type="text/javascript" src="https://cookiecdn.com/cwc.js"></script>
+    <script id="cookieWow" type="text/javascript" src="https://cookiecdn.com/configs/XxwWvCXDwKtsHUWb2c4Fm8RH" data-cwcid="XxwWvCXDwKtsHUWb2c4Fm8RH"></script>
+
     {include file="{$incfile.loadstyle}" title=title}
 </head>
 

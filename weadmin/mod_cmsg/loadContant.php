@@ -154,8 +154,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?php echo $valLinkNav1 ?>" target="_self"><?php echo $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo $valNav2 ?></span></td>
                <td class="divRightNavTb" align="right">
                   <!-- ######### Start Menu Sub Mod ########## -->
-                  <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
-                  <!-- <div class="menuSubMod">
+                  <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                     <!-- <div class="menuSubMod">
                      <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:group2"] ?>
                      </a>
@@ -176,50 +176,50 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
 
             <tr>
-               <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
-               <td>
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
-                     <tr>
-                        <td>
-                           <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
-                              <option value=""><?php echo $langMod["tit:selectg2"]; ?></option>
-                              <?php
-                              $sql_group = "SELECT 
+               <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                  <td>
+                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
+                        <tr>
+                           <td>
+                              <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
+                                 <option value=""><?php echo $langMod["tit:selectg2"]; ?></option>
+                                 <?php
+                                 $sql_group = "SELECT 
                               " . $mod_tb_root_group . "_id,
                               " . $mod_tb_root_group_lang . "_subject 
                               FROM " . $mod_tb_root_group . " 
                               INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid 
                               WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' 
                               AND " . $mod_tb_root_group_lang . "_language='Thai' ";
-                              $sqlChecklist = array();
-                              if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
-                                 foreach ($listGAllow as $idGroup) {
-                                    $sqlChecklist[] = $mod_tb_root_group . "_id = '".$idGroup."' ";
+                                 $sqlChecklist = array();
+                                 if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
+                                    foreach ($listGAllow as $idGroup) {
+                                       $sqlChecklist[] = $mod_tb_root_group . "_id = '" . $idGroup . "' ";
+                                    }
+                                    if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                                       $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
+                                    }
+                                 } else {
+                                    if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                                       $sql_group .= " and 1=0 ";
+                                    }
                                  }
-                                 if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
-                                    $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
-                                 }
-                              }else{
-                                 if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
-                                    $sql_group .= " and 1=0 ";
-                                 }
-                              }
-                              $sql_group .= "ORDER BY " . $mod_tb_root_group . "_order DESC";
-                              $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
-                              while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
-                                 $row_groupid = $row_group[0];
-                                 $row_groupname = $row_group[1];
-                                 $row_groupnameeng = $row_group[2];
-                                 $valNameShow = $row_groupname;
-                              ?>
-                                 <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $valNameShow ?>
-                                 </option>
-                              <?php } ?>
-                           </select>
-                        </td>
-                     </tr>
-                  </table>
-               </td>
+                                 $sql_group .= "ORDER BY " . $mod_tb_root_group . "_order DESC";
+                                 $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+                                 while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
+                                    $row_groupid = $row_group[0];
+                                    $row_groupname = $row_group[1];
+                                    $row_groupnameeng = $row_group[2];
+                                    $valNameShow = $row_groupname;
+                                 ?>
+                                    <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $valNameShow ?>
+                                    </option>
+                                 <?php } ?>
+                              </select>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
                <?php } ?>
                <td id="boxSelectTest">
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
@@ -230,7 +230,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                               foreach ($modStatus as $status) {
                                  $selected = $_REQUEST["inputSrchStatus"] == $status ? "selected" : "";
                               ?>
-                                 <option value="<?= $status ?>" <?= $selected ?>><?= $status ?></option>
+                                 <option value="<?php echo  $status ?>" <?php echo  $selected ?>><?php echo  $status ?></option>
                               <?php
                               }
                               ?>
@@ -331,7 +331,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                   if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
                      $sql .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
                   }
-               }else{
+               } else {
                   if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
                      $sql .= " and 1=0 ";
                   }
@@ -414,13 +414,13 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                      } else {
                         $valPic = "../img/btn/nopic.jpg";
                      }
-                  }else{
+                  } else {
                      $valPic = $core_pathname_upload . "/" . $row['masterkey_pic'] . "/office/" . $row['picDefault'];
                      if (is_file($valPic)) {
                         $valPic = $valPic;
                      } else {
                         $valPic = "../img/btn/nopic.jpg";
-                     } 
+                     }
                   }
 
                   if ($valStatus == "Enable") {
@@ -455,8 +455,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                               </td>
                               <td align="left">
                                  <a href="javascript:void(0)" class="btnview" onclick="
-                                                document.myFormHome.valEditID.value = '<?= $valID ?>';
-                                       "><?= $valName ?></a>
+                                                document.myFormHome.valEditID.value = '<?php echo  $valID ?>';
+                                       "><?php echo  $valName ?></a>
                               </td>
                            </tr>
                         </table>
@@ -516,8 +516,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                  ?>
                                  <td valign="top" align="center" width="40">
                                     <div class="buttonEdit divRightManage" style="cursor: pointer; " onclick="
-                                                      document.myFormHome.valEditID.value = '<?= $valID ?>';"><img src="../img/btn/edit.png" />
-                                       <span class="fontContantTbManage"><?= $langTxt["btn:edit"] ?></span>
+                                                      document.myFormHome.valEditID.value = '<?php echo  $valID ?>';"><img src="../img/btn/edit.png" />
+                                       <span class="fontContantTbManage"><?php echo  $langTxt["btn:edit"] ?></span>
                                     </div>
                                  </td>
                                  <td valign="top" align="center" width="30">
@@ -661,8 +661,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
    foreach ($arrLang as $key => $value) {
    ?>
       <a href="javascript:void(0);" class="action_toolbar" onclick="
-                                                      document.myFormHome.inputLt.value = '<?= $value['key'] ?>';
-                                                      editContactNew('editContant.php');"><?= $value['key'] ?></a>
+                                                      document.myFormHome.inputLt.value = '<?php echo  $value['key'] ?>';
+                                                      editContactNew('editContant.php');"><?php echo  $value['key'] ?></a>
    <?
    }
    ?>
@@ -673,8 +673,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
    foreach ($arrLang as $key => $value) {
    ?>
       <a href="javascript:void(0);" class="action_toolbar" onclick="
-                  document.myFormHome.inputLt.value = '<?= $value['key'] ?>';
-                  viewContactNew('viewContant.php');"><?= $value['key'] ?></a>
+                  document.myFormHome.inputLt.value = '<?php echo  $value['key'] ?>';
+                  viewContactNew('viewContant.php');"><?php echo  $value['key'] ?></a>
    <?
    }
    ?>
