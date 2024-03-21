@@ -699,7 +699,42 @@
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane fade" id="news-02" role="tabpanel" aria-labelledby="news-02-tab">news-02</div>
+                    <div class="tab-pane fade" id="news-02" role="tabpanel" aria-labelledby="news-02-tab">
+                      <div class="wg-news-slide">
+                        <div class="swiper swiper-default">
+                          <div class="swiper-wrapper">
+                            <?php for ($i = 1; $i <= 2; $i++) { ?>
+                              <div class="swiper-slide">
+                                <div class="item">
+                                  <a href="" class="link news-link">
+                                    <div class="news-card card">
+                                      <div class="thumbnail">
+                                        <figure class="cover">
+                                          <img src="https://picsum.photos/id/684/600/400" alt="">
+                                        </figure>
+                                      </div>
+                                      <div class="card-body">
+                                        <h5 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, saepe, voluptatum perspiciatis adipisci culpa hic impedit nulla tempora iure, vel nobis! Cumque ipsum recusandae iure expedita vitae ea dolor quia.</h5>
+                                        <div class="line"></div>
+                                        <p class="desc">
+                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed atque eaque deleniti! Doloremque voluptate possimus laboriosam dicta pariatur, amet odio temporibus sapiente eos deleniti reprehenderit fugiat minus voluptatibus. Cum, ipsum.
+                                        </p>
+                                        <div class="action">
+                                          อ่านต่อ
+                                          <span class="material-symbols-rounded">expand_circle_right</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                            <?php } ?>
+                          </div>
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="tab-pane fade" id="news-03" role="tabpanel" aria-labelledby="news-03-tab">news-03</div>
                     <div class="tab-pane fade" id="news-04" role="tabpanel" aria-labelledby="news-04-tab">news-04</div>
                   </div>
