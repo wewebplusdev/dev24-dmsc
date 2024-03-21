@@ -540,7 +540,7 @@
       </div>
 
       <div class="section section-iii">
-        <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.png" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.png">
+        <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.webp">
           <div class="container">
             <div class="row align-items-center no-gutters">
               <div class="col">
