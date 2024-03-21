@@ -1,7 +1,7 @@
 <header class="layout-header">
-  <div class="top-bar">
+  <div class="top-bar" data-aos="fade-down" data-aos-delay="200">
     <div class="container">
-      <div class="nav-lang" data-aos="fade-down" data-aos-delay="200">
+      <div class="nav-lang">
         <div class="row justify-content-end align-items-center gutters-10">
           <div class="col-auto">
             <div class="nav-label">เลือกภาษา</div>
@@ -15,7 +15,7 @@
           <div class="col-auto">
             <a title="English" class="nav-lang-en" target="_self" href="/">
               <span class="visually-hidden">English</span>
-              <img src="<?php echo $core_template; ?>/img/icon/lang-gb.svg" alt="gb" class="flag">
+              <img src="<?php echo $core_template; ?>/img/icon/lang-en.svg" alt="gb" class="flag">
             </a>
           </div>
         </div>
@@ -188,7 +188,7 @@
                 <span class="visually-hidden">Search</span>
                 <span data-feather="search"></span>
               </a>
-              <input class="form-control" type="search" placeholder="ค้นหา" aria-label="Search">
+              <input class="form-control" type="text" placeholder="ค้นหา" aria-label="Search">
             </div>
           </form>
           <a href="javascript:void(0)" class="close-search">
