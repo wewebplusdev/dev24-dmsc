@@ -454,7 +454,7 @@
               </a>
             </div>
           </div>
-          <div class="wg-research-list lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-research.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-research@2x.webp">
+          <div class="wg-research-list lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-research.png" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-research@2x.png">
             <div class="container">
               <div class="swiper default-swiper">
                 <div class="swiper-wrapper">
@@ -540,7 +540,7 @@
       </div>
 
       <div class="section section-iii">
-        <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.webp" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.webp">
+        <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.png" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.png">
           <div class="container">
             <div class="row align-items-center no-gutters">
               <div class="col">
