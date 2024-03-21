@@ -14,7 +14,7 @@
     <section class="layout-body">
 
       <div class="top-graphic">
-        <div class="swiper default-swiper">
+        <div class="swiper swiper-default">
           <div class="swiper-wrapper">
             <?php for ($i = 1; $i <= 3; $i++) { ?>
               <div class="swiper-slide">
@@ -51,7 +51,7 @@
             </div>
             <div class="service-category">
               <div class="service-category-list">
-                <div class="swiper default-swiper">
+                <div class="swiper swiper-default">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="item">
@@ -91,7 +91,7 @@
             </div>
             <div class="service-list">
               <div class="service-slide">
-                <div class="swiper default-swiper">
+                <div class="swiper swiper-default">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="item">
@@ -396,7 +396,7 @@
             </div>
           </div>
           <div class="row no-gutters">
-            <div class="col">
+            <div class="col-md">
               <a href="" class="link">
                 <div class="wg-research-group -left">
                   <div class="row no-gutters">
@@ -423,7 +423,7 @@
                 </div>
               </a>
             </div>
-            <div class="col">
+            <div class="col-md">
               <a href="" class="link">
                 <div class="wg-research-group -right">
                   <div class="row no-gutters">
@@ -453,7 +453,7 @@
           </div>
           <div class="wg-research-list lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-research.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-research@2x.webp">
             <div class="container">
-              <div class="swiper default-swiper">
+              <div class="swiper swiper-default">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <div class="item">
@@ -540,7 +540,7 @@
         <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.webp">
           <div class="container">
             <div class="row align-items-center no-gutters">
-              <div class="col">
+              <div class="col-md">
                 <div class="content">
                   <div class="whead">
                     <h2 class="title">กรมวิทยาศาสตร์การแพทย์</h2>
@@ -558,7 +558,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-auto">
+              <div class="col-md-auto">
                 <div class="wg-about-group-list">
                   <div class="row no-gutters">
                     <div class="col-6">
@@ -634,13 +634,77 @@
           </div>
         </div>
       </div>
-      
-      <div class="section section-iv">
-        <div class="wg-news">
+
+      <div class="section section-iv overflow-hidden">
+        <div class="wg-news lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-news.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-news@2x.webp">
           <div class="container">
-            <div class="row">
-              <div class="col"></div>
-              <div class="col-auto"></div>
+            <div class="row no-gutters">
+              <div class="col-md">
+                <div class="wg-news-nav">
+                  <div class="whead">
+                    <h2 class="title">ข่าวสาร</h2>
+                    <p class="subtitle">NEWS</p>
+                    <div class="line"></div>
+                  </div>
+                  <div class="nav nav-default flex-column" id="news-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active" id="news-01-tab" data-toggle="pill" data-target="#news-01" type="button" role="tab" aria-controls="news-01" aria-selected="true">ข่าวประชาสัมพันธ์</button>
+                    <button class="nav-link" id="news-02-tab" data-toggle="pill" data-target="#news-02" type="button" role="tab" aria-controls="news-02" aria-selected="false">ข่าวประกาศ</button>
+                    <button class="nav-link" id="news-03-tab" data-toggle="pill" data-target="#news-03" type="button" role="tab" aria-controls="news-03" aria-selected="false">เครือข่ายประชาสัมพันธ์</button>
+                    <button class="nav-link" id="news-04-tab" data-toggle="pill" data-target="#news-04" type="button" role="tab" aria-controls="news-04" aria-selected="false">นโยบายคุณภาพ</button>
+                  </div>
+                  <div class="action">
+                    <a href="" class="btn btn-primary">ดูทั้งหมด</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-auto">
+                <div class="wg-news-tab wg-news-list">
+                  <div class="tab-content" id="news-tabContent">
+                    <div class="tab-pane fade show active" id="news-01" role="tabpanel" aria-labelledby="news-01-tab">
+                      <div class="wg-news-slide">
+                        <div class="swiper swiper-default">
+                          <div class="swiper-wrapper">
+                            <?php for ($i = 1; $i <= 4; $i++) { ?>
+                              <div class="swiper-slide">
+                                <div class="item">
+                                  <a href="" class="link news-link">
+                                    <div class="news-card card">
+                                      <div class="thumbnail">
+                                        <figure class="cover">
+                                          <img src="<?php echo $core_template; ?>/img/upload/news-thumb.jpg" alt="">
+                                        </figure>
+                                      </div>
+                                      <div class="card-body">
+                                        <h5 class="title">หน่วยทดสอบความชำนาญทั้งส่วนกลางและส่วนภูมิภาค ซึ่งการสมัครเข้าร่วม</h5>
+                                        <div class="line"></div>
+                                        <p class="desc">
+                                          กรมวิทยาศาสตร์การแพทย์มีบริการทดสอบความ
+                                          ชำนาญ ที่ให้บริการต่อเนื่องมามากกว่า 20 ปี มีหน่วย
+                                          ทดสอบความชำนาญทั้งส่วนกลางและส่วนภูมิภาค
+                                          ซึ่งการสมัครเข้าร่วมการทดสอบ
+                                        </p>
+                                        <div class="action">
+                                          อ่านต่อ
+                                          <span class="material-symbols-rounded">expand_circle_right</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                            <?php } ?>
+                          </div>
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="news-02" role="tabpanel" aria-labelledby="news-02-tab">news-02</div>
+                    <div class="tab-pane fade" id="news-03" role="tabpanel" aria-labelledby="news-03-tab">news-03</div>
+                    <div class="tab-pane fade" id="news-04" role="tabpanel" aria-labelledby="news-04-tab">news-04</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -690,6 +754,17 @@
 
     var serviceSwiper = new Swiper(".wg-research-list .swiper", {
       slidesPerView: 3,
+      watchSlidesProgress: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var serviceSwiper = new Swiper(".wg-news-slide .swiper", {
+      // slidesPerView: "auto",
+      slidesPerView: 2,
+      // freeMode: true,
       watchSlidesProgress: true,
       navigation: {
         nextEl: ".swiper-button-next",

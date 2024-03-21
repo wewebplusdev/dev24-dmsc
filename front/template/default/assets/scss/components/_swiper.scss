@@ -1,6 +1,6 @@
 $--swiper-nav-position: -60px;
 
-.default-swiper {
+.swiper-default {
     // overflow: visible;
     // .swiper-slide {
     //     transition: all 200ms ease;
@@ -24,6 +24,8 @@ $--swiper-nav-position: -60px;
     .swiper-button-prev:after,
     .swiper-rtl .swiper-button-next:after {
         content: "\e5e0";
+        position: relative;
+        left: 8px;
     }
     .swiper-button-next:after,
     .swiper-rtl .swiper-button-prev:after {

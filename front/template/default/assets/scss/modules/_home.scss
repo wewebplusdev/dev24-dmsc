@@ -1,5 +1,5 @@
 .top-graphic {
-  .default-swiper {
+  .swiper-default {
     overflow: hidden;
   }
   .cover {
@@ -38,7 +38,7 @@
     .item {
       padding: 20px;
     }
-    .default-swiper {
+    .swiper-default {
       overflow: visible;
       .swiper-slide {
         opacity: 0;
@@ -180,7 +180,7 @@
       }
     }
   }
-  .default-swiper {
+  .swiper-default {
     overflow: visible;
     &.swiper-grid {
       height: 820px;
@@ -383,7 +383,7 @@
       }
     }
   }
-  .default-swiper {
+  .swiper-default {
     overflow: visible;
     .swiper-slide {
       .item {
@@ -426,10 +426,6 @@
       max-width: 410px;
     }
     .line {
-      margin-top: 25px;
-      margin-bottom: 25px;
-      width: 80px;
-      height: 1px;
       background: var(--color-light);
     }
     .action {
@@ -517,6 +513,83 @@
           }
         }
       }
+    }
+  }
+}
+
+.wg-news {
+  padding: 160px 0 80px 0;
+  background-color: #ffffff;
+  background-image: url("img/background/bg-wg-news.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: luminosity;
+  .line {
+    background-color: var(--color-primary);
+  }
+  .action {
+    margin-top: 40px;
+  }
+  .wg-news-nav {
+    padding-right: 40px;
+  }
+  .wg-news-tab {
+    width: 1000px;
+    padding-right: 140px;
+  }
+  .wg-news-list {
+    margin: 0 -15px;
+    .item {
+      padding: 0 15px;
+      transition: all 200ms ease;
+    }
+  }
+  .wg-news-slide {
+    .swiper {
+      overflow: visible;
+    }
+    .swiper-wrapper {
+      pointer-events: none;
+    }
+    .swiper-slide {
+      .item{
+        opacity: 0;
+        visibility: hidden;
+      }
+      &.swiper-slide-visible.swiper-slide-fully-visible,
+      &.swiper-slide-visible.swiper-slide-fully-visible + .swiper-slide {
+        pointer-events: visible;
+        .item{
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    .swiper-default .swiper-button-next,
+    .swiper-default .swiper-button-prev {
+      position: relative;
+      border: 2px solid var(--color-border);
+      width: 60px;
+      height: 60px;
+      top: auto;
+      // bottom: -60px;
+      bottom: auto;
+      float: left;
+      margin-top: 30px;
+    }
+    .swiper-default .swiper-button-prev {
+      // left: 15px;
+      left: auto;
+      margin-left: 15px;
+    }
+    .swiper-default .swiper-button-next {
+      right: auto;
+      // left: 90px;
+    }
+    .swiper-default .swiper-button-next:after,
+    .swiper-default .swiper-button-prev:after {
+      font-size: 40px;
     }
   }
 }

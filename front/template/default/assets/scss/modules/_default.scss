@@ -3,6 +3,60 @@
     padding: 80px 0;
 }
 
+.line {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 80px;
+    height: 2px;
+    background: currentColor;
+}
+
 .card {
     border-radius: 0;
+}
+
+.nav-default {
+    .nav-link {
+        position: relative;
+        border: none;
+        background-color: transparent;
+        padding: 1rem 1.25rem;
+        transition: all 200ms ease;
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--color-primary);
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% 100%,
+                0.8em 100%,
+                0 calc(100% - 0.8em),
+                0 0,
+                2px 2px,
+                2px calc(100% - 0.8em - 0.83px),
+                calc(0.8em + 0.83px) calc(100% - 2px),
+                calc(100% - 2px) calc(100% - 2px),
+                calc(100% - 2px) 2px,
+                2px 2px
+            );
+            opacity: 0;
+            visibility: hidden;
+            transition: all 200ms ease;
+        }
+        &.active {
+            background-color: var(--color-light);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0.8em 100%, 0 calc(100% - 0.8em));
+            &::before {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    &.flex-column {
+        .nav-link {
+            text-align: left;
+        }
+    }
 }
