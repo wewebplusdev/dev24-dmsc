@@ -29,11 +29,12 @@
     color: var(--color-primary);
   }
   .action {
+    margin-top: 5px;
     font-size: var(--typo-xs);
     color: var(--color-primary);
     span {
       position: relative;
-      top: 5px;
+      top: 6px;
     }
   }
 }
@@ -62,5 +63,10 @@
   }
   .news-card .desc {
     font-size: 16px;
+  }
+}
+@media (max-width: 1199px) {
+  .news-card .card-body {
+    padding: 20px;
   }
 }

@@ -137,6 +137,7 @@
       .icon {
         margin-top: -2px;
         margin-right: 10px;
+        width: 43px;
       }
     }
     .col-left {
@@ -179,6 +180,9 @@
   .layout-footer .footer-top .subtitle {
     font-size: 32px;
   }
+  .layout-footer .footer-top .subtitle .icon {
+    width: 40px;
+  }
   .layout-footer .contact .icon {
     max-width: 36px;
   }
@@ -194,13 +198,80 @@
   .layout-footer .sitemap {
     font-size: 16px;
   }
-  .layout-footer .footer-bar{font-size: 16px;}
+  .layout-footer .footer-bar {
+    font-size: 16px;
+  }
 }
 @media (max-width: 1440px) {
+  .layout-footer .footer-top {
+    padding: 50px 0;
+  }
   .layout-footer .footer-top .title {
     font-size: 38px;
   }
   .layout-footer .footer-top .subtitle {
     font-size: 28px;
+  }
+  .layout-footer .footer-top .subtitle .icon {
+    width: 36px;
+  }
+}
+@media (max-width: 1199px) {
+  .layout-footer .footer-top {
+    padding: 40px 0;
+  }
+  .layout-footer .footer-top .title {
+    font-size: 34px;
+  }
+  .layout-footer .footer-top .subtitle {
+    font-size: 24px;
+  }
+  .layout-footer .footer-top .subtitle .icon {
+    width: 34px;
+  }
+  .layout-footer .footer-middle > .row {
+    margin: -20px -10px;
+  }
+  .layout-footer .footer-middle > .row > div {
+    padding: 20px 10px;
+  }
+  .layout-footer .footer-middle > .row > .w-100 {
+    display: none;
+  }
+  .layout-footer .contact .desc {
+    font-size: 16px;
+  }
+  .layout-footer .contact .icon {
+    max-width: 34px;
+  }
+  .layout-footer .ipv6 {
+    width: 80px;
+  }
+  .layout-footer .social .link .rounded-0 {
+    height: 44px;
+    width: 44px;
+  }
+  .layout-footer .footer-bar,
+  .layout-footer .policy,
+  .layout-footer .sitemap {
+    font-size: 14px;
+  }
+  .layout-footer .followus {
+    font-size: var(--typo-xs);
+  }
+  .layout-footer .footer-bottom > .row {
+    display: block;
+  }
+  .layout-footer .footer-bottom .policy {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .layout-footer .footer-bottom .sitemap {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .layout-footer .visitors .box {
+    line-height: 34px;
   }
 }

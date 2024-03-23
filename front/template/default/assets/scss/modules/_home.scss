@@ -47,11 +47,17 @@
     .swiper-default {
       overflow: visible;
       .swiper-slide {
-        opacity: 0;
-        visibility: hidden;
+        .item {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 200ms ease;
+        }
+        &.swiper-slide-visible,
         &.swiper-slide-visible.swiper-slide-fully-visible {
-          opacity: 1;
-          visibility: visible;
+          .item {
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
       .swiper-button-next,
@@ -192,11 +198,17 @@
       height: 820px;
     }
     .swiper-slide {
-      opacity: 0;
-      visibility: hidden;
+      .item {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 200ms ease;
+      }
+      &.swiper-slide-visible,
       &.swiper-slide-visible.swiper-slide-fully-visible {
-        opacity: 1;
-        visibility: visible;
+        .item {
+          opacity: 1;
+          visibility: visible;
+        }
       }
     }
     .swiper-horizontal > .swiper-pagination-bullets,
@@ -400,6 +412,7 @@
         visibility: hidden;
         transition: 200ms ease;
       }
+      &.swiper-slide-visible,
       &.swiper-slide-visible.swiper-slide-fully-visible {
         .item {
           opacity: 1;
@@ -537,11 +550,11 @@
   .line {
     background-color: var(--color-primary);
   }
-  .action {
-    margin-top: 40px;
-  }
   .wg-news-nav {
     padding-right: 40px;
+    .action {
+      margin-top: 40px;
+    }
   }
   .wg-news-tab {
     width: 1000px;
@@ -566,6 +579,7 @@
         opacity: 0;
         visibility: hidden;
       }
+      &.swiper-slide-visible,
       &.swiper-slide-visible.swiper-slide-fully-visible,
       &.swiper-slide-visible.swiper-slide-fully-visible + .swiper-slide {
         pointer-events: visible;
@@ -850,22 +864,40 @@
   .wg-about .content .desc {
     font-size: var(--typo-xs);
   }
+  .wg-about-group .action span {
+    font-size: 32px;
+  }
+  .wg-about-group .grphic-obj {
+    width: 70px;
+  }
   .wg-news {
     padding: 150px 0 70px;
+  }
+  .wg-news .wg-news-nav .action {
+    margin-top: 30px;
   }
   .wg-news .wg-news-tab {
     padding-right: 230px;
     width: 900px;
+  }
+  .wg-news .wg-news-slide .swiper-default .swiper-button-next,
+  .wg-news .wg-news-slide .swiper-default .swiper-button-prev {
+    width: 54px;
+    height: 54px;
+  }
+  .wg-news .wg-news-slide .swiper-default .swiper-button-next:after,
+  .wg-news .wg-news-slide .swiper-default .swiper-button-prev:after {
+    font-size: 34px;
   }
   .wg-lab .bg-obj {
     margin: 20px 0;
     width: 120px;
   }
   .wg-lab .bg {
-    width: 58vw;
+    width: 56vw;
   }
   .wg-contact .bg {
-    width: 42vw;
+    width: 44vw;
   }
   .wg-contact .contact-list .desc {
     font-size: var(--typo-xs);
@@ -874,4 +906,98 @@
   .wg-lab .content {
     padding: 70px 30px;
   }
+}
+@media (max-width: 1199px) {
+  .section .whead .title {
+    font-size: 34px;
+  }
+  .section .whead .subtitle {
+    font-size: 24px;
+  }
+  .wg-services {
+    padding: 60px 0 120px 0;
+  }
+  .service-list .swiper-default .swiper-horizontal > .swiper-pagination-bullets,
+  .service-list .swiper-default .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .service-list .swiper-default .swiper-pagination-custom,
+  .service-list .swiper-default .swiper-pagination-fraction {
+    margin-top: 30px;
+  }
+  .wg-research .wg-research-main {
+    padding: 60px 0;
+  }
+  .wg-research-group .whead .title {
+    font-size: 28px;
+  }
+  .wg-research-group .whead .subtitle {
+    font-size: 22px;
+  }
+  .wg-research-group .whead .total {
+    font-size: 48px;
+  }
+  .wg-research-group .graphic {
+    width: 280px;
+  }
+  .wg-research-group.-right .whead {
+    padding-right: 140px;
+  }
+  .wg-research-group.-left .bg-obj img,
+  .wg-research-group.-right .bg-obj img {
+    height: 120px;
+  }
+  .wg-research-group.-left .bg-obj {
+    right: 32%;
+  }
+  .wg-research-group.-right .bg-obj {
+    left: 32%;
+  }
+  .wg-research-list {
+    padding-bottom: 60px;
+  }
+  .wg-research-list .wg-research-group .bg-obj {
+    max-width: 140px;
+  }
+  .wg-about .graphic {
+    bottom: -108px;
+    margin-left: -380px;
+    width: 660px;
+  }
+  .wg-about .wg-about-group-list {
+    width: 525px;
+  }
+  .wg-about-group .card-body {
+    padding: 30px;
+  }
+  .wg-about-group .title {
+    font-size: var(--typo-md);
+  }
+  .wg-about-group .action {
+    font-size: var(--typo-xs);
+  }
+  .wg-about-group .grphic-obj {
+    width: 60px;
+  }
+  .wg-news {
+    padding: 120px 0 60px;
+  }
+  .wg-news .wg-news-tab {
+    padding-right: 160px;
+    width: 690px;
+  }
+  .wg-news .wg-news-list {
+    margin: 0 -10px;
+  }
+  .wg-news .wg-news-list .item {
+    padding: 0 10px;
+  }
+  .wg-contact .content,
+  .wg-lab .content {
+    padding: 60px 30px;
+  }
+  // .wg-lab .bg {
+  //   width: 58vw;
+  // }
+  // .wg-contact .bg {
+  //   width: 42vw;
+  // }
 }

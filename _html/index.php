@@ -884,6 +884,20 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+        1200: {
+          slidesPerView: 5,
+        },
+      }
     });
 
     var serviceSwiper = new Swiper(".service-slide .swiper", {
@@ -901,18 +915,49 @@
         el: ".swiper-pagination",
         clickable: true,
       },
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+          grid: {
+            rows: 2,
+          },
+        },
+        768: {
+          slidesPerView: 3,
+          grid: {
+            rows: 3,
+          },
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+        1200: {
+          slidesPerView: 5,
+        },
+      }
     });
 
-    var serviceSwiper = new Swiper(".wg-research-list .swiper", {
+    var researchSwiper = new Swiper(".wg-research-list .swiper", {
       slidesPerView: 3,
       watchSlidesProgress: true,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        576: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+      }
     });
 
-    var serviceSwiper = new Swiper(".wg-news-slide .swiper", {
+    var newsSwiper = new Swiper(".wg-news-slide .swiper", {
       // slidesPerView: "auto",
       slidesPerView: 2,
       // freeMode: true,
@@ -921,6 +966,7 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+      
     });
 
     // $('#popupModal').modal('show');
