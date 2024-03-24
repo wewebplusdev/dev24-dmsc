@@ -400,7 +400,7 @@
     }
     .layout-header .top-bar .nav-lang {
         position: absolute;
-        top: 20px;
+        top: 24px;
         right: 60px;
     }
     .layout-header .navbar-collapse {
@@ -410,6 +410,12 @@
         height: calc(100vh - 75px);
         overflow: auto;
         margin-top: 9px;
+        display: block;
+        transition: transform 400ms ease-in-out;
+        transform: translateX(100%);
+    }
+    .layout-header .navbar-collapse.show{
+        transform: translateX(0);
     }
     .layout-header .main-menu {
         overflow: hidden;
