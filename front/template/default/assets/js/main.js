@@ -12,6 +12,10 @@ $(function () {
 
 (function ($) {
   $(window).on("load", function () {
+    if ($(window).width() < 992) {
+      $(".submenu-col .mCustomScrollbar").mCustomScrollbar("destroy");
+    }
+    
     $(".mCustomScrollbar").mCustomScrollbar({
       theme: "dark"
     });
@@ -19,7 +23,6 @@ $(function () {
 })(jQuery);
 
 $(document).ready(function () {
-
   $('.full-dropdown-menu').on('click', function (event) {
     event.stopPropagation();
   });
