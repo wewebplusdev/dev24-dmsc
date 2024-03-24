@@ -405,16 +405,19 @@
     }
     .layout-header .navbar-collapse {
         margin: 0 -15px;
-        // padding: 0 15px;
         background: var(--color-secondary);
-        height: calc(100vh - 75px);
         overflow: auto;
-        margin-top: 9px;
+
+        position: absolute !important;
+        top: 75px;
+        height: calc(100vh - 75px);
+        width: 100%;
+
         display: block;
-        transition: transform 400ms ease-in-out;
+        transition: all 400ms ease-in-out;
         transform: translateX(100%);
     }
-    .layout-header .navbar-collapse.show{
+    .layout-header .navbar-collapse.show {
         transform: translateX(0);
     }
     .layout-header .main-menu {
