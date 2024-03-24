@@ -48,11 +48,11 @@
       <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
         <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php" title="หน้าหลัก" data-aos="fade-left">หน้าหลัก</a>
+            <a class="nav-link" aria-current="page" href="index.php" title="หน้าหลัก" data-aos="fade-left">หน้าหลัก</a>
           </li>
           <li class="nav-item">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="javascript:void;" title="เกี่ยวกับหน่วยงาน" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">เกี่ยวกับหน่วยงาน</a>
+              <a class="nav-link dropdown-toggle active" href="javascript:void;" title="เกี่ยวกับหน่วยงาน" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">เกี่ยวกับหน่วยงาน</a>
               <div class="dropdown-menu full-dropdown-menu" aria-labelledby="my-dropdown">
                 <div class="container-dropdown-menu">
                   <div class="submenu-row">

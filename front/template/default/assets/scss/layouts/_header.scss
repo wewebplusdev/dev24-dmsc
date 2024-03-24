@@ -380,15 +380,25 @@
         height: 75px;
     }
     .layout-header .navbar-nav .nav-link {
-        padding: 12px 15px;
-        // color: var(--color-light);
-        // background-color: var(--color-primary);
+        padding: 15px;
     }
-    .layout-header .navbar-nav .dropdown.show > .nav-link {
-        background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+    .layout-header .main-menu .dropdown.show .nav-link {
+        //     background: transparent;
+        //     color: var(--color-primary);
+        clip-path: none;
+    }
+    .layout-header .submenu-col .link {
+        padding: 15px;
+    }
+    .layout-header .main-menu .dropdown .nav-link.dropdown-toggle::after {
+        font-size: 26px;
+        top: 12px;
+        transform: none;
     }
     .layout-header .navbar-nav .nav-link {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--color-light);
+        background: var(--color-secondary);
     }
     .layout-header .top-bar .nav-lang {
         position: absolute;
@@ -397,24 +407,22 @@
     }
     .layout-header .navbar-collapse {
         margin: 0 -15px;
-        padding: 0 15px;
-        background: #fff;
+        // padding: 0 15px;
+        background: var(--color-secondary);
         height: calc(100vh - 75px);
         overflow: auto;
         margin-top: 9px;
-
-        // background: transparent;
-        // /* Note: currently only Safari supports backdrop-filter */
-        // backdrop-filter: blur(50px);
-        // --webkit-backdrop-filter: blur(50px);
-        // background-color: rgba(255, 255, 255, 0.5);
     }
     .layout-header .main-menu {
         overflow: hidden;
     }
+    .layout-header .main-menu .nav-link.active {
+        clip-path: none;
+    }
     .layout-header .full-dropdown-menu {
         top: 0 !important;
         height: 0;
+        background: #fff;
     }
     .layout-header .full-dropdown-menu.show {
         height: auto;
@@ -431,4 +439,17 @@
     .layout-header .full-dropdown-menu.show .submenu-col.sub1menu {
         display: block;
     }
+    .layout-header .full-dropdown-menu .submenu-col .link {
+        // clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+    }
+    .layout-header .full-dropdown-menu .submenu-col .link.active {
+        color: var(--color-light);
+        background: var(--color-primary);
+    }
+    .layout-header .main-menu .nav-link {
+        font-size: 18px;
+    }
+    // .layout-header .main-menu .dropdown-menu .container-dropdown-menu {
+    //     padding-left: 0.75rem;
+    // }
 }

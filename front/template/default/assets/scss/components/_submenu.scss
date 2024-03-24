@@ -71,16 +71,19 @@
     .back-menu {
         display: none;
 
-        font-size: var(--typo-default);
+        font-size: 18px;
         color: var(--color-primary);
-        padding: 12px 15px;
+        padding: 15px;
+        padding-left: 30px;
         border-bottom: 1px solid #ebebeb;
         &::before {
             @include google-icon;
             content: "\e5cb";
-            position: relative;
+            position: absolute;
             display: inline;
-            top: 4px;
+            top: 10px;
+            left: 0;
+            font-size: 26px;
         }
     }
     ul.nav-list > li {
