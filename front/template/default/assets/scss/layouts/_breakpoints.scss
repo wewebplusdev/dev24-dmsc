@@ -69,4 +69,33 @@
 		max-width: inherit;
 		width: 100%;
 	}
+
+	.btn {
+		height: 50px;
+		line-height: 50px;
+		min-width: 120px;
+		font-size: 16px;
+	}
+
+	.swiper-default .swiper-pagination-bullet {
+		height: 12px;
+		width: 12px;
+	}
+	.swiper-default .swiper-pagination-bullet:after {
+		width: 34px;
+		height: 34px;
+	}
+	.swiper-default .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+	.swiper-default .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+		margin: 0 3px;
+	}
+	.swiper-default
+		.swiper-horizontal
+		> .swiper-pagination-bullets
+		.swiper-pagination-bullet.swiper-pagination-bullet-active,
+	.swiper-default
+		.swiper-pagination-horizontal.swiper-pagination-bullets
+		.swiper-pagination-bullet.swiper-pagination-bullet-active {
+		margin: 0 12px;
+	}
 }
