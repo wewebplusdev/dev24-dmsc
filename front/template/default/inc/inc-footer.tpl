@@ -174,7 +174,7 @@
                         </div>
                     </div>
                     <div class="w-100 p-0 d-lg-none"></div>
-                    <div class="col-auto" data-aos="fade-up">
+                    <div class="col-sm-auto" data-aos="fade-up">
                         <div class="ipv6">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/ipv6.webp" type="image/webp">
@@ -182,7 +182,7 @@
                             </picture>
                         </div>
                     </div>
-                    <div class="col-lg col-auto" data-aos="fade-up">
+                    <div class="col-lg col-sm-auto" data-aos="fade-up">
                         <div class="followus pt-md-3">
                             <div class="row no-gutters align-items-center justify-content-md-end">
                                 <div class="col-auto">
