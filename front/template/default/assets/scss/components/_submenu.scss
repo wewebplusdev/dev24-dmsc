@@ -74,7 +74,7 @@
         font-size: 18px;
         color: var(--color-primary);
         padding: 15px;
-        padding-left: 30px;
+        padding-left: 40px;
         border-bottom: 1px solid #ebebeb;
         &::before {
             @include google-icon;
@@ -82,7 +82,7 @@
             position: absolute;
             display: inline;
             top: 10px;
-            left: 0;
+            left: 8px;
             font-size: 26px;
         }
     }
