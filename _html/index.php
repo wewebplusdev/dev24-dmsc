@@ -922,11 +922,14 @@
             rows: 2,
           },
         },
-        768: {
-          slidesPerView: 3,
+        576: {
+          slidesPerView: 2,
           grid: {
             rows: 3,
           },
+        },
+        768: {
+          slidesPerView: 3,
         },
         1024: {
           slidesPerView: 4,

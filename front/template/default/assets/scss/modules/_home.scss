@@ -1020,6 +1020,9 @@
   .service-list .item {
     padding: 10px;
   }
+  .service-list .swiper-default.swiper-grid {
+    height: 660px;
+  }
   .wg-research .wg-research-main {
     padding: 50px 0;
   }
@@ -1141,5 +1144,77 @@
   }
   .wg-contact .bg {
     width: 50vw;
+  }
+}
+@media (max-width: 767px) {
+  .section .whead .title {
+    font-size: 30px;
+  }
+  .section .whead .subtitle {
+    font-size: 22px;
+  }
+  .wg-services {
+    padding: 40px 0 100px;
+  }
+  .wg-research .wg-research-main {
+    padding: 40px 0;
+  }
+  .wg-research-list {
+    padding-bottom: 40px;
+  }
+  .wg-research-group .whead .title {
+    font-size: 24px;
+  }
+  .wg-research-group .whead .subtitle {
+    font-size: 20px;
+  }
+  .wg-research-group .graphic {
+    width: 210px;
+  }
+  .wg-research-group.-left .whead {
+    padding: 20px 15px;
+  }
+  .wg-research-group.-right .whead {
+    padding: 20px 15px;
+  }
+  .wg-about-group .title {
+    font-size: 22px;
+  }
+  .wg-about .content {
+    padding-top: 40px;
+  }
+  .wg-about .content .desc{
+    font-size: 16px;
+  }
+  .wg-news {
+    padding: 80px 0 40px 0;
+  }
+  .wg-news .wg-news-nav .action {
+    margin-top: 5px;
+  }
+  .wg-contact .content,
+  .wg-lab .content {
+    padding: 40px 0;
+  }
+  .wg-contact .bg,
+  .wg-lab .bg {
+    width: 100vw;
+  }
+  .wg-lab .bg {
+    left: -15px;
+  }
+  .wg-contact .bg {
+    right: -15px;
+  }
+  .section.section-v > .container > .row > div {
+    position: relative !important;
+  }
+  .wg-about .wg-about-group-list {
+    width: auto;
+  }
+  .wg-about .graphic {
+    width: 540px;
+    margin-left: -450px;
+    bottom: -88px;
   }
 }
