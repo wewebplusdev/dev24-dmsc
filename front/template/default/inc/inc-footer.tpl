@@ -78,25 +78,23 @@
 
 
 <footer class="layout-footer">
-    <div class="footer-content lazy" data-bg="{$template}/assets/img/background/bg-footer.webp"
-        data-bg-hidpi="{$template}/assets/img/background/bg-footer@2x.webp">
+    <div class="footer-content lazy" data-bg="{$template}/assets/img/background/bg-footer.webp" data-bg-hidpi="{$template}/assets/img/background/bg-footer@2x.webp">
         <div class="container">
             <div class="footer-top">
                 <div class="row">
-                    <div class="col-md col-left">
+                    <div class="col-md col-left" data-aos="fade-left">
                         <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
                         <div class="subtitle">กระทรวงสาธารณสุข</div>
                     </div>
-                    <div class="col-auto col-right">
+                    <div class="col-auto col-right" data-aos="fade-right">
                         <div class="title"><a href="tel:098 915 6809" class="link">098 915 6809</a></div>
-                        <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt=""
-                                class="icon"> Call Center</div>
+                        <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
                     </div>
                 </div>
             </div>
             <div class="footer-middle">
-                <div class="row justify-content-between">
-                    <div class="col-md-auto">
+                <div class="row justify-content-lg-between">
+                    <div class="col-md-auto" data-aos="fade-up">
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
@@ -112,12 +110,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col-md-auto" data-aos="fade-up">
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt=""
-                                        class="icon">
+                                    <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="" class="icon">
                                 </div>
                                 <div class="col">
                                     <p class="desc">
@@ -128,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col-md-auto" data-aos="fade-up">
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
@@ -143,7 +140,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col-md-auto" data-aos="fade-up">
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
@@ -152,18 +149,16 @@
                                 <div class="col">
                                     <p class="desc">
                                         <span class="d-block">อีเมล์</span>
-                                        <a href="mailto:prdmsc@dmsc.mail.go.th" class="link"><span
-                                                class="d-block">prdmsc@dmsc.mail.go.th</span></a>
-                                        <a href="mailto:info@dmsc.mail.go.th" class="link"><span
-                                                class="d-block">info@dmsc.mail.go.th</span></a>
+                                        <a href="mailto:prdmsc@dmsc.mail.go.th" class="link"><span class="d-block">prdmsc@dmsc.mail.go.th</span></a>
+                                        <a href="mailto:info@dmsc.mail.go.th" class="link"><span class="d-block">info@dmsc.mail.go.th</span></a>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Force next columns to break to new line -->
-                    <div class="w-100 p-0"></div>
-                    <div class="col-md">
+                    <div class="w-100 p-0 d-xl-block d-none"></div>
+                    <div class="col-md" data-aos="fade-up">
                         <div class="contact pt-md-3">
                             <div class="row no-gutters">
                                 <div class="col-auto">
@@ -172,14 +167,14 @@
                                 <div class="col">
                                     <p class="desc">
                                         <span class="d-block">ข้อมูลโดย ฝ่ายประชาสัมพันธ์ สำนักงานเลขานุการกรม</span>
-                                        <span class="d-block">E-mail : <a href="prdmsc@dmsc.mail.go.th"
-                                                class="link">prdmsc@dmsc.mail.go.th</a></span>
+                                        <span class="d-block">E-mail : <a href="prdmsc@dmsc.mail.go.th" class="link">prdmsc@dmsc.mail.go.th</a></span>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="w-100 p-0 d-lg-none"></div>
+                    <div class="col-auto" data-aos="fade-up">
                         <div class="ipv6">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/ipv6.webp" type="image/webp">
@@ -187,7 +182,7 @@
                             </picture>
                         </div>
                     </div>
-                    <div class="col-md">
+                    <div class="col-lg col-auto" data-aos="fade-up">
                         <div class="followus pt-md-3">
                             <div class="row no-gutters align-items-center justify-content-md-end">
                                 <div class="col-auto">
@@ -199,44 +194,35 @@
                                             <li>
                                                 <a href="" class="link tele" title="Telephone">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/old-typical-phone.svg"
-                                                            alt="" class="icon">
+                                                        <img src="{$template}/assets/img/icon/old-typical-phone.svg" alt="" class="icon">
                                                     </div>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.facebook.com/DMScNews/" class="link fb"
-                                                    title="Facebook" target="_blank">
+                                                <a href="https://www.facebook.com/DMScNews/" class="link fb" title="Facebook" target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/facebook.svg" alt=""
-                                                            class="icon">
+                                                        <img src="{$template}/assets/img/icon/facebook.svg" alt="" class="icon">
                                                     </div>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://twitter.com/DMScNew" class="link tw" title="X"
-                                                    target="_blank">
+                                                <a href="https://twitter.com/DMScNew" class="link tw" title="X" target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/twitter.svg" alt=""
-                                                            class="icon">
+                                                        <img src="{$template}/assets/img/icon/twitter.svg" alt="" class="icon">
                                                     </div>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.youtube.com/user/DMSCLive" class="link yt"
-                                                    title="YouTube" target="_blank">
+                                                <a href="https://www.youtube.com/user/DMSCLive" class="link yt" title="YouTube" target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/youtube.svg" alt=""
-                                                            class="icon">
+                                                        <img src="{$template}/assets/img/icon/youtube.svg" alt="" class="icon">
                                                     </div>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://line.me/R/ti/p/%40009xhxof" class="link line"
-                                                    title="Line" target="_blank">
+                                                <a href="https://line.me/R/ti/p/%40009xhxof" class="link line" title="Line" target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/line.svg" alt=""
-                                                            class="icon">
+                                                        <img src="{$template}/assets/img/icon/line.svg" alt="" class="icon">
                                                     </div>
                                                 </a>
                                             </li>
@@ -251,7 +237,7 @@
             {if $load_policy->_numOfRows gte 1}
             <div class="footer-bottom">
                 <div class="row">
-                    <div class="col-md">
+                    <div class="col-md" data-aos="fade-left">
                         <div class="policy">
                             <ul class="item-list">
                                 {foreach $load_policy->item as $keyPolicy => $valuePolicy}
@@ -268,7 +254,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col-md-auto" data-aos="fade-right">
                         <a href="" class="link sitemap">แผนผังเว็บไซต์</a>
                     </div>
                 </div>
@@ -276,14 +262,13 @@
             {/if}
         </div>
     </div>
-    <div class="footer-bar">
+    <div class="footer-bar" data-aos="fade-up">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md">
-                    <p class="copyright">Copyright © 2024 Department of Medical Sciences, Ministry of Public Health. All
-                        rights reserved.</p>
+                <div class="col-lg">
+                    <p class="copyright">Copyright © 2024 Department of Medical Sciences, Ministry of Public Health. All rights reserved.</p>
                 </div>
-                <div class="col-md-auto">
+                <div class="col-lg-auto">
                     <div class="visitors">จำนวนผู้เข้าชม <div class="box">2,651,012</div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="footer-middle">
-        <div class="row justify-content-between">
+        <div class="row justify-content-lg-between">
           <div class="col-md-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
@@ -78,7 +78,7 @@
             </div>
           </div>
           <!-- Force next columns to break to new line -->
-          <div class="w-100 p-0"></div>
+          <div class="w-100 p-0 d-xl-block d-none"></div>
           <div class="col-md" data-aos="fade-up">
             <div class="contact pt-md-3">
               <div class="row no-gutters">
@@ -94,7 +94,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto" data-aos="fade-up">
+          <div class="w-100 p-0 d-lg-none"></div>
+          <div class="col-auto" data-aos="fade-up">
             <div class="ipv6">
               <picture>
                 <source srcset="<?php echo $core_template; ?>/img/static/ipv6.webp" type="image/webp">
@@ -102,7 +103,7 @@
               </picture>
             </div>
           </div>
-          <div class="col-md" data-aos="fade-up">
+          <div class="col-lg col-auto" data-aos="fade-up">
             <div class="followus pt-md-3">
               <div class="row no-gutters align-items-center justify-content-md-end">
                 <div class="col-auto">
@@ -175,10 +176,10 @@
   <div class="footer-bar" data-aos="fade-up">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md">
+        <div class="col-lg">
           <p class="copyright">Copyright © 2024 Department of Medical Sciences, Ministry of Public Health. All rights reserved.</p>
         </div>
-        <div class="col-md-auto">
+        <div class="col-lg-auto">
           <div class="visitors">จำนวนผู้เข้าชม <div class="box">2,651,012</div>
           </div>
         </div>
