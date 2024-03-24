@@ -396,7 +396,7 @@
             </div>
           </div>
           <div class="row no-gutters">
-            <div class="col-md" data-aos="fade-right">
+            <div class="col-lg" data-aos="fade-right">
               <a href="" class="link">
                 <div class="wg-research-group -left">
                   <div class="row no-gutters">
@@ -423,7 +423,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md" data-aos="fade-left">
+            <div class="col-lg" data-aos="fade-left">
               <a href="" class="link">
                 <div class="wg-research-group -right">
                   <div class="row no-gutters">
@@ -564,7 +564,7 @@
         <div class="wg-about lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-about.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-about@2x.webp">
           <div class="container">
             <div class="row align-items-center no-gutters">
-              <div class="col-md" data-aos="fade-right">
+              <div class="col-lg" data-aos="fade-right">
                 <div class="content">
                   <div class="whead">
                     <h2 class="title">กรมวิทยาศาสตร์การแพทย์</h2>
@@ -582,7 +582,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-auto">
+              <div class="col-lg-auto">
                 <div class="wg-about-group-list">
                   <div class="row no-gutters">
                     <div class="col-6">
@@ -663,7 +663,7 @@
         <div class="wg-news lazy" data-bg="<?php echo $core_template; ?>/img/background/bg-wg-news.webp" data-bg-hidpi="<?php echo $core_template; ?>/img/background/bg-wg-news@2x.webp">
           <div class="container">
             <div class="row no-gutters">
-              <div class="col-md">
+              <div class="col-lg">
                 <div class="wg-news-nav" data-aos="fade-left" data-aos-delay="200">
                   <div class="whead">
                     <h2 class="title">ข่าวสาร</h2>
@@ -681,7 +681,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-auto">
+              <div class="col-lg-auto">
                 <div class="wg-news-tab wg-news-list" data-aos="fade-up">
                   <div class="tab-content" id="news-tabContent">
                     <div class="tab-pane fade show active" id="news-01" role="tabpanel" aria-labelledby="news-01-tab">
@@ -966,7 +966,17 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        992: {
+          slidesPerView: 2,
+        }
+      }
     });
 
     // $('#popupModal').modal('show');

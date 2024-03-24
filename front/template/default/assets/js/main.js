@@ -112,4 +112,9 @@ $(document).ready(function () {
     //   }
     // }
   });
+
+  // $('.nav-default .swiper .nav-link').click(function () {
+  //   $('.nav-default .swiper .nav-link').removeClass('active');
+  //   $(this).addClass('active');
+  // });
 });

@@ -60,3 +60,16 @@
         }
     }
 }
+
+@media (max-width: 1440px) {
+    .line {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 767px) {
+    .line {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+}

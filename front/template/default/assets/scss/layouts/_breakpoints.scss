@@ -52,6 +52,9 @@
 		max-width: inherit;
 		width: 100%;
 	}
+	.btn {
+		font-size: var(--typo-xs);
+	}
 }
 
 @media (max-width: 767px) {
