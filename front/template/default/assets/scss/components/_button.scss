@@ -92,3 +92,32 @@
 	border-color: var(--color-light);
 	opacity: 0.5;
 }
+
+.btn-light,
+.btn-light:focus,
+.btn-light.focus,
+.btn-light:not(:disabled):not(.disabled).active,
+.btn-light:not(:disabled):not(.disabled):active,
+.show > .btn-light.dropdown-toggle {
+	color: var(--color-primary);
+	background-color: var(--color-light);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
+}
+.btn-light:hover,
+.btn-light:active:hover,
+.btn-light.active:hover,
+.btn-light:active:focus,
+.btn-light.actitve:focus,
+.btn-light:active.focus,
+.btn-light.active.focus,
+.btn-light:focus:hover,
+.btn-light.focus:hover {
+	color: var(--color-light);
+	background-color: var(--color-primary);
+}
+.btn-light.disabled,
+.btn-light.disabled:hover {
+	color: var(--color-primary);
+	background-color: var(--color-light);
+	opacity: 0.5;
+}
