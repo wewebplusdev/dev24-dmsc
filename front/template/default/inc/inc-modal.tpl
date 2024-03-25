@@ -18,7 +18,7 @@
 </div>
 
 <!-- Popup -->
-<div class="modal popup-modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+<div class="modal popup-modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">

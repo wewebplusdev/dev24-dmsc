@@ -38,12 +38,12 @@
         </div>
       </a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-aos="fade-left">
-        <div class="hamburger">
+        <span class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
-        </div>
+        </span>
       </button>
       <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
         <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0">
@@ -53,7 +53,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <a class="nav-link dropdown-toggle active" href="javascript:void;" title="เกี่ยวกับหน่วยงาน" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">เกี่ยวกับหน่วยงาน</a>
-              <div class="dropdown-menu full-dropdown-menu" aria-labelledby="my-dropdown">
+              <div class="dropdown-menu full-dropdown-menu">
                 <div class="container-dropdown-menu">
                   <div class="submenu-row">
                     <div class="submenu-col"></div>
@@ -123,7 +123,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:void(0)" title="ซีไอโอ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">ซีไอโอ</a>
-              <div class="dropdown-menu full-dropdown-menu" aria-labelledby="my-dropdown">
+              <div class="dropdown-menu full-dropdown-menu">
                 <div class="container-dropdown-menu">
                   <div class="submenu-row">
                     <div class="submenu-col"></div>

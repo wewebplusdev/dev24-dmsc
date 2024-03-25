@@ -411,7 +411,7 @@
                     <div class="col-auto">
                       <div class="graphic">
                         <picture>
-                          <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01@2x.webp" data-="" type="image/webp">
+                          <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-01@2x.webp" type="image/webp">
                           <img src="<?php echo $core_template; ?>/img/static/wg-research-graphic-01.png" data-src="<?php echo $core_template; ?>/img/static/wg-research-graphic-01@2x.png" alt="" class="lazy">
                         </picture>
                       </div>
@@ -438,7 +438,7 @@
                     <div class="col-auto">
                       <div class="graphic">
                         <picture>
-                          <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02@2x.webp" data-="" type="image/webp">
+                          <source srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-research-graphic-02@2x.webp" type="image/webp">
                           <img src="<?php echo $core_template; ?>/img/static/wg-research-graphic-02.png" data-src="<?php echo $core_template; ?>/img/static/wg-research-graphic-02@2x.png" alt="" class="lazy">
                         </picture>
                       </div>
@@ -651,7 +651,7 @@
             </div>
             <div class="graphic" data-aos="fade-up" data-aos-delay="400">
               <picture>
-                <source srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.webp" data-="" type="image/webp">
+                <source srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic.webp" data-srcset="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.webp" type="image/webp">
                 <img src="<?php echo $core_template; ?>/img/static/wg-about-graphic.png" data-src="<?php echo $core_template; ?>/img/static/wg-about-graphic@2x.png" alt="" class="lazy">
               </picture>
             </div>
