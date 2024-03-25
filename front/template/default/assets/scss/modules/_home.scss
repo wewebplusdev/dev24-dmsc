@@ -1005,6 +1005,9 @@
   // }
 }
 @media (max-width: 991px) {
+  .top-graphic .cover{
+    padding-top: 480px;
+  }
   .wg-services {
     padding: 50px 0 110px;
   }
@@ -1147,6 +1150,9 @@
   }
 }
 @media (max-width: 767px) {
+  .top-graphic .cover{
+    padding-top: 380px;
+  }
   .section .whead .title {
     font-size: 30px;
   }
@@ -1217,6 +1223,9 @@
   }
 }
 @media (max-width: 575px) {
+  .top-graphic .cover{
+    padding-top: 280px;
+  }
   .section .whead .title {
     font-size: 28px;
   }

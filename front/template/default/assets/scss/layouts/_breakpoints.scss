@@ -62,6 +62,13 @@
 		max-width: inherit;
 		width: 100%;
 	}
+
+	.swiper-default .swiper-horizontal > .swiper-pagination-bullets,
+	.swiper-default .swiper-pagination-bullets.swiper-pagination-horizontal,
+	.swiper-default .swiper-pagination-custom,
+	.swiper-default .swiper-pagination-fraction {
+		bottom: 30px;
+	}
 }
 
 @media (max-width: 575px) {
