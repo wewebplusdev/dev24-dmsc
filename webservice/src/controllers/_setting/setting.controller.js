@@ -32,12 +32,14 @@ async function getWebSetting(req, res) {
     config_array_db['sy_langfront'] = config.fieldDB.main.sy_langfront
     config_array_db['md_ab'] = config.fieldDB.main.md_ab
     config_array_db['md_abl'] = config.fieldDB.main.md_abl
+    config_array_db['md_logs_view'] = config.fieldDB.main.md_logs_view
 
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['sy_lang'] = config.fieldDB.masterkey.sm
     config_array_masterkey['lcf'] = config.fieldDB.masterkey.lcf
     config_array_masterkey['set'] = config.fieldDB.masterkey.set
+    config_array_masterkey['cmf'] = config.fieldDB.masterkey.cmf
     
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -232,6 +234,48 @@ async function getWebSetting(req, res) {
             result.item.facebook = null;
         }
         // ################## End Live Chat Facebook ##################
+
+        // ################## Start Comment Facebook ##################
+        try {
+            let sql_cmfacebook = `SELECT 
+            ${config_array_db['md_ab']}_id as id 
+            ,${config_array_db['md_ab']}_masterkey as masterkey 
+            ,${config_array_db['md_abl']}_language as language 
+            ,${config_array_db['md_abl']}_subject as subject 
+            ,${config_array_db['md_abl']}_title as title 
+            FROM ${config_array_db['md_ab']} 
+            INNER JOIN ${config_array_db['md_abl']} ON ${config_array_db['md_abl']}_cid = ${config_array_db['md_ab']}_id
+            WHERE ${config_array_db['md_ab']}_status != 'Disable' 
+            AND ${config_array_db['md_ab']}_masterkey = '${config_array_masterkey['cmf']}' 
+            `;
+            const select_cmfacebook = await query(sql_cmfacebook);
+            if (select_cmfacebook.length > 0) {
+                result.item.cmfacebook = select_cmfacebook[0].title;
+            }else{
+                result.item.cmfacebook = null;
+            }
+        } catch (error) {
+            result.item.cmfacebook = null;
+        }
+        // ################## End Comment Facebook ##################
+
+        // ################## Start View Website ##################
+        try {
+            let sql_count_view = `SELECT 
+            count(${config_array_db['md_logs_view']}_id) as count_row 
+            FROM ${config_array_db['md_logs_view']} 
+            WHERE 1=1
+            `;
+            const select_count_view = await query(sql_count_view);
+            if (select_count_view.length > 0) {
+                result.item.count_view = select_count_view[0].count_row;
+            }else{
+                result.item.count_view = 0;
+            }
+        } catch (error) {
+            result.item.count_view = 0;
+        }
+        // ################## End View Website ##################
         conn.destroy();
     }
     res.json(result);

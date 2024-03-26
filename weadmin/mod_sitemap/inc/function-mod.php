@@ -15,41 +15,53 @@ class sitemapWebsite {
             foreach ($site_lang as $valueLang) {
                 $callGroup = self::callGroup($this->menu_masterkey, $valueLang['key']);
                 foreach ($callGroup as $keycallGroup => $valuecallGroup) {
-                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['id'] = $valuecallGroup['id'];
-                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['subject'] = $valuecallGroup['subject'];
-                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['url'] = $valuecallGroup['url'];
-                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['tb'] = $mod_tb_group;
-                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['masterkey'] = $_REQUEST['masterkey'];
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['id'] = $valuecallGroup['id'];
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['subject'] = $valuecallGroup['subject'];
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['url'] = $valuecallGroup['url'];
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['tb'] = $mod_tb_group;
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['masterkey'] = $_REQUEST['masterkey'];
                     if ($valuecallGroup['target'] == 2) {
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['target'] = '_blank';
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['target'] = '_blank';
                     }else{
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['target'] = '_self';
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['target'] = '_self';
                     }
 
                     $callSubGroup = self::callSubGroup($this->menu_masterkey, $valueLang['key'], $valuecallGroup['id']);
+                    if ($callSubGroup->_numOfRows > 0) {
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['count_lv2'] = true;
+                    }else{
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['count_lv2'] = false;
+                    }
                     foreach ($callSubGroup as $valuecallSubGroup) {
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['id'] = $valuecallSubGroup['id'];
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['subject'] = $valuecallSubGroup['subject'];
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['url'] = $valuecallSubGroup['url'];
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['tb'] = $mod_tb_subgroup;
-                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['masterkey'] = $_REQUEST['masterkey'];
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['id'] = $valuecallSubGroup['id'];
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['subject'] = $valuecallSubGroup['subject'];
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['url'] = $valuecallSubGroup['url'];
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['tb'] = $mod_tb_subgroup;
+                        $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['masterkey'] = $_REQUEST['masterkey'];
                         if ($valuecallSubGroup['target'] == 2) {
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['target'] = '_blank';
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['target'] = '_blank';
                         }else{
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['target'] = '_self';
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['target'] = '_self';
                         }
 
                         $callContent = self::callContent($this->menu_masterkey, $valueLang['key'], $valuecallGroup['id'], $valuecallSubGroup['id']);
+                        if ($callContent->_numOfRows > 0) {
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['count_lv3'] = true;
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['count_lv3'] = true;
+                        }else{
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['count_lv3'] = false;
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['count_lv3'] = false;
+                        }
                         foreach ($callContent as $valuecallContent) {
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['id'] = $valuecallContent['id'];
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['subject'] = $valuecallContent['subject'];
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['url'] = $valuecallContent['url'];
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['tb'] = $mod_tb_root;
-                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['masterkey'] = $_REQUEST['masterkey'];
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['id'] = $valuecallContent['id'];
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['subject'] = $valuecallContent['subject'];
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['url'] = $valuecallContent['url'];
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['tb'] = $mod_tb_root;
+                            $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['masterkey'] = $_REQUEST['masterkey'];
                             if ($valuecallContent['target'] == 2) {
-                                $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['target'] = '_blank';
+                                $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['target'] = '_blank';
                             }else{
-                                $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id']]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['target'] = '_self';
+                                $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['level_2'][$valuecallSubGroup['id']]['level_3'][$valuecallContent['id']]['target'] = '_self';
                             }
                         }
                     }

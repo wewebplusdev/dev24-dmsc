@@ -13,7 +13,7 @@
 
 <body>
     {* {include file="{$incfile.preloader}" title=title} *}
-    <div class="global-container bg-drop">
+    <div class="global-container">
         {include file="{$incfile.header}" title=title}
         {include file="{$fileInclude|templateInclude}" title=pageContent}
         {include file="{$incfile.footer}" title=title}

@@ -3998,3 +3998,19 @@ a:visited {
     background-size: 30px;
     z-index: 1;
 }
+
+.fontLinksub:hover {
+    text-decoration: underline;
+}
+
+.fontContantTbTime {
+    color: #616161;
+    font-size: 13px;
+    line-height: 25px;
+  }
+  .fontLinksub:link, .fontLinksub:visited {
+    color: #616161;
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: 300;
+  }

@@ -1,208 +1,685 @@
-<div class="container">
-    <a href="{$ul}/home">
-        <img src="{$languageFrontWeb->brandImg->display->$currentLangWeb}" alt="">
-        <h2>{$settingWeb.subject}</h2>
-        <h4>{$settingWeb.subjectoffice}</h4>
-    </a>
-    
-    <div>language Active : </div>
-    <ul>
-        {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
-            <li><a href="{$ul}/lang/{$valueLangWeb->short}">{$valueLangWeb->subject}</a></li>
-        {/foreach}
-    </ul>
+<section class="layout-body">
 
-    {* Start Popup *}
-    {if $load_popup->_numOfRows gte 1}
-        <h2>Popup</h2>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Popup btn
-        </button>
-    
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                {foreach $load_popup->item as $keyPopup => $valuePopup}
-                    {if $valuePopup->type eq 1}
-                        <img src="{$valuePopup->pic->pictures}" class="card-img-top" alt="{$valuePopup->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                        <div class="card-body">
-                            <h5 class="card-title">{$valuePopup->subject}</h5>
-                            <a {if $valuePopup->url neq "#" && $valuePopup->url neq ""}href="{$valuePopup->url}" target="{$valuePopup->target}"{else}href="javascript:void(0);"{/if} class="btn btn-primary">Link</a>
-                        </div>
-                    {else}
-                        {$myUrlArray = "v="|explode:$valuePopup->video}
-                        {$myUrlCut = $myUrlArray[1]}
-                        {$myUrlCutArray = "&"|explode:$myUrlCut}
-                        {$myUrlCutAnd= $myUrlCutArray.0}
-                        <div class="detail-vdo">
-                            <div class="iframe-container" data-aos="fade-up">
-                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" allow="autoplay" frameborder="0"></iframe>
-                            </div>
-                        </div>
-                    {/if}
-                {/foreach}
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-            </div>
-        </div>
-    {/if}
-    {* End Popup *}
-
-    {* Start Top Graphic *}
     {if $load_topgraphic->_numOfRows gte 1}
-        <h2>Top Graphic</h2>
-        <div class="d-flex flex-row p-2">
-            {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
-                <div class="card" style="width: 18rem;">
+    <div class="top-graphic" data-aos="fade-down">
+        <div class="swiper swiper-default">
+            <div class="swiper-wrapper">
+                {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
                     {if $valueTgp->type eq 1}
-                        <img src="{$valueTgp->pic->pictures}" class="card-img-top" alt="{$valueTgp->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                        <div class="card-body">
-                            <h5 class="card-title">{$valueTgp->subject}</h5>
-                            <a {if $valueTgp->url neq "#" && $valueTgp->url neq ""}href="{$valueTgp->url}" target="{$valueTgp->target}"{else}href="javascript:void(0);"{/if} class="btn btn-primary">Link</a>
-                        </div>
-                    {else}
-                        {$myUrlArray = "v="|explode:$valueTgp->video}
-                        {$myUrlCut = $myUrlArray[1]}
-                        {$myUrlCutArray = "&"|explode:$myUrlCut}
-                        {$myUrlCutAnd= $myUrlCutArray.0}
-                        <div class="detail-vdo">
-                            <div class="iframe-container" data-aos="fade-up">
-                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" allow="autoplay" frameborder="0"></iframe>
+                        <div class="swiper-slide">
+                            <div class="item">
+                                <figure class="cover">
+                                    <picture>
+                                        <img src="{$valueTgp->pic->pictures}" alt="" class="lazy" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                                    </picture>
+                                </figure>
                             </div>
                         </div>
+                    {else}
                     {/if}
-                </div>
-            {/foreach}
-        </div>
-    {/if}
-    {* End Top Graphic *}
-    
-    {* Start Services *}
-    {if $load_services->_numOfRows gte 1}
-        <h2>Services</h2>
-        <ul>
-            {foreach $load_services->item->group as $keyload_services_group => $load_services_group}
-                <li><a href="javascript:void(0);" class="services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</a></li>
-            {/foreach}
-        </ul>
-        <div class="d-flex flex-row p-2" id="service-append">
-            {foreach $load_services->item->list as $keyload_services_list => $valueload_services_list}
-                {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
-                {assign var="target" value="_self"}
-                {if $checkUrl}
-                    {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
-                    {$target = $valueload_services_list->target}
-                {else}
-                    {assign var="news_url" value="javascript:void(0);"}
-                {/if}
-                <div class="card" style="width: 18rem;">
-                    <a href="{$news_url}" target="{$target}">
-                        <img src="{$valueload_services_list->pic->pictures}" class="card-img-top" alt="{$valueload_services_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                        <div class="card-body">
-                            <h5 class="card-title">{$valueload_services_list->subject}</h5>
-                        </div>
-                    </a>
-                </div>
-            {/foreach}
-        </div>
-    {/if}
-    {* End Services *}
-
-    {* Start Innovation *}
-    {if $load_innovation->_numOfRows gte 1}
-        <h2>Innovation</h2>
-        <div class="d-flex flex-row p-2" id="service-append">
-            {foreach $load_innovation->item as $keyload_innovation_list => $valueload_innovation_list}
-                <div class="card" style="width: 18rem;">
-                    <a href="{$valueload_innovation_list->url}" target="{$valueload_innovation_list->target}">
-                        <img src="{$valueload_innovation_list->pic->pictures}" class="card-img-top" alt="{$valueload_innovation_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                        <div class="card-body">
-                            <h5 class="card-title">{$valueload_innovation_list->subject}</h5>
-                            <div class="desc">{$valueload_innovation_list->des}</div>
-                            <div class="desc">{$valueload_innovation_list->number|number_format}</div>
-                            <div class="desc">{$valueload_innovation_list->suffix}</div>
-                        </div>
-                    </a>
-                </div>
-            {/foreach}
-        </div>
-    {/if}
-    {* End Innovation *}
-
-    {* Start About *}
-    {if $load_about->_numOfRows gte 1}
-        <h2>About</h2>
-        <div class="d-flex flex-row p-2" id="service-append">
-        {foreach $load_about->item as $keyload_about_list => $valueload_about_list}
-            {assign var="checkUrl" value="{$valueload_about_list->url|check_url}"}
-            {assign var="target" value="_self"}
-            {if $checkUrl}
-                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about_list->tb|page_redirect:$valueload_about_list->masterkey:$valueload_about_list->id:$valueload_about_list->language}"}
-                {$target = $valueload_about_list->target}
-            {else}
-                {assign var="news_url" value="javascript:void(0);"}
-            {/if}
-            <div class="card" style="width: 18rem;">
-                    <a href="{$news_url}" target="{$target}">
-                        <img src="{$valueload_about_list->pic->pictures}" class="card-img-top" alt="{$valueload_about_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                        <div class="card-body">
-                            <h5 class="card-title">{$valueload_about_list->subject}</h5>
-                        </div>
-                    </a>
-                </div>
-        {/foreach}
-        </div>
-    {/if}
-    {* End About *}
-
-    {* Start News *}
-    {if count($array_news_list) gte 1}
-        <h2>News</h2>
-        {if gettype($array_news_list['group']) eq 'array' && count($array_news_list['group']) gte 1}
-            <ul>
-                {foreach $array_news_list['group'] as $keyarray_news_group => $array_news_group}
-                    <li><a href="javascript:void(0);" data-id="{$array_news_group->id}">{$array_news_group->subject}</a></li>
-                {/foreach}
-            </ul>
-        {/if}
-
-        {if gettype($array_news_list['list']) eq 'array' && count($array_news_list['list']) gte 1}
-            <div class="d-flex flex-row p-2" id="service-append">
-                {foreach $array_news_list['list'] as $keyNews => $valueNews}
-                    {foreach $valueNews as $keySubNews => $valueload_news_list}
-                        {assign var="checkUrl" value="{$valueload_news_list->url|check_url}"}
-                        {assign var="target" value="_self"}
-                        {if $checkUrl}
-                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_news_list->tb|page_redirect:$valueload_news_list->masterkey:$valueload_news_list->id:$valueload_news_list->language}"}
-                            {$target = $valueload_news_list->target}
-                        {else}
-                            {assign var="news_url" value="javascript:void(0);"}
-                        {/if}
-                        <div class="card" style="width: 18rem;">
-                            <a href="{$news_url}" target="{$target}">
-                                <img src="{$valueload_news_list->pic->pictures}" class="card-img-top" alt="{$valueload_news_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                                <div class="card-body">
-                                    <h5 class="card-title">{$valueload_news_list->subject}</h5>
-                                </div>
-                            </a>
-                        </div>
-                    {/foreach}
                 {/foreach}
             </div>
-        {/if}
-
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
     {/if}
-    {* End News *}
 
-</div>
+    {if $load_services->_numOfRows gte 1}
+    <div class="section section-i overflow-hidden" data-aos="fade-up">
+        <div class="wg-services lazy" data-bg="{$template}/assets/img/background/bg-services.webp"
+            data-bg-hidpi="{$template}/assets/img/background/bg-services@2x.webp">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div class="whead mb-0" data-aos="fade-right">
+                            <h2 class="title">บริการ</h2>
+                            <p class="subtitle">Services</p>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="action" data-aos="fade-left">
+                            <a href="{$ul}/service" class="btn btn-primary">ดูทั้งหมด</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-category" data-aos="fade-left" data-aos-delay="400">
+                    <div class="service-category-list">
+                        <div class="swiper swiper-default">
+                            <div class="swiper-wrapper">
+                                {foreach $load_services->item->group as $keyload_services_group => $load_services_group}
+                                <div class="swiper-slide">
+                                    <div class="item">
+                                        <button type="button" class="btn services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</button>
+                                    </div>
+                                </div>
+                                {/foreach}
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-list" data-aos="fade-up">
+                    <div class="service-slide">
+                        <div class="swiper swiper-default">
+                            <div class="swiper-wrapper" id="service-append">
+                                {foreach $load_services->item->list as $keyload_services_list => $valueload_services_list}
+                                    {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
+                                    {assign var="target" value="_self"}
+                                    {if $checkUrl}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
+                                        {$target = $valueload_services_list->target}
+                                    {else}
+                                        {assign var="news_url" value="javascript:void(0);"}
+                                    {/if}
+                                    <div class="swiper-slide">
+                                        <div class="item">
+                                            <a href="{$news_url}" class="link" target="{$target}">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="thumbnail">
+                                                            <figure class="contain">
+                                                                <img src="{$template}/assets/img/static/service-01.svg"
+                                                                    alt="service-01" class="thumb-img lazy">
+                                                                <img src="{$template}/assets/img/static/service-01-hover.svg"
+                                                                    alt="service-01" class="thumb-hover lazy">
+                                                            </figure>
+                                                        </div>
+                                                        <h5 class="title">{$valueload_services_list->subject}</h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {/foreach}
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/if}
+
+    {if $load_innovation->_numOfRows gte 1}
+    <div class="section section-ii">
+        <div class="wg-research">
+            <div class="wg-research-main" data-aos="fade-up">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="whead mb-0">
+                                <h2 class="title">งานวิจัยและนวัตกรรม</h2>
+                                <p class="subtitle">Research & Innovation</p>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="action">
+                                <a href="{$ul}/innovation" class="btn btn-primary">ดูทั้งหมด</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg" data-aos="fade-right">
+                    <a href="" class="link">
+                        <div class="wg-research-group -left">
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <div class="whead">
+                                        <h3 class="title">การทดสอบความชำนาญ</h3>
+                                        <p class="subtitle">DMSC PT</p>
+                                        <div class="total">120</div>
+                                        <div class="unit">แผนการทดสอบ</div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="graphic">
+                                        <picture>
+                                            <source
+                                                srcset="{$template}/assets/img/static/wg-research-graphic-01.webp"
+                                                data-srcset="{$template}/assets/img/static/wg-research-graphic-01@2x.webp"
+                                                type="image/webp">
+                                            <img src="{$template}/assets/img/static/wg-research-graphic-01.png"
+                                                data-src="{$template}/assets/img/static/wg-research-graphic-01@2x.png"
+                                                alt="" class="lazy">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-obj">
+                                <img src="{$template}/assets/img/background/bg-test-tube.svg" alt=""
+                                    class="lazy">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg" data-aos="fade-left">
+                    <a href="" class="link">
+                        <div class="wg-research-group -right">
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <div class="whead">
+                                        <h3 class="title">รายการให้บริการตรวจวิเคราะห์</h3>
+                                        <p class="subtitle">Analysis service</p>
+                                        <div class="total">1,873</div>
+                                        <div class="unit">รายการ</div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="graphic">
+                                        <picture>
+                                            <source
+                                                srcset="{$template}/assets/img/static/wg-research-graphic-02.webp"
+                                                data-srcset="{$template}/assets/img/static/wg-research-graphic-02@2x.webp"
+                                                type="image/webp">
+                                            <img src="{$template}/assets/img/static/wg-research-graphic-02.png"
+                                                data-src="{$template}/assets/img/static/wg-research-graphic-02@2x.png"
+                                                alt="" class="lazy">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-obj">
+                                <img src="{$template}/assets/img/background/bg-microscope.svg" alt=""
+                                    class="lazy">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="wg-research-list lazy"
+                data-bg="{$template}/assets/img/background/bg-wg-research.webp"
+                data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp">
+                <div class="container">
+                    <div class="swiper swiper-default">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="" class="link">
+                                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="whead">
+                                                        <h3 class="title">องค์ความรู้</h3>
+                                                        <p class="subtitle">Knowledge</p>
+                                                        <div class="total">1,262</div>
+                                                        <div class="unit">
+                                                            รายการ
+                                                            <span
+                                                                class="material-symbols-rounded">expand_circle_right</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bg-obj">
+                                                <img src="{$template}/assets/img/background/bg-math.svg"
+                                                    alt="" class="lazy">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="" class="link">
+                                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="whead">
+                                                        <h3 class="title">นวัตกรรม</h3>
+                                                        <p class="subtitle">Innovation</p>
+                                                        <div class="total">233</div>
+                                                        <div class="unit">
+                                                            รายการ
+                                                            <span
+                                                                class="material-symbols-rounded">expand_circle_right</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bg-obj">
+                                                <img src="{$template}/assets/img/background/bg-science.svg"
+                                                    alt="" class="lazy">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="" class="link">
+                                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="whead">
+                                                        <h3 class="title">เทคโนโลยี</h3>
+                                                        <p class="subtitle">Technology</p>
+                                                        <div class="total">40</div>
+                                                        <div class="unit">
+                                                            รายการ
+                                                            <span
+                                                                class="material-symbols-rounded">expand_circle_right</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bg-obj">
+                                                <img src="{$template}/assets/img/background/bg-experiment.svg"
+                                                    alt="" class="lazy">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="" class="link">
+                                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="whead">
+                                                        <h3 class="title">เทคโนโลยี</h3>
+                                                        <p class="subtitle">Technology</p>
+                                                        <div class="total">40</div>
+                                                        <div class="unit">
+                                                            รายการ
+                                                            <span
+                                                                class="material-symbols-rounded">expand_circle_right</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bg-obj">
+                                                <img src="{$template}/assets/img/background/bg-experiment.svg"
+                                                    alt="" class="lazy">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/if}
+
+    <div class="section section-iii" data-aos="fade-up">
+        <div class="wg-about lazy" data-bg="{$template}/assets/img/background/bg-wg-about.webp"
+            data-bg-hidpi="{$template}/assets/img/background/bg-wg-about@2x.webp">
+            <div class="container">
+                <div class="row align-items-center no-gutters">
+                    <div class="col-lg" data-aos="fade-right">
+                        <div class="content">
+                            <div class="whead">
+                                <h2 class="title">กรมวิทยาศาสตร์การแพทย์</h2>
+                                <p class="subtitle">กระทรวงสาธารณสุข</p>
+                                <div class="line"></div>
+                                <p class="desc">
+                                    กรมวิทยาศาสตร์การแพทย์มีภารกิจด้านการวิจัย
+                                    และพัฒนาเพื่อสร้างองค์ความรู้และสารสนเทศ
+                                    ด้านวิทยาศาสตร์การแพทย์ ในการเฝ้าระวัง
+                                    ป้องกันรักษาโรค
+                                </p>
+                            </div>
+                            <div class="action">
+                                <a href="" class="btn btn-primary">อ่านต่อ</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-auto">
+                        <div class="wg-about-group-list">
+                            <div class="row no-gutters">
+                                <div class="col-6">
+                                    <a href="" class="link">
+                                        <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h3 class="title">ประวัติ<br>ความเป็นมา</h3>
+                                                    <div class="grphic-obj">
+                                                        <div class="contain">
+                                                            <img src="{$template}/assets/img/static/wg-about-feather-pen.svg"
+                                                                alt="" class="img-contain lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="action">
+                                                        อ่านต่อ
+                                                        <span
+                                                            class="material-symbols-rounded">expand_circle_right</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="" class="link">
+                                        <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h3 class="title">วิสัยทัศน์ & พันธกิจ & ยุทธศาสตร์</h3>
+                                                    <div class="grphic-obj">
+                                                        <div class="contain">
+                                                            <img src="{$template}/assets/img/static/wg-about-flag.svg"
+                                                                alt="" class="img-contain lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="action">
+                                                        อ่านต่อ
+                                                        <span
+                                                            class="material-symbols-rounded">expand_circle_right</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="" class="link">
+                                        <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h3 class="title">โครงสร้าง<br>หน่วยงาน</h3>
+                                                    <div class="grphic-obj">
+                                                        <div class="contain">
+                                                            <img src="{$template}/assets/img/static/wg-about-flow.svg"
+                                                                alt="" class="img-contain lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="action">
+                                                        อ่านต่อ
+                                                        <span
+                                                            class="material-symbols-rounded">expand_circle_right</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="graphic" data-aos="fade-up" data-aos-delay="400">
+                    <picture>
+                        <source srcset="{$template}/assets/img/static/wg-about-graphic.webp"
+                            data-srcset="{$template}/assets/img/static/wg-about-graphic@2x.webp"
+                            type="image/webp">
+                        <img src="{$template}/assets/img/static/wg-about-graphic.png"
+                            data-src="{$template}/assets/img/static/wg-about-graphic@2x.png" alt=""
+                            class="lazy">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-iv overflow-hidden">
+        <div class="wg-news lazy" data-bg="{$template}/assets/img/background/bg-wg-news.webp"
+            data-bg-hidpi="{$template}/assets/img/background/bg-wg-news@2x.webp">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg">
+                        <div class="wg-news-nav" data-aos="fade-left" data-aos-delay="200">
+                            <div class="whead">
+                                <h2 class="title">ข่าวสาร</h2>
+                                <p class="subtitle">NEWS</p>
+                                <div class="line"></div>
+                            </div>
+                            <div class="nav nav-default flex-column" id="news-tab" role="tablist"
+                                aria-orientation="vertical">
+                                <button class="nav-link active" id="news-01-tab" data-toggle="pill"
+                                    data-target="#news-01" type="button" role="tab" aria-controls="news-01"
+                                    aria-selected="true">ข่าวประชาสัมพันธ์</button>
+                                <button class="nav-link" id="news-02-tab" data-toggle="pill" data-target="#news-02"
+                                    type="button" role="tab" aria-controls="news-02"
+                                    aria-selected="false">ข่าวประกาศ</button>
+                                <button class="nav-link" id="news-03-tab" data-toggle="pill" data-target="#news-03"
+                                    type="button" role="tab" aria-controls="news-03"
+                                    aria-selected="false">เครือข่ายประชาสัมพันธ์</button>
+                                <button class="nav-link" id="news-04-tab" data-toggle="pill" data-target="#news-04"
+                                    type="button" role="tab" aria-controls="news-04"
+                                    aria-selected="false">นโยบายคุณภาพ</button>
+                            </div>
+                            <div class="action">
+                                <a href="" class="btn btn-primary">ดูทั้งหมด</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-auto">
+                        <div class="wg-news-tab wg-news-list" data-aos="fade-up">
+                            <div class="tab-content" id="news-tabContent">
+                                <div class="tab-pane fade show active" id="news-01" role="tabpanel"
+                                    aria-labelledby="news-01-tab">
+                                    <div class="wg-news-slide">
+                                        <div class="swiper swiper-default">
+                                            <div class="swiper-wrapper">
+                                                <?php for ($i = 1; $i <= 4; $i++) { ?>
+                                                <div class="swiper-slide">
+                                                    <div class="item">
+                                                        <a href="" class="link news-link">
+                                                            <div class="news-card card">
+                                                                <div class="thumbnail">
+                                                                    <figure class="cover">
+                                                                        <img src="{$template}/assets/img/uploads/news-thumb.jpg"
+                                                                            alt="">
+                                                                    </figure>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h5 class="title">
+                                                                        หน่วยทดสอบความชำนาญทั้งส่วนกลางและส่วนภูมิภาค
+                                                                        ซึ่งการสมัครเข้าร่วม</h5>
+                                                                    <div class="line"></div>
+                                                                    <p class="desc">
+                                                                        กรมวิทยาศาสตร์การแพทย์มีบริการทดสอบความ
+                                                                        ชำนาญ ที่ให้บริการต่อเนื่องมามากกว่า 20 ปี
+                                                                        มีหน่วย
+                                                                        ทดสอบความชำนาญทั้งส่วนกลางและส่วนภูมิภาค
+                                                                        ซึ่งการสมัครเข้าร่วมการทดสอบ
+                                                                    </p>
+                                                                    <div class="action">
+                                                                        อ่านต่อ
+                                                                        <span
+                                                                            class="material-symbols-rounded">expand_circle_right</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+                                            <div class="swiper-button-prev"></div>
+                                            <div class="swiper-button-next"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="news-02" role="tabpanel" aria-labelledby="news-02-tab">
+                                    <div class="wg-news-slide">
+                                        <div class="swiper swiper-default">
+                                            <div class="swiper-wrapper">
+                                                <?php for ($i = 1; $i <= 2; $i++) { ?>
+                                                <div class="swiper-slide">
+                                                    <div class="item">
+                                                        <a href="" class="link news-link">
+                                                            <div class="news-card card">
+                                                                <div class="thumbnail">
+                                                                    <figure class="cover">
+                                                                        <img src="https://picsum.photos/id/684/600/400"
+                                                                            alt="">
+                                                                    </figure>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h5 class="title">Lorem ipsum dolor sit amet
+                                                                        consectetur adipisicing elit. Quasi, saepe,
+                                                                        voluptatum perspiciatis adipisci culpa hic
+                                                                        impedit nulla tempora iure, vel nobis! Cumque
+                                                                        ipsum recusandae iure expedita vitae ea dolor
+                                                                        quia.</h5>
+                                                                    <div class="line"></div>
+                                                                    <p class="desc">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit. Sed atque eaque deleniti!
+                                                                        Doloremque voluptate possimus laboriosam dicta
+                                                                        pariatur, amet odio temporibus sapiente eos
+                                                                        deleniti reprehenderit fugiat minus
+                                                                        voluptatibus. Cum, ipsum.
+                                                                    </p>
+                                                                    <div class="action">
+                                                                        อ่านต่อ
+                                                                        <span
+                                                                            class="material-symbols-rounded">expand_circle_right</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+                                            <div class="swiper-button-prev"></div>
+                                            <div class="swiper-button-next"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="news-03" role="tabpanel" aria-labelledby="news-03-tab">
+                                    news-03</div>
+                                <div class="tab-pane fade" id="news-04" role="tabpanel" aria-labelledby="news-04-tab">
+                                    news-04</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-v overflow-hidden" style="position: relative;">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-7 col-md-6 col-12" style="position: unset;">
+                    <div class="wg-lab">
+                        <div class="content" data-aos="fade-right">
+                            <div class="whead">
+                                <h2 class="title">บริการตรวจวิเคราะห์<br>ทางห้องปฏิบัติการ</h2>
+                                <p class="subtitle">Lab</p>
+                                <div class="bg-obj">
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt=""
+                                        class="lazy">
+                                </div>
+                                <p class="subtitle">ตรวจสอบ<br>หน่วยบริการใกล้คุณ</p>
+                            </div>
+                            <div class="action">
+                                <a href="" class="btn btn-primary">คลิกเลย</a>
+                            </div>
+                        </div>
+                        <div class="bg" data-aos="fade-right">
+                            <picture>
+                                <source srcset="{$template}/assets/img/background/bg-wg-lab.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-wg-lab@2x.webp"
+                                    type="image/webp">
+                                <img src="{$template}/assets/img/background/bg-wg-lab.png"
+                                    data-src="{$template}/assets/img/background/bg-wg-lab@2x.png" alt=""
+                                    class="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 col-12" style="position: unset;">
+                    <div class="wg-contact">
+                        <div class="content" data-aos="fade-left">
+                            <div class="whead">
+                                <h2 class="title">ติดต่อ/<br>สอบถามข้อมูล</h2>
+                                <p class="subtitle">Contact</p>
+                            </div>
+                            <div class="contact-list">
+                                {if $settingWeb.contact->email2 neq ""}
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                                class="icon">
+                                        </div>
+                                        <div class="col">
+                                            <p class="desc">
+                                                <span class="d-block">ติดต่อ/สอบถามข้อมูล</span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email2}"
+                                                        class="link">{$settingWeb.contact->email2}</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                {/if}
+                                {if $settingWeb.contact->email3 neq ""}
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                                class="icon">
+                                        </div>
+                                        <div class="col">
+                                            <p class="desc">
+                                                <span class="d-block">สอบถามข้อมูลการตรวจวิเคราะห์</span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email3}"
+                                                        class="link">{$settingWeb.contact->email3}</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                {/if}
+                                {if $settingWeb.contact->tel neq "" && $settingWeb.contact->tel2 neq ""}
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
+                                                alt="" class="icon">
+                                        </div>
+                                        <div class="col">
+                                            <p class="desc">
+                                                {if $settingWeb.contact->tel neq ""}
+                                                    <span class="d-block">โทรศัพท์. <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}" class="link">{$settingWeb.contact->tel}</a></span>
+                                                {/if}
+                                                {if $settingWeb.contact->tel neq ""}
+                                                    <span class="d-block">มือถือ. <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></span>
+                                                {/if}
+                                            </p>
+                                        </div>
+                                    </div>
+                                {/if}
+                                {if $settingWeb.contact->email4 neq ""}
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                                class="icon">
+                                        </div>
+                                        <div class="col">
+                                            <p class="desc">
+                                                <span class="d-block">รับ-ส่งหนังสือราชการ</span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email4}"
+                                                        class="link">{$settingWeb.contact->email4}</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                {/if}
+                            </div>
+                        </div>
+                        <div class="bg" data-aos="fade-left">
+                            <picture>
+                                <source srcset="{$template}/assets/img/background/bg-wg-contact.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-wg-contact@2x.webp"
+                                    type="image/webp">
+                                <img src="{$template}/assets/img/background/bg-wg-contact.png"
+                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt=""
+                                    class="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -24,7 +24,7 @@ if ($_REQUEST['execute'] == "insert") {
 
    if ($_POST['inputHtml'] != "") {
       $filename = $_POST["valEditID"] . "-" . $_SESSION[$valSiteManage . 'core_session_language'] . "-" . $randomNumber . ".html";
-      $HTMLToolContent = str_replace("\\\"", "\"", $_POST['inputHtml']);
+      $HTMLToolContent = str_replace("\\\"", "\"", rechangeText($_POST['inputHtml']));
       $fp = fopen($mod_path_html . "/" . $filename, "w");
       chmod($mod_path_html . "/" . $filename, 0777);
       fwrite($fp, $HTMLToolContent);

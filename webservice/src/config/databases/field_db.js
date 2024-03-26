@@ -29,6 +29,8 @@ const main = {
     "md_mnugl": "md_mnugl",
     "md_mnusg": "md_mnusg",
     "md_mnusgl": "md_mnusgl",
+    "md_ag": "md_ag",
+    "md_agl": "md_agl",
 }
 
 //Masterkey
@@ -57,6 +59,10 @@ const masterkey = {
     "lar": "lar",
     "dcio": "dcio",
     "cal": "cal",
+    "agif": "agif",
+    "god": "god",
+    "nwp": "nwp",
+    "cmf": "cmf",
 }
 
 //urlPage

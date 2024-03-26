@@ -272,6 +272,12 @@ logs_access('3', 'View');
                     </td>
                 </tr>
                 <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["social:yt"] ?> :<span class="fontContantAlert"></span></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="formDivView"><a href="<?php echo $ValSocial[$langMod["social:yt"]]['link'] ?>" target="_blank"><?php echo $ValSocial[$langMod["social:yt"]]['link'] ?></a></div>
+                    </td>
+                </tr>
+                <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["social:li"] ?> :<span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                         <div class="formDivView"><a href="<?php echo $ValSocial[$langMod["social:li"]]['link'] ?>" target="_blank"><?php echo $ValSocial[$langMod["social:li"]]['link'] ?></a></div>
