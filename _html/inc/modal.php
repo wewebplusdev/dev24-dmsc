@@ -1,12 +1,15 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    <span class="material-symbols-rounded">cancel</span>
+                </button>
             </div>
             <div class="modal-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem numquam voluptates cumque rerum voluptate, laboriosam architecto repellendus ea tenetur assumenda. Sint eligendi totam debitis, iste illo veritatis at explicabo distinctio.
                 ...
             </div>
             <div class="modal-footer">
@@ -23,9 +26,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-                    <span class="material-symbols-rounded">
-                        cancel
-                    </span>
+                    <span class="material-symbols-rounded">cancel</span>
                 </button>
                 <div class="popup-slide">
                     <div class="swiper swiper-default">

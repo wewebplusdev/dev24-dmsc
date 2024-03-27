@@ -160,7 +160,7 @@
           <div class="col-md" data-aos="fade-left">
             <div class="policy">
               <ul class="item-list">
-                <li><a href="" class="link">นโยบายและแนวปฏิบัติในการรักษาความมั่นคงปลอดภัยด้านสารสนเทศ</a></li>
+                <li><a href="#exampleModal" class="link" data-toggle="modal" role="button">นโยบายและแนวปฏิบัติในการรักษาความมั่นคงปลอดภัยด้านสารสนเทศ</a></li>
                 <li><a href="" class="link">นโยบายเว็บไซต์</a></li>
                 <li><a href="" class="link">นโยบายการคุ้มครองข้อมูลส่วนบุคคล กรมวิทยาศาสตร์การแพทย์</a></li>
               </ul>
