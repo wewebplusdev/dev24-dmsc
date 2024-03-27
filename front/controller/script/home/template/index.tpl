@@ -10,7 +10,7 @@
                             <div class="item">
                                 <figure class="cover">
                                     <picture>
-                                        <img src="{$valueTgp->pic->pictures}" alt="" class="lazy" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                                        <img src="{$valueTgp->pic->pictures}" alt="" class="lazy">
                                     </picture>
                                 </figure>
                             </div>
