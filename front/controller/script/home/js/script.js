@@ -3,6 +3,16 @@ var tpgSwiper = new Swiper(".top-graphic .swiper", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    // on: {
+    //   slideChange: function() {
+    //     $('.swiper-slide').each(function() {
+    //       var youtubePlayer = $(this).find('iframe').get(0);
+    //       if (youtubePlayer) {
+    //         youtubePlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    //       }
+    //     });
+    //   },
+    // }
 });
 
 var scSwiper = new Swiper(".service-category-list .swiper", {
@@ -74,8 +84,7 @@ var newsSwiper = new Swiper(".wg-news-slide .swiper", {
 
 // $('#popupModal').modal('show');
 
-
-function reload_swiper(){
+function reload_swiper() {
     if (typeof serviceSwiper != 'undefined') {
         serviceSwiper.destroy();
     }

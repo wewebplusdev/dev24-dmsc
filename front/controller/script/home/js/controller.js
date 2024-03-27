@@ -56,7 +56,7 @@ $('.services-filter').on('click', async function(){
                         </a>
                     </div>
                 </div>
-                `
+                `;
             });
             $('#service-append').empty();
             $('#service-append').append(strHTML);

@@ -627,7 +627,8 @@ function resize($img, $w, $h, $newfilename)
             $im = imagecreatefrompng($img);
             break;
         default:
-            trigger_error('Unsupported filetype!', E_USER_WARNING);
+            return false;
+            // trigger_error('Unsupported filetype!', E_USER_WARNING);
             break;
     }
 
