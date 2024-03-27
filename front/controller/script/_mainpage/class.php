@@ -20,7 +20,7 @@ abstract class controller
             $this->URL_API = 'http://13.229.72.11:4040/service-api/v1';
         }else{
             // $this->URL_API = 'http://127.0.0.1:4040/service-api/v1';
-            $this->URL_API = 'https://api.bbonzpp.com';
+            $this->URL_API = 'https://api.bbonzpp.com/service-api/v1';
         }
 
         try {

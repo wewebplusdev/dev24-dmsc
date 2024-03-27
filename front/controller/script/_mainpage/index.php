@@ -36,4 +36,4 @@ $smarty->assign("lcfWeb", $lcfWeb);
 $smarty->assign("sitemapWeb", $sitemapWeb);
 $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
-print_pre($mainPage->settingWeb); 
+// print_pre($mainPage->settingWeb); 
