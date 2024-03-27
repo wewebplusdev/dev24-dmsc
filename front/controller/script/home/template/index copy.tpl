@@ -31,7 +31,7 @@
                 <div class="modal-body">
                 {foreach $load_popup->item as $keyPopup => $valuePopup}
                     {if $valuePopup->type eq 1}
-                        <img src="{$valuePopup->pic->pictures}" class="card-img-top" alt="{$valuePopup->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <img src="{$valuePopup->pic->pictures}" class="card-img-top" alt="{$valuePopup->pic->pictures}">
                         <div class="card-body">
                             <h5 class="card-title">{$valuePopup->subject}</h5>
                             <a {if $valuePopup->url neq "#" && $valuePopup->url neq ""}href="{$valuePopup->url}" target="{$valuePopup->target}"{else}href="javascript:void(0);"{/if} class="btn btn-primary">Link</a>
@@ -66,7 +66,7 @@
             {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
                 <div class="card" style="width: 18rem;">
                     {if $valueTgp->type eq 1}
-                        <img src="{$valueTgp->pic->pictures}" class="card-img-top" alt="{$valueTgp->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <img src="{$valueTgp->pic->pictures}" class="card-img-top" alt="{$valueTgp->pic->pictures}">
                         <div class="card-body">
                             <h5 class="card-title">{$valueTgp->subject}</h5>
                             <a {if $valueTgp->url neq "#" && $valueTgp->url neq ""}href="{$valueTgp->url}" target="{$valueTgp->target}"{else}href="javascript:void(0);"{/if} class="btn btn-primary">Link</a>
@@ -108,7 +108,7 @@
                 {/if}
                 <div class="card" style="width: 18rem;">
                     <a href="{$news_url}" target="{$target}">
-                        <img src="{$valueload_services_list->pic->pictures}" class="card-img-top" alt="{$valueload_services_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <img src="{$valueload_services_list->pic->pictures}" class="card-img-top" alt="{$valueload_services_list->pic->pictures}">
                         <div class="card-body">
                             <h5 class="card-title">{$valueload_services_list->subject}</h5>
                         </div>
@@ -126,7 +126,7 @@
             {foreach $load_innovation->item as $keyload_innovation_list => $valueload_innovation_list}
                 <div class="card" style="width: 18rem;">
                     <a href="{$valueload_innovation_list->url}" target="{$valueload_innovation_list->target}">
-                        <img src="{$valueload_innovation_list->pic->pictures}" class="card-img-top" alt="{$valueload_innovation_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <img src="{$valueload_innovation_list->pic->pictures}" class="card-img-top" alt="{$valueload_innovation_list->pic->pictures}">
                         <div class="card-body">
                             <h5 class="card-title">{$valueload_innovation_list->subject}</h5>
                             <div class="desc">{$valueload_innovation_list->des}</div>
@@ -155,7 +155,7 @@
             {/if}
             <div class="card" style="width: 18rem;">
                     <a href="{$news_url}" target="{$target}">
-                        <img src="{$valueload_about_list->pic->pictures}" class="card-img-top" alt="{$valueload_about_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                        <img src="{$valueload_about_list->pic->pictures}" class="card-img-top" alt="{$valueload_about_list->pic->pictures}">
                         <div class="card-body">
                             <h5 class="card-title">{$valueload_about_list->subject}</h5>
                         </div>
@@ -191,7 +191,7 @@
                         {/if}
                         <div class="card" style="width: 18rem;">
                             <a href="{$news_url}" target="{$target}">
-                                <img src="{$valueload_news_list->pic->pictures}" class="card-img-top" alt="{$valueload_news_list->pic->pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
+                                <img src="{$valueload_news_list->pic->pictures}" class="card-img-top" alt="{$valueload_news_list->pic->pictures}">
                                 <div class="card-body">
                                     <h5 class="card-title">{$valueload_news_list->subject}</h5>
                                 </div>
