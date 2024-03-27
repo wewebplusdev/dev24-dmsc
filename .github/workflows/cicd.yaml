@@ -6,7 +6,7 @@ jobs:
   deploy:
     name: Auto Deploy
     runs-on: 
-      - aws-dmsc-runner
+      - wwp-ubuntu
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
