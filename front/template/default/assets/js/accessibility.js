@@ -142,8 +142,53 @@
         render() {
             const n = ``;
             return this.menu = document.createElement("div"),
-            this.menu.innerHTML = 
-            '<div class="asw-wrapper"> <div class="asw-relative"> <div class="menu-close" style=" display: none; "><span class="material-icons"> close </span> </div> <div class="asw-widget"> <a href="javascript:void(0);" class="asw-menu-btn" title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false"> <svg xmlns="http://www.w3.org/2000/svg" style="fill:#fff" viewBox="0 0 24 24" width="30px" height="30px"> <path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/> </svg> </a> </div> <div class="asw-menu"> <div class="asw-menu-header"> <div class="asw-translate">  เมนูสำหรับผู้พิการ </div> <div> <div role="button" class="asw-menu-reset" title="เคลียร์การตั้งค่า"> <span class="material-icons"> restart_alt </span> </div> <div role="button" class="asw-menu-close" title="ปิด" style="  "> <span class="material-icons"> close </span> </div> </div> </div> <div class="asw-menu-content"> <div class="asw-card"> <div class="asw-card-title">การปรับแต่งเนื้อหา</div> <div class="asw-adjust-font"> <div class="asw-label" style="margin:0"> <span class="material-icons" style="margin-right:8px">format_size</span> <div class="asw-translate">ปรับขนาดตัวอักษร</div> </div> <div> <div class="asw-minus" data-key="font-size" role="button" aria-pressed="false" title="Decrease Font Size"> <span class="material-icons"> remove </span> </div> <div class="asw-amount" style="font-weight:400">Default</div> <div class="asw-plus" data-key="font-size" role="button" aria-pressed="false" title="Increase Font Size"> <span class="material-icons">add</span> </div> </div> </div> <div class="asw-items content"></div> </div> <div class="asw-card"> <div class="asw-card-title">การปรับแต่งสี</div> <div class="asw-items contrast"> </div> </div> <div class="asw-card"> <div class="asw-card-title">เครื่องมือ</div> <div class="asw-items tools"></div> </div> </div> <div class="asw-footer"> <div style="text-decoration : none;">กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม</div> </div> </div> <div class="asw-overlay"> </div> </div> </div>  ',
+            this.menu.innerHTML = `<div class="asw-wrapper">
+                                        <div class="asw-relative">
+                                            <div class="menu-close" style="display: none;"><span class="material-icons">close</span></div>
+                                            <div class="asw-widget">
+                                                <a href="javascript:void(0);" class="asw-menu-btn" title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25.831" height="49.867"><g><path d="M12.917 9.551a4.776 4.776 0 1 0-4.776-4.776 4.775 4.775 0 0 0 4.776 4.776Z" fill="#fff"/></g><g><path d="m25.634 25.919-5.322-12.206a3.9 3.9 0 0 0-2.96-2.267c-.2-.052-8.675-.052-8.877 0a3.9 3.9 0 0 0-2.955 2.266l-5.322 12.2a2.371 2.371 0 0 0 4.346 1.895l2.006-4.6v24.068a2.587 2.587 0 0 0 5.173 0V31.047h2.382v16.235a2.586 2.586 0 0 0 5.172 0v-24.07l2.007 4.6a2.372 2.372 0 0 0 4.346-1.9Z" fill="#fff"/></g></svg>
+                                                </a>
+                                            </div>
+                                            <div class="asw-menu">
+                                                <div class="asw-menu-header">
+                                                    <div class="asw-translate">เมนูสำหรับผู้พิการ</div>
+                                                    <div>
+                                                        <div role="button" class="asw-menu-reset" title="เคลียร์การตั้งค่า"><span class="material-icons">restart_alt</span></div>
+                                                        <div role="button" class="asw-menu-close" title="ปิด" style=""><span class="material-icons">close</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="asw-menu-content">
+                                                    <div class="asw-card">
+                                                        <div class="asw-card-title">การปรับแต่งเนื้อหา</div>
+                                                        <div class="asw-adjust-font">
+                                                            <div class="asw-label" style="margin:0"><span class="material-icons" style="margin-right:8px">format_size</span>
+                                                                <div class="asw-translate">ปรับขนาดตัวอักษร</div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="asw-minus" data-key="font-size" role="button" aria-pressed="false" title="Decrease Font Size"><span class="material-icons">remove</span></div>
+                                                                <div class="asw-amount" style="font-weight:400">Default</div>
+                                                                <div class="asw-plus" data-key="font-size" role="button" aria-pressed="false" title="Increase Font Size"><span class="material-icons">add</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="asw-items content"></div>
+                                                    </div>
+                                                    <div class="asw-card">
+                                                        <div class="asw-card-title">การปรับแต่งสี</div>
+                                                        <div class="asw-items contrast"></div>
+                                                    </div>
+                                                    <div class="asw-card">
+                                                        <div class="asw-card-title">เครื่องมือ</div>
+                                                        <div class="asw-items tools"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="asw-footer">
+                                                    <div style="text-decoration : none;">กรมวิทยาศาสตร์การแพทย์ กระทรวงสาธารณสุข</div>
+                                                </div>
+                                            </div>
+                                            <div class="asw-overlay"></div>
+                                        </div>
+                                    </div>`,
 
             this.menu.querySelector(".content").innerHTML = this._createButtons(i),
             this.menu.querySelector(".tools").innerHTML = this._createButtons(s, "asw-tools"),
