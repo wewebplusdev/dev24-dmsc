@@ -1,0 +1,22 @@
+[data-asw-filter="dark-contrast"] {
+}
+
+[data-asw-filter="yellow-contrast"] {
+  body img {
+    filter: grayscale(1) !important;
+  }
+}
+
+.readable-font {
+  span:not(.asw-wrapper *) {
+    font-family:
+      OpenDyslexic3,
+      Comic Sans MS,
+      Arial,
+      Helvetica,
+      sans-serif !important;
+  }
+  .asw-wrapper .material-icons {
+    font-family: "Material Icons" !important;
+  }
+}

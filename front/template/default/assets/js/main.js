@@ -15,7 +15,7 @@ $(function () {
     if ($(window).width() < 992) {
       $(".submenu-col .mCustomScrollbar").mCustomScrollbar("destroy");
     }
-    
+
     $(".mCustomScrollbar").mCustomScrollbar({
       theme: "dark"
     });
@@ -117,4 +117,18 @@ $(document).ready(function () {
   //   $('.nav-default .swiper .nav-link').removeClass('active');
   //   $(this).addClass('active');
   // });
+
+  $(".asw-widget").click(function () {
+    $(".asw-wrapper").addClass("active");
+  });
+  $(".asw-menu-btn-mobile").click(function () {
+    $(".asw-wrapper").addClass("active");
+    $(".asw-widget.-mb ~ div").addClass("bg-asw-popup");
+  });
+  $(".asw-menu-close").click(function () {
+    $(".asw-wrapper").removeClass("active");
+    $(".asw-widget.-mb ~ div").removeClass("bg-asw-popup");
+  });
+
+
 });
