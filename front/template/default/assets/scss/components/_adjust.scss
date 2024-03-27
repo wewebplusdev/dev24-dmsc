@@ -7,18 +7,20 @@ $--nav-lang-container: 30px;
         height: $--nav-lang-container;
         line-height: $--nav-lang-container;
         text-align: center;
+        filter: grayscale(1);
         transition: all 200ms ease;
         .flag {
             transition: all 200ms ease;
         }
         &.active {
-            color: var(--color-white);
-            background: var(--color-primary);
+            // color: var(--color-white);
+            // background: var(--color-primary);
+            filter: grayscale(0);
         }
-        &:hover {
-            .flag {
-                filter: grayscale(1);
-            }
-        }
+        // &:hover {
+        //     .flag {
+        //         filter: grayscale(1);
+        //     }
+        // }
     }
 }
