@@ -1,11 +1,13 @@
-.popup-modal {
+.modal {
+    .modal-title {
+        font-size: var(--typo-xl);
+        line-height: 1.22;
+        margin: 0;
+    }
     .modal-content {
         border: none;
         border-radius: 0;
         box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.16);
-    }
-    .modal-body {
-        padding: 0;
     }
     .btn-close {
         position: absolute;
@@ -17,11 +19,23 @@
         box-shadow: none;
         border: none;
         border-radius: 0;
-        color: var(--color-light);
-        filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.7));
         .material-symbols-rounded {
             font-size: 48px;
         }
+    }
+}
+.popup-modal {
+    .modal-content {
+        border: none;
+        border-radius: 0;
+        box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.16);
+    }
+    .modal-body {
+        padding: 0;
+    }
+    .btn-close {
+        color: var(--color-light);
+        filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.7));
     }
     .cover {
         padding-top: 57%;
