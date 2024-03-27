@@ -3,13 +3,9 @@ $intro-content-height: 180px;
 .intro-page {
   min-height: 100vh;
   position: relative;
-  .slick-dotted {
-    &.slick-slider {
-      margin-bottom: 0;
-    }
-  }
-  .slick-dots {
-    bottom: 20px;
+  .swiper-default .swiper-pagination-bullet {
+    color: #ffffff;
+    background-color: #ffffff;
   }
 }
 .intro-slider {
@@ -27,8 +23,12 @@ $intro-content-height: 180px;
     background-color: #eee;
   }
   .video-container {
-    padding-bottom: calc(100vh - $intro-content-height);
+    padding-top: calc(100vh - $intro-content-height);
     background-color: #ffffff;
+    video {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 .intro-content {
@@ -99,10 +99,10 @@ $intro-content-height: 180px;
   }
   .intro-slider .cover {
     height: auto;
-    padding-bottom: 56.25%;
+    padding-top: 56.25%;
   }
   .intro-slider .video-container {
-    padding-bottom: 56.25%;
+    padding-top: 56.25%;
   }
   .intro-content {
     position: relative;

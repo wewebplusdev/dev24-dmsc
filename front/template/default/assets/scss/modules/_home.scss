@@ -7,8 +7,16 @@
       filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.4));
     }
   }
-  .cover {
+  .cover,
+  .iframe-container,
+  .video-container {
     padding-top: 40%;
+  }
+  .video-container {
+    video {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 
@@ -1005,7 +1013,9 @@
   // }
 }
 @media (max-width: 991px) {
-  .top-graphic .cover{
+  .top-graphic .cover,
+  .top-graphic .iframe-container,
+  .top-graphic .video-container {
     padding-top: 480px;
   }
   .wg-services {
@@ -1150,7 +1160,9 @@
   }
 }
 @media (max-width: 767px) {
-  .top-graphic .cover{
+  .top-graphic .cover,
+  .top-graphic .iframe-container,
+  .top-graphic .video-container {
     padding-top: 380px;
   }
   .section .whead .title {
@@ -1223,7 +1235,9 @@
   }
 }
 @media (max-width: 575px) {
-  .top-graphic .cover{
+  .top-graphic .cover,
+  .top-graphic .iframe-container,
+  .top-graphic .video-container {
     padding-top: 280px;
   }
   .section .whead .title {
