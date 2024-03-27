@@ -1010,8 +1010,8 @@
       }
     });
 
-    // $('#popupModal').modal('show');
-    $('#exampleModal').modal('show');
+    $('#popupModal').modal('show');
+    // $('#exampleModal').modal('show');
   </script>
 </body>
 
