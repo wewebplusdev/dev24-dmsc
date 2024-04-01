@@ -251,9 +251,9 @@ function sanitize($input)
     ############################################
     global $coreLanguageSQL;
 
-    if (get_magic_quotes_gpc()) { //check if magic_quotes is on;
-        $input = stripslashes($input); //it is, so strip any slashes and prepare for next step;
-    }
+    // if (get_magic_quotes_gpc()) { //check if magic_quotes is on;
+    //     $input = stripslashes($input); //it is, so strip any slashes and prepare for next step;
+    // }
     //if get_magic_quotes_gpc() is on, slashes were already stripped .. if it's off, mysql_real_escape_string() will take care of the rest;
     $output = addslashes($input);
 
@@ -627,7 +627,8 @@ function resize($img, $w, $h, $newfilename)
             $im = imagecreatefrompng($img);
             break;
         default:
-            trigger_error('Unsupported filetype!', E_USER_WARNING);
+            return false;
+            // trigger_error('Unsupported filetype!', E_USER_WARNING);
             break;
     }
 
@@ -1316,254 +1317,6 @@ function txtReplaceDownload($data)
 }
 
 ####################################################
-
-function strip_tags_content($text, $tags = '', $invert = FALSE)
-{
-    ####################################################
-    preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
-    $tags = array_unique($tags[1]);
-
-    if (is_array($tags) and count($tags) > 0) {
-        if ($invert == FALSE) {
-            return preg_replace('@<(?!(?:' . implode('|', $tags) . ')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
-        } else {
-            return preg_replace('@<(' . implode('|', $tags) . ')\b.*?>.*?</\1>@si', '', $text);
-        }
-    } elseif ($invert == FALSE) {
-        return preg_replace('@<(\w+)\b.*?>.*?</\1>@si', '', $text);
-    }
-    return $text;
-}
-
-/* ########################### Start  City ################################## */
-
-
-############################################
-
-function loadNameCityIDservice($valCityID)
-{ // หา ID City ของ Webservices
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htg_cityid  FROM md_htg WHERE   md_htg_id 	='" . $valCityID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameCityTypeServ($valCityID)
-{ // หาประเภท City ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htg_typeServ  FROM md_htg WHERE   md_htg_id 	='" . $valCityID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameCityIDserviceType($valCityID, $valTypeServ)
-{ // หา ID City ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htg_id  FROM md_htg WHERE   md_htg_cityid 	='" . $valCityID . "' AND md_htg_typeServ 	='" . $valTypeServ . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameCityName($valCityID, $valTypeServ)
-{ // หาชื่อ City ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htg_subject  FROM md_htg WHERE   md_htg_id 	='" . $valCityID . "' AND md_htg_typeServ 	='" . $valTypeServ . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-/* ########################### End  City ################################## */
-
-
-/* ########################### Start Region ################################## */
-
-############################################
-
-function loadNameRegionIDservice($valRegionID)
-{  // หา ID Region ของ Webservices
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htr_locationid  FROM md_htr WHERE   md_htr_id 	='" . $valRegionID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameRegionTypeServ($valRegionID)
-{ // หาประเภท Region ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htr_typeServ  FROM md_htr WHERE   md_htr_id 	='" . $valRegionID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameRegionIDserviceType($valRegionID, $valTypeServ)
-{  // หา ID Region ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htr_id  FROM md_htr WHERE   md_htr_locationid 	='" . $valRegionID . "' AND md_htr_typeServ 	='" . $valTypeServ . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameRegionName($valRegionID, $valTypeServ)
-{ // หาชื่อ Region ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htr_subject  FROM md_htr WHERE   md_htr_id 	='" . $valRegionID . "' AND md_htr_typeServ 	='" . $valTypeServ . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-/* ########################### End Region ################################## */
-
-/* ########################### Start  Hotel ################################## */
-
-############################################
-
-function loadNameHotelIDservice($valHotelID)
-{ // หา ID Hotel ของ Webservices
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_hts_hotelID  FROM md_hts WHERE   md_hts_id 	='" . $valHotelID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameHotelTypeServ($valHotelID)
-{ // หาประเภท Hotel ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_hts_typeServ  FROM md_hts WHERE   md_hts_id 	='" . $valHotelID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameHotelName($valHotelID, $valTypeServ)
-{ // หาชื่อ Region ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_hts_subject  FROM md_hts WHERE   md_hts_id 	='" . $valHotelID . "' AND md_hts_typeServ 	='" . $valTypeServ . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-/* ########################### End  Hotel ################################## */
-
-/* ########################### Start  Room Type ################################## */
-
-############################################
-
-function loadNameRoomIDservice($valHotelID)
-{ // หา ID Room ของ Webservices
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htm_roomid  FROM md_htm WHERE   md_htm_id 	='" . $valHotelID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameRoomTypeServ($valRoomID)
-{ // หาประเภท Hotel ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htm_typeServ  FROM md_htm WHERE   md_htm_id 	='" . $valRoomID . "' ";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-############################################
-
-function loadNameRoomName($valRoomID, $valTypeServ)
-{ // หาชื่อ Region ของ Database
-    ############################################
-    global $coreLanguageSQL;
-    $sql_pic = "SELECT md_htm_subject  FROM md_htm WHERE   md_htm_id 	='" . $valRoomID . "' AND md_htm_typeServ 	='" . $valTypeServ . "'";
-    $query_pic = wewebQueryDB($coreLanguageSQL, $sql_pic);
-    $row_pic = wewebFetchArrayDB($coreLanguageSQL, $query_pic);
-    $txt_pic_funtion = rechangeQuot($row_pic[0]);
-
-    return $txt_pic_funtion;
-}
-
-/* ########################### End  Room Type ################################## */
-
-############################################
-
-function checkValueContantBank($valContantData)
-{ // หาชื่อ Region ของ Database
-    ############################################
-    if (trim($valContantData) == "") {
-        $valReturnValue = "-";
-    } else {
-        $valReturnValue = $valContantData;
-    }
-
-    return $valReturnValue;
-}
-
-############################################
 
 function checkValueDateBank($valContantData)
 { // หาชื่อ Region ของ Database
@@ -2685,6 +2438,7 @@ function rechangeQuot_code($Data)
     $valChangeQuot = htmlspecialchars(str_replace("&rsquo;", "'", str_replace('&quot;', '"', $Data)));
     return $valChangeQuot;
 }
+
 function changeQuot_code($Data)
 {
     ############################################
@@ -2692,4 +2446,25 @@ function changeQuot_code($Data)
     $valChangeQuot = $valTrim;
     $valChangeQuot = str_replace("'", "&rsquo;", str_replace('"', '&quot;', $valChangeQuot));
     return $valChangeQuot;
+}
+
+$array_text_replace = array(
+    'href' => '|wewebhief|',
+    'src' => '|wewebsic|',
+);
+
+function changeText($str){
+    global $array_text_replace;
+    foreach ($array_text_replace as $key => $value) {
+        $str = str_replace($key, $value, $str);
+    }
+    return $str;
+}
+
+function rechangeText($str){
+    global $array_text_replace;
+    foreach ($array_text_replace as $key => $value) {
+        $str = str_replace($value, $key, $str);
+    }
+    return $str;
 }

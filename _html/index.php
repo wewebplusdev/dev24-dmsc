@@ -16,18 +16,36 @@
       <div class="top-graphic" data-aos="fade-down">
         <div class="swiper swiper-default">
           <div class="swiper-wrapper">
-            <?php for ($i = 1; $i <= 3; $i++) { ?>
-              <div class="swiper-slide">
-                <div class="item">
+            <div class="swiper-slide">
+              <div class="item">
+                <div class="video-container">
+                  <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                    <source src="<?php echo $core_template; ?>/video/petri-dish-pandas.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="item">
+                <div class="iframe-container">
+                  <?php $ytUrl = "0dQMwvWc0m4"; ?>
+                  <iframe src="https://www.youtube.com/embed/<?php echo $ytUrl; ?>?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="item">
+                <a href="https://www.google.com" class="link" target="_blank">
                   <figure class="cover">
                     <picture>
                       <source srcset="<?php echo $core_template; ?>/img/static/top-graphic.webp" type="image/webp">
                       <img src="<?php echo $core_template; ?>/img/static/top-graphic.jpg" alt="" class="lazy">
                     </picture>
                   </figure>
-                </div>
+                </a>
               </div>
-            <?php } ?>
+            </div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -875,6 +893,16 @@
         el: ".swiper-pagination",
         clickable: true,
       },
+      // on: {
+      //   slideChange: function() {
+      //     $('.swiper-slide').each(function() {
+      //       var youtubePlayer = $(this).find('iframe').get(0);
+      //       if (youtubePlayer) {
+      //         youtubePlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      //       }
+      //     });
+      //   },
+      // }
     });
 
     var scSwiper = new Swiper(".service-category-list .swiper", {
@@ -982,7 +1010,8 @@
       }
     });
 
-    // $('#popupModal').modal('show');
+    $('#popupModal').modal('show');
+    // $('#exampleModal').modal('show');
   </script>
 </body>
 

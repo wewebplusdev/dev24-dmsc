@@ -14,8 +14,6 @@ $modTxtShowPic = array("การแสดงผลรูปภาพ", "ไม�
 $mod_url_search_th = "downloadDw.php";
 $mod_url_search_en = "downloadDw-en.php";
 
-
-
 ## Size Photo ###################################
 $sizeWidthPic = "250";
 $sizeHeightPic = "355";

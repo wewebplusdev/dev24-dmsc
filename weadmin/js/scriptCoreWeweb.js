@@ -2677,3 +2677,22 @@ function changeDefaultType(loaddder, statusid, tablename, statusname, masterkey,
         }
     });
 }
+
+// replace firewall
+var array_text_replace = {
+    href: '|wewebhief|',
+    src: '|wewebsic|',
+};
+function changeText(str){
+    for (const [key, value] of Object.entries(array_text_replace)) {
+        str = str.replaceAll(key, value);
+    }
+    return str;
+}
+
+function rechangeText(str){
+    for (const [key, value] of Object.entries(array_text_replace)) {
+        str = str.replaceAll(value, key);
+    }
+    return str;
+}

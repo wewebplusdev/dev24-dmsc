@@ -40,8 +40,8 @@ $mod_url_search_th = "|weweb|";
 $mod_url_search_en = "|weweb|";
 
 ## Size Photo ###################################
-$sizeWidthPic = "600";
-$sizeHeightPic = "600";
+$sizeWidthPic = "240";
+$sizeHeightPic = "240";
 
 $sizeWidthOff = "50";
 $sizeHeightOff = "50";

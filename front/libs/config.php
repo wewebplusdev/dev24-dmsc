@@ -57,7 +57,7 @@ $_ENV = array(
     "STAGING" => array(
         "hostname" => "DB",
         "username" => "root",
-        "password" => "dmscp@ssmariadb",
+        "password" => "webp@ssmariadb",
         "name" => "2024_dmsc",
     ),
     "WEWEB" => array(

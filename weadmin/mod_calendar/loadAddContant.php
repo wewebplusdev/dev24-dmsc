@@ -114,7 +114,9 @@ foreach ($listAuthen as $key => $value) {
                } else {
                   jQuery("#inputEditHTML").removeClass("formInputContantTbAlertY");
                }
-               jQuery('#inputHtml').val(alleditDetail);
+               // replace ckeditor href
+               var changeTexts = changeText(alleditDetail);
+               jQuery('#inputHtml').val(changeTexts);
             } else if (inputTypeC == 3) {
                if (isBlank(inputurlC)) {
                   inputurlC.focus();
@@ -133,8 +135,9 @@ foreach ($listAuthen as $key => $value) {
                }
             }
          }
-
+         jQuery('#editDetail').val(changeText(jQuery('#editDetail').val()));
          insertContactNew('insertContant.php');
+         jQuery('#editDetail').val(rechangeText(jQuery('#editDetail').val()));
 
       }
 

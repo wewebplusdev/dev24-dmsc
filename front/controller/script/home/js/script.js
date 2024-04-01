@@ -1,57 +1,131 @@
-// services filter
-$('.services-filter').on('click', async function(){
-    let gid = $(this).data('id');
+var tpgSwiper = new Swiper(".top-graphic .swiper", {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    // on: {
+    //   slideChange: function() {
+    //     $('.swiper-slide').each(function() {
+    //       var youtubePlayer = $(this).find('iframe').get(0);
+    //       if (youtubePlayer) {
+    //         youtubePlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    //       }
+    //     });
+    //   },
+    // }
+});
 
-    if ($(this).hasClass('active')) {
-        $(this).removeClass('active');
-    }else{
-        $(this).addClass('active');
+var scSwiper = new Swiper(".service-category-list .swiper", {
+    slidesPerView: 5,
+    watchSlidesProgress: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        1024: {
+            slidesPerView: 4,
+        },
+        1200: {
+            slidesPerView: 5,
+        },
     }
-    let array_gid = new Array;
-    $('.services-filter.active').map((key,value) => {
-        array_gid.push($(value).data('id'));
-    });
+});
 
-    if (array_gid.length > 0 || true) {
-        const settings = {
-            "url": `${path}${language}/reverse_proxy`,
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": `application/json`,
-            },
-            "data": JSON.stringify({
-                "controller": 'home',
-                "method": 'getService',
-                "gid": array_gid,
-                "order": 'DESC',
-                "page": 1,
-                "limit": 15,
-            }),
-        };
-        const result = await $.ajax(settings);
+var serviceSwiper = reload_swiper();
 
-        if (result?.code === 1001 && result?._numOfRows > 0) {
-            let strHTML = ``;
-            result?.item?.list.map((value) => {
-                let url = (value.url != '#' && value.url != "") ? value.url : "javascript:void(0);";
-                let target = (value.url != '#' && value.url != "") ? value.target : "_self";
-                strHTML += `
-                <div class="card" style="width: 18rem;">
-                    <a href="${url}" target="${target}">
-                        <img src="${value.pic.pictures}" class="card-img-top" alt="${value.pic.pictures}" onerror="this.src='http://via.placeholder.com/1908x1080';">
-                        <div class="card-body">
-                            <h5 class="card-title">${value.subject}</h5>
-                        </div>
-                    </a>
-                </div>
-                `
-            });
-            $('#service-append').empty();
-            $('#service-append').append(strHTML);
-        }else{
-            $('#service-append').empty();
-            $('#service-append').append(`<h3>Data Not found.</h3>`);
+var researchSwiper = new Swiper(".wg-research-list .swiper", {
+    slidesPerView: 3,
+    watchSlidesProgress: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        576: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+    }
+});
+
+var newsSwiper = new Swiper(".wg-news-slide .swiper", {
+    // slidesPerView: "auto",
+    slidesPerView: 2,
+    // freeMode: true,
+    watchSlidesProgress: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        992: {
+            slidesPerView: 2,
         }
     }
 });
+
+// $('#popupModal').modal('show');
+
+function reload_swiper() {
+    if (typeof serviceSwiper != 'undefined') {
+        serviceSwiper.destroy();
+    }
+
+    serviceSwiper = new Swiper(".service-slide .swiper", {
+        slidesPerView: 5,
+        watchSlidesProgress: true,
+        grid: {
+            rows: 3,
+            // fill: "row"
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+                grid: {
+                    rows: 2,
+                },
+            },
+            576: {
+                slidesPerView: 2,
+                grid: {
+                    rows: 3,
+                },
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 5,
+            },
+        }
+    });
+}
