@@ -65,7 +65,7 @@
                             <a href="" class="link active">เกี่ยวกับเรา</a>
                           </li>
                           <li>
-                            <a href="our-history.php" class="link">ประวัติความเป็นมา</a>
+                            <a href="our-history-01.php" class="link">ประวัติความเป็นมา</a>
                           </li>
                           <li>
                             <a href="" class="link">โครงสร้างองค์กร</a>
