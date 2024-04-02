@@ -19,7 +19,8 @@ abstract class controller
         }else if($_CORE_ENV == 'PROD'){
             $this->URL_API = 'http://13.229.72.11:4040/service-api/v1';
         }else{
-            $this->URL_API = 'http://127.0.0.1:4040/service-api/v1';
+            $this->URL_API = 'http://192.168.101.22:4040/service-api/v1';
+            // $this->URL_API = 'http://127.0.0.1:4040/service-api/v1';
             // $this->URL_API = 'https://api.bbonzpp.com/service-api/v1';
         }
 
