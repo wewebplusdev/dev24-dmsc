@@ -65,6 +65,8 @@ $(document).ready(function () {
     $('.sub2menu .link').removeClass('active');
   });
 
+  $(".select-control").select2({ minimumResultsForSearch: Infinity });
+
   var layoutHeader = $('.layout-header').height();
   // var topBar = $('.layout-header .top-bar').height();
   var windowWidth = $(window).width();

@@ -203,3 +203,20 @@
         }
     }
 }
+
+
+
+.select2-dropdown {
+    border: none;
+    background-color: var(--color-light);
+    box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+}
+.select2-results__option {
+    font-size: var(--typo-sm);
+    font-weight: var(--fw-medium);
+    padding: 20px 30px;
+}
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: var(--color-secondary);
+}
