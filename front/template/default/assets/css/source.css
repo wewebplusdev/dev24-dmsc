@@ -552,19 +552,18 @@ figure.ratio .img-ratio.ratio-9x16 {
   padding: 0;
   border-radius: 0;
 }
-.breadcrumb li:last-child .link {
-  display: block;
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.breadcrumb li + li {
-  padding-left: 20px;
-  margin-left: 20px;
-  border-left: 1px solid var(--color-border);
+.breadcrumb li + li:before {
+  font-family: "Material Symbols Rounded";
+  content: "\e5e1";
+  padding: 0 10px;
+  float: left;
+  position: relative;
+  top: 2px;
+  font-size: 14px;
+  color: var(--color-light);
 }
 .breadcrumb .link {
+  font-size: var(--typo-xs);
   float: left;
 }
 .breadcrumb .link.-nolimit {
@@ -4501,11 +4500,11 @@ div.swal2-html-container {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
-  margin: 0 -60px;
+  margin: 0 -50px;
   margin-bottom: 160px;
 }
 .history-timeline > .row > div {
-  padding: 0 60px;
+  padding: 0 50px;
 }
 .history-timeline > .row .timeline-dot::before {
   content: "";
@@ -4539,6 +4538,9 @@ div.swal2-html-container {
 }
 .history-timeline .thumbnails {
   margin-top: 30px;
+}
+.history-timeline .thumbnails img {
+  width: 100%;
 }
 
 @media (min-width: 1200px) {

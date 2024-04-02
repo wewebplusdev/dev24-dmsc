@@ -4,35 +4,38 @@
 	margin: 5px 0 0 0; 
 	padding: 0;
     border-radius: 0;
-    // .breadcrumb-item{
-    //     & + .breadcrumb-item{
-    //         &:before{
-    //             font-family: 'feather';
-    //             content: '\e844';
-    //             padding: 0 6px;
-    //             float: left;
-    //             position: relative;
-    //             top: 1px;
-    //         }
-    //     }
-    // }
     li {
-        &:last-child {
-            .link {
-                display: block;
-                max-width: 200px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+        & + li {
+            &:before{
+                font-family: "Material Symbols Rounded";
+                content: "\e5e1";
+                padding: 0 10px;
+                float: left;
+                position: relative;
+                top: 2px;
+                font-size: 14px;
+                color: var(--color-light);
             }
         }
-        & + li {
-            padding-left: 20px;
-            margin-left: 20px;
-            border-left: 1px solid var(--color-border);
-        }
     }
+    // li {
+    //     &:last-child {
+    //         .link {
+    //             display: block;
+    //             max-width: 200px;
+    //             overflow: hidden;
+    //             text-overflow: ellipsis;
+    //             white-space: nowrap;
+    //         }
+    //     }
+    //     & + li {
+    //         padding-left: 20px;
+    //         margin-left: 20px;
+    //         border-left: 1px solid var(--color-border);
+    //     }
+    // }
     .link{
+        font-size: var(--typo-xs);
         float: left;
         
         &.-nolimit{

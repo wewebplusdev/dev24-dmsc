@@ -73,11 +73,11 @@
     }
     > .row {
         align-items: end;
-        margin: 0 -60px;
+        margin: 0 -50px;
         margin-bottom: 160px;
 
         > div {
-            padding: 0 60px;
+            padding: 0 50px;
         }
 
         .timeline-dot {
@@ -94,7 +94,6 @@
                 background-color: var(--color-light);
             }
         }
-
     }
     // .timeline-layout {
     //     width: 600px;
@@ -120,5 +119,8 @@
     }
     .thumbnails {
         margin-top: 30px;
+        img {
+            width: 100%;
+        }
     }
 }
