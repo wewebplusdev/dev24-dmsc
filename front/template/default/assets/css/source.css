@@ -4666,6 +4666,97 @@ div.swal2-html-container {
   width: 100%;
 }
 
+.document-download-list {
+  margin-bottom: 60px;
+}
+.document-download-list .item {
+  -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+          filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+}
+.document-download-list .item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.document-download-list .link {
+  position: relative;
+  display: block;
+  padding: 40px;
+  background-color: var(--color-light);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.document-download-list .link::before {
+  content: "";
+  position: absolute;
+  background: url(../img/static/obj-download.png) no-repeat bottom right;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  bottom: 0;
+  right: 0;
+}
+.document-download-list .link:hover {
+  background: -webkit-gradient(linear, right top, left top, from(#01377d), to(#2ab170));
+  background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+}
+.document-download-list .link:hover .head * {
+  color: var(--color-light);
+  fill: var(--color-light);
+}
+.document-download-list .link:hover .content * {
+  color: var(--color-light);
+  fill: var(--color-light);
+}
+.document-download-list .head {
+  padding-right: 50px;
+  margin-right: 50px;
+  border-right: 1px solid var(--color-border);
+  width: 700px;
+}
+.document-download-list .head .title {
+  font-size: var(--typo-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-dark);
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.3em;
+  -webkit-line-clamp: 1;
+  min-height: 1.3em;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.document-download-list .head .date {
+  color: var(--color-dark);
+  font-weight: var(--fw-bold);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.document-download-list .box .icon {
+  margin-right: 10px;
+}
+.document-download-list .box .txt {
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-dark);
+}
+.document-download-list .box .type {
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  color: var(--color-default);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-left: auto;
+}
+.document-download-list .box.-download svg * path {
+  fill: #2ab170 !important;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;

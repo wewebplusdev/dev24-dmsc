@@ -124,3 +124,90 @@
         }
     }
 }
+
+.document-download-list {
+    margin-bottom: 60px;
+    .item {
+        filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+    .link {
+        position: relative;
+        display: block;
+        padding: 40px;
+        background-color: var(--color-light);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
+        transition: all 0.4s ease-in-out;
+        &::before {
+            content: "";
+            position: absolute;
+            background: url(../img/static/obj-download.png) no-repeat bottom right;
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            bottom: 0;
+            right: 0;
+        }
+        &:hover {
+            background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+            .head {
+                * {
+                    color: var(--color-light);
+                    fill: var(--color-light);
+                }
+            }
+            .content {
+                * {
+                    color: var(--color-light);
+                    fill: var(--color-light);
+                }
+            }
+        }
+    }
+    .head {
+        padding-right: 50px;
+        margin-right: 50px;
+        border-right: 1px solid var(--color-border);
+        width: 700px;
+        // * {
+        //     transition: all 0.3s ease-in-out;
+        // }
+        .title {
+            font-size: var(--typo-md);
+            font-weight: var(--fw-bold);
+            color: var(--color-dark);
+            @include text-limit(1, 1.3em, min);
+            margin-bottom: 10px;
+            transition: all 0.2s ease-in-out;
+        }
+        .date {
+            color: var(--color-dark);
+            font-weight: var(--fw-bold);
+            transition: all 0.2s ease-in-out;
+        }
+    }
+    .box {
+        .icon {
+            margin-right: 10px;
+        }
+        .txt {
+            font-size: 20px;
+            font-weight: var(--fw-bold);
+            color: var(--color-dark);
+        }
+        .type {
+            font-size: 16px;
+            font-weight: var(--fw-medium);
+            color: var(--color-default);
+            width: max-content;
+            margin-left: auto;
+        }
+        &.-download {
+            svg * path {
+                fill: #2ab170 !important;
+            }
+        }
+    }
+}
