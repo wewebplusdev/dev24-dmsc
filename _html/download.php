@@ -52,6 +52,46 @@
         <div class="whead">
           <h2 class="title text-center">แผนกลยุทธ์</h2>
         </div>
+        <div class="default-filter">
+          <div class="container">
+            <form action="" class="form-default">
+              <div class="row gutters-20 align-items-end">
+                <div class="col">
+                  <div class="form-group form-search">
+                    <label class="control-label" for="">ค้นหา</label>
+                    <div class="block-control">
+                      <input class="form-control" type="search" id="" placeholder="พิมพ์คำค้นหา">
+                      <div class="search">
+                        <a href="" class="link">
+                          <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621" viewBox="0 0 33.621 33.621">
+                              <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(1.5 1.5)">
+                                <path id="Path_41" data-name="Path 41" d="M31.167,17.833A13.333,13.333,0,1,1,17.833,4.5,13.333,13.333,0,0,1,31.167,17.833Z" transform="translate(-4.5 -4.5)" fill="none" stroke="#29b171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+                                <path id="Path_42" data-name="Path 42" d="M32.225,32.225l-7.25-7.25" transform="translate(-2.225 -2.225)" fill="none" stroke="#29b171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+                              </g>
+                            </svg>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <div class="form-group form-select">
+                    <label class="control-label" for="selectFilter">จัดเรียง :</label>
+                    <div class="select-wrapper">
+                      <select class="select-control" name="selectFilter" id="selectFilter" style="width: 100%;">
+                        <option value="">เลือกการจัดเรียง</option>
+                        <option value="">ล่าสุด</option>
+                        <option value="">ลำดับ</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
