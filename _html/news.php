@@ -54,9 +54,6 @@
         </figure>
       </div>
       <div class="default-body">
-        <div class="whead">
-          <h2 class="title text-center">ข่าว</h2>
-        </div>
         <div class="default-filter">
           <div class="container">
             <form action="" class="form-default">

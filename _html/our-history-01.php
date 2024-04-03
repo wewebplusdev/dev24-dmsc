@@ -54,9 +54,6 @@
         </figure>
       </div>
       <div class="default-body">
-        <div class="whead">
-          <h2 class="title text-center">ประวัติความเป็นมา</h2>
-        </div>
         <div class="our-history-info">
           <div class="container">
             <div class="row align-items-end">

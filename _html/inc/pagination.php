@@ -1,4 +1,4 @@
-<div class="default-pagination mt-5">
+<div class="default-pagination my-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col">

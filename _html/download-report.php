@@ -49,9 +49,6 @@
         </figure>
       </div>
       <div class="default-body">
-        <div class="whead">
-          <h2 class="title text-center">แผนกลยุทธ์</h2>
-        </div>
         <div class="default-filter">
           <div class="container">
             <form action="" class="form-default">
@@ -236,6 +233,7 @@
             <?php } ?>
           </div>
         </div>
+        <?php include('inc/pagination.php'); ?>
       </div>
     </section>
 
