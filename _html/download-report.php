@@ -92,6 +92,45 @@
             </form>
           </div>
         </div>
+        <div class="document-filter">
+          <div class="container">
+            <form action="" class="form-default">
+              <div class="row gutters-20">
+                <div class="col-auto">
+                  <div class="form-group form-select">
+                    <label class="control-label visually-hidden" for="selectPosi">ส่วนกลาง</label>
+                    <div class="select-wrapper">
+                      <select class="select-document" name="selectPosi" id="selectPosi" style="width: 100%;">
+                        <option value="">ส่วนกลาง</option>
+                        <option value="">ส่วนล่าง</option>
+                        <option value="">ส่วนบน</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <div class="form-group form-select form-select-year">
+                    <label class="control-label" for="selectYear">ปี :</label>
+                    <div class="select-wrapper">
+                      <select class="select-document" name="selectYear" id="selectYear" style="width: 100%;">
+                        <option value="">2565</option>
+                        <option value="">2564</option>
+                        <option value="">2563</option>
+                        <option value="">2562</option>
+                        <option value="">2562</option>
+                        <option value="">2562</option>
+                        <option value="">2562</option>
+                        <option value="">2562</option>
+                        <option value="">2562</option>
+                        <option value="">2562</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
         <div class="document-download-list">
           <div class="container">
             <?php for ($i = 1; $i <= 10; $i++) { ?>

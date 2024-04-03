@@ -965,7 +965,59 @@ figure.ratio .img-ratio.ratio-9x16 {
   stroke-width: 3px;
 }
 
-.select2-dropdown {
+.form-select {
+  min-width: 370px;
+}
+.form-select .control-label {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 30px;
+  z-index: 1;
+  font-size: var(--typo-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-light);
+  margin-bottom: 0;
+}
+.form-select .select2-container .select2-selection--single {
+  border-radius: 0;
+}
+.form-select .select2-container .select2-selection--single .select2-selection__rendered {
+  font-size: var(--typo-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-light);
+}
+.form-select .select2-container .select2-selection--single .select2-selection__arrow {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.form-select .select2-container .select2-selection--single .select2-selection__arrow b {
+  display: none;
+}
+.form-select .select2-container .select2-selection--single .select2-selection__arrow::before {
+  content: "\e5cf";
+  font-family: "Material Symbols Rounded";
+  font-size: 30px;
+  color: var(--color-light);
+}
+.form-select .select2-container.select2-container--open .select2-selection--single .select2-selection__arrow::before {
+  content: "\e5ce";
+}
+
+.select2-container--option-filter .select2-dropdown {
   border: none;
   background-color: var(--color-light);
   -webkit-box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
@@ -973,14 +1025,106 @@ figure.ratio .img-ratio.ratio-9x16 {
   border-radius: 0;
 }
 
-.select2-results__option {
+.select2-container--option-filter .select2-results__option {
   font-size: var(--typo-sm);
   font-weight: var(--fw-medium);
   padding: 20px 30px;
 }
 
-.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+.select2-container--option-filter .select2-results__option:hover {
   background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+
+.select2-container--option-filter .select2-results__option--selected {
+  background-color: var(--color-border) !important;
+}
+.select2-container--option-filter .select2-results__option--selected:hover {
+  color: var(--color-default);
+}
+
+.select2-container--option-document .select2-dropdown {
+  border: none;
+  background-color: var(--color-light);
+  -webkit-box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+}
+
+.select2-container--option-document .select2-results__options {
+  padding: 0 20px 0 30px;
+  margin: 30px 20px 30px 0;
+  max-height: 210px;
+  overflow-y: auto;
+}
+.select2-container--option-document .select2-results__options::-webkit-scrollbar {
+  width: 7px;
+}
+.select2-container--option-document .select2-results__options::-webkit-scrollbar-track {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+.select2-container--option-document .select2-results__options::-webkit-scrollbar-thumb {
+  background: #29AF70;
+  border-radius: 10px;
+}
+.select2-container--option-document .select2-results__options::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.select2-container--option-document .select2-results__option {
+  font-size: var(--typo-xs);
+  font-weight: var(--fw-bold);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  padding-left: 30px !important;
+}
+.select2-container--option-document .select2-results__option:hover {
+  color: var(--color-primary);
+}
+.select2-container--option-document .select2-results__option:not(:last-child) {
+  padding: 0 0 15px 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.select2-container--option-pagination .select2-dropdown {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-light);
+  -webkit-box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+}
+
+.select2-container--option-pagination .select2-results__options {
+  margin: 10px 10px 15px 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.select2-container--option-pagination .select2-results__options::-webkit-scrollbar {
+  width: 2px;
+}
+.select2-container--option-pagination .select2-results__options::-webkit-scrollbar-track {
+  background: var(--color-border);
+  border-radius: 5px;
+}
+.select2-container--option-pagination .select2-results__options::-webkit-scrollbar-thumb {
+  background: #29AF70;
+  border-radius: 5px;
+}
+.select2-container--option-pagination .select2-results__options::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.select2-container--option-pagination .select2-results__option {
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  padding-left: 20px;
+}
+.select2-container--option-pagination .select2-results__option:hover {
+  color: var(--color-primary);
 }
 
 .modal .modal-title {
@@ -1100,18 +1244,29 @@ figure.ratio .img-ratio.ratio-9x16 {
   display: inline-block;
   vertical-align: middle;
 }
-.default-pagination .pagination li.jump-page .form-group .select2-container .select2-selection--single {
-  height: 45px;
+.default-pagination .pagination li.jump-page .form-select {
+  min-width: 100px;
 }
-.default-pagination .pagination li.jump-page .form-group .select2-container--default .select2-selection--single .select2-selection__rendered {
-  line-height: 45px;
-  width: 90px;
+.default-pagination .pagination li.jump-page .form-group {
+  margin-bottom: 0;
 }
-.default-pagination .pagination li.jump-page .form-group .select2-container--default .select2-selection--single .select2-selection__arrow {
-  height: 45px;
+.default-pagination .pagination li.jump-page .select2-container .select2-selection--single {
+  background: -webkit-gradient(linear, right top, left top, from(#01377d), to(#2ab170));
+  background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+  border: none;
+  height: 40px;
 }
-.default-pagination .pagination li.jump-page .form-group .select2-container--default .select2-selection--single .select2-selection__placeholder {
-  font-size: var(--typo-default);
+.default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__rendered {
+  font-size: 16px;
+  line-height: 40px;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+.default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__arrow {
+  right: 10px;
+}
+.default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__arrow::before {
+  font-size: 18px;
 }
 .default-pagination .pagination li.active .link {
   color: var(--color-light);
@@ -1123,23 +1278,34 @@ figure.ratio .img-ratio.ratio-9x16 {
   margin-left: 10px;
 }
 .default-pagination .pagination .page-item .link {
-  display: block;
-  min-width: 45px;
-  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 40px;
+  height: 40px;
   padding: 0 5px;
   text-align: center;
-  line-height: 43px;
-  border-radius: 50%;
   background-color: var(--color-transparent);
   font-weight: var(--fw-regular);
-  font-size: var(--typo-default);
+  font-size: 16px;
   color: var(--color-dark);
-  border: 1px solid var(--color-dark);
+  border: 1px solid var(--color-primary);
   text-decoration: none;
 }
 .default-pagination .pagination .page-item .link:hover {
+  color: var(--color-primary);
+}
+.default-pagination .pagination .page-item .link.active {
   color: var(--color-light);
-  background-color: var(--color-dark);
+  background: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#01377d), to(#2ab170));
+  background: linear-gradient(#01377d 0%, #2ab170 100%);
 }
 .default-pagination .pagination .page-item .link.link-text {
   border-color: transparent;
@@ -1149,6 +1315,24 @@ figure.ratio .img-ratio.ratio-9x16 {
   border-color: transparent;
   background-color: transparent;
 }
+.default-pagination .pagination .page-arrow .link {
+  position: relative;
+  border-color: var(--color-border);
+}
+.default-pagination .pagination .page-arrow span {
+  font-family: "Material Symbols Rounded";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.default-pagination .pagination .page-arrow.-start span::before {
+  content: "\e5e0";
+}
+.default-pagination .pagination .page-arrow.-end span::before {
+  content: "\e5e1";
+}
 .default-pagination .pagination .first-page .link,
 .default-pagination .pagination .last-page .link {
   font-weight: var(--fw-regular);
@@ -1156,6 +1340,7 @@ figure.ratio .img-ratio.ratio-9x16 {
   line-height: 43px;
   color: var(--color-dark);
   text-decoration: none;
+  border: none;
 }
 
 @media (max-width: 767px) {
@@ -2807,24 +2992,14 @@ div.swal2-html-container {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   right: 20px;
+  background-color: var(--color-light);
+  z-index: 1;
 }
 .default-filter .form-search .search .link {
   display: block;
 }
 .default-filter .form-select {
   min-width: 370px;
-}
-.default-filter .form-select .control-label {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  left: 30px;
-  z-index: 1;
-  font-size: var(--typo-sm);
-  font-weight: var(--fw-bold);
-  color: var(--color-light);
-  margin-bottom: 0;
 }
 .default-filter .form-select .select2-container .select2-selection--single {
   height: 80px;
@@ -2833,41 +3008,48 @@ div.swal2-html-container {
   border: none;
   padding: 0 30px 0 120px;
 }
-.default-filter .form-select .select2-container--default .select2-selection--single {
-  border-radius: 0;
-}
-.default-filter .form-select .select2-container--default .select2-selection--single .select2-selection__rendered {
-  font-size: var(--typo-sm);
-  font-weight: var(--fw-medium);
+.default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
   color: var(--color-light);
   line-height: 80px;
 }
-.default-filter .form-select .select2-container--default .select2-selection--single .select2-selection__arrow {
-  top: 50%;
-  right: 15px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+
+.document-filter {
+  margin-bottom: 40px;
 }
-.default-filter .form-select .select2-container--default .select2-selection--single .select2-selection__arrow b {
-  display: none;
+.document-filter .form-default {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-left: auto;
 }
-.default-filter .form-select .select2-container--default .select2-selection--single .select2-selection__arrow::before {
-  content: "\e5cf";
-  font-family: "Material Symbols Rounded";
-  font-size: 30px;
-  color: var(--color-light);
+.document-filter .form-group {
+  margin-bottom: 0;
 }
-.default-filter .form-select .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow::before {
-  content: "\e5ce";
+.document-filter .form-select {
+  min-width: 200px;
+}
+.document-filter .form-select .control-label {
+  font-size: var(--typo-xs);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+}
+.document-filter .form-select .select2-container .select2-selection--single {
+  height: 60px;
+  border: 1px solid var(--color-border);
+  padding: 0 20px;
+}
+.document-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
+  font-size: var(--typo-xs);
+  font-weight: var(--fw-bold);
+  line-height: 60px;
+  color: var(--color-primary);
+  padding: 0;
+}
+.document-filter .form-select .select2-container .select2-selection--single .select2-selection__arrow::before {
+  color: var(--color-default);
+}
+.document-filter .form-select-year .select2-container .select2-selection--single {
+  padding: 0 20px 0 60px;
 }
 
 @media (max-width: 1440px) {
@@ -4473,6 +4655,12 @@ div.swal2-html-container {
 }
 .news-link:hover .news-card {
   background-color: #ffffff;
+}
+
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
 @media (max-width: 1600px) {

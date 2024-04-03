@@ -27,20 +27,29 @@
             display: inline-block; 
             vertical-align: middle;
             &.jump-page {
+                .form-select {
+                    min-width: 100px;
+                }
                 .form-group {
-                    .select2-container .select2-selection--single {
-                        height: 45px;
-                    }
-                    .select2-container--default .select2-selection--single .select2-selection__rendered {
-                        line-height: 45px;
-                        width: 90px;
-                    }
-                    .select2-container--default .select2-selection--single .select2-selection__arrow {
-                        height: 45px;
-                    }
-                    .select2-container--default .select2-selection--single .select2-selection__placeholder {
-                        font-size: var(--typo-default);
-                    }
+                    margin-bottom: 0;
+                }
+                .select2-container .select2-selection--single {
+                    background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+                    border: none;
+                    height: 40px;
+                    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+                }
+                .select2-container .select2-selection--single .select2-selection__rendered {
+                    font-size: 16px;
+                    line-height: 40px;
+                    padding-left: 20px;
+                    padding-right: 15px;
+                }
+                .select2-container .select2-selection--single .select2-selection__arrow {
+                    right: 10px;
+                }
+                .select2-container .select2-selection--single .select2-selection__arrow::before {
+                    font-size: 18px;
                 }
             }
             &.active{
@@ -59,23 +68,27 @@
         //     margin-left: 10px;
         // }
         .page-item .link{
-            display: block; 
-            min-width: 45px; 
-            height: 45px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px; 
+            height: 40px; 
             padding: 0 5px; 
             text-align: center; 
-            line-height: 43px; 
-            border-radius: 50%;
             background-color: var(--color-transparent);
             font-weight: var(--fw-regular);
-            font-size: var(--typo-default); 
+            font-size: 16px; 
             color: var(--color-dark);
-            border: 1px solid var(--color-dark);
+            border: 1px solid var(--color-primary);
             text-decoration: none;
             &:hover{
+                color: var(--color-primary);
+            }
+            &.active{
                 color: var(--color-light);
-                background-color: var(--color-dark);
-                // text-decoration: none;
+                // border-color: transparent;
+                background: none;
+                background: linear-gradient(#01377d 0%, #2ab170 100%);
             }
             &.link-text{
                 border-color: transparent;
@@ -92,6 +105,30 @@
         //     height: 35px;
         //     line-height: 33px;
         // }
+        .page-arrow {
+            .link {
+                position: relative;
+                border-color: var(--color-border);
+            }
+            span {
+                font-family: "Material Symbols Rounded";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &.-start {
+                span::before {
+                    content: "\e5e0";
+                }
+            }
+            &.-end {
+                span::before {
+                    content: "\e5e1";
+                }
+            }
+        }
+
         .first-page .link,
         .last-page .link {
             font-weight: var(--fw-regular);
@@ -99,6 +136,7 @@
             line-height: 43px; 
             color: var(--color-dark);
             text-decoration: none;
+            border: none;
         }
     }
 }

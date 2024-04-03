@@ -160,12 +160,18 @@
             &::placeholder {
                 color: var(--color-border);
             }
+            // &:hover,
+            // &:focus {
+            //     #search-clear {display: none;}
+            // }
         }
         .search {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             right: 20px;
+            background-color: var(--color-light);
+            z-index: 1;
             .link {
                 display: block;
             }
@@ -173,49 +179,55 @@
     }
     .form-select {
         min-width: 370px;
-        .control-label {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 30px;
-            z-index: 1;
-            font-size: var(--typo-sm);
-            font-weight: var(--fw-bold);
-            color: var(--color-light);
-            margin-bottom: 0;
-        }
         .select2-container .select2-selection--single {
             height: 80px;
             background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
             border: none;
             padding: 0 30px 0 120px;
         }
-        .select2-container--default .select2-selection--single {
-            border-radius: 0;
-        }
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            font-size: var(--typo-sm);
-            font-weight: var(--fw-medium);
+        .select2-container .select2-selection--single .select2-selection__rendered {
             color: var(--color-light);
             line-height: 80px;
         }
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            b {display: none;}
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: end;
-            &::before {
-                content: "\e5cf";
-                font-family: "Material Symbols Rounded";
-                font-size: 30px;
-                color: var(--color-light);
-            }
+    }
+}
+
+.document-filter {
+    margin-bottom: 40px;
+    .form-default {
+        width: max-content;
+        margin-left: auto;
+    }
+    .form-group {
+        margin-bottom: 0;
+    }
+    .form-select {
+        min-width: 200px;
+        .control-label  {
+            font-size: var(--typo-xs);
+            font-weight: var(--fw-bold);
+            color: var(--color-primary);
         }
-        .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow::before {
-            content: "\e5ce";
+        .select2-container .select2-selection--single {
+            height: 60px;
+            border: 1px solid var(--color-border);
+            padding: 0 20px;
+        }
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            font-size: var(--typo-xs);
+            font-weight: var(--fw-bold);
+            line-height: 60px;
+            color: var(--color-primary);
+            padding: 0;
+        }
+        .select2-container .select2-selection--single .select2-selection__arrow::before {
+            color: var(--color-default);
+        }
+    }
+
+    .form-select-year {
+        .select2-container .select2-selection--single  {
+            padding: 0 20px 0 60px;
         }
     }
 }

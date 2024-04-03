@@ -65,6 +65,18 @@ $(document).ready(function () {
     $('.sub2menu .link').removeClass('active');
   });
 
+  $(".select-filter").select2({ 
+    minimumResultsForSearch: Infinity,
+    theme: 'option-filter'
+  });
+  $(".select-document").select2({ 
+    minimumResultsForSearch: Infinity,
+    theme: 'option-document'
+  });
+  $(".select-pagination").select2({ 
+    minimumResultsForSearch: Infinity,
+    theme: 'option-pagination'
+  });
   $(".select-control").select2({ minimumResultsForSearch: Infinity });
 
   var layoutHeader = $('.layout-header').height();

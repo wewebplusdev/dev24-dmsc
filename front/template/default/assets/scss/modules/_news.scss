@@ -49,6 +49,12 @@
   }
 }
 
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
 @media (max-width: 1600px) {
   .news-card .card-body {
     padding: 25px;
