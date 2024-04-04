@@ -276,7 +276,9 @@
                           </a>
                           <div class="action">
                             <div class="link event-more">
-                              + <span>2</span> เพิ่มเติม
+                              <div class="-more">
+                                + <span>2</span> เพิ่มเติม
+                              </div>
                               <div class="event-drop-show visually-hidden">
                                 <div class="date-current">
                                   <div class="today">
@@ -305,7 +307,40 @@
                     </td>
                     <td>
                       <div class="box" onclick="">
-                        <div class="num">22</div>
+                        <div class="num">24</div>
+                        <div class="event-group">
+                          <a href="" class="link event-item">
+                            <span>สัมนาการแพทย์ภายในองค์กร</span>
+                          </a>
+                          <div class="action">
+                            <div class="link event-more">
+                              <div class="-more">
+                                + <span>2</span> เพิ่มเติม
+                              </div>
+                              <div class="event-drop-show visually-hidden">
+                                <div class="date-current">
+                                  <div class="today">
+                                    <small>ศ.</small>
+                                    <div class="day">23</div>
+                                  </div>
+                                  <span class="material-symbols-rounded close-event">cancel</span>
+                                </div>
+                                <a href="" class="link event-item">
+                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                </a>
+                                <a href="" class="link event-item">
+                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                </a>
+                                <a href="" class="link event-item">
+                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                </a>
+                                <a href="" class="link event-item">
+                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </td>
                   </tr>
@@ -445,13 +480,11 @@
 
   <script>
     $('.close-event').click(function() {
-      $('.event-drop-show').toggleClass('visually-hidden');
-      // $(this).closest('event-drop-show').addClass('visually-hidden');
-      // $(this).addClass('test')
+      $(this).closest('.event-drop-show').addClass('visually-hidden');
     })
 
-    $('.event-more').click(function() {
-      $('.event-drop-show').removeClass('visually-hidden');
+    $('.event-more .-more').click(function() {
+      $(this).closest('.action').find('.event-drop-show').removeClass('visually-hidden');
     })
   </script>
 
