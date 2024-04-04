@@ -88,10 +88,10 @@
                   <a href="our-history-02.php" class="nav-link">2564 - 2545</a>
                 </div>
                 <div class="swiper-slide">
-                  <a href="our-history-02.php" class="nav-link">2540 - 2526</a>
+                  <a href="our-history-03.php" class="nav-link">2540 - 2526</a>
                 </div>
                 <div class="swiper-slide">
-                  <a href="our-history-02.php" class="nav-link">2517 - 2485</a>
+                  <a href="our-history-04.php" class="nav-link">2517 - 2485</a>
                 </div>
               </div>
             </div>
