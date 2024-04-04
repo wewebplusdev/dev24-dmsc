@@ -60,7 +60,7 @@
               <div class="row gutters-20 align-items-end">
                 <div class="col">
                   <div class="form-group form-search">
-                    <label class="control-label" for="">ค้นหา</label>
+                    <label class="control-label visually-hidden" for="">กลุ่ม</label>
                     <div class="block-control">
                       <input class="form-control" type="search" id="" placeholder="พิมพ์คำค้นหา">
                       <div class="search">

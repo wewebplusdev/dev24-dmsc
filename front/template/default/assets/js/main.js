@@ -77,6 +77,10 @@ $(document).ready(function () {
     minimumResultsForSearch: Infinity,
     theme: 'option-pagination'
   });
+  $(".select-calendar").select2({ 
+    minimumResultsForSearch: Infinity,
+    theme: 'option-calendar'
+  });
   $(".select-control").select2({ minimumResultsForSearch: Infinity });
 
   var layoutHeader = $('.layout-header').height();

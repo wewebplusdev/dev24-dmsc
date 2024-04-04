@@ -370,3 +370,26 @@
     //     border-bottom: 1px solid var(--color-border);
     // }
 }
+
+// select2 calendar
+.select2-container--option-calendar .select2-dropdown {
+  border: none;
+  background-color: var(--color-light);
+  box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+}
+.select2-container--option-calendar .select2-results__option {
+  font-size: var(--typo-default);
+  font-weight: var(--fw-medium);
+  padding: 15px 30px;
+}
+.select2-container--option-calendar .select2-results__option:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+.select2-container--option-calendar .select2-results__option--selected {
+  background-color: var(--color-border) !important;
+  &:hover {
+      color: var(--color-default);
+  }
+}
