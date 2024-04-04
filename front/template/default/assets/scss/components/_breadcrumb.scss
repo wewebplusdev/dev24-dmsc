@@ -65,3 +65,14 @@
         color: var(--color-light);
     }
 }
+
+@media (max-width: 991px) {
+  .breadcrumb .link .icon {margin-right: 5px;}
+  .breadcrumb li + li::before {padding: 0 7.5px;}
+  // .breadcrumb li:nth-child(3) .link {max-width: 170px;}
+}
+
+@media (max-width: 767px) {
+  .breadcrumb .link {font-size: 16px;}
+}
+

@@ -590,6 +590,19 @@ figure.ratio .img-ratio.ratio-9x16 {
   color: var(--color-light);
 }
 
+@media (max-width: 991px) {
+  .breadcrumb .link .icon {
+    margin-right: 5px;
+  }
+  .breadcrumb li + li::before {
+    padding: 0 7.5px;
+  }
+}
+@media (max-width: 767px) {
+  .breadcrumb .link {
+    font-size: 16px;
+  }
+}
 .btn {
   background: none;
   position: relative;
@@ -2858,7 +2871,7 @@ div.swal2-html-container {
 .default-body {
   position: relative;
   overflow: hidden;
-  padding: 50px 0;
+  padding: 80px 0;
 }
 .default-body .whead {
   margin: 50px 0;
@@ -2980,8 +2993,8 @@ div.swal2-html-container {
 .default-header .graphic > div {
   position: absolute;
   top: 0;
-  right: 0;
-  margin-right: 170px;
+  right: 50%;
+  margin-right: -780px;
   padding-top: 20px;
 }
 
@@ -3092,11 +3105,37 @@ div.swal2-html-container {
     margin-bottom: 20px;
     margin-top: 20px;
   }
+  .default-header .graphic > div {
+    margin-right: 0;
+    right: 0;
+  }
+  .default-header .title {
+    font-size: 34px;
+  }
+}
+@media (max-width: 1199px) {
+  .default-header .title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 991px) {
+  .default-header .graphic {
+    display: none;
+  }
+  .default-header .title {
+    font-size: 30px;
+  }
 }
 @media (max-width: 767px) {
   .line {
     margin-bottom: 15px;
     margin-top: 15px;
+  }
+  .default-header .wrapper {
+    height: 180px;
+  }
+  .default-header .title {
+    font-size: 28px;
   }
 }
 @media (max-width: 575px) {
