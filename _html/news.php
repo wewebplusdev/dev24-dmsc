@@ -58,7 +58,7 @@
           <div class="container">
             <form action="" class="form-default">
               <div class="row gutters-20 align-items-end">
-                <div class="col">
+                <div class="col-md">
                   <div class="form-group form-search">
                     <label class="control-label visually-hidden" for="">กลุ่ม</label>
                     <div class="block-control">
@@ -78,8 +78,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-auto">
-                  <div class="form-group form-select">
+                <div class="col-md-auto">
+                  <div class="form-group form-select mb-0">
                     <label class="control-label" for="selectFilter">จัดเรียง :</label>
                     <div class="select-wrapper">
                       <select class="select-filter" name="selectFilter" id="selectFilter" style="width: 100%;">

@@ -548,7 +548,7 @@ figure.ratio .img-ratio.ratio-9x16 {
 
 .breadcrumb {
   background-color: transparent;
-  margin: 5px 0 0 0;
+  margin: 0;
   padding: 0;
   border-radius: 0;
 }
@@ -591,11 +591,14 @@ figure.ratio .img-ratio.ratio-9x16 {
 }
 
 @media (max-width: 991px) {
+  .breadcrumb-block {
+    margin-bottom: 10px;
+  }
   .breadcrumb .link .icon {
     margin-right: 5px;
   }
   .breadcrumb li + li::before {
-    padding: 0 7.5px;
+    padding: 0 5px;
   }
 }
 @media (max-width: 767px) {
@@ -1391,36 +1394,56 @@ figure.ratio .img-ratio.ratio-9x16 {
 }
 
 @media (max-width: 767px) {
+  .pagination-block {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 991px) {
   .default-pagination .pagination-label {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin-bottom: 20px;
+    font-size: 18px;
   }
   .default-pagination .pagination {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-}
-@media (max-width: 575px) {
+  .default-pagination .pagination li + li {
+    margin-left: 5px;
+  }
+  .default-pagination .pagination .first-page .link,
+  .default-pagination .pagination .last-page .link {
+    display: none;
+  }
   .default-pagination .pagination .page-item .link {
-    min-width: 35px;
-    height: 35px;
-    line-height: 33px;
+    font-size: 14px;
+    min-width: 30px;
+    height: 30px;
   }
-  .default-pagination .pagination-label strong {
-    min-width: 35px;
-    height: 35px;
-    line-height: 33px;
+  .default-pagination .pagination .page-item:nth-child(6),
+  .default-pagination .pagination .page-item:nth-child(7) {
+    display: none;
   }
-  .default-pagination .pagination li.jump-page .form-group .select2-container .select2-selection--single {
-    height: 35px;
+  .default-pagination .pagination li.jump-page .form-select {
+    min-width: 80px;
   }
-  .default-pagination .pagination li.jump-page .form-group .select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 35px;
+  .default-pagination .pagination li.jump-page .select2-container .select2-selection--single {
+    height: 31px;
   }
-  .default-pagination .pagination li.jump-page .form-group .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 35px;
+  .default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__rendered {
+    font-size: 14px;
+    line-height: 32px;
+    padding-left: 10px;
+  }
+  .default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__arrow {
+    right: 5px;
+  }
+  .select2-container--option-pagination .select2-results__option {
+    font-size: 14px;
+    padding-left: 10px;
   }
 }
 .select2-container .select2-selection--single {
@@ -3112,10 +3135,56 @@ div.swal2-html-container {
   .default-header .title {
     font-size: 34px;
   }
+  .default-filter .form-search .form-control {
+    height: 70px;
+    font-size: 22px;
+  }
+  .default-filter .form-search .search svg {
+    width: 28px;
+  }
+  .form-select .control-label {
+    font-size: 20px;
+    left: 20px;
+  }
+  .default-filter {
+    margin-bottom: 50px;
+  }
+  .default-filter .form-select .select2-container .select2-selection--single {
+    height: 70px;
+  }
+  .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 70px;
+    font-size: 20px;
+  }
+  .select2-container--option-filter .select2-results__option {
+    font-size: 20px;
+    padding: 18px 20px;
+  }
 }
 @media (max-width: 1199px) {
   .default-header .title {
     font-size: 32px;
+  }
+  .default-filter .form-search .form-control {
+    height: 60px;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+  .default-filter .form-search .search {
+    right: 15px;
+  }
+  .default-filter .form-search .search svg {
+    width: 24px;
+  }
+  .default-filter {
+    margin-bottom: 40px;
+  }
+  .default-filter .form-select .select2-container .select2-selection--single {
+    height: 60px;
+    padding: 0 20px 0 100px;
+  }
+  .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 60px;
   }
 }
 @media (max-width: 991px) {
@@ -3124,6 +3193,39 @@ div.swal2-html-container {
   }
   .default-header .title {
     font-size: 30px;
+  }
+  .default-body {
+    padding: 30px 0;
+  }
+  .default-filter .form-search .form-control {
+    height: 56px;
+    font-size: 18px;
+  }
+  .default-filter .form-search .search svg {
+    width: 22px;
+  }
+  .form-select .control-label {
+    font-size: 18px;
+  }
+  .default-filter {
+    margin-bottom: 20px;
+  }
+  .default-filter .form-default > .row {
+    margin: 0 -6px;
+  }
+  .default-filter .form-default > .row > div {
+    padding: 0 6px;
+  }
+  .default-filter .form-select .select2-container .select2-selection--single {
+    height: 56px;
+  }
+  .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 56px;
+    font-size: 18px;
+  }
+  .select2-container--option-filter .select2-results__option {
+    font-size: 18px;
+    padding: 15px 20px;
   }
 }
 @media (max-width: 767px) {
@@ -3136,6 +3238,13 @@ div.swal2-html-container {
   }
   .default-header .title {
     font-size: 28px;
+  }
+  .default-filter {
+    margin-bottom: 15px;
+  }
+  .default-filter .form-group {
+    margin-bottom: 10px;
+    min-width: auto;
   }
 }
 @media (max-width: 575px) {
@@ -4903,6 +5012,9 @@ div.swal2-html-container {
   .news-card .desc {
     font-size: 16px;
   }
+  .news-list {
+    gap: 30px;
+  }
 }
 @media (max-width: 1199px) {
   .news-card .card-body {
@@ -4915,6 +5027,9 @@ div.swal2-html-container {
   .news-card {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.25em), calc(100% - 1.25em) 100%, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.25em), calc(100% - 1.25em) 100%, 0 100%);
+  }
+  .news-list {
+    gap: 20px;
   }
 }
 @media (max-width: 991px) {
@@ -4942,6 +5057,10 @@ div.swal2-html-container {
     margin-bottom: 15px;
     margin-top: 15px;
   }
+  .news-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 }
 @media (max-width: 575px) {
   .news-card .card-body {
@@ -4956,6 +5075,9 @@ div.swal2-html-container {
   }
   .news-card .action span {
     font-size: 20px;
+  }
+  .news-list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 .our-history-info {

@@ -1,7 +1,7 @@
 .breadcrumb-block{margin-bottom: 20px;}
 .breadcrumb{
 	background-color: transparent; 
-	margin: 5px 0 0 0; 
+	margin: 0; 
 	padding: 0;
     border-radius: 0;
     li {
@@ -67,8 +67,9 @@
 }
 
 @media (max-width: 991px) {
+  .breadcrumb-block {margin-bottom: 10px;}
   .breadcrumb .link .icon {margin-right: 5px;}
-  .breadcrumb li + li::before {padding: 0 7.5px;}
+  .breadcrumb li + li::before {padding: 0 5px;}
   // .breadcrumb li:nth-child(3) .link {max-width: 170px;}
 }
 
