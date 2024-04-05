@@ -173,8 +173,8 @@
                         <div class="box" onclick="">
                           <div class="num">22</div>
                           <div class="event-group">
-                            <a href="" class="link event-item">
-                              <span>สัมนาการแพทย์ภายในองค์กร</span>
+                            <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                              <small>สัมนาการแพทย์ภายในองค์กร</small>
                             </a>
                             <div class="action">
                               <div class="link event-more">
@@ -198,8 +198,8 @@
                         <div class="box" onclick="">
                           <div class="num">1</div>
                           <div class="event-group">
-                            <a href="" class="link event-item">
-                              <span>สัมนาการแพทย์ภายในองค์กร</span>
+                            <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                              <small>สัมนาการแพทย์ภายในองค์กร</small>
                             </a>
                             <div class="action">
                               <a href="javascript:void(0);" class="link -more">
@@ -223,7 +223,7 @@
                   <?php } ?>
                   <tr>
                     <td>
-                      <div class="box" onclick="">
+                      <div class="box tody" onclick="">
                         <div class="num">1</div>
                       </div>
                     </td>
@@ -231,8 +231,8 @@
                       <div class="box" onclick="">
                         <div class="num">22</div>
                         <div class="event-group">
-                          <a href="" class="link event-item">
-                            <span>สัมนาการแพทย์ภายในองค์กร</span>
+                          <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                            <small>สัมนาการแพทย์ภายในองค์กร</small>
                           </a>
                           <div class="action">
                             <div class="link event-more">
@@ -256,8 +256,8 @@
                       <div class="box" onclick="">
                         <div class="num">1</div>
                         <div class="event-group">
-                          <a href="" class="link event-item">
-                            <span>สัมนาการแพทย์ภายในองค์กร</span>
+                          <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                            <small>สัมนาการแพทย์ภายในองค์กร</small>
                           </a>
                           <div class="action">
                             <a href="javascript:void(0);" class="link -more">
@@ -268,11 +268,11 @@
                       </div>
                     </td>
                     <td>
-                      <div class="box" onclick="">
+                      <div class="box tody" onclick="">
                         <div class="num">23</div>
                         <div class="event-group">
-                          <a href="" class="link event-item">
-                            <span>สัมนาการแพทย์ภายในองค์กร</span>
+                          <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                            <small>สัมนาการแพทย์ภายในองค์กร</small>
                           </a>
                           <div class="action">
                             <div class="link event-more">
@@ -287,17 +287,17 @@
                                   </div>
                                   <span class="material-symbols-rounded close-event">cancel</span>
                                 </div>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
                               </div>
                             </div>
@@ -309,8 +309,8 @@
                       <div class="box" onclick="">
                         <div class="num">24</div>
                         <div class="event-group">
-                          <a href="" class="link event-item">
-                            <span>สัมนาการแพทย์ภายในองค์กร</span>
+                          <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                            <small>สัมนาการแพทย์ภายในองค์กร</small>
                           </a>
                           <div class="action">
                             <div class="link event-more">
@@ -325,17 +325,17 @@
                                   </div>
                                   <span class="material-symbols-rounded close-event">cancel</span>
                                 </div>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
-                                <a href="" class="link event-item">
-                                  <span>สัมนาการแพทย์ภายในองค์กร</span>
+                                <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                                  <small>สัมนาการแพทย์ภายในองค์กร</small>
                                 </a>
                               </div>
                             </div>
@@ -355,8 +355,8 @@
                         <div class="box" onclick="">
                           <div class="num">22</div>
                           <div class="event-group">
-                            <a href="" class="link event-item">
-                              <span>สัมนาการแพทย์ภายในองค์กร</span>
+                            <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                              <small>สัมนาการแพทย์ภายในองค์กร</small>
                             </a>
                             <div class="action">
                               <div class="link event-more">
@@ -380,8 +380,8 @@
                         <div class="box" onclick="">
                           <div class="num">1</div>
                           <div class="event-group">
-                            <a href="" class="link event-item">
-                              <span>สัมนาการแพทย์ภายในองค์กร</span>
+                            <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                              <small>สัมนาการแพทย์ภายในองค์กร</small>
                             </a>
                             <div class="action">
                               <div class="link event-more">
@@ -395,8 +395,8 @@
                         <div class="box" onclick="">
                           <div class="num">22</div>
                           <div class="event-group">
-                            <a href="" class="link event-item">
-                              <span>สัมนาการแพทย์ภายในองค์กร</span>
+                            <a href="" class="link event-item" title="สัมนาการแพทย์ภายในองค์กร">
+                              <small>สัมนาการแพทย์ภายในองค์กร</small>
                             </a>
                             <div class="action">
                               <div class="link event-more">
@@ -486,6 +486,13 @@
     $('.event-more .-more').click(function() {
       $(this).closest('.action').find('.event-drop-show').removeClass('visually-hidden');
     })
+
+    $('.event-group .event-item').each(function() {
+      strHTML = `
+      <span class="tooltip" style="display:none;">${$(this).attr('title')}</span>
+    `;
+      $(this).append(strHTML);
+    });
   </script>
 
 </body>
