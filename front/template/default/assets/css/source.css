@@ -606,6 +606,11 @@ figure.ratio .img-ratio.ratio-9x16 {
     font-size: 16px;
   }
 }
+@media (max-width: 575px) {
+  .breadcrumb li:nth-child(3) .link {
+    max-width: 100px;
+  }
+}
 .btn {
   background: none;
   position: relative;
@@ -4757,6 +4762,66 @@ div.swal2-html-container {
   margin: 50px 0 60px 0;
 }
 
+@media (max-width: 1440px) {
+  .default-bar .whead .title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1199px) {
+  .default-bar .whead {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  .default-bar .whead .title {
+    font-size: 30px;
+  }
+  .default-bar .box,
+  .default-bar .box strong {
+    font-size: 18px;
+  }
+}
+@media (max-width: 991px) {
+  .default-bar .whead {
+    margin-bottom: 15px;
+  }
+  .default-bar .whead .title {
+    font-size: 24px;
+  }
+  .default-bar .social-list .link {
+    width: 30px;
+    height: 30px;
+  }
+  .default-bar .box .icon svg {
+    margin-top: -2px;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  .default-bar .social-list .link .icon {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  .default-bar .social-list .item-list {
+    padding-left: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .default-bar .whead .title {
+    font-size: 22px;
+  }
+  .default-bar .box,
+  .default-bar .box strong {
+    font-size: 16px;
+  }
+}
+@media (max-width: 575px) {
+  .default-bar .whead .title {
+    font-size: 20px;
+  }
+  .default-bar .box,
+  .default-bar .box strong {
+    font-size: 15px;
+  }
+}
 .intro-page {
   min-height: 100vh;
   position: relative;
@@ -5439,9 +5504,6 @@ div.swal2-html-container {
 .event-calendar table td:last-child {
   border-right: none;
 }
-.event-calendar table td:hover {
-  background-color: rgba(204, 204, 204, 0.1882352941);
-}
 .event-calendar table .box {
   padding: 15px 10px;
   position: absolute;
@@ -5450,6 +5512,9 @@ div.swal2-html-container {
   text-align: right;
   width: 100%;
   height: 100%;
+}
+.event-calendar table .box.tody {
+  background-color: rgba(204, 204, 204, 0.1882352941);
 }
 .event-calendar table .box .num {
   position: relative;
@@ -5471,6 +5536,7 @@ div.swal2-html-container {
   margin: 10px 0;
 }
 .event-calendar table .event-group .event-item {
+  position: relative;
   text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5486,7 +5552,7 @@ div.swal2-html-container {
   background-color: #2AB170;
   border-radius: 5px;
 }
-.event-calendar table .event-group .event-item span {
+.event-calendar table .event-group .event-item small {
   display: block;
   margin-top: -1px;
   font-size: 14px;
@@ -5501,8 +5567,48 @@ div.swal2-html-container {
   -webkit-line-clamp: 1;
   min-height: 1.4em;
 }
+.event-calendar table .event-group .event-item .tooltip {
+  font-family: "Noto Sans Thai", sans-serif !important;
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  font-weight: 600;
+  opacity: 1;
+  white-space: nowrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 2px;
+  margin-top: 10px;
+  color: var(--color-light);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.2em;
+  padding: 5px 8px;
+  overflow: visible;
+}
+.event-calendar table .event-group .event-item .tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.8);
+}
 .event-calendar table .event-group .event-item:hover {
   background-color: var(--color-primary);
+}
+.event-calendar table .event-group .event-item:hover .tooltip {
+  display: block !important;
 }
 .event-calendar table .event-group .action {
   margin-top: 10px;
