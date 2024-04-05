@@ -242,7 +242,7 @@
             content: "\e5cf";
             font-family: "Material Symbols Rounded";
             font-size: 30px;
-            color: var(--color-light);
+            color: var(--color-default);
         }
     }
     .select2-container.select2-container--open .select2-selection--single .select2-selection__arrow::before {
@@ -292,16 +292,16 @@
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 7px;
+        width: 5px;
     }
     
     &::-webkit-scrollbar-track {
         background: var(--color-border); 
-        border-radius: 10px;
+        border-radius: 7px;
     }
     &::-webkit-scrollbar-thumb {
         background: #29AF70; 
-        border-radius: 10px;
+        border-radius: 7px;
     }
     &::-webkit-scrollbar-thumb:hover {
         background: var(--color-primary); 
