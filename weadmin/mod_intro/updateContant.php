@@ -36,6 +36,7 @@ include("config.php");
             $update[] = $mod_tb_root_lang . "_pic='" . changeQuot($_POST['picname']) . "'";
             $update[] = $mod_tb_root_lang . "_type='" . changeQuot($_POST['inputType']) . "'";
             $update[] = $mod_tb_root_lang . "_urlc='" . changeQuot($_POST['inputurlc']) . "'";
+            $update[] = $mod_tb_root_lang . "_title='" . changeQuot($_POST['inputDescription']) . "'";
             $update[] = $mod_tb_root_lang . "_lastbyid='" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
             $update[] = $mod_tb_root_lang . "_lastby='" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
             $update[] = $mod_tb_root_lang . "_lastdate=NOW()";

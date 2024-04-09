@@ -38,23 +38,25 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                jQuery("#inputSubject").removeClass("formInputContantTbAlertY");
             }
 
-            if (isBlank(inputurl)) {
-               inputurl.focus();
-               jQuery("#inputurl").addClass("formInputContantTbAlertY");
-               return false;
-            } else {
-               jQuery("#inputurl").removeClass("formInputContantTbAlertY");
-            }
-
-            if (inputurl.value == "http://") {
-               inputurl.focus();
-               jQuery("#inputurl").addClass("formInputContantTbAlertY");
-               return false;
-            } else {
-               jQuery("#inputurl").removeClass("formInputContantTbAlertY");
-            }
-
             let input_type = $('input[name="inputType"]:checked').val();
+            if (input_type == 1) {
+               if (isBlank(inputurl)) {
+                  inputurl.focus();
+                  jQuery("#inputurl").addClass("formInputContantTbAlertY");
+                  return false;
+               } else {
+                  jQuery("#inputurl").removeClass("formInputContantTbAlertY");
+               }
+   
+               if (inputurl.value == "http://") {
+                  inputurl.focus();
+                  jQuery("#inputurl").addClass("formInputContantTbAlertY");
+                  return false;
+               } else {
+                  jQuery("#inputurl").removeClass("formInputContantTbAlertY");
+               }
+            }
+
             if (input_type == 2) {
                if (inputurlc.value == "http://" || isBlank(inputurlc)) {
                   inputurlc.focus();
@@ -148,13 +150,13 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:inpName"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" class="formInputContantTb" /></td>
             </tr>
-            <tr id="boxInputlink">
+            <tr id="boxInputlink" class="inputUrl">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdo"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurl" id="inputurl" cols="45" rows="5" class="formTextareaContantTb">http://</textarea><br />
                   <span class="formFontNoteTxt"><?php echo $langMod["edit:linknote"] ?></span>
                </td>
             </tr>
-            <tr>
+            <tr class="inputUrl">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdo"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <label>
@@ -165,7 +167,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   <label>
                      <div class="formDivRadioL"><input name="inputmenutarget" id="inputmenutarget" type="radio" class="formRadioContantTb" value="2" /></div>
                      <div class="formDivRadioR"><?php echo $modTxtTarget[2] ?></div>
-                  </label>
                   </label>
                </td>
             </tr>
@@ -183,20 +184,24 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
             <tr>
-                  <td width="18%" align="right"  valign="top"  class="formLeftContantTb" ><?php echo $modTxtType[0] ?><span class="fontContantAlert">*</span></td>
-                  <td width="82%" colspan="6" align="left"  valign="top"  class="formRightContantTb" >
-                     <label>
-                        <div class="formDivRadioL"><input name="inputType" id="inputType" type="radio"  class="formRadioContantTb"  value="1" checked="checked" onchange="$('.typePic').show();$('.typeYoutube').hide();"/></div>
-                        <div class="formDivRadioR"><?php echo $modTxtType[1] ?></div>
-                     </label>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtType[0] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <label>
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" type="radio" class="formRadioContantTb" value="1" checked="checked" onchange="$('.inputUrl').show();$('.typePic').show();$('.typeVdo').hide();$('.typeYoutube').hide();" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtType[1] ?></div>
+                  </label>
 
-                     <label>
-                        <div class="formDivRadioL"><input name="inputType" id="inputType"  type="radio"  class="formRadioContantTb"   value="2" onchange="$('.typePic').hide();$('.typeYoutube').show();"/></div>
-                        <div class="formDivRadioR"><?php echo $modTxtType[2] ?></div>
-                     </label>
-                     </label>
-                  </td>
-               </tr>
+                  <label>
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" type="radio" class="formRadioContantTb" value="2" onchange="$('.inputUrl').hide();$('.typePic').hide();$('.typeVdo').hide();$('.typeYoutube').show();" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtType[2] ?></div>
+                  </label>
+
+                  <label>
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" type="radio" class="formRadioContantTb" value="3" onchange="$('.inputUrl').hide();$('.typePic').hide();$('.typeYoutube').hide();$('.typeVdo').show();" /></div>
+                     <div class="formDivRadioR"><?php echo $modTxtType[3] ?></div>
+                  </label>
+               </td>
+            </tr>
             <tr class="typePic">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -216,6 +221,19 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoYoutube"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlc" id="inputurlc" cols="45" rows="5" class="formTextareaContantTb">http://</textarea><br />
                   <span class="formFontNoteTxt"><?php echo $langMod["tit:linkvdonotec"] ?></span>
+               </td>
+            </tr>
+            <tr class="typeVdo" style="display:none;">
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:uploadvdo"] ?></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="file-input-wrapper">
+                     <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" accept=".mp4"/>
+                  </div>
+
+                  <span class="formFontNoteTxt"><?php echo $langMod["inp:notevdo"] ?></span>
+                  <div class="clearAll"></div>
+                  <div id="boxVideoNew" class="formFontTileTxt"></div>
                </td>
             </tr>
          </table>
@@ -300,6 +318,49 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
          })
          return false;
 
+      }
+
+      /*################################# Upload Video #######################*/
+      function ajaxVideoUpload() {
+         var valuevdoname = jQuery("input#vdoname").val();
+
+         jQuery.blockUI({
+            message: jQuery('#tallContent'),
+            css: {
+               border: 'none',
+               padding: '35px',
+               backgroundColor: '#000',
+               '-webkit-border-radius': '10px',
+               '-moz-border-radius': '10px',
+               opacity: .9,
+               color: '#fff'
+            }
+         });
+
+
+         jQuery.ajaxFileUpload({
+            url: 'loadInsertVideo.php?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delvdoname=' + valuevdoname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
+            secureuri: false,
+            fileElementId: 'inputVideoUpload',
+            dataType: 'json',
+            success: function(data, status) {
+               if (typeof(data.error) != 'undefined') {
+
+                  if (data.error != '') {
+                     alert(data.error);
+
+                  } else {
+                     jQuery("#boxVideoNew").show();
+                     jQuery("#boxVideoNew").html(data.msg);
+                     setTimeout(jQuery.unblockUI, 200);
+                  }
+               }
+            },
+            error: function(data, status, e) {
+               alert(e);
+            }
+         })
+         return false;
       }
    </script>
    <?php if ($_SESSION[$valSiteManage . 'core_session_language'] == "Thai") { ?>

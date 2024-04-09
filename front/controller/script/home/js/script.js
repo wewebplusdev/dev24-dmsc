@@ -129,3 +129,5 @@ function reload_swiper() {
         }
     });
 }
+
+$('#popupModal').modal('show');

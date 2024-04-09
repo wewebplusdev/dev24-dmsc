@@ -40,5 +40,8 @@ if($_SESSION[$valSiteManage."core_session_language"]=="Eng"){
 		$langMod["tit:inpName"] = "ชื่อ".getNameMenu($_REQUEST["menukeyid"]);
 		$langMod["tit:linkvdonotec"] = "หมายเหตุ : ลิงค์ที่ใช่ คือ URL youtube.com เท่านั้น";
 		$langMod["tit:linkvdoYoutube"] = "Youtube";
+		$langMod["inp:notevdo"] ="หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .mp4 เท่านั้น, ขนาดของวีดีโอไม่เกิน ".$sizeVDO." Mb.";
+		$langMod["tit:uploadvdo"] ="อัพโหลดไฟล์";
+		$langMod["tit:btn"] ="ชื่อปุ่ม";
 }
 ?>

@@ -12,6 +12,7 @@ if (!empty($url->segment[1])) {
         'language' => decodeStr($case_slug[3]),
         'action' => 'link',
     );
+    // print_pre($array_req);die;
     
     // call redirect 
     $load_url_redirect = $pageredirectage->load_url_redirect($array_req);

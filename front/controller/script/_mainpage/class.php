@@ -8,6 +8,7 @@ abstract class controller
     public $language;
     public $token_revoke;
     public $URL_API;
+    public $method_masterkey;
 
     public function __construct()
     {
@@ -15,14 +16,22 @@ abstract class controller
 
         if ($_CORE_ENV == 'DEV') {
             $this->URL_API = 'http://192.168.101.39:4040/service-api/v1';
-            // $this->URL_API = 'http://192.168.1.100:4040/service-api/v1';
+            // $this->URL_API = 'http://192.168.1.103:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
             $this->URL_API = 'http://13.229.72.11:4040/service-api/v1';
         }else{
-            $this->URL_API = 'http://192.168.101.22:4040/service-api/v1';
+            $this->URL_API = 'http://192.168.101.43:4040/service-api/v1';
             // $this->URL_API = 'http://127.0.0.1:4040/service-api/v1';
             // $this->URL_API = 'https://api.bbonzpp.com/service-api/v1';
         }
+
+        $this->method_masterkey = array(
+            'nw' => array(
+                'listAll' => 'getNews',
+                'detailAll' => 'getNewsDetail',
+            ),
+        );
+
 
         try {
             $this->token_access = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';

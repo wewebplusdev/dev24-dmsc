@@ -3,10 +3,14 @@
 
 <head>
     {include file="{$incfile.metatag}" title=title}
+    {include file="{$incfile.loadstyle}" title=title}
 </head>
 
 <body>
-    {include file="{$fileInclude|templateInclude:$settemplate}" title=pageContent}
+    <div class="global-container">
+        {include file="{$fileInclude|templateInclude:$settemplate}" title=pageContent}
+    </div>
+    {include file="{$incfile.loadscript}" title=title}
 </body>
 
 </html>

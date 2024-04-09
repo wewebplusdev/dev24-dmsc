@@ -10,6 +10,7 @@ let hostBackend = `${core_protocal}://${process.env.hostBackend}${core_pathname_
 let containerBackend = `${core_protocal}://${process.env.containerBackend}${core_pathname_folderlocal}`; // backend
 let hostFrontend = `${core_protocal}://${process.env.hostFrontend}${core_pathname_folderlocal}`; // frontend
 let containerFrontend = `${core_protocal}://${process.env.containerFrontend}${core_pathname_folderlocal}`; // frontend
+
 // development
 if (NODE_ENV == 'development') {
     hostBackend = `${core_protocal}://${process.env.hostBackend_dev}${core_pathname_folderlocal}`; // backend

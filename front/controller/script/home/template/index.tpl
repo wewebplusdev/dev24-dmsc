@@ -21,18 +21,16 @@
                             </div>
                         </div>
                     {elseif $valueTgp->type eq 3}
-                        {* <div class="swiper-slide">
+                        <div class="swiper-slide">
                             <div class="item">
-                                <div class="video-container">
-                                    <video loop="" autoplay="" muted="" controlsList="nofullscreen"
-                                        style="pointer-events: none;" playsinline>
-                                        <source src="{$template}/assets/video/petri-dish-pandas.mp4"
-                                            type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
+                            <div class="video-container">
+                                <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                                <source src="{$valueTgp->video->real}" type="video/mp4">
+                                Your browser does not support the video tag.
+                                </video>
                             </div>
-                        </div> *}
+                            </div>
+                        </div>
                     {else}
                         <div class="swiper-slide">
                             <div class="item">

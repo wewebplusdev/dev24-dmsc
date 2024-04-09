@@ -319,6 +319,8 @@ async function getIntro(req, res) {
             ,${config_array_db['md_intl']}_target as target 
             ,${config_array_db['md_intl']}_type as type 
             ,${config_array_db['md_intl']}_urlc as urlc 
+            ,${config_array_db['md_intl']}_title as title 
+            ,${config_array_db['md_intl']}_filevdo as filevdo 
             FROM ${config_array_db['md_int']} 
             INNER JOIN ${config_array_db['md_intl']} ON ${config_array_db['md_intl']}_cid = ${config_array_db['md_int']}_id
             WHERE ${config_array_db['md_int']}_status != 'Disable' 
@@ -341,14 +343,19 @@ async function getIntro(req, res) {
                     arr_data[i].masterkey = select_intro[i].masterkey;
                     arr_data[i].subject = select_intro[i].subject;
                     arr_data[i].type = select_intro[i].type;
+                    arr_data[i].title = select_intro[i].title;
                     if (select_intro[i].type == 1) {
                         arr_data[i].pic = {
                             'real': modulus.getUploadPath(select_intro[i].masterkey, 'real', select_intro[i].pic),
                             'pictures': modulus.getUploadPath(select_intro[i].masterkey, 'pictures', select_intro[i].pic),
                             'office': modulus.getUploadPath(select_intro[i].masterkey, 'office', select_intro[i].pic),
                         }
-                    }else{
+                    }else if(select_intro[i].type == 2){
                         arr_data[i].video = select_intro[i].urlc;
+                    }else{
+                        arr_data[i].video = {
+                            'real': modulus.getUploadPath(select_intro[i].masterkey, 'vdo', select_intro[i].filevdo),
+                        }
                     }
                     arr_data[i].url = select_intro[i].url;
                     arr_data[i].target = (select_intro[i].target == 2) ? '_blank' : '_self';

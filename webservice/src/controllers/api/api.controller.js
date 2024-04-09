@@ -59,12 +59,13 @@ async function loadRedirect(req, res) {
                     `;
                     const select_list = await query(sql_list);
                     if (select_list.length > 0) {
+                        const short_language = await modulus.getCoreLanguage(language);
                         let arr_data = {};
                         if (action == 'link') {
                             if (select_list[0].typec == 3) {
                                 arr_data.url = select_list[0].urlc;
                             }else{
-                                const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, select_list[0].typec, language);
+                                const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, select_list[0].typec, short_language);
                                 arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_list[0].gid}`;
                             }
                         }

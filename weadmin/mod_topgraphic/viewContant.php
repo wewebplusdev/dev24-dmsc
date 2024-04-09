@@ -27,7 +27,8 @@ $sql .= "
 			" . $mod_tb_root_lang . "_pic as pic,
 			" . $mod_tb_root_lang . "_url as url,
 			" . $mod_tb_root_lang . "_type as type,
-			" . $mod_tb_root_lang . "_urlc as urlc 
+			" . $mod_tb_root_lang . "_urlc as urlc,
+			" . $mod_tb_root_lang . "_filevdo as filevdo 
 			";
 $sql .= "  FROM  " . $mod_tb_root . "";
 $sql .= "  INNER JOIN " . $mod_tb_root_lang . "  ";
@@ -69,6 +70,8 @@ if (!is_file($valPic)) {
 $valUrl = rechangeQuot($Row['url']);
 $valType = rechangeQuot($Row['type']);
 $valUrlc = rechangeQuot($Row['urlc']);
+$valFilevdo = $Row['filevdo'];
+$valPathvdo = $mod_path_vdo . "/" . $Row['filevdo'];
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
 logs_access('3', 'View');
@@ -150,13 +153,13 @@ logs_access('3', 'View');
                   <div class="formDivView"><?php echo $valSubject ?></div>
                </td>
             </tr>
-            <tr>
+            <tr <?php if ($valType != 1) { ?> style="display:none;" <?php } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdo"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo $valUrl ?></div>
                </td>
             </tr>
-            <tr>
+            <tr <?php if ($valType != 1) { ?> style="display:none;" <?php } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdo"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo $modTxtTarget[$valTarget] ?></div>
@@ -189,7 +192,7 @@ logs_access('3', 'View');
                         <?php } else { ?>
                            <img src='<?php echo "../img/btn/nopic.jpg" ?>' style="float:left;border:#c8c7cc solid 1px;max-width:300;" />
                         <?php }
-                     } else {
+                     } else if($valType == 2) {
                         if ($valUrlc != "") {
                            $myUrlArray = explode("v=", $valUrlc);
                            $myUrlCut = $myUrlArray[1];
@@ -200,6 +203,16 @@ logs_access('3', 'View');
                         <? } else { ?>
                            -
                      <?
+                        }
+                     }else{
+                        if ($valFilevdo != "" && is_file($valPathvdo)) { ?>
+                           <video width="500" height="300" controls>
+                           <source src="<?php echo $valPathvdo; ?>" type="video/mp4">
+                           Your browser does not support the video tag.
+                           </video> 
+                        <?php } else { ?>
+                           -
+                        <?php
                         }
                      } ?>
                   </div>

@@ -41,6 +41,7 @@ if ($_REQUEST['execute'] == "insert") {
          $insertLang[$mod_tb_root_lang . "_type"] = "'" . changeQuot($_REQUEST['inputType']) . "'";
          $insertLang[$mod_tb_root_lang . "_urlc"] = "'" . changeQuot($_REQUEST['inputurlc']) . "'";
          $insertLang[$mod_tb_root_lang . "_pic"] = "'" . changeQuot($_REQUEST['picname']) . "'";
+         $insertLang[$mod_tb_root_lang . "_filevdo"] = "'" . changeQuot($_REQUEST['vdoname']) . "'";
          $insertLang[$mod_tb_root_lang . "_lastbyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
          $insertLang[$mod_tb_root_lang . "_lastby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
          $insertLang[$mod_tb_root_lang . "_lastdate"] = "NOW()";

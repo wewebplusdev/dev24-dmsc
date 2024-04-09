@@ -23,6 +23,10 @@
   feather.replace();
 </script>
 
+
+<!-- asw js -->
+<script src="{$template}/assets/js/accessibility.js"></script> 
+
 <!-- Module -->
 <script type="module" src="{$template}/assets/js/controller.js{$lastModify}"></script>
 <!-- Main -->

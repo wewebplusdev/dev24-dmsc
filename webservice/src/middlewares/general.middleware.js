@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 var formidable = require('formidable');
 var fs = require('fs');
 const util = require('util');
+const http = require('http');
+const https = require('https');
 
 exports.checkParam = function(param) {
     var code = config.returncode;
@@ -303,4 +305,28 @@ exports.getNameMonthTh = function(month){
 function check_next(req) {
     let arr_path = req.split("/");
     return !!(arr_path[(arr_path.length)-1] == 'getuser')
+}
+
+exports.getFileSize = function (url, callback) {
+    // Choose the appropriate module based on the URL's protocol
+    const protocol = url.startsWith('https') ? https : http;
+
+    // Send an HTTP GET request to the URL
+    protocol.get(url, (res) => {
+        console.log(res);
+        // Check if the request was successful (status code 200)
+        if (res.statusCode === 200) {
+            // Get the Content-Length header from the response
+            const contentLength = parseInt(res.headers['content-length'], 10);
+
+            // Call the callback function with the file size
+            callback(null, contentLength);
+        } else {
+            // If the request failed, call the callback function with an error
+            callback(new Error(`Failed to fetch URL (${res.statusCode})`));
+        }
+    }).on('error', (err) => {
+        // If an error occurred during the request, call the callback function with the error
+        callback(err);
+    });
 }

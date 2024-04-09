@@ -8,11 +8,22 @@ switch ($url->segment[0]) {
     default:
         // call intro
         $load_intro = $introPage->load_intro();
+        if (count($load_intro->item) < 1) {
+            header('location:' . $linklang . "/home");
+        }
         $array_intro = array();
+        $status_has_data = false;
         foreach ($load_intro->item as $keyload_intro => $valueload_intro) {
+            if (!empty($valueload_intro->subject)) {
+                $status_has_data = true;
+            }
             $array_intro[] = $valueload_intro;
         }
         $smarty->assign("array_intro", $array_intro);
+
+        if (!$status_has_data) {
+            header('location:' . $linklang . "/home");
+        }
 
         /*## Start SEO #####*/
         $seo_desc = "";

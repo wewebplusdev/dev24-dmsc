@@ -9,7 +9,7 @@ $mod_fd_root = "mod_topgraphic";
 
 ## Setting Value ###################################
 $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "เปิดหน้าต่างใหม่");
-$modTxtType = array("ประเภทข้อมูล", "รูปภาพ", "วีดีโอ");
+$modTxtType = array("ประเภทข้อมูล", "รูปภาพ", "Youtube", "วีดีโอ");
 $modStatus = array("Enable", "Disable");
 
 ## Size Pic ###################################
@@ -22,6 +22,8 @@ $sizeHeightPic = "800";
 $sizeWidthOff = "50";
 $sizeHeightOff = "50";
 
+$sizeVDO = 64;
+
 ## Mod Path ###################################
 
 $mod_path_office = $core_pathname_upload . "/" . $masterkey . "/office";
@@ -33,6 +35,8 @@ $mod_path_real_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/real";
 $mod_path_pictures = $core_pathname_upload . "/" . $masterkey . "/pictures";
 $mod_path_pictures_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/pictures";
 
+$mod_path_vdo        = $core_pathname_upload."/".$masterkey."/vdo";
+$mod_path_vdo_fornt  = $core_pathname_upload_fornt."/".$masterkey."/vdo";
 
 $mod_inputseach = array("inputGh"
     ,"inputTh"

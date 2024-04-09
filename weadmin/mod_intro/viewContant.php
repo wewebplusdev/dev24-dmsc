@@ -27,7 +27,9 @@ $sql .= "
 			" . $mod_tb_root_lang . "_pic as pic,
 			" . $mod_tb_root_lang . "_url as url,
 			" . $mod_tb_root_lang . "_type as type,
-			" . $mod_tb_root_lang . "_urlc as urlc
+			" . $mod_tb_root_lang . "_urlc as urlc,
+			" . $mod_tb_root_lang . "_title as title,
+			" . $mod_tb_root_lang . "_filevdo as filevdo 
 			";
 $sql .= "  FROM  " . $mod_tb_root . "";
 $sql .= "  INNER JOIN " . $mod_tb_root_lang . "  ";
@@ -69,6 +71,9 @@ if (!is_file($valPic)) {
 $valUrl = rechangeQuot($Row['url']);
 $valType = rechangeQuot($Row['type']);
 $valUrlc = rechangeQuot($Row['urlc']);
+$valTitle = $Row['title'];
+$valFilevdo = $Row['filevdo'];
+$valPathvdo = $mod_path_vdo . "/" . $Row['filevdo'];
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
 logs_access('3', 'View');
@@ -189,7 +194,7 @@ logs_access('3', 'View');
                         <?php } else { ?>
                            <img src='<?php echo "../img/btn/nopic.jpg" ?>' style="float:left;border:#c8c7cc solid 1px;max-width:300;" />
                         <?php }
-                     } else {
+                     } else if($valType == 2) {
                         if ($valUrlc != "") {
                            $myUrlArray = explode("v=", $valUrlc);
                            $myUrlCut = $myUrlArray[1];
@@ -200,6 +205,16 @@ logs_access('3', 'View');
                         <? } else { ?>
                            -
                      <?
+                        }
+                     }else{
+                        if ($valFilevdo != "" && is_file($valPathvdo)) { ?>
+                           <video width="500" height="300" controls>
+                           <source src="<?php echo $valPathvdo; ?>" type="video/mp4">
+                           Your browser does not support the video tag.
+                           </video> 
+                        <?php } else { ?>
+                           -
+                        <?php
                         }
                      } ?>
                   </div>
@@ -308,7 +323,6 @@ logs_access('3', 'View');
    <?php include("../lib/disconnect.php"); ?>
    <script type="text/javascript">
       $(function() {
-
          $('.tool-items').hide();
       });
    </script>
