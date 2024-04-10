@@ -4782,7 +4782,8 @@ div.swal2-html-container {
   margin-bottom: 80px;
 }
 .detail-body .document-download-list .link {
-  padding: 30px 30px 30px 40px;
+  display: block;
+  padding: 30px 20px 30px 35px;
 }
 .detail-body .document-download-list .link::before {
   display: none;
