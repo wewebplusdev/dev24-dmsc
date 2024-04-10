@@ -254,7 +254,8 @@
 // select2 fillter
 
 .select2-container--option-filter .select2-dropdown {
-    border: none;
+    border: 1px solid var(--color-primary);
+    border-top: none;
     background-color: var(--color-light);
     box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
     border-radius: 0;

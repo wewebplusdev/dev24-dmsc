@@ -1047,7 +1047,8 @@ figure.ratio .img-ratio.ratio-9x16 {
 }
 
 .select2-container--option-filter .select2-dropdown {
-  border: none;
+  border: 1px solid var(--color-primary);
+  border-top: none;
   background-color: var(--color-light);
   -webkit-box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
           box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.08);
@@ -1322,6 +1323,7 @@ figure.ratio .img-ratio.ratio-9x16 {
 }
 .default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__arrow::before {
   font-size: 18px;
+  color: var(--color-light);
 }
 .default-pagination .pagination li.active .link {
   color: var(--color-light);
@@ -2915,6 +2917,28 @@ div.swal2-html-container {
   line-height: 1.3em;
   color: var(--color-primary);
 }
+.default-body .whead .-rss {
+  font-size: var(--typo-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-default);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.default-body .whead .-rss:hover {
+  color: var(--color-dark);
+}
+.default-body .whead .-rss span {
+  width: auto;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.default-body .whead .-rss span.icon {
+  margin-right: 10px;
+}
 .default-body .bg-fluid {
   position: absolute;
   width: 100vw;
@@ -3091,12 +3115,21 @@ div.swal2-html-container {
 }
 .default-filter .form-select .select2-container .select2-selection--single {
   height: 70px;
+  background-color: var(--color-light);
   border: 1px solid var(--color-primary);
   padding: 0 30px 0 120px;
 }
 .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
   color: var(--color-default);
   line-height: 70px;
+}
+.default-filter .form-select.-select-group .select2-container .select2-selection--single {
+  padding: 0 30px;
+}
+.default-filter .form-select.-select-group .select2-container .select2-selection--single .select2-selection__rendered {
+  font-weight: var(--fw-bold);
+  color: var(--color-dark);
+  padding-left: 0;
 }
 
 .document-filter {
@@ -3143,6 +3176,9 @@ div.swal2-html-container {
     margin-bottom: 20px;
     margin-top: 20px;
   }
+  .default-body .whead .title {
+    font-size: 34px;
+  }
   .default-header .graphic > div {
     margin-right: 0;
     right: 0;
@@ -3150,16 +3186,16 @@ div.swal2-html-container {
   .default-header .title {
     font-size: 34px;
   }
+  .form-select .control-label {
+    font-size: 20px;
+    left: 20px;
+  }
   .default-filter .form-search .form-control {
     height: 70px;
     font-size: 22px;
   }
   .default-filter .form-search .search svg {
     width: 28px;
-  }
-  .form-select .control-label {
-    font-size: 20px;
-    left: 20px;
   }
   .default-filter {
     margin-bottom: 50px;
@@ -3177,8 +3213,27 @@ div.swal2-html-container {
   }
 }
 @media (max-width: 1199px) {
+  .default-body .whead .title {
+    font-size: 32px;
+  }
+  .default-body .whead .-rss span {
+    font-size: 22px;
+  }
   .default-header .title {
     font-size: 32px;
+  }
+  .default-filter .head {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  .default-filter .body {
+    margin-bottom: 30px;
+  }
+  .default-filter .head > .row {
+    margin: 0 -10px;
+  }
+  .default-filter .head > .row > div {
+    padding: 0 10px;
   }
   .default-filter .form-search .form-control {
     height: 60px;
@@ -3198,6 +3253,9 @@ div.swal2-html-container {
     height: 60px;
     padding: 0 20px 0 100px;
   }
+  .default-filter .form-select.-select-group .select2-container .select2-selection--single {
+    padding: 0 20px;
+  }
   .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
     line-height: 60px;
   }
@@ -3212,15 +3270,54 @@ div.swal2-html-container {
   .default-body {
     padding: 30px 0;
   }
-  .default-filter .form-search .form-control {
-    height: 56px;
-    font-size: 18px;
+  .default-body .whead .title {
+    font-size: 30px;
   }
-  .default-filter .form-search .search svg {
-    width: 22px;
+  .default-body .whead .-rss span {
+    font-size: 18px;
   }
   .form-select .control-label {
+    font-size: 16px;
+    left: 15px;
+  }
+  .form-select .select2-container .select2-selection--single .select2-selection__arrow {
+    right: 8px;
+  }
+  .form-select .select2-container .select2-selection--single .select2-selection__arrow::before {
+    font-size: 26px;
+  }
+  .default-filter .head {
+    padding: 15px 13px;
+    margin-bottom: 25px;
+  }
+  .default-filter .body {
+    margin-bottom: 25px;
+  }
+  .default-filter .head > .row {
+    margin: 0 -7.5px;
+  }
+  .default-filter .head > .row > div {
+    padding: 0 7.5px;
+  }
+  .default-filter .body .whead > .row {
+    margin: 0 -7.5px;
+  }
+  .default-filter .body .whead > .row > div {
+    padding: 0 7.5px;
+  }
+  .default-body .whead .-rss span.icon {
+    margin-right: 5px;
+  }
+  .default-body .whead .-rss span.icon svg {
+    width: 20px;
+  }
+  .default-filter .form-search .form-control {
+    height: 48px;
     font-size: 18px;
+    padding: 10px 15px;
+  }
+  .default-filter .form-search .search svg {
+    width: 20px;
   }
   .default-filter {
     margin-bottom: 20px;
@@ -3232,21 +3329,28 @@ div.swal2-html-container {
     padding: 0 6px;
   }
   .default-filter .form-select .select2-container .select2-selection--single {
-    height: 56px;
+    height: 48px;
+    padding: 0 16px 0 75px;
   }
   .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered {
-    line-height: 56px;
-    font-size: 18px;
+    line-height: 48px;
+    font-size: 16px;
+  }
+  .default-filter .form-select.-select-group .select2-container .select2-selection--single {
+    padding: 0 15px;
   }
   .select2-container--option-filter .select2-results__option {
-    font-size: 18px;
-    padding: 15px 20px;
+    font-size: 16px;
+    padding: 12px 15px;
   }
 }
 @media (max-width: 767px) {
   .line {
     margin-bottom: 15px;
     margin-top: 15px;
+  }
+  .default-body .whead .title {
+    font-size: 28px;
   }
   .default-header .wrapper {
     height: 180px;
@@ -3257,6 +3361,9 @@ div.swal2-html-container {
   .default-filter {
     margin-bottom: 15px;
   }
+  .default-filter .body {
+    margin-bottom: 20px;
+  }
   .default-filter .form-group {
     margin-bottom: 10px;
     min-width: auto;
@@ -3265,6 +3372,24 @@ div.swal2-html-container {
 @media (max-width: 575px) {
   .nav-default .nav-link {
     padding: 0.75rem 1rem;
+  }
+  .default-header .title {
+    font-size: 26px;
+  }
+  .default-body .whead .title {
+    font-size: 24px;
+  }
+  .default-body .whead .-rss span.icon svg {
+    font-size: 16px;
+  }
+  .default-body .whead .-rss span {
+    font-size: 16px;
+  }
+  .default-filter .body .whead > .row {
+    margin: 0 -5px;
+  }
+  .default-filter .body .whead > .row > div {
+    padding: 0 5px;
   }
 }
 .top-graphic .swiper-default {
@@ -5390,14 +5515,10 @@ div.swal2-html-container {
   -webkit-line-clamp: 1;
   min-height: 1.3em;
   margin-bottom: 10px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 .document-download-list .head .date {
   color: var(--color-dark);
   font-weight: var(--fw-bold);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 .document-download-list .content {
   padding: 0 30px;

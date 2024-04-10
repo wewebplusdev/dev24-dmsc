@@ -157,9 +157,11 @@
     .item-wrapper {
       // clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
+
       &::before {
         display: none;
       }
+
       &:hover {
         background: linear-gradient(#2ab170 30%, #01377d 100%);
       }
@@ -183,6 +185,7 @@
 
     .box {
       margin-top: 40px;
+
       .item-list li {
         width: 100%;
 
@@ -197,6 +200,7 @@
 
     .action {
       margin-top: 30px;
+
       .-read-more {
         margin-right: 40px;
       }
@@ -271,13 +275,13 @@
       color: var(--color-dark);
       @include text-limit(1, 1.3em, min);
       margin-bottom: 10px;
-      transition: all 0.2s ease-in-out;
+      // transition: all 0.2s ease-in-out;
     }
 
     .date {
       color: var(--color-dark);
       font-weight: var(--fw-bold);
-      transition: all 0.2s ease-in-out;
+      // transition: all 0.2s ease-in-out;
     }
   }
 
