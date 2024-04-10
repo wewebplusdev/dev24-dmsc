@@ -150,5 +150,45 @@ $(document).ready(function () {
     $(".asw-widget.-mb ~ div").removeClass("bg-asw-popup");
   });
 
+  Fancybox.bind('[data-fancybox="gallery"]', {
+    Toolbar: {
+      display: {
+        left: ["infobar"],
+        middle: [
+          "zoomIn",
+          "zoomOut",
+          "toggle1to1",
+          "rotateCCW",
+          "rotateCW",
+          "flipX",
+          "flipY",
+        ],
+        right: ["slideshow", "thumbs", "close"],
+      },
+    },
+  });
+
+ 
+
+  var gallerySwiper = new Swiper(".gallery-swiper-", {
+    slidesPerView: 4,
+    spaceBetween: 10,
+    freeMode: true,
+    loop: false,
+    watchSlidesProgress: true,
+  });
+  
+  var gallerySwiper2 = new Swiper(".gallery-swiper-2", {
+    spaceBetween: 15,
+    speed: 800,
+    loop: false,
+    navigation: {
+      nextEl: ".gallery-slide .swiper-button-next",
+      prevEl: ".gallery-slide .swiper-button-prev",
+    },
+    thumbs: {
+      swiper: gallerySwiper,
+    },
+  });
 
 });

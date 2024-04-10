@@ -34,7 +34,7 @@
                 </h1>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about.png"
                             class="lazy img-cover">
                     </div>
                 </div>
@@ -211,6 +211,70 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="gallery-block my-4">
+              <div class="container">
+                <div class="gallery-slide">
+                  <div class="swiper gallery-swiper-2">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <figure class="cover">
+                          <a href="{$template}/assets/img/uploads/news-thumb.jpg" class="link" data-fancybox="gallery">
+                            <img src="{$template}/assets/img/uploads/news-thumb.jpg" alt="" class="img-cover">
+                          </a>
+                        </figure>
+                      </div>
+                      <div class="swiper-slide">
+                        <figure class="cover">
+                          <a href="{$template}/assets/img/uploads/img-news-detail.jpg" class="link" data-fancybox="gallery">
+                            <img src="{$template}/assets/img/uploads/img-news-detail.jpg" alt="" class="img-cover">
+                          </a>
+                        </figure>
+                      </div>
+                      <div class="swiper-slide">
+                        <figure class="cover">
+                          <a href="{$template}/assets/img/uploads/news-thumb.jpg" class="link" data-fancybox="gallery">
+                            <img src="{$template}/assets/img/uploads/news-thumb.jpg" alt="" class="img-cover">
+                          </a>
+                        </figure>
+                      </div>
+                      <div class="swiper-slide">
+                        <figure class="cover">
+                          <a href="{$template}/assets/img/uploads/img-news-detail.jpg" class="link" data-fancybox="gallery">
+                            <img src="{$template}/assets/img/uploads/img-news-detail.jpg" alt="" class="img-cover">
+                          </a>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gallery-slider-nav">
+                    <div thumbsSlider="" class="swiper gallery-swiper-">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <figure class="cover">
+                            <img src="{$template}/assets/img/uploads/news-thumb.jpg" alt="" class="img-cover">
+                          </figure>
+                        </div>
+                        <div class="swiper-slide">
+                          <figure class="cover">
+                            <img src="{$template}/assets/img/uploads/img-news-detail.jpg" alt="" class="img-cover">
+                          </figure>
+                        </div>
+                        <div class="swiper-slide">
+                          <figure class="cover">
+                            <img src="{$template}/assets/img/uploads/news-thumb.jpg" alt="" class="img-cover">
+                          </figure>
+                        </div>
+                        <div class="swiper-slide">
+                          <figure class="cover">
+                            <img src="{$template}/assets/img/uploads/img-news-detail.jpg" alt="" class="img-cover">
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- ck editor -->
