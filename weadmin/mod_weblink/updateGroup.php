@@ -18,10 +18,8 @@ include("config.php");
    if ($execute == "update") {
 
       $update = array();
-      $update[] = $mod_tb_root_group . "_coreid  	='" . changeQuot($_POST['inputGroupID']) . "'";
       $update[] = $mod_tb_root_group . "_lastbyid='" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
       $update[] = $mod_tb_root_group . "_lastby='" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
-      $update[] = $mod_tb_root_group . "_col  	='" . changeQuot($_POST['inputColor']) . "'";
       $update[] = $mod_tb_root_group . "_lastdate=NOW()";
 
       $sql = "UPDATE " . $mod_tb_root_group . " SET " . implode(",", $update) . " WHERE " . $mod_tb_root_group . "_id='" . $_POST["valEditID"] . "' ";

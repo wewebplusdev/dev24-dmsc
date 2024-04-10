@@ -60,7 +60,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["tit:linkvdo"] = "Youtube link";
 	$langMod["tit:uploadvdo"] = "Upload a file";
 	$langMod["tit:linkvdonote"] = "Note: The only link is the youtube.com URL.";
-	$langMod["tit:uploadvdonote"] = "Note: Please upload only .flv, .wmv, .mp3, .wav, .wma, .avi, and .mpeg files.";
+	$langMod["tit:uploadvdonote"] = "Note: Please upload only .mp4 files.";
 	$langMod["tit:noteg"] = "Note";
 	$langMod["tit:selectg"] = "Select " . $langMod["meu:group"];
 	$langMod["tit:selectgn"] = $langMod["meu:group"];
@@ -155,7 +155,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["tit:linkvdo"] = "ลิงค์ Youtube";
 	$langMod["tit:uploadvdo"] = "อัพโหลดไฟล์";
 	$langMod["tit:linkvdonote"] = "หมายเหตุ : ลิงค์ที่ใช่ คือ URL youtube.com เท่านั้น";
-	$langMod["tit:uploadvdonote"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .flv, .wmv, .mp3, .wav, .wma, .avi และ .mpeg เท่านั้น";
+	$langMod["tit:uploadvdonote"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .mp4 เท่านั้น";
 	$langMod["tit:noteg"] = "หมายเหตุ";
 	$langMod["tit:selectg"] = "เลือก" . $langMod["meu:group"];
 	$langMod["tit:selectsg"] = "เลือก" . $langMod["meu:subgroup"];

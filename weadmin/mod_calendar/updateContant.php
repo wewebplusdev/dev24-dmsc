@@ -51,8 +51,8 @@ include("config.php");
 
       $update[] = $mod_tb_root . "_lastbyid='" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
       $update[] = $mod_tb_root . "_lastby='" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
-      $update[] = $mod_tb_root . "_sdate='" . DateFormatInsert($_REQUEST['sdateInputC']) . "'";
-      $update[] = $mod_tb_root . "_edate='" . DateFormatInsert($_REQUEST['edateInputC']) . "'";
+      $update[] = $mod_tb_root . "_sdate='" . DateFormatInsert($_REQUEST['sdateInput']) . "'";
+      $update[] = $mod_tb_root . "_edate='" . DateFormatInsert($_REQUEST['edateInput']) . "'";
       $update[] = $mod_tb_root . "_lastdate=NOW()";
 
       $sql = "UPDATE " . $mod_tb_root . " SET " . implode(",", $update) . " WHERE " . $mod_tb_root . "_id='" . $_POST["valEditID"] . "' ";

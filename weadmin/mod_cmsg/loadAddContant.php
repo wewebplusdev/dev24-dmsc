@@ -466,17 +466,17 @@ foreach ($listAuthen as $key => $value) {
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
 
-            <tr id="boxInputType" class="typeMain" style="display: none;">
+            <tr id="boxInputType" class="typeMain">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <label>
                      <div class="formDivRadioL"><input name="inputType" id="inputType" value="url" type="radio" class="formRadioContantTb" checked="checked" onclick="jQuery('#boxInputfile').hide();
-                              jQuery('#boxInputlink').show();" /></div>
+                              jQuery('#boxInputlinkYt').show();" /></div>
                      <div class="formDivRadioR"><?php echo $langMod["tit:linkvdo"] ?></div>
                   </label>
 
                   <label>
-                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlink').hide();
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlinkYt').hide();
                               jQuery('#boxInputfile').show();" /></div>
                      <div class="formDivRadioR"><?php echo $langMod["tit:uploadvdo"] ?></div>
                   </label>
@@ -484,7 +484,7 @@ foreach ($listAuthen as $key => $value) {
                </td>
             </tr>
 
-            <tr id="boxInputlink" class="">
+            <tr id="boxInputlinkYt" class="">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurl" id="inputurl" cols="45" rows="5" class="formTextareaContantTb"></textarea><br />
                   <span class="formFontNoteTxt"><?php echo $langMod["tit:linkvdonote"] ?></span>
@@ -495,7 +495,7 @@ foreach ($listAuthen as $key => $value) {
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="file-input-wrapper">
                      <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
-                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" />
+                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" accept=".mp4"/>
                   </div>
 
                   <span class="formFontNoteTxt"><?php echo $langMod["tit:uploadvdonote"] ?></span>

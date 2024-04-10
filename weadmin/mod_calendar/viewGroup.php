@@ -21,6 +21,7 @@ $sql .= "   " . $mod_tb_root_group . "_id as id,
             " . $mod_tb_root_group . "_lastbyid as lastbyid";
 
 $sql .= "   , " . $mod_tb_root_group_lang . "_subject as subject, " . $mod_tb_root_group_lang . "_title as title, " . $mod_tb_root_group_lang . "_pic as pic";
+$sql .= "   , " . $mod_tb_root_group_lang . "_color as color";
 $sql .= " FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE " . $mod_tb_root_group . "_masterkey='" . $_REQUEST["masterkey"] . "'  AND  " . $mod_tb_root_group_lang . "_cid='" . $_REQUEST['valEditID'] . "' AND  " . $mod_tb_root_group_lang . "_language='" . $_REQUEST['inputLt'] . "'";
 // print_pre($sql);
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
@@ -42,6 +43,7 @@ $valSubject = rechangeQuot($Row['subject']);
 $valTitle = rechangeQuot($Row['title']);
 $valPicName = $Row['pic'];
 $valPic = $mod_path_pictures . "/" . $Row['pic'];
+$valColor = $Row['color'];
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
 logs_access('3', 'View Group');
@@ -124,6 +126,22 @@ logs_access('3', 'View Group');
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?php echo $valSubject ?>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:color"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView">
+                     <table cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                           <tr>
+                              <td bgcolor="<?php echo $valColor; ?>" height="30" width="30">&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td></td>
+                           </tr>
+                        </tbody>
+                     </table>
                   </div>
                </td>
             </tr>

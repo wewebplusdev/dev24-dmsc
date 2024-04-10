@@ -114,7 +114,7 @@ const url_page = {
         "group": "listAll",
     },
     "cal": {
-        "1": "calendar/detail",
+        "1": "detailAll",
         "2": "downloadAll",
         "group": "calendarAll",
     },

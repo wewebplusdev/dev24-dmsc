@@ -200,13 +200,14 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
             <?php
             // SQL SELECT #########################
             $sql = "SELECT
-" . $mod_tb_root_group . "_id as id,
-" . $mod_tb_root_group_lang . "_subject as subject,
-" . $mod_tb_root_group . "_lastdate as lastdate,
-" . $mod_tb_root_group . "_status as status,
-" . $mod_tb_root_group_lang . "_pic as pic
+            " . $mod_tb_root_group . "_id as id,
+            " . $mod_tb_root_group_lang . "_subject as subject,
+            " . $mod_tb_root_group . "_lastdate as lastdate,
+            " . $mod_tb_root_group . "_status as status,
+            " . $mod_tb_root_group_lang . "_pic as pic,
+            " . $mod_tb_root_group_lang . "_color as color 
 
- FROM " . $mod_tb_root_group . " LEFT JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "." . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "." . $mod_tb_root_group_lang . "_cid";
+            FROM " . $mod_tb_root_group . " LEFT JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "." . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "." . $mod_tb_root_group_lang . "_cid";
             $sql = $sql . "  WHERE " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND  " . $mod_tb_root_group_lang . "." . $mod_tb_root_group_lang . "_language = 'Thai'";
 
 
@@ -253,6 +254,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                   $valDateCredate = dateFormatReal($row['lastdate']);
                   $valTimeCredate = timeFormatReal($row['lastdate']);
                   $valStatus = $row['status'];
+                  $valColor = $row['color'];
 
                   $valPic = $mod_path_office . "/" . $row['pic'];
                   if (is_file($valPic)) {
@@ -286,6 +288,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                        <!--                                          <td width="39" align="left" valign="top">
                                              <div style="width:29px; height:29px;  background:url(<?php echo $valPic ?>) center no-repeat; background-size: cover;background-repeat: no-repeat; border-radius: 50%;  "></div>
                                           </td>-->
+                                       <td align="center" width="25" height="25" bgcolor="<?php echo $valColor; ?>">&nbsp;</td>
                                        <td align="left" style="padding-left:10px; " valign="top">
                                           <a href="javascript:void(0)" class="btnview" onclick="
                                                    document.myFormHome.valEditID.value = '<?= $valID ?>';

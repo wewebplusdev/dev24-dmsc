@@ -10,9 +10,10 @@ include("config.php");
 if (file_exists($mod_path_vdo . "/" . $_REQUEST['vdoname'])) {
 	@unlink($mod_path_vdo . "/" . $_REQUEST['vdoname']);
 }
+
 $update = array();
-$update[] = $mod_tb_root . "_filevdo  	=''";
-$sql = "UPDATE " . $mod_tb_root . " SET " . implode(",", $update) . " WHERE " . $mod_tb_root . "_id='" . $_REQUEST["valEditID"] . "'  ";
+$update[] = $mod_tb_root_lang . "_filevdo  	=''";
+$sql = "UPDATE " . $mod_tb_root_lang . " SET " . implode(",", $update) . " WHERE " . $mod_tb_root_lang . "_id='" . $_REQUEST["valCid"] . "'  ";
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
 
 

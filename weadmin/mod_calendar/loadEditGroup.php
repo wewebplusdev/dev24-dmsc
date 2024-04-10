@@ -19,7 +19,8 @@ $sql = "SELECT
 " . $mod_tb_root_group . "_status as status,
 " . $mod_tb_root_group_lang . "_subject as subject,
 " . $mod_tb_root_group_lang . "_title as title,
-" . $mod_tb_root_group_lang . "_pic as pic 
+" . $mod_tb_root_group_lang . "_pic as pic,
+" . $mod_tb_root_group_lang . "_color as color 
 FROM " . $mod_tb_root_group . "
 INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid
 WHERE " . $mod_tb_root_group_lang . "_masterkey='" . $_POST["masterkey"] . "' 
@@ -37,6 +38,7 @@ $valSubject = rechangeQuot($Row['subject']);
 $valTitle = rechangeQuot($Row['title']);
 $valPicName = $Row['pic'];
 $valPic = $mod_path_pictures . "/" . $Row['pic'];
+$valColor = $Row['color'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 ?>
@@ -56,8 +58,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <script language="JavaScript" type="text/javascript">
       function executeSubmit() {
          with(document.myForm) {
-
-
             if (isBlank(inputSubject)) {
                inputSubject.focus();
                jQuery("#inputSubject").addClass("formInputContantTbAlertY");
@@ -66,7 +66,13 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                jQuery("#inputSubject").removeClass("formInputContantTbAlertY");
             }
 
-
+            if (isBlank(inputColor)) {
+               inputColor.focus();
+               jQuery("#inputColor").addClass("formInputContantTbAlertY");
+               return false;
+            } else {
+               jQuery("#inputColor").removeClass("formInputContantTbAlertY");
+            }
 
          }
 
@@ -165,10 +171,10 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:subjectg"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" class="formInputContantTb" value="<?php echo $valSubject ?>" /></td>
             </tr>
-            <!--               <tr >
-                  <td width="18%" align="right"  valign="top"  class="formLeftContantTb" ><?php echo $langMod["tit:color"] ?><span class="fontContantAlert">*</span></td>
-                  <td width="82%" colspan="6" align="left"  valign="top"  class="formRightContantTb" ><input name="inputColor" id="inputColor" type="text"  class="izzyColor" value="<?php echo $valColor ?>" style="border: 1px solid <?php echo $valColor ?>;" /></td>
-               </tr>-->
+            <tr >
+               <td width="18%" align="right"  valign="top"  class="formLeftContantTb" ><?php echo $langMod["tit:color"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left"  valign="top"  class="formRightContantTb" ><input name="inputColor" id="inputColor" type="text"  class="izzyColor" value="<?php echo $valColor ?>" style="border: 1px solid <?php echo $valColor ?>;" /></td>
+            </tr>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:noteg"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
