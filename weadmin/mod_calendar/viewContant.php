@@ -431,17 +431,22 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php if($valType == 'url'){ echo $langMod["tit:linkvdo"]; }else{ echo $langMod["tit:uploadvdo"]; } ?></div>
+               </td>
+            </tr>
+            <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["txt:video"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <?
                      if ($valType == "file") {
-                        if ($valFilevdo != "") {
-                           $filename = $valFilevdo;
-                           $arrstrfile = explode(".", $valFilevdo);
-                           $filetype = strtolower($arrstrfile[sizeof($arrstrfile) - 1]);
-                     ?>
-                           <div id="areaPlayer" style="z-index:-1999; "></div>
+                        if ($valFilevdo != "") { ?>
+                           <video width="500" height="300" controls>
+                           <source src="<?php echo $valPathvdo; ?>" type="video/mp4">
+                           Your browser does not support the video tag.
+                           </video> 
                         <? } else { ?>
                            -
                         <?
@@ -643,39 +648,8 @@ logs_access('3', 'View');
       </script>
    <? } ?>
 
-   <script type='text/javascript' src='../<?= $mod_fd_root ?>/swfobject.js'></script>
-   <script type='text/javascript' src='../<?= $mod_fd_root ?>/silverlight.js'></script>
-   <script type='text/javascript' src='../<?= $mod_fd_root ?>/wmvplayer.js'></script>
    <script type='text/javascript'>
-      var filename = "<?= $filename ?>";
-      var filetype = "<?= $filetype ?>";
-      var cnt = document.getElementById("areaPlayer");
-      if (filetype == "flv") {
-         var s1 = new SWFObject('../<?= $mod_fd_root ?>/player.swf', 'player', '560', '315', '9');
-         s1.addParam('allowfullscreen', 'true');
-         s1.addParam('wmode', 'transparent');
-         s1.addParam('allowscriptaccess', 'always');
-         s1.addParam('flashvars', 'file=<?= $mod_path_vdo ?>/' + filename);
-         s1.write('areaPlayer');
-      } else /* if(filetype=="wmv")*/ {
-
-         var src = '../<?= $mod_fd_root ?>/wmvplayer.xaml';
-         var cfg = "";
-         var ply;
-         cfg = {
-            file: '<?= $mod_path_vdo ?>/' + filename,
-            image: '',
-            height: '315',
-            width: '560',
-            autostart: "false",
-            windowless: 'true',
-            showstop: 'true'
-         };
-         ply = new jeroenwijering.Player(cnt, src, cfg);
-      }
-
       $(function() {
-
          $('.tool-items').hide();
       });
    </script>

@@ -2,9 +2,8 @@
 $menuActive = "pageredirect";
 
 $pageredirectage = new pageredirectage;
-
 if (!empty($url->segment[1])) {
-    $case_slug = explode("|", $url->segment[1]);
+    $case_slug = explode("|", urldecode($url->segment[1]));
     $array_req = array(
         'table' => decodeStr($case_slug[0]),
         'masterkey' => decodeStr($case_slug[1]),

@@ -44,6 +44,7 @@ async function getCalendarGroup(req, res) {
                 ,${config_array_db['md_cmg']}_credate as credate 
                 ,${config_array_db['md_cmgl']}_subject as subject 
                 ,${config_array_db['md_cmgl']}_title as title 
+                ,${config_array_db['md_cmgl']}_color as color 
                 FROM ${config_array_db['md_cmg']} 
                 INNER JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
                 WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['cal']}' 
@@ -94,6 +95,7 @@ async function getCalendarGroup(req, res) {
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
+                        arr_data[i].color = select[i].color;
                         const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
                         arr_data[i].url = `${getUrlWeb}/${select[i].id}`;
                         arr_data[i].target = `_self`;
@@ -136,7 +138,7 @@ async function getCalendar(req, res) {
     const gid = req.body.gid;
     const sdate = req.body.sdate;
     const edate = req.body.edate;
-    const result = general.checkParam([method, language, order, page, limit, sdate, edate]);
+    const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
     let config_array_db = new Array();
@@ -170,11 +172,13 @@ async function getCalendar(req, res) {
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
                 ,${config_array_db['md_cmsl']}_target as target 
                 ,${config_array_db['md_cmgl']}_subject as group_subject 
+                ,${config_array_db['md_cmgl']}_color as color 
                 ,${config_array_db['md_cms']}_isdateto as isdateto 
                 ,${config_array_db['md_cms']}_istimeto as istimeto 
                 ,${config_array_db['md_cms']}_period as period 
                 ,${config_array_db['md_cms']}_stime as stime 
                 ,${config_array_db['md_cms']}_etime as etime 
+                ,'${config_array_db['md_cms']}' as tb 
                 FROM ${config_array_db['md_cms']} 
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                 INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
@@ -188,12 +192,16 @@ async function getCalendar(req, res) {
                 if (gid > 0) {
                     sql_list = sql_list + ` AND ${config_array_db['md_cms']}_gid = '${gid}' `;
                 }
-                sql_list = sql_list + ` AND 
-                (
-                    TO_DAYS(${config_array_db['md_cms']}_sdate)>=TO_DAYS('${sdate}') AND TO_DAYS(${config_array_db['md_cms']}_edate)<=TO_DAYS('${edate}')
-                )
-                ORDER BY ${config_array_db['md_cms']}_order ${order} 
-                `;
+                if ((sdate != null && sdate != undefined) && (edate != null && edate != undefined)) {
+                    sql_list = sql_list + ` AND 
+                    (
+                        (TO_DAYS(${config_array_db['md_cms']}_sdate) >= TO_DAYS('${sdate}') AND TO_DAYS(${config_array_db['md_cms']}_sdate) <= TO_DAYS('${edate}'))
+                        OR (TO_DAYS(${config_array_db['md_cms']}_edate) >= TO_DAYS('${sdate}') AND TO_DAYS(${config_array_db['md_cms']}_edate) <= TO_DAYS('${edate}'))
+                        OR (TO_DAYS(${config_array_db['md_cms']}_sdate) < TO_DAYS('${sdate}') AND TO_DAYS(${config_array_db['md_cms']}_edate) > TO_DAYS('${edate}'))
+                    )`;
+                }
+
+                sql_list = sql_list +  ` ORDER BY ${config_array_db['md_cms']}_order ${order} `;
             const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
@@ -233,9 +241,12 @@ async function getCalendar(req, res) {
                         arr_data[i].id = select[i].id;
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].group = select[i].group_subject;
+                        arr_data[i].language = language;
+                        arr_data[i].color = select[i].color;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
                         arr_data[i].typec = select[i].typec;
+                        arr_data[i].tb = select[i].tb;
                         if (select[i].typec == 2) {
                             const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}`;
@@ -271,6 +282,26 @@ async function getCalendar(req, res) {
                             full: new Date(select[i].credate),
                             style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
                         };
+                        if (select[i].sdate != 'Invalid Date') {
+                            arr_data[i].sdate = {
+                                full: select[i].sdate,
+                                style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].sdate))
+                            };
+                        }
+                        if (select[i].edate != 'Invalid Date') {
+                            arr_data[i].edate = {
+                                full: select[i].edate,
+                                style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].edate))
+                            };
+                        }
+                        arr_data[i].date_display = '';
+                        if (select[i].sdate != 'Invalid Date') {
+                            arr_data[i].date_display = new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].sdate));
+                            if (select[i].edate != 'Invalid Date') {
+                                arr_data[i].date_display = `${arr_data[i].date_display} - ${new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].edate))}`;
+                            }
+                        }
+
                     }
                     result._currentPage = parseInt(module_pageshow);
                     result._currentLimit = parseInt(module_pagesize);
@@ -327,6 +358,7 @@ async function getCalendarDetail(req, res) {
                     SELECT ${config_array_db['md_cms']}_id
                     FROM ${config_array_db['md_cms']}
                     WHERE ${config_array_db['md_cms']}_id < t.id
+                    AND ${config_array_db['md_cms']}_masterkey = t.masterkey
                     ORDER BY ${config_array_db['md_cms']}_id DESC
                     LIMIT 1
                 ) AS previous_id,
@@ -334,6 +366,7 @@ async function getCalendarDetail(req, res) {
                     SELECT ${config_array_db['md_cms']}_id
                     FROM ${config_array_db['md_cms']}
                     WHERE ${config_array_db['md_cms']}_id > t.id
+                    AND ${config_array_db['md_cms']}_masterkey = t.masterkey
                     ORDER BY ${config_array_db['md_cms']}_id ASC
                     LIMIT 1
                 ) AS next_id
@@ -356,6 +389,8 @@ async function getCalendarDetail(req, res) {
                     ,${config_array_db['md_cmsl']}_target as target 
                     ,${config_array_db['md_cmsl']}_htmlfilename as htmlfilename 
                     ,${config_array_db['md_cmsl']}_url as url 
+                    ,${config_array_db['md_cmsl']}_type as type 
+                    ,${config_array_db['md_cmsl']}_filevdo as filevdo 
                     ,${config_array_db['md_cmsl']}_description as description 
                     ,${config_array_db['md_cmsl']}_keywords as keywords 
                     ,${config_array_db['md_cmsl']}_metatitle as metatitle 
@@ -365,6 +400,7 @@ async function getCalendarDetail(req, res) {
                     ,${config_array_db['md_cms']}_period as period 
                     ,${config_array_db['md_cms']}_stime as stime 
                     ,${config_array_db['md_cms']}_etime as etime 
+                    ,${config_array_db['md_cms']}_view as view 
                     FROM ${config_array_db['md_cms']} 
                     INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                     INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
@@ -395,6 +431,7 @@ async function getCalendarDetail(req, res) {
                     arr_data[i] = {};
                     arr_data[i].id = select[i].id;
                     arr_data[i].masterkey = select[i].masterkey;
+                    arr_data[i].gid = select[i].gid;
                     arr_data[i].group = select[i].group_subject;
                     arr_data[i].subject = select[i].subject;
                     arr_data[i].title = select[i].title;
@@ -418,6 +455,7 @@ async function getCalendarDetail(req, res) {
                     arr_data[i].period = select[i].period;
                     arr_data[i].stime = select[i].stime;
                     arr_data[i].etime = select[i].etime;
+                    arr_data[i].view = select[i].view;
                     arr_data[i].createDate = {
                         full: new Date(select[i].credate),
                         style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
@@ -503,7 +541,12 @@ async function getCalendarDetail(req, res) {
                         } else {
                             arr_data[i].attachment = ``;
                         }
-                        arr_data[i].video = select[i].url;
+                        arr_data[i].type = select[i].type;
+                        if (arr_data[i].type == 'url') {
+                            arr_data[i].video = select[i].url;
+                        }else{
+                            arr_data[i].video = modulus.getUploadPath(select[i].masterkey, 'vdo', select[i].filevdo);
+                        }
                         arr_data[i].metadescription = select[i].description;
                         arr_data[i].metakeywords = select[i].keywords;
                         arr_data[i].metatitle = select[i].metatitle;

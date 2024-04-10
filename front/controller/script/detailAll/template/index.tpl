@@ -5,7 +5,7 @@
                 <div class="breadcrumb-block">
                     <ol class="breadcrumb">
                         <li>
-                            <a href="#" class="link">
+                            <a href="{$ul}/home" class="link">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15.856" height="15.857"
                                         viewBox="0 0 15.856 15.857">
@@ -224,21 +224,24 @@
             {if $load_data->item[0]->video neq ""}
                 <div class="vdo">
                     <div class="container">
-                        <!-- mp4 -->
-                        {* <div class="video-container">
-                            <video loop="" autoplay="" muted="" controlsList="nofullscreen" controls>
-                                <source src="{$template}/assets/video/petri-dish-pandas.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div> *}
-                        <!-- youtube -->
-                        <div class="iframe-container">
-                            {$myUrlArray = "v="|explode:$load_data->item[0]->video}
-                            {$myUrlCut = $myUrlArray[1]}
-                            {$myUrlCutArray = "&"|explode:$myUrlCut}
-                            {$myUrlCutAnd= $myUrlCutArray.0}
-                            <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                        </div>
+                        {if $load_data->item[0]->type eq "url"}
+                            <!-- youtube -->
+                                <div class="iframe-container">
+                                {$myUrlArray = "v="|explode:$load_data->item[0]->video}
+                                {$myUrlCut = $myUrlArray[1]}
+                                {$myUrlCutArray = "&"|explode:$myUrlCut}
+                                {$myUrlCutAnd= $myUrlCutArray.0}
+                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                            </div>
+                        {else}
+                            <!-- mp4 -->
+                            <div class="video-container">
+                                <video loop="" autoplay="" muted="" controlsList="nofullscreen" controls>
+                                    <source src="{$load_data->item[0]->video}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        {/if}
                     </div>
                 </div>
             {/if}
@@ -374,7 +377,7 @@
                 </div>
             {/if}
 
-            {if $load_data_other->code eq 1001}
+            {if $load_data_other->code eq 1001 && $load_data_other->item|count gte 1}
                 <div class="news-area">
                     <div class="container">
                         <div class="whead">

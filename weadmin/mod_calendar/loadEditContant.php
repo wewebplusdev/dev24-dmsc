@@ -307,8 +307,8 @@ foreach ($listAuthen as $key => $value) {
 
       <input name="valEditID" type="hidden" id="valEditID" value="<?php echo $_REQUEST['valEditID'] ?>" />
       <input name="inputLt" type="hidden" id="inputLt" value="<?php echo $_REQUEST['inputLt'] ?>" />
-      <input name="inputChkDate" type="text" id="inputChkDate" value="<?php echo  $valTypeDateTo ?>" />
-      <input name="inputChkTime" type="text" id="inputChkTime" value="<?php echo  $valTypeTimeTo ?>" />
+      <input name="inputChkDate" type="hidden" id="inputChkDate" value="<?php echo  $valTypeDateTo ?>" />
+      <input name="inputChkTime" type="hidden" id="inputChkTime" value="<?php echo  $valTypeTimeTo ?>" />
       <input name="valDelFile" type="hidden" id="valDelFile" value="" />
       <input name="valDelAlbum" type="hidden" id="valDelAlbum" value="" />
       <input name="inputHtml" type="hidden" id="inputHtml" value="" />
@@ -823,22 +823,22 @@ foreach ($listAuthen as $key => $value) {
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
 
-            <tr style="display: none;">
+            <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["tit:typevdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <label>
-                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="url" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputfile').hide();jQuery('#boxInputlink').show();" <? if ($valType == "url" || $valType != "file") { ?> checked="checked" <? } ?> /></div>
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="url" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputfile').hide();jQuery('#boxInputlinkYt').show();" <? if ($valType == "url" || $valType != "file") { ?> checked="checked" <? } ?> /></div>
                      <div class="formDivRadioR"><?php echo  $langMod["tit:linkvdo"] ?></div>
                   </label>
 
                   <label>
-                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlink').hide();jQuery('#boxInputfile').show();" <? if ($valType == "file") { ?> checked="checked" <? } ?> /></div>
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlinkYt').hide();jQuery('#boxInputfile').show();" <? if ($valType == "file") { ?> checked="checked" <? } ?> /></div>
                      <div class="formDivRadioR"><?php echo  $langMod["tit:uploadvdo"] ?></div>
                   </label>
                   </label>
                </td>
             </tr>
-            <tr id="boxInputlink" <? if ($valType == "file") { ?> style="display:none;" <? } ?>>
+            <tr id="boxInputlinkYt" <? if ($valType == "file") { ?> style="display:none;" <? } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["tit:linkvdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurl" id="inputurl" cols="45" rows="5" class="formTextareaContantTb"><?php echo  $valUrl ?></textarea><br />
                   <span class="formFontNoteTxt"><?php echo  $langMod["tit:linkvdonote"] ?></span>
@@ -849,7 +849,7 @@ foreach ($listAuthen as $key => $value) {
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="file-input-wrapper">
                      <button class="btn-file-input"><?php echo  $langTxt["us:inputpicselect"] ?></button>
-                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" />
+                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" accept=".mp4"/>
                   </div>
 
                   <span class="formFontNoteTxt"><?php echo  $langMod["tit:uploadvdonote"] ?></span>
@@ -861,7 +861,7 @@ foreach ($listAuthen as $key => $value) {
                         $imageType = strstr($valFilevdo, '.');
                      ?>
                         <a href="javascript:void(0)" onclick=" delVideoUpload('deleteVideo.php')"><img src="../img/btn/delete.png" align="absmiddle" title="Delete file" hspace="10" vspace="10" border="0" /></a>Video Upload | <?php echo  $langMod["file:type"] ?>: <?php echo  $imageType ?> | <?php echo  $langMod["file:size"] ?>: <?php echo  get_IconSize($linkRelativePath) ?>
-                        <input type="hidden" name="picname" id="picname" value="<?php echo  $valFilevdo ?>" />
+                        <input type="hidden" name="vdoname" id="vdoname" value="<?php echo  $valFilevdo ?>" />
                      <? } ?>
                   </div>
                </td>
@@ -953,31 +953,6 @@ foreach ($listAuthen as $key => $value) {
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:seokey"] ?><span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputTagKeywords" id="inputTagKeywords" type="text" class="formInputContantTb" value="<?php echo $valKeywords ?>" /><br />
                   <span class="formFontNoteTxt"><?php echo $langMod["inp:seokeynote"] ?></span>
-               </td>
-            </tr>
-         </table>
-         <br class="TypeDetail" <?php if ($valTypeC != 1) {
-                                    echo "style='display:none;'";
-                                 } ?> />
-         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
-            <tr>
-               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:date"] ?></span><br />
-                  <span class="formFontTileTxt"><?php echo  $langMod["txt:dateDe"] ?></span>
-               </td>
-            </tr>
-            <tr>
-               <td colspan="7" align="right" valign="top" height="15"></td>
-            </tr>
-
-            <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb">วันเริ่มต้น<span class="fontContantAlert"></span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="sdateInputC" id="sdateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?php echo  $valSdate ?>" /></td>
-            </tr>
-            <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb">วันสิ้นสุด<span class="fontContantAlert"></span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="edateInputC" id="edateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?php echo  $valEdate ?>" /><br />
-                  <span class="formFontNoteTxt"><?php echo  $langMod["inp:notedate"] ?></span>
                </td>
             </tr>
          </table>

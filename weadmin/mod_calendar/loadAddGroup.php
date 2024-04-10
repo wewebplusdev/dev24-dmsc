@@ -29,8 +29,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <script language="JavaScript" type="text/javascript">
       function executeSubmit() {
          with(document.myForm) {
-
-
             if (isBlank(inputSubject)) {
                inputSubject.focus();
                jQuery("#inputSubject").addClass("formInputContantTbAlertY");
@@ -38,8 +36,14 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             } else {
                jQuery("#inputSubject").removeClass("formInputContantTbAlertY");
             }
-
-
+            
+            if (isBlank(inputColor)) {
+               inputColor.focus();
+               jQuery("#inputColor").addClass("formInputContantTbAlertY");
+               return false;
+            } else {
+               jQuery("#inputColor").removeClass("formInputContantTbAlertY");
+            }
 
          }
 
@@ -127,10 +131,10 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:subjectg"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" class="formInputContantTb" /></td>
             </tr>
-            <!--        <tr>
-                          <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:color"] ?><span class="fontContantAlert">*</span></td>
-                          <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputColor" id="inputColor" type="text" class="izzyColor" value="#209ddd" style="border: 1px solid #4f81a1;" /></td>
-                        </tr>-->
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:color"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputColor" id="inputColor" type="text" class="izzyColor" value="#009900" style="border: 1px solid #4f81a1;" /></td>
+            </tr>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:noteg"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">

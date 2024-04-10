@@ -329,6 +329,7 @@ async function getNewsDetail(req, res) {
                     SELECT ${config_array_db['md_cms']}_id
                     FROM ${config_array_db['md_cms']}
                     WHERE ${config_array_db['md_cms']}_id < t.id
+                    AND ${config_array_db['md_cms']}_masterkey = t.masterkey
                     ORDER BY ${config_array_db['md_cms']}_id DESC
                     LIMIT 1
                 ) AS previous_id,
@@ -336,6 +337,7 @@ async function getNewsDetail(req, res) {
                     SELECT ${config_array_db['md_cms']}_id
                     FROM ${config_array_db['md_cms']}
                     WHERE ${config_array_db['md_cms']}_id > t.id
+                    AND ${config_array_db['md_cms']}_masterkey = t.masterkey
                     ORDER BY ${config_array_db['md_cms']}_id ASC
                     LIMIT 1
                 ) AS next_id
@@ -357,7 +359,9 @@ async function getNewsDetail(req, res) {
                     ,${config_array_db['md_cmsl']}_urlc as urlc 
                     ,${config_array_db['md_cmsl']}_target as target 
                     ,${config_array_db['md_cmsl']}_htmlfilename as htmlfilename 
+                    ,${config_array_db['md_cmsl']}_type as type 
                     ,${config_array_db['md_cmsl']}_url as url 
+                    ,${config_array_db['md_cmsl']}_filevdo as filevdo 
                     ,${config_array_db['md_cmsl']}_description as description 
                     ,${config_array_db['md_cmsl']}_keywords as keywords 
                     ,${config_array_db['md_cmsl']}_metatitle as metatitle 
@@ -494,21 +498,17 @@ async function getNewsDetail(req, res) {
                                 array_attachments[index].filename = select_attachments[index].filename;
                                 array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);
                                 array_attachments[index].download = select_attachments[index].download;
-
-                                // console.log(array_attachments[index].link);
-                                // general.getFileSize(array_attachments[index].link, (err, size) => {
-                                //     if (err) {
-                                //         console.error('Error:', err.message);
-                                //     } else {
-                                //         console.log('File size:', size, 'bytes');
-                                //     }
-                                // });
                             }
                             arr_data[i].attachment = array_attachments;
                         } else {
                             arr_data[i].attachment = ``;
                         }
-                        arr_data[i].video = select[i].url;
+                        arr_data[i].type = select[i].type;
+                        if (arr_data[i].type == 'url') {
+                            arr_data[i].video = select[i].url;
+                        }else{
+                            arr_data[i].video = modulus.getUploadPath(select[i].masterkey, 'vdo', select[i].filevdo);
+                        }
                         arr_data[i].metadescription = select[i].description;
                         arr_data[i].metakeywords = select[i].keywords;
                         arr_data[i].metatitle = select[i].metatitle;

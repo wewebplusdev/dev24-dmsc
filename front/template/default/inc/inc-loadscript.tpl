@@ -16,6 +16,7 @@
 <script src="{$template}/assets/js/libs/fancybox.umd.js"></script>
 <script src="{$template}/assets/js/libs/trunk8.js"></script>
 <script src="{$template}/assets/js/cookie.js"></script>
+<script src="{$template}/assets/js/libs/moment.min.js"></script>
 
 <script src="{$template}/assets/js/libs/feather.js"></script>
 

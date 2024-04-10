@@ -776,3 +776,22 @@ function chkSyntaxAnd($var)
 function check_url($url){
     return ($url != "" && $url != "#") ? true : false;
 }
+
+#################################################
+function format($num,$length) {
+#################################################
+
+    $formated_num = strval($num);
+    while (strlen($formated_num) < $length) {
+        $formated_num = "0".$formated_num;
+    }
+    return $formated_num;
+}
+
+//#################################################
+function formatNum($myNumber) {
+//#################################################
+    $myNumber = intval($myNumber);
+    if ($myNumber<10) return ("0".$myNumber);
+    else return ($myNumber);
+}

@@ -54,6 +54,8 @@ $sizeHeightAlbum = "720";
 $sizeWidthAlbumOff = "250";
 $sizeHeightAlbumOff = "250";
 
+$sizeVDO = 64;
+
 ## Mod Path RSS ###################################
 $mod_fullpath_pictures = $core_fullpath_rss . "/" . $masterkey . "/pictures";
 

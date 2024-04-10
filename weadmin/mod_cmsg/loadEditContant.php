@@ -577,22 +577,22 @@ foreach ($listAuthen as $key => $value) {
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
 
-            <tr style="display: none;">
+            <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:typevdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <label>
-                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="url" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputfile').hide();jQuery('#boxInputlink').show();" <? if ($valType == "url" || $valType != "file") { ?> checked="checked" <? } ?> /></div>
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="url" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputfile').hide();jQuery('#boxInputlinkYt').show();" <? if ($valType == "url" || $valType != "file") { ?> checked="checked" <? } ?> /></div>
                      <div class="formDivRadioR"><?= $langMod["tit:linkvdo"] ?></div>
                   </label>
 
                   <label>
-                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlink').hide();jQuery('#boxInputfile').show();" <? if ($valType == "file") { ?> checked="checked" <? } ?> /></div>
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlinkYt').hide();jQuery('#boxInputfile').show();" <? if ($valType == "file") { ?> checked="checked" <? } ?> /></div>
                      <div class="formDivRadioR"><?= $langMod["tit:uploadvdo"] ?></div>
                   </label>
                   </label>
                </td>
             </tr>
-            <tr id="boxInputlink" <? if ($valType == "file") { ?> style="display:none;" <? } ?>>
+            <tr id="boxInputlinkYt" <? if ($valType == "file") { ?> style="display:none;" <? } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:linkvdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurl" id="inputurl" cols="45" rows="5" class="formTextareaContantTb"><?= $valUrl ?></textarea><br />
                   <span class="formFontNoteTxt"><?= $langMod["tit:linkvdonote"] ?></span>
@@ -603,7 +603,7 @@ foreach ($listAuthen as $key => $value) {
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="file-input-wrapper">
                      <button class="btn-file-input"><?= $langTxt["us:inputpicselect"] ?></button>
-                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" />
+                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" accept=".mp4"/>
                   </div>
 
                   <span class="formFontNoteTxt"><?= $langMod["tit:uploadvdonote"] ?></span>
@@ -615,7 +615,7 @@ foreach ($listAuthen as $key => $value) {
                         $imageType = strstr($valFilevdo, '.');
                      ?>
                         <a href="javascript:void(0)" onclick=" delVideoUpload('deleteVideo.php')"><img src="../img/btn/delete.png" align="absmiddle" title="Delete file" hspace="10" vspace="10" border="0" /></a>Video Upload | <?= $langMod["file:type"] ?>: <?= $imageType ?> | <?= $langMod["file:size"] ?>: <?= get_IconSize($linkRelativePath) ?>
-                        <input type="hidden" name="picname" id="picname" value="<?= $valFilevdo ?>" />
+                        <input type="hidden" name="vdoname" id="vdoname" value="<?= $valFilevdo ?>" />
                      <? } ?>
                   </div>
                </td>

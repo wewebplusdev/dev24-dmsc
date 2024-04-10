@@ -72,6 +72,7 @@ async function loadRedirect(req, res) {
                         let update = new Array;
                         update.push(`${config_array_db['md_cms']}_view = ${config_array_db['md_cms']}_view + 1`);
                         let sql_update = `UPDATE ${config_array_db['md_cms']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cms']}_id = '${id}' `;
+                        console.log(sql_update);
                         await query(sql_update);
                         
                         result.item = arr_data;

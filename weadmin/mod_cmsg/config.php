@@ -21,6 +21,7 @@ $mod_fd_root = "mod_cmsg";
 ## Setting Value ###################################
 $modTxtShowCase = array("ประเภทการแสดงผล", "แสดงรายละเอียด", "เอกสารดาวน์โหลด", "เชื่อมโยงภายนอก");
 $modTxtShowPic = array("ประเภทการแสดงผลรูปภาพ", "เลือกจากระบบ", "อัพโหลด");
+$modTxtType = array("ประเภทข้อมูล", "Youtube", "วีดีโอ");
 $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "เปิดหน้าต่างใหม่");
 $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
@@ -52,6 +53,8 @@ $sizeHeightAlbum = "720";
 
 $sizeWidthAlbumOff = "250";
 $sizeHeightAlbumOff = "250";
+
+$sizeVDO = 64;
 
 ## Mod Path RSS ###################################
 $mod_fullpath_pictures = $core_fullpath_rss . "/" . $masterkey . "/pictures";

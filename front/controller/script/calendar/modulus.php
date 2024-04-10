@@ -1,6 +1,6 @@
 <?php
 
-class detailAllPage extends controller
+class calendarPage extends controller
 {
     public function __construct()
     {
@@ -14,7 +14,7 @@ class detailAllPage extends controller
             return false;
         }
         
-        $url = $this->URL_API . "/" . $data['action'];
+        $url = $this->URL_API . "/calendar";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,
