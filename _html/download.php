@@ -58,7 +58,7 @@
           <div class="container">
             <form action="" class="form-default">
               <div class="head">
-                <div class="form-group form-search">
+                <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden" for="">ค้นหา</label>
                   <div class="block-control">
                     <input class="form-control" type="search" id="" placeholder="พิมพ์คำค้นหา">
@@ -79,15 +79,15 @@
               </div>
               <div class="body">
                 <div class="row align-items-center">
-                  <div class="col">
+                  <div class="col-md mb-md-0 mb-3">
                     <div class="whead my-0">
                       <div class="title">แผนกลยุทธ์</div>
                     </div>
                   </div>
-                  <div class="col-auto">
+                  <div class="col-md-auto">
                     <div class="row gutters-20">
-                      <div class="col">
-                        <div class="form-group form-select">
+                      <div class="col-md col-12">
+                        <div class="form-group form-select mb-0">
                           <label class="control-label" for="selectFilter">จัดเรียง :</label>
                           <div class="select-wrapper">
                             <select class="select-filter" name="selectFilter" id="selectFilter" style="width: 100%;">
@@ -98,7 +98,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-auto">
+                      <div class="col-auto ml-auto">
                         <div class="layout-view layout-list">
                           <div class="btn-group">
                             <button type="button" class="btn-grid">

@@ -3198,10 +3198,6 @@ div.swal2-html-container {
     font-size: 20px;
     left: 20px;
   }
-  .default-filter .form-search .form-control {
-    height: 70px;
-    font-size: 22px;
-  }
   .default-filter .form-search .search svg {
     width: 28px;
   }
@@ -3231,7 +3227,7 @@ div.swal2-html-container {
     font-size: 32px;
   }
   .default-filter .head {
-    padding: 25px;
+    padding: 20px;
     margin-bottom: 30px;
   }
   .default-filter .body {
@@ -3244,7 +3240,7 @@ div.swal2-html-container {
     padding: 0 10px;
   }
   .default-filter .form-search .form-control {
-    height: 60px;
+    height: 56px;
     padding: 10px 20px;
     font-size: 20px;
   }
@@ -5745,6 +5741,33 @@ div.swal2-html-container {
   fill: var(--color-light);
 }
 
+@media (max-width: 1199px) {
+  .layout-view .btn-group > button {
+    width: 60px;
+    height: 60px;
+  }
+  .layout-view .btn-group > button svg {
+    width: 25px;
+  }
+}
+@media (max-width: 991px) {
+  .layout-view .btn-group > button {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .layout-view .btn-group {
+    margin-top: 10px;
+  }
+  .layout-view .btn-group > button {
+    width: 40px;
+    height: 40px;
+  }
+  .layout-view .btn-group > button svg {
+    width: 18px;
+  }
+}
 .event-calendar {
   margin-bottom: 80px;
 }
