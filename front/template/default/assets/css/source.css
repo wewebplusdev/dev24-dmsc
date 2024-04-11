@@ -4913,10 +4913,9 @@ div.swal2-html-container {
   padding-top: 600px;
 }
 .gallery-slide .gallery-slider-nav {
-  position: absolute;
-  left: 100px;
-  bottom: 50px;
-  width: 500px;
+  margin-top: -150px;
+  margin-left: 100px;
+  max-width: 500px;
 }
 .gallery-slide .gallery-slider-nav .swiper .swiper-slide {
   border: 3px solid transparent;
@@ -4938,6 +4937,10 @@ div.swal2-html-container {
   .default-bar .whead .title {
     font-size: 32px;
   }
+  .gallery-slide .gallery-slider-nav {
+    margin-top: -110px;
+    margin-left: 30px;
+  }
 }
 @media (max-width: 1199px) {
   .default-bar .whead {
@@ -4950,6 +4953,16 @@ div.swal2-html-container {
   .default-bar .box,
   .default-bar .box strong {
     font-size: 18px;
+  }
+  .gallery-slide .gallery-swiper-2 .cover {
+    padding-top: 450px;
+  }
+  .gallery-slide .gallery-slider-nav {
+    margin-top: -100px;
+    margin-left: 25px;
+  }
+  .gallery-slide .gallery-slider-nav .cover {
+    padding-top: 70px;
   }
 }
 @media (max-width: 991px) {
@@ -4974,6 +4987,17 @@ div.swal2-html-container {
   }
   .default-bar .social-list .item-list {
     padding-left: 10px;
+  }
+  .gallery-slide .gallery-swiper-2 .cover {
+    padding-top: 360px;
+  }
+  .gallery-slide .gallery-slider-nav {
+    max-width: 315px;
+    margin-top: -85px;
+    margin-left: 15px;
+  }
+  .gallery-slide .gallery-slider-nav .cover {
+    padding-top: 65px;
   }
 }
 @media (max-width: 767px) {

@@ -183,10 +183,20 @@ $(document).ready(function () {
     freeMode: true,
     loop: false,
     watchSlidesProgress: true,
+    breakpoints: {
+      0: {
+        slidesPerView: 3,
+        spaceBetween: 8,
+      },
+      991: {
+        slidesPerView: 4,
+        // spaceBetween: 8,
+      },
+    },
   });
   
   var gallerySwiper2 = new Swiper(".gallery-swiper-2", {
-    spaceBetween: 15,
+    spaceBetween: 0,
     speed: 800,
     loop: false,
     navigation: {

@@ -212,7 +212,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-block my-4">
+            <div class="gallery-block my-lg-4 my-0">
               <div class="container">
                 <div class="gallery-slide">
                   <div class="swiper gallery-swiper-2">
