@@ -5969,6 +5969,7 @@ div.swal2-html-container {
   width: -moz-max-content;
   width: max-content;
   min-width: 370px;
+  padding: 12.5px 0;
 }
 .event-calendar .calendar-note .note {
   display: -webkit-box;
