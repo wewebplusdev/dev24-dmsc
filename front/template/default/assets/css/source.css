@@ -1224,8 +1224,16 @@ figure.ratio .img-ratio.ratio-9x16 {
   -webkit-filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.7));
           filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.7));
 }
-.popup-modal .cover {
+.popup-modal .cover,
+.popup-modal .iframe-container,
+.popup-modal .video-container {
   padding-top: 57%;
+}
+.popup-modal .video-container video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .popup-modal .popup-slide .swiper-button-prev,
 .popup-modal .popup-slide .swiper-rtl .swiper-button-next {

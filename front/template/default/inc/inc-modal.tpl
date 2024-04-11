@@ -46,6 +46,28 @@
                                         
                                     {/if}
                                 {/foreach}
+                                <div class="swiper-slide">
+                                  <div class="video-container">
+                                    {* <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                                    <source src="{$valueTgp->video->real}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video> *}
+                                    <video loop="" autoplay="" muted="" controls>
+                                      <source src="{$template}/assets/video/petri-dish-pandas.mp4" type="video/mp4">
+                                      Your browser does not support the video tag.
+                                    </video>
+                                  </div>
+                                </div>
+                                
+                                <div class="swiper-slide">
+                                  <div class="iframe-container">
+                                      <iframe
+                                          src="https://www.youtube.com/embed/kETLbg89qA0"
+                                          title="Inside Of Saturn&#39;s Rings" style="border: none;
+                                          referrerpolicy="strict-origin-when-cross-origin">
+                                        </iframe>
+                                  </div>
+                                </div>
                             </div>
                             <div class="swiper-pagination"></div>
                             <!-- <div class="autoplay-progress">
