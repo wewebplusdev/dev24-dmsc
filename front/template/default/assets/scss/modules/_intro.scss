@@ -1,4 +1,4 @@
-$intro-content-height: 180px;
+$intro-content-height: 130px;
 
 .intro-page {
   min-height: 100vh;
@@ -35,9 +35,10 @@ $intro-content-height: 180px;
   position: absolute;
   bottom: 0;
   width: 100%;
+
   padding: 0;
   background: linear-gradient(to right, #2ab16e 0%, #01377d 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 2em 100%, 0 calc(100% - 2em));
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 2em 100%, 0 calc(100% - 2em));
   .height {
     height: $intro-content-height;
     align-items: center;
@@ -46,25 +47,33 @@ $intro-content-height: 180px;
     display: flex;
     align-items: center;
     .symbol {
-      width: 130px;
+      width: 80px;
     }
     .txt {
-      padding-left: 20px;
-      font-size: 22px;
+      padding-left: 15px;
+      font-size: 16px;
       color: #ffffff;
       line-height: 1.4em;
       strong {
-        font-size: 30px;
+        font-size: 24px;
         font-weight: 600;
+        margin-bottom: 5px;
+        display: inline-block;
       }
     }
   }
   .action {
     text-align: right;
     .btn {
-      padding: 0 40px;
+      padding: 0 30px;
+      height: 55px;
+      line-height: 55px;
     }
   }
+}
+
+.intro-content-wrapper {
+  padding: 0 30px;
 }
 
 @media (min-width: 1441px) {
@@ -72,24 +81,27 @@ $intro-content-height: 180px;
     display: none;
   }
 }
-@media (max-width: 1440px) {
-  .intro-content .logo .txt {
-    font-size: 20px;
-  }
-  .intro-content .logo .txt strong {
-    font-size: 26px;
-  }
-}
-@media (max-width: 1199px) {
-  .intro-content .logo .txt {
-    font-size: 18px;
-  }
-  .intro-content .logo .txt strong {
-    font-size: 24px;
-  }
-}
+// @media (max-width: 1440px) {
+//   .intro-content .logo .txt {
+//     font-size: 20px;
+//   }
+//   .intro-content .logo .txt strong {
+//     font-size: 26px;
+//   }
+// }
+// @media (max-width: 1199px) {
+//   .intro-content .logo .txt {
+//     font-size: 18px;
+//   }
+//   .intro-content .logo .txt strong {
+//     font-size: 24px;
+//   }
+// }
 
 @media (max-width: 991px) {
+
+  .intro-content .height {height: 100px;}
+
   .intro-page {
     min-height: inherit;
   }
@@ -106,18 +118,28 @@ $intro-content-height: 180px;
   }
   .intro-content {
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
+    // clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
   }
   .intro-content .logo .symbol {
-    width: 90px;
+    width: 60px;
   }
   .intro-content .logo .txt {
-    font-size: 16px;
+    font-size: 14px;
     padding-left: 12px;
   }
   .intro-content .logo .txt strong {
-    font-size: 22px;
+    font-size: 18px;
+    margin-bottom: 0;
   }
+
+  .intro-content .logo .txt strong br,
+  .intro-content .logo .txt span br {display: none;}
+
+  .intro-content .action .btn {padding: 0 15px; height: 42px; line-height: 42px; font-size: 16px; }
+  .intro-content .action > .row {margin: 0 -7.5px;}
+  .intro-content .action > .row > div {padding: 0 7.5px;}
+
+  .intro-content-wrapper {padding: 0 15px;}
 }
 
 @media (max-width: 767px) {
@@ -125,26 +147,32 @@ $intro-content-height: 180px;
     height: auto;
     padding: 20px 0;
   }
-  .intro-content .logo {
-    justify-content: center;
-  }
-  .intro-content .logo .symbol {
-    width: 84px;
-  }
-  .intro-content .logo .txt {
-    font-size: 14px;
-  }
-  .intro-content .logo .txt strong {
-    font-size: 20px;
-  }
+  // .intro-content .logo {
+  //   justify-content: center;
+  // }
+  // .intro-content .logo .symbol {
+  //   width: 84px;
+  // }
+  // .intro-content .logo .txt {
+  //   font-size: 14px;
+  // }
+  // .intro-content .logo .txt strong {
+  //   font-size: 20px;
+  // }
+  // .intro-content .action {
+  //   text-align: center;
+  //   padding-top: 20px;
+  // }
   .intro-content .action {
-    text-align: center;
-    padding-top: 20px;
-  }
-  .intro-content .action > .row {
-    justify-content: center;
+    margin-top: 15px;
   }
   .intro-content .action .btn {
-    padding: 0 30px;
+    min-width: 100%;
+  }
+  .intro-content .logo .txt {
+    font-size: 13px;
+  }
+  .intro-content .logo .txt strong {
+    font-size: 16px;
   }
 }

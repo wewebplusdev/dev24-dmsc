@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="intro-content">
-        <div class="container">
+        <div class="intro-content-wrapper">
             <div class="row row-0 height">
                 <div class="col-md">
                     <div class="logo">
@@ -51,10 +51,10 @@
                 <div class="col-md-auto">
                     <div class="action">
                         <div class="row row-20">
-                            <div class="col-auto">
+                            <div class="col-sm-auto col">
                                 <a {if $array_intro[0]->url neq "" && $array_intro[0]->url neq "#"}href="{$array_intro[0]->url}" target="{$array_intro[0]->target}"{/if} class="btn btn-light -intro-action" title="{$array_intro[0]->title}" {if $array_intro[0]->title eq ""}style="display:none;"{/if}>{$array_intro[0]->title}</a>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-sm-auto col">
                                 <a href="{$ul}/home" class="btn btn-primary" title="{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}">{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}</a>
                             </div>
                         </div>
