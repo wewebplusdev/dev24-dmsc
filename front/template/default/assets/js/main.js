@@ -11,6 +11,13 @@ $(function () {
   });
 });
 
+document.querySelectorAll('img')
+.forEach((img) =>
+    img.addEventListener('load', () =>
+        AOS.refresh()
+    )
+);
+
 (function ($) {
   $(window).on("load", function () {
     if ($(window).width() < 992) {
