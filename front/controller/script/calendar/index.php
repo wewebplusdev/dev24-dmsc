@@ -9,7 +9,7 @@ $limit = 100;
 switch ($url->segment[1]) {
     case 'load-calendar':
         $req = array();
-        $req['gid'] = $_GET['gid'];
+        $req['gid'] = $_REQUEST['gid'];
         $smarty->assign("req", $req);
 
         require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
@@ -23,7 +23,7 @@ switch ($url->segment[1]) {
         break;
     case 'load-list':
         $req = array();
-        $req['gid'] = $_GET['gid'];
+        $req['gid'] = $_REQUEST['gid'];
         $smarty->assign("req", $req);
 
         require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
