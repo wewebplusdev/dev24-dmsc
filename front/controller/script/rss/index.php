@@ -19,6 +19,7 @@ if (!empty($url->segment[1])) {
                 "limit" => 15,
             ];
             $load_rss_group = $rssPage->load_rss($data_group, 'news');
+            // print_pre($load_rss_group);die;
             if ($load_rss_group->_numOfRows > 0) {
                 $data = [
                     "method" => "getNews",
@@ -30,7 +31,8 @@ if (!empty($url->segment[1])) {
                 ];
                 $load_rss = $rssPage->load_rss($data, 'news');
 
-                $TitleRSS = $load_rss_group->item[0]->subject;
+                $TitleRSS = 'กรมวิทยาศาสตร์การแพทย์ กระทรวงสาธารณสุข';
+                // $TitleRSS = $load_rss_group->item[0]->subject;
                 $urlRss = _URL . 'listAll/' . $load_rss_group->item[0]->masterkey . "/" . $load_rss_group->item[0]->id;
                 require_once _DIR . '/front/controller/script/'.$menuActive.'/service/create.php';
             } else {

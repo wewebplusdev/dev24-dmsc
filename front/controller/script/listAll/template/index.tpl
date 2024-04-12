@@ -109,12 +109,13 @@
             <div class="row">
               <div class="col-md-auto mb-md-0 mb-2">
                 <div class="form-group form-select -select-group mb-0">
-                  <label class="control-label visually-hidden" for="selectGroup">เลือกกลุ่มข่าวประชาสัมพันธ์</label>
+                  <label class="control-label visually-hidden" for="gid">เลือกกลุ่มข่าวประชาสัมพันธ์</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="selectGroup" id="selectGroup" style="width: 100%;">
-                      <option value="">ข่าวประชาสัมพันธ์</option>
-                      <option value="">ข่าวประชาสัมพันธ์</option>
-                      <option value="">ข่าวประชาสัมพันธ์</option>
+                    <select class="select-filter" name="gid" id="gid" style="width: 100%;" onchange="submit();">
+                      <option value="">เลือกกลุ่มข่าวประชาสัมพันธ์</option>
+                      {foreach $load_group->item as $keyload_group => $valueload_group}
+                        <option value="{$valueload_group->id}" {if $req.gid eq $valueload_group->id}selected{/if}>{$valueload_group->subject}</option>
+                      {/foreach}
                     </select>
                   </div>
                 </div>
@@ -164,7 +165,7 @@
                       <h2 class="title">{$language_modules.breadcrumb2}</h2>
                     </div>
                     <div class="col-auto">
-                      <a href="" class="link -rss" target="_blank">
+                      <a href="{$ul}/rss/{$masterkey}Feed{$req['gid']}.xml" class="link -rss" target="_blank">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24.998" viewBox="0 0 25 24.998">
                             <g id="Group_90676" data-name="Group 90676" transform="translate(0 -0.001)">
@@ -174,6 +175,8 @@
                             </g>
                           </svg>
                         </span>
+                      </a>
+                      <a href="{$ul}/json/{$masterkey}Feed{$req['gid']}.json" class="link -rss" target="_blank">
                         <span class="mt-1">{ JSON }</span>
                       </a>
                     </div>

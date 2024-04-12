@@ -10,11 +10,12 @@ if ($load_rss->_numOfRows > 0) {
     $data .= "<channel>\r\n";
     
     $data .= "<title>" . $TitleRSS . "</title>\r\n";
-    $data .= "<description>" . $mainPage->settingWeb->setting->subject . "</description>\r\n";
+    $data .= "<description>Department of Medical Sciences Ministry of Public Health</description>\r\n";
     $data .= "<link>" . $urlRss . "</link>\r\n";
     $data .= "<lastBuildDate>" . date("r") . "</lastBuildDate>\r\n";
     $data .= "<copyright>" . $copyright . "</copyright>\r\n";
     $data2 = "";
+    
     foreach ($load_rss->item as $value) {
         /* ###### Start Img ##############*/
         $url_pic = $value->pic->pictures;
@@ -33,7 +34,7 @@ if ($load_rss->_numOfRows > 0) {
         $data2 .= '<pubDate>' . date('Y-m-d H:i:s', $timestmp) . '</pubDate>' . "\n";
         $data2 .= '</item>' . "\n";
     }
-
+    
     $data .= $data2;
     $data .= "</channel>" . "\n";
     $data .= "</rss>" . "\n";

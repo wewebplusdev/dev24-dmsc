@@ -14,6 +14,7 @@ switch ($url->segment[0]) {
         
         $req = array();
         $req['keyword'] = $_GET['keyword'];
+        $req['gid'] = $_GET['gid'];
         $req['sort'] = $_GET['sort'] ? $_GET['sort'] : 1;
         if ($_GET['sort'] == 2) {
             $req['order'] = 'asc';
@@ -23,6 +24,20 @@ switch ($url->segment[0]) {
         $smarty->assign("req", $req);
 
         $limit = 12;
+        $data_group = [
+            "method" => 'getNewsGroup',
+            "language" => $listAllPage->language,
+            "order" => 'desc',
+            "page" => $page['on'],
+            "limit" => $limit,
+        ];
+
+        // call group
+        $load_group = $listAllPage->load_data($data_group);
+        if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
+            $smarty->assign("load_group", $load_group);
+        }
+
         $data = [
             "method" => $listAllPage->method_masterkey[$masterkey][$menuActive],
             "language" => $listAllPage->language,
@@ -30,6 +45,7 @@ switch ($url->segment[0]) {
             "page" => $page['on'],
             "limit" => $limit,
             "keyword" => $req['keyword'],
+            "gid" => $req['gid'],
         ];
 
         // call list

@@ -58,11 +58,11 @@
                                                     <label class="control-label visually-hidden"
                                                         for="group">กลุ่ม</label>
                                                     <div class="select-wrapper">
-                                                        <select class="select-calendar" name="group" id="group"
+                                                        <select class="select-calendar -change-group" name="group" id="group"
                                                             style="width: 100%;">
                                                             <option value="0">เลือกทั้งหมด</option>
                                                             {foreach $load_group->item as $keyload_group => $valueload_group}
-                                                                <option value="">{$valueload_group->subject}</option>
+                                                                <option value="{$valueload_group->id}">{$valueload_group->subject}</option>
                                                             {/foreach}
                                                         </select>
                                                     </div>
@@ -76,7 +76,7 @@
                                                 <div class="form-group form-select form-group-calendar -year">
                                                     <label class="control-label" for="year">ปี :</label>
                                                     <div class="select-wrapper">
-                                                        <select class="select-calendar" name="year" id="year"
+                                                        <select class="select-calendar -change-year" name="year" id="year"
                                                             style="width: 100%;">
                                                             {for $index = $yearNow; $index >= $yearNow - 5; $index--}
                                                                 <option value="{$index}" {if $YearCurrent eq $index}selected{/if} data-lang="{$langon}">{$index}</option>
