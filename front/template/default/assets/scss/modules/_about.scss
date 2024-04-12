@@ -146,6 +146,7 @@
   &.-layout-grid {
     display: table;
     margin: 0 -20px;
+    margin-top: -20px;
 
     // transition: all 0.2s ease-in-out;
     .item {
@@ -391,17 +392,55 @@
 }
 
 
+@media (max-width: 1440px) {
+  .document-download-list.-layout-grid .content {padding: 30px 25px;}
+  .document-download-list .head .title{font-size: 22px;}
+  .document-download-list .head .date {font-size: 18px;}
+  .document-download-list .box .txt {font-size: 18px;}
+  .document-download-list .action .link {font-size: 18px;}
+  .document-download-list.-layout-grid .box {margin-top: 30px;}
+
+  .document-download-list.-layout-list .action {margin-top: 20px;}
+} 
+
+
 @media (max-width: 1199px) {
   .layout-view .btn-group > button {width: 60px; height: 60px;}
   .layout-view .btn-group > button svg {width: 25px;}
+
+  .document-download-list.-layout-grid .item {width: calc(100% / 2);}
+  .document-download-list .item {padding: 10px;}
+  .document-download-list .item:not(:last-child) {margin-bottom: 0;}
+  .document-download-list .thumbnail {width: 250px;}
+  .document-download-list .head {width: auto;}
+  .document-download-list .box .item-list li {width: 100%;}
+  .document-download-list .box .item-list li + li {padding-left: 0;margin-left: 0;margin-top: 10px;border: none;}
 }
 
 @media (max-width: 991px) {
   .layout-view .btn-group > button {width: 50px; height: 50px;}
+
+  .document-download-list .content {padding: 0 20px;}
+  .document-download-list .head .title{font-size: 20px;}
+  .document-download-list .head .date {font-size: 16px;}
+  .document-download-list .box .txt {font-size: 16px;}
+  .document-download-list .action .link {font-size: 16px;}
+  .document-download-list .action .link svg {width: 18px;}
+  .document-download-list.-layout-grid .box {margin-top: 20px;}
+  .document-download-list.-layout-grid {margin: 0 -7.5px; margin-top: -7.5px;}
+  .document-download-list.-layout-grid .item {padding:7.5px;}
+  .document-download-list.-layout-grid .content {padding: 25px 20px;}
+  .document-download-list.-layout-grid .action {margin-top: 25px;}
+
 }
 
 @media (max-width: 767px) {
   .layout-view .btn-group {margin-top: 10px;}
   .layout-view .btn-group > button {width: 40px; height: 40px;}
   .layout-view .btn-group > button svg {width: 18px;}
+}
+
+@media (max-width: 575px) {
+  .document-download-list.-layout-grid .item {width: 100%;}
+  .layout-view .btn-group .btn-list {pointer-events: none;opacity: 0.5;}
 }

@@ -99,7 +99,7 @@
                         </div>
                       </div>
                       <div class="col-auto ml-auto">
-                        <div class="layout-view layout-list">
+                        <div class="layout-view layout-grid">
                           <div class="btn-group">
                             <button type="button" class="btn-grid">
                               <span class="icon">
@@ -147,12 +147,12 @@
           </div>
         </div>
         <div class="container">
-          <div class="document-download-list" id="download-list">
+          <div class="document-download-list -layout-grid" id="download-list">
             <?php for ($i = 1; $i <= 10; $i++) { ?>
               <div class="item">
                 <div class="item-wrapper">
                   <div class="row no-gutters align-items-center">
-                    <div class="col-auto col-thumb">
+                    <div class="col-12 col-thumb">
                       <div class="thumbnail">
                         <figure class="cover">
                           <img src="<?php echo $core_template; ?>/img/uploads/thumbnail-download.jpg" alt="" class="img-cover">
@@ -207,7 +207,7 @@
                               </ul>
                             </div>
                           </div>
-                          <div class="col-auto">
+                          <div class="col-xl-auto col-12">
                             <div class="action">
                               <div class="row">
                                 <div class="col-auto">
