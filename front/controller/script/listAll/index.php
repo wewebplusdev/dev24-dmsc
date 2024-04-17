@@ -53,6 +53,8 @@ switch ($url->segment[0]) {
 
         // call list
         $load_data = $listAllPage->load_data($data);
+        // print_pre($data);
+        // print_pre($load_data);
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
@@ -61,10 +63,22 @@ switch ($url->segment[0]) {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
-        }else{
+        }else if($masterkey == 'nwa'){
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
+        }else if($masterkey == 'km'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
+        }else if($masterkey == 'god'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
+        }else if($masterkey == 'nwp'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
         }
         $smarty->assign("language_modules", $language_modules);
        

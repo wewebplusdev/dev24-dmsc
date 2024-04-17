@@ -38,6 +38,7 @@ switch ($url->segment[0]) {
 
         $filename = explode(".", $load_data->item[0]->attachment[0]->filename);
         $file_extension = $filename[count($filename) - 1];
+        $file_name = $load_data->item[0]->attachment[0]->name ? $load_data->item[0]->attachment[0]->name : $load_data->item[0]->attachment[0]->filename;
         if ($file_extension == 'pdf' || $file_extension == 'PDF') {
             $action_type = "view";
         } else {
@@ -49,7 +50,7 @@ switch ($url->segment[0]) {
             if (file_exists($path_file)) {
                 header('Content-Description: File Transfer');
                 header('Content-Type: application/' . $file_extension);
-                header('Content-Disposition: attachment; filename="' . $load_data->item[0]->attachment[0]->filename . '"');
+                header('Content-Disposition: attachment; filename="' . $file_name . '.' . $file_extension . '"');
                 header('Content-Transfer-Encoding: binary');
                 header('Expires: 0');
                 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
@@ -68,7 +69,7 @@ switch ($url->segment[0]) {
         } else {
             if (($file_extension == 'pdf' || $file_extension == "PDF")) {
                 header('Content-type:application/pdf');
-                header('Content-disposition: inline; filename="' . $load_data->item[0]->attachment[0]->filename . '"');
+                header('Content-disposition: inline; filename="' . $file_name . '.' . $file_extension . '"');
                 header('content-Transfer-Encoding:binary');
                 header('Accept-Ranges:bytes');
                 @readfile($path_file);
@@ -76,7 +77,7 @@ switch ($url->segment[0]) {
                 if (file_exists($path_file)) {
                     header('Content-Description: File Transfer');
                     header('Content-Type: application/' . $file_extension);
-                    header('Content-Disposition: attachment; filename="' . $load_data->item[0]->attachment[0]->filename . '"');
+                    header('Content-Disposition: attachment; filename="' . $file_name . '.' . $file_extension . '"');
                     header('Content-Transfer-Encoding: binary');
                     header('Expires: 0');
                     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
