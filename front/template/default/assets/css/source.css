@@ -6863,7 +6863,7 @@ div.swal2-html-container {
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
   background-image: url("../img/static/bg-form-contact.png");
   background-repeat: no-repeat;
-  background-position: bottom center;
+  background-size: cover;
 }
 .form-contact .form-group {
   margin-bottom: 30px;
@@ -6872,10 +6872,14 @@ div.swal2-html-container {
   font-size: 20px;
   color: var(--color-secondary);
   margin-bottom: 10px;
+  line-height: 1.5em;
 }
 .form-contact .form-group .control-label span {
   color: red;
   margin-left: 5px;
+}
+.form-contact .form-group .control-label .text-placeholder {
+  color: #999999 !important;
 }
 .form-contact .form-group .form-control {
   font-size: 16px;
@@ -6885,6 +6889,23 @@ div.swal2-html-container {
 }
 .form-contact .form-group .form-control.form-textarea {
   height: 190px;
+}
+.form-contact .form-group .radio-control .title {
+  line-height: 1.5em;
+}
+.form-contact .form-group .radio-control input[type=radio]:checked ~ .icon,
+.form-contact .form-group .radio-control .icon {
+  border-color: var(--color-primary);
+}
+.form-contact .form-group .radio-control input[type=radio]:checked ~ .icon::before {
+  background-color: var(--color-primary);
+}
+.form-contact .form-group ol {
+  padding-left: 20px;
+}
+.form-contact .form-group ol li:not(:last-child) {
+  margin-bottom: 12px;
+  line-height: 1.5em;
 }
 .form-contact .form-head {
   padding: 20px 60px;
@@ -7209,6 +7230,12 @@ div.swal2-html-container {
   .form-contact .form-group .form-control {
     padding: 15px;
     height: 55px;
+  }
+  .form-contact .form-group .radio-control .title {
+    font-size: 16px;
+  }
+  .form-contact .form-group ol li {
+    font-size: 16px;
   }
   .form-contact .form-head {
     padding: 15px 20px;
