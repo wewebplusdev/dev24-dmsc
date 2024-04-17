@@ -273,6 +273,17 @@
     padding: 60px;
   }
 
+  .form-success {
+    text-align: center;
+    padding-bottom: 40px;
+    .title {
+      font-size: 30px;
+      font-weight: var(--fw-bold);
+      color: var(--color-secondary);
+      margin-top: 30px;
+    }
+  }
+
   .action {
     margin-top: 10px;
     padding-top: 40px;
@@ -420,6 +431,8 @@
   .layout-service-info .info-card-full {padding: 20px 40px;}
 
   .layout-form-progress .whead .title {font-size: 34px;}
+
+  .form-contact .form-success .title {font-size: 28px;}
 }
 
 @media (max-width: 1199px) {
@@ -457,6 +470,10 @@
   .layout-form-progress {margin-bottom: 50px;}
   .layout-form-progress .whead .title {font-size: 30px; margin-bottom: 30px;}
   .layout-form-progress .form-progress-step .nav .item .text-step {font-size: 20px;}
+
+  .form-contact .form-success {padding-bottom: 20px;}
+  .form-contact .form-success .icon svg {width: 80px;}
+  .form-contact .form-success .title {font-size: 26px;margin-top: 15px;} 
 }
 
 @media (max-width: 991px) {
@@ -501,6 +518,10 @@
   .layout-form-progress .whead .title {font-size: 28px; margin-bottom: 20px;}
   .layout-form-progress .form-progress-step .nav .item .text-step {font-size: 18px;}
   .layout-form-progress .form-progress-step .progress-line {width: calc(100% - 80px);}
+
+  .form-contact .form-success {padding-bottom: 15px;}
+  .form-contact .form-success .icon svg {width: 70px;}
+  .form-contact .form-success .title {font-size: 24px;margin-top: 5px;} 
 }
 
 @media (max-width: 767px) {
@@ -524,6 +545,8 @@
   .layout-form-progress .whead .title {font-size: 26px;}
   .layout-form-progress .form-progress-step .nav .item .text-step {font-size: 16px;margin-top: 10px;}
   .layout-form-progress .form-progress-step .progress-line {top: calc(50% - 10px);}
+
+  .form-contact .form-success .title {font-size: 20px; margin-top: 0;}
 }
 
 @media (max-width: 575px) {

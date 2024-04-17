@@ -67,7 +67,7 @@
               </div>
               <div class="form-progress-step">
                 <ul class="nav">
-                  <li class="item">
+                  <li class="item active">
                     <div class="circle">
                       <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="31.309" height="35" viewBox="0 0 31.309 35">
