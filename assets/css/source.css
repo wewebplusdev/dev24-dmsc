@@ -5540,6 +5540,7 @@ div.swal2-html-container {
 }
 
 .document-download-list {
+  width: 100%;
   margin-bottom: 60px;
 }
 .document-download-list.-layout-grid {
