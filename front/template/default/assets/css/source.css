@@ -7405,6 +7405,66 @@ div.swal2-html-container {
     padding: 0 15px;
   }
 }
+.layout-faq .card {
+  border: none;
+}
+.layout-faq .card:not(:last-child) {
+  margin-bottom: 20px;
+}
+.layout-faq .card-header {
+  padding: 0;
+}
+.layout-faq .card-header .link {
+  display: block;
+  padding: 15px 30px;
+}
+.layout-faq .card-header .link:not(.collapsed) {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #2ab170), to(#01377d));
+  background: linear-gradient(#2ab170 30%, #01377d 100%);
+}
+.layout-faq .card-header .link:not(.collapsed) .icon * {
+  fill: var(--color-light);
+}
+.layout-faq .card-header .link:not(.collapsed) .title {
+  color: var(--color-light);
+}
+.layout-faq .card-header .link .title {
+  line-height: 1.3em;
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+}
+.layout-faq .card-body {
+  position: relative;
+  top: -1px;
+  padding: 30px;
+  border: 1px solid var(--color-primary);
+}
+.layout-faq .card-body p {
+  line-height: 1.5em;
+}
+
+@media (max-width: 1199px) {
+  .layout-faq .card-header .link .title {
+    font-size: 18px;
+  }
+  .layout-faq .card-body p {
+    font-size: 18px;
+  }
+}
+@media (max-width: 991px) {
+  .layout-faq .card-header .link {
+    padding: 15px;
+  }
+  .layout-faq .card-header .link .title {
+    font-size: 16px;
+  }
+  .layout-faq .card-body {
+    padding: 20px 15px;
+  }
+  .layout-faq .card-body p {
+    font-size: 16px;
+  }
+}
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;
