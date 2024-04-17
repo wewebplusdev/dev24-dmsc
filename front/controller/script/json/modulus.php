@@ -1,6 +1,6 @@
 <?php
 
-class rssPage extends controller
+class jsonPage extends controller
 {
     public function __construct()
     {
@@ -8,7 +8,7 @@ class rssPage extends controller
         parent::__construct();
     }
 
-    public function load_rss($data)
+    public function load_json($data)
     {
         if (empty($this->token_access)) {
             return false;

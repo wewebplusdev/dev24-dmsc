@@ -88,8 +88,21 @@ const url_page = {
     },
     "km": {
         "1": "detailAll",
-        "2": "downloadAll",
+        "2": "download",
         "group": "listAll",
+        "download": "download",
+    },
+    "god": {
+        "1": "detailAll",
+        "2": "download",
+        "group": "listAll",
+        "download": "download",
+    },
+    "nwp": {
+        "1": "detailAll",
+        "2": "download",
+        "group": "listAll",
+        "download": "download",
     },
     "plc": {
         "1": "detailAll",
@@ -119,8 +132,9 @@ const url_page = {
     },
     "cal": {
         "1": "detailAll",
-        "2": "downloadAll",
+        "2": "download",
         "group": "calendarAll",
+        "download": "download",
     },
 }
 

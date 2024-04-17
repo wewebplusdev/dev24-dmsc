@@ -59,22 +59,56 @@ switch ($url->segment[0]) {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
             $language_modules['list_ohter'] = $languageFrontWeb->newsrelated->display->$currentLangWeb;
-            $language_modules['metatitle'] = $load_data->item[0]->subject;
+            $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
+            $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
+            $language_modules['metadescription'] = $load_data->item[0]->metadescription;
             $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         }else if($masterkey == 'cal'){
             $language_modules['breadcrumb1'] = $languageFrontWeb->eventcalendar->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->eventcalendar->display->$currentLangWeb;
-            $language_modules['metatitle'] = $load_data->item[0]->subject;
+            $language_modules['list_ohter'] = $languageFrontWeb->relatedeventcalendar->display->$currentLangWeb;
+            $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
+            $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
+            $language_modules['metadescription'] = $load_data->item[0]->metadescription;
             $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         }else if($masterkey == 'lar'){
             $language_modules['breadcrumb1'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
-            $language_modules['metatitle'] = $load_data->item[0]->subject;
+            $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
+            $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
+            $language_modules['metadescription'] = $load_data->item[0]->metadescription;
             $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         }else if($masterkey == 'nwa'){
             $language_modules['breadcrumb1'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
-            $language_modules['metatitle'] = $load_data->item[0]->subject;
+            $language_modules['list_ohter'] = $languageFrontWeb->newsagenrelated->display->$currentLangWeb;
+            $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
+            $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
+            $language_modules['metadescription'] = $load_data->item[0]->metadescription;
+            $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
+        }else if($masterkey == 'km'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
+            $language_modules['list_ohter'] = $languageFrontWeb->relatekmpage->display->$currentLangWeb;
+            $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
+            $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
+            $language_modules['metadescription'] = $load_data->item[0]->metadescription;
+            $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
+        }else if($masterkey == 'god'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
+            $language_modules['list_ohter'] = $languageFrontWeb->relategovernmentopendata->display->$currentLangWeb;
+            $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
+            $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
+            $language_modules['metadescription'] = $load_data->item[0]->metadescription;
+            $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
+        }else if($masterkey == 'nwp'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
+            $language_modules['list_ohter'] = $languageFrontWeb->relatenewspeople->display->$currentLangWeb;
+            $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
+            $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
+            $language_modules['metadescription'] = $load_data->item[0]->metadescription;
             $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         }
         $smarty->assign("language_modules", $language_modules);

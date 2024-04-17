@@ -138,6 +138,9 @@ async function getCalendar(req, res) {
     const gid = req.body.gid;
     const sdate = req.body.sdate;
     const edate = req.body.edate;
+    const search_keyword = req.body.keyword;
+    const contentid = req.body.contentid;
+    const file_id = req.body.file_id;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -146,6 +149,7 @@ async function getCalendar(req, res) {
     config_array_db['md_cmsl'] = config.fieldDB.main.md_cmsl
     config_array_db['md_cmg'] = config.fieldDB.main.md_cmg
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
+    config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['cal'] = config.fieldDB.masterkey.cal
@@ -179,6 +183,7 @@ async function getCalendar(req, res) {
                 ,${config_array_db['md_cms']}_stime as stime 
                 ,${config_array_db['md_cms']}_etime as etime 
                 ,'${config_array_db['md_cms']}' as tb 
+                ,${config_array_db['md_cmsl']}_id as lid 
                 FROM ${config_array_db['md_cms']} 
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                 INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
@@ -191,6 +196,16 @@ async function getCalendar(req, res) {
                 AND ${config_array_db['md_cmgl']}_subject != '' `;
                 if (gid > 0) {
                     sql_list = sql_list + ` AND ${config_array_db['md_cms']}_gid = '${gid}' `;
+                }
+                if (contentid > 0) {
+                    sql_list = sql_list + ` AND ${config_array_db['md_cms']}_id = '${contentid}' `;
+                }
+                if (search_keyword !== null && search_keyword !== undefined) {
+                    sql_list = sql_list + ` AND 
+                    (
+                        ${config_array_db['md_cmsl']}_subject LIKE '%${search_keyword}%' OR
+                        ${config_array_db['md_cmsl']}_title LIKE '%${search_keyword}%'
+                    ) `;
                 }
                 if ((sdate != null && sdate != undefined) && (edate != null && edate != undefined)) {
                     sql_list = sql_list + ` AND 
@@ -240,6 +255,7 @@ async function getCalendar(req, res) {
                         arr_data[i] = {};
                         arr_data[i].id = select[i].id;
                         arr_data[i].masterkey = select[i].masterkey;
+                        arr_data[i].language = language;
                         arr_data[i].group = select[i].group_subject;
                         arr_data[i].language = language;
                         arr_data[i].color = select[i].color;
@@ -247,9 +263,40 @@ async function getCalendar(req, res) {
                         arr_data[i].title = select[i].title;
                         arr_data[i].typec = select[i].typec;
                         arr_data[i].tb = select[i].tb;
+
+                        // attachments
+                        let sql_video = `SELECT 
+                        ${config_array_db['md_cmf']}_id as id
+                        ,${config_array_db['md_cmf']}_contantid as contantid
+                        ,${config_array_db['md_cmf']}_filename as filename
+                        ,${config_array_db['md_cmf']}_name as name 
+                        ,${config_array_db['md_cmf']}_download as download 
+                        FROM ${config_array_db['md_cmf']} 
+                        WHERE ${config_array_db['md_cmf']}_contantid = '${select[i].lid}' 
+                        AND ${config_array_db['md_cmf']}_language = '${language}' 
+                        `;
+                        if (file_id > 0) {
+                            sql_video = sql_video + ` AND ${config_array_db['md_cmf']}_id = '${file_id}' `;
+                        }
+                        const select_attachments = await query(sql_video);
+                        if (select_attachments.length > 0) {
+                            let array_attachments = [];
+                            for (let index = 0; index < select_attachments.length; index++) {
+                                array_attachments[index] = {};
+                                array_attachments[index].id = select_attachments[index].id;
+                                array_attachments[index].name = select_attachments[index].name;
+                                array_attachments[index].filename = select_attachments[index].filename;
+                                array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);
+                                array_attachments[index].download = select_attachments[index].download;
+                            }
+                            arr_data[i].attachment = array_attachments;
+                        } else {
+                            arr_data[i].attachment = ``;
+                        }
+
                         if (select[i].typec == 2) {
                             const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
-                            arr_data[i].url = `${getUrlWeb}/${select[i].id}`;
+                            arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select_attachments[0].id}`;
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
@@ -332,6 +379,7 @@ async function getCalendarDetail(req, res) {
     const method = req.body.method;
     const language = req.body.language;
     const contentid = req.body.contentid;
+    const file_id = req.body.file_id;
     const result = general.checkParam([method, language, contentid]);
     const code = config.returncode;
     // db tables
@@ -402,6 +450,7 @@ async function getCalendarDetail(req, res) {
                     ,${config_array_db['md_cms']}_etime as etime 
                     ,${config_array_db['md_cms']}_view as view 
                     ,${config_array_db['md_cms']}_crebyid as crebyid 
+                    ,'${config_array_db['md_cms']}' as tb 
                     FROM ${config_array_db['md_cms']} 
                     INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                     INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
@@ -425,11 +474,13 @@ async function getCalendarDetail(req, res) {
                     arr_data[i] = {};
                     arr_data[i].id = select[i].id;
                     arr_data[i].masterkey = select[i].masterkey;
+                    arr_data[i].language = language;
                     arr_data[i].gid = select[i].gid;
                     arr_data[i].group = select[i].group_subject;
                     arr_data[i].subject = select[i].subject;
                     arr_data[i].title = select[i].title;
                     arr_data[i].typec = select[i].typec;
+                    arr_data[i].tb = select[i].tb;
                     if (select[i].picType == 1) {
                         let defaultPic = default_pic[select[i].picDefault];
                         arr_data[i].pic = {
@@ -526,6 +577,7 @@ async function getCalendarDetail(req, res) {
                             let array_attachments = [];
                             for (let index = 0; index < select_attachments.length; index++) {
                                 array_attachments[index] = {};
+                                array_attachments[index].id = select_attachments[index].id;
                                 array_attachments[index].name = select_attachments[index].name;
                                 array_attachments[index].filename = select_attachments[index].filename;
                                 array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);

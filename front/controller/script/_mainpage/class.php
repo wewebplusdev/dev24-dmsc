@@ -15,8 +15,8 @@ abstract class controller
         global $url, $_CORE_ENV;
 
         if ($_CORE_ENV == 'DEV') {
-            // $this->URL_API = 'http://192.168.101.39:4040/service-api/v1';
-            $this->URL_API = 'http://192.168.1.102:4040/service-api/v1';
+            $this->URL_API = 'http://192.168.101.39:4040/service-api/v1';
+            // $this->URL_API = 'http://192.168.1.102:4040/service-api/v1';
             // $this->URL_API = 'http://192.168.1.101:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
             $this->URL_API = 'http://13.229.72.11:4040/service-api/v1';
@@ -31,10 +31,12 @@ abstract class controller
                 'loadGroup' => 'getNewsGroup',
                 'listAll' => 'getNews',
                 'detailAll' => 'getNewsDetail',
+                'rssGroup' => 'getNewsGroup',
+                'rss' => 'getNews',
             ),
             'cal' => array(
                 'action' => 'calendar',
-                'download' => 'getCalendarDetail',
+                'download' => 'getCalendar',
                 'listAll' => 'getCalendar',
                 'detailAll' => 'getCalendarDetail',
             ),
@@ -52,6 +54,35 @@ abstract class controller
                 'loadGroup' => 'getAnnouncerGroup',
                 'listAll' => 'getAnnouncer',
                 'detailAll' => 'getAnnouncerDetail',
+                'rssGroup' => 'getAnnouncerGroup',
+                'rss' => 'getAnnouncer',
+            ),
+            'km' => array(
+                'action' => 'km',
+                'download' => 'getKm',
+                'loadGroup' => 'getKmGroup',
+                'listAll' => 'getKm',
+                'detailAll' => 'getKmDetail',
+                'rssGroup' => 'getKmGroup',
+                'rss' => 'getKm',
+            ),
+            'god' => array(
+                'action' => 'god',
+                'download' => 'getGod',
+                'loadGroup' => 'getGodGroup',
+                'listAll' => 'getGod',
+                'detailAll' => 'getGodDetail',
+                'rssGroup' => 'getGodGroup',
+                'rss' => 'getGod',
+            ),
+            'nwp' => array(
+                'action' => 'news-people',
+                'download' => 'getNewsPeople',
+                'loadGroup' => 'getNewsPeopleGroup',
+                'listAll' => 'getNewsPeople',
+                'detailAll' => 'getNewsPeopleDetail',
+                'rssGroup' => 'getNewsPeopleGroup',
+                'rss' => 'getNewsPeople',
             ),
         );
 
