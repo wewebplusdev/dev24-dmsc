@@ -5540,6 +5540,7 @@ div.swal2-html-container {
 }
 
 .document-download-list {
+  width: 100%;
   margin-bottom: 60px;
 }
 .document-download-list.-layout-grid {
@@ -5592,6 +5593,12 @@ div.swal2-html-container {
 }
 .document-download-list.-layout-grid .action .-read-more {
   margin-right: 40px;
+}
+.document-download-list.-layout-grid .action .-web-link {
+  margin-top: 50px;
+}
+.document-download-list.-layout-grid .action .-web-link:hover {
+  text-decoration: underline;
 }
 .document-download-list .item {
   -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
