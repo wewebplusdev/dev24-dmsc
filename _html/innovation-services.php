@@ -54,43 +54,6 @@
         </figure>
       </div>
       <div class="default-body">
-        <div class="service-category mt-0">
-          <div class="service-category-list mb-xl-4">
-            <div class="container">
-              <div class="swiper swiper-default">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="item">
-                      <button type="button" class="btn active">การแพทย์</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="item">
-                      <button type="button" class="btn">งานวิจัย</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="item">
-                      <button type="button" class="btn active">นวัตกรรม</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="item">
-                      <button type="button" class="btn">ห้องปฏิบัติการ</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="item">
-                      <button type="button" class="btn">ระบบออนไลน์</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="default-filter">
           <div class="container">
             <form action="" class="form-default">
@@ -138,24 +101,56 @@
             </form>
           </div>
         </div>
-        <div class="service-area">
+        <div class="innovation-area mb-xl-4 mb-lg-3">
           <div class="container">
-            <div class="service-list" data-aos="fade-up">
-              <?php for ($i = 1; $i <= 15; $i++) { ?>
+            <div class="innovation-list">
+              <?php for ($i = 1; $i <= 10; $i++) { ?>
                 <div class="item">
-                  <a href="" class="link">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="thumbnail">
-                          <figure class="contain">
-                            <img src="<?php echo $core_template; ?>/img/static/service-01.svg" alt="service-01" class="thumb-img lazy">
-                            <img src="<?php echo $core_template; ?>/img/static/service-01-hover.svg" alt="service-01" class="thumb-hover lazy">
-                          </figure>
-                        </div>
-                        <h4 class="title">ระบบรับส่งตัวอย่างเพื่อตรวจวิเคราะห์</h4>
+                  <div class="item-wrapper">
+                    <div class="body">
+                      <div class="thumbnail">
+                        <figure class="contain">
+                          <img src="<?php echo $core_template; ?>/img/static/innovation-01.svg" alt="">
+                        </figure>
                       </div>
                     </div>
-                  </a>
+                    <div class="content">
+                      <div class="title">องค์ความรู้</div>
+                      <div class="qty">
+                        <span class="icon mr-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                            <defs>
+                              <clipPath id="clip-path">
+                                <rect id="Rectangle_17108" data-name="Rectangle 17108" width="20" height="20" transform="translate(1059 971)" fill="#2ab170" />
+                              </clipPath>
+                            </defs>
+                            <g id="Mask_Group_343" data-name="Mask Group 343" transform="translate(-1059 -971)" clip-path="url(#clip-path)">
+                              <g id="document-3" transform="translate(1059 971)">
+                                <path id="Path_452390" data-name="Path 452390" d="M16.945,4.151,13.179.588A2.14,2.14,0,0,0,11.7,0H4.531A2.151,2.151,0,0,0,2.383,2.148v15.7A2.151,2.151,0,0,0,4.531,20H15.469a2.151,2.151,0,0,0,2.148-2.148V5.712A2.157,2.157,0,0,0,16.945,4.151Zm-1.138.536H12.891a.2.2,0,0,1-.2-.2V1.744Zm-.338,14.141H4.531a.978.978,0,0,1-.977-.977V2.148a.978.978,0,0,1,.977-.977h6.992v3.32a1.369,1.369,0,0,0,1.367,1.367h3.555V17.852A.978.978,0,0,1,15.469,18.828Z" fill="#2ab170" />
+                                <path id="Path_452391" data-name="Path 452391" d="M14.18,7.813H5.586a.586.586,0,0,0,0,1.172H14.18a.586.586,0,0,0,0-1.172Z" fill="#2ab170" />
+                                <path id="Path_452392" data-name="Path 452392" d="M14.18,10.938H5.586a.586.586,0,0,0,0,1.172H14.18a.586.586,0,0,0,0-1.172Z" fill="#2ab170" />
+                                <path id="Path_452393" data-name="Path 452393" d="M8.427,14.063H5.586a.586.586,0,0,0,0,1.172H8.427a.586.586,0,0,0,0-1.172Z" fill="#2ab170" />
+                              </g>
+                            </g>
+                          </svg>
+                        </span>
+                        <span class="fw-bold text-dark">จำนวน : </span><span>1,264</span> รายการ
+                      </div>
+                      <div class="action">
+                        <span class="icon mr-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                            <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
+                              <path id="Path_452117" data-name="Path 452117" d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z" fill="#2ab170" />
+                              <path id="Path_452118" data-name="Path 452118" d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z" fill="#2ab170" />
+                            </g>
+                          </svg>
+                        </span>
+                        <a href="" class="link">
+                          ไปยังลิงก์
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               <?php } ?>
             </div>
@@ -169,31 +164,6 @@
   </div>
 
   <?php include('inc/loadscript.php'); ?>
-
-  <script>
-    var scSwiper = new Swiper(".service-category-list .swiper", {
-      slidesPerView: 5,
-      watchSlidesProgress: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 3,
-        },
-        1024: {
-          slidesPerView: 4,
-        },
-        1200: {
-          slidesPerView: 5,
-        },
-      }
-    });
-  </script>
 
 </body>
 

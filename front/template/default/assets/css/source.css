@@ -6396,9 +6396,9 @@ div.swal2-html-container {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  line-height: 1.4em;
+  line-height: 1.5em;
   -webkit-line-clamp: 2;
-  min-height: 2.8em;
+  min-height: 3em;
 }
 .manual-list .file-type {
   margin-top: 25px;
@@ -6478,6 +6478,94 @@ div.swal2-html-container {
   padding: 0;
 }
 
+.innovation-area .innovation-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.innovation-area .innovation-list .item {
+  -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+          filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+}
+.innovation-area .innovation-list .item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.innovation-area .innovation-list .item-wrapper {
+  position: relative;
+  display: block;
+  background-color: var(--color-light);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5em), calc(100% - 1.5em) 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5em), calc(100% - 1.5em) 100%, 0 100%);
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.innovation-area .innovation-list .item-wrapper:hover {
+  background: -webkit-gradient(linear, right top, left top, from(#01377d), to(#2ab170));
+  background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+}
+.innovation-area .innovation-list .item-wrapper:hover * {
+  color: var(--color-light) !important;
+  fill: var(--color-light);
+}
+.innovation-area .innovation-list .body {
+  background-color: #F5F5F5;
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.innovation-area .innovation-list .thumbnail {
+  width: 100px;
+  margin: auto;
+}
+.innovation-area .innovation-list .thumbnail .contain {
+  padding-top: 100%;
+}
+.innovation-area .innovation-list .content {
+  padding: 25px 20px;
+}
+.innovation-area .innovation-list .content .icon {
+  top: -2px;
+}
+.innovation-area .innovation-list .content .title {
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  color: var(--color-dark);
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.4em;
+  -webkit-line-clamp: 1;
+  min-height: 1.4em;
+}
+.innovation-area .innovation-list .content .qty {
+  margin-top: 30px;
+}
+.innovation-area .innovation-list .content .qty * {
+  font-size: 18px;
+}
+.innovation-area .innovation-list .content .action {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.innovation-area .innovation-list .content .action .link {
+  display: block;
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+  -webkit-transition: none;
+  transition: none;
+}
+.innovation-area .innovation-list .content .action .link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1199px) {
   .service-area {
     margin-bottom: 80px;
@@ -6485,6 +6573,22 @@ div.swal2-html-container {
   .service-area .service-list {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+  }
+  .innovation-area .innovation-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .innovation-area .innovation-list .content .title {
+    font-size: 20px;
+  }
+  .innovation-area .innovation-list .content .qty {
+    font-size: 16px;
+  }
+  .innovation-area .innovation-list .content .qty * {
+    font-size: 16px;
+  }
+  .innovation-area .innovation-list .content .action .link {
+    font-size: 18px;
   }
 }
 @media (max-width: 991px) {
@@ -6495,16 +6599,49 @@ div.swal2-html-container {
     gap: 15px;
     margin: 0;
   }
+  .innovation-area .innovation-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .innovation-area .innovation-list .content {
+    padding: 20px 15px;
+  }
+  .innovation-area .innovation-list .content .title {
+    font-size: 16px;
+  }
+  .innovation-area .innovation-list .content .qty {
+    font-size: 14px;
+  }
+  .innovation-area .innovation-list .content .qty * {
+    font-size: 14px;
+  }
+  .innovation-area .innovation-list .content .action .link {
+    font-size: 15px;
+  }
+  .innovation-area .innovation-list .content .qty {
+    margin-top: 20px;
+  }
+  .innovation-area .innovation-list .content .action {
+    margin-top: 20px;
+  }
+  .innovation-area .innovation-list .content .icon {
+    top: -4px;
+  }
+  .innovation-area .innovation-list .content .icon svg {
+    width: 16px;
+  }
 }
 @media (max-width: 767px) {
   .service-area .service-list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
   }
 }
 @media (max-width: 575px) {
   .service-area .service-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .innovation-area .innovation-list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media (min-width: 1200px) {
