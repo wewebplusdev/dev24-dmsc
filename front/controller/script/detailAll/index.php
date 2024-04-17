@@ -58,6 +58,7 @@ switch ($url->segment[0]) {
         if ($masterkey == 'nw') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
+            $language_modules['list_ohter'] = $languageFrontWeb->newsrelated->display->$currentLangWeb;
             $language_modules['metatitle'] = $load_data->item[0]->subject;
             $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         }else if($masterkey == 'cal'){
@@ -68,6 +69,11 @@ switch ($url->segment[0]) {
         }else if($masterkey == 'lar'){
             $language_modules['breadcrumb1'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
+            $language_modules['metatitle'] = $load_data->item[0]->subject;
+            $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
+        }else if($masterkey == 'nwa'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
             $language_modules['metatitle'] = $load_data->item[0]->subject;
             $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         }

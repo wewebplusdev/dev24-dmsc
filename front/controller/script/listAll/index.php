@@ -35,7 +35,6 @@ switch ($url->segment[0]) {
         ];
         
         // call group
-        print_pre($data_group);
         $load_group = $listAllPage->load_data($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
@@ -62,6 +61,10 @@ switch ($url->segment[0]) {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
+        }else{
+            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
         }
         $smarty->assign("language_modules", $language_modules);
        

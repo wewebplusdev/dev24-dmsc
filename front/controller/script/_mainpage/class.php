@@ -46,6 +46,13 @@ abstract class controller
                 // 'listAll' => 'getLaws',
                 'detailAll' => 'getLawsDetail',
             ),
+            'nwa' => array(
+                'action' => 'announcer',
+                'download' => 'getAnnouncer',
+                'loadGroup' => 'getAnnouncerGroup',
+                'listAll' => 'getAnnouncer',
+                'detailAll' => 'getAnnouncerDetail',
+            ),
         );
 
 

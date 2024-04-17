@@ -436,15 +436,19 @@
                 <div class="news-area">
                     <div class="container">
                         <div class="whead">
-                            <h2 class="title text-center">{$languageFrontWeb->newsrelated->display->$currentLangWeb}</h2>
+                            <h2 class="title text-center">{$language_modules['list_ohter']}</h2>
                         </div>
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 {foreach $load_data_other->item as $keyload_data_other => $valueload_data_other}
                                     {assign var="checkUrl" value="{$valueload_data_other->url|check_url}"}
                                     {assign var="target" value="_self"}
+                                    {assign var="downloadID" value=""}
+                                    {if $valueload_data_other->typec eq 2}
+                                        {$downloadID = $valueload_data_other->attachment[0]->id}
+                                    {/if}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|page_redirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|page_redirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language:$downloadID}"}
                                         {$target = $valueload_data_other->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}

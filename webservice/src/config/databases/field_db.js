@@ -76,8 +76,9 @@ const url_page = {
     },
     "nwa": {
         "1": "detailAll",
-        "2": "downloadAll",
+        "2": "download",
         "group": "listAll",
+        "download": "download",
     },
     "lar": {
         "1": "detailAll",
