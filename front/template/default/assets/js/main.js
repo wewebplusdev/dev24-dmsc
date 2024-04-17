@@ -208,4 +208,13 @@ $(document).ready(function () {
     },
   });
 
+
+  $('.sitemap').click(function(){
+    $('.sitmap-full').toggleClass('show');
+  })
+
+  $('.sitmap-full .close').click(function(){
+    $('.sitmap-full').removeClass('show');
+  })
+
 });

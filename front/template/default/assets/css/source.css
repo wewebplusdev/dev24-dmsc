@@ -7465,6 +7465,114 @@ div.swal2-html-container {
     font-size: 16px;
   }
 }
+.sitmap-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  background-color: var(--color-light);
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+}
+.sitmap-full.show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  z-index: 1001;
+}
+.sitmap-full .close {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  opacity: 1;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+.sitmap-full .close:hover {
+  opacity: 0.7;
+}
+.sitmap-full .h-title {
+  font-size: 45px;
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+  text-align: center;
+}
+
+.sitmap-menu {
+  margin-top: 100px;
+}
+.sitmap-menu > .row {
+  margin: 0 -45px;
+}
+.sitmap-menu > .row > div {
+  padding: 0 45px;
+}
+.sitmap-menu .title {
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--color-secondary);
+}
+.sitmap-menu .title .link {
+  width: 100%;
+  min-width: 195px;
+  color: var(--color-secondary);
+}
+.sitmap-menu .title .link:hover {
+  opacity: 0.8;
+}
+.sitmap-menu .subtitle {
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+  margin-bottom: 20px;
+}
+.sitmap-menu .subtitle .link {
+  color: var(--color-secondary);
+}
+.sitmap-menu .subtitle .link:hover {
+  opacity: 0.8;
+}
+.sitmap-menu .submenu + .submenu {
+  margin-top: 30px;
+}
+.sitmap-menu .list-group li {
+  width: 100%;
+}
+.sitmap-menu .list-group li:not(:last-child) {
+  margin-bottom: 15px;
+}
+.sitmap-menu .list-group .link {
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.4em;
+  color: #707070;
+}
+.sitmap-menu .list-group .link::before {
+  content: "\e5e1";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  font-family: "Material Symbols Rounded";
+  color: var(--color-secondary);
+}
+.sitmap-menu .list-group .link:hover {
+  color: var(--color-secondary);
+}
+.sitmap-menu .link {
+  display: block;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;

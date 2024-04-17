@@ -167,7 +167,7 @@
             </div>
           </div>
           <div class="col-md-auto" data-aos="fade-right">
-            <a href="" class="link sitemap">แผนผังเว็บไซต์</a>
+            <a href="javascript:void(0);" class="link sitemap">แผนผังเว็บไซต์</a>
           </div>
         </div>
       </div>
@@ -187,3 +187,152 @@
     </div>
   </div>
 </footer>
+
+<div class="sitmap-full show">
+  <div class="close">
+    <svg xmlns="http://www.w3.org/2000/svg" width="37.993" height="37.993" viewBox="0 0 37.993 37.993">
+      <g id="Group_882" data-name="Group 882" transform="translate(-11556.55 148.45)">
+        <line id="Line_9" data-name="Line 9" x2="28.093" y2="28.093" transform="translate(11561.5 -143.5)" fill="none" stroke="#229972" stroke-linecap="round" stroke-width="7" />
+        <line id="Line_10" data-name="Line 10" x1="28.093" y2="28.093" transform="translate(11561.5 -143.5)" fill="none" stroke="#229972" stroke-linecap="round" stroke-width="7" />
+      </g>
+    </svg>
+  </div>
+  <h1 class="h-title">แผนผังเว็บไซต์</h1>
+  <div class="sitmap-menu">
+    <div class="row">
+      <div class="col-auto">
+        <div class="title">
+          <a href="" class="link">หน้าหลัก</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="title">
+          <a href="" class="link">เกี่ยวกับหน่วยงาน</a>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <div class="submenu">
+              <div class="subtitle">
+                <a href="" class="link">เกี่ยวกับเรา</a>
+              </div>
+              <ul class="list-group">
+                <li class="item">
+                  <a href="" class="link">
+                    วิสัยทัศน์ & พันธกิจ &
+                    <br>
+                    ยุทธศาสตร์
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    ภารกิจ และหน้าที่รับ
+                    <br>
+                    ผิดชอบของหน่วยงาน
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    อัตราค่าบำรุงการ
+                    <br>
+                    ตรวจวิเคราะห์และให้บริการ
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    PDPA
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    Mobile Application
+                    <br>
+                    กรมวิทยาศาสตร์การแพทย์
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    แผนกลยุทธ์
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    ตราสัญลักษณ์
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="submenu">
+              <div class="subtitle">
+                <a href="" class="link">เว็บไซต์ส่วนกลางและส่วนภูมิภาค</a>
+              </div>
+              <ul class="list-group">
+                <li class="item">
+                  <a href="" class="link">
+                    ส่วนกลาง
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    ส่วนภูมิภาค
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="submenu">
+              <div class="subtitle">
+                <a href="" class="link">โครงสร้างองค์กร</a>
+              </div>
+              <ul class="list-group">
+                <li class="item">
+                  <a href="" class="link">
+                    โครงสร้างหน่วยงาน
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    ทำเนียบผู้บริการ
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    ทำเนียบผู้ทรงคุณวุฒิ
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="submenu">
+              <div class="subtitle">
+                <a href="" class="link">เอกสารเผยแพร่</a>
+              </div>
+              <ul class="list-group">
+                <li class="item">
+                  <a href="" class="link">
+                    แผนการปฏิบัติราชการและ
+                    <br>
+                    แผนการใช้จ่ายงบประมาณ
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    รายงานประจำปี
+                  </a>
+                </li>
+                <li class="item">
+                  <a href="" class="link">
+                    กฏหมาย ระเบียบ
+                    <br>
+                    และข้อบังคับที่เกี่ยวข้อง
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
