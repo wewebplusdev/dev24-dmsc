@@ -205,6 +205,12 @@
       .-read-more {
         margin-right: 40px;
       }
+      .-web-link {
+        margin-top: 50px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
   }
