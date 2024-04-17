@@ -6644,6 +6644,354 @@ div.swal2-html-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+.contact-map {
+  margin-bottom: 90px;
+}
+.contact-map .nav {
+  margin: 0 -12px;
+  padding-bottom: 40px;
+}
+.contact-map .nav li {
+  padding: 0 12px;
+}
+.contact-map .nav .link {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-default);
+  border-bottom: 3px solid transparent;
+  padding-bottom: 5px;
+}
+.contact-map .nav .link:hover {
+  color: var(--color-primary);
+}
+.contact-map .nav .link.active {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.contact-map .tab-content .iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 600px;
+}
+.contact-map .tab-content .iframe-container .iframe-responsive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.contact-map .tab-content .cover {
+  padding-top: 600px;
+}
+
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+.contact-section .contact-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  background-image: url("../img/static/bg-contact.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contact-center {
+  position: relative;
+  z-index: 1;
+  margin: 50px 0;
+}
+.contact-center .swiper {
+  padding-bottom: 50px;
+}
+.contact-center .swiper-pagination {
+  bottom: 0;
+}
+.contact-center .swiper-pagination .swiper-pagination-bullet {
+  opacity: 1;
+  margin: 0 7.5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--color-light);
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.contact-center .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+}
+.contact-center .whead {
+  margin: 0;
+  text-align: center;
+}
+.contact-center .whead .title {
+  font-size: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+  margin-bottom: 40px;
+}
+.contact-center .contact-card {
+  position: relative;
+  border: 1px solid var(--color-primary);
+}
+.contact-center .contact-card::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  background-image: url("../img/static/bg-cs.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  width: 170px;
+  height: 100%;
+}
+.contact-center .contact-card .head {
+  padding: 20px;
+  color: var(--color-light);
+  font-weight: bold;
+  background: -webkit-gradient(linear, left top, left bottom, from(#01377d), to(#2ab170));
+  background: linear-gradient(#01377d 0%, #2ab170 100%);
+}
+.contact-center .contact-card .body {
+  padding: 20px;
+  background-color: var(--color-light);
+}
+.contact-center .contact-card .body .desc {
+  line-height: 1.5em;
+}
+.contact-center .contact-card .body .action {
+  margin: 20px 0 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.contact-center .contact-card .body .action .text {
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-right: 10px;
+}
+.contact-center .contact-card .body .action .link {
+  display: block;
+  color: var(--color-primary);
+}
+
+.contact-service {
+  padding: 50px 0;
+}
+.contact-service .whead {
+  margin: 0;
+}
+.contact-service .whead .title {
+  width: 100%;
+  font-size: 36px;
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--color-primary);
+}
+.contact-service .contact-service-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.contact-service .contact-service-list .item {
+  min-height: 200px;
+  padding: 20px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 1.5em 100%, 0 calc(100% - 1.5em));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 1.5em 100%, 0 calc(100% - 1.5em));
+  background: -webkit-gradient(linear, left top, left bottom, from(#01377d), to(#2ab170));
+  background: linear-gradient(#01377d 0%, #2ab170 100%);
+}
+.contact-service .contact-service-list .item > .row {
+  position: relative;
+  padding-bottom: 10px;
+}
+.contact-service .contact-service-list .item > .row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--color-primary);
+  height: 2px;
+  width: 50px;
+}
+.contact-service .contact-service-list .item .icon {
+  position: relative;
+  margin-right: 10px;
+}
+.contact-service .contact-service-list .item .title {
+  font-weight: var(--fw-bold);
+  color: var(--color-light);
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.5em;
+  -webkit-line-clamp: 3;
+  max-height: 4.5em;
+}
+.contact-service .contact-service-list .item .tel {
+  font-size: 16px;
+  line-height: 1.5em;
+  color: var(--color-light);
+}
+.contact-service .contact-service-list .item .tel .link {
+  color: var(--color-light);
+}
+
+@media (max-width: 1440px) {
+  .contact-map {
+    margin-bottom: 80px;
+  }
+  .contact-map .nav {
+    padding-bottom: 30px;
+  }
+  .contact-map .nav .link {
+    font-size: 22px;
+  }
+  .contact-center .whead .title {
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+  .contact-service .whead .title {
+    font-size: 34px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+  }
+  .contact-service .contact-service-list {
+    gap: 30px;
+  }
+}
+@media (max-width: 1199px) {
+  .contact-map {
+    margin-bottom: 60px;
+  }
+  .contact-map .nav .link {
+    font-size: 20px;
+  }
+  .contact-map .tab-content .iframe-container,
+  .contact-map .tab-content .cover {
+    padding-top: 550px;
+  }
+  .contact-center {
+    margin: 30px 0;
+  }
+  .contact-center .whead .title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .contact-center .contact-card .head {
+    font-size: 18px;
+  }
+  .contact-center .contact-card .body {
+    padding: 15px;
+  }
+  .contact-center .contact-card .body .desc {
+    font-size: 16px;
+  }
+  .contact-center .contact-card .body .action .text {
+    font-size: 18px;
+  }
+  .contact-center .contact-card .body .action .link {
+    font-size: 16px;
+  }
+  .contact-center .swiper {
+    padding-bottom: 40px;
+  }
+  .contact-center .swiper-pagination .swiper-pagination-bullet {
+    width: 18px;
+    height: 18px;
+    margin: 0 5px;
+  }
+  .contact-service {
+    padding: 40px 0;
+  }
+  .contact-service .whead .title {
+    font-size: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  .contact-service .contact-service-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 991px) {
+  .contact-map {
+    margin-bottom: 30px;
+  }
+  .contact-map .nav {
+    margin: 0 -7.5px;
+    padding-bottom: 25px;
+  }
+  .contact-map .nav li {
+    padding: 0 7.5px;
+  }
+  .contact-map .nav .link {
+    font-size: 18px;
+  }
+  .contact-map .tab-content .iframe-container,
+  .contact-map .tab-content .cover {
+    padding-top: 450px;
+  }
+  .contact-center .contact-card .head {
+    padding: 15px;
+  }
+  .contact-center .whead .title {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .contact-service {
+    padding: 30px 0 0 0;
+  }
+  .contact-service .whead .title {
+    font-size: 28px;
+  }
+  .contact-service .contact-service-list .item .title {
+    font-size: 18px;
+  }
+  .contact-service .contact-service-list {
+    gap: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .contact-center .whead .title {
+    font-size: 26px;
+  }
+  .contact-center .swiper {
+    padding-bottom: 30px;
+  }
+  .contact-center .swiper-pagination .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    margin: 0 3px;
+  }
+  .contact-service .whead .title {
+    font-size: 26px;
+  }
+  .contact-service .contact-service-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .contact-service .contact-service-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;
