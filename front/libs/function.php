@@ -762,9 +762,9 @@ function DateFormatInsert($DateTime, $timeAgre = null)
     return $valReturn;
 }
 
-function page_redirect($table = '', $masterkey = '', $id = '', $language = '')
+function page_redirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
 {
-    return encodeStr($table) . "|" . encodeStr($masterkey) . "|" . encodeStr($id) . "|" . encodeStr($language);
+    return encodeStr($table) . "|" . encodeStr($masterkey) . "|" . encodeStr($id) . "|" . encodeStr($language) . "|" . encodeStr($download);
 }
 
 

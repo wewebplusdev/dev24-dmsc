@@ -20,6 +20,7 @@ async function loadRedirect(req, res) {
     const masterkey = req.body.masterkey;
     const language = req.body.language;
     const action = req.body.action;
+    const download = req.body.download;
     const result = general.checkParam([method, table, id, masterkey, language]);
     const code = config.returncode;
     // db tables
@@ -32,6 +33,7 @@ async function loadRedirect(req, res) {
     config_array_db['md_mnusgl'] = config.fieldDB.main.md_mnusgl
     config_array_db['md_mnu'] = config.fieldDB.main.md_mnu
     config_array_db['md_mnul'] = config.fieldDB.main.md_mnul
+    config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -49,6 +51,7 @@ async function loadRedirect(req, res) {
                     ,${config_array_db['md_cmsl']}_title as title 
                     ,${config_array_db['md_cmsl']}_typec as typec 
                     ,${config_array_db['md_cmsl']}_urlc as urlc 
+                    ,${config_array_db['md_cmsl']}_id as lid 
                     FROM ${config_array_db['md_cms']} 
                     INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                     WHERE ${config_array_db['md_cms']}_masterkey = '${masterkey}' 
@@ -65,15 +68,43 @@ async function loadRedirect(req, res) {
                             if (select_list[0].typec == 3) {
                                 arr_data.url = select_list[0].urlc;
                             }else{
-                                const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, select_list[0].typec, short_language);
-                                arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_list[0].gid}`;
+                                if (download < 1) {
+                                    const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, select_list[0].typec, short_language);
+                                    arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_list[0].gid}`;
+
+                                    let update = new Array;
+                                    update.push(`${config_array_db['md_cms']}_view = ${config_array_db['md_cms']}_view + 1`);
+                                    let sql_update = `UPDATE ${config_array_db['md_cms']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cms']}_id = '${id}' `;
+                                    await query(sql_update);
+                                }else{
+                                    // attachments
+                                    let sql_file = `SELECT 
+                                    ${config_array_db['md_cmf']}_id as id
+                                    ,${config_array_db['md_cmf']}_contantid as contantid
+                                    ,${config_array_db['md_cmf']}_filename as filename
+                                    ,${config_array_db['md_cmf']}_name as name 
+                                    ,${config_array_db['md_cmf']}_download as download 
+                                    FROM ${config_array_db['md_cmf']} 
+                                    WHERE ${config_array_db['md_cmf']}_contantid = '${select_list[0].lid}' 
+                                    AND ${config_array_db['md_cmf']}_id = '${download}' 
+                                    AND ${config_array_db['md_cmf']}_language = '${language}' 
+                                    `;
+                                    const select_file = await query(sql_file);
+                                    if (select_file.length > 0) {
+                                        let update = new Array;
+                                        update.push(`${config_array_db['md_cmf']}_download = ${config_array_db['md_cmf']}_download + 1`);
+                                        let sql_update = `UPDATE ${config_array_db['md_cmf']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cmf']}_id = '${select_file[0].id}' `;
+                                        await query(sql_update); 
+
+                                        const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, 'download', short_language);
+                                        arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_file[0].id}`;
+                                    }else{
+                                        arr_data.url = ``;
+                                    }
+                                }
                             }
+                            
                         }
-                        let update = new Array;
-                        update.push(`${config_array_db['md_cms']}_view = ${config_array_db['md_cms']}_view + 1`);
-                        let sql_update = `UPDATE ${config_array_db['md_cms']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cms']}_id = '${id}' `;
-                        console.log(sql_update);
-                        await query(sql_update);
                         
                         result.item = arr_data;
                     }
@@ -100,6 +131,7 @@ async function loadRedirect(req, res) {
                         if (action == 'link') {
                             arr_data.url = select_list[0].url;
                         }
+                        
                         let update = new Array;
                         update.push(`${config_array_db['md_mnug']}_view = ${config_array_db['md_mnug']}_view + 1`);
                         let sql_update = `UPDATE ${config_array_db['md_mnug']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_mnug']}_id = '${id}' `;

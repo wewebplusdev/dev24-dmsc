@@ -1,14 +1,14 @@
 <?php
-$menuActive = "listAll";
+$menuActive = "downloadAll";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$listAllPage = new listAllPage;
+$downloadAllPage = new downloadAllPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
     default:
         if (empty($masterkey)) {
-            $masterkey = 'nw';
+            $masterkey = 'lar';
             header('location:' . $linklang . "/" . $menuActive . "/" . $masterkey);
         }
         $smarty->assign("masterkey", $masterkey);
@@ -26,25 +26,24 @@ switch ($url->segment[0]) {
 
         $limit = 12;
         $data_group = [
-            "action" => $listAllPage->method_masterkey[$masterkey]['action'],
-            "method" => $listAllPage->method_masterkey[$masterkey]['loadGroup'],
-            "language" => $listAllPage->language,
+            "action" => $downloadAllPage->method_masterkey[$masterkey]['action'],
+            "method" => $downloadAllPage->method_masterkey[$masterkey]['loadGroup'],
+            "language" => $downloadAllPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
         ];
-        
+
         // call group
-        print_pre($data_group);
-        $load_group = $listAllPage->load_data($data_group);
+        $load_group = $downloadAllPage->load_data($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
 
         $data = [
-            "action" => $listAllPage->method_masterkey[$masterkey]['action'],
-            "method" => $listAllPage->method_masterkey[$masterkey][$menuActive],
-            "language" => $listAllPage->language,
+            "action" => $downloadAllPage->method_masterkey[$masterkey]['action'],
+            "method" => $downloadAllPage->method_masterkey[$masterkey][$menuActive],
+            "language" => $downloadAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -53,15 +52,14 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $listAllPage->load_data($data);
+        $load_data = $downloadAllPage->load_data($data);
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
         $language_modules = array();
-        if ($masterkey == 'nw') {
-            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
+        if ($masterkey == 'lar') {
+            $language_modules['breadcrumb2'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
         }
         $smarty->assign("language_modules", $language_modules);
        
@@ -70,7 +68,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $listAllPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $downloadAllPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/

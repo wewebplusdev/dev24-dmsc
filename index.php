@@ -136,6 +136,6 @@ if (!empty($settingPage)) {
     $smarty->display($settingPage['display'] . ".tpl");
 }
 
-$db->Close();
+// $db->Close();
 
 #==============================================================##

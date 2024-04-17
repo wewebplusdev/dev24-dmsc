@@ -308,11 +308,10 @@
                             <div class="swiper-wrapper">
                                 {foreach $load_data->item[0]->attachment as $keyattachment => $valueattachment}
                                     {$fileinfo = $valueattachment->filename|fileinclude:'file':{$load_data->item[0]->masterkey}|get_Icon}
-                                    {assign var="download_url" value="{$ul}/pageredirect/{$load_data->item[0]->tb|page_redirect:$load_data->item[0]->masterkey:$load_data->item[0]->id:$load_data->item[0]->language:$valueattachment->id}"}
                                     <div class="swiper-slide">
                                         <div class="item">
                                             <div class="item-wrapper">
-                                              <a href="{$download_url}" target="_blank" class="link">
+                                              <a href="" class="link">
                                                   <div class="row gutters-20 aling-items-start">
                                                       <div class="col-auto">
                                                           <span class="icon">

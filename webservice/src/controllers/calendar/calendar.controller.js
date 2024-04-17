@@ -401,6 +401,7 @@ async function getCalendarDetail(req, res) {
                     ,${config_array_db['md_cms']}_stime as stime 
                     ,${config_array_db['md_cms']}_etime as etime 
                     ,${config_array_db['md_cms']}_view as view 
+                    ,${config_array_db['md_cms']}_crebyid as crebyid 
                     FROM ${config_array_db['md_cms']} 
                     INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                     INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
@@ -412,13 +413,6 @@ async function getCalendarDetail(req, res) {
                     AND ${config_array_db['md_cmgl']}_subject != '' 
                     AND ${config_array_db['md_cmsl']}_language = '${language}' 
                     AND ${config_array_db['md_cmsl']}_subject != '' 
-                    AND 
-                    (
-                        (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND ${config_array_db['md_cms']}_edate ='0000-00-00 00:00:00') OR
-                        (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR
-                        (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND ${config_array_db['md_cms']}_edate = '0000-00-00 00:00:00') OR
-                        (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW()))
-                    )
                 ) as t`;
             const select = await query(sql_list);
             if (select.length > 0) {
@@ -551,6 +545,10 @@ async function getCalendarDetail(req, res) {
                         arr_data[i].metakeywords = select[i].keywords;
                         arr_data[i].metatitle = select[i].metatitle;
                     }
+
+                    // creby
+                    arr_data[i].creby = await modulus.getProfileAdmin(language, select[i].crebyid);
+
                     arr_data[i].next_id = select[i].next_id ? select[i].next_id : 0;
                     arr_data[i].previous_id = select[i].previous_id ? select[i].previous_id : 0;
                 }

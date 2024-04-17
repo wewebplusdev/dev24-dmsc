@@ -32,23 +32,25 @@ switch ($url->segment[0]) {
             header('location:'.$linklang . "/home");
         }
 
-        // content other
-        $limit = 12;
-        $data = [
-            "action" => $detailAllPage->method_masterkey[$masterkey]['action'],
-            "method" => $detailAllPage->method_masterkey[$masterkey]['listAll'],
-            "language" => $detailAllPage->language,
-            "order" => 'desc',
-            "page" => 1,
-            "limit" => $limit,
-            "gid" => $load_data->item[0]->gid,
-        ];
-        
-        $load_data_other = $detailAllPage->load_data($data);
-        if ($load_data_other->code == 1001) {
-            $key_list = array_search($load_data->item[0]->id, array_column($load_data_other->item, 'id'));
-            unset($load_data_other->item[$key_list]);
-            $smarty->assign("load_data_other", $load_data_other);
+        if ($masterkey != 'lar') {
+            // content other
+            $limit = 12;
+            $data = [
+                "action" => $detailAllPage->method_masterkey[$masterkey]['action'],
+                "method" => $detailAllPage->method_masterkey[$masterkey]['listAll'],
+                "language" => $detailAllPage->language,
+                "order" => 'desc',
+                "page" => 1,
+                "limit" => $limit,
+                "gid" => $load_data->item[0]->gid,
+            ];
+            
+            $load_data_other = $detailAllPage->load_data($data);
+            if ($load_data_other->code == 1001) {
+                $key_list = array_search($load_data->item[0]->id, array_column($load_data_other->item, 'id'));
+                unset($load_data_other->item[$key_list]);
+                $smarty->assign("load_data_other", $load_data_other);
+            }
         }
 
         // setup seo and text modules
@@ -61,6 +63,11 @@ switch ($url->segment[0]) {
         }else if($masterkey == 'cal'){
             $language_modules['breadcrumb1'] = $languageFrontWeb->eventcalendar->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->eventcalendar->display->$currentLangWeb;
+            $language_modules['metatitle'] = $load_data->item[0]->subject;
+            $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
+        }else if($masterkey == 'lar'){
+            $language_modules['breadcrumb1'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
             $language_modules['metatitle'] = $load_data->item[0]->subject;
             $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         }

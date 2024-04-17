@@ -133,3 +133,38 @@ exports.getTextReplace = async function (data) {
 exports.getClientIP = function(req){
     return req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(":").pop();
 }
+
+exports.getProfileAdmin = async function (language, crebyid) {
+    let conn = config.configDB.connectDB();
+    const query = util.promisify(conn.query).bind(conn);
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['sy_stf'] = config.fieldDB.main.sy_stf
+
+    try {
+        let sql_stff = `SELECT 
+        ${config_array_db['sy_stf']}_id as id 
+        ,${config_array_db['sy_stf']}_fnamethai as fnamethai 
+        ,${config_array_db['sy_stf']}_lnamethai as lnamethai 
+        ,${config_array_db['sy_stf']}_fnameeng as fnameeng 
+        ,${config_array_db['sy_stf']}_lnameeng as lnameeng 
+        FROM ${config_array_db['sy_stf']} 
+        WHERE ${config_array_db['sy_stf']}_status != 'Disable' 
+        AND ${config_array_db['sy_stf']}_id = '${crebyid}' 
+        `;
+        const select_stff = await query(sql_stff);
+        conn.destroy();
+        if (select_stff.length > 0) {
+            if (language == 'Thai') {
+                return `${select_stff[0].fnamethai} ${select_stff[0].lnamethai}`;
+            }else{
+                return `${select_stff[0].fnameeng} ${select_stff[0].lnameeng}`;
+            }
+        } else {
+            return '';
+        }
+    } catch (error) {
+        conn.destroy();
+        return '-';
+    }
+}

@@ -14,7 +14,7 @@ class listAllPage extends controller
             return false;
         }
         
-        $url = $this->URL_API . "/news";
+        $url = $this->URL_API . "/" . $data['action'];
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,

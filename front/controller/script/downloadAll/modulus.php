@@ -1,6 +1,6 @@
 <?php
 
-class pageredirectage extends controller
+class downloadAllPage extends controller
 {
     public function __construct()
     {
@@ -8,26 +8,18 @@ class pageredirectage extends controller
         parent::__construct();
     }
 
-    public function load_url_redirect($req)
+    public function load_data($data)
     {
         if (empty($this->token_access)) {
             return false;
         }
         
-        $url = $this->URL_API . "/api";
+        $url = $this->URL_API . "/" . $data['action'];
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->token_access,
         ];
-        $data = [
-            "method" => "loadRedirect",
-            "table" => $req['table'],
-            "masterkey" => $req['masterkey'],
-            "id" => $req['id'],
-            "language" => $req['language'],
-            "action" => $req['action'],
-            "download" => $req['download'],
-        ];
+        
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
     }

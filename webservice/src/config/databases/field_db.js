@@ -31,6 +31,7 @@ const main = {
     "md_mnusgl": "md_mnusgl",
     "md_ag": "md_ag",
     "md_agl": "md_agl",
+    "sy_stf": "sy_stf",
 }
 
 //Masterkey
@@ -69,8 +70,9 @@ const masterkey = {
 const url_page = {
     "nw": {
         "1": "detailAll",
-        "2": "downloadAll",
+        "2": "download",
         "group": "listAll",
+        "download": "download",
     },
     "nwa": {
         "1": "detailAll",
@@ -79,8 +81,9 @@ const url_page = {
     },
     "lar": {
         "1": "detailAll",
-        "2": "downloadAll",
+        "2": "download",
         "group": "listAll",
+        "download": "download",
     },
     "km": {
         "1": "detailAll",

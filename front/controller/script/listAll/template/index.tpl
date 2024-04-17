@@ -48,71 +48,15 @@
   <div class="default-body">
     <div class="default-filter">
       <div class="container">
-        {* <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default">
-          <div class="row gutters-20 align-items-end">
-            <div class="col-md">
-              <div class="form-group form-search">
-                <label class="control-label visually-hidden"
-                  for=""></label>
-                <div class="block-control">
-                  <input class="form-control" type="search" name="keyword"
-                    id="keyword" value="{$req.keyword}"
-                    placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
-                  <div class="search">
-                    <a href="" class="link">
-                      <span class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="33.621"
-                          height="33.621" viewBox="0 0 33.621 33.621">
-                          <g id="Icon_feather-search"
-                            data-name="Icon feather-search"
-                            transform="translate(1.5 1.5)">
-                            <path id="Path_41" data-name="Path 41"
-                              d="M31.167,17.833A13.333,13.333,0,1,1,17.833,4.5,13.333,13.333,0,0,1,31.167,17.833Z"
-                              transform="translate(-4.5 -4.5)" fill="none"
-                              stroke="#29b171" stroke-linecap="round"
-                              stroke-linejoin="round" stroke-width="3" />
-                            <path id="Path_42" data-name="Path 42"
-                              d="M32.225,32.225l-7.25-7.25"
-                              transform="translate(-2.225 -2.225)" fill="none"
-                              stroke="#29b171" stroke-linecap="round"
-                              stroke-linejoin="round" stroke-width="3" />
-                          </g>
-                        </svg>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-auto">
-              <div class="form-group form-select mb-0">
-                <label class="control-label"
-                  for="sort">{$languageFrontWeb->sort->display->$currentLangWeb}
-                  :</label>
-                <div class="select-wrapper">
-                  <select class="select-filter" name="sort" id="sort"
-                    style="width: 100%;" onchange="submit();">
-                    <option value="1" {if $req.sort == '1'} selected {/if}>
-                      {$languageFrontWeb->sort_desc->display->$currentLangWeb}
-                    </option>
-                    <option value="2" {if $req.sort == '2'} selected {/if}>
-                      {$languageFrontWeb->sort_asc->display->$currentLangWeb}
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form> *}
-        <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default">
+        <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default" id="filter-form">
           <div class="head">
             <div class="row">
               <div class="col-md-auto mb-md-0 mb-2">
                 <div class="form-group form-select -select-group mb-0">
-                  <label class="control-label visually-hidden" for="gid">เลือกกลุ่มข่าวประชาสัมพันธ์</label>
+                  <label class="control-label visually-hidden" for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                   <div class="select-wrapper">
                     <select class="select-filter" name="gid" id="gid" style="width: 100%;" onchange="submit();">
-                      <option value="">เลือกกลุ่มข่าวประชาสัมพันธ์</option>
+                      <option value="">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</option>
                       {foreach $load_group->item as $keyload_group => $valueload_group}
                         <option value="{$valueload_group->id}" {if $req.gid eq $valueload_group->id}selected{/if}>{$valueload_group->subject}</option>
                       {/foreach}
@@ -123,13 +67,13 @@
               <div class="col-md">
                 <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden"
-                    for="">ค้นหา</label>
+                    for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
                     <input class="form-control" type="search" name="keyword"
                       id="keyword" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
-                      <a href="" class="link">
+                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="33.621"
                             height="33.621" viewBox="0 0 33.621 33.621">
@@ -219,8 +163,12 @@
             {foreach $load_data->item as $keyload_data => $valueload_data}
               {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
               {assign var="target" value="_self"}
+              {assign var="downloadID" value=""}
+              {if $valueload_data->typec eq 2}
+                {$downloadID = $valueload_data->attachment[0]->id}
+              {/if}
               {if $checkUrl}
-                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language}"}
+                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
                 {$target = $valueload_data->target}
               {else}
                 {assign var="news_url" value="javascript:void(0);"}
