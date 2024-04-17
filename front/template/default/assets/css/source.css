@@ -742,6 +742,7 @@ figure.ratio .img-ratio.ratio-9x16 {
 }
 
 .editor-content {
+  margin-top: 100px;
   font-size: var(--typo-default);
   color: var(--color-dark);
   line-height: 1.5em;
@@ -756,6 +757,25 @@ figure.ratio .img-ratio.ratio-9x16 {
   height: auto !important;
 }
 
+@media (max-width: 1440px) {
+  .editor-content {
+    margin: 50px 0 30px 0;
+  }
+}
+@media (max-width: 1199px) {
+  .editor-content p {
+    font-size: 18px;
+  }
+}
+@media (max-width: 991px) {
+  .editor-content {
+    margin: 30px 0 20px 0;
+  }
+  .editor-content p {
+    margin-bottom: 13px;
+    font-size: 16px;
+  }
+}
 .form-default .form-group {
   position: relative;
   margin-bottom: 20px;
