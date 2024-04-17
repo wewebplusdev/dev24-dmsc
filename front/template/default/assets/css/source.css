@@ -6883,7 +6883,7 @@ div.swal2-html-container {
   padding: 15px 25px;
   border-color: #BABABA;
 }
-.form-contact .form-group .form-textarea {
+.form-contact .form-group .form-control.form-textarea {
   height: 190px;
 }
 .form-contact .form-head {
@@ -6952,6 +6952,81 @@ div.swal2-html-container {
   color: var(--color-light);
 }
 
+.layout-form-progress {
+  margin-bottom: 60px;
+}
+.layout-form-progress .whead {
+  margin: 0;
+  text-align: center;
+}
+.layout-form-progress .whead .title {
+  width: 100%;
+  font-size: 36px;
+  font-weight: var(--fw-bold);
+  line-height: 1.5em;
+  color: var(--color-secondary);
+  margin-bottom: 40px;
+}
+.layout-form-progress .form-progress-step {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: auto;
+}
+.layout-form-progress .form-progress-step .nav {
+  margin: 0 -60px;
+}
+.layout-form-progress .form-progress-step .nav .item {
+  width: 33.3333333333%;
+  padding: 0 60px;
+}
+.layout-form-progress .form-progress-step .nav .item.active .circle {
+  background: -webkit-gradient(linear, right top, left top, from(#01377d), to(#2ab170));
+  background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+  border: none;
+}
+.layout-form-progress .form-progress-step .nav .item.active .circle .icon path {
+  fill: var(--color-light);
+}
+.layout-form-progress .form-progress-step .nav .item .circle {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-light);
+  border-radius: 50%;
+  border: 2px solid #C9C9C9;
+}
+.layout-form-progress .form-progress-step .nav .item .text-step {
+  text-transform: uppercase;
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: var(--fw-medium);
+  color: var(--color-dark);
+  text-align: center;
+}
+.layout-form-progress .form-progress-step .progress-line {
+  position: absolute;
+  width: calc(100% - 140px);
+  height: 2px;
+  background-color: #C9C9C9;
+  top: calc(50% - 20px);
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin-bottom: 22px;
+  z-index: -1;
+}
+
 @media (max-width: 1440px) {
   .contact-map {
     margin-bottom: 80px;
@@ -6988,6 +7063,9 @@ div.swal2-html-container {
   }
   .layout-service-info .info-card-full {
     padding: 20px 40px;
+  }
+  .layout-form-progress .whead .title {
+    font-size: 34px;
   }
 }
 @media (max-width: 1199px) {
@@ -7073,6 +7151,16 @@ div.swal2-html-container {
   }
   .layout-service-info .info-card-full {
     padding: 20px 30px;
+  }
+  .layout-form-progress {
+    margin-bottom: 50px;
+  }
+  .layout-form-progress .whead .title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .layout-form-progress .form-progress-step .nav .item .text-step {
+    font-size: 20px;
   }
 }
 @media (max-width: 991px) {
@@ -7161,6 +7249,25 @@ div.swal2-html-container {
   .layout-service-info .info-card-full .title {
     font-size: 18px;
   }
+  .layout-form-progress {
+    margin-bottom: 30px;
+  }
+  .layout-form-progress .form-progress-step .nav {
+    margin: 0 -30px;
+  }
+  .layout-form-progress .form-progress-step .nav .item {
+    padding: 0 30px;
+  }
+  .layout-form-progress .whead .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .layout-form-progress .form-progress-step .nav .item .text-step {
+    font-size: 18px;
+  }
+  .layout-form-progress .form-progress-step .progress-line {
+    width: calc(100% - 80px);
+  }
 }
 @media (max-width: 767px) {
   .contact-center .whead .title {
@@ -7206,10 +7313,32 @@ div.swal2-html-container {
     font-size: 16px;
     line-height: 1.4em;
   }
+  .layout-form-progress .whead .title {
+    font-size: 26px;
+  }
+  .layout-form-progress .form-progress-step .nav .item .text-step {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .layout-form-progress .form-progress-step .progress-line {
+    top: calc(50% - 10px);
+  }
 }
 @media (max-width: 575px) {
   .contact-service .contact-service-list {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .layout-form-progress .whead .title {
+    font-size: 24px;
+  }
+  .layout-form-progress .whead .title br {
+    display: none;
+  }
+  .layout-form-progress .form-progress-step .nav {
+    margin: 0 -15px;
+  }
+  .layout-form-progress .form-progress-step .nav .item {
+    padding: 0 15px;
   }
 }
 @media (min-width: 1200px) {
