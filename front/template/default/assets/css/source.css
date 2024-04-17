@@ -6853,6 +6853,105 @@ div.swal2-html-container {
   color: var(--color-light);
 }
 
+.layout-form {
+  -webkit-filter: drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.1));
+          filter: drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.1));
+}
+
+.form-contact {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+  background-image: url("../img/static/bg-form-contact.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+.form-contact .form-group {
+  margin-bottom: 30px;
+}
+.form-contact .form-group .control-label {
+  font-size: 20px;
+  color: var(--color-secondary);
+  margin-bottom: 10px;
+}
+.form-contact .form-group .control-label span {
+  color: red;
+  margin-left: 5px;
+}
+.form-contact .form-group .form-control {
+  font-size: 16px;
+  height: 60px;
+  padding: 15px 25px;
+  border-color: #BABABA;
+}
+.form-contact .form-group .form-textarea {
+  height: 190px;
+}
+.form-contact .form-head {
+  padding: 20px 60px;
+  background: -webkit-gradient(linear, right top, left top, from(#01377d), to(#2ab170));
+  background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+}
+.form-contact .form-head .icon {
+  margin-right: 10px;
+}
+.form-contact .form-head .title {
+  font-size: 30px;
+  font-weight: var(--fw-bold);
+  color: var(--color-light);
+}
+.form-contact .form-body {
+  padding: 60px;
+}
+.form-contact .action {
+  margin-top: 10px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(41, 177, 114, 0.1921568627);
+  text-align: center;
+}
+.form-contact .action .btn-cancel {
+  color: var(--color-light);
+  background: #999999;
+}
+.form-contact .action .btn-cancel::before {
+  display: none;
+}
+.form-contact .action .btn {
+  font-weight: var(--fw-bold);
+}
+.form-contact .action .btn + .btn {
+  margin-left: 40px;
+}
+
+.layout-service-info {
+  margin-top: 60px;
+}
+.layout-service-info .whead {
+  margin: 0;
+}
+.layout-service-info .whead .title {
+  width: 100%;
+  font-size: 30px;
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--color-primary);
+}
+.layout-service-info .info-card-full {
+  padding: 20px 50px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+  background: -webkit-gradient(linear, right top, left top, from(#01377d), to(#2ab170));
+  background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+}
+.layout-service-info .info-card-full .icon {
+  margin-right: 15px;
+}
+.layout-service-info .info-card-full .title {
+  font-weight: var(--fw-bold);
+  color: var(--color-light);
+}
+
 @media (max-width: 1440px) {
   .contact-map {
     margin-bottom: 80px;
@@ -6874,6 +6973,21 @@ div.swal2-html-container {
   }
   .contact-service .contact-service-list {
     gap: 30px;
+  }
+  .form-contact .form-head {
+    padding: 20px 50px;
+  }
+  .form-contact .form-head .title {
+    font-size: 28px;
+  }
+  .form-contact .form-body {
+    padding: 50px;
+  }
+  .layout-service-info .whead .title {
+    font-size: 28px;
+  }
+  .layout-service-info .info-card-full {
+    padding: 20px 40px;
   }
 }
 @media (max-width: 1199px) {
@@ -6929,6 +7043,37 @@ div.swal2-html-container {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
+  .form-contact .form-head {
+    padding: 20px 40px;
+  }
+  .form-contact .form-head .title {
+    font-size: 26px;
+  }
+  .form-contact .form-body {
+    padding: 40px;
+  }
+  .form-contact .form-body .gutters-40 {
+    margin: 0 -15px;
+  }
+  .form-contact .form-body .gutters-40 > div {
+    padding: 0 15px;
+  }
+  .form-contact .action {
+    padding-top: 30px;
+  }
+  .form-contact .action .btn + .btn {
+    margin-left: 30px;
+  }
+  .layout-service-info {
+    margin-top: 50px;
+  }
+  .layout-service-info .whead .title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .layout-service-info .info-card-full {
+    padding: 20px 30px;
+  }
 }
 @media (max-width: 991px) {
   .contact-map {
@@ -6967,6 +7112,55 @@ div.swal2-html-container {
   .contact-service .contact-service-list {
     gap: 15px;
   }
+  .form-contact .form-group {
+    margin-bottom: 20px;
+  }
+  .form-contact .form-group .control-label {
+    font-size: 16px;
+  }
+  .form-contact .form-group .form-control {
+    padding: 15px;
+    height: 55px;
+  }
+  .form-contact .form-head {
+    padding: 15px 20px;
+  }
+  .form-contact .form-head .icon svg {
+    width: 30px;
+  }
+  .form-contact .form-head .title {
+    font-size: 22px;
+  }
+  .form-contact .form-body {
+    padding: 30px 20px;
+  }
+  .form-contact .form-body .gutters-40 {
+    margin: 0 -7.5px;
+  }
+  .form-contact .form-body .gutters-40 > div {
+    padding: 0 7.5px;
+  }
+  .form-contact .action {
+    padding-top: 30px;
+  }
+  .form-contact .action .btn + .btn {
+    margin-left: 13px;
+  }
+  .layout-service-info {
+    margin-top: 30px;
+  }
+  .layout-service-info .whead .title {
+    font-size: 22px;
+  }
+  .layout-service-info .info-card-full {
+    padding: 15px 20px;
+  }
+  .layout-service-info .info-card-full .icon svg {
+    width: 30px;
+  }
+  .layout-service-info .info-card-full .title {
+    font-size: 18px;
+  }
 }
 @media (max-width: 767px) {
   .contact-center .whead .title {
@@ -6986,8 +7180,34 @@ div.swal2-html-container {
   .contact-service .contact-service-list {
     grid-template-columns: repeat(2, 1fr);
   }
+  .form-contact .form-group {
+    margin-bottom: 15px;
+  }
+  .form-contact .form-group .control-label {
+    margin-bottom: 7px;
+  }
+  .form-contact .form-group .form-control {
+    height: 50px;
+    padding: 15px 10px;
+  }
+  .form-contact .form-head {
+    padding: 15px;
+  }
+  .form-contact .form-head .icon svg {
+    width: 26px;
+  }
+  .form-contact .form-head .title {
+    font-size: 20px;
+  }
+  .form-contact .form-body {
+    padding: 20px 15px;
+  }
+  .layout-service-info .info-card-full .title {
+    font-size: 16px;
+    line-height: 1.4em;
+  }
 }
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   .contact-service .contact-service-list {
     grid-template-columns: repeat(1, 1fr);
   }
