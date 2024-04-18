@@ -13,7 +13,7 @@ jobs:
 
       - name: Test Script
         run: |
-          rm -rf /home/website/*
+          sudo rm -rf /home/website/*
 
 
       # - name: Pull repository
