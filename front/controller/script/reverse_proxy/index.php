@@ -27,6 +27,19 @@ switch ($resultData['case']) {
 
         break;
 
+    case 'dynamic':
+        $data = array();
+        foreach ($resultData as $key => $value) {
+            if ($key == 'case' || $key == 'controller') {
+                continue;
+            }
+            $data[$key] = $value;
+        }
+        $data['language'] = $reverse_proxy->language;
+        $load_fetch_api = $reverse_proxy->load_fetch_api($data, $resultData['controller']);
+
+        break;
+
     default:
         $data = [
             "method" => $resultData['method'],

@@ -1,14 +1,45 @@
 <?php
 $menuActive = "department-services";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
-
 $servicePage = new servicePage;
+$limit = 12;
 
 $masterkey = $url->segment[1];
-switch ($url->segment[0]) {
+switch ($url->segment[2]) {
+    case 'pagination':
+        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/pagination.js"></script>';
+
+        $jsonData = file_get_contents('php://input');
+        $resultData = json_decode($jsonData, true);
+
+        $resultData['action'] = $servicePage->method_masterkey[$masterkey]['action'];
+        $resultData['language'] = $servicePage->language;
+
+        // call list
+        $load_data = $servicePage->load_data($resultData);
+        $smarty->assign("load_data", $load_data);
+
+        /*## Set up pagination #####*/
+        $page['page'] = str_replace("/pagination", "", $page['page']);
+        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
+        $pagination['limit'] = $limit;
+        $pagination['curent'] = $page['on'];
+        $pagination['method'] = $page;
+        $smarty->assign("pagination",$pagination);
+        /*## Set up pagination #####*/
+
+        $settingPage = array(
+            "page" => $menuActive,
+            "template" => "pagination.tpl",
+            "display" => "page-single"
+        );
+        break;
+
     default:
+        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js"></script>';
         if (empty($masterkey)) {
-            $masterkey = 'nw';
+            $masterkey = 'sv';
             header('location:' . $linklang . "/" . $menuActive . "/" . $masterkey);
         }
         $smarty->assign("masterkey", $masterkey);
@@ -24,14 +55,13 @@ switch ($url->segment[0]) {
         }
         $smarty->assign("req", $req);
 
-        $limit = 12;
         $data_group = [
             "action" => $servicePage->method_masterkey[$masterkey]['action'],
             "method" => $servicePage->method_masterkey[$masterkey]['loadGroup'],
             "language" => $servicePage->language,
             "order" => 'desc',
             "page" => $page['on'],
-            "limit" => $limit,
+            "limit" => 100,
         ];
         
         // call group
@@ -48,37 +78,24 @@ switch ($url->segment[0]) {
             "page" => $page['on'],
             "limit" => $limit,
             "keyword" => $req['keyword'],
-            "gid" => $req['gid'],
+            "tid" => [],
         ];
+        $smarty->assign("dataOption",$data);
+        // print_pre($data);
+        // die;
 
         // call list
         $load_data = $servicePage->load_data($data);
-        // print_pre($data);
         // print_pre($load_data);
+        // die;
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
         $language_modules = array();
-        if ($masterkey == 'nw') {
+        if ($masterkey == 'sv') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
-        }else if($masterkey == 'nwa'){
-            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
-        }else if($masterkey == 'km'){
-            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
-        }else if($masterkey == 'god'){
-            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
-        }else if($masterkey == 'nwp'){
-            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
         }
         $smarty->assign("language_modules", $language_modules);
        

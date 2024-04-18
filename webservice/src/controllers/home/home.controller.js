@@ -621,6 +621,7 @@ async function getService(req, res) {
                 ,${config_array_db['md_cmsl']}_picType as picType 
                 ,${config_array_db['md_cmsl']}_picDefault as picDefault 
                 ,${config_array_db['md_cmsl']}_pic as pic 
+                ,${config_array_db['md_cmsl']}_pic2 as pic2 
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
                 ,${config_array_db['md_cmsl']}_target as target 
                 ,${config_array_db['md_cms']}_tid as tid 
@@ -718,9 +719,15 @@ async function getService(req, res) {
                                 arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                                 arr_data[i].target = `_self`;
                             }
+                            
                             if (select[i].picType == 1) {
                                 let defaultPic = default_pic[select[i].picDefault];
                                 arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
+                                    'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
+                                    'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
+                                }
+                                arr_data[i].pic2 = {
                                     'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
                                     'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
                                     'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
@@ -730,6 +737,11 @@ async function getService(req, res) {
                                     'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                                     'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                     'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                }
+                                arr_data[i].pic2 = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic2),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic2),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic2),
                                 }
                             }
                             arr_data[i].createDate = {

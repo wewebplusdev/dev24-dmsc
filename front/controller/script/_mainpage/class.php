@@ -83,6 +83,11 @@ abstract class controller
                 'rssGroup' => 'getNewsPeopleGroup',
                 'rss' => 'getNewsPeople',
             ),
+            'sv' => array(
+                'action' => 'service',
+                'department-services' => 'getService',
+                'loadGroup' => 'getServiceGroup',
+            ),
         );
 
 

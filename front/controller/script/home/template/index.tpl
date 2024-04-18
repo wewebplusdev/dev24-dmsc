@@ -108,8 +108,8 @@
                                                                 <figure class="contain">
                                                                     <img src="{$valueload_services_list->pic->pictures}"
                                                                         alt="{$valueload_services_list->pic->pictures}" class="thumb-img lazy">
-                                                                    <img src="{$valueload_services_list->pic->pictures}"
-                                                                        alt="{$valueload_services_list->pic->pictures}" class="thumb-hover lazy">
+                                                                    <img src="{$valueload_services_list->pic2->pictures}"
+                                                                        alt="{$valueload_services_list->pic2->pictures}" class="thumb-hover lazy">
                                                                 </figure>
                                                             </div>
                                                             <h5 class="title">{$valueload_services_list->subject}</h5>
