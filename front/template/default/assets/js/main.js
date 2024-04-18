@@ -96,10 +96,10 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     if ($(window).scrollTop() > layoutHeader && windowWidth > 992) {
-      $(".layout-header").addClass("tiny");
+      $(".layout-header:not(.layout-header-fullmap)").addClass("tiny");
       // $('.layout-header').css('transform', 'translateY(' + topBar + ')');
     } else {
-      $(".layout-header").removeClass("tiny");
+      $(".layout-header:not(.layout-header-fullmap)").removeClass("tiny");
     }
   });
 
