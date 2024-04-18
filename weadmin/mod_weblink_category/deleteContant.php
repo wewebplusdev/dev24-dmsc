@@ -12,7 +12,7 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
    if (strlen($myVar) >= 1) {
       $permissionID = $myVar;
 
-      $sql = "SELECT  " . $mod_tb_root_lang . "_htmlfilename," . $mod_tb_root_lang . "_pic," . $mod_tb_root_lang . "_filevdo," . $mod_tb_root_lang . "_id FROM " . $mod_tb_root_lang . " WHERE  " . $mod_tb_root_lang . "_cid='" . $permissionID . "' ";
+      $sql = "SELECT  " . $mod_tb_root_lang . "_htmlfilename," . $mod_tb_root_lang . "_pic," . $mod_tb_root_lang . "_filevdo," . $mod_tb_root_lang . "_id," . $mod_tb_root_lang . "_pic2 as pic2 FROM " . $mod_tb_root_lang . " WHERE  " . $mod_tb_root_lang . "_cid='" . $permissionID . "' ";
       $Query = wewebQueryDB($coreLanguageSQL, $sql);
       $NumRows = wewebNumRowsDB($coreLanguageSQL, $Query);
       if ($NumRows > 0) {
@@ -21,6 +21,7 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
             $deletepic = $Row[1];
             $deletevideo = $Row[2];
             $valid = $Row[3];
+            $deletepic2 = $Row['pic2'];
             ######################## Delete  In Folder HTML ###############################
             if (file_exists($mod_path_html . "/" . $deletepichtml)) {
                @unlink($mod_path_html . "/" . $deletepichtml);
@@ -44,6 +45,16 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
             ######################### Delete  In Folder Video ###############################
             if (file_exists($mod_path_vdo . "/" . $deletevideo)) {
                @unlink($mod_path_vdo . "/" . $deletevideo);
+            }
+            ######################### Delete  In Folder Pic2 ###############################
+            if (file_exists($mod_path_pictures . "/" . $deletepic2)) {
+               @unlink($mod_path_pictures . "/" . $deletepic2);
+            }
+            if (file_exists($mod_path_office . "/" . $deletepic2)) {
+               @unlink($mod_path_office . "/" . $deletepic2);
+            }
+            if (file_exists($mod_path_real . "/" . $deletepic2)) {
+               @unlink($mod_path_real . "/" . $deletepic2);
             }
 
             ######################### Delete  In Folder File ###############################

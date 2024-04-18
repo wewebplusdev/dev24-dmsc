@@ -357,6 +357,21 @@ foreach ($listAuthen as $key => $value) {
                   </div>
                </td>
             </tr>
+            <tr class="PicUpload" style="display: none;">
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album_hover"] ?></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="file-input-wrapper">
+                     <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                     <input type="file" name="fileToUpload2" id="fileToUpload2" onchange="ajaxFileUpload2();" />
+                  </div>
+
+                  <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
+                  <div class="clearAll"></div>
+                  <div id="boxPicNew2" class="formFontTileTxt">
+                     <input type="hidden" name="picname2" id="picname2" />
+                  </div>
+               </td>
+            </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeLink">
@@ -632,6 +647,48 @@ foreach ($listAuthen as $key => $value) {
                   } else {
                      jQuery("#boxPicNew").show();
                      jQuery("#boxPicNew").html(data.msg);
+                     setTimeout(jQuery.unblockUI, 200);
+                  }
+               }
+            },
+            error: function(data, status, e) {
+               alert(e);
+            }
+         })
+         return false;
+
+      }
+      /*################################# Upload Pic2 #######################*/
+      function ajaxFileUpload2() {
+         var valuepicname = jQuery("input#picname2").val();
+
+         jQuery.blockUI({
+            message: jQuery('#tallContent'),
+            css: {
+               border: 'none',
+               padding: '35px',
+               backgroundColor: '#000',
+               '-webkit-border-radius': '10px',
+               '-moz-border-radius': '10px',
+               opacity: .9,
+               color: '#fff'
+            }
+         });
+         
+         jQuery.ajaxFileUpload({
+            url: 'loadInsertPic2.php?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
+            secureuri: false,
+            fileElementId: 'fileToUpload2',
+            dataType: 'json',
+            success: function(data, status) {
+               if (typeof(data.error) != 'undefined') {
+
+                  if (data.error != '') {
+                     alert(data.error);
+
+                  } else {
+                     jQuery("#boxPicNew2").show();
+                     jQuery("#boxPicNew2").html(data.msg);
                      setTimeout(jQuery.unblockUI, 200);
                   }
                }

@@ -244,14 +244,14 @@ logs_access('3', 'View');
                      $numRows_nopic = wewebNumRowsDB($coreLanguageSQL, $query_nopic2);
                      if ($numRows_nopic == 1) {
                         $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic2);
-                        $valPic = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                        $valPicD = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
                      } else {
                         $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
                         $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic);
-                        $valPic = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                        $valPicD = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
                      }
                      ?>
-                     <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
+                     <img src="<?= $valPicD ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
                   </div>
                </td>
             </tr>

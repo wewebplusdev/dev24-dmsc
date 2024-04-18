@@ -73,6 +73,7 @@ if ($_REQUEST['execute'] == "insert") {
             $insertLang[$mod_tb_root_lang . "_urlc"] = "'" . changeQuot($_REQUEST['inputurlC']) . "'";
             $insertLang[$mod_tb_root_lang . "_target"] = "'" . changeQuot($_REQUEST['inputmenutarget']) . "'";
             $insertLang[$mod_tb_root_lang . "_pic"] = "'" . $_POST["picname"] . "'";
+            $insertLang[$mod_tb_root_lang . "_pic2"] = "'" . $_POST["picname2"] . "'";
             $insertLang[$mod_tb_root_lang . "_type"] = "'" . $_POST["inputType"] . "'";
             $insertLang[$mod_tb_root_lang . "_url"] = "'" . changeQuot($_REQUEST['inputurl']) . "'";
             $insertLang[$mod_tb_root_lang . "_filevdo"] = "'" . $_POST["vdoname"] . "'";

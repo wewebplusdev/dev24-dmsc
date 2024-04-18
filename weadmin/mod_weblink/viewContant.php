@@ -22,6 +22,7 @@ $sql .= "   " . $mod_tb_root . "_id as id,
 " . $mod_tb_root_lang . "_lastdate as lastdate,
 " . $mod_tb_root_lang . "_lastbyid as lastbyid,
 " . $mod_tb_root_lang . "_pic as pic,
+" . $mod_tb_root_lang . "_pic2 as pic2,
 " . $mod_tb_root_lang . "_type as type,
 " . $mod_tb_root_lang . "_filevdo as filevdo,
 " . $mod_tb_root_lang . "_url as url,
@@ -74,6 +75,8 @@ $valLastdate = DateFormat($Row['lastdate']);
 $valLastby = $Row['lastbyid'];
 $valPicName = $Row['pic'];
 $valPic = $mod_path_pictures . "/" . $Row['pic'];
+$valPicName2 = $Row['pic2'];
+$valPic2 = $mod_path_pictures . "/" . $Row['pic2'];
 $valType = $Row['type'];
 $valFilevdo = $Row['filevdo'];
 $valPathvdo = $mod_path_vdo . "/" . $Row['filevdo'];
@@ -244,14 +247,14 @@ logs_access('3', 'View');
                      $numRows_nopic = wewebNumRowsDB($coreLanguageSQL, $query_nopic2);
                      if ($numRows_nopic == 1) {
                         $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic2);
-                        $valPic = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                        $valPicD = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
                      } else {
                         $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
                         $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic);
-                        $valPic = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                        $valPicD = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
                      }
                      ?>
-                     <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
+                     <img src="<?= $valPicD ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
                   </div>
                </td>
             </tr>
@@ -260,6 +263,14 @@ logs_access('3', 'View');
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
                      <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
+                  </div>
+               </td>
+            </tr>
+            <tr <?php if ($valpicType == 1) { echo 'style="display:none;"'; } ?>>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album_hover"] ?><span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView">
+                     <img src="<?= $valPic2 ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
                   </div>
                </td>
             </tr>

@@ -21,6 +21,7 @@ $sql .= "
 			" . $mod_tb_root . "_sdate as sdate,
 			" . $mod_tb_root . "_edate as edate,
 			" . $mod_tb_root_lang . "_pic as pic,
+			" . $mod_tb_root_lang . "_pic2 as pic2,
 			" . $mod_tb_root_lang . "_type as type,
 			" . $mod_tb_root_lang . "_filevdo as filevdo,
 			" . $mod_tb_root_lang . "_url as url,
@@ -68,6 +69,8 @@ if ($Row['edate'] != "0000-00-00 00:00:00") {
 }
 $valPicName = $Row['pic'];
 $valPic = $mod_path_pictures . "/" . $Row['pic'];
+$valPicName2 = $Row['pic2'];
+$valPic2 = $mod_path_pictures . "/" . $Row['pic2'];
 $valType = $Row['type'];
 $valFilevdo = $Row['filevdo'];
 $valPathvdo = $mod_path_vdo . "/" . $Row['filevdo'];
@@ -449,6 +452,27 @@ foreach ($listAuthen as $key => $value) {
                   </div>
                </td>
             </tr>
+            <tr class="PicUpload" <?php if ($valpicType == 1) {
+                                       echo 'style="display:none;"';
+                                    } ?>>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album_hover"] ?></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="file-input-wrapper">
+                     <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                     <input type="file" name="fileToUpload2" id="fileToUpload2" onchange="ajaxFileUpload2();" />
+                  </div>
+
+                  <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
+                  <div class="clearAll"></div>
+                  <div id="boxPicNew2" class="formFontTileTxt">
+                     <?php if (is_file($valPic2)) { ?>
+                        <img src="<?php echo $valPic2 ?>" style="float:left;border:#c8c7cc solid 1px;max-width:600px;" />
+                        <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload2('deletePic2.php')" title="Delete file"><img src="../img/btn/delete.png" width="22" height="22" border="0" /></div>
+                        <input type="hidden" name="picname2" id="picname2" value="<?php echo $valPicName2 ?>" />
+                     <?php } ?>
+                  </div>
+               </td>
+            </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeLink" <?php if($valTypeC != 3){ echo "style='display:none;'"; } ?>>
@@ -781,7 +805,49 @@ foreach ($listAuthen as $key => $value) {
 
       }
 
+      /*################################# Upload Pic #######################*/
+      function ajaxFileUpload2() {
+         var valuepicname = jQuery("input#picname2").val();
 
+         jQuery.blockUI({
+            message: jQuery('#tallContent'),
+            css: {
+               border: 'none',
+               padding: '35px',
+               backgroundColor: '#000',
+               '-webkit-border-radius': '10px',
+               '-moz-border-radius': '10px',
+               opacity: .9,
+               color: '#fff'
+            }
+         });
+
+
+         jQuery.ajaxFileUpload({
+            url: 'loadUpdatePic2.php?myID=<?= $valSGid ?>&masterkey=<?= $_REQUEST['masterkey'] ?>&langt=<?= $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?= $_REQUEST['menukeyid'] ?>',
+            secureuri: false,
+            fileElementId: 'fileToUpload2',
+            dataType: 'json',
+            success: function(data, status) {
+               if (typeof(data.error) != 'undefined') {
+
+                  if (data.error != '') {
+                     alert(data.error);
+
+                  } else {
+                     jQuery("#boxPicNew2").show();
+                     jQuery("#boxPicNew2").html(data.msg);
+                     setTimeout(jQuery.unblockUI, 200);
+                  }
+               }
+            },
+            error: function(data, status, e) {
+               alert(e);
+            }
+         })
+         return false;
+
+      }
 
       /*################################# Upload Video #######################*/
       function ajaxVideoUpload() {

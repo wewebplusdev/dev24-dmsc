@@ -93,8 +93,8 @@ $_ENV = array(
     // ),
     "STAGING" => array(
         "hostname" => "DB",
-        "username" => "root",
-        "password" => "MYSQL_ROOT_PASSWORD",
+        "username" => "wewebadmin",
+        "password" => "!root!Wewebp@ss9!",
         "name" => "2024_dmsc",
     ),
     "WEWEB" => array(
