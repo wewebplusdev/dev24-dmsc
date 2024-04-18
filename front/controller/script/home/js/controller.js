@@ -1,6 +1,5 @@
 // services filter
 $('.services-filter').on('click', async function(){
-    let gid = $(this).data('id');
 
     if ($(this).hasClass('active')) {
         $(this).removeClass('active');
@@ -46,8 +45,8 @@ $('.services-filter').on('click', async function(){
                                         <figure class="contain">
                                             <img src="${value.pic.pictures}"
                                                 alt="${value.pic.subject}" class="thumb-img lazy">
-                                            <img src="${value.pic.pictures}"
-                                                alt="${value.pic.subject}" class="thumb-hover lazy">
+                                            <img src="${value.pic2.pictures}"
+                                                alt="${value.pic2.subject}" class="thumb-hover lazy">
                                         </figure>
                                     </div>
                                     <h5 class="title">${value.subject}</h5>

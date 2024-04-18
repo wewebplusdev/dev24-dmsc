@@ -1,22 +1,26 @@
-var eachYearSwiper = new Swiper(".each-year .swiper", {
-    // slidesPerView: "auto",
-    slidesPerView: 4,
-    // freeMode: true,
-    spaceBetween: 45,
-    watchSlidesProgress: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 2,
+var serviceSwiper = reload_swiper();
+
+function reload_swiper() {
+    var scSwiper = new Swiper(".service-category-list .swiper", {
+        slidesPerView: 5,
+        watchSlidesProgress: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
-        768: {
-            slidesPerView: 3,
-        },
-        1200: {
-            slidesPerView: 4,
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 5,
+            },
         }
-    }
-});
+    });
+}
