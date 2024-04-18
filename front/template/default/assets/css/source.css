@@ -7634,6 +7634,119 @@ div.swal2-html-container {
   padding-top: 100vh;
 }
 
+.layout-search .text-results {
+  font-size: 30px;
+  line-height: 1.5em;
+  color: #202020;
+  margin-bottom: 30px;
+}
+.layout-search .search-list .item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #BBBBBB;
+}
+.layout-search .search-list .cover {
+  width: 170px;
+  padding-top: 130px;
+}
+.layout-search .search-list .title {
+  font-size: 30px;
+  color: var(--color-secondary);
+  margin-bottom: 15px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.4em;
+  -webkit-line-clamp: 1;
+  min-height: 1.4em;
+}
+.layout-search .search-list .desc {
+  font-size: 16px;
+  margin-bottom: 10px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.5em;
+  -webkit-line-clamp: 2;
+  min-height: 3em;
+}
+.layout-search .search-list .link {
+  font-size: 18px;
+  color: #999999;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.4em;
+  -webkit-line-clamp: 1;
+  min-height: 1.4em;
+}
+.layout-search .search-list .link:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 1440px) {
+  .layout-search .text-results {
+    font-size: 28px;
+  }
+  .layout-search .search-list .title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 1199px) {
+  .layout-search .text-results {
+    font-size: 26px;
+  }
+  .layout-search .search-list .item > .row {
+    margin: 0 -7.5px;
+  }
+  .layout-search .search-list .item > .row > div {
+    padding: 0 7.5px;
+  }
+  .layout-search .search-list .title {
+    font-size: 26px;
+  }
+}
+@media (max-width: 991px) {
+  .layout-search .search-list .title {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .layout-search .text-results {
+    margin: 30px 0 20px 0;
+    font-size: 24px;
+  }
+  .layout-search .search-list .title {
+    font-size: 22px;
+  }
+  .layout-search .search-list .desc {
+    font-size: 14px;
+  }
+  .layout-search .search-list .link {
+    font-size: 16px;
+  }
+}
+@media (max-width: 575px) {
+  .layout-search .text-results {
+    margin: 20px 0 10px 0;
+    font-size: 22px;
+  }
+  .layout-search .search-list .cover {
+    width: 100%;
+    padding-top: 250px;
+    margin-bottom: 15px;
+  }
+  .layout-search .search-list .title {
+    font-size: 20px;
+  }
+}
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;
