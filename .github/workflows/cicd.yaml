@@ -11,49 +11,44 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Test Script
+      - name: Pull repository
         run: |
-          rm -rf /home/website/*
+          sudo rm -rf /home/website/*
+          sudo cp -r * /home/website/
+          echo "Pull repository successfully..."
+          sudo rm -rf *
+          echo "Clean up directory _work."
 
+      - name: Deploy API
+        run: |
+          cd /wwwroot/webservice
+          docker compose down
+          sudo cp -r /home/website/webservice /wwwroot
+          echo "copy .env"
+          sudo cp -r /home/env/.env /wwwroot/webservice/src
 
-      # - name: Pull repository
-      #   run: |
-      #     sudo rm -rf /home/website/*
-      #     sudo cp -r * /home/website/
-      #     echo "Pull repository successfully..."
-      #     sudo rm -rf *
-      #     echo "Clean up directory _work."
+      - name: Build & Start Container Image API
+        run: |
+          cd /wwwroot/webservice
+          docker compose up --build -d
+          echo "service api is running..."
 
-      # - name: Deploy API
-      #   run: |
-      #     cd /wwwroot/webservice
-      #     docker compose down
-      #     sudo cp -r /home/website/webservice /wwwroot
-      #     echo "copy .env"
-      #     sudo cp -r /home/env/.env /wwwroot/webservice/src
+      - name: Deploy front-end & back-end
+        run: |
+          cd /wwwroot/website
+          docker compose down
+          sudo cp -r /home/website /wwwroot
+          echo "copy .htaccess"
+          sudo cp -r /home/env/.htaccess /wwwroot/website
+          sudo rm -rf /wwwroot/website/webservice
 
-      # - name: Build & Start Container Image API
-      #   run: |
-      #     cd /wwwroot/webservice
-      #     docker compose up --build -d
-      #     echo "service api is running..."
+      - name: Build & Start Container Image front-end & back-end
+        run: |
+          cd /wwwroot/website
+          docker compose up --build -d
+          echo "website is running..."
 
-      # - name: Deploy front-end & back-end
-      #   run: |
-      #     cd /wwwroot/website
-      #     docker compose down
-      #     sudo cp -r /home/website /wwwroot
-      #     echo "copy .htaccess"
-      #     sudo cp -r /home/env/.htaccess /wwwroot/website
-      #     sudo rm -rf /wwwroot/website/webservice
-
-      # - name: Build & Start Container Image front-end & back-end
-      #   run: |
-      #     cd /wwwroot/website
-      #     docker compose up --build -d
-      #     echo "website is running..."
-
-      # - name: Clean up project temp
-      #   run: |
-      #     sudo rm -rf /home/website/*
-      #     echo "Clean up successfully..."
+      - name: Clean up project temp
+        run: |
+          sudo rm -rf /home/website/*
+          echo "Clean up successfully..."
