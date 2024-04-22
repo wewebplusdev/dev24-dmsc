@@ -36,6 +36,8 @@ switch ($url->segment[0]) {
         
         // call group
         $load_group = $listAllPage->load_data($data_group);
+        // print_pre($data_group);
+        // print_pre($load_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }

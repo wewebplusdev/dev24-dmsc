@@ -93,6 +93,11 @@ abstract class controller
                 'services' => 'getInnovation',
                 'loadGroup' => 'getInnovationGroup',
             ),
+            'faq' => array(
+                'action' => 'faq',
+                'faq' => 'getFaq',
+                'loadGroup' => 'getFaq',
+            ),
         );
 
 
