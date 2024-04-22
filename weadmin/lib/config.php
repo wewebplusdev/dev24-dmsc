@@ -17,7 +17,8 @@ if($data_set_show_error==0){
 $core_pathname_folderlocal = "";
 
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
-    $_CORE_ENV = "DEV";
+    // $_CORE_ENV = "DEV";
+    $_CORE_ENV = "UAT";
     $core_pathname_folderlocal = "/dev24-dmsc";
 }elseif($_SERVER['HTTP_HOST'] == 'project.wewebcloud.com'){
     $_CORE_ENV = "WEWEB";
@@ -91,6 +92,12 @@ $_ENV = array(
     //     "password" => "webp@ss",
     //     "name" => "mommycle_web",
     // ),
+    "UAT" => array(
+        "hostname" => "45.136.253.128:9906",
+        "username" => "root",
+        "password" => "@69lk!logmLi20041:;",
+        "name" => "2024_dmsc_dev",
+    ),
     "STAGING" => array(
         "hostname" => "DB",
         "username" => "wewebadmin",

@@ -40,10 +40,6 @@ $detectDivice = new Mobile_Detect;
 ## load modulus ##
 require_once _DIR . '/front/controller/modulus/member.php'; #load member status
 
-require_once _DIR . '/front/libs/line-login/lineLogin.php'; #load line-login
-$line = new LineLogin();
-$smarty->assign("line", $line);
-
 ## member ##
 $member = new member;
 if (isset($_SESSION[_URL]['token'])) {

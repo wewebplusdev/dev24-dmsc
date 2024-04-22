@@ -45,37 +45,6 @@ switch ($modefunction) {
         break;
 }
 
-## config Sql ##
-$coreLanguageSQL = "mysqli";
-$_ENV = array(
-    // "PROD" => array(
-    //     "hostname" => "localhost",
-    //     "username" => "mommycle_web",
-    //     "password" => "webp@ss",
-    //     "name" => "mommycle_web",
-    // ),
-    "STAGING" => array(
-        "hostname" => "DB",
-        "username" => "root",
-        "password" => "webp@ssmariadb",
-        "name" => "2024_dmsc",
-    ),
-    "WEWEB" => array(
-        "hostname" => "127.0.0.1",
-        "username" => "root",
-        "password" => "IySY?Pk7!!mH",
-        "name" => "2024_dmsc",
-    ),
-    "DEV" => array(
-        "hostname" => "DB",
-        "username" => "root",
-        "password" => "MYSQL_ROOT_PASSWORD",
-        "name" => "2024_dmsc",
-    ),
-);
-
-$core_db_charecter_set = array('charset' => "utf8", 'collation' => "utf8_general_ci");
-
 ## limit ##
 $limitpage['showperPage'] = 8;
 $limitpage['showperPageSeller'] = 11;
@@ -99,7 +68,6 @@ $url_show_default = "intro";
 $path_template = array(
     "default" => array('front/template/default', 'style.css')
 );
-
 
 $lastModify = "?u=" . date("YdmHis");
 
