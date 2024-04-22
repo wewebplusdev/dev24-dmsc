@@ -1879,7 +1879,7 @@ function delAlbumUploadOut(fileAc) {
 function onLoadFCK() {
     if (!CKEDITOR.env.ie || CKEDITOR.env.version > 7)
         CKEDITOR.env.isCompatible = true;
-   var roxyFileman = '/dev24-dmsc/fileman/index.html';
+   var roxyFileman = '/fileman/index.html';
     //  var roxyFileman = '/fileman/index.php';
     CKEDITOR.replace('editDetail', {
         //filebrowserUploadUrl: "../../ckeditor/ckupload.php",
@@ -1916,7 +1916,7 @@ function onLoadFCK() {
 function onLoadFCKMini() {
     if (!CKEDITOR.env.ie || CKEDITOR.env.version > 7)
         CKEDITOR.env.isCompatible = true;
-   var roxyFileman = '/dev24-dmsc/fileman/index.html';
+   var roxyFileman = '/fileman/index.html';
     //  var roxyFileman = '/fileman/index.html';
     CKEDITOR.replace('editDetail', {
         //filebrowserUploadUrl: "../../ckeditor/ckupload.php",

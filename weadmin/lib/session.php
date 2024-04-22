@@ -81,7 +81,7 @@ if (!isset($_SESSION[$valSiteManage . 'core_session_multilang'])) {
 }
 
 ## Core Cketitor #############################################
-$_SESSION["myBackOfficeSession"] = "/dev24-dmsc/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
+$_SESSION["myBackOfficeSession"] = "/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
 $valFolderCkEditor = "/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
 if (!empty($_SESSION[$valSiteManage . "core_session_id"])) {
     if ($_SESSION[$valSiteManage . "core_session_id"] >= 1) {

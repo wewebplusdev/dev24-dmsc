@@ -9,12 +9,12 @@ var fs = require('fs');
 
 exports.init = function (req, res) {
     funcRoute(req, res, {
-        "getService": "getService",
-        "getServiceGroup": "getServiceGroup",
+        "getInnovation": "getInnovation",
+        "getInnovationGroup": "getInnovationGroup",
     });
 }
 
-async function getServiceGroup(req, res) {
+async function getInnovationGroup(req, res) {
     const method = req.body.method;
     const language = req.body.language;
     const order = req.body.order;
@@ -28,7 +28,7 @@ async function getServiceGroup(req, res) {
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['sv'] = config.fieldDB.masterkey.sv
+    config_array_masterkey['rein'] = config.fieldDB.masterkey.rein
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -44,7 +44,7 @@ async function getServiceGroup(req, res) {
                 ,${config_array_db['md_cmgl']}_title as title 
                 FROM ${config_array_db['md_cmg']} 
                 INNER JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
-                WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['sv']}' 
+                WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['rein']}' 
                 AND ${config_array_db['md_cmg']}_status != 'Disable' 
                 AND ${config_array_db['md_cmgl']}_language = '${language}' 
                 AND ${config_array_db['md_cmgl']}_subject != '' 
@@ -123,7 +123,7 @@ async function getServiceGroup(req, res) {
     res.json(result);
 }
 
-async function getService(req, res) {
+async function getInnovation(req, res) {
     const method = req.body.method;
     const language = req.body.language;
     const order = req.body.order;
@@ -141,8 +141,8 @@ async function getService(req, res) {
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['sv'] = config.fieldDB.masterkey.sv
-
+    config_array_masterkey['rein'] = config.fieldDB.masterkey.rein
+    
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
@@ -167,19 +167,12 @@ async function getService(req, res) {
                 ,${config_array_db['md_cmsl']}_target as target 
                 FROM ${config_array_db['md_cms']} 
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
-                WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['sv']}' 
+                WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['rein']}' 
                 AND ${config_array_db['md_cms']}_status != 'Disable' 
                 AND ${config_array_db['md_cmsl']}_language = '${language}' `;
                 if (tid.length > 0) {
-                    let text = "";
-                    tid.map((v)=>{
-                        text = text + ` ${config_array_db['md_cms']}_tid REGEXP '.*;s:[0-9]+:"${v}".*' OR`;
-                    });
-                    // Find the last occurrence of "OR":
-                    let lastOrIndex = text.lastIndexOf(" OR");
-                    // Remove the last "OR" and everything after it:
-                    let modifiedText = text.slice(0, lastOrIndex);
-                    sql_list = sql_list + ` AND (${modifiedText})`;
+                    let values = Object.values(tid).join(",");
+                    sql_list = sql_list + ` AND ${config_array_db['md_cms']}_gid IN (${values})`;
                 }
                 if (search_keyword !== null && search_keyword !== undefined) {
                     sql_list = sql_list + ` AND 

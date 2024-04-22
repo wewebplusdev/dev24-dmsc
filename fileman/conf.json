@@ -1,5 +1,5 @@
 {
-    "FILES_ROOT": "/dev24-dmsc/ckeditor/upload/files",
+    "FILES_ROOT": "/ckeditor/upload/files",
     "RETURN_URL_PREFIX": "",
     "SESSION_PATH_KEY": "myBackOfficeSession",
     "THUMBS_VIEW_WIDTH": "140",

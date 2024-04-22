@@ -7,5 +7,6 @@ exports.connectDB = function() {
         user: process.env.userdb, 
         password: process.env.pwddb,
         database: process.env.dbname,
+        port: process.env.dbport,
     });
 }

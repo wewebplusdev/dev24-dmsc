@@ -1,5 +1,5 @@
 <?php
-$menuActive = "department-services";
+$menuActive = "services";
 $servicePage = new servicePage;
 $limit = 12;
 
@@ -82,7 +82,6 @@ switch ($url->segment[2]) {
         ];
         $smarty->assign("dataOption",$data);
         // print_pre($data);
-        // die;
 
         // call list
         $load_data = $servicePage->load_data($data);
@@ -96,6 +95,10 @@ switch ($url->segment[2]) {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
+        }else if ($masterkey == 'rein') {
+            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->ResearchAndInnovation->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->ResearchAndInnovation->display->$currentLangWeb;
         }
         $smarty->assign("language_modules", $language_modules);
        
