@@ -54,7 +54,7 @@ if ($_REQUEST['execute'] == "insert") {
    $insert[$mod_tb_root . "_status"] = "'Disable'";
    $insert[$mod_tb_root . "_order"] = "'" . $maxOrder . "'";
    $sql = "INSERT INTO " . $mod_tb_root . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
-
+ print_pre($sql);
    $Query = wewebQueryDB($coreLanguageSQL, $sql);
    $contantID1 = wewebInsertID($coreLanguageSQL);
    $array_sch = array();
@@ -84,7 +84,7 @@ if ($_REQUEST['execute'] == "insert") {
             $insertLang[$mod_tb_root_lang . "_lastby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
             $insertLang[$mod_tb_root_lang . "_lastdate"] = "NOW()";
             $sql2 = "INSERT INTO " . $mod_tb_root_lang . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
-			print_pre($sql2);
+			
             wewebQueryDB($coreLanguageSQL, $sql2);
             $contantID = wewebInsertID($coreLanguageSQL);
             $contantLID = $contantID;
@@ -103,6 +103,9 @@ if ($_REQUEST['execute'] == "insert") {
          }
          $array_sch[$valueLang['key']] = $contantLID;
       }
+	  
+	  print_pre($sql2);
+	  print_pre($sqllang);
 
       $sql_albumtemp = "SELECT " . $mod_tb_root_albumTemp . "_id," . $mod_tb_root_albumTemp . "_filename," . $mod_tb_root_albumTemp . "_name  FROM " . $mod_tb_root_albumTemp . " WHERE " . $mod_tb_root_albumTemp . "_contantid 	='" . $_REQUEST['valEditID'] . "' ORDER BY " . $mod_tb_root_albumTemp . "_id ASC";
       $query_albumtemp = wewebQueryDB($coreLanguageSQL, $sql_albumtemp);
