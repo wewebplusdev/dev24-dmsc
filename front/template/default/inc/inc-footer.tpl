@@ -237,7 +237,7 @@
 </footer>
 
 {if count((array)$sitemapWeb) gte 1}
-    <div class="sitmap-full show">
+    <div class="sitmap-full">
       <div class="close">
         <svg xmlns="http://www.w3.org/2000/svg" width="37.993" height="37.993" viewBox="0 0 37.993 37.993">
           <g id="Group_882" data-name="Group 882" transform="translate(-11556.55 148.45)">

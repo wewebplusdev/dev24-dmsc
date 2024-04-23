@@ -32,9 +32,9 @@ async function getNewsGroup(req, res) {
     // db masterkey
     let config_array_masterkey = new Array();
     if (incode_masterkey?.length>=1) {
-        config_array_masterkey['nw'] = incode_masterkey
+        config_array_masterkey['masterkey'] = incode_masterkey;
     }else{
-        config_array_masterkey['nw'] = config.fieldDB.masterkey.nw  
+        config_array_masterkey['masterkey'] = config.fieldDB.masterkey.nw;
     }
 
     if (result.code == code.success.code) {
@@ -51,7 +51,7 @@ async function getNewsGroup(req, res) {
                 ,${config_array_db['md_cmgl']}_title as title 
                 FROM ${config_array_db['md_cmg']} 
                 INNER JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
-                WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['nw']}' 
+                WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['masterkey']}' 
                 AND ${config_array_db['md_cmg']}_status != 'Disable' 
                 AND ${config_array_db['md_cmgl']}_language = '${language}' 
                 AND ${config_array_db['md_cmgl']}_subject != '' `;
@@ -155,12 +155,12 @@ async function getNews(req, res) {
     config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
-    //config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
     if (incode_masterkey?.length>=1) {
-        config_array_masterkey['nw'] = incode_masterkey
+        config_array_masterkey['masterkey'] = incode_masterkey;
     }else{
-        config_array_masterkey['nw'] = config.fieldDB.masterkey.nw  
+        config_array_masterkey['masterkey'] = config.fieldDB.masterkey.nw;
     }
+
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -190,7 +190,7 @@ async function getNews(req, res) {
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                 INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
                 LEFT JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
-                WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['nw']}' 
+                WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['masterkey']}' 
                 AND ${config_array_db['md_cms']}_status != 'Disable' 
                 AND ${config_array_db['md_cmsl']}_language = '${language}' 
                 AND ${config_array_db['md_cmgl']}_language = '${language}' 
@@ -218,7 +218,6 @@ async function getNews(req, res) {
                 )
                 ORDER BY ${config_array_db['md_cms']}_order ${order} 
                 `;
-                console.log(sql_list);
                 const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
@@ -357,7 +356,7 @@ async function getNewsDetail(req, res) {
     const contentid = req.body.contentid;
     const file_id = req.body.file_id;
     const incode_masterkey = req.body.masterkey;
-    const result = general.checkParam([method, language, contentid]);
+    const result = general.checkParam([method, language, contentid, incode_masterkey]);
     const code = config.returncode;
     // db tables
     let config_array_db = new Array();
@@ -369,12 +368,10 @@ async function getNewsDetail(req, res) {
     config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
-    //config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
-    if (incode_masterkey?.length>=1) {
-        config_array_masterkey['nw'] = incode_masterkey
-    }else{
-        config_array_masterkey['nw'] = config.fieldDB.masterkey.nw  
-    }
+    config_array_masterkey['masterkey'] = incode_masterkey;
+
+    // pass where sdate & edate
+    let pass_period = ['lar'];
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -433,21 +430,28 @@ async function getNewsDetail(req, res) {
                     INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                     INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
                     LEFT JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
-                    WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['nw']}' 
+                    WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['masterkey']}' 
                     AND ${config_array_db['md_cms']}_status != 'Disable' 
                     AND ${config_array_db['md_cms']}_id = '${contentid}' 
                     AND ${config_array_db['md_cmgl']}_language = '${language}' 
                     AND ${config_array_db['md_cmgl']}_subject != '' 
                     AND ${config_array_db['md_cmsl']}_language = '${language}' 
-                    AND ${config_array_db['md_cmsl']}_subject != '' 
+                    AND ${config_array_db['md_cmsl']}_subject != '' `;
+                    
+                    if (pass_period.indexOf(incode_masterkey) != -1) {
+                        
+                    }
+                    sql_list = sql_list + `
                     AND 
                     (
                         (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND ${config_array_db['md_cms']}_edate ='0000-00-00 00:00:00') OR
                         (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR
                         (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND ${config_array_db['md_cms']}_edate = '0000-00-00 00:00:00') OR
                         (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW()))
-                    )
+                    )`;
+                sql_list = sql_list + `
                 ) as t`;
+                console.log(sql_list);
             const select = await query(sql_list);
             if (select.length > 0) {
                 let arr_data = [];

@@ -19,7 +19,7 @@
                         </li>
                         <li>
                             <a href="{$ul}/{$menuActive}/{$masterkey}" class="link">
-                                {$language_modules.breadcrumb1}
+                                {$language_modules.breadcrumb2}
                             </a>
                         </li>
                         <li>
@@ -30,7 +30,7 @@
                     </ol>
                 </div>
                 <h1 class="title">
-                    {$language_modules.breadcrumb1}
+                    {$language_modules.breadcrumb2}
                 </h1>
                 <div class="graphic">
                     <div class="obj">
