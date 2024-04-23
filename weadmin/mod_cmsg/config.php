@@ -26,9 +26,11 @@ $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "�
 $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
+$modConfFrontURL['Thai'] = "th";
+$modConfFrontURL['Eng'] = "en";
+
 ## Hide Group ###################################
 $array_masterkey_group = array('plc', 'ab', 'hc', 'faq');
-
 $array_masterkey_group_home = array('nw', 'ab');
 $array_masterkey_group_home2 = array('ab');
 

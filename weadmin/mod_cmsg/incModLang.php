@@ -232,5 +232,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["tit:selectg2"] = "เลือก" . $langMod["meu:group2"];
 	$langMod["txt:subjectg2"] = "ข้อมูล" . $langMod["meu:group2"];
 	$langMod["txt:subjectg2De"] = "โปรดป้อนชื่อ" . $langMod["meu:group2"] . " เพื่อใช้ในการแสดงผลในหน้าเว็บไซต์ของคุณ";
+	
+	$langMod["tit:front_url"] = "URL ส่วนแสดงผล";
 
 }

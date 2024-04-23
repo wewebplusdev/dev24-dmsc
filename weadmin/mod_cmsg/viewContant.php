@@ -203,6 +203,12 @@ logs_access('3', 'View');
                   <div class="formDivView"><?php echo  $valTitle ?></div>
                </td>
             </tr>
+            <tr <?php if ($valTypeC != 3) { echo 'style="display:none;"'; } ?>>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:front_url"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $core_full_path."/".$modConfFrontURL[$_REQUEST['inputLt']]."/".$_REQUEST["masterkey"]."/".$valGid ?></div>
+               </td>
+            </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
@@ -293,6 +299,9 @@ logs_access('3', 'View');
                   <div class="formDivView"><?php echo $modTxtTarget[$valTarget] ?></div>
                </td>
             </tr>
+            
+            
+            
          </table>
          <br <?php if ($valTypeC != 3) { echo 'style="display:none;"'; } ?>/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
