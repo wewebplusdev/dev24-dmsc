@@ -81,7 +81,10 @@ switch ($url->segment[0]) {
             $language_modules['metatitle'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
         }else if($masterkey == 'abs'){
             $language_modules['breadcrumb2'] = $languageFrontWeb->aboutus->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->aboutus->display->$currentLangWeb;
+        }else if($masterkey == 'dcio'){
+            $language_modules['breadcrumb2'] = $languageFrontWeb->dcio->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->dcio->display->$currentLangWeb;
         }
         $smarty->assign("language_modules", $language_modules);
        
