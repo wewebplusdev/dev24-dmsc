@@ -93,7 +93,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   $sql .= " FROM " . $mod_tb_root . "";
                   $sql .= " INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid ";
                   $sql .= " WHERE " . $mod_tb_root . "_masterkey ='" . $_REQUEST['masterkey'] . "'    ";
-				 //  $sql .= " AND " . $mod_tb_root . "_gid ='" . $_REQUEST['inputGh'] . "'    ";
+				   $sql .= " AND " . $mod_tb_root . "_gid ='" . $_REQUEST['inputGh'] . "'    ";
+				   $sql .= " AND " . $mod_tb_root . "_sgid ='" . $_REQUEST['inputGh2'] . "'    ";
                   $sql .= "  AND  " . $mod_tb_root_lang . "." . $mod_tb_root_lang . "_language = '" . $_SESSION[$valSiteManage . 'core_session_language'] . "'  ";
                   $sql .= "  GROUP BY " . $mod_tb_root . "_id  ORDER BY " . $mod_tb_root . "_order DESC";
                   //print_pre($sql);
