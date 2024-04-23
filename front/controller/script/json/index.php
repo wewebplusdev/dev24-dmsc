@@ -13,7 +13,7 @@ if (!empty($url->segment[1])) {
         $req = array();
         $req['limit'] = (isset($_REQUEST['limit']) && !empty($_REQUEST['limit'])) ? $_REQUEST['limit'] : 15;
         $req['page'] = (isset($_REQUEST['page']) && !empty($_REQUEST['page'])) ? $_REQUEST['page'] : 1;
-    
+
         $data_group = [
             "action" => $jsonPage->method_module[$menuActive]['action'],
             "method" => $jsonPage->method_module[$menuActive]['method_group'],
@@ -25,18 +25,18 @@ if (!empty($url->segment[1])) {
             "masterkey" => $masterkey,
         ];
         $load_json_group = $jsonPage->load_json($data_group, 'news');
-        if ($load_json_group->_numOfRows > 0) {
-            $data = [
-                "action" => $jsonPage->method_module[$menuActive]['action'],
-                "method" => $jsonPage->method_module[$menuActive]['method_list'],
-                "language" => $url->pagelang[4],
-                "order" => 'DESC',
-                "gid" => $group,
-                "page" => $req['page'],
-                "limit" => $req['limit'],
-                "masterkey" => $masterkey,
-            ];
-            $load_json = $jsonPage->load_json($data, 'news');
+        $data = [
+            "action" => $jsonPage->method_module[$menuActive]['action'],
+            "method" => $jsonPage->method_module[$menuActive]['method_list'],
+            "language" => $url->pagelang[4],
+            "order" => 'DESC',
+            "gid" => $group,
+            "page" => $req['page'],
+            "limit" => $req['limit'],
+            "masterkey" => $masterkey,
+        ];
+        $load_json = $jsonPage->load_json($data, 'news');
+        if ($load_json->_numOfRows > 0) {
             echo json_encode($load_json);
         } else {
             $arrJson = array(
@@ -45,14 +45,14 @@ if (!empty($url->segment[1])) {
             );
             echo json_encode($arrJson);
         }
-    }else{
+    } else {
         $arrJson = array(
             'code' => 400,
             'msg' => 'Unknown action.',
         );
         echo json_encode($arrJson);
     }
-}else{
+} else {
     $arrJson = array(
         'code' => 1008,
         'msg' => 'Unknown method.',

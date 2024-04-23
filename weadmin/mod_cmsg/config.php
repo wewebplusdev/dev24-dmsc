@@ -31,8 +31,8 @@ $modConfFrontURL['Eng'] = "en";
 
 ## Hide Group ###################################
 $array_masterkey_group = array('plc', 'ab', 'hc', 'faq');
-$array_masterkey_group_home = array('nw', 'ab');
-$array_masterkey_group_home2 = array('ab');
+$array_masterkey_group_home = array('nw', 'abs');
+$array_masterkey_group_home2 = array('abs');
 
 $modPeriodType = array(
     1 => "ตามช่วงเวลา",

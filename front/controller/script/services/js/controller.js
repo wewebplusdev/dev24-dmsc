@@ -46,7 +46,7 @@ $('.services-filter').on('click', async function(){
                 let target = (value.url != '#' && value.url != "") ? value.target : "_self";
                 strHTML += `
                 <div class="item">
-                    <a href="href="${url}"" class="link" target="${target}">
+                    <a href="${url}" class="link" target="${target}">
                         <div class="card">
                             <div class="card-body">
                             <div class="thumbnail">

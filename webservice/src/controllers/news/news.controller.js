@@ -100,7 +100,8 @@ async function getNewsGroup(req, res) {
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
-                        const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
+                        // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
+                        const getUrlWeb = await modulus.getUrlWebsiteCmsg('group', short_language);
                         arr_data[i].url = `${getUrlWeb}/${select[i].masterkey}/${select[i].id}`;
                         arr_data[i].target = `_self`;
                         arr_data[i].createDate = {
@@ -161,7 +162,6 @@ async function getNews(req, res) {
         config_array_masterkey['masterkey'] = config.fieldDB.masterkey.nw;
     }
 
-
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
@@ -187,17 +187,19 @@ async function getNews(req, res) {
                 ,'${config_array_db['md_cms']}' as tb 
                 ,${config_array_db['md_cmsl']}_id as lid 
                 FROM ${config_array_db['md_cms']} 
-                INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
-                INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
+                LEFT JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
+                LEFT JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
                 LEFT JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
                 WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['masterkey']}' 
                 AND ${config_array_db['md_cms']}_status != 'Disable' 
                 AND ${config_array_db['md_cmsl']}_language = '${language}' 
-                AND ${config_array_db['md_cmgl']}_language = '${language}' 
-                AND ${config_array_db['md_cmsl']}_subject != '' 
-                AND ${config_array_db['md_cmgl']}_subject != '' `;
+                AND ${config_array_db['md_cmsl']}_subject != '' `;
                 if (gid > 0) {
                     sql_list = sql_list + ` AND ${config_array_db['md_cms']}_gid = '${gid}' `;
+                    sql_list = sql_list + `
+                        AND ${config_array_db['md_cmgl']}_language = '${language}' 
+                        AND ${config_array_db['md_cmgl']}_subject != '' 
+                    `;
                 }
                 if (contentid > 0) {
                     sql_list = sql_list + ` AND ${config_array_db['md_cms']}_id = '${contentid}' `;
@@ -215,9 +217,11 @@ async function getNews(req, res) {
                     (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR
                     (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND ${config_array_db['md_cms']}_edate = '0000-00-00 00:00:00') OR
                     (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW()))
-                )
-                ORDER BY ${config_array_db['md_cms']}_order ${order} 
+                )`;
+
+                sql_list = sql_list + ` GROUP BY ${config_array_db['md_cmsl']}_id ORDER BY ${config_array_db['md_cms']}_order ${order} 
                 `;
+                // console.log(sql_list);
                 const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
@@ -294,14 +298,16 @@ async function getNews(req, res) {
                         }
 
                         if (select[i].typec == 2) {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select_attachments[0].id}`;
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                             arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                         } else {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                             arr_data[i].target = `_self`;
                         }
@@ -356,6 +362,7 @@ async function getNewsDetail(req, res) {
     const contentid = req.body.contentid;
     const file_id = req.body.file_id;
     const incode_masterkey = req.body.masterkey;
+    const gid = req.body.gid;
     const result = general.checkParam([method, language, contentid, incode_masterkey]);
     const code = config.returncode;
     // db tables
@@ -371,7 +378,7 @@ async function getNewsDetail(req, res) {
     config_array_masterkey['masterkey'] = incode_masterkey;
 
     // pass where sdate & edate
-    let pass_period = ['lar'];
+    let pass_period = ['cal'];
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -427,18 +434,21 @@ async function getNewsDetail(req, res) {
                     ,${config_array_db['md_cms']}_crebyid as crebyid 
                     ,'${config_array_db['md_cms']}' as tb 
                     FROM ${config_array_db['md_cms']} 
-                    INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
-                    INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
+                    LEFT JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
+                    LEFT JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
                     LEFT JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
                     WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['masterkey']}' 
                     AND ${config_array_db['md_cms']}_status != 'Disable' 
                     AND ${config_array_db['md_cms']}_id = '${contentid}' 
-                    AND ${config_array_db['md_cmgl']}_language = '${language}' 
-                    AND ${config_array_db['md_cmgl']}_subject != '' 
                     AND ${config_array_db['md_cmsl']}_language = '${language}' 
                     AND ${config_array_db['md_cmsl']}_subject != '' `;
-                    
-                    if (pass_period.indexOf(incode_masterkey) != -1) {
+                    if (gid > 0) {
+                        sql_list = sql_list + `
+                        AND ${config_array_db['md_cmgl']}_language = '${language}' 
+                        AND ${config_array_db['md_cmgl']}_subject != '' 
+                        `;
+                    }
+                    if (pass_period.indexOf(incode_masterkey) == -1) {
                         sql_list = sql_list + `
                         AND 
                         (
@@ -514,7 +524,8 @@ async function getNewsDetail(req, res) {
                         arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                         arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                     } else {
-                        const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                        // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                        const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                         arr_data[i].target = `_self`;
                         arr_data[i].htmllink = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename);
                         let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 1);

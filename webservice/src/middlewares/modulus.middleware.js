@@ -111,6 +111,22 @@ exports.getUrlWebsite = async function (masterkey, type, short_language = '') {
     }
 }
 
+exports.getUrlWebsiteCmsg = async function (type, short_language = '') {
+    try {
+        if (config.fieldDB.module_page[type] !== undefined) {
+            if (!!short_language.trim()) {
+                return `${config.hostFrontend}/${short_language}/${config.fieldDB.module_page[type]}`;
+            }else{
+                return `${config.hostFrontend}/${config.fieldDB.module_page[type]}`;
+            }
+        } else {
+            return "";
+        }
+    } catch (error) {
+        return "";
+    }
+}
+
 exports.getContentFromUrl = async function (url) {
     try {
         const response = await axios.get(url);

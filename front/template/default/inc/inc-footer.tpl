@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="col">
                                         <p class="desc">
-                                            <span class="d-block">ติดต่อสอบถามข้อมูล</span>
+                                            <span class="d-block">{$languageFrontWeb->contactinformation->display->$currentLangWeb}</span>
                                             <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}" class="link">{$settingWeb.contact->tel}</a>
                                         </p>
                                     </div>
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="col">
                                         <p class="desc">
-                                            <span class="d-block">โทรสาร</span>
+                                            <span class="d-block">{$languageFrontWeb->fax->display->$currentLangWeb}</span>
                                             <a href="javascript:void(0);" class="link">{$settingWeb.contact->fax}</a>
                                         </p>
                                     </div>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="col">
                                         <p class="desc">
-                                            <span class="d-block">อีเมล์</span>
+                                            <span class="d-block">{$languageFrontWeb->email->display->$currentLangWeb}</span>
                                             <a href="mailto:{$settingWeb.contact->email2}" class="link"><span
                                                     class="d-block">{$settingWeb.contact->email2}</span></a>
                                             <a href="mailto:{$settingWeb.contact->email}" class="link"><span
@@ -102,7 +102,7 @@
                                     </div>
                                     <div class="col">
                                         <p class="desc">
-                                            <span class="d-block">ข้อมูลโดย ฝ่ายประชาสัมพันธ์ สำนักงานเลขานุการกรม</span>
+                                            <span class="d-block">{$languageFrontWeb->idso->display->$currentLangWeb}</span>
                                             <span class="d-block">E-mail : <a href="{$settingWeb.contact->email2}"
                                                     class="link">{$settingWeb.contact->email2}</a></span>
                                         </p>

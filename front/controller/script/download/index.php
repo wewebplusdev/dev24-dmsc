@@ -15,14 +15,15 @@ switch ($url->segment[0]) {
         $req['gid'] = $_REQUEST['gid'];
 
         $data = [
-            "action" => $downloadPage->method_masterkey[$masterkey]['action'],
-            "method" => $downloadPage->method_masterkey[$masterkey][$menuActive],
+            "action" => $downloadPage->method_module[$menuActive]['action'],
+            "method" => $downloadPage->method_module[$menuActive]['method_list'],
             "language" => $downloadPage->language,
             "order" => 'DESC',
             "page" => 1,
             "limit" => 1,
             "contentid" => $contentid,
             "file_id" => $file_id,
+            "masterkey" => $masterkey,
         ];
         // print_pre($data);
 

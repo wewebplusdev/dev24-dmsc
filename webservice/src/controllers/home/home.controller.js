@@ -413,14 +413,16 @@ async function getNews(req, res) {
                             arr_data[i].gid = select[i].gid;
                             arr_data[i].typec = select[i].typec;
                             if (select[i].typec == 2) {
-                                const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                                // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                                const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                                 arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                                 arr_data[i].target = `_blank`;
                             } else if (select[i].typec == 3) {
                                 arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                                 arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                             } else {
-                                const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                                // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                                const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                                 arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                                 arr_data[i].target = `_self`;
                             }
@@ -866,7 +868,8 @@ async function getInnovationGroup(req, res) {
                             'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                             'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
                         }
-                        const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
+                        // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
+                        const getUrlWeb = await modulus.getUrlWebsiteCmsg('service', short_language);
                         arr_data[i].url = `${getUrlWeb}/${select[i].masterkey}/${select[i].id}`;
                         arr_data[i].target = `_self`;
                         arr_data[i].createDate = {
@@ -913,7 +916,7 @@ async function getAbout(req, res) {
     config_array_db['md_cmsl'] = config.fieldDB.main.md_cmsl
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['ab'] = config.fieldDB.masterkey.ab
+    config_array_masterkey['abs'] = config.fieldDB.masterkey.abs
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -938,7 +941,7 @@ async function getAbout(req, res) {
             ,'${config_array_db['md_cms']}' as tb 
             FROM ${config_array_db['md_cms']} 
             INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
-            WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['ab']}' 
+            WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['abs']}' 
             AND ${config_array_db['md_cms']}_status = 'Home' 
             AND ${config_array_db['md_cmsl']}_language = '${language}' 
             AND ${config_array_db['md_cmsl']}_subject != '' 
@@ -951,6 +954,7 @@ async function getAbout(req, res) {
             ) `;
             sql_list = sql_list + `ORDER BY ${config_array_db['md_cms']}_order ${order} 
             `;
+            // console.log(sql_list);
             const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
@@ -995,14 +999,16 @@ async function getAbout(req, res) {
                         arr_data[i].title = select[i].title;
                         arr_data[i].typec = select[i].typec;
                         if (select[i].typec == 2) {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                             arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                         } else {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                             arr_data[i].target = `_self`;
                         }

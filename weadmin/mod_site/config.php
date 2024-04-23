@@ -8,8 +8,8 @@ $mod_tb_file = "md_sitef";
 $mod_fd_root = "mod_site";
 
 ## Size Pic ###################################
-$sizeWidthReal="1470";
-$sizeHeightReal="624";
+$sizeWidthReal="1280";
+$sizeHeightReal="600";
 
 $sizeWidthPic="400";
 $sizeHeightPic="200";

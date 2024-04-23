@@ -48,7 +48,7 @@
                 {foreach $load_group->item as $keyload_group => $valueload_group}
                   <div class="swiper-slide">
                     <div class="item">
-                      <button type="button" class="btn services-filter" data-id="{$valueload_group->id}">{$valueload_group->subject}</button>
+                      <button type="button" class="btn services-filter {if $req.gid eq $valueload_group->id}active{/if}" data-id="{$valueload_group->id}">{$valueload_group->subject}</button>
                     </div>
                   </div>
                 {/foreach}
@@ -114,29 +114,27 @@
     </div>
     <div class="service-area">
       <div class="container">
-        {if $load_data->code eq 1001 && $load_data->_numOfRows gte 1}
-          <div class="service-list" data-aos="fade-up" id="service-append">
-            {foreach $load_data->item as $keyload_data => $valueload_data}
-              <div class="item">
-                <a href="" class="link">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="thumbnail">
-                        <figure class="contain">
-                          <img src="{$valueload_data->pic->pictures}" alt="{$valueload_data->pic->pictures}"
-                            class="thumb-img lazy">
-                          <img src="{$valueload_data->pic2->pictures}" alt="{$valueload_data->pic2->pictures}"
-                            class="thumb-hover lazy">
-                        </figure>
-                      </div>
-                      <h4 class="title">{$valueload_data->subject}</h4>
+        <div class="service-list" data-aos="fade-up" id="service-append">
+          {foreach $load_data->item as $keyload_data => $valueload_data}
+            <div class="item">
+              <a href="" class="link">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="thumbnail">
+                      <figure class="contain">
+                        <img src="{$valueload_data->pic->pictures}" alt="{$valueload_data->pic->pictures}"
+                          class="thumb-img lazy">
+                        <img src="{$valueload_data->pic2->pictures}" alt="{$valueload_data->pic2->pictures}"
+                          class="thumb-hover lazy">
+                      </figure>
                     </div>
+                    <h4 class="title">{$valueload_data->subject}</h4>
                   </div>
-                </a>
-              </div>
-            {/foreach}
-          </div>
-        {/if}
+                </div>
+              </a>
+            </div>
+          {/foreach}
+        </div>
       </div>
     </div>
     <div class="service-pagination">

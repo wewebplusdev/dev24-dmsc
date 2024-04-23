@@ -547,6 +547,21 @@ $myRand = time() . rand(111, 999);
                         <input name="info[glongti]" id="glongti" value="<?php echo  $ValConfig['glongti'] ?>" />
                     </td>
                 </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album"] ?></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="file-input-wrapper">
+                            <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                            <input type="file" name="fileToUpload" id="fileToUpload" onchange="ajaxFileUpload_mul('#picname', 'loadInsertPic.php', 'fileToUpload', '#boxPicNew');" />
+                        </div>
+
+                        <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
+                        <div class="clearAll"></div>
+                        <div id="boxPicNew" class="formFontTileTxt">
+                            <input type="hidden" name="picname" id="picname" />
+                        </div>
+                    </td>
+                </tr>
             </table>
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -580,7 +595,7 @@ $myRand = time() . rand(111, 999);
             });
 
             jQuery.ajaxFileUpload({
-                url: filename + '?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>' + '&element=' + eleID + '&keyid=' + keyID,
+                url: filename + '?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
                 secureuri: false,
                 fileElementId: eleID,
                 dataType: 'json',

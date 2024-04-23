@@ -122,6 +122,7 @@ $smarty->assign("template", _URL . $path_template[$templateweb][0]);
 $smarty->assign("base", _URL);
 $smarty->assign("fullurl", _FullUrl);
 $smarty->assign("Domain", _Domain);
+$smarty->assign("path_root", $path_root);
 
 $smarty->assign("urlPagination", _URLPagination);
 

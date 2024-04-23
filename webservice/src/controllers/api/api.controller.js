@@ -69,7 +69,8 @@ async function loadRedirect(req, res) {
                                 arr_data.url = select_list[0].urlc;
                             }else{
                                 if (download < 1) {
-                                    const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, select_list[0].typec, short_language);
+                                    // const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, select_list[0].typec, short_language);
+                                    const getUrlWeb = await modulus.getUrlWebsiteCmsg(select_list[0].typec, short_language);
                                     arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_list[0].gid}`;
 
                                     let update = new Array;
@@ -96,7 +97,8 @@ async function loadRedirect(req, res) {
                                         let sql_update = `UPDATE ${config_array_db['md_cmf']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cmf']}_id = '${select_file[0].id}' `;
                                         await query(sql_update); 
 
-                                        const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, 'download', short_language);
+                                        // const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, 'download', short_language);
+                                        const getUrlWeb = await modulus.getUrlWebsiteCmsg(select_list[0].typec, short_language);
                                         arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_file[0].id}`;
                                     }else{
                                         arr_data.url = ``;

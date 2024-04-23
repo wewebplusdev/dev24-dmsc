@@ -46,7 +46,7 @@ switch ($url->segment[2]) {
         
         $req = array();
         $req['keyword'] = $_GET['keyword'];
-        $req['gid'] = $_GET['gid'];
+        $req['gid'] = $url->segment[2];
         $req['sort'] = $_GET['sort'] ? $_GET['sort'] : 1;
         if ($_GET['sort'] == 2) {
             $req['order'] = 'asc';
@@ -70,6 +70,11 @@ switch ($url->segment[2]) {
             $smarty->assign("load_group", $load_group);
         }
 
+        $init_gid = array();
+        if (!empty($req['gid'])) {
+            array_push($init_gid , $req['gid']);
+        }
+
         $data = [
             "action" => $servicePage->method_masterkey[$masterkey]['action'],
             "method" => $servicePage->method_masterkey[$masterkey][$menuActive],
@@ -78,7 +83,7 @@ switch ($url->segment[2]) {
             "page" => $page['on'],
             "limit" => $limit,
             "keyword" => $req['keyword'],
-            "tid" => [],
+            "tid" => $init_gid,
         ];
         $smarty->assign("dataOption",$data);
         // print_pre($data);

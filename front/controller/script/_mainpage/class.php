@@ -32,7 +32,25 @@ abstract class controller
                 'method_group' => 'getNewsGroup',
                 'method_list' => 'getNews',
             ),
+            'downloadAll' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'download' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
             'listAll' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'weblinkAll' => array(
                 'action' => 'news',
                 'method_detail' => 'getNewsDetail',
                 'method_group' => 'getNewsGroup',

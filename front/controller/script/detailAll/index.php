@@ -9,7 +9,7 @@ $masterkey = $url->segment[2];
 $groupid = $url->segment[3];
 switch ($url->segment[0]) {
     default:
-        if (empty($contentid) || empty($masterkey) || empty($groupid)) {
+        if (empty($contentid) || empty($masterkey)) {
             header('location:' . $linklang . "/home");
         }
 
@@ -20,6 +20,7 @@ switch ($url->segment[0]) {
             "method" => $detailAllPage->method_module[$menuActive]['method_detail'],
             "language" => $detailAllPage->language,
             "contentid" => $contentid,
+            "gid" => $groupid,
             "masterkey" => $masterkey
         ];
 
@@ -70,7 +71,7 @@ switch ($url->segment[0]) {
 		
 		$language_modules['breadcrumb2'] = trim($load_data->item[0]->subject);
 		$data_display_breadcrumb=0;
-		if($language_modules['breadcrumb1']==$language_modules['breadcrumb2']){
+		if($language_modules['breadcrumb1']==$language_modules['breadcrumb2'] || empty($load_data->item[0]->group)){
 			$data_display_breadcrumb=1;
 		}
 		$smarty->assign("data_display_breadcrumb", $data_display_breadcrumb);

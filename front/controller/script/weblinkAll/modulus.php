@@ -1,6 +1,6 @@
 <?php
 
-class detailAllPage extends controller
+class weblinkAllPage extends controller
 {
     public function __construct()
     {

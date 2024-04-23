@@ -96,7 +96,8 @@ async function getCalendarGroup(req, res) {
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
                         arr_data[i].color = select[i].color;
-                        const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
+                        // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
+                        const getUrlWeb = await modulus.getUrlWebsiteCmsg('group', short_language);
                         arr_data[i].url = `${getUrlWeb}/${select[i].id}`;
                         arr_data[i].target = `_self`;
                         arr_data[i].createDate = {
@@ -295,14 +296,16 @@ async function getCalendar(req, res) {
                         }
 
                         if (select[i].typec == 2) {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select_attachments[0].id}`;
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                             arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                         } else {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}`;
                             arr_data[i].target = `_self`;
                         }
@@ -530,7 +533,8 @@ async function getCalendarDetail(req, res) {
                         arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                         arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                     } else {
-                        const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                        // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                        const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                         arr_data[i].target = `_self`;
                         arr_data[i].htmllink = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename);
                         let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 1);
