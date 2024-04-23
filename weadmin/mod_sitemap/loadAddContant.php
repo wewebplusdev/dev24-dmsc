@@ -290,6 +290,12 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
          return false;
 
       }
+	  
+		$(function() {
+			openSelectSub('openSelectGroup.php', '#boxSubGroup');
+		});
+		
+
    </script>
    <?php if ($_SESSION[$valSiteManage . 'core_session_language'] == "Thai") { ?>
       <script language="JavaScript" type="text/javascript" src="../js/datepickerThai.js"></script>
