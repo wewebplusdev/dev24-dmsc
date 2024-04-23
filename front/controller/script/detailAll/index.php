@@ -46,7 +46,9 @@ switch ($url->segment[0]) {
                 "page" => 1,
                 "limit" => $limit,
                 "gid" => $load_data->item[0]->gid,
+            	"masterkey" => $masterkey
             ];
+			// print_pre($data);
 
             $load_data_other = $detailAllPage->load_data($data);
             if ($load_data_other->code == 1001) {
@@ -58,13 +60,20 @@ switch ($url->segment[0]) {
 
         // setup seo and text modules
         $language_modules = array();
-        $language_modules['breadcrumb1'] = $load_data->item[0]->group;
-        $language_modules['list_ohter'] = $languageFrontWeb->newsrelated->display->$currentLangWeb;
+        $language_modules['breadcrumb1'] = trim($load_data->item[0]->group);
+        $language_modules['list_ohter'] = $language_modules['breadcrumb1']."".$languageFrontWeb->newsrelated->display->$currentLangWeb;
         $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle : $load_data->item[0]->subject;
         $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;
         $language_modules['metadescription'] = $load_data->item[0]->metadescription;
         $language_modules['pictures'] = $load_data->item[0]->pic->pictures;
         $smarty->assign("language_modules", $language_modules);
+		
+		$language_modules['breadcrumb2'] = trim($load_data->item[0]->subject);
+		$data_display_breadcrumb=0;
+		if($language_modules['breadcrumb1']==$language_modules['breadcrumb2']){
+			$data_display_breadcrumb=1;
+		}
+		$smarty->assign("data_display_breadcrumb", $data_display_breadcrumb);
 
         /*## Start SEO #####*/
         $seo_desc = "";

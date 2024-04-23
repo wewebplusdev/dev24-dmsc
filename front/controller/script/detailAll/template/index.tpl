@@ -17,11 +17,13 @@
                                 {$languageFrontWeb->homepage->display->$currentLangWeb}
                             </a>
                         </li>
+                        {if $data_display_breadcrumb == "0"}
                         <li>
                             <a href="{$ul}/{$menuActive}/{$masterkey}" class="link">
                                 {$language_modules.breadcrumb1}
                             </a>
                         </li>
+                        {/if}
                         <li>
                             <a href="{$ul}/{$menuActive}/{$load_data->item[0]->id}/{$load_data->item[0]->masterkey}/{$load_data->item[0]->gid}" class="link">
                                 {$load_data->item[0]->subject}
@@ -214,6 +216,7 @@
                     </div>
                 </div>
             </div>
+            {if $load_data->item[0]->album|gettype eq "array" && $load_data->item[0]->album|count gte 1}
             <div class="gallery-block my-lg-4 my-0">
               <div class="container">
                 <div class="gallery-slide">
@@ -226,7 +229,7 @@
                           </a>
                         </figure>
                       </div>
-                      {if $load_data->item[0]->album|gettype eq "array" && $load_data->item[0]->album|count gte 1}
+                      
                         {foreach $load_data->item[0]->album as $keyAlbun => $valueAlbun}
                             <div class="swiper-slide">
                               <figure class="cover">
@@ -236,7 +239,7 @@
                               </figure>
                             </div>
                         {/foreach}
-                      {/if}
+                      
                     </div>
                   </div>
                   <div class="gallery-slider-nav">
@@ -262,6 +265,8 @@
                 </div>
               </div>
             </div>
+            
+            {/if}
 
             <!-- ck editor -->
             <div class="editor-content">

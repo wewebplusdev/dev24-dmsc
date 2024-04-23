@@ -479,11 +479,13 @@ async function getNewsDetail(req, res) {
                             'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
                         }
                     } else {
-                        arr_data[i].pic = {
-                            'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                            'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                            'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                        }
+						if(select[i].pic!== ""){
+							arr_data[i].pic = {
+								'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+								'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+								'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+							}
+						}
                     }
                     arr_data[i].createDate = {
                         full: new Date(select[i].credate),
