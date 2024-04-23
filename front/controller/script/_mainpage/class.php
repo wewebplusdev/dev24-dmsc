@@ -32,6 +32,24 @@ abstract class controller
                 'method_group' => 'getNewsGroup',
                 'method_list' => 'getNews',
             ),
+            'listAll' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'rss' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'json' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
         );
 
         $this->method_masterkey = array(
