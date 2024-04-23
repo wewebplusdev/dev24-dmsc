@@ -6,21 +6,27 @@ $detailAllPage = new detailAllPage;
 
 $contentid = $url->segment[1];
 $masterkey = $url->segment[2];
+$class_action = 'nw';
 $groupid = $url->segment[3];
 switch ($url->segment[0]) {
     default:
         if (empty($contentid) || empty($masterkey) || empty($groupid)) {
             header('location:'.$linklang . "/home");
+         
+           
         }
         
         $req['gid'] = $_REQUEST['gid'];
 
         $data = [
-            "action" => $detailAllPage->method_masterkey[$masterkey]['action'],
-            "method" => $detailAllPage->method_masterkey[$masterkey][$menuActive],
+            "action" => $detailAllPage->method_masterkey[$class_action]['action'],
+            "method" => $detailAllPage->method_masterkey[$class_action][$menuActive],
             "language" => $detailAllPage->language,
             "contentid" => $contentid,
+            "masterkey" => $masterkey
         ];
+
+       //print_pre($data);
 
         // call detail
         $load_data = $detailAllPage->load_data($data);
@@ -29,15 +35,16 @@ switch ($url->segment[0]) {
         }
 
         if ($load_data->code != 1001) {
-            header('location:'.$linklang . "/home");
+           header('location:'.$linklang . "/home");
+          
         }
 
         if ($masterkey != 'lar') {
             // content other
             $limit = 12;
             $data = [
-                "action" => $detailAllPage->method_masterkey[$masterkey]['action'],
-                "method" => $detailAllPage->method_masterkey[$masterkey]['listAll'],
+                "action" => $detailAllPage->method_masterkey[$class_action]['action'],
+                "method" => $detailAllPage->method_masterkey[$class_action]['listAll'],
                 "language" => $detailAllPage->language,
                 "order" => 'desc',
                 "page" => 1,
@@ -55,9 +62,9 @@ switch ($url->segment[0]) {
 
         // setup seo and text modules
         $language_modules = array();
-        if ($masterkey == 'nw') {
+        if ($masterkey == 'nw' || $class_action == 'nw') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $load_data->item[0]->group;
             $language_modules['list_ohter'] = $languageFrontWeb->newsrelated->display->$currentLangWeb;
             $language_modules['metatitle'] = $load_data->item[0]->metatitle ? $load_data->item[0]->metatitle :$load_data->item[0]->subject;
             $language_modules['metakeyword'] = $load_data->item[0]->metakeywords;

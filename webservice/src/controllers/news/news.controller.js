@@ -22,6 +22,7 @@ async function getNewsGroup(req, res) {
     const page = req.body.page;
     const limit = req.body.limit;
     const id = req.body.id;
+    const incode_masterkey = req.body.masterkey;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -30,7 +31,11 @@ async function getNewsGroup(req, res) {
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    if (incode_masterkey?.length>=1) {
+        config_array_masterkey['nw'] = incode_masterkey
+    }else{
+        config_array_masterkey['nw'] = config.fieldDB.masterkey.nw  
+    }
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -54,6 +59,7 @@ async function getNewsGroup(req, res) {
                 sql_list = sql_list + ` AND ${config_array_db['md_cmg']}_id = '${id}' `;
             }
             sql_list = sql_list + ` ORDER BY ${config_array_db['md_cmg']}_order ${order} `;
+
             const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
@@ -137,6 +143,7 @@ async function getNews(req, res) {
     const search_keyword = req.body.keyword;
     const contentid = req.body.contentid;
     const file_id = req.body.file_id;
+    const incode_masterkey = req.body.masterkey;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -148,7 +155,12 @@ async function getNews(req, res) {
     config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    //config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    if (incode_masterkey?.length>=1) {
+        config_array_masterkey['nw'] = incode_masterkey
+    }else{
+        config_array_masterkey['nw'] = config.fieldDB.masterkey.nw  
+    }
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -206,6 +218,7 @@ async function getNews(req, res) {
                 )
                 ORDER BY ${config_array_db['md_cms']}_order ${order} 
                 `;
+                console.log(sql_list);
                 const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
@@ -343,6 +356,7 @@ async function getNewsDetail(req, res) {
     const language = req.body.language;
     const contentid = req.body.contentid;
     const file_id = req.body.file_id;
+    const incode_masterkey = req.body.masterkey;
     const result = general.checkParam([method, language, contentid]);
     const code = config.returncode;
     // db tables
@@ -355,7 +369,12 @@ async function getNewsDetail(req, res) {
     config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    //config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    if (incode_masterkey?.length>=1) {
+        config_array_masterkey['nw'] = incode_masterkey
+    }else{
+        config_array_masterkey['nw'] = config.fieldDB.masterkey.nw  
+    }
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
