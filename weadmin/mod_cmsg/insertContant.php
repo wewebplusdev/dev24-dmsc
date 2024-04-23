@@ -84,6 +84,7 @@ if ($_REQUEST['execute'] == "insert") {
             $insertLang[$mod_tb_root_lang . "_lastby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
             $insertLang[$mod_tb_root_lang . "_lastdate"] = "NOW()";
             $sql2 = "INSERT INTO " . $mod_tb_root_lang . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
+			print_pre($sql2);
             wewebQueryDB($coreLanguageSQL, $sql2);
             $contantID = wewebInsertID($coreLanguageSQL);
             $contantLID = $contantID;
