@@ -245,7 +245,7 @@ foreach ($listAuthen as $key => $value) {
                            $row_groupid = $row_group[0];
                            $row_groupname = $row_group[1];
                         ?>
-                           <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputSubGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
+                           <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
                            </option>
                         <?php } ?>
                      </select>
