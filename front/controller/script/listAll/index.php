@@ -5,6 +5,7 @@ $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/sc
 $listAllPage = new listAllPage;
 
 $masterkey = $url->segment[1];
+
 switch ($url->segment[0]) {
     default:
         if (empty($masterkey)) {
