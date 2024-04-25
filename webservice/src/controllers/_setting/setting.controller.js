@@ -204,7 +204,7 @@ async function getWebSetting(req, res) {
 
         // ################## Start Sitemap ##################
         try {
-            const json = await fetch(`${config.containerFrontend}/webservice_json/sitemap.json`).then(res => res.json());
+            const json = await fetch(`${config.containerFrontend_http}/webservice_json/sitemap.json`).then(res => res.json());
             result.item.sitemap = json;
         } catch (error) {
             result.item.sitemap = null;
