@@ -4,6 +4,9 @@ abstract class controller
     const _APP_TOKEN = 'website-token-api';
     const _APP_USER = 'dmsc-website-api';
     const _APP_SERCRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
+
+    public $recaptcha_sitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
+    public $recaptcha_secretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
     public $token_access;
     public $language;
     public $token_revoke;
@@ -16,9 +19,10 @@ abstract class controller
         global $url, $_CORE_ENV;
 
         if ($_CORE_ENV == 'DEV') {
-            $this->URL_API = _http . '://192.168.101.39:4040/service-api/v1';
+            $this->URL_API = _http . '://192.168.1.150:4040/service-api/v1';
+            // $this->URL_API = _http . '://192.168.101.39:4040/service-api/v1';
             // $this->URL_API = _http . '://192.168.1.102:4040/service-api/v1';
-            // $this->URL_API = _http . '://192.168.1.101:4040/service-api/v1';
+            // $this->URL_API = _http . '://192.168.1.100:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
             $this->URL_API = _http . '://13.229.72.11:4040/service-api/v1';
         }else{
@@ -225,6 +229,31 @@ abstract class controller
             $list['pic'] = "";
         }
         $smarty->assign("seo", $list);
+    }
+    
+    public function load_url_redirect($req)
+    {
+        if (empty($this->token_access)) {
+            return false;
+        }
+        
+        $url = $this->URL_API . "/api";
+        $header = [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->token_access,
+        ];
+        $data = [
+            "method" => "loadRedirect",
+            "table" => $req['table'],
+            "masterkey" => $req['masterkey'],
+            "id" => $req['id'],
+            "language" => $req['language'],
+            "action" => $req['action'],
+            "download" => $req['download'],
+            "view" => $req['view'],
+        ];
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
     }
 
     private function revoke_token($auth_webservice){

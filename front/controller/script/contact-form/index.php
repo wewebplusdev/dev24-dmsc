@@ -1,13 +1,19 @@
 <?php
 $menuActive = "contact-form";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render='. $recaptcha_sitekey .'"></script>';
+$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/form.js"></script>';
 
 $menuActiveApi = "contact";
 
 $contactPage = new contactPage;
 
 $masterkey = $url->segment[1];
-switch ($url->segment[0]) {
+switch ($url->segment[1]) {
+    case 'insert-global':
+        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/insert-global.php'; #load service
+        break;
+
     default:
         $masterkey = 'nw';
         

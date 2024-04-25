@@ -7,28 +7,4 @@ class pageredirectage extends controller
         // super class init
         parent::__construct();
     }
-
-    public function load_url_redirect($req)
-    {
-        if (empty($this->token_access)) {
-            return false;
-        }
-        
-        $url = $this->URL_API . "/api";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
-        ];
-        $data = [
-            "method" => "loadRedirect",
-            "table" => $req['table'],
-            "masterkey" => $req['masterkey'],
-            "id" => $req['id'],
-            "language" => $req['language'],
-            "action" => $req['action'],
-            "download" => $req['download'],
-        ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
-    }
 }

@@ -20,6 +20,7 @@ async function loadRedirect(req, res) {
     const masterkey = req.body.masterkey;
     const language = req.body.language;
     const action = req.body.action;
+    const view = req.body.view;
     const download = req.body.download;
     const result = general.checkParam([method, table, id, masterkey, language]);
     const code = config.returncode;
@@ -73,10 +74,12 @@ async function loadRedirect(req, res) {
                                     const getUrlWeb = await modulus.getUrlWebsiteCmsg(select_list[0].typec, short_language);
                                     arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_list[0].gid}`;
 
-                                    let update = new Array;
-                                    update.push(`${config_array_db['md_cms']}_view = ${config_array_db['md_cms']}_view + 1`);
-                                    let sql_update = `UPDATE ${config_array_db['md_cms']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cms']}_id = '${id}' `;
-                                    await query(sql_update);
+                                    if (view == 1) {
+                                        let update = new Array;
+                                        update.push(`${config_array_db['md_cms']}_view = ${config_array_db['md_cms']}_view + 1`);
+                                        let sql_update = `UPDATE ${config_array_db['md_cms']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cms']}_id = '${id}' `;
+                                        await query(sql_update);
+                                    }
                                 }else{
                                     // attachments
                                     let sql_file = `SELECT 
@@ -105,10 +108,19 @@ async function loadRedirect(req, res) {
                                     }
                                 }
                             }
-                            
+                            result.item = arr_data;
+                        }else if(action == 'view'){
+                            let update = new Array;
+                            update.push(`${config_array_db['md_cms']}_view = ${config_array_db['md_cms']}_view + 1`);
+                            let sql_update = `UPDATE ${config_array_db['md_cms']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_cms']}_id = '${id}' `;
+                            await query(sql_update);
+                        }else{
+                            result.code = code.missing_param.code;
+                            result.msg = code.missing_param.msg;
                         }
-                        
-                        result.item = arr_data;
+                    }else{
+                        result.code = code.missing_data.code;
+                        result.msg = code.missing_data.msg;
                     }
             }else if(table === config.fieldDB.main.md_mnug){
                 result.code = code.success.code;
@@ -134,10 +146,12 @@ async function loadRedirect(req, res) {
                             arr_data.url = select_list[0].url;
                         }
                         
-                        let update = new Array;
-                        update.push(`${config_array_db['md_mnug']}_view = ${config_array_db['md_mnug']}_view + 1`);
-                        let sql_update = `UPDATE ${config_array_db['md_mnug']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_mnug']}_id = '${id}' `;
-                        await query(sql_update);
+                        if (view == 1) {
+                            let update = new Array;
+                            update.push(`${config_array_db['md_mnug']}_view = ${config_array_db['md_mnug']}_view + 1`);
+                            let sql_update = `UPDATE ${config_array_db['md_mnug']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_mnug']}_id = '${id}' `;
+                            await query(sql_update);
+                        }
                         
                         result.item = arr_data;
                     }
@@ -164,10 +178,13 @@ async function loadRedirect(req, res) {
                         if (action == 'link') {
                             arr_data.url = select_list[0].url;
                         }
-                        let update = new Array;
-                        update.push(`${config_array_db['md_mnusg']}_view = ${config_array_db['md_mnusg']}_view + 1`);
-                        let sql_update = `UPDATE ${config_array_db['md_mnusg']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_mnusg']}_id = '${id}' `;
-                        await query(sql_update);
+                        console.log(view);
+                        if (view == 1) {
+                            let update = new Array;
+                            update.push(`${config_array_db['md_mnusg']}_view = ${config_array_db['md_mnusg']}_view + 1`);
+                            let sql_update = `UPDATE ${config_array_db['md_mnusg']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_mnusg']}_id = '${id}' `;
+                            await query(sql_update);
+                        }
                         
                         result.item = arr_data;
                     }
@@ -194,10 +211,13 @@ async function loadRedirect(req, res) {
                             if (action == 'link') {
                                 arr_data.url = select_list[0].url;
                             }
-                            let update = new Array;
-                            update.push(`${config_array_db['md_mnu']}_view = ${config_array_db['md_mnu']}_view + 1`);
-                            let sql_update = `UPDATE ${config_array_db['md_mnu']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_mnu']}_id = '${id}' `;
-                            await query(sql_update);
+
+                            if (view == 1) {
+                                let update = new Array;
+                                update.push(`${config_array_db['md_mnu']}_view = ${config_array_db['md_mnu']}_view + 1`);
+                                let sql_update = `UPDATE ${config_array_db['md_mnu']} SET ${Object.values(update).join(",")} WHERE ${config_array_db['md_mnu']}_id = '${id}' `;
+                                await query(sql_update);
+                            }
                             
                             result.item = arr_data;
                         }

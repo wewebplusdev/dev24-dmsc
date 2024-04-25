@@ -44,7 +44,7 @@
   <div class="default-body pt-lg-3 pt-0">
         <div class="container">
           <div class="layout-form">
-            <form action="" class="form-default form-contact">
+            <form class="form-default form-contact" id="form-contact">
               <div class="form-head">
                 <div class="row no-gutters align-items-center">
                   <div class="col-auto">
@@ -67,37 +67,38 @@
               <div class="form-body">
                 <div class="form-group">
                   <label for="topic" class="control-label">{$languageFrontWeb->contact_subject->display->$currentLangWeb}<span>*</span></label>
-                  <input type="text" id="topic" value="" name="topic" placeholder="{$languageFrontWeb->contact_subject->display->$currentLangWeb}" class="form-control">
+                  <input type="text" id="topic" value="" name="topic" placeholder="{$languageFrontWeb->contact_subject->display->$currentLangWeb}" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="detail" class="control-label">{$languageFrontWeb->contact_detail->display->$currentLangWeb}<span>*</span></label>
-                  <textarea id="detail" name="detail" placeholder="{$languageFrontWeb->contact_detail->display->$currentLangWeb}" class="form-control form-textarea"></textarea>
+                  <textarea id="detail" name="detail" placeholder="{$languageFrontWeb->contact_detail->display->$currentLangWeb}" class="form-control form-textarea" required></textarea>
                 </div>
                 <div class="form-group">
                   <label for="topic" class="control-label">{$languageFrontWeb->contact_name->display->$currentLangWeb}<span>*</span></label>
-                  <input type="text" id="topic" value="" name="topic" placeholder="{$languageFrontWeb->contact_name->display->$currentLangWeb}" class="form-control">
+                  <input type="text" id="topic" value="" name="topic" placeholder="{$languageFrontWeb->contact_name->display->$currentLangWeb}" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="detail" class="control-label">{$languageFrontWeb->contact_address->display->$currentLangWeb}<span>*</span></label>
-                  <textarea id="detail" name="detail" placeholder="{$languageFrontWeb->contact_address->display->$currentLangWeb}" class="form-control form-textarea"></textarea>
+                  <textarea id="detail" name="detail" placeholder="{$languageFrontWeb->contact_address->display->$currentLangWeb}" class="form-control form-textarea" required></textarea>
                 </div>
                 
                 <div class="row gutters-40">
                   <div class="col-md">
                     <div class="form-group">
                       <label for="tell" class="control-label">{$languageFrontWeb->contact_tel->display->$currentLangWeb}<span>*</span></label>
-                      <input type="text" id="tell" value="" name="tell" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control">
+                      <input type="text" id="tell" value="" name="tell" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control" required>
                     </div>
                   </div>
                   <div class="col-md">
                     <div class="form-group">
                       <label for="email" class="control-label">{$languageFrontWeb->contact_email->display->$currentLangWeb}<span>*</span></label>
-                      <input type="text" id="email" value="" name="email" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control">
+                      <input type="text" id="email" value="" name="email" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control" required>
                     </div>
                   </div>
                 </div>
                 <div class="action">
-                  <button type="submit" class="btn btn-primary disabled">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
+                  <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptcha_sitekey}">
+                  <button type="submit" id="submit-form" class="btn btn-primary disabled">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
                   <button type="button" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</button>
                 </div>
               </div>

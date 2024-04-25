@@ -78,18 +78,3 @@ export const getToken = (name, decypt = 0) => {
         }
     }
 }
-
-export const getPageURI = () => {
-    // console.log(location);
-    let uri = $('.global-container').data('uri');
-    console.log(uri);
-
-    console.log($('#navbarSupportedContent > ul'));
-    console.log('start');
-    $('#navbarSupportedContent > ul').each(function() {
-        console.log($(this));
-        $(this).each(function(e) {
-            console.log($(e)); 
-        });
-    });
-}

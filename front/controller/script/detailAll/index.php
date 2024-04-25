@@ -59,6 +59,20 @@ switch ($url->segment[0]) {
             }
         }
 
+        /*#### Start Update View #####*/
+        if (!isset($_COOKIE['VIEW_DETAIL_' . $load_data->item[0]->masterkey . '_' . urldecode($load_data->item[0]->id)])) {
+            setcookie("VIEW_DETAIL_" . $load_data->item[0]->masterkey . '_' . urldecode($load_data->item[0]->id), true, time() + 600, "/");
+            $array_req = array(
+                'table' => $load_data->item[0]->tb,
+                'masterkey' => $load_data->item[0]->masterkey,
+                'id' => $load_data->item[0]->id,
+                'language' => $load_data->item[0]->language,
+                'action' => 'view',
+            );
+            $load_update_view = $detailAllPage->load_url_redirect($array_req);
+        }
+        /*#### End Update View #####*/
+
         // setup seo and text modules
         $language_modules = array();
         $language_modules['breadcrumb1'] = trim($load_data->item[0]->group);
