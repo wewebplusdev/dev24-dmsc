@@ -7,3 +7,4 @@ webservice/src/.env
 gulpfile.js
 package.json
 package-lock.json
+/webservice_json

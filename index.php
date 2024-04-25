@@ -3,22 +3,25 @@
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
     $path_root = "/dev24-dmsc"; #ถ้า root ไม่ได้อยู่ public
     $_CORE_ENV = "DEV";
-}elseif($_SERVER['HTTP_HOST'] == 'project.wewebcloud.com'){
-    $_CORE_ENV = "WEWEB";
-    $path_root = "/dev24-dmsc"; #ถ้า root อยู่ public
+    $http_protocal = "http";
+    $http_status = false;
 }elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
     $_CORE_ENV = "PROD";
     $path_root = ""; #ถ้า root อยู่ public
+    $http_protocal = "https";
+    $http_status = true;
 }else{
     $_CORE_ENV = "STAGING";
     $path_root = ""; #ถ้า root อยู่ public
+    $http_protocal = "https";
+    $http_status = true;
 }
 
-define("_http", "http");
-if (_http == "http") {
-    //$redirect= _http."://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    //header("Location:$redirect");
-    //exit();
+define("_http", $http_protocal);
+if (_http == "http" && $http_status) {
+    $redirect= _http."://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    header("Location:$redirect");
+    exit();
 }
 
 define("_DIR", str_replace("\\", '/', dirname(__FILE__)));
