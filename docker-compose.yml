@@ -10,7 +10,7 @@ services:
       - .:/var/www/html/
     ports:
       - 80:80
-      - 443:80
+      - 443:443
     environment:
       TZ: "Asia/Bangkok"
     networks:
