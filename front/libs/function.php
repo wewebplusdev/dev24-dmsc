@@ -795,3 +795,32 @@ function formatNum($myNumber) {
     if ($myNumber<10) return ("0".$myNumber);
     else return ($myNumber);
 }
+
+function header_active($link){
+    global $sitemapWeb, $currentLangWeb;
+    $array_page = array();
+    if (!empty($link)) {
+        foreach ($sitemapWeb->level_1->$currentLangWeb as $valueSitemapLv1) {
+            if (count((array)$valueSitemapLv1->level_2) > 0){
+                foreach ($valueSitemapLv1->level_2 as $valueLv2){
+                    if (count((array)$valueLv2->level_3) > 0){
+                        foreach ($valueLv2->level_3 as $valueLv3) {
+                            if (str_contains($valueLv3->url, $link)) {
+                                array_push($array_page, $valueLv3->subject);
+                            }
+                        }
+                    }else{
+                        if (str_contains($valueLv2->url, $link)) {
+                            array_push($array_page, $valueLv2->subject);
+                        }
+                    }
+                }
+            }else{
+                if (str_contains($valueSitemapLv1->url, $link)) {
+                    array_push($array_page, $valueSitemapLv1->subject);
+                }
+            }
+        }
+    }
+    return $array_page;
+}

@@ -7,6 +7,8 @@ const axios = require('axios');
 exports.getUploadPath = function (masterKey = null, type = null, file = null, typeUrl = 0) {
     if (typeUrl == 1) {
         return config.containerFrontend + "/upload/" + masterKey + "/" + type + "/" + file;
+    }else if(typeUrl == 2){
+        return config.containerFrontend_http + "/upload/" + "/" + masterKey + "/" + type + "/" + file;
     }else{
         return config.hostUpload + "/" + masterKey + "/" + type + "/" + file;
     }

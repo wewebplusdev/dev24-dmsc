@@ -58,13 +58,19 @@ switch ($url->segment[0]) {
         // print_pre($data);
         // print_pre($load_data);die;
         $smarty->assign("load_data", $load_data);
-
+        
         // setup seo and text modules
         $language_modules = array();
-        if ($masterkey == 'lar') {
-            $language_modules['breadcrumb2'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
+        // active menu header
+        $header_active = header_active($url->url);
+        if (gettype($header_active) == 'array' && count($header_active) > 0) {
+            $language_modules['breadcrumb2'] = $header_active[0];
+            $language_modules['metatitle'] = $header_active[0];
         }
+        // if ($masterkey == 'lar') {
+        //     $language_modules['breadcrumb2'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
+        //     $language_modules['metatitle'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
+        // }
         $smarty->assign("language_modules", $language_modules);
        
         /*## Start SEO #####*/

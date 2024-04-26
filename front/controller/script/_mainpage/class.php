@@ -21,8 +21,7 @@ abstract class controller
         if ($_CORE_ENV == 'DEV') {
             $this->URL_API =  'http://192.168.1.150:4040/service-api/v1';
             // $this->URL_API =  'http://192.168.101.39:4040/service-api/v1';
-            // $this->URL_API =  'http://192.168.1.102:4040/service-api/v1';
-            // $this->URL_API =  'http://192.168.1.100:4040/service-api/v1';
+            $this->URL_API =  'http://192.168.1.105:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
             $this->URL_API =  'http://13.229.72.11:4040/service-api/v1';
         }else{
@@ -75,64 +74,6 @@ abstract class controller
         );
 
         $this->method_masterkey = array(
-            'nw' => array(
-                'action' => 'news',
-                'download' => 'getNews',
-                'loadGroup' => 'getNewsGroup',
-                'listAll' => 'getNews',
-                'detailAll' => 'getNewsDetail',
-                'rssGroup' => 'getNewsGroup',
-                'rss' => 'getNews',
-            ),
-            'cal' => array(
-                'action' => 'calendar',
-                'download' => 'getCalendar',
-                'listAll' => 'getCalendar',
-                'detailAll' => 'getCalendarDetail',
-            ),
-            'lar' => array(
-                'action' => 'laws',
-                'download' => 'getLaws',
-                'loadGroup' => 'getLawsGroup',
-                'downloadAll' => 'getLaws',
-                'detailAll' => 'getLawsDetail',
-            ),
-            'nwa' => array(
-                'action' => 'announcer',
-                'download' => 'getAnnouncer',
-                'loadGroup' => 'getAnnouncerGroup',
-                'listAll' => 'getAnnouncer',
-                'detailAll' => 'getAnnouncerDetail',
-                'rssGroup' => 'getAnnouncerGroup',
-                'rss' => 'getAnnouncer',
-            ),
-            'km' => array(
-                'action' => 'km',
-                'download' => 'getKm',
-                'loadGroup' => 'getKmGroup',
-                'listAll' => 'getKm',
-                'detailAll' => 'getKmDetail',
-                'rssGroup' => 'getKmGroup',
-                'rss' => 'getKm',
-            ),
-            'god' => array(
-                'action' => 'god',
-                'download' => 'getGod',
-                'loadGroup' => 'getGodGroup',
-                'listAll' => 'getGod',
-                'detailAll' => 'getGodDetail',
-                'rssGroup' => 'getGodGroup',
-                'rss' => 'getGod',
-            ),
-            'nwp' => array(
-                'action' => 'news-people',
-                'download' => 'getNewsPeople',
-                'loadGroup' => 'getNewsPeopleGroup',
-                'listAll' => 'getNewsPeople',
-                'detailAll' => 'getNewsPeopleDetail',
-                'rssGroup' => 'getNewsPeopleGroup',
-                'rss' => 'getNewsPeople',
-            ),
             'sv' => array(
                 'action' => 'service',
                 'services' => 'getService',

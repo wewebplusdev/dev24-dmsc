@@ -528,7 +528,7 @@ async function getNewsDetail(req, res) {
                         const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                         arr_data[i].target = `_self`;
                         arr_data[i].htmllink = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename);
-                        let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 1);
+                        let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 2);
                         let contentHTML = await modulus.getContentFromUrl(html_url);
                         contentHTML = await modulus.getTextReplace(contentHTML);
                         arr_data[i].html = contentHTML;

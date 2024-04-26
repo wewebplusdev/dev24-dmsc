@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-auto">
                             <div class="action" data-aos="fade-left">
-                                <a href="{$ul}/service" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
+                                <a href="{$ul}/services" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                             </div>
                             <div class="col-auto">
                                 <div class="action">
-                                    <a href="{$ul}/innovation" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
+                                    <a href="{$ul}/services" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                                 </div>
                             </div>
                         </div>

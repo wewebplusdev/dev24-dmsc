@@ -1,7 +1,7 @@
 <?php
 $menuActive = "services";
 $servicePage = new servicePage;
-$limit = 12;
+$limit = 15;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[2]) {
