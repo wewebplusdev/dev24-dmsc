@@ -55,6 +55,7 @@
             padding: 10px 20px;
             margin-bottom: 20px;
             color: var(--color-black);
+
         }
 
         .layout-structure .item a{
@@ -79,6 +80,7 @@
         .layout-structure .item-wrapper {
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
             background-color: var(--color-light);
+            border: 1px solid #EBEBEB;
 
         }
     </style>
