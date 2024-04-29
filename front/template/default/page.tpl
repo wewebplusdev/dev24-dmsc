@@ -15,7 +15,7 @@
 
 <body>
     {* {include file="{$incfile.preloader}" title=title} *}
-    <div class="global-container" data-uri="{$uri}">
+    <div class="global-container" data-menu="{$header_active.header[0]}">
         {include file="{$incfile.header}" title=title}
         {include file="{$fileInclude|templateInclude}" title=pageContent}
         {include file="{$incfile.footer}" title=title}

@@ -22,6 +22,7 @@ if (!empty($url->segment[1])) {
         'language' => decodeStr($case_slug[3]),
         'action' => 'link',
         'download' => decodeStr($case_slug[4]),
+        'urlc2' => decodeStr($case_slug[5]),
         'view' => $view,
     );
     print_pre($array_req);

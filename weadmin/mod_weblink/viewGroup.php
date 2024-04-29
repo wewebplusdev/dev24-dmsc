@@ -168,6 +168,7 @@ logs_access('3', 'View Group');
             </tr>
          </table>
          <br />
+         <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_pic_number)){ ?>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -191,7 +192,7 @@ logs_access('3', 'View Group');
             </tr>
          </table>
          <br />
-
+         <?php } ?>
 
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>

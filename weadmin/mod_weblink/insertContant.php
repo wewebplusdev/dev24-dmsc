@@ -54,7 +54,6 @@ if ($_REQUEST['execute'] == "insert") {
    $insert[$mod_tb_root . "_status"] = "'Disable'";
    $insert[$mod_tb_root . "_order"] = "'" . $maxOrder . "'";
    $sql = "INSERT INTO " . $mod_tb_root . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
-
    $Query = wewebQueryDB($coreLanguageSQL, $sql);
    $contantID1 = wewebInsertID($coreLanguageSQL);
    $array_sch = array();
@@ -71,6 +70,7 @@ if ($_REQUEST['execute'] == "insert") {
             $insertLang[$mod_tb_root_lang . "_picType"] = "'" . changeQuot($_REQUEST['inputTypePic']) . "'";
             $insertLang[$mod_tb_root_lang . "_picDefault"] = "'" . changeQuot($_REQUEST['inputPicD']) . "'";
             $insertLang[$mod_tb_root_lang . "_urlc"] = "'" . changeQuot($_REQUEST['inputurlC']) . "'";
+            $insertLang[$mod_tb_root_lang . "_urlc2"] = "'" . changeQuot($_REQUEST['inputurlC2']) . "'";
             $insertLang[$mod_tb_root_lang . "_target"] = "'" . changeQuot($_REQUEST['inputmenutarget']) . "'";
             $insertLang[$mod_tb_root_lang . "_pic"] = "'" . $_POST["picname"] . "'";
             $insertLang[$mod_tb_root_lang . "_pic2"] = "'" . $_POST["picname2"] . "'";
