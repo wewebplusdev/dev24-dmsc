@@ -20,14 +20,15 @@
                     <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="">
                 </div>
                 <div class="bg-text">
-                    <div class="text">
+                    <div class="position-relative">
+                        <div class="text"> </div>
+                        <div class="bg-left"><img src="<?php echo $core_template; ?>/img/background/bg-text-left.png" alt=""></div>
+                        <div class="bg-right"><img src="<?php echo $core_template; ?>/img/background/bg-text-right.png" alt=""></div>
                         <div class="position-text">
-                            <h2 class="title">นายแพทย์พิเชฐ บัญญัติ</h2>
+                            <h2>นายแพทย์พิเชฐ บัญญัติ</h2>
                             <p>รองอธิบดีกรมวิทยาศาสตร์การแพทย์</p>
                         </div>
                     </div>
-                    <div class="bg-left"><img src="<?php echo $core_template; ?>/img/background/bg-text-left.png" alt=""></div>
-                    <div class="bg-right"><img src="<?php echo $core_template; ?>/img/background/bg-text-right.png" alt=""></div>
                 </div>
                 <div class="container">
                     <div class="contact">
@@ -35,6 +36,8 @@
                             <h3 class="title">ข้อมูลการติดต่อ</h3>
                         </div>
                         <div class="row">
+
+
                             <div class="col-sm-4">
                                 <p>ที่อยู่</p>
                                 <p>เบอร์โทรศัพท์</p>
@@ -97,12 +100,6 @@
     }
 
     .text {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        color: #fff;
         background: linear-gradient(to top, #01377D, #2AB170);
         width: 100%;
         height: 180px;
@@ -116,6 +113,10 @@
 
     .position-text {
         position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
     }
 
     .text img {
