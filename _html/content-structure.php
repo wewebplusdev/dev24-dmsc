@@ -54,6 +54,16 @@
             filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
             padding: 10px 20px;
             margin-bottom: 20px;
+            color: var(--color-black);
+        }
+
+        .layout-structure .item a{
+            text-decoration: none;
+            color: var(--color-black);
+        }
+
+        .layout-structure .item a:hover{
+            color: var(--color-primary);
         }
 
         .layout-structure .item .col-9{
@@ -80,8 +90,8 @@
             <div class="container">
                 <div class="layout-structure ">
                     <!-- ck content -->
-                    <div class="title fw-bold ">ทำเนียบผู้บริหาร</div>
-                    <div class="row row-cols-2 ">
+                    <div title="ทำเนียบผู้บริหาร" class="title fw-bold ">ทำเนียบผู้บริหาร</div>
+                    <div class="row row-cols-2">
                         <div class="item col no-gutters ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
@@ -101,14 +111,16 @@
                                             <div class="font20">อธิบดีกรมวิทยาศาสตร์การแพทย์</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
+                                       <div class="row">
+                                               <div   class="col-3 text-nowrap ">Email :</div>
                                                 <div class="col-9">-</div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-2589-9862, 0-2951-0000</div>
-                                            </div>
+                                           <a href="tel:0-2589-9862">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-2589-9862, 0-2951-0000</div>
+                                                </div>
+                                           </a>
                                         </div>
                                     </div>
 
@@ -135,10 +147,12 @@
                                             <div class="font20">อธิบดีกรมวิทยาศาสตร์การแพทย์</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">phichet.b@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a  href="mailto:phichet.b@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">phichet.b@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2591-5453 ต่อ 99008</div>
@@ -169,10 +183,12 @@
                                             <div class="font20">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">ballang.u@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a  href="mailto:ballang.u@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">ballang.u@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2591-5942 ต่อ 99004</div>
@@ -203,10 +219,12 @@
                                             <div class="font20">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">piya.s@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a   href="mailto:piya.s@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">piya.s@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2591-5231 ต่อ 99005</div>
@@ -220,7 +238,7 @@
 
 
                     </div>
-                    <div class="title fw-bold ">หน่วยงานส่วนกลาง</div>
+                    <div title="หน่วยงานส่วนกลาง" class="title fw-bold ">หน่วยงานส่วนกลาง</div>
                     <div class="row row-cols-2 ">
                         <div class="item col no-gutters ">
                             <div class="item-wrapper row no-gutters">
@@ -241,10 +259,12 @@
                                             <div class="font20">หัวหน้ากลุ่มตรวจสอบภายใน</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">chanyut.s@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a href="mailto:chanyut.s@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">chanyut.s@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">02-951-0000 ต่อ 98458</div>
@@ -275,10 +295,12 @@
                                             <div class="font20">หัวหน้ากลุ่มพัฒนาระบบบริหาร</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">suwanna.c@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a   href="mailto:suwanna.c@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">suwanna.c@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2591-0000 ต่อ 98449</div>
@@ -309,10 +331,12 @@
                                             <div class="font20">หัวหน้ากลุ่มงานจริยธรรม</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">phichet.b@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a   href="mailto:phichet.b@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">phichet.b@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2591-5453 ต่อ 99008</div>
@@ -343,10 +367,12 @@
                                             <div class="font20">เลขานุการกรม</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">sugunya.g@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a   href="mailto:sugunya.g@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">sugunya.g@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2591-5235 ต่อ 99007</div>
@@ -377,10 +403,12 @@
                                             <div class="font20">ผู้อำนวยการกองแผนงานและวิชาการ</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">nanthawan.m@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a   href="mailto:nanthawan.m@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">nanthawan.m@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 99014</div>
@@ -411,10 +439,12 @@
                                             <div class="font20">ผู้อำนวยการสถาบันชีววัตถุ</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">supaporn.p@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a   href="mailto:supaporn.p@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">supaporn.p@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 98363</div>
@@ -445,10 +475,12 @@
                                                 สาธารณสุข</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">archawin.r@dmsc.mail.go.th</div>
-                                            </div>
+                                          <a    href="mailto:archawin.r@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">archawin.r@dmsc.mail.go.th</div>
+                                                </div>
+                                          </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 99354</div>
@@ -479,10 +511,12 @@
                                             <div class="font20">ผู้อำนวยการสถาบันวิจัยสมุนไพร</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">siriwan.c@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a    href="mailto:siriwan.c@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">siriwan.c@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-000 ต่อ 99274</div>
@@ -515,10 +549,12 @@
                                                 และความปลอดภัยอาหาร</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">wischada.j@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a    href="mailto:wischada.j@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">wischada.j@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-000 ต่อ 99518</div>
@@ -551,10 +587,12 @@
                                                 และวัตถุอันตราย</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">junya.m@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a    href="mailto:junya.m@dmsc.mail.go.th" >
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">junya.m@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a  >
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-000 ต่อ 99726</div>
@@ -586,10 +624,12 @@
                                             <div class="font20">ผู้อำนวยการสำนักรังสีและเครื่องมือแพทย์</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">thamarat.b@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a  href="mailto:thamarat.b@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">thamarat.b@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">-</div>
@@ -621,10 +661,12 @@
                                             <div class="font20">ผู้อำนวยการสำนักมาตรฐานห้องปฏิบัติการ</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">surasak.m@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a   href="mailto:surasak.m@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">surasak.m@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 99086</div>
@@ -656,10 +698,12 @@
                                             <div class="font20">ผู้อำนวยการสำนักยาและวัตถุเสพติด</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">somsak.s@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a href="mailto:somsak.s@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">somsak.s@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 99113</div>
@@ -691,10 +735,12 @@
                                             <div class="font20">ผู้อำนวยการศูนย์เทคโนโลยีสารสนเทศ</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">panist.v@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a href="mailto:panist.v@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">panist.v@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 99362</div>
@@ -727,10 +773,12 @@
                                                 ทางการแพทย์</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">panadda.d@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a href="mailto:panadda.d@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">panadda.d@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 98019</div>
@@ -762,10 +810,12 @@
                                             <div class="font20">หัวหน้าสำนักวิชาการวิทยาศาสตร์การแพทย์</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">prapai.w@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a href="mailto:prapai.w@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">prapai.w@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 99359</div>
@@ -797,10 +847,12 @@
                                             <div class="font20">ผู้อำนวยการกองทดสอบความชำนาญ</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">dhitiwass.s@dmsc.mail.go.th</div>
-                                            </div>
+                                          <a href="mailto:dhitiwass.s@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">dhitiwass.s@dmsc.mail.go.th</div>
+                                                </div>
+                                          </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-0000 ต่อ 99086</div>
@@ -832,10 +884,12 @@
                                             <div class="font20">ผู้อำนวยการศูนย์รวมบริการ</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">sujitra.k@dmsc.mail.go.th</div>
-                                            </div>
+                                          <a href="mailto:sujitra.k@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">sujitra.k@dmsc.mail.go.th</div>
+                                                </div>
+                                          </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-2951-000 ต่อ 99063</div>
@@ -868,10 +922,12 @@
                                                 ระหว่างประเทศ</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">athiwat.p@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a href="mailto:athiwat.p@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">athiwat.p@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">-</div>
@@ -887,7 +943,7 @@
 
 
                     </div>
-                    <div class="title fw-bold ">หน่วยงานส่วนภูมิภาค</div>
+                    <div title="หน่วยงานส่วนภูมิภาค" class="title fw-bold ">หน่วยงานส่วนภูมิภาค</div>
 
                     <div class="row row-cols-2 ">
                         <div class="item col no-gutters ">
@@ -910,14 +966,18 @@
                                                 ที่ 1 เชียงใหม่</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">nittaya.p@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-5311-2188</div>
-                                            </div>
+                                            <a href="mailto:nittaya.p@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">nittaya.p@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
+                                          <a href="mailto:0-5311-2188">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-5311-2188</div>
+                                                </div>
+                                          </a h>
                                         </div>
                                     </div>
 
@@ -945,14 +1005,18 @@
                                                 ที่ 1/1 เชียงราย</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">amara.y@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-5317-6224-6</div>
-                                            </div>
+                                           <a href="mailto:amara.y@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">amara.y@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
+                                            <a href="tel:0-5317-6224-6">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-5317-6224-6</div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
 
@@ -980,10 +1044,12 @@
                                                 ที่ 2 พิษณุโลก</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">amornrat.t@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a href="mailto:amornrat.t@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">amornrat.t@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">055322824-6 ต่อ 128</div>
@@ -1019,10 +1085,12 @@
                                                 <div class="col-3 text-nowrap ">Email :</div>
                                                 <div class="col-9">-</div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-5624-5618</div>
-                                            </div>
+                                            <a href="tel:0-5624-5618">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-5624-5618</div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
 
@@ -1051,14 +1119,18 @@
                                                 ที่ 4 สระบุรี</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">thatsanee.m@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-7660-0119</div>
-                                            </div>
+                                            <a href="mailto:thatsanee.m@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">thatsanee.m@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
+                                           <a href="tel:0-7660-0119">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-7660-0119</div>
+                                                </div>
+                                           </a>
                                         </div>
                                     </div>
 
@@ -1087,10 +1159,12 @@
                                                 ที่ 5 สมุทรสงคราม</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">pantip.s@dmsc.mail.go.th</div>
-                                            </div>
+                                            <a href="mailto:pantip.s@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">pantip.s@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-3471-1945-48 ต่อ 124</div>
@@ -1123,10 +1197,12 @@
                                                 ที่ 6 ชลบุรี</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">ket.s@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a href="mailto:ket.s@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">ket.s@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-3878-4006-7 ต่อ 306</div>
@@ -1159,10 +1235,12 @@
                                                 ที่ 7 ขอนแก่น</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">porntip.l@dmsc.mail.go.th</div>
-                                            </div>
+                                           <a href="mailto:porntip.l@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">porntip.l@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
                                             <div class="row">
                                                 <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                 <div class="col-9">0-4324-0800 ต่อ 444</div>
@@ -1195,14 +1273,18 @@
                                                 ที่ 8 อุดรธานี</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">orathai.s@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-4220-7364</div>
-                                            </div>
+                                            <a href="mailto:orathai.s@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">orathai.s@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
+                                           <a href="tel:042273647">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-4220-7364</div>
+                                                </div>
+                                           </a>
                                         </div>
                                     </div>
 
@@ -1231,14 +1313,18 @@
                                                 ที่ 9 นครราชสีมา</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">santakit.n@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-4434-6005</div>
-                                            </div>
+                                           <a href="mailto:santakit.n@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">santakit.n@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
+                                           <a href="tel:044346005">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-4434-6005</div>
+                                                </div>
+                                           </a>
                                         </div>
                                     </div>
 
@@ -1267,14 +1353,18 @@
                                                 ที่ 10 อุบลราชธานี</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">mathurose.t@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-4531-2230</div>
-                                            </div>
+                                           <a href="mailto:mathurose.t@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">mathurose.t@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
+                                            <a href="tel:0454312230">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-4531-2230</div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
 
@@ -1303,14 +1393,18 @@
                                                 ที่ 11 สุราษฎร์ธานี</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">jiraporn.p@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-7735-5301</div>
-                                            </div>
+                                            <a href="mailto:jiraporn.p@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">jiraporn.p@dmsc.mail.go.th</div>
+                                                </div>
+                                            </a>
+                                           <a href="tel:077355301">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-7735-5301</div>
+                                                </div>
+                                           </a>
                                         </div>
                                     </div>
 
@@ -1343,10 +1437,12 @@
                                                 <div class="col-3 text-nowrap ">Email :</div>
                                                 <div class="col-9">-</div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">076-600119-21</div>
-                                            </div>
+                                           <a href="tel:07660011921">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">076-600119-21</div>
+                                                </div>
+                                           </a>
                                         </div>
                                     </div>
 
@@ -1375,14 +1471,18 @@
                                                 ที่ 12 สงขลา</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">varaporn.c@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-7433-0200</div>
-                                            </div>
+                                           <a href="mailto:varaporn.c@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">varaporn.c@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
+                                          <a href="tel:0-7433-0200">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-7433-0200</div>
+                                                </div>
+                                          </a>
                                         </div>
                                     </div>
 
@@ -1411,14 +1511,18 @@
                                                 ที่ 12/1 ตรัง</div>
                                         </div>
                                         <div class="typo-xs">
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap ">Email :</div>
-                                                <div class="col-9">khatayut.n@dmsc.mail.go.th</div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 text-nowrap">ติดต่อ :</div>
-                                                <div class="col-9">0-7550-1050-3</div>
-                                            </div>
+                                           <a href="mailto:khatayut.n@dmsc.mail.go.th">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap ">Email :</div>
+                                                    <div class="col-9">khatayut.n@dmsc.mail.go.th</div>
+                                                </div>
+                                           </a>
+                                            <a href="tel:0-7550-1050-3">
+                                                <div class="row">
+                                                    <div class="col-3 text-nowrap">ติดต่อ :</div>
+                                                    <div class="col-9">0-7550-1050-3</div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
 
