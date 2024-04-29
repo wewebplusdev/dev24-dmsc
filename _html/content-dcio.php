@@ -13,36 +13,34 @@
             <div class="defailt-body">
                 <div class="content">
                     <div class="logo-person">
-                        <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="">
+                        <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="รูปภาพ">
                     </div>
                 </div>
                 <div class="bg-cio">
-                    <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="">
+                    <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="background">
                 </div>
                 <div class="bg-text">
                     <div class="position-relative">
                         <div class="text"> </div>
-                        <div class="bg-left"><img src="<?php echo $core_template; ?>/img/background/bg-text-left.png" alt=""></div>
-                        <div class="bg-right"><img src="<?php echo $core_template; ?>/img/background/bg-text-right.png" alt=""></div>
+                        <div class="bg-left"><img src="<?php echo $core_template; ?>/img/background/bg-text-left.png" alt="background"></div>
+                        <div class="bg-right"><img src="<?php echo $core_template; ?>/img/background/bg-text-right.png" alt="background"></div>
                         <div class="position-text">
-                            <h2>นายแพทย์พิเชฐ บัญญัติ</h2>
-                            <p>รองอธิบดีกรมวิทยาศาสตร์การแพทย์</p>
+                            <h2 title="ชื่อ">นายแพทย์พิเชฐ บัญญัติ</h2>
+                            <p title="ตําแหน่ง">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</p>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="contact">
                         <div class="title-contact">
-                            <h3 class="title">ข้อมูลการติดต่อ</h3>
+                            <h3 title="ข้อมูลการติดต่อ" class="title">ข้อมูลการติดต่อ</h3>
                         </div>
                         <div class="row">
-
-
                             <div class="col-sm-4">
-                                <p>ที่อยู่</p>
-                                <p>เบอร์โทรศัพท์</p>
-                                <p>โทรสาร</p>
-                                <p>ที่อยู่ไปรษณีย์อิเล็กทรอนิกส์</p>
+                                <p title="ที่อยู่">ที่อยู่</p>
+                                <p title="เบอร์โทร">เบอร์โทรศัพท์</p>
+                                <p title="โทรสาร">โทรสาร</p>
+                                <p title="อีเมล">ที่อยู่ไปรษณีย์อิเล็กทรอนิกส์</p>
                             </div>
                             <div class="col-sm-8">
                                 <p>-</p>

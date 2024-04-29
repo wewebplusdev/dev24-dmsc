@@ -14,13 +14,13 @@
                 <div class="container">
                     <div class="content">
                         <div class="logo">
-                            <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="">
+                            <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
                         </div>
-                        <h2 class="title-lg">ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                        <h2 title="ชื่อหัวข้อ" class="title-lg">ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
                     </div>
                 </div>
                 <div class="bg-img">
-                    <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="">
+                    <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="background">
                 </div>
             </div>
         </section>
