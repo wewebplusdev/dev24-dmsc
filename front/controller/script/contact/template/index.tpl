@@ -60,7 +60,7 @@
           </div>
           <div class="tab-pane fade" id="nav-02">
             <figure class="cover">
-              <img src="{$template}/assets/img/static/graphic-map.jpg" alt="" class="img-cover">
+              <img src="{$settingWeb['addresspic']}" alt="{$settingWeb['addresspic']}" class="img-cover">
             </figure>
           </div>
         </div>

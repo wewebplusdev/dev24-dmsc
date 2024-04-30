@@ -806,18 +806,21 @@ function header_active($link){
                     if (count((array)$valueLv2->level_3) > 0){
                         foreach ($valueLv2->level_3 as $valueLv3) {
                             if (str_contains($valueLv3->url, $link)) {
-                                array_push($array_page, $valueLv3->subject);
+                                $array_page['page'][] = $valueLv3->subject;
+                                $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
                             }
                         }
                     }else{
                         if (str_contains($valueLv2->url, $link)) {
-                            array_push($array_page, $valueLv2->subject);
+                            $array_page['page'][] = $valueLv2->subject;
+                            $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
                         }
                     }
                 }
             }else{
                 if (str_contains($valueSitemapLv1->url, $link)) {
-                    array_push($array_page, $valueSitemapLv1->subject);
+                    $array_page['page'][] = $valueSitemapLv1->subject;
+                    $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
                 }
             }
         }

@@ -41,6 +41,7 @@ $sql .= "   " . $mod_tb_root . "_id as id,
 " . $mod_tb_root_lang . "_picType as picType,
 " . $mod_tb_root_lang . "_picDefault as picDefault,
 " . $mod_tb_root_lang . "_urlc as urlc,
+" . $mod_tb_root_lang . "_urlc2 as urlc2,
 " . $mod_tb_root_lang . "_target as target 
 ";
 $sql .= "    FROM " . $mod_tb_root . " INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid
@@ -97,11 +98,18 @@ $valTypeC = $Row['typec'] ? $Row['typec'] : 1;
 $valpicType = $Row['picType'] ? $Row['picType'] : 1;
 $valpicDefault = $Row['picDefault'];
 $valUrlC = $Row['urlc'];
+$valUrlC2 = $Row['urlc2'];
 $valTarget = $Row['target'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
 logs_access('3', 'View');
+
+if(!in_array($_REQUEST['masterkey'], $array_masterkey_2link)){
+   $lang_url = $langMod["tit:linkvdoc"];
+}else{
+   $lang_url = $langMod["inp:link_android"];
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -266,6 +274,7 @@ logs_access('3', 'View');
                   </div>
                </td>
             </tr>
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_home)){ ?>
             <tr <?php if ($valpicType == 1) { echo 'style="display:none;"'; } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album_hover"] ?><span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -274,6 +283,7 @@ logs_access('3', 'View');
                   </div>
                </td>
             </tr>
+            <?php } ?>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 3) { echo 'style="display:none;"'; } ?>>
@@ -284,11 +294,19 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoc"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $lang_url ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><a href="<?php echo $valUrlC ?>" target="_blank"><?php echo $valUrlC ?></a></div>
                </td>
             </tr>
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_2link)){ ?>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:link_ios"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><a href="<?php echo $valUrlC ?>" target="_blank"><?php echo $valUrlC2 ?></a></div>
+               </td>
+            </tr>
+            <?php } ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdoc"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">

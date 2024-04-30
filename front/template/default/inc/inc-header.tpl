@@ -59,7 +59,7 @@
                             {if count((array)$valueSitemapLv1->level_2) gte 1}
                                 <li class="nav-item">
                                     <div class="dropdown">
-                                        <a class="nav-link dropdown-toggle" href="javascript:void;" title="{$valueSitemapLv1->subject}"
+                                        <a class="nav-link dropdown-toggle menu-{$valueSitemapLv1->id}" href="javascript:void;" title="{$valueSitemapLv1->subject}"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             data-aos="fade-left">{$valueSitemapLv1->subject}</a>
                                         <div class="dropdown-menu full-dropdown-menu">
@@ -129,7 +129,7 @@
                                 </li>
                             {else}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{$news_url}" target="{$target}"  title="{$valueSitemapLv1->subject}" data-aos="fade-left">{$valueSitemapLv1->subject}</a>
+                                    <a class="nav-link menu-{$valueSitemapLv1->id}" href="{$news_url}" target="{$target}"  title="{$valueSitemapLv1->subject}" data-aos="fade-left">{$valueSitemapLv1->subject}</a>
                                 </li>
                             {/if}
                         {/if}
@@ -137,13 +137,13 @@
                 </ul>
                 {/if}
                 <div class="nav-search" data-aos="fade-left">
-                    <form class="form-default form-search" method="post" role="search" action="{$ul}/search">
+                    <form class="form-default form-search" method="get" role="search" action="{$ul}/searchAll">
                         <div class="input-group">
                             <a href="javascript:void(0)" class="btn-link">
                                 <span class="visually-hidden">Search</span>
                                 <span data-feather="search"></span>
                             </a>
-                            <input class="form-control" name="keywords" type="text" placeholder="ค้นหา" aria-label="Search">
+                            <input class="form-control" name="keyword" type="text" placeholder="{$languageFrontWeb->search->display->$currentLangWeb}" aria-label="Search">
                         </div>
                     </form>
                     <a href="javascript:void(0)" class="close-search">

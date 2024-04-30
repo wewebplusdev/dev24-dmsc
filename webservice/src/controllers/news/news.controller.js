@@ -182,9 +182,11 @@ async function getNews(req, res) {
                 ,${config_array_db['md_cmsl']}_picDefault as picDefault 
                 ,${config_array_db['md_cmsl']}_pic as pic 
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
+                ,${config_array_db['md_cmsl']}_urlc2 as urlc2 
                 ,${config_array_db['md_cmsl']}_target as target 
                 ,${config_array_db['md_cmgl']}_subject as group_subject 
                 ,'${config_array_db['md_cms']}' as tb 
+                ,${config_array_db['md_cms']}_view as view 
                 ,${config_array_db['md_cmsl']}_id as lid 
                 FROM ${config_array_db['md_cms']} 
                 LEFT JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
@@ -266,6 +268,7 @@ async function getNews(req, res) {
                         arr_data[i].title = select[i].title;
                         arr_data[i].typec = select[i].typec;
                         arr_data[i].tb = select[i].tb;
+                        arr_data[i].view = select[i].view;
 
                         // attachments
                         let sql_video = `SELECT 
@@ -304,6 +307,9 @@ async function getNews(req, res) {
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
+                            if (select[i].masterkey == 'mobile') {
+                                arr_data[i].url2 = (select[i].urlc2 != "" && select[i].urlc2 != "#") ? select[i].urlc2 : "#";
+                            }
                             arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                         } else {
                             // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);

@@ -21,6 +21,7 @@ $settingWeb['keywords'] = $mainPage->settingWeb->setting->keywords;
 $settingWeb['metatitle'] = $mainPage->settingWeb->setting->metatitle;
 $settingWeb['contact'] = $mainPage->settingWeb->setting->config;
 $settingWeb['social'] = $mainPage->settingWeb->setting->social;
+$settingWeb['addresspic'] = $mainPage->settingWeb->setting->addresspic->real;
 
 $languageWeb = $mainPage->settingWeb->language;
 $languageFrontWeb = $mainPage->settingWeb->language_front;
@@ -39,3 +40,4 @@ $smarty->assign("sitemapWeb", $sitemapWeb);
 $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
 $smarty->assign("recaptcha_sitekey", $recaptcha_sitekey);
+// print_pre($settingWeb);

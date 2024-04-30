@@ -8,7 +8,7 @@ $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
     default:
         if (empty($masterkey)) {
-            $masterkey = 'wel';
+            $masterkey = 'pus';
             header('location:' . $linklang . "/" . $menuActive . "/" . $masterkey);
         }
         $smarty->assign("masterkey", $masterkey);
@@ -64,27 +64,11 @@ switch ($url->segment[0]) {
 
         // setup seo and text modules
         $language_modules = array();
-        if ($masterkey == 'nw') {
-            $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
-        }else if($masterkey == 'nwa'){
-            $language_modules['breadcrumb2'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
-        }else if($masterkey == 'km'){
-            $language_modules['breadcrumb2'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
-        }else if($masterkey == 'god'){
-            $language_modules['breadcrumb2'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
-        }else if($masterkey == 'nwp'){
-            $language_modules['breadcrumb2'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
-        }else if($masterkey == 'abs'){
-            $language_modules['breadcrumb2'] = $languageFrontWeb->aboutus->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->aboutus->display->$currentLangWeb;
-        }else if($masterkey == 'dcio'){
-            $language_modules['breadcrumb2'] = $languageFrontWeb->dcio->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->dcio->display->$currentLangWeb;
+        // active menu header
+        $header_active = header_active($url->url);
+        if (gettype($header_active) == 'array' && count($header_active) > 0) {
+            $language_modules['breadcrumb2'] = $header_active['page'][0];
+            $language_modules['metatitle'] = $header_active['page'][0];
         }
         $smarty->assign("language_modules", $language_modules);
        

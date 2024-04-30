@@ -126,7 +126,7 @@ $smarty->assign("base", _URL);
 $smarty->assign("fullurl", _FullUrl);
 $smarty->assign("Domain", _Domain);
 $smarty->assign("path_root", $path_root);
-$smarty->assign("uri", str_replace("/".$url->pagelang[2]."/", "", $url->url));
+$smarty->assign("header_active", $header_active);
 
 $smarty->assign("urlPagination", _URLPagination);
 

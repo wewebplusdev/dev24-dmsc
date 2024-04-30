@@ -40,6 +40,7 @@ $sql .= "
    . "," . $mod_tb_root_lang . "_picType as picType"
    . "," . $mod_tb_root_lang . "_picDefault as picDefault"
    . "," . $mod_tb_root_lang . "_urlc as urlc"
+   . "," . $mod_tb_root_lang . "_urlc2 as urlc2"
    . "," . $mod_tb_root_lang . "_target as target"
    . " ";
 
@@ -94,6 +95,7 @@ $valTypeC = $Row['typec'] ? $Row['typec'] : 1;
 $valpicType = $Row['picType'] ? $Row['picType'] : 1;
 $valpicDefault = $Row['picDefault'];
 $valUrlC = $Row['urlc'];
+$valUrlC2 = $Row['urlc2'];
 $valTarget = $Row['target'];
 
 if (!empty($valSGid)) {
@@ -114,6 +116,12 @@ $listAuthen = $dbConnect->execute($callGauthen);
 $listGAllow = array();
 foreach ($listAuthen as $key => $value) {
    $listGAllow[] = $value['idG'];
+}
+
+if(!in_array($_REQUEST['masterkey'], $array_masterkey_2link)){
+   $lang_url = $langMod["tit:linkvdoc"];
+}else{
+   $lang_url = $langMod["inp:link_android"];
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -191,6 +199,24 @@ foreach ($listAuthen as $key => $value) {
                } else {
                   jQuery("#inputurlC").removeClass("formInputContantTbAlertY");
                }
+
+               <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_2link)){ ?>
+                  if (isBlank(inputurlC2)) {
+                     inputurlC2.focus();
+                     jQuery("#inputurlC2").addClass("formInputContantTbAlertY");
+                     return false;
+                  } else {
+                     jQuery("#inputurlC2").removeClass("formInputContantTbAlertY");
+                  }
+
+                  if (inputurlC2.value == "http://") {
+                     inputurlC2.focus();
+                     jQuery("#inputurlC2").addClass("formInputContantTbAlertY");
+                     return false;
+                  } else {
+                     jQuery("#inputurlC2").removeClass("formInputContantTbAlertY");
+                  }
+               <?php } ?>
             }
          }
          jQuery('#editDetail').val(changeText(jQuery('#editDetail').val()));
@@ -452,6 +478,7 @@ foreach ($listAuthen as $key => $value) {
                   </div>
                </td>
             </tr>
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_home)){ ?>
             <tr class="PicUpload" <?php if ($valpicType == 1) {
                                        echo 'style="display:none;"';
                                     } ?>>
@@ -473,6 +500,7 @@ foreach ($listAuthen as $key => $value) {
                   </div>
                </td>
             </tr>
+            <?php } ?>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeLink" <?php if($valTypeC != 3){ echo "style='display:none;'"; } ?>>
@@ -486,11 +514,19 @@ foreach ($listAuthen as $key => $value) {
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
             <tr id="boxInputlink">
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoc"] ?><span class="fontContantAlert">*</span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $lang_url ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlC" id="inputurlC" cols="45" rows="5" class="formTextareaContantTb"><?php echo $valUrlC ?></textarea><br />
                   <span class="formFontNoteTxt"><?php echo $langMod["edit:linknote"] ?></span>
                </td>
             </tr>
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_2link)){ ?>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:link_ios"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlC2" id="inputurlC2" cols="45" rows="5" class="formTextareaContantTb"><?php echo $valUrlC2 ?></textarea><br />
+                  <span class="formFontNoteTxt"><?php echo $langMod["edit:linknote"] ?></span>
+               </td>
+            </tr>
+            <?php } ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdoc"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">

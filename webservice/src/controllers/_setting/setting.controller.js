@@ -78,6 +78,7 @@ async function getWebSetting(req, res) {
             ,${config_array_db['md_sitl']}_social as social 
             ,${config_array_db['md_sitl']}_config as config 
             ,${config_array_db['md_sitl']}_subjectoffice as subjectoffice 
+            ,${config_array_db['md_sitl']}_addresspic as addresspic 
             FROM ${config_array_db['md_sit']} 
             INNER JOIN ${config_array_db['md_sitl']} ON ${config_array_db['md_sitl']}_containid = ${config_array_db['md_sit']}_id
             WHERE ${config_array_db['md_sit']}_masterkey = '${config_array_masterkey['set']}' 
@@ -96,6 +97,13 @@ async function getWebSetting(req, res) {
                     arr_data_setting.metatitle = select_setting[i].metatitle;
                     arr_data_setting.keywords = select_setting[i].keywords;
                     arr_data_setting.description = select_setting[i].description;
+
+                    arr_data_setting.addresspic = {
+                        'real': modulus.getUploadPath(select_setting[i].masterkey, 'real', select_setting[i].addresspic),
+                        'pictures': modulus.getUploadPath(select_setting[i].masterkey, 'pictures', select_setting[i].addresspic),
+                        'office': modulus.getUploadPath(select_setting[i].masterkey, 'office', select_setting[i].addresspic),
+                    }
+                    
                     let social = PHPUnserialize.unserialize(select_setting[i].social);
                     for (const [key, value] of Object.entries(social)) {
                         // Create a new display object if it doesn't exist

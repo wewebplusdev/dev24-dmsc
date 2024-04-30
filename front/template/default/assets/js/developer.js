@@ -45,3 +45,11 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
         }
     })().catch(() => {});
 }
+
+// add active menu header
+(() => {
+    let menu = $('.global-container').data('menu');
+    if (menu?.length > 0) {
+        $('#navbarSupportedContent').find(`.${menu}`).addClass('active');
+    }
+})();

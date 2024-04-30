@@ -71,6 +71,22 @@ abstract class controller
                 'method_group' => 'getNewsGroup',
                 'method_list' => 'getNews',
             ),
+            'downloadBook' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'mobile-application' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'searchAll' => array(
+                'action' => 'search',
+                'method_list' => 'getSearch',
+            ),
         );
 
         $this->method_masterkey = array(
@@ -192,6 +208,7 @@ abstract class controller
             "action" => $req['action'],
             "download" => $req['download'],
             "view" => $req['view'],
+            "urlc2" => $req['urlc2'],
         ];
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
