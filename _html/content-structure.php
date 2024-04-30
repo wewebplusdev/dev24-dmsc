@@ -21,6 +21,8 @@
 
         .layout-structure .typo-xs {
             font-size: 16px;
+            width: 100%;
+           
 
         }
 
@@ -28,7 +30,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 40px 40px 40px 0;
+            padding: 20px;
         }
 
 
@@ -90,6 +92,7 @@
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
             background-color: var(--color-light);
             border: 1px solid #EBEBEB;
+            line-height: 1.5;
         }
 
         @media (max-width: 576px) {
@@ -118,9 +121,20 @@
                text-align: center;
             }
 
+            .layout-structure .bottom-content{
+                text-align: center;
+            }
+
+            .layout-structure .typo-xs {
+                margin-left: 20px;
+            }
+            
+
+            
+
             .layout-structure .item-wrapper .card-bottom .font20{
                text-align: center;
-               margin-bottom: 20px;
+               margin-bottom: 40px;
             }
 
             .layout-structure .text-back{
@@ -201,7 +215,7 @@
 
                                 <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-1.png" alt="นายแพทย์ยงยศ ธรรมวุฒิ">
                                     </div>
@@ -209,7 +223,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 card-bottom position-relative">
+                                <div class="col-sm-7 card-bottom position-relative">
 
                                     <div>
                                         <div class="typo-md fw-bold text-primary">นายแพทย์ยงยศ ธรรมวุฒิ</div>
@@ -235,7 +249,7 @@
                         <div class="item col-xl-6 no-gutters ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6 ">
+                                <div class="position-relative card-top col-sm-5 ">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-2.png" alt="นายแพทย์พิเชฐ บัญญัติ">
                                     </div>
@@ -243,7 +257,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 card-bottom  position-relative ">
+                                <div class="col-sm-7 card-bottom  position-relative ">
                                     <div>
                                         <div class="typo-md fw-bold  text-primary ">นายแพทย์พิเชฐ บัญญัติ</div>
                                         <div class="font20">อธิบดีกรมวิทยาศาสตร์การแพทย์</div>
@@ -269,7 +283,7 @@
                         <div class="item col-xl-6 no-gutters ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6 ">
+                                <div class="position-relative card-top col-sm-5 ">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-3.png" alt="นายแพทย์บัลลังก์ อุปพงษ์">
                                     </div>
@@ -277,7 +291,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 card-bottom  position-relative ">
+                                <div class="col-sm-7 card-bottom  position-relative ">
                                     <div>
                                         <div class="typo-md fw-bold  text-primary ">นายแพทย์บัลลังก์ อุปพงษ์</div>
                                         <div class="font20">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
@@ -302,7 +316,7 @@
                         <div class="item col-xl-6 no-gutters ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6 ">
+                                <div class="position-relative card-top col-sm-5 ">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-4.png" alt="นายแพทย์ปิยะ ศิริลักษณ์">
                                     </div>
@@ -310,7 +324,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom card-bottom">
+                                <div class="col-sm-7 position-relative card-bottom card-bottom">
                                     <div>
                                         <div class="typo-md fw-bold  text-primary ">นายแพทย์ปิยะ ศิริลักษณ์</div>
                                         <div class="font20">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
@@ -340,7 +354,7 @@
                         <div class="item col-xl-6 no-gutters">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-5.png" alt="นายแพทย์ยงยศ ธรรมวุฒิ">
                                     </div>
@@ -348,7 +362,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom card-bottom">
+                                <div class="col-sm-7 position-relative card-bottom card-bottom">
                                     <div>
                                         <div class="typo-md fw-bold text-primary">นายชาญยุทธ แสนเลิศ</div>
                                         <div class="font20">หัวหน้ากลุ่มตรวจสอบภายใน</div>
@@ -372,7 +386,7 @@
                         <div class="item col-xl-6 no-gutters">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-6.png" alt="นางสุวรรณา เจริญสวรรค์">
                                     </div>
@@ -380,7 +394,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom card-bottom">
+                                <div class="col-sm-7 position-relative card-bottom card-bottom">
                                     <div>
                                         <div class="typo-md fw-bold text-primary">นางสุวรรณา เจริญสวรรค์</div>
                                         <div class="font20">หัวหน้ากลุ่มพัฒนาระบบบริหาร</div>
@@ -404,7 +418,7 @@
                         <div class="item col-xl-6 no-gutters">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-7.png" alt="นายแพทย์พิเชฐ บัญญัติ">
                                     </div>
@@ -412,7 +426,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom card-bottom">
+                                <div class="col-sm-7 position-relative card-bottom card-bottom">
                                     <div>
                                         <div class="typo-md fw-bold text-primary">นายแพทย์พิเชฐ บัญญัติ</div>
                                         <div class="font20">หัวหน้ากลุ่มงานจริยธรรม</div>
@@ -437,7 +451,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-8.png" alt="นางสุกัญญา กำแพงแก้ว">
                                     </div>
@@ -445,7 +459,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
                                     <div>
                                         <div class="typo-md fw-bold  text-primary ">นางสุกัญญา กำแพงแก้ว</div>
@@ -472,7 +486,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6 ">
+                                <div class="position-relative card-top col-sm-5 ">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-9.png" alt="นางสาวนันทวรรณ เมฆา">
                                     </div>
@@ -480,7 +494,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
 
                                     <div>
@@ -508,7 +522,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6 ">
+                                <div class="position-relative card-top col-sm-5 ">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-10.png" alt="นางสุภาพร ภูมิอมร">
                                     </div>
@@ -516,7 +530,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
                                     <div>
                                         <div class="typo-md fw-bold  text-primary ">นางสุภาพร ภูมิอมร</div>
@@ -542,7 +556,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-11.png" alt="นายอาชวินทร์  โรจนวิวัฒน์">
                                     </div>
@@ -550,7 +564,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
 
                                     <div>
@@ -579,7 +593,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-12.png" alt="นางศิริวรรณ ชัยสมบูรณ์พันธ์">
                                     </div>
@@ -587,7 +601,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
 
                                     <div>
@@ -615,7 +629,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-13.png" alt="นางวิชาดา จงมีวาสนา">
                                     </div>
@@ -623,7 +637,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
                                     <div>
                                         <div class="typo-md fw-bold  text-primary ">นางวิชาดา จงมีวาสนา</div>
@@ -652,7 +666,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-14.png" alt="นางสาวจรรยา มีศรี">
                                     </div>
@@ -660,7 +674,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
 
                                     <div>
@@ -690,7 +704,7 @@
                         <div class="item col-xl-6 no-gutters  ">
                             <div class="item-wrapper row no-gutters">
                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                <div class="position-relative card-top col-sm-6">
+                                <div class="position-relative card-top col-sm-5">
                                     <div class="image-cover position-absolute ">
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-15.png" alt="นายธรรมรัตน์ บุญสูง">
                                     </div>
@@ -698,7 +712,7 @@
                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 position-relative card-bottom ">
+                                <div class="col-sm-7 position-relative card-bottom ">
 
 
                                     <div>
@@ -725,7 +739,7 @@
                             <div class="item col-xl-6 no-gutters  ">
                                 <div class="item-wrapper row no-gutters">
                                     <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                    <div class="position-relative card-top col-sm-6">
+                                    <div class="position-relative card-top col-sm-5">
                                         <div class="image-cover position-absolute ">
                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-16.png" alt="นายสุรศักดิ์ หมื่นพล">
                                         </div>
@@ -733,7 +747,7 @@
                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 position-relative card-bottom ">
+                                    <div class="col-sm-7 position-relative card-bottom ">
 
                                         <div>
                                             <div class="typo-md fw-bold  text-primary ">นายสุรศักดิ์ หมื่นพล</div>
@@ -759,7 +773,7 @@
                             <div class="item col-xl-6 no-gutters  ">
                                 <div class="item-wrapper row no-gutters">
                                     <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                    <div class="position-relative card-top col-sm-6">
+                                    <div class="position-relative card-top col-sm-5">
                                         <div class="image-cover position-absolute ">
                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-17.png" alt="นายสมศักดิ์ สุนทรพาณิชย์">
                                         </div>
@@ -767,7 +781,7 @@
                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 position-relative card-bottom ">
+                                    <div class="col-sm-7 position-relative card-bottom ">
 
 
                                         <div>
@@ -796,7 +810,7 @@
                             <div class="item col-xl-6 no-gutters  ">
                                 <div class="item-wrapper row no-gutters">
                                     <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                    <div class="position-relative card-top col-sm-6">
+                                    <div class="position-relative card-top col-sm-5">
                                         <div class="image-cover position-absolute ">
                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-18.png" alt="นายปนิสภ์ วณิชชานนท์">
                                         </div>
@@ -804,7 +818,7 @@
                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 position-relative card-bottom ">
+                                    <div class="col-sm-7 position-relative card-bottom ">
 
 
                                         <div>
@@ -833,7 +847,7 @@
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                        <div class="position-relative card-top col-sm-6">
+                                        <div class="position-relative card-top col-sm-5">
                                             <div class="image-cover position-absolute ">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-19.png" alt="นางศิริวรรณ ชัยสมบูรณ์พันธ์">
                                             </div>
@@ -841,7 +855,7 @@
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 position-relative card-bottom ">
+                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                             <div>
                                                 <div class="typo-md fw-bold  text-primary ">นางสาวปนัดดา เทพอัคศร</div>
@@ -869,7 +883,7 @@
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                        <div class="position-relative card-top col-sm-6">
+                                        <div class="position-relative card-top col-sm-5">
                                             <div class="image-cover position-absolute ">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-20.png" alt="ดร.ประไพ  วงศ์สินคงมั่น">
                                             </div>
@@ -877,7 +891,7 @@
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 position-relative card-bottom ">
+                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                             <div>
                                                 <div class="typo-md fw-bold  text-primary ">ดร.ประไพ วงศ์สินคงมั่น</div>
@@ -905,7 +919,7 @@
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                        <div class="position-relative card-top col-sm-6">
+                                        <div class="position-relative card-top col-sm-5">
                                             <div class="image-cover position-absolute ">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-21.png" alt="ดร.ฐิติวัสส์ สุวคนธ์">
                                             </div>
@@ -913,7 +927,7 @@
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 position-relative card-bottom ">
+                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                             <div>
                                                 <div class="typo-md fw-bold  text-primary ">ดร.ฐิติวัสส์ สุวคนธ์</div>
@@ -940,7 +954,7 @@
                                     <div class="item col-xl-6 no-gutters  ">
                                         <div class="item-wrapper row no-gutters">
                                             <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                            <div class="position-relative card-top col-sm-6">
+                                            <div class="position-relative card-top col-sm-5">
                                                 <div class="image-cover position-absolute ">
                                                     <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-22.png" alt="นางสาวสุจิตรา คุ้มโภคา">
                                                 </div>
@@ -948,7 +962,7 @@
                                                     <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6 position-relative card-bottom ">
+                                            <div class="col-sm-7 position-relative card-bottom ">
 
 
                                                 <div>
@@ -977,7 +991,7 @@
                                         <div class="item col-xl-6 no-gutters  ">
                                             <div class="item-wrapper row no-gutters">
                                                 <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                <div class="position-relative card-top col-sm-6">
+                                                <div class="position-relative card-top col-sm-5">
                                                     <div class="image-cover position-absolute ">
                                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-23.png" alt="นายอธิวัฒน์ ปริมสิริคุณาวุฒิ">
                                                     </div>
@@ -985,7 +999,7 @@
                                                         <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6 position-relative card-bottom ">
+                                                <div class="col-sm-7 position-relative card-bottom ">
 
                                                     <div>
                                                         <div class="typo-md fw-bold  text-primary ">นายอธิวัฒน์ ปริมสิริคุณาวุฒิ</div>
@@ -1016,7 +1030,7 @@
                                             <div class="item col-xl-6 no-gutters  ">
                                                 <div class="item-wrapper row no-gutters">
                                                     <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                    <div class="position-relative card-top col-sm-6">
+                                                    <div class="position-relative card-top col-sm-5">
                                                         <div class="image-cover position-absolute ">
                                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-24.png" alt="นางสาวนิตยา เพียรทรัพย์">
                                                         </div>
@@ -1024,7 +1038,7 @@
                                                             <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6 position-relative card-bottom ">
+                                                    <div class="col-sm-7 position-relative card-bottom ">
 
                                                         <div>
                                                             <div class="typo-md fw-bold  text-primary ">นางสาวนิตยา เพียรทรัพย์</div>
@@ -1054,7 +1068,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-25.png" alt="นางสาวอัมรา โยวัง">
                                                             </div>
@@ -1062,7 +1076,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
 
                                                             <div>
@@ -1093,7 +1107,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-26.png" alt="นางสาวอมรรัตน์  ทัศนกิจ">
                                                             </div>
@@ -1101,7 +1115,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
 
                                                             <div>
@@ -1129,7 +1143,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-27.png" alt="นายอัศวชัย ช่วยพรหม">
                                                             </div>
@@ -1137,7 +1151,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นายอัศวชัย ช่วยพรหม</div>
@@ -1166,7 +1180,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-28.png" alt="นางทรรศนีย์ มาศจำรัส">
                                                             </div>
@@ -1174,7 +1188,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นางทรรศนีย์ มาศจำรัส</div>
@@ -1205,7 +1219,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-29.png" alt="นางปานทิพย์  ศิริโชติ">
                                                             </div>
@@ -1213,7 +1227,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นางปานทิพย์ ศิริโชติ</div>
@@ -1242,7 +1256,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-30.png" alt="นางเกตุ สินเทศ">
                                                             </div>
@@ -1250,7 +1264,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นางเกตุ สินเทศ</div>
@@ -1279,7 +1293,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-31.png" alt="นางสาวพรทิพย์ ลัภนะกุล">
                                                             </div>
@@ -1287,7 +1301,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นางสาวพรทิพย์ ลัภนะกุล</div>
@@ -1316,7 +1330,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-32.png" alt="นางสาวอรทัย สุพรรณ">
                                                             </div>
@@ -1324,7 +1338,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นางสาวอรทัย สุพรรณ</div>
@@ -1355,7 +1369,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-33.png" alt="นายสันตกิจ นิลอุดมศักดิ์">
                                                             </div>
@@ -1363,7 +1377,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นายสันตกิจ นิลอุดมศักดิ์</div>
@@ -1393,7 +1407,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-34.png" alt="นางมธุรส ทาทอง">
                                                             </div>
@@ -1401,7 +1415,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">นางมธุรส ทาทอง</div>
@@ -1432,7 +1446,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-35.png" alt="v">
                                                             </div>
@@ -1440,7 +1454,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
 
                                                             <div>
@@ -1471,7 +1485,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-36.png" alt="นางสุภาภรณ์ นิยมแก้ว">
                                                             </div>
@@ -1479,7 +1493,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom">
+                                                        <div class="col-sm-7 position-relative card-bottom">
 
 
                                                             <div>
@@ -1508,7 +1522,7 @@
                                                 <div class="item col-xl-6 no-gutters  ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-37.png" alt="ดร.วราพร ชลอำไพ">
                                                             </div>
@@ -1516,7 +1530,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom ">
+                                                        <div class="col-sm-7 position-relative card-bottom ">
 
                                                             <div>
                                                                 <div class="typo-md fw-bold  text-primary ">ดร.วราพร ชลอำไพ</div>
@@ -1547,7 +1561,7 @@
                                                 <div class="item col-xl-6 no-gutters ">
                                                     <div class="item-wrapper row no-gutters">
                                                         <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
-                                                        <div class="position-relative card-top col-sm-6">
+                                                        <div class="position-relative card-top col-sm-5">
                                                             <div class="image-cover position-absolute ">
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/structure-38.png" alt="นายคทายุทธ นิกาพฤกษ์">
                                                             </div>
@@ -1555,7 +1569,7 @@
                                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6 position-relative card-bottom card-bottom">
+                                                        <div class="col-sm-7 position-relative card-bottom card-bottom">
 
 
                                                             <div>
@@ -1586,7 +1600,7 @@
 
                                             </div>
 
-                                            <div class="fw-bold mt-5">
+                                            <div class="fw-bold mt-5 bottom-content">
                                                 <div class="mb-3">ปรับปรุงข้อมูล 29 กุมภาพันธ์ 2567</div>
                                                 <div> หากพบข้อผิดพลาดกรุณาติดต่อ สีหนาท ศิวเสน ศูนย์เทคโนโลยีสารสนเทศเบอร์โทรศัพท์ 98808 หรือเบอร์โทรศัพท์ 915113</div>
                                             </div>
