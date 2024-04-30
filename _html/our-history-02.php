@@ -124,7 +124,7 @@
                   </div>
                   <div class="col">
                     <div class="thumbnails ml-auto">
-                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-01.jpg" alt="">
+                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-03.jpg" alt="">
                     </div>
                   </div>
                 </div>
@@ -160,7 +160,7 @@
                   <div class="col-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
-                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-02.jpg" alt="">
+                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-04.jpg" alt="">
                       </div>
                     </div>
                   </div>
@@ -196,7 +196,7 @@
                   </div>
                   <div class="col">
                     <div class="thumbnails ml-auto">
-                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-01.jpg" alt="">
+                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-05.jpg" alt="">
                     </div>
                   </div>
                 </div>
@@ -219,7 +219,7 @@
                   <div class="col-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
-                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-02.jpg" alt="">
+                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-06.jpg" alt="">
                       </div>
                     </div>
                   </div>
