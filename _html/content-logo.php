@@ -174,9 +174,12 @@
         margin-top: 50px;
     }
 
-    .item {
+    .document-download-list .item {
+        -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
         filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+        color: var(--color-black);
     }
+  
 
     .whead .title {
         font-size: 36px;
@@ -200,7 +203,7 @@
 
     .swiper-pagination-bullet {
         opacity: 1;
-        background: gray;
+        background: var(--color-border);
         height: 20px;
         width: 20px;
     }
