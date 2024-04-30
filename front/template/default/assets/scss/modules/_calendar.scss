@@ -10,7 +10,7 @@
     margin-bottom: 0;
 
     &.-group {
-      min-width: 590px;
+      max-width: 590px;
 
       .select2-container .select2-selection--single {
         padding: 0 30px;
@@ -64,6 +64,14 @@
     .top {
       padding: 20px 50px;
       background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+
+      .title-left {
+        font-size: var(--typo-md);
+        font-weight: var(--fw-bold);
+        color: var(--color-light);
+        width: 60px;
+        text-align: right;
+      }
     }
 
     .middle {
@@ -206,9 +214,9 @@
         text-align: left;
         display: flex;
         align-items: center;
-        justify-content: end;
+        justify-content: start;
         height: 25px;
-        padding: 5px 30px 5px 12px;
+        padding: 5px 8px;
         background-color: #2AB170;
         border-radius: 5px;
 
@@ -362,7 +370,8 @@
     .item-list {
       li {
         width: max-content;
-        min-width: 370px;
+        // min-width: 370px;
+        width: calc(100% / 4);
         padding: 12.5px 0;
       }
     }
@@ -394,6 +403,15 @@
       font-size: var(--typo-md);
       font-weight: var(--fw-bold);
       color: var(--color-secondary);
+    }
+  }
+
+  .default-filter {
+    .form-search {
+      .form-control {
+        font-size: var(--typo-default);
+        height: 60px;
+      }
     }
   }
 }
@@ -491,4 +509,93 @@
       font-size: 22px;
     }
   }
+}
+
+
+
+@media (max-width: 1440px) {
+  .event-calendar .header .top {padding: 20px 30px;}
+  .event-calendar .header .top .title-left {font-size: 22px;}
+
+  .event-calendar .month-topic {font-size: 22px;}
+  .event-calendar table th {padding: 20px 15px;font-size: 22px;}
+
+  .event-list .link {padding: 30px;}
+  .event-list .date {font-size: 28px;}
+  .event-list .desc {font-size: 22px;}
+}
+
+@media (max-width: 1199px) {
+  .event-calendar .form-group-calendar.-month {min-width: 200px;}
+  .event-calendar .form-group-calendar.-group .select2-container .select2-selection--single {padding: 0 20px;}
+
+  .event-calendar .header .middle {padding: 20px 40px;}
+  .event-calendar .month-topic {font-size: 20px;}
+  .event-calendar table th {font-size: 18px;padding: 15px;}
+  .event-calendar table .box .num {font-size: 18px;}
+  .event-calendar table .event-group .event-item small {font-size: 13px;margin-top: 0;}
+  .event-calendar table .event-group .action .link {font-size: 13px;}
+
+  .event-calendar .calendar-note .whead {margin-bottom: 20px; padding-bottom: 15px;}
+  .event-calendar .calendar-note .whead .title {font-size: 32px;}
+  .event-calendar .calendar-note .item-list li {min-width: auto; width: 100%;padding: 0;}
+  .event-calendar .calendar-note .item-list li + li {margin-top: 15px;}
+  .event-calendar .calendar-note .box {width: 40px;height: 40px;margin-right: 10px;}
+  .event-calendar .calendar-note .txt {font-size: 20px;}
+
+  .event-list .title {font-size: 28px;}
+
+  // .event-list .dot {}
+  .event-list .link {padding: 25px;}
+  .event-list .date {font-size: 26px;}
+  .event-list .desc {font-size: 20px;}
+}
+
+@media (max-width: 991px) {
+  .event-calendar .calendar-card {margin-bottom: 30px;}
+  .event-calendar .header .top {padding: 20px;}
+  .event-calendar .form-group-calendar.-group {max-width: 100%; margin-bottom: 20px;}
+  .event-calendar .header .top .title-left {text-align: left;margin-bottom: 8px; font-size: 20px;}
+  .event-calendar .form-group-calendar .control-label {font-size: 16px;}
+  .event-calendar .form-group-calendar .select2-container .select2-selection--single {height: 50px;}
+  .event-calendar .form-group-calendar .select2-container .select2-selection--single .select2-selection__rendered {font-size: 16px;line-height: 48px;}
+  .select2-container--option-calendar .select2-results__option {font-size: 16px;padding: 15px;}
+  .event-calendar .form-group-calendar.-group .select2-container .select2-selection--single {pad: 0 15px;}
+  .event-calendar .default-filter .form-search .form-control {font-size: 16px;height: 50px;}
+
+  .event-calendar .header .middle {padding: 20px;}
+  .event-calendar .calendar-nav svg {width: 10px;}
+  .event-calendar .month-topic {font-size: 18px;}
+  .event-calendar .select .link {font-size: 18px;}
+  .event-calendar table th {font-size: 16px;}
+  .event-calendar table td {height: 100px;}
+  .event-calendar table .box .num {font-size: 16px;}
+  .event-calendar table .event-group .event-item {border-radius: 4px;}
+  .event-calendar .calendar-note .whead .title {font-size: 30px;}
+
+  .event-list .title {font-size: 26px;}
+
+  .event-list .link {padding: 20px;}
+  .event-list .date {font-size: 22px;}
+  .event-list .desc {font-size: 18px;}
+}
+
+@media (max-width: 767px) {
+  .event-calendar .form-group-calendar.-group {margin-bottom: 16px;}
+  .event-calendar .header .top .title-left {font-size: 18px;} 
+
+  .event-calendar .calendar-card .body {overflow-x: scroll;}
+  .event-calendar table {width: 736px;}
+  .event-calendar table .event-group .event-item {padding: 4px;height: 23px;}
+  .event-calendar table .event-group .event-item small {font-size: 11px;}
+  .event-calendar table .event-group .action .link {font-size: 11px;}
+
+  .event-calendar .calendar-note .whead .title {font-size: 28px;}
+  .event-calendar .calendar-note .box {width: 35px; height: 35px;}
+}
+
+@media (max-width: 575px) {
+  .event-calendar .calendar-note .whead .title {font-size: 26px;}
+
+  .event-list .title {font-size: 24px;}
 }

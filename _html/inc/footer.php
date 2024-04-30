@@ -23,8 +23,8 @@
                 </div>
                 <div class="col">
                   <p class="desc">
-                    กรมวิทยาศาสตร์การแพทย์<br>
-                    กระทรวงสาธารณสุข 88/7 บำราศนราดูร<br>
+                    กรมวิทยาศาสตร์การแพทย์
+                    กระทรวงสาธารณสุข 88/7 บำราศนราดูร
                     ถ.ติวานนท์ ต.ตลาดขวัญ อ.เมือง จ.นนทบุรี 11000
                   </p>
                 </div>
@@ -188,7 +188,7 @@
   </div>
 </footer>
 
-<div class="sitmap-full">
+<div class="sitmap-full show">
   <div class="close">
     <svg xmlns="http://www.w3.org/2000/svg" width="37.993" height="37.993" viewBox="0 0 37.993 37.993">
       <g id="Group_882" data-name="Group 882" transform="translate(-11556.55 148.45)">
@@ -199,18 +199,18 @@
   </div>
   <h1 class="h-title">แผนผังเว็บไซต์</h1>
   <div class="sitmap-menu">
-    <div class="row">
-      <div class="col-3">
+    <div class="sitmap-row">
+      <div class="sitmap-col">
         <div class="title">
           <a href="" class="link">หน้าหลัก</a>
         </div>
       </div>
-      <div class="col">
+      <div class="sitmap-col">
         <div class="title">
           <a href="" class="link">เกี่ยวกับหน่วยงาน</a>
         </div>
         <div class="row">
-          <div class="col-4">
+          <div class="col-xl-4">
             <div class="submenu">
               <div class="subtitle">
                 <a href="" class="link">เกี่ยวกับเรา</a>
@@ -219,21 +219,21 @@
                 <li class="item">
                   <a href="" class="link">
                     วิสัยทัศน์ & พันธกิจ &
-                    <br>
+
                     ยุทธศาสตร์
                   </a>
                 </li>
                 <li class="item">
                   <a href="" class="link">
                     ภารกิจ และหน้าที่รับ
-                    <br>
+
                     ผิดชอบของหน่วยงาน
                   </a>
                 </li>
                 <li class="item">
                   <a href="" class="link">
                     อัตราค่าบำรุงการ
-                    <br>
+
                     ตรวจวิเคราะห์และให้บริการ
                   </a>
                 </li>
@@ -245,7 +245,7 @@
                 <li class="item">
                   <a href="" class="link">
                     Mobile Application
-                    <br>
+
                     กรมวิทยาศาสตร์การแพทย์
                   </a>
                 </li>
@@ -262,7 +262,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-xl-4">
             <div class="submenu">
               <div class="subtitle">
                 <a href="" class="link">เว็บไซต์ส่วนกลางและส่วนภูมิภาค</a>
@@ -281,7 +281,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-xl-4">
             <div class="submenu">
               <div class="subtitle">
                 <a href="" class="link">โครงสร้างองค์กร</a>
@@ -312,7 +312,7 @@
                 <li class="item">
                   <a href="" class="link">
                     แผนการปฏิบัติราชการและ
-                    <br>
+
                     แผนการใช้จ่ายงบประมาณ
                   </a>
                 </li>
@@ -324,7 +324,7 @@
                 <li class="item">
                   <a href="" class="link">
                     กฏหมาย ระเบียบ
-                    <br>
+
                     และข้อบังคับที่เกี่ยวข้อง
                   </a>
                 </li>
@@ -334,54 +334,54 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-3">
+    <div class="sitmap-row">
+      <div class="sitmap-col">
         <div class="submenu">
-          <div class="subtitle">
+          <div class="title">
             <a href="" class="link">ซีไอโอ</a>
           </div>
           <ul class="list-group">
             <li class="item">
               <a href="" class="link">
                 รายละเอียด
-                <br>
+
                 เกี่ยวกับซีไอโอ
               </a>
             </li>
             <li class="item">
               <a href="" class="link">
                 วิสัยทัศน์
-                <br>
+
                 และนโยบายต่างๆ
               </a>
             </li>
             <li class="item">
               <a href="" class="link">
                 ‌การบริหารงาน
-                <br>
+
                 ด้าน ICT
               </a>
             </li>
             <li class="item">
               <a href="" class="link">
                 ผู้บริหารเทคโนโลยี
-                <br>
+
                 สารสนเทศระดับกอง
               </a>
             </li>
             <li class="item">
               <a href="" class="link">
                 เจ้าหน้าที่ประสานงาน
-                <br>
+
                 คุ้มครองข้อมูลส่วนบุคคล
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-3">
+      <div class="sitmap-col">
         <div class="submenu">
-          <div class="subtitle">
+          <div class="title">
             <a href="" class="link">ข่าว</a>
           </div>
           <ul class="list-group">
@@ -400,9 +400,9 @@
           </ul>
         </div>
       </div>
-      <div class="col-3">
+      <div class="sitmap-col">
         <div class="submenu">
-          <div class="subtitle">
+          <div class="title">
             <a href="" class="link">คลังความรู้</a>
           </div>
           <ul class="list-group">
@@ -414,14 +414,14 @@
             <li class="item">
               <a href="" class="link">
                 ระบบจัดการ
-                <br>
+
                 องค์ความรู้
               </a>
             </li>
             <li class="item">
               <a href="" class="link">
                 สืบค้นข้อมูล
-                <br>
+
                 Green Book
               </a>
             </li>
@@ -433,23 +433,23 @@
             <li class="item">
               <a href="" class="link">
                 e-Learning
-                <br>
+
                 ทักษะดิจิทัล
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-3">
+      <div class="sitmap-col">
         <div class="submenu">
-          <div class="subtitle">
+          <div class="title">
             <a href="" class="link">บริการ</a>
           </div>
           <ul class="list-group">
             <li class="item">
               <a href="" class="link">
                 อัตราค่าบำรุงการตรวจ
-                <br>
+
                 วิเคราะห์และให้บริการ
               </a>
             </li>
@@ -461,7 +461,7 @@
                 <li>
                   <a href="" class="link">
                     อัตราค่าบำรุงการตรวจ
-                    <br>
+
                     วิเคราะห์และให้บริการ
                   </a>
                 </li>
@@ -473,28 +473,28 @@
                 <li>
                   <a href="" class="link">
                     คู่มือการตรวจทางห้องปฏิบัติการ
-                    <br>
+
                     กลุ่มอาการดาวน์ในหญิงตั้งครรภ์
                   </a>
                 </li>
                 <li>
                   <a href="" class="link">
                     การให้บริการของสำนักคุณภาพและ
-                    <br>
+
                     ความปลอดภัยอาหาร
                   </a>
                 </li>
                 <li>
                   <a href="" class="link">
                     ขั้นตอนการสั่งซื้อชุดทดสอบและ
-                    <br>
+
                     ผลิตภัณฑ์สำหรับบุคคลทั่วไป
                   </a>
                 </li>
                 <li>
                   <a href="" class="link">
                     ตรวจบริการศูนย์
-                    <br>
+
                     การแพทย์จีโนมิกส์
                   </a>
                 </li>
@@ -504,10 +504,10 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-3">
+    <div class="sitmap-row">
+      <div class="sitmap-col">
         <div class="submenu">
-          <div class="subtitle">
+          <div class="title">
             <a href="" class="link">ติดต่อ</a>
           </div>
           <ul class="list-group">
@@ -519,16 +519,16 @@
             <li class="item">
               <a href="" class="link">
                 ช่องทางรับข้อเสนอแนะ
-                <br>
+
                 /ข้อร้องเรียน
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-3">
+      <div class="sitmap-col">
         <div class="submenu">
-          <div class="subtitle">
+          <div class="title">
             <a href="" class="link">ระบบสารสนเทศ</a>
           </div>
           <ul class="list-group">
@@ -550,9 +550,9 @@
           </ul>
         </div>
       </div>
-      <div class="col-3">
+      <div class="sitmap-col">
         <div class="submenu">
-          <div class="subtitle">
+          <div class="title">
             <a href="" class="link">Big Data</a>
           </div>
           <ul class="list-group">
