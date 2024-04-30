@@ -125,12 +125,12 @@ abstract class controller
                         // authentication token
                         $auth_webservice = self::auth_webservice();
                         if ($auth_webservice->code === 1001) {
-                            setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
-                            setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
+                            setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
+                            setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
                             self::revoke_token($auth_webservice);
                         }
                     }else{
-                        setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
+                        setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
                         $this->token_revoke = 1;
                     }
                 }
@@ -138,8 +138,8 @@ abstract class controller
                 // authentication token
                 $auth_webservice = self::auth_webservice();
                 if ($auth_webservice->code === 1001) {
-                    setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
-                    setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
+                    setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
+                    setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
                     self::revoke_token($auth_webservice);
                 }
             }
