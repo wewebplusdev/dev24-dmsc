@@ -15,7 +15,8 @@
 
         .layout-experts .font18 {
             font-size: 18px;
-            font-weight: 300;
+            font-weight: 400;
+            
         }
 
         .layout-experts .typo-xs {
