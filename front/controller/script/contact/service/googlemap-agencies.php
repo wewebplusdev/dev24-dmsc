@@ -46,5 +46,5 @@ $contactPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_des
 $settingPage = array(
     "page" => $menuActive,
     "template" => "googlemap-agencies.tpl",
-    "display" => "page-intro"
+    "display" => "page-map"
 );

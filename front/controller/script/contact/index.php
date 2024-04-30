@@ -9,6 +9,14 @@ switch ($url->segment[1]) {
         require_once _DIR . '/front/controller/script/' . $menuActive . '/service/googlemap-agencies.php';
         break;
 
+    case 'map-google':
+        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/map-google.php';
+        break;
+
+    case 'map-graphic':
+        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/map-graphic.php';
+        break;
+
     default:
         if (empty($masterkey)) {
             $masterkey = 'agif';
@@ -54,8 +62,8 @@ switch ($url->segment[1]) {
 
         // call list
         $load_data_service = $contactPage->load_data($data_service);
-        print_pre($data_service);
-        print_pre($load_data_service);
+        // print_pre($data_service);
+        // print_pre($load_data_service);
         $smarty->assign("load_data_service", $load_data_service);
 
         // setup seo and text modules

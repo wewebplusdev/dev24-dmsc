@@ -155,7 +155,6 @@
                 </div>
                 <div class="tel">
                   <span class="fw-bold">เบอร์โทรศัพท์ :</span>
-                  {* <a href="tel:0 2589 9850-7" class="link">{$valueload_data_service->tel}</a> *}
                   {$valueload_data_service->tel}
                 </div>
               </div>
