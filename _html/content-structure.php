@@ -58,6 +58,10 @@
             margin: 50px 0;
         }
 
+        .editor-content{
+            margin: 0;
+        }
+
         .layout-structure .item {
             -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
             filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
