@@ -1,4 +1,5 @@
 <?php
+$password = '1234';
 require_once("../weadmin/lib/session.php");
 $url = 'upload/files/'.time()."_".$_FILES['upload']['name'];
 // $urlSite="/dev24-dmsc/ckeditor/";
