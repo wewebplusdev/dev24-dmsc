@@ -88,7 +88,6 @@ $valKeywords = rechangeQuot($Row['keyword']);
 $valview = $Row['view'];
 $valPicShow = $Row['picshow'];
 
-
 $valSubGid = $Row['sgid'];
 $valSGid = $Row['lid'];
 $valTypeC = $Row['typec'] ? $Row['typec'] : 1;

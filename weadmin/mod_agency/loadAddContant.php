@@ -30,11 +30,22 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 
     <title><?php echo  $core_name_title ?></title>
     <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $keyGoogleMap; ?>&sensor=false&callback=initialize"></script>
-    <script language="JavaScript" type="text/javascript" src="./js/script.js"></script>
+    <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $keyGoogleMap; ?>&sensor=false&callback=initialize"></script>
+    <?php } ?>
+    <script language="JavaScript" type="text/javascript" src="./js/script.js?v=1"></script>
     <script language="JavaScript" type="text/javascript">
         function executeSubmit() {
             with(document.myForm) {
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    if (inputGroupID.value == 0) {
+                        inputGroupID.focus();
+                        jQuery("#inputGroupID").addClass("formInputContantTbAlertY");
+                        return false;
+                    } else {
+                        jQuery("#inputGroupID").removeClass("formInputContantTbAlertY");
+                    }
+                <?php } ?>
 
                 if (isBlank(inputSubject)) {
                     inputSubject.focus();
@@ -44,29 +55,31 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                     jQuery("#inputSubject").removeClass("formInputContantTbAlertY");
                 }
 
-                if (isBlank(inputAddress)) {
-                    inputAddress.focus();
-                    jQuery("#inputAddress").addClass("formInputContantTbAlertY");
-                    return false;
-                } else {
-                    jQuery("#inputAddress").removeClass("formInputContantTbAlertY");
-                }
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    if (isBlank(inputAddress)) {
+                        inputAddress.focus();
+                        jQuery("#inputAddress").addClass("formInputContantTbAlertY");
+                        return false;
+                    } else {
+                        jQuery("#inputAddress").removeClass("formInputContantTbAlertY");
+                    }
 
-                if (isBlank(latInput)) {
-                    latInput.focus();
-                    jQuery("#latInput").addClass("formInputContantTbAlertY");
-                    return false;
-                } else {
-                    jQuery("#latInput").removeClass("formInputContantTbAlertY");
-                }
+                    if (isBlank(latInput)) {
+                        latInput.focus();
+                        jQuery("#latInput").addClass("formInputContantTbAlertY");
+                        return false;
+                    } else {
+                        jQuery("#latInput").removeClass("formInputContantTbAlertY");
+                    }
 
-                if (isBlank(longInput)) {
-                    longInput.focus();
-                    jQuery("#longInput").addClass("formInputContantTbAlertY");
-                    return false;
-                } else {
-                    jQuery("#longInput").removeClass("formInputContantTbAlertY");
-                }
+                    if (isBlank(longInput)) {
+                        longInput.focus();
+                        jQuery("#longInput").addClass("formInputContantTbAlertY");
+                        return false;
+                    } else {
+                        jQuery("#longInput").removeClass("formInputContantTbAlertY");
+                    }
+                <?php } ?>
             }
             insertContactNew('insertContant.php');
         }
@@ -149,64 +162,193 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                 <tr>
                     <td colspan="7" align="right" valign="top" height="15"></td>
                 </tr>
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group2"]; ?><span class="fontContantAlert">*</span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb">
+                                <option value="0"><?php echo $langMod["tit:selectg2"]; ?></option>
+                                <?php
+                                $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai'  ";
+                                $sqlChecklist = array();
+                                if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
+                                    foreach ($listGAllow as $idGroup) {
+                                        $sqlChecklist[] = $mod_tb_root_group . "_id = '" . $idGroup . "' ";
+                                    }
+                                    if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                                        $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
+                                    }
+                                } else {
+                                    if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                                        $sql_group .= " and 1=0 ";
+                                    }
+                                }
+                                $sql_group .= " ORDER BY " . $mod_tb_root_group . "_order DESC";
+                                $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+                                while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
+                                    $row_groupid = $row_group[0];
+                                    $row_groupname = $row_group[1];
+                                ?>
+                                    <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </td>
+                    </tr>
+                <?php } ?>
                 <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb">
                         <?php echo  $langMod["tit:subject"] ?><span class="fontContantAlert">*</span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputSubject" id="inputSubject" type="text" class="formInputContantTb" /></td>
                 </tr>
                 <tr>
-                    <td align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:address"]; ?><span class="fontContantAlert">*</span></td>
+                    <td align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:title"] ?><span class="fontContantAlert"></span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <textarea name="inputAddress" id="inputAddress" cols="45" rows="5" class="formTextareaContantTb"></textarea>
+                        <textarea name="inputDescription" id="inputDescription" cols="45" rows="5" class="formTextareaContantTb"></textarea>
                     </td>
                 </tr>
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    <tr>
+                        <td align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:address"]; ?><span class="fontContantAlert">*</span></td>
+                        <td colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <textarea name="inputAddress" id="inputAddress" cols="45" rows="5" class="formTextareaContantTb"></textarea>
+                        </td>
+                    </tr>
+                <?php } ?>
                 <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:tel"]; ?><span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputTel" id="inputTel" type="text" class="formInputContantTb" /><br />
                         <span class="formFontNoteTxt"><?php echo $langMod["tit:telnote"]; ?></span>
                     </td>
                 </tr>
-                <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:fax"]; ?><span class="fontContantAlert"></span></td>
-                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputFax" id="inputFax" type="text" class="formInputContantTb" /><br />
-                    </td>
-                </tr>
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:fax"]; ?><span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputFax" id="inputFax" type="text" class="formInputContantTb" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:email"]; ?><span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="inputEmail" id="inputEmail" type="text" class="formInputContantTb" /><br />
+                        </td>
+                    </tr>
+                <?php } ?>
             </table>
             <br />
-            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+            <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
                 <tr>
                     <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:maptitle"] ?></span><br />
-                        <span class="formFontTileTxt"><?php echo  $langMod["txt:mapdetail"] ?></span>
+                        <span class="formFontSubjectTxt"><?php echo $langMod["txt:pic"] ?></span><br />
+                        <span class="formFontTileTxt"><?php echo $langMod["txt:picDe"] ?></span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="7" align="right" valign="top" height="15"></td>
                 </tr>
                 <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:gmap"] ?><span class="fontContantAlert"></span></td>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <div id="map_canvas" style="height:300px;width:80%;"></div>
-                        <span>*ลากเพื่อเลือกตำแหน่งที่ตั้ง</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:lat"] ?><span class="fontContantAlert">*</span></td>
-                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <input name="latInput" id="latInput" type="text" class="formInputContantTbShot" value="" />
-                    </td>
+                        <label>
+                            <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="1" type="radio" class="formRadioContantTb" checked="checked" /></div>
+                            <div class="formDivRadioR"><?php echo $modTxtShowPic[1] ?></div>
+                        </label>
 
+                        <label>
+                            <div class="formDivRadioL"><input name="inputTypePic" id="inputTypePic" value="2" type="radio" class="formRadioContantTb" /></div>
+                            <div class="formDivRadioR"><?php echo $modTxtShowPic[2] ?></div>
+                        </label>
+                        </label>
+                    </td>
                 </tr>
-                <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:long"] ?><span class="fontContantAlert">*</span></td>
+                <tr class="layout_type1 PicDefault">
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:picdefault"]; ?><span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <input name="longInput" id="longInput" type="text" class="formInputContantTbShot" value="" />
+                        <ul class="selectLayout">
+                            <?php
+                            $sql_nopic = "SELECT " . $core_tb_nopic . "_id as id
+                        ," . $core_tb_nopic . "_masterkey as masterkey
+                        ," . $core_tb_nopic . "_subject as subject
+                        ," . $core_tb_nopic . "_file as file 
+                        FROM " . $core_tb_nopic . " 
+                        WHERE " . $core_tb_nopic . "_masterkey = '" . $core_masterkey_nopic . "'
+                        AND " . $core_tb_nopic . "_status != 'Disable'
+                        ORDER BY " . $core_tb_nopic . "_order DESC
+                        ";
+                            $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
+                            foreach ($query_nopic as $key => $value) {
+                                $valPic_layout1 = $core_pathname_upload . "/" . $value['masterkey'] . "/pictures/" . $value['file'];
+                            ?>
+                                <li>
+                                    <div class="checkboxLayout">
+                                        <input type="radio" name="inputPicD" value="<?php echo $value['id']; ?>" <?php if ($key == 0) {
+                                                                                                                        echo "checked";
+                                                                                                                    } ?>>
+                                        <div class="cover">
+                                            <img src="<?php echo $valPic_layout1; ?>">
+                                        </div>
+                                        <div class="layout-title"><?php echo $value['subject']; ?></div>
+                                    </div>
+                                </li>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="PicUpload" style="display: none;">
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album"] ?></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="file-input-wrapper">
+                            <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                            <input type="file" name="fileToUpload" id="fileToUpload" onchange="ajaxFileUpload();" />
+                        </div>
+
+                        <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
+                        <div class="clearAll"></div>
+                        <div id="boxPicNew" class="formFontTileTxt">
+                            <input type="hidden" name="picname" id="picname" />
+                        </div>
                     </td>
                 </tr>
             </table>
             <br />
-            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <?php } ?>
+            <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+                    <tr>
+                        <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                            <span class="formFontSubjectTxt"><?php echo  $langMod["txt:maptitle"] ?></span><br />
+                            <span class="formFontTileTxt"><?php echo  $langMod["txt:mapdetail"] ?></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" align="right" valign="top" height="15"></td>
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:gmap"] ?><span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <div id="map_canvas" style="height:300px;width:80%;"></div>
+                            <span>*ลากเพื่อเลือกตำแหน่งที่ตั้ง</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:lat"] ?><span class="fontContantAlert">*</span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <input name="latInput" id="latInput" type="text" class="formInputContantTbShot" value="" />
+                        </td>
 
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:long"] ?><span class="fontContantAlert">*</span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <input name="longInput" id="longInput" type="text" class="formInputContantTbShot" value="" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            <?php } ?>
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
                 <tr>
                     <td colspan="7" align="right" valign="top" height="20"></td>
                 </tr>
@@ -217,11 +359,56 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
         </div>
     </form>
 
+   <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+   <script type="text/javascript" language="javascript">
+    /*################################# Upload Pic #######################*/
+    function ajaxFileUpload() {
+         var valuepicname = jQuery("input#picname").val();
+
+         jQuery.blockUI({
+            message: jQuery('#tallContent'),
+            css: {
+               border: 'none',
+               padding: '35px',
+               backgroundColor: '#000',
+               '-webkit-border-radius': '10px',
+               '-moz-border-radius': '10px',
+               opacity: .9,
+               color: '#fff'
+            }
+         });
+
+         jQuery.ajaxFileUpload({
+            url: 'loadInsertPic.php?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
+            secureuri: false,
+            fileElementId: 'fileToUpload',
+            dataType: 'json',
+            success: function(data, status) {
+               if (typeof(data.error) != 'undefined') {
+
+                  if (data.error != '') {
+                     alert(data.error);
+
+                  } else {
+                     jQuery("#boxPicNew").show();
+                     jQuery("#boxPicNew").html(data.msg);
+                     setTimeout(jQuery.unblockUI, 200);
+                  }
+               }
+            },
+            error: function(data, status, e) {
+               alert(e);
+            }
+         })
+         return false;
+      }
+   </script>
+
     <? if ($_SESSION[$valSiteManage . 'core_session_language'] == "Thai") { ?>
         <script language="JavaScript" type="text/javascript" src="../js/datepickerThai.js"></script>
     <? } else { ?>
         <script language="JavaScript" type="text/javascript" src="../js/datepickerEng.js"></script>
-    <?PHP }
+    <?php }
     include("../lib/disconnect.php");
     ?>
 </body>

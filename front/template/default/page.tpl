@@ -22,6 +22,7 @@
         {include file="{$incfile.modal}" title=title}
     </div>
     {include file="{$incfile.loadscript}" title=title}
+    {include file="{$incfile.accessibility}" title=title}
 </body>
 
 </html>

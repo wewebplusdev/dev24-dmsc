@@ -124,4 +124,10 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["tit:telnote"] ="หากมีมากกว่า 1 หมายเลขให้ใส่ , คั่นระหว่างหมายเลข";
 	$langMod["tit:fax"] ="โทรสาร";
 	$langMod["tit:address"] ="ที่อยู่";
+
+	$langMod["tit:setting"] = "ตั้งค่า";
+	$langMod["tit:subjectg"] = "ชื่อ" . $langMod["meu:group"];
+	$langMod["meu:group2"] = "กลุ่ม" . getNameMenu($_REQUEST["menukeyid"]);
+	$langMod["tit:selectg2"] = "เลือก" . $langMod["meu:group2"];
+	$langMod["tit:email"] = "อีเมล";
 }

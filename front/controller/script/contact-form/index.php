@@ -34,11 +34,15 @@ switch ($url->segment[1]) {
         // print_pre($languageFrontWeb);
         // print_pre($load_data);die;
         $smarty->assign("load_data", $load_data);
- //print_pre($load_data);
+
         // setup seo and text modules
         $language_modules = array();
-        $language_modules['breadcrumb1'] = $languageFrontWeb->contact_form->display->$currentLangWeb;
-        $language_modules['metatitle'] = $languageFrontWeb->contact_form->display->$currentLangWeb;
+        // active menu header
+        $header_active = header_active($url->url);
+        if (gettype($header_active) == 'array' && count($header_active) > 0) {
+            $language_modules['breadcrumb1'] = $header_active['page'][0];
+            $language_modules['metatitle'] = $header_active['page'][0];
+        }
         $smarty->assign("language_modules", $language_modules);
        
         /*## Start SEO #####*/

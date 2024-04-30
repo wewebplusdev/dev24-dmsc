@@ -201,7 +201,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   <div id="boxPicNew" class="formFontTileTxt">
                      <?php if (is_file($valPic)) { ?>
                         <img src="<?php echo $valPic ?>" style="float:left;border:#c8c7cc solid 1px;max-width:600px;" />
-                        <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePic.php')" title="Delete file"><img src="../img/btn/delete.png" width="22" height="22" border="0" /></div>
+                        <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePicG.php')" title="Delete file"><img src="../img/btn/delete.png" width="22" height="22" border="0" /></div>
                         <input type="hidden" name="picname" id="picname" value="<?php echo $valPicName ?>" />
                      <?php } ?>
                   </div>

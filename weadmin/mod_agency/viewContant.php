@@ -20,13 +20,19 @@ $sql .= "
 " . $mod_tb_root . "_lastdate as lastdate,
 " . $mod_tb_root . "_lastbyid as lastbyid,
 " . $mod_tb_root . "_status as status,
+" . $mod_tb_root . "_gid as gid,
 " . $mod_tb_root_lang . "_subject as subject,
+" . $mod_tb_root_lang . "_title as title,
 " . $mod_tb_root_lang . "_address as address,
 " . $mod_tb_root_lang . "_tel as tel,
 " . $mod_tb_root_lang . "_fax as fax,
+" . $mod_tb_root_lang . "_email as email,
 " . $mod_tb_root_lang . "_lat as lat,
 " . $mod_tb_root_lang . "_long as lng,
-" . $mod_tb_root_lang . "_id as lid 
+" . $mod_tb_root_lang . "_id as lid,
+" . $mod_tb_root_lang . "_pic as pic,
+" . $mod_tb_root_lang . "_picType as picType,
+" . $mod_tb_root_lang . "_picDefault as picDefault 
 ";
 
 $sql .= " FROM " . $mod_tb_root . " INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid
@@ -36,22 +42,25 @@ $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
 $valID = $Row['id'];
 $valStatus = $Row['status'];
 if ($valStatus == "Enable") {
-   $valStatusClass = "fontContantTbEnable";
+    $valStatusClass = "fontContantTbEnable";
 } elseif ($valStatus == "Home") {
-   $valStatusClass = "fontContantTbHomeSt";
+    $valStatusClass = "fontContantTbHomeSt";
 } else {
-   $valStatusClass = "fontContantTbDisable";
+    $valStatusClass = "fontContantTbDisable";
 }
 
 $valCredate = DateFormat($Row['credate']);
 $valCreby = $Row['crebyid'];
 $valLastdate = DateFormat($Row['lastdate']);
 $valLastby = $Row['lastbyid'];
+$valGid = $Row['gid'];
 
 $valSubject = rechangeQuot($Row['subject']);
+$valTitle = rechangeQuot($Row['title']);
 $valAddress = rechangeQuot($Row['address']);
 $valTel = rechangeQuot($Row['tel']);
 $valFax = rechangeQuot($Row['fax']);
+$valEmail = rechangeQuot($Row['email']);
 $valLat = rechangeQuot($Row['lat']);
 $valLong = rechangeQuot($Row['lng']);
 $valSGid = $Row['lid'];
@@ -60,7 +69,9 @@ if (!empty($valSGid)) {
 } else {
     $valcid = $myRand;
 }
-
+$valpicType = $Row['picType'] ? $Row['picType'] : 1;
+$valpicDefault = $Row['picDefault'];
+$valPic = $mod_path_pictures . "/" . $Row['pic'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
@@ -139,6 +150,25 @@ logs_access('3', 'View');
                         <span class="formFontTileTxt"><?php echo  $langMod["txt:subjectDe"] ?></span>
                     </td>
                 </tr>
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["meu:group2"] ?>:<span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <div class="formDivView">
+                                <?php
+                                $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject
+                     FROM " . $mod_tb_root_group . "
+                     INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid
+                     WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST["masterkey"] . "' AND " . $mod_tb_root_group_lang . "_language='" . $_REQUEST['inputLt'] . "'  AND " . $mod_tb_root_group . "_id='" . $valGid . "'
+                     ORDER BY " . $mod_tb_root_group . "_order DESC ";
+                                $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+                                $row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group);
+                                echo $row_groupname = $row_group[1];
+                                ?>
+                            </div>
+                        </td>
+                    </tr>
+                <?php } ?>
                 <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["tit:subject"] ?>:<span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -146,55 +176,135 @@ logs_access('3', 'View');
                     </td>
                 </tr>
                 <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:address"];  ?>:<span class="fontContantAlert"></span></td>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langMod["tit:title"] ?>:<span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <div class="formDivView"><?php echo  $valAddress ?></div>
+                        <div class="formDivView"><?= $valTitle ?></div>
                     </td>
                 </tr>
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:address"];  ?>:<span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <div class="formDivView"><?php echo  $valAddress ?></div>
+                        </td>
+                    </tr>
+                <?php } ?>
                 <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:tel"];  ?>:<span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                         <div class="formDivView"><?php echo  $valTel ?></div>
                     </td>
                 </tr>
-                <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:fax"];  ?>:<span class="fontContantAlert"></span></td>
-                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <div class="formDivView"><?php echo  $valFax ?></div>
-                    </td>
-                </tr>
+                <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:fax"];  ?>:<span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <div class="formDivView"><?php echo  $valFax ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:email"];  ?>:<span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <div class="formDivView"><?php echo  $valEmail ?></div>
+                        </td>
+                    </tr>
+                <?php } ?>
             </table>
-            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+            <br />
+            <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
                 <tr>
                     <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:maptitle"] ?></span><br />
-                        <span class="formFontTileTxt"><?php echo  $langMod["txt:mapdetail"] ?></span>
+                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:pic"] ?></span><br />
+                        <span class="formFontTileTxt"><?php echo  $langMod["txt:picDe"] ?></span>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="7" align="right" valign="top" height="15"></td>
-                </tr>
-                <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:gmap"] ?><span class="fontContantAlert"></span></td>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $modTxtShowPic[0] ?>:<span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <div id="map_canvas" data-page="view" style="height:300px;width:80%;"></div>
+                        <div class="formDivView"><?php echo $modTxtShowPic[$valpicType] ?></div>
                     </td>
                 </tr>
-                <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:lat"] ?><span class="fontContantAlert"></span></td>
+                <tr <?php if ($valpicType == 2) {
+                        echo 'style="display:none;"';
+                    } ?>>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <input name="latInput" id="latInput" type="text" class="formInputContantTbShot" disabled value="<?php echo $valLat; ?>" />
+                        <div class="formDivView">
+                            <?php
+                            $sql_nopic2 = "";
+                            $sql_nopic = "SELECT " . $core_tb_nopic . "_id as id
+                        ," . $core_tb_nopic . "_masterkey as masterkey
+                        ," . $core_tb_nopic . "_subject as subject
+                        ," . $core_tb_nopic . "_file as file 
+                        FROM " . $core_tb_nopic . " 
+                        WHERE " . $core_tb_nopic . "_masterkey = '" . $core_masterkey_nopic . "'
+                        AND " . $core_tb_nopic . "_status != 'Disable' ";
+                            $sql_nopic2 .= $sql_nopic . " AND " . $core_tb_nopic . "_id = '" . $valpicDefault . "'";
+                            $sql_nopic .= " ORDER BY " . $core_tb_nopic . "_order DESC";
+                            $sql_nopic2 .= " ORDER BY " . $core_tb_nopic . "_order DESC";
+                            $query_nopic2 = wewebQueryDB($coreLanguageSQL, $sql_nopic2);
+                            $numRows_nopic = wewebNumRowsDB($coreLanguageSQL, $query_nopic2);
+                            if ($numRows_nopic == 1) {
+                                $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic2);
+                                $valPicD = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                            } else {
+                                $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
+                                $row_nopic = wewebFetchArrayDB($coreLanguageSQL, $query_nopic);
+                                $valPicD = $core_pathname_upload . "/" . $row_nopic['masterkey'] . "/office/" . $row_nopic['file'];
+                            }
+                            ?>
+                            <img src="<?php echo  $valPicD ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?php echo  "../img/btn/nopic.jpg" ?>'" />
+                        </div>
                     </td>
-
                 </tr>
-                <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:long"] ?><span class="fontContantAlert"></span></td>
+                <tr <?php if ($valpicType == 1) {
+                        echo 'style="display:none;"';
+                    } ?>>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                        <input name="longInput" id="longInput" type="text" class="formInputContantTbShot" disabled value="<?php echo $valLong; ?>" />
+                        <div class="formDivView">
+                            <img src="<?php echo  $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?php echo  "../img/btn/nopic.jpg" ?>'" />
+                        </div>
                     </td>
                 </tr>
             </table>
             <br />
+            <?php } ?>
+            
+            <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+                    <tr>
+                        <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                            <span class="formFontSubjectTxt"><?php echo  $langMod["txt:maptitle"] ?></span><br />
+                            <span class="formFontTileTxt"><?php echo  $langMod["txt:mapdetail"] ?></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" align="right" valign="top" height="15"></td>
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:gmap"] ?><span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <div id="map_canvas" data-page="view" style="height:300px;width:80%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:lat"] ?><span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <input name="latInput" id="latInput" type="text" class="formInputContantTbShot" disabled value="<?php echo $valLat; ?>" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["txt:long"] ?><span class="fontContantAlert"></span></td>
+                        <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                            <input name="longInput" id="longInput" type="text" class="formInputContantTbShot" disabled value="<?php echo $valLong; ?>" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            <?php } ?>
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
                 <tr>
                     <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
