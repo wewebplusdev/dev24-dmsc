@@ -331,12 +331,10 @@
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
                                         <div class="position-relative card-top col-sm-5">
-                                            <div class="position-absolute image-cover color-mode">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/liner.png" alt="">
+                                            <div class="position-absolute image-cover ">
+                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/experts-back.png" alt="">
                                             </div>
-                                            <div class="image-cover position-absolute">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/logo.png" alt="รอการแต่งตั้ง">
-                                            </div>
+
 
                                             <div class=" image-cover">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
@@ -444,12 +442,10 @@
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
                                         <div class="position-relative card-top col-sm-5">
-                                            <div class="position-absolute image-cover color-mode">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/liner.png" alt="">
+                                            <div class="position-absolute image-cover ">
+                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/experts-back.png" alt="">
                                             </div>
-                                            <div class="image-cover position-absolute">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/logo.png" alt="รอการแต่งตั้ง">
-                                            </div>
+
 
                                             <div class=" image-cover">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
@@ -485,12 +481,10 @@
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
                                         <div class="position-relative card-top col-sm-5">
-                                            <div class="position-absolute image-cover color-mode">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/liner.png" alt="">
+                                            <div class="position-absolute image-cover ">
+                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/experts-back.png" alt="">
                                             </div>
-                                            <div class="image-cover position-absolute">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/experts/logo.png" alt="รอการแต่งตั้ง">
-                                            </div>
+
 
                                             <div class=" image-cover">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
@@ -498,7 +492,6 @@
 
                                         </div>
                                         <div class="col-sm-7 card-bottom position-relative">
-
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">รอการแต่งตั้ง</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
@@ -506,8 +499,6 @@
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
-
-
                                                 <div class="row">
                                                     <div class="col-3 text-nowrap">ติดต่อ :</div>
                                                     <div class="col-9">0 2951 0000 ต่อ 99012</div>
