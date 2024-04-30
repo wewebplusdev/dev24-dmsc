@@ -1,6 +1,4 @@
 <?php
-$password = '1234';
-
 session_cache_expire(1280);
 $cache_expire = session_cache_expire();
 @session_start();
