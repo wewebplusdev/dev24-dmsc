@@ -49,7 +49,7 @@
                 </figure>
             </div>
             <!-- ck editor -->
-            <div class="defailt-body">
+            <div class="default-body">
                 <div class="content"></div>
                 <div class="bg-cio">
                     <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="background">

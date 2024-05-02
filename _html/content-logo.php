@@ -54,17 +54,21 @@
                 </figure>
             </div>
             <!-- ck editor -->
-            <div class="defailt-body">
-                <div class="container">
-                    <div class="content">
-                        <div class="logo">
-                            <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
-                        </div>
-                        <h2 title="ชื่อหัวข้อ" class="title-lg">ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+            <div class="default-body">
+                <div class="background">
+                    <div class="bg-sky">
+                        <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="img-vision" class="lazy img-cover">
                     </div>
-                </div>
-                <div class="bg-img">
-                    <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="background">
+                    <div class="container">
+                        <div class="content">
+                            <div class="logo">
+                                <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
+                            </div>
+                            <div class="title-text">
+                                <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- ck editor -->
@@ -139,35 +143,39 @@
 </html>
 
 <style>
-    .defailt-body {
+    .background {
         position: relative;
-    }
-
-    .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
     }
 
     .logo {
         display: flex;
         justify-content: center;
-        margin-top: 60px;
+    }
+    .logo img{
+        margin-top: 30px;
     }
 
-    .title-lg {
-        font-size: 48px;
+    .content{
+        position: relative;
+        z-index: 1;
+    }
+
+    .title-text {
         text-align: center;
-        margin-top: 50px;
-        color: #01377D;
+        color: var(--color-secondary);
+    }
+    .title-text h2{
+        font-size: 48px;
+        margin-top: 10px;
     }
 
-    .bg-img {
+    .bg-sky {
+        position: absolute;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        width: 100%;
+        z-index: 0;
     }
 
     .document-download-list {
@@ -179,7 +187,7 @@
         filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
         color: var(--color-black);
     }
-  
+
 
     .whead .title {
         font-size: 36px;
@@ -188,11 +196,11 @@
         border-bottom: 2px solid #29B171;
     }
 
-    .desc{
+    .desc {
         margin-bottom: 25px;
     }
 
-    .swiper-wrapper{
+    .swiper-wrapper {
         margin-bottom: 40px;
     }
 
@@ -215,36 +223,66 @@
 
     }
 
-@media (max-width: 1199px) {
-    .swiper-wrapper{margin-bottom: 150px;}
+    @media (max-width: 1199px) {
+        .swiper-wrapper {
+            margin-bottom: 150px;
+        }
 
-    .title-lg{font-size: 36px;}
-    .whead .title{font-size: 32px;}
-}
+        .title-text h2{
+            font-size: 36px;
+        }
+        .type-file{font-size: 18px;}
+        .whead .title {
+            font-size: 32px;
+        }
+    }
 
-@media (max-width: 991px) {
-    .logo img{width: 320px;}
-    .logo{margin-top: 30px;}
-    .title-lg{font-size: 32px; margin-top: 10px;}
-    .swiper-wrapper{margin-bottom: 180px;}
-    .desc{margin-bottom: 10px; font-size: 18px;}
-    .type-file{font-size: 18px;}
-}
+    @media (max-width: 991px) {
+        .logo img {
+            width: 320px;
+        }
 
-@media (max-width: 767px) {
-    .logo img{width: 300px;}
-    .swiper-wrapper{margin-bottom: 100px;}
+        .title-text h2 {
+            font-size: 32px;
+        }
 
-}
 
-@media (max-width: 575px) {
-    .logo{margin-top: 20px;}
-    .logo img{width: 150px;}
-    .title-lg{font-size: 24px; margin-top: 0;}
-    .whead .title{font-size: 24px;}
-    .swiper-wrapper{margin-bottom: 200px;}
-}
+        .desc {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
 
+        .type-file {
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .logo img {
+            width: 300px;
+        }
+
+
+    }
+
+    @media (max-width: 575px) {
+
+        .logo img {
+            width: 150px;
+            margin-top: 0;
+        }
+
+        .title-text h2{
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .whead .title {
+            font-size: 24px;
+        }
+
+
+    }
 </style>
 
 <script>
