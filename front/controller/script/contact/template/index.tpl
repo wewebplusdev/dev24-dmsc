@@ -92,141 +92,96 @@
         </div>
       </div>
     </div>
-    <div class="contact-section">
-      <div class="contact-center">
-        <div class="container">
-          <div class="whead">
-            <h2 class="title">ส่วนกลาง</h2>
-          </div>
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <?php for ($i = 1; $i <= 6; $i++) { ?>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="contact-card">
-                    <div class="head">สำนักงานเลขานุการกรม</div>
-                    <div class="body">
-                      <div class="desc">
-                        สำนักงานเลขานุการกรม กรมวิทยาศาสตร์การแพทย์
-                        <br>
-                        88/7 บำราศนราดูร ถ.ติวานนท์ ต.ตลาดขวัญ อ.เมือง จ.นนทบุรี 11000
-                        <br>
-                        โทรศัพท์กลาง : 0-2951-0000 | ฝ่ายประชาสัมพันธ์ : ต่อ 99017,99081
-                        <br>
-                        โทรสาร: 0-2591-1707 | E-mail: prdmsc@dmsc.mail.go.th Map
-                      </div>
-                      <div class="action">
-                        <span class="text">Google map</span>
-                        <a href="" class="link">
-                          ดูแผนที่
-                          <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
-                              viewBox="0 0 14.25 14.25">
-                              <g id="Icon_ionic-ios-arrow-dropright" data-name="Icon ionic-ios-arrow-dropright"
-                                transform="translate(-3.375 -3.375)">
-                                <path id="Path_25" data-name="Path 25"
-                                  d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
-                                  transform="translate(-5.661 -3.389)" fill="#2ab170" />
-                                <path id="Path_26" data-name="Path 26"
-                                  d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
-                                  fill="#2ab170" />
-                              </g>
-                            </svg>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    {if $array_agency|count gte 1}
+      <div class="contact-section">
+        {foreach $array_agency as $keyarray_agency => $valuearray_agency}
+          <div class="contact-center">
+            <div class="container">
+              <div class="whead">
+                <h2 class="title">{$valuearray_agency.group.subject}</h2>
               </div>
-              <?php } ?>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-center">
-        <div class="container">
-          <div class="whead">
-            <h2 class="title">ส่วนภูมิภาค</h2>
-          </div>
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <?php for ($i = 1; $i <= 6; $i++) { ?>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="contact-card">
-                    <div class="head">สำนักงานเลขานุการกรม</div>
-                    <div class="body">
-                      <div class="desc">
-                        สำนักงานเลขานุการกรม กรมวิทยาศาสตร์การแพทย์
-                        <br>
-                        88/7 บำราศนราดูร ถ.ติวานนท์ ต.ตลาดขวัญ อ.เมือง จ.นนทบุรี 11000
-                        <br>
-                        โทรศัพท์กลาง : 0-2951-0000 | ฝ่ายประชาสัมพันธ์ : ต่อ 99017,99081
-                        <br>
-                        โทรสาร: 0-2591-1707 | E-mail: prdmsc@dmsc.mail.go.th Map
-                      </div>
-                      <div class="action">
-                        <span class="text">Google map</span>
-                        <a href="" class="link">
-                          ดูแผนที่
-                          <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
-                              viewBox="0 0 14.25 14.25">
-                              <g id="Icon_ionic-ios-arrow-dropright" data-name="Icon ionic-ios-arrow-dropright"
-                                transform="translate(-3.375 -3.375)">
-                                <path id="Path_25" data-name="Path 25"
-                                  d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
-                                  transform="translate(-5.661 -3.389)" fill="#2ab170" />
-                                <path id="Path_26" data-name="Path 26"
-                                  d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
-                                  fill="#2ab170" />
-                              </g>
-                            </svg>
-                          </span>
-                        </a>
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  {foreach $valuearray_agency.list as $keyList => $valueList}
+                    <div class="swiper-slide">
+                      <div class="item">
+                        <div class="contact-card">
+                          <div class="head">{$valueList->subject}</div>
+                          <div class="body">
+                            <div class="desc">
+                              {$valueList->address}
+                              {if $valueList->tel neq ""}
+                                <br>
+                                โทรศัพท์กลาง : {$valueList->tel}
+                              {/if}
+                              {if $valueList->fax neq "" && $valueList->email neq ""}
+                                <br>
+                                {if $valueList->fax neq ""}โทรสาร:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}{/if}
+                              {/if}
+                            </div>
+                            <div class="action">
+                              <span class="text">Google map</span>
+                              <a href="{$ul}/{$menuActive}/googlemap-agencies/{$valueList->id}" target="_blank" class="link">
+                                ดูแผนที่
+                                <span class="icon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
+                                    viewBox="0 0 14.25 14.25">
+                                    <g id="Icon_ionic-ios-arrow-dropright" data-name="Icon ionic-ios-arrow-dropright"
+                                      transform="translate(-3.375 -3.375)">
+                                      <path id="Path_25" data-name="Path 25"
+                                        d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
+                                        transform="translate(-5.661 -3.389)" fill="#2ab170" />
+                                      <path id="Path_26" data-name="Path 26"
+                                        d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
+                                        fill="#2ab170" />
+                                    </g>
+                                  </svg>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                  {/foreach}
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        {/foreach}
+        <div class="contact-bg"></div>
+      </div>
+    {/if}
+
+    {if $load_data_service->code eq 1001}
+      <div class="contact-service">
+        <div class="container">
+          <div class="whead">
+            <h2 class="title">บริการ</h2>
+          </div>
+          <div class="contact-service-list">
+            {foreach $load_data_service->item as $keyload_data_service => $valueload_data_service}
+              <div class="item">
+                <div class="row no-gutters align-items-start mb-3">
+                  <div class="col-auto">
+                    <div class="icon">
+                      <img src="{$template}/assets/img/uploads/icon-service-contact-1.svg" alt="icon-service-contact-1">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="title">{$valueload_data_service->subject}</div>
                   </div>
                 </div>
-              </div>
-              <?php } ?>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-bg"></div>
-    </div>
-    <div class="contact-service">
-      <div class="container">
-        <div class="whead">
-          <h2 class="title">บริการ</h2>
-        </div>
-        <div class="contact-service-list">
-          <div class="item">
-            <div class="row no-gutters align-items-start mb-3">
-              <div class="col-auto">
-                <div class="icon">
-                  <img src="{$template}/assets/img/uploads/icon-service-contact-1.svg" alt="icon-service-contact-1">
+                <div class="tel">
+                  <span class="fw-bold">เบอร์โทรศัพท์ :</span>
+                  {$valueload_data_service->tel}
                 </div>
               </div>
-              <div class="col">
-                <div class="title">สอบถามข้อมูลทั่วไป</div>
-              </div>
-            </div>
-            <div class="tel">
-              <span class="fw-bold">เบอร์โทรศัพท์ :</span>
-              <a href="tel:0 2589 9850-7" class="link">0 2589 9850-7</a>
-              <br>
-              Operator กด 0, ฝ่ายประชาสัมพันธ์
-              <br>
-              ต่อ 99081
-            </div>
+            {/foreach}
           </div>
         </div>
       </div>
-    </div>
+    {/if}
   </div>
 </section>

@@ -31,6 +31,8 @@ const main = {
     "md_mnusgl": "md_mnusgl",
     "md_ag": "md_ag",
     "md_agl": "md_agl",
+    "md_agg": "md_agg",
+    "md_aggl": "md_aggl",
     "sy_stf": "sy_stf",
 }
 

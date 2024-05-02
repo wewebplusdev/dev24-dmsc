@@ -4,7 +4,7 @@
             <div class="nav-lang">
                 <div class="row justify-content-end align-items-center gutters-10">
                     <div class="col-auto">
-                        <div class="nav-label">เลือกภาษา</div>
+                        <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
                     </div>
                     {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
                         <div class="col-auto">
