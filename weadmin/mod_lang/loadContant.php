@@ -193,7 +193,7 @@ if ($count_recordHead >= 1) {
 
          </table>
       </div>
-      <div class="divRightHeadSearch">
+      <div class="divRightHeadSearch d-none">
 
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
 
@@ -454,7 +454,7 @@ if ($count_recordHead >= 1) {
          </table>
          <input name="TotalCheckBoxID" type="hidden" id="TotalCheckBoxID" value="<?= $index - 1 ?>" />
          <div class="divRightContantEnd"></div>
-         <div class="divRightHeadSearch">
+         <div class="divRightHeadSearch d-none">
             <!-- <span class="fontContantNoteUrl">
                <?= $langTxt["mini:siteth"] ?> : <a href="<?= loadGetURLByMod($core_full_path, 'th', $mod_fd_frontUrl, "") ?>" target="_blank"><?= loadGetURLByMod($core_full_path, 'th', $mod_fd_frontUrl, "") ?></a><br />
 

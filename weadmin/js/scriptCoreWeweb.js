@@ -2696,3 +2696,9 @@ function rechangeText(str){
     }
     return str;
 }
+
+
+
+
+
+$('.formEndContantTb a[href="#defTop"]').closest("table").addClass("d-none");

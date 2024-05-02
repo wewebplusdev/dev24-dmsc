@@ -1594,6 +1594,7 @@ textarea {
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
+    background-image: none;
 }
 
 .file-input-wrapper:hover>.btn-file-input {
