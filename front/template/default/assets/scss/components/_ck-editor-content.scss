@@ -154,6 +154,23 @@
   }
   
   .each-year {
+
+	.swiper{
+		padding-bottom:80px ;
+	}
+
+	.swiper-pagination-bullet {
+		width: 18px;
+		height: 18px;
+	  }
+	  
+	  .swiper-pagination-bullet-active{
+		background-color: var(--color-primary);
+		width: 18px;
+		height: 18px;
+		border-radius: 20px;
+	  }
+
 	.nav-link {
 	  font-size: var(--typo-sm);
 	  font-weight: var(--fw-bold);
@@ -183,6 +200,8 @@
 	  margin-top: 80px;
 	}
   }
+
+
   
   .history-timeline {
 	position: relative;
@@ -547,6 +566,8 @@
 	.document-download-list .box .item-list li + li {padding-left: 0;margin-left: 0;margin-top: 10px;border: none;}
 	.our-history-info .content {margin-left: auto !important; text-align: start !important;}
 	.history-timeline .h-bigger {font-size: 80px!important;}
+	.our-history-info {margin: 0 !important;}
+	.each-year .editor-content{margin-top: 20px !important;}
 
 
 	
@@ -567,30 +588,14 @@
 	.document-download-list.-layout-grid .content {padding: 25px 20px;}
 	.document-download-list.-layout-grid .action {margin-top: 25px;}
 
-	.history-timeline {position: relative;
-		&::before {
-		content: '';
-		display: none;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 8px;
-		height: 100%;
-		border-radius: 5px;
-		background-color: #29B16F;
-		opacity: 0.3;
-	  }
-	}
-	
-	.history-timeline .timeline-list p{font-size: 30px; }
-	.history-timeline  .h-bigger{font-size: 50px; text-align:  center; margin-bottom: 20px;}
+	.history-timeline   .timeline-dot {&::before {content: "";display: none;}}
+	.history-timeline {position: relative;&::before {content: '';display: none;}}
 
-	
-	
-	
-  
-  }
+	.history-timeline > .row > div {padding: 0!important;}
+	.history-timeline .row{margin: 0  !important;}
+	.history-timeline .timeline-list p{font-size: 30px; }
+	.history-timeline  .h-bigger{font-size: 50px; text-align:  center; margin: 40px 0 40px 0;}
+	}
   
   @media (max-width: 767px) {
 	.layout-view .btn-group {margin-top: 10px;}
@@ -601,6 +606,7 @@
 	.our-history-info .content .subtitle{font-size: 40px !important;}
 	.our-history-info .content .desc{font-size: 20px !important;}
 	.our-history-info .content .desc{font-size:18px !important; text-wrap: wrap !important; max-width: 600px !important; }
+	.history-timeline  .h-bigger{font-size: 50px!important; text-align:  center; margin-bottom: 40px;}
   }
   
   @media (max-width: 575px) {
@@ -610,12 +616,16 @@
 	.history-timeline .h-bigger{font-size:32px ; text-align: center;}
     .history-timeline .timeline-list p{font-size: 20px;}
 
-	.our-history-info .content {text-align: center !important;}
+
 	.our-history-info .content .title{font-size:var(--typo-md) !important;}
 	.our-history-info .content .subtitle{font-size:var(--typo-md) !important;}
+	.our-history-info .content {text-align: center;}
+	
 	.our-history-info .content .desc{font-size:18px !important; text-wrap: wrap !important; max-width: 300px !important; }
+	.history-timeline  .h-bigger{font-size: 30px!important; text-align:  center; margin-bottom: 40px;}
 
-	.history-timeline .h-bigger {font-size: 50px!important;}
+	
+
   }
 
 // CK Content About

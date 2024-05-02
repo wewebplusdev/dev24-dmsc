@@ -95,6 +95,7 @@
                   <a href="our-history-04.php" class="nav-link">2517 - 2485</a>
                 </div>
               </div>
+              <div class="swiper-pagination"></div>
             </div>
             <!-- ck editor -->
             <div class="editor-content">
@@ -184,12 +185,17 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
       breakpoints: {
         0: {
-          slidesPerView: 2,
+          slidesPerView: 1,
+          spaceBetween: 10,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
         1200: {
           slidesPerView: 4,

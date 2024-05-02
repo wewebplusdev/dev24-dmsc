@@ -59,12 +59,12 @@
         <div class="our-history-info">
           <div class="container">
             <div class="row align-items-end">
-              <div class="col-auto">
+              <div class="col-xl-6">
                 <div class="thumbnails">
                   <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
                 </div>
               </div>
-              <div class="col-auto">
+              <div class="col-xl-6">
                 <div class="content">
                   <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
                   <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>

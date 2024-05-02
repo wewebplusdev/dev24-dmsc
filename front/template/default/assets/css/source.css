@@ -2212,6 +2212,19 @@ div.swal2-html-container {
   width: max-content;
 }
 
+.each-year .swiper {
+  padding-bottom: 80px;
+}
+.each-year .swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+}
+.each-year .swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+  width: 18px;
+  height: 18px;
+  border-radius: 20px;
+}
 .each-year .nav-link {
   font-size: var(--typo-sm);
   font-weight: var(--fw-bold);
@@ -2574,6 +2587,12 @@ div.swal2-html-container {
   .history-timeline .h-bigger {
     font-size: 80px !important;
   }
+  .our-history-info {
+    margin: 0 !important;
+  }
+  .each-year .editor-content {
+    margin-top: 20px !important;
+  }
 }
 @media (max-width: 991px) {
   .layout-view .btn-group > button {
@@ -2614,22 +2633,22 @@ div.swal2-html-container {
   .document-download-list.-layout-grid .action {
     margin-top: 25px;
   }
+  .history-timeline .timeline-dot::before {
+    content: "";
+    display: none;
+  }
   .history-timeline {
     position: relative;
   }
   .history-timeline::before {
     content: "";
     display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    width: 8px;
-    height: 100%;
-    border-radius: 5px;
-    background-color: #29B16F;
-    opacity: 0.3;
+  }
+  .history-timeline > .row > div {
+    padding: 0 !important;
+  }
+  .history-timeline .row {
+    margin: 0 !important;
   }
   .history-timeline .timeline-list p {
     font-size: 30px;
@@ -2637,7 +2656,7 @@ div.swal2-html-container {
   .history-timeline .h-bigger {
     font-size: 50px;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 40px 0 40px 0;
   }
 }
 @media (max-width: 767px) {
@@ -2665,6 +2684,11 @@ div.swal2-html-container {
     text-wrap: wrap !important;
     max-width: 600px !important;
   }
+  .history-timeline .h-bigger {
+    font-size: 50px !important;
+    text-align: center;
+    margin-bottom: 40px;
+  }
 }
 @media (max-width: 575px) {
   .document-download-list.-layout-grid .item {
@@ -2681,14 +2705,14 @@ div.swal2-html-container {
   .history-timeline .timeline-list p {
     font-size: 20px;
   }
-  .our-history-info .content {
-    text-align: center !important;
-  }
   .our-history-info .content .title {
     font-size: var(--typo-md) !important;
   }
   .our-history-info .content .subtitle {
     font-size: var(--typo-md) !important;
+  }
+  .our-history-info .content {
+    text-align: center;
   }
   .our-history-info .content .desc {
     font-size: 18px !important;
@@ -2696,7 +2720,9 @@ div.swal2-html-container {
     max-width: 300px !important;
   }
   .history-timeline .h-bigger {
-    font-size: 50px !important;
+    font-size: 30px !important;
+    text-align: center;
+    margin-bottom: 40px;
   }
 }
 .layout-header {
