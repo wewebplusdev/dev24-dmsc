@@ -5246,6 +5246,9 @@ div.swal2-html-container {
   -o-object-position: center;
      object-position: center;
 }
+.intro-slider .iframe-container {
+  padding-top: calc(100vh - 130px);
+}
 
 .intro-content {
   position: absolute;

@@ -14,17 +14,13 @@
                     {elseif $valuearray_intro->type eq 2}
                         <div class="swiper-slide intro-event" data-title="{$valuearray_intro->title}" data-url="{$valuearray_intro->url}" data-target="{$valuearray_intro->target}">
                             <div class="item" data-media="video">
-                                <div class="video-container">
-                                    {$myUrlArray = "v="|explode:$valuearray_intro->video}
-                                    {$myUrlCut = $myUrlArray[1]}
-                                    {$myUrlCutArray = "&"|explode:$myUrlCut}
-                                    {$myUrlCutAnd= $myUrlCutArray.0}
-                                    <div class="detail-vdo">
-                                        <div class="iframe-container" data-aos="fade-up">
-                                            <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" allow="autoplay" frameborder="0"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
+                                {$myUrlArray = "v="|explode:$valuearray_intro->video}
+                                {$myUrlCut = $myUrlArray[1]}
+                                {$myUrlCutArray = "&"|explode:$myUrlCut}
+                                {$myUrlCutAnd= $myUrlCutArray.0}
+                                  <div class="iframe-container" data-aos="fade-up">
+                                      <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" allow="autoplay" frameborder="0"></iframe>
+                                  </div>
                             </div>
                         </div>
                     {else}
