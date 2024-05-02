@@ -100,7 +100,7 @@
                                                             <div class="submenu-col sub2menu" data-submenu-parent="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">
                                                                 <div class="scroll-wrapper mCustomScrollbar">
                                                                     <!-- sub2menu -->
-                                                                    <div class="back-menu">เว็บไซต์ส่วนกลาง & ส่วนภูมิภาค</div>
+                                                                    <div class="back-menu">{$valueLv2->subject}</div>
                                                                     <ul class="nav-list fluid">
                                                                     {foreach $valueLv2->level_3 as $keyLv3 => $valueLv3}
                                                                         {if $valueLv3->subject neq ""}
