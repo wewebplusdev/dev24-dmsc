@@ -4,6 +4,8 @@
 <head>
   <?php include('inc/metatag.php'); ?>
   <?php include('inc/loadstyle.php'); ?>
+
+
 </head>
 
 <body>
@@ -99,7 +101,7 @@
             <div class="editor-content">
               <div class="history-timeline">
                 <div class="row align-items-start">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2540</div>
                       <ul class="timeline-list">
@@ -132,14 +134,14 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-07.jpg" alt="">
                     </div>
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col order-lg-2">
+                  <div class="col-lg-6 order-lg-2">
                     <div class="h-bigger">2536</div>
                     <ul class="timeline-list">
                       <li>
@@ -170,7 +172,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col-6 order-lg-1 timeline-dot">
+                  <div class="col-lg-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
                         <img src="<?php echo $core_template; ?>/img/uploads/img-history-08.jpg" alt="">
@@ -179,7 +181,7 @@
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2533</div>
                       <ul class="timeline-list">
@@ -208,14 +210,14 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-09.jpg" alt="">
                     </div>
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col order-lg-2">
+                  <div class="col-lg-6 order-lg-2">
                     <div class="h-bigger">2529</div>
                     <ul class="timeline-list">
                       <li>
@@ -230,7 +232,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col-6 order-lg-1 timeline-dot">
+                  <div class="col-lg-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
                         <img src="<?php echo $core_template; ?>/img/uploads/img-history-10.jpg" alt="">
@@ -239,7 +241,7 @@
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2526</div>
                       <ul class="timeline-list">
@@ -263,7 +265,7 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-11.jpg" alt="">
                     </div>

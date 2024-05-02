@@ -4,6 +4,8 @@
 <head>
   <?php include('inc/metatag.php'); ?>
   <?php include('inc/loadstyle.php'); ?>
+
+ 
 </head>
 
 <body>
@@ -57,12 +59,12 @@
         <div class="our-history-info">
           <div class="container">
             <div class="row align-items-end">
-              <div class="col-auto">
+              <div class="col-lg-6-auto">
                 <div class="thumbnails">
                   <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
                 </div>
               </div>
-              <div class="col-auto">
+              <div class="col-lg-6-auto">
                 <div class="content">
                   <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
                   <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>
@@ -99,7 +101,7 @@
             <div class="editor-content">
               <div class="history-timeline">
                 <div class="row align-items-start">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2517</div>
                       <ul class="timeline-list">
@@ -125,14 +127,14 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-12.jpg" alt="">
                     </div>
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col order-lg-2">
+                  <div class="col-lg-6 order-lg-2">
                     <div class="h-bigger">2510</div>
                     <ul class="timeline-list">
                       <li>
@@ -154,7 +156,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col-6 order-lg-1 timeline-dot">
+                  <div class="col-lg-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
                         <img src="<?php echo $core_template; ?>/img/uploads/img-history-02.jpg" alt="">
@@ -163,7 +165,7 @@
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2509</div>
                       <ul class="timeline-list">
@@ -179,14 +181,14 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-14.jpg" alt="">
                     </div>
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col order-lg-2">
+                  <div class="col-lg-6 order-lg-2">
                     <div class="h-bigger">2495</div>
                     <ul class="timeline-list">
                       <li>
@@ -214,7 +216,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col-6 order-lg-1 timeline-dot">
+                  <div class="col-lg-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
                         <img src="<?php echo $core_template; ?>/img/uploads/img-history-15.jpg" alt="">
@@ -223,7 +225,7 @@
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2485</div>
                       <ul class="timeline-list">
@@ -250,7 +252,7 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-16.jpg" alt="">
                     </div>
