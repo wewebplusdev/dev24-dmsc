@@ -220,7 +220,11 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                              alert('<?php echo $langTxt["mg:selpermis"] ?>');
                                           }
                                       "></div>
+                              <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_detail)) { ?>
+                              <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel2.php';document.myFormExport.submit()">
+                              <?php }else{ ?>
                               <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel.php';document.myFormExport.submit()">
+                              <?php } ?>
                         </td>
                      <?php } ?>
                      </tr>
@@ -260,7 +264,14 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 " . $mod_tb_root . "_name as name,
 " . $mod_tb_root . "_ip as ip ,
 " . $mod_tb_root_group_lang . "_subject as group_subject,
-" . $mod_tb_root . "_address as address 
+" . $mod_tb_root . "_address as address ,
+
+" . $mod_tb_root . "_complaint_name as complaint_name ,
+" . $mod_tb_root . "_complaint_time as complaint_time ,
+" . $mod_tb_root . "_complaint_fac as complaint_fac ,
+" . $mod_tb_root . "_complaint_desc1 as complaint_desc1 ,
+" . $mod_tb_root . "_complaint_desc2 as complaint_desc2 ,
+" . $mod_tb_root . "_complaint_confirm as complaint_confirm 
 ";
 
             $sql = $sql . "  FROM " . $mod_tb_root . "";

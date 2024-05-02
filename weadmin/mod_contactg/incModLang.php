@@ -248,4 +248,6 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["txt:rank_report"] = "ช่วงเวลาที่กระทำความผิด";
 	$langMod["txt:fac_report"] = "ข้อเท็จจริงหรือพฤติการณ์การทุจริต";
 	$langMod["txt:corruption_report"] = "กระทำความผิดต่อตำแหน่งหน้าที่ราชการ";
+	$langMod["txt:rich_report"] = "ร่ำรวยผิดปกติ";
+	$langMod["txt:confirm_report"] = "ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวที่ข้าพเจ้าได้ร้องเรียน/แจ้งเบาะแสข้างต้น เป็นเรื่องจริง";
 }

@@ -198,6 +198,7 @@ logs_access('3', 'View');
             </tr>
          </table>
          <br />
+         <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_detail)) { ?>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -206,43 +207,44 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo "ชื่อ-นามสกุล ของผู้ถูกร้อง" ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:name_report"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $valComplaintName ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo "ช่วงเวลาที่กระทำความผิด" ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:rank_report"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $valComplaintTime ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo "ข้อเท็จจริงหรือพฤติการณ์การทุจริต" ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:fac_report"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $modValueFac[$valComplaintFac] ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo 'กระทำความผิดต่อตำแหน่งหน้าที่ราชการ' ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:corruption_report"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $valComplaintDesc1 ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo 'ร่ำรวยผิดปกติ' ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:rich_report"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $valComplaintDesc2 ?></div>
                </td>
             </tr>
             <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo 'ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวที่ข้าพเจ้าได้ร้องเรียน/แจ้งเบาะแสข้างต้น เป็นเรื่องจริง' ?>:<span class="fontContantAlert"></span></td>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:confirm_report"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $modValueConfirm[$valComplaintConfirm] ?></div>
                </td>
             </tr>
          </table>
          <br />
+         <?php } ?>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
