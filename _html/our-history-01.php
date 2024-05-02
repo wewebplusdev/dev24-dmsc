@@ -99,7 +99,7 @@
             <div class="editor-content">
               <div class="history-timeline">
                 <div class="row">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">ปัจจุบัน</div>
                       <ul class="timeline-list">
@@ -117,7 +117,7 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-01.jpg" alt="">
                     </div>
