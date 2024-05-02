@@ -23,7 +23,8 @@ $sql .= "   " . $mod_tb_root . "_id as id,
 " . $mod_tb_root . "_email as email,
 " . $mod_tb_root . "_name as name,
 " . $mod_tb_root . "_status as status ,
-" . $mod_tb_root . "_ip as ip 
+" . $mod_tb_root . "_ip as ip ,
+" . $mod_tb_root . "_address as address 
 ";
 $sql .= " FROM " . $mod_tb_root . " 
 WHERE " . $mod_tb_root . "_masterkey='" . $_REQUEST["masterkey"] . "' 
@@ -49,6 +50,7 @@ $valTel = rechangeQuot($Row['tel']);
 $valEmail = rechangeQuot($Row['email']);
 $valName = rechangeQuot($Row['name']);
 $valIP = rechangeQuot($Row['ip']);
+$valAddress = rechangeQuot($Row['address']);
 
 if ($valID > 0) {
    $update = array();
@@ -126,7 +128,7 @@ logs_access('3', 'View');
                   <span class="formFontTileTxt"><?php echo  $langMod["txt:subjectDe"] ?></span>
                </td>
             </tr>
-            <tr>
+            <!-- <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["meu:group2"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
@@ -142,11 +144,17 @@ logs_access('3', 'View');
                      ?>
                   </div>
                </td>
-            </tr>
+            </tr> -->
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:name"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $valName ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:address"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $valAddress ?></div>
                </td>
             </tr>
             <tr>

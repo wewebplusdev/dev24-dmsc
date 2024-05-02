@@ -114,8 +114,9 @@ $numRows = wewebNumRowsDB($coreLanguageSQL, $queryList);
 if ($numRows > 0) {
     // start create excel header
     $objPHPExcel->getActiveSheet()->setCellValue("A" . $active_row, "ลำดับ");
-    $objPHPExcel->getActiveSheet()->setCellValue("B" . $active_row, $langModExcel["meu:group2"]);
-    $objPHPExcel->getActiveSheet()->setCellValue("C" . $active_row, $langModExcel["txt:name"]);
+    // $objPHPExcel->getActiveSheet()->setCellValue("B" . $active_row, $langModExcel["meu:group2"]);
+    $objPHPExcel->getActiveSheet()->setCellValue("B" . $active_row, $langModExcel["txt:name"]);
+    $objPHPExcel->getActiveSheet()->setCellValue("C" . $active_row, $langModExcel["txt:address"]);
     $objPHPExcel->getActiveSheet()->setCellValue("D" . $active_row, $langModExcel["txt:email"]);
     $objPHPExcel->getActiveSheet()->setCellValue("E" . $active_row, $langModExcel["txt:tel"]);
     $objPHPExcel->getActiveSheet()->setCellValue("F" . $active_row, $langModExcel["txt:subject"]);
@@ -127,19 +128,21 @@ if ($numRows > 0) {
     $active_row++;
     $index = 1;
     foreach ($queryList as $keyList => $valueList) {
-        $valGroupName = $valueList['group_subject'];
-        $valSubject = $valueList['subject'];
-        $valTitle = $valueList['title'];
-        $valName = $valueList['name'];
-        $valEmail = $valueList['email'];
-        $valTel = $valueList['tel'];
-        $valIP = $valueList['ip'];
-        $valStatus = $valueList['status'];
+        // $valGroupName = rechangeQuot($valueList['group_subject']);
+        $valSubject = rechangeQuot($valueList['subject']);
+        $valAddress = rechangeQuot($valueList['address']);
+        $valTitle = rechangeQuot($valueList['title']);
+        $valName = rechangeQuot($valueList['name']);
+        $valEmail = rechangeQuot($valueList['email']);
+        $valTel = rechangeQuot($valueList['tel']);
+        $valIP = rechangeQuot($valueList['ip']);
+        $valStatus = rechangeQuot($valueList['status']);
         $valCredate = DateFormat($valueList['credate']);
 
         $objPHPExcel->getActiveSheet()->setCellValue("A" . $active_row, $index);
-        $objPHPExcel->getActiveSheet()->setCellValue("B" . $active_row, $valGroupName);
-        $objPHPExcel->getActiveSheet()->setCellValue("C" . $active_row, $valName);
+        // $objPHPExcel->getActiveSheet()->setCellValue("B" . $active_row, $valGroupName);
+        $objPHPExcel->getActiveSheet()->setCellValue("B" . $active_row, $valName);
+        $objPHPExcel->getActiveSheet()->setCellValue("C" . $active_row, $valAddress);
         $objPHPExcel->getActiveSheet()->setCellValue("D" . $active_row, $valEmail);
         $objPHPExcel->getActiveSheet()->setCellValue("E" . $active_row, $valTel);
         $objPHPExcel->getActiveSheet()->setCellValue("F" . $active_row, $valSubject);

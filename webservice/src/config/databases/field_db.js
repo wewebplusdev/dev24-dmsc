@@ -34,6 +34,7 @@ const main = {
     "md_agg": "md_agg",
     "md_aggl": "md_aggl",
     "sy_stf": "sy_stf",
+    "md_cus": "md_cus",
 }
 
 //Masterkey
@@ -65,6 +66,8 @@ const masterkey = {
     "god": "god",
     "nwp": "nwp",
     "cmf": "cmf",
+    "cum": "cum",
+    "rec": "rec",
 }
 
 // cmsg module page

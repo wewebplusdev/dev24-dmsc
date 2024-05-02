@@ -239,4 +239,5 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["txt:subject"] = "หัวข้อ";
 	$langMod["txt:title"] = "รายละเอียด";
 	$langMod["txt:ip"] = "IP";
+	$langMod["txt:address"] = "ที่อยู่";
 }

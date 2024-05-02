@@ -10,6 +10,7 @@ $langModExcel["txt:title"] = "รายละเอียด";
 $langModExcel["txt:ip"] = "IP";
 $langModExcel["txt:credate"] = "วันที่สร้าง";
 $langModExcel["txt:status"] = "สถานะ";
+$langModExcel["txt:address"] = "ที่อยู่";
 
 function print_pre($array)
 {
