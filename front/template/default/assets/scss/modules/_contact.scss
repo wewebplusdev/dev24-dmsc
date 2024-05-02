@@ -375,14 +375,15 @@
   }
   .form-progress-step {
     position: relative;
-    width: max-content;
+    // width: max-content;
+    max-width: 870px;
     margin: auto;
     .nav {
-      margin: 0 -60px;
+      margin: 0 -15px;
       // margin: auto;
       .item {
         width: calc(100% / 3);
-        padding: 0 60px;
+        padding: 0 15px;
         // &:not(:last-child) {
         //   .circle {
         //     &::before {
@@ -415,6 +416,7 @@
           background-color: var(--color-light);
           border-radius: 50%;
           border: 2px solid #C9C9C9;
+          margin: auto;
         }
         .text-step {
           text-transform: uppercase;
@@ -424,17 +426,23 @@
           color: var(--color-dark);
           text-align: center;
         }
+        .desc {
+          text-align: center;
+          line-height: 1.4em;
+          color: var(--color-dark);
+          margin-top: 10px;
+        }
       }
     }
     .progress-line {
       position: absolute;
-      width: calc(100% - 140px);
+      width: calc(100% - 300px);
       height: 2px;
       background-color: #C9C9C9;
-      top: calc(50% - 20px);
+      top: calc(50% - 35px);
       left: 50%;
       transform: translate(-50%, -50%);
-      margin-bottom: 22px;
+      // margin-bottom: 22px;
       z-index: -1;
     }
   }
@@ -497,6 +505,7 @@
   .layout-form-progress {margin-bottom: 50px;}
   .layout-form-progress .whead .title {font-size: 30px; margin-bottom: 30px;}
   .layout-form-progress .form-progress-step .nav .item .text-step {font-size: 20px;}
+  .layout-form-progress .form-progress-step .nav .item .desc {font-size: 18px;}
 
   .form-contact .form-success {padding-bottom: 20px;}
   .form-contact .form-success .icon svg {width: 80px;}
@@ -544,7 +553,8 @@
   .layout-form-progress .form-progress-step .nav .item {padding: 0 30px;}
   .layout-form-progress .whead .title {font-size: 28px; margin-bottom: 20px;}
   .layout-form-progress .form-progress-step .nav .item .text-step {font-size: 18px;}
-  .layout-form-progress .form-progress-step .progress-line {width: calc(100% - 80px);}
+  .layout-form-progress .form-progress-step .nav .item .desc {font-size: 16px;}
+  // .layout-form-progress .form-progress-step .progress-line {width: calc(100% - 80px);}
 
   .form-contact .form-success {padding-bottom: 15px;}
   .form-contact .form-success .icon svg {width: 70px;}
@@ -570,10 +580,19 @@
   .layout-service-info .info-card-full .title {font-size: 16px; line-height: 1.4em;}
 
   .layout-form-progress .whead .title {font-size: 26px;}
+  .layout-form-progress .form-progress-step {max-width: 500px;}
+  .layout-form-progress .form-progress-step .nav .item.active .circle .icon svg { width: 25px;}
+  .layout-form-progress .form-progress-step .nav  {margin: 0 -5px;}
+  .layout-form-progress .form-progress-step .nav .item {padding: 0 5px;}
+  // .layout-form-progress .form-progress-step .nav .item + .item { margin-top: 20px;}
   .layout-form-progress .form-progress-step .nav .item .text-step {font-size: 16px;margin-top: 10px;}
-  .layout-form-progress .form-progress-step .progress-line {top: calc(50% - 10px);}
+  .layout-form-progress .form-progress-step .nav .item .desc {font-size: 14px;max-width: 103px; margin-left: auto; margin-right: auto;}
+  // .layout-form-progress .form-progress-step .progress-line {top: calc(50% - 10px);}
+  .layout-form-progress .form-progress-step .progress-line {width: calc(100% - 100px);}
+
 
   .form-contact .form-success .title {font-size: 20px; margin-top: 0;}
+  
 }
 
 @media (max-width: 575px) {
@@ -581,6 +600,6 @@
 
   .layout-form-progress .whead .title {font-size: 24px;}
   .layout-form-progress .whead .title br {display: none;}
-  .layout-form-progress .form-progress-step .nav {margin: 0 -15px;}
-  .layout-form-progress .form-progress-step .nav .item {padding: 0 15px;}
+  // .layout-form-progress .form-progress-step .nav {margin: 0 -15px;}
+  // .layout-form-progress .form-progress-step .nav .item {padding: 0 15px;}
 }
