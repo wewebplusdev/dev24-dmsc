@@ -33,8 +33,6 @@ switch ($url->segment[0]) {
 
         // call list
         $load_data = $searchAllPage->load_data($data);
-        // print_pre($data);
-        // print_pre($load_data);die;
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules

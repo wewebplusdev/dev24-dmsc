@@ -31,8 +31,6 @@ switch ($url->segment[1]) {
 
         // call list
         $load_data = $contactPage->load_data($data);
-        // print_pre($languageFrontWeb);
-        // print_pre($load_data);die;
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
@@ -52,15 +50,6 @@ switch ($url->segment[1]) {
         $seo_pic = "";
         $contactPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
-        
-        // /*## Set up pagination #####*/
-        // $pagination['total'] = $load_data->_maxRecordCount;
-        // $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
-        // $pagination['limit'] = $limit;
-        // $pagination['curent'] = $page['on'];
-        // $pagination['method'] = $page;
-        // $smarty->assign("pagination",$pagination);
-        // /*## Set up pagination #####*/
 
         $settingPage = array(
             "page" => $menuActive,
