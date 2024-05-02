@@ -112,10 +112,10 @@
                         <path id="Path_452750" data-name="Path 452750" d="M75.342,39.4,48.258,66.487a4.163,4.163,0,0,1-5.891,0L28.825,52.946a4.166,4.166,0,0,1,5.891-5.891l10.6,10.6L69.45,33.513A4.166,4.166,0,0,1,75.342,39.4Zm0,0" fill="#fafafa" />
                       </svg>
                     </div>
-                    <h3 class="title">ข้อความของคุณถูกส่งเรียบร้อยเเล้ว</h3>
+                    <h3 class="title">{$languageFrontWeb->contact_success->display->$currentLangWeb}</h3>
                   </div>
                   <div class="action">
-                    <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary">ตกลง</a>
+                    <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
                   </div>
                 </div>
               </div>

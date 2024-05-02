@@ -251,27 +251,27 @@
                                 </div>
                                 <div class="form-group">
                                 <label for="" class="control-label mb-md-3 mb-2">
-                                    ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวที่ข้าพเจ้าได้ร้องเรียน/แจ้งเบาะแสข้างต้น เป็นเรื่องจริง มิได้มีจุดประสงค์กล่าวหาผู้ใด <span>*</span>
+                                    {$languageFrontWeb->recommend_confirm->display->$currentLangWeb} <span>*</span>
                                 </label>
                                 <div class="block-control mb-md-3 mb-2">
                                     <div class="radio-control">
                                     <input type="radio" id="inputComplaintConfirm1" value="1" name="inputComplaintConfirm" class="form-control" checked>
                                     <div class="icon"></div>
-                                    <div class="title">รับรอง</div>
+                                    <div class="title">{$languageFrontWeb->recommend_confirm_note1->display->$currentLangWeb}</div>
                                     </div>
                                 </div>
                                 <div class="block-control">
                                     <div class="radio-control">
                                     <input type="radio" id="inputComplaintConfirm1" value="2" name="inputComplaintConfirm" class="form-control">
                                     <div class="icon"></div>
-                                    <div class="title">ไม่รับรอง</div>
+                                    <div class="title">{$languageFrontWeb->recommend_confirm_note2->display->$currentLangWeb}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="action">
                                 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptcha_sitekey}">
-                                <button type="submit" class="btn btn-primary disabled" id="submit-form">ส่งข้อความ</button>
-                                <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary btn-cancel">ยกเลิก</a>
+                                <button type="submit" class="btn btn-primary disabled" id="submit-form">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
+                                <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</a>
                             </div>
                         </div>
                         {* End Step 2 *}
@@ -285,10 +285,10 @@
                                     <path id="Path_452750" data-name="Path 452750" d="M75.342,39.4,48.258,66.487a4.163,4.163,0,0,1-5.891,0L28.825,52.946a4.166,4.166,0,0,1,5.891-5.891l10.6,10.6L69.45,33.513A4.166,4.166,0,0,1,75.342,39.4Zm0,0" fill="#fafafa" />
                                     </svg>
                                 </div>
-                                <h3 class="title">ข้อความของคุณถูกส่งเรียบร้อยเเล้ว</h3>
+                                <h3 class="title">{$languageFrontWeb->contact_success->display->$currentLangWeb}</h3>
                             </div>
                             <div class="action">
-                                <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary">ตกลง</a>
+                                <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
                             </div>
                         </div>
                         {* End Step 3 *}
