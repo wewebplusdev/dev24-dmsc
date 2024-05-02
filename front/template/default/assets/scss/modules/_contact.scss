@@ -22,6 +22,7 @@
     }
   }
   .tab-content {
+    position: relative;
     .iframe-container {
       position: relative;
       overflow: hidden;
@@ -41,6 +42,32 @@
     }
     .cover {
       padding-top: 600px;
+    }
+
+    .btn-full-screen {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      height: 20px;
+      min-width: 220px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-light);
+      border: 1px solid var(--color-primary);
+      font-size: var(--fw-bold);
+      color: var(--color-primary);
+      .icon {
+        margin-right: 10px;
+      }
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-light);
+        .icon svg * {
+          fill: var(--color-light);
+        }
+      }
     }
   }
 

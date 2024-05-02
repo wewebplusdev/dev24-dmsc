@@ -6995,6 +6995,9 @@ div.swal2-html-container {
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
+.contact-map .tab-content {
+  position: relative;
+}
 .contact-map .tab-content .iframe-container {
   position: relative;
   overflow: hidden;
@@ -7014,6 +7017,37 @@ div.swal2-html-container {
 }
 .contact-map .tab-content .cover {
   padding-top: 600px;
+}
+.contact-map .tab-content .btn-full-screen {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 20px;
+  min-width: 220px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-light);
+  border: 1px solid var(--color-primary);
+  font-size: var(--fw-bold);
+  color: var(--color-primary);
+}
+.contact-map .tab-content .btn-full-screen .icon {
+  margin-right: 10px;
+}
+.contact-map .tab-content .btn-full-screen:hover {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+.contact-map .tab-content .btn-full-screen:hover .icon svg * {
+  fill: var(--color-light);
 }
 
 .contact-section {
