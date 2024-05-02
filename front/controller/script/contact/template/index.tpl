@@ -57,7 +57,7 @@
             <div class="iframe-container">
               <iframe class="responsive-iframe" src="https://maps.google.com/maps?q={$settingWeb['contact']->glati},{$settingWeb['contact']->glongti}&hl=es;z=20&amp;output=embed" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="#" class="link btn-full-screen">
+            <a href="{$ul}/{$menuActive}/map-google" class="link btn-full-screen" target="_blank">
               <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                   <g id="full-screen" transform="translate(-0.323 -0.323)">
@@ -68,14 +68,14 @@
                   </g>
                 </svg>  
               </span>
-              ดูเเผนที่ขนาดใหญ่
+              {$languageFrontWeb->viewlargemap->display->$currentLangWeb}
             </a>
           </div>
           <div class="tab-pane fade" id="nav-02">
             <figure class="cover">
               <img src="{$settingWeb['addresspic']}" alt="{$settingWeb['addresspic']}" class="img-cover">
             </figure>
-            <a href="#" class="link btn-full-screen">
+            <a href="{$ul}/{$menuActive}/map-graphic" class="link btn-full-screen" target="_blank">
               <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                   <g id="full-screen" transform="translate(-0.323 -0.323)">
@@ -86,7 +86,7 @@
                   </g>
                 </svg>  
               </span>
-              ดูเเผนที่ขนาดใหญ่
+              {$languageFrontWeb->viewlargemap->display->$currentLangWeb}
             </a>
           </div>
         </div>
@@ -112,17 +112,16 @@
                               {$valueList->address}
                               {if $valueList->tel neq ""}
                                 <br>
-                                โทรศัพท์กลาง : {$valueList->tel}
+                                {$languageFrontWeb->centraltelephone->display->$currentLangWeb} : {$valueList->tel}
                               {/if}
                               {if $valueList->fax neq "" && $valueList->email neq ""}
                                 <br>
-                                {if $valueList->fax neq ""}โทรสาร:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}{/if}
+                                {if $valueList->fax neq ""}{$languageFrontWeb->fax->display->$currentLangWeb}:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}{/if}
                               {/if}
                             </div>
                             <div class="action">
                               <span class="text">Google map</span>
                               <a href="{$ul}/{$menuActive}/googlemap-agencies/{$valueList->id}" target="_blank" class="link">
-                                ดูแผนที่
                                 <span class="icon">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
                                     viewBox="0 0 14.25 14.25">
@@ -158,7 +157,7 @@
       <div class="contact-service">
         <div class="container">
           <div class="whead">
-            <h2 class="title">บริการ</h2>
+            <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
           </div>
           <div class="contact-service-list">
             {foreach $load_data_service->item as $keyload_data_service => $valueload_data_service}
@@ -166,7 +165,7 @@
                 <div class="row no-gutters align-items-start mb-3">
                   <div class="col-auto">
                     <div class="icon">
-                      <img src="{$template}/assets/img/uploads/icon-service-contact-1.svg" alt="icon-service-contact-1">
+                      <img src="{$valueload_data_service->pic->real}" alt="{$valueload_data_service->pic->real}">
                     </div>
                   </div>
                   <div class="col">
@@ -174,7 +173,7 @@
                   </div>
                 </div>
                 <div class="tel">
-                  <span class="fw-bold">เบอร์โทรศัพท์ :</span>
+                  <span class="fw-bold">{$languageFrontWeb->contact_tel->display->$currentLangWeb} :</span>
                   {$valueload_data_service->tel}
                 </div>
               </div>
