@@ -159,6 +159,7 @@
         float: none;
         width: 100%;
     }
+    .submenu-col:not(:first-child) {width: 100%;}
     .submenu-row > div:nth-child(1) {
         display: none;
     }
