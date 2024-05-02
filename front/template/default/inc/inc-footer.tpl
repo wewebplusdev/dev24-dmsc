@@ -264,7 +264,7 @@
                 {else}
                     {assign var="news_url" value="javascript:void(0);"}
                 {/if}
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-md-6">
                   <div class="submenu">
                   {if count((array)$valueSitemapLv1->level_2) gte 1}
                     <div class="title">
@@ -287,23 +287,25 @@
                             <a  href="javascript:void(0)" title="{$valueLv2->subject}" class="link">{$valueLv2->subject}</a>
                           </li>
                            {if count((array)$valueLv2->level_3) gte 1}
-                              <ul class="list-sub-group">
-                              {foreach $valueLv2->level_3 as $keyLv3 => $valueLv3}
-                                {if $valueLv3->subject neq ""}
-                                    {assign var="checkUrl" value="{$valueLv3->url|check_url}"}
-                                    {assign var="target" value="_self"}
-                                    {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueLv3->tb|page_redirect:$valueLv3->masterkey:$valueLv3->id:$currentLangWeb}"}
-                                        {$target = $valueLv3->target}
-                                    {else}
-                                        {assign var="news_url" value="javascript:void(0);"}
-                                    {/if}
-                                    <li>
-                                      <a href="{$news_url}" target="{$target}"  title="{$valueLv3->subject}" class="link">{$valueLv3->subject}</a>
-                                    </li>
-                                    {/if}
-                                {/foreach}
-                              </ul>
+                              <li class="item-sub">
+                                <ul class="list-sub-group">
+                                {foreach $valueLv2->level_3 as $keyLv3 => $valueLv3}
+                                  {if $valueLv3->subject neq ""}
+                                      {assign var="checkUrl" value="{$valueLv3->url|check_url}"}
+                                      {assign var="target" value="_self"}
+                                      {if $checkUrl}
+                                          {assign var="news_url" value="{$ul}/pageredirect/{$valueLv3->tb|page_redirect:$valueLv3->masterkey:$valueLv3->id:$currentLangWeb}"}
+                                          {$target = $valueLv3->target}
+                                      {else}
+                                          {assign var="news_url" value="javascript:void(0);"}
+                                      {/if}
+                                      <li>
+                                        <a href="{$news_url}" target="{$target}"  title="{$valueLv3->subject}" class="link">{$valueLv3->subject}</a>
+                                      </li>
+                                      {/if}
+                                  {/foreach}
+                                </ul>
+                              </li>
                                {/if}
                            {else}
                            <li class="item">

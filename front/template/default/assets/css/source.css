@@ -7868,7 +7868,7 @@ div.swal2-html-container {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  z-index: 1001;
+  z-index: 5001;
 }
 .sitmap-full .sitmap-menu {
   height: 87dvh;
@@ -7951,11 +7951,11 @@ div.swal2-html-container {
 .sitmap-menu .submenu + .submenu {
   margin-top: 30px;
 }
-.sitmap-menu .list-group li {
+.sitmap-menu .list-group .item {
   width: 100%;
 }
-.sitmap-menu .list-group li:not(:last-child) {
-  margin-bottom: 10px;
+.sitmap-menu .list-group .item + .item {
+  margin-top: 10px;
 }
 .sitmap-menu .list-group .link {
   font-size: 18px;
@@ -7979,7 +7979,7 @@ div.swal2-html-container {
   color: var(--color-secondary);
 }
 .sitmap-menu .list-sub-group {
-  margin-top: 20px;
+  margin: 15px 0;
 }
 .sitmap-menu .list-sub-group li {
   font-size: 16px;
@@ -7988,6 +7988,8 @@ div.swal2-html-container {
 }
 .sitmap-menu .list-sub-group li .link {
   padding-left: 0;
+  font-size: 16px;
+  font-weight: var(--fw-normal);
 }
 .sitmap-menu .list-sub-group li .link::before {
   display: none;
@@ -8004,25 +8006,13 @@ div.swal2-html-container {
     width: 30px;
   }
   .sitmap-full .h-title {
-    font-size: 40px;
+    font-size: 36px;
   }
-  .sitmap-menu .title {
-    font-size: 22px;
+  .sitmap-menu .title .link {
+    font-size: 20px;
   }
-  .sitmap-menu .subtitle {
-    margin-bottom: 15px;
-  }
-  .sitmap-menu .list-group li:not(:last-child) {
-    margin-bottom: 10px;
-  }
-  .sitmap-menu .list-group .link {
-    font-size: 18px;
-  }
-  .sitmap-full .sitmap-menu .sitmap-row {
-    gap: 0 70px;
-  }
-  .sitmap-full .sitmap-menu .sitmap-row + .sitmap-row {
-    margin-top: 120px;
+  .sitmap-full .sitmap-menu > .row {
+    margin-top: -50px;
   }
 }
 @media (max-width: 1199px) {
@@ -8031,7 +8021,7 @@ div.swal2-html-container {
   }
   .sitmap-full .close {
     left: 40px;
-    top: 60px;
+    top: 50px;
   }
   .sitmap-full .close svg {
     width: 28px;
@@ -8039,25 +8029,14 @@ div.swal2-html-container {
   .sitmap-full .sitmap-menu {
     padding: 50px 40px 40px 0;
   }
+  .sitmap-menu .list-sub-group {
+    padding-left: 35px;
+  }
   .sitmap-full .h-title {
     font-size: 32px;
   }
   .sitmap-menu .title {
-    font-size: 18px;
     margin-bottom: 15px;
-  }
-  .sitmap-menu .list-group .link {
-    font-size: 16px;
-  }
-  .sitmap-full .sitmap-menu .sitmap-row:first-child,
-  .sitmap-full .sitmap-menu .sitmap-row {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .sitmap-full .sitmap-menu .sitmap-row + .sitmap-row {
-    margin-top: 60px;
-  }
-  .sitmap-full .sitmap-menu .sitmap-row .sitmap-col + .sitmap-col {
-    margin-top: 30px;
   }
 }
 @media (max-width: 991px) {
@@ -8077,8 +8056,21 @@ div.swal2-html-container {
   .sitmap-full .sitmap-menu {
     padding: 30px 20px 20px 0;
   }
-  .sitmap-full .sitmap-menu .sitmap-row + .sitmap-row {
-    margin-top: 30px;
+  .sitmap-full .sitmap-menu > .row {
+    margin-top: -40px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .sitmap-full .sitmap-menu > .row > div {
+    margin-top: 40px;
+    padding: 0 10px;
+  }
+  .sitmap-full .sitmap-menu > .row > div:not(:first-child) {
+    margin-top: 20px;
+  }
+  .sitmap-menu .list-sub-group {
+    padding-left: 30px;
+    margin: 12px 0;
   }
 }
 .full-map .iframe-container {
