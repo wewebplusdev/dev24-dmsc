@@ -44,6 +44,7 @@
                 </span>
             </button>
             <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
+           
                 {if count((array)$sitemapWeb) gte 1}
                 <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0">
                     {foreach $sitemapWeb->level_1->$currentLangWeb as $keySitemapLv1 => $valueSitemapLv1}
@@ -82,12 +83,12 @@
                                                                     {/if}
                                                                     {if count((array)$valueLv2->level_3) gte 1}
                                                                         <li class="has-submenu">
-                                                                            <a href="javascript:void(0)" class="link"
+                                                                            <a href="javascript:void(0)" title="{$valueLv2->subject}"  class="link"
                                                                                 id="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">{$valueLv2->subject}</a>
                                                                         </li>
                                                                     {else}
                                                                         <li>
-                                                                            <a href="{$news_url}" target="{$target}" class="link">{$valueLv2->subject}</a>
+                                                                            <a href="{$news_url}" target="{$target}"  title="{$valueLv2->subject}"  class="link">{$valueLv2->subject}</a>
                                                                         </li>
                                                                     {/if}
                                                                 {/if}
@@ -113,7 +114,7 @@
                                                                                 {assign var="news_url" value="javascript:void(0);"}
                                                                             {/if}
                                                                             <li>
-                                                                                <a href="{$news_url}" target="{$target}" class="link">{$valueLv3->subject}</a>
+                                                                                <a href="{$news_url}" target="{$target}" title="{$valueLv3->subject}"  class="link">{$valueLv3->subject}</a>
                                                                             </li>
                                                                         {/if}
                                                                     {/foreach}
