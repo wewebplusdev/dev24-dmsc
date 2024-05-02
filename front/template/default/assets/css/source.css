@@ -7865,16 +7865,11 @@ div.swal2-html-container {
   border-radius: 5px;
   background: var(--color-primary);
 }
-.sitmap-full .sitmap-menu .sitmap-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0 90px;
+.sitmap-full .sitmap-menu > .row {
+  margin-top: -40px;
 }
-.sitmap-full .sitmap-menu .sitmap-row + .sitmap-row {
-  margin-top: 180px;
-}
-.sitmap-full .sitmap-menu .sitmap-row:first-child {
-  grid-template-columns: [col1] 25% [col2] 70%;
+.sitmap-full .sitmap-menu > .row > div {
+  margin-top: 60px;
 }
 .sitmap-full .close {
   position: absolute;
@@ -7901,15 +7896,16 @@ div.swal2-html-container {
 }
 
 .sitmap-menu .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: var(--fw-bold);
   color: var(--color-secondary);
-  padding-bottom: 15px;
-  margin-bottom: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
   border-bottom: 1px solid var(--color-secondary);
 }
 .sitmap-menu .title .link {
   width: 100%;
+  font-size: 22px;
   min-width: 195px;
   color: var(--color-secondary);
 }
@@ -7919,7 +7915,7 @@ div.swal2-html-container {
 .sitmap-menu .subtitle {
   font-weight: var(--fw-bold);
   color: var(--color-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .sitmap-menu .subtitle .link {
   color: var(--color-secondary);
@@ -7934,10 +7930,11 @@ div.swal2-html-container {
   width: 100%;
 }
 .sitmap-menu .list-group li:not(:last-child) {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .sitmap-menu .list-group .link {
-  padding-left: 20px;
+  font-size: 18px;
+  padding-left: 15px;
   position: relative;
   line-height: 1.4em;
   color: #707070;
@@ -7948,8 +7945,8 @@ div.swal2-html-container {
   position: absolute;
   top: 8px;
   left: 0;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background-color: var(--color-secondary);
   border-radius: 50%;
 }
@@ -7957,14 +7954,15 @@ div.swal2-html-container {
   color: var(--color-secondary);
 }
 .sitmap-menu .list-sub-group {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .sitmap-menu .list-sub-group li {
   font-size: 16px;
   padding: 0;
+  color: var(--color-secondary);
 }
 .sitmap-menu .list-sub-group li .link {
-  padding-left: 5px;
+  padding-left: 0;
 }
 .sitmap-menu .list-sub-group li .link::before {
   display: none;

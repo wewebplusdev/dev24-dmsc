@@ -41,15 +41,22 @@
     //   background: #555; 
     // }
 
-    .sitmap-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0 90px;
-      & + .sitmap-row {
-        margin-top: 180px;
-      }
-      &:first-child {
-        grid-template-columns: [col1] 25% [col2] 70%;
+    // .sitmap-row {
+    //   display: grid;
+    //   grid-template-columns: repeat(4, 1fr);
+    //   gap: 0 90px;
+    //   & + .sitmap-row {
+    //     margin-top: 180px;
+    //   }
+    //   &:first-child {
+    //     grid-template-columns: [col1] 25% [col2] 70%;
+    //   }
+    // }
+
+    > .row {
+      margin-top: -40px;
+      > div {
+        margin-top: 60px;
       }
     }
 
@@ -89,14 +96,15 @@
   //   }
   // }
   .title{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: var(--fw-bold);
     color: var(--color-secondary);
-    padding-bottom: 15px;
-    margin-bottom: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
     border-bottom: 1px solid var(--color-secondary);
     .link {
       width: 100%;
+      font-size: 22px;
       min-width: 195px;
       color: var(--color-secondary);
       &:hover {
@@ -107,7 +115,7 @@
   .subtitle {
     font-weight: var(--fw-bold);
     color: var(--color-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     .link {
       color: var(--color-secondary);
       &:hover {
@@ -124,11 +132,12 @@
     li {
       width: 100%;
       &:not(:last-child) {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
       }
     }
     .link {
-      padding-left: 20px;
+      font-size: 18px;
+      padding-left: 15px;
       position: relative;
       line-height: 1.4em;
       color: #707070;
@@ -140,8 +149,8 @@
         // transform: translateY(-50%);
         left: 0;
         // font-family: "Material Symbols Rounded";
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         background-color: var(--color-secondary);
         border-radius: 50%;
       }
@@ -151,12 +160,13 @@
     }
   }
   .list-sub-group {
-    margin-top: 30px;
+    margin-top: 20px;
     li {
       font-size: 16px;
       padding: 0;
+      color: var(--color-secondary);
       .link {
-        padding-left: 5px;
+        padding-left: 0;
         &::before {
           display: none;
         }
