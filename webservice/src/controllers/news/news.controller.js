@@ -4,7 +4,6 @@ const general = require('../../middlewares/general.middleware');
 const modulus = require('../../middlewares/modulus.middleware');
 const code = config.returncode;
 const ip = require("ip");
-const axios = require('axios');
 const { base64encode, base64decode } = require('nodejs-base64');
 var fs = require('fs');
 
@@ -22,6 +21,8 @@ async function getNewsGroup(req, res) {
     const order = req.body.order;
     const page = req.body.page;
     const limit = req.body.limit;
+    const id = req.body.id;
+    const incode_masterkey = req.body.masterkey;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -30,7 +31,11 @@ async function getNewsGroup(req, res) {
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    if (incode_masterkey?.length>=1) {
+        config_array_masterkey['masterkey'] = incode_masterkey;
+    }else{
+        config_array_masterkey['masterkey'] = config.fieldDB.masterkey.nw;
+    }
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -46,12 +51,15 @@ async function getNewsGroup(req, res) {
                 ,${config_array_db['md_cmgl']}_title as title 
                 FROM ${config_array_db['md_cmg']} 
                 INNER JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
-                WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['nw']}' 
+                WHERE ${config_array_db['md_cmg']}_masterkey = '${config_array_masterkey['masterkey']}' 
                 AND ${config_array_db['md_cmg']}_status != 'Disable' 
                 AND ${config_array_db['md_cmgl']}_language = '${language}' 
-                AND ${config_array_db['md_cmgl']}_subject != '' 
-                ORDER BY ${config_array_db['md_cmg']}_order ${order} 
-                `;
+                AND ${config_array_db['md_cmgl']}_subject != '' `;
+            if (parseInt(id) > 0) {
+                sql_list = sql_list + ` AND ${config_array_db['md_cmg']}_id = '${id}' `;
+            }
+            sql_list = sql_list + ` ORDER BY ${config_array_db['md_cmg']}_order ${order} `;
+
             const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
@@ -92,7 +100,8 @@ async function getNewsGroup(req, res) {
                         arr_data[i].masterkey = select[i].masterkey;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
-                        const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group');
+                        // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
+                        const getUrlWeb = await modulus.getUrlWebsiteCmsg('group', short_language);
                         arr_data[i].url = `${getUrlWeb}/${select[i].masterkey}/${select[i].id}`;
                         arr_data[i].target = `_self`;
                         arr_data[i].createDate = {
@@ -132,6 +141,10 @@ async function getNews(req, res) {
     const page = req.body.page;
     const limit = req.body.limit;
     const gid = req.body.gid;
+    const search_keyword = req.body.keyword;
+    const contentid = req.body.contentid;
+    const file_id = req.body.file_id;
+    const incode_masterkey = req.body.masterkey;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -140,9 +153,14 @@ async function getNews(req, res) {
     config_array_db['md_cmsl'] = config.fieldDB.main.md_cmsl
     config_array_db['md_cmg'] = config.fieldDB.main.md_cmg
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
+    config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    if (incode_masterkey?.length>=1) {
+        config_array_masterkey['masterkey'] = incode_masterkey;
+    }else{
+        config_array_masterkey['masterkey'] = config.fieldDB.masterkey.nw;
+    }
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -164,20 +182,36 @@ async function getNews(req, res) {
                 ,${config_array_db['md_cmsl']}_picDefault as picDefault 
                 ,${config_array_db['md_cmsl']}_pic as pic 
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
+                ,${config_array_db['md_cmsl']}_urlc2 as urlc2 
                 ,${config_array_db['md_cmsl']}_target as target 
                 ,${config_array_db['md_cmgl']}_subject as group_subject 
+                ,'${config_array_db['md_cms']}' as tb 
+                ,${config_array_db['md_cms']}_view as view 
+                ,${config_array_db['md_cmsl']}_id as lid 
                 FROM ${config_array_db['md_cms']} 
-                INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
-                INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
+                LEFT JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
+                LEFT JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
                 LEFT JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
-                WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['nw']}' 
+                WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['masterkey']}' 
                 AND ${config_array_db['md_cms']}_status != 'Disable' 
                 AND ${config_array_db['md_cmsl']}_language = '${language}' 
-                AND ${config_array_db['md_cmgl']}_language = '${language}' 
-                AND ${config_array_db['md_cmsl']}_subject != '' 
-                AND ${config_array_db['md_cmgl']}_subject != '' `;
+                AND ${config_array_db['md_cmsl']}_subject != '' `;
                 if (gid > 0) {
                     sql_list = sql_list + ` AND ${config_array_db['md_cms']}_gid = '${gid}' `;
+                    sql_list = sql_list + `
+                        AND ${config_array_db['md_cmgl']}_language = '${language}' 
+                        AND ${config_array_db['md_cmgl']}_subject != '' 
+                    `;
+                }
+                if (contentid > 0) {
+                    sql_list = sql_list + ` AND ${config_array_db['md_cms']}_id = '${contentid}' `;
+                }
+                if (search_keyword !== null && search_keyword !== undefined) {
+                    sql_list = sql_list + ` AND 
+                    (
+                        ${config_array_db['md_cmsl']}_subject LIKE '%${search_keyword}%' OR
+                        ${config_array_db['md_cmsl']}_title LIKE '%${search_keyword}%'
+                    ) `;
                 }
                 sql_list = sql_list + ` AND 
                 (
@@ -185,10 +219,12 @@ async function getNews(req, res) {
                     (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR
                     (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND ${config_array_db['md_cms']}_edate = '0000-00-00 00:00:00') OR
                     (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW()))
-                )
-                ORDER BY ${config_array_db['md_cms']}_order ${order} 
+                )`;
+
+                sql_list = sql_list + ` GROUP BY ${config_array_db['md_cmsl']}_id ORDER BY ${config_array_db['md_cms']}_order ${order} 
                 `;
-            const select_list = await query(sql_list);
+                // console.log(sql_list);
+                const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;
                 let module_pagesize = limit;
@@ -226,19 +262,58 @@ async function getNews(req, res) {
                         arr_data[i] = {};
                         arr_data[i].id = select[i].id;
                         arr_data[i].masterkey = select[i].masterkey;
+                        arr_data[i].language = language;
                         arr_data[i].group = select[i].group_subject;
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
                         arr_data[i].typec = select[i].typec;
+                        arr_data[i].tb = select[i].tb;
+                        arr_data[i].view = select[i].view;
+
+                        // attachments
+                        let sql_video = `SELECT 
+                        ${config_array_db['md_cmf']}_id as id
+                        ,${config_array_db['md_cmf']}_contantid as contantid
+                        ,${config_array_db['md_cmf']}_filename as filename
+                        ,${config_array_db['md_cmf']}_name as name 
+                        ,${config_array_db['md_cmf']}_download as download 
+                        FROM ${config_array_db['md_cmf']} 
+                        WHERE ${config_array_db['md_cmf']}_contantid = '${select[i].lid}' 
+                        AND ${config_array_db['md_cmf']}_language = '${language}' 
+                        `;
+                        if (file_id > 0) {
+                            sql_video = sql_video + ` AND ${config_array_db['md_cmf']}_id = '${file_id}' `;
+                        }
+                        const select_attachments = await query(sql_video);
+                        if (select_attachments.length > 0) {
+                            let array_attachments = [];
+                            for (let index = 0; index < select_attachments.length; index++) {
+                                array_attachments[index] = {};
+                                array_attachments[index].id = select_attachments[index].id;
+                                array_attachments[index].name = select_attachments[index].name;
+                                array_attachments[index].filename = select_attachments[index].filename;
+                                array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);
+                                array_attachments[index].download = select_attachments[index].download;
+                            }
+                            arr_data[i].attachment = array_attachments;
+                        } else {
+                            arr_data[i].attachment = ``;
+                        }
+
                         if (select[i].typec == 2) {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
-                            arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
+                            arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select_attachments[0].id}`;
                             arr_data[i].target = `_blank`;
                         } else if (select[i].typec == 3) {
                             arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
+                            if (select[i].masterkey == 'mobile') {
+                                arr_data[i].url2 = (select[i].urlc2 != "" && select[i].urlc2 != "#") ? select[i].urlc2 : "#";
+                            }
                             arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                         } else {
-                            const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
+                            // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                            const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}/${select[i].gid}`;
                             arr_data[i].target = `_self`;
                         }
@@ -256,6 +331,7 @@ async function getNews(req, res) {
                                 'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
                             }
                         }
+
                         arr_data[i].createDate = {
                             full: new Date(select[i].credate),
                             style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
@@ -290,7 +366,10 @@ async function getNewsDetail(req, res) {
     const method = req.body.method;
     const language = req.body.language;
     const contentid = req.body.contentid;
-    const result = general.checkParam([method, language, contentid]);
+    const file_id = req.body.file_id;
+    const incode_masterkey = req.body.masterkey;
+    const gid = req.body.gid;
+    const result = general.checkParam([method, language, contentid, incode_masterkey]);
     const code = config.returncode;
     // db tables
     let config_array_db = new Array();
@@ -302,7 +381,10 @@ async function getNewsDetail(req, res) {
     config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
-    config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
+    config_array_masterkey['masterkey'] = incode_masterkey;
+
+    // pass where sdate & edate
+    let pass_period = ['cal'];
 
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
@@ -316,6 +398,7 @@ async function getNewsDetail(req, res) {
                     SELECT ${config_array_db['md_cms']}_id
                     FROM ${config_array_db['md_cms']}
                     WHERE ${config_array_db['md_cms']}_id < t.id
+                    AND ${config_array_db['md_cms']}_masterkey = t.masterkey
                     ORDER BY ${config_array_db['md_cms']}_id DESC
                     LIMIT 1
                 ) AS previous_id,
@@ -323,6 +406,7 @@ async function getNewsDetail(req, res) {
                     SELECT ${config_array_db['md_cms']}_id
                     FROM ${config_array_db['md_cms']}
                     WHERE ${config_array_db['md_cms']}_id > t.id
+                    AND ${config_array_db['md_cms']}_masterkey = t.masterkey
                     ORDER BY ${config_array_db['md_cms']}_id ASC
                     LIMIT 1
                 ) AS next_id
@@ -344,29 +428,43 @@ async function getNewsDetail(req, res) {
                     ,${config_array_db['md_cmsl']}_urlc as urlc 
                     ,${config_array_db['md_cmsl']}_target as target 
                     ,${config_array_db['md_cmsl']}_htmlfilename as htmlfilename 
+                    ,${config_array_db['md_cmsl']}_type as type 
                     ,${config_array_db['md_cmsl']}_url as url 
+                    ,${config_array_db['md_cmsl']}_filevdo as filevdo 
                     ,${config_array_db['md_cmsl']}_description as description 
                     ,${config_array_db['md_cmsl']}_keywords as keywords 
                     ,${config_array_db['md_cmsl']}_metatitle as metatitle 
+                    ,${config_array_db['md_cms']}_view as view 
                     ,${config_array_db['md_cmgl']}_subject as group_subject 
+                    ,${config_array_db['md_cmg']}_id as group_id 
+                    ,${config_array_db['md_cms']}_crebyid as crebyid 
+                    ,'${config_array_db['md_cms']}' as tb 
                     FROM ${config_array_db['md_cms']} 
-                    INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
-                    INNER JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
+                    LEFT JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
+                    LEFT JOIN ${config_array_db['md_cmg']} ON ${config_array_db['md_cmg']}_id = ${config_array_db['md_cms']}_gid
                     LEFT JOIN ${config_array_db['md_cmgl']} ON ${config_array_db['md_cmgl']}_cid = ${config_array_db['md_cmg']}_id
-                    WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['nw']}' 
+                    WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['masterkey']}' 
                     AND ${config_array_db['md_cms']}_status != 'Disable' 
                     AND ${config_array_db['md_cms']}_id = '${contentid}' 
-                    AND ${config_array_db['md_cmgl']}_language = '${language}' 
-                    AND ${config_array_db['md_cmgl']}_subject != '' 
                     AND ${config_array_db['md_cmsl']}_language = '${language}' 
-                    AND ${config_array_db['md_cmsl']}_subject != '' 
-                    AND 
-                    (
-                        (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND ${config_array_db['md_cms']}_edate ='0000-00-00 00:00:00') OR
-                        (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR
-                        (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND ${config_array_db['md_cms']}_edate = '0000-00-00 00:00:00') OR
-                        (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW()))
-                    )
+                    AND ${config_array_db['md_cmsl']}_subject != '' `;
+                    if (gid > 0) {
+                        sql_list = sql_list + `
+                        AND ${config_array_db['md_cmgl']}_language = '${language}' 
+                        AND ${config_array_db['md_cmgl']}_subject != '' 
+                        `;
+                    }
+                    if (pass_period.indexOf(incode_masterkey) == -1) {
+                        sql_list = sql_list + `
+                        AND 
+                        (
+                            (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND ${config_array_db['md_cms']}_edate ='0000-00-00 00:00:00') OR
+                            (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR
+                            (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND ${config_array_db['md_cms']}_edate = '0000-00-00 00:00:00') OR
+                            (TO_DAYS(${config_array_db['md_cms']}_sdate)<=TO_DAYS(NOW()) AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW()))
+                        )`;
+                    }
+                sql_list = sql_list + `
                 ) as t`;
             const select = await query(sql_list);
             if (select.length > 0) {
@@ -379,10 +477,14 @@ async function getNewsDetail(req, res) {
                     arr_data[i] = {};
                     arr_data[i].id = select[i].id;
                     arr_data[i].masterkey = select[i].masterkey;
+                    arr_data[i].language = language;
                     arr_data[i].group = select[i].group_subject;
+                    arr_data[i].gid = select[i].group_id;
                     arr_data[i].subject = select[i].subject;
                     arr_data[i].title = select[i].title;
                     arr_data[i].typec = select[i].typec;
+                    arr_data[i].view = select[i].view;
+                    arr_data[i].tb = select[i].tb;
                     if (select[i].picType == 1) {
                         let defaultPic = default_pic[select[i].picDefault];
                         arr_data[i].pic = {
@@ -391,15 +493,17 @@ async function getNewsDetail(req, res) {
                             'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
                         }
                     } else {
-                        arr_data[i].pic = {
-                            'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                            'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                            'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                        }
+						if(select[i].pic!== ""){
+							arr_data[i].pic = {
+								'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+								'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+								'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+							}
+						}
                     }
                     arr_data[i].createDate = {
                         full: new Date(select[i].credate),
-                        style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
+                        style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate)),
                     };
                     if (select[i].typec == 2) {
                         // attachments
@@ -426,10 +530,11 @@ async function getNewsDetail(req, res) {
                         arr_data[i].url = (select[i].urlc != "" && select[i].urlc != "#") ? select[i].urlc : "#";
                         arr_data[i].target = (select[i].target == 1) ? '_self' : '_blank';
                     } else {
-                        const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec);
+                        // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
+                        const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
                         arr_data[i].target = `_self`;
                         arr_data[i].htmllink = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename);
-                        let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 1);
+                        let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 2);
                         let contentHTML = await modulus.getContentFromUrl(html_url);
                         contentHTML = await modulus.getTextReplace(contentHTML);
                         arr_data[i].html = contentHTML;
@@ -468,11 +573,15 @@ async function getNewsDetail(req, res) {
                         WHERE ${config_array_db['md_cmf']}_contantid = '${select[i].lid}' 
                         AND ${config_array_db['md_cmf']}_language = '${language}' 
                         `;
+                        if (file_id > 0) {
+                            sql_video = sql_video + ` AND ${config_array_db['md_cmf']}_id = '${file_id}' `;
+                        }
                         const select_attachments = await query(sql_video);
                         if (select_attachments.length > 0) {
                             let array_attachments = [];
                             for (let index = 0; index < select_attachments.length; index++) {
                                 array_attachments[index] = {};
+                                array_attachments[index].id = select_attachments[index].id;
                                 array_attachments[index].name = select_attachments[index].name;
                                 array_attachments[index].filename = select_attachments[index].filename;
                                 array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);
@@ -482,11 +591,20 @@ async function getNewsDetail(req, res) {
                         } else {
                             arr_data[i].attachment = ``;
                         }
-                        arr_data[i].video = select[i].url;
+                        arr_data[i].type = select[i].type;
+                        if (arr_data[i].type == 'url') {
+                            arr_data[i].video = select[i].url;
+                        }else{
+                            arr_data[i].video = modulus.getUploadPath(select[i].masterkey, 'vdo', select[i].filevdo);
+                        }
                         arr_data[i].metadescription = select[i].description;
                         arr_data[i].metakeywords = select[i].keywords;
                         arr_data[i].metatitle = select[i].metatitle;
                     }
+
+                    // creby
+                    arr_data[i].creby = await modulus.getProfileAdmin(language, select[i].crebyid);
+                    
                     arr_data[i].next_id = select[i].next_id ? select[i].next_id : 0;
                     arr_data[i].previous_id = select[i].previous_id ? select[i].previous_id : 0;
                 }

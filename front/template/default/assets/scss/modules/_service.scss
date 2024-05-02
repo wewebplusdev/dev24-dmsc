@@ -1,0 +1,126 @@
+.service-area {
+  margin-bottom: 100px;
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    .item {
+      padding: 0;
+    }
+  }
+}
+
+.innovation-area {
+  .innovation-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    .item {
+      filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+  
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+    .item-wrapper {
+      position: relative;
+      display: block;
+      // padding: 40px;
+      background-color: var(--color-light);
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5em), calc(100% - 1.5em) 100%, 0 100%);
+      transition: all 200ms ease-in-out;
+      &:hover {
+        background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+        * {
+          color: var(--color-light) !important;
+          fill: var(--color-light);
+        }
+      }
+    }
+
+    .body {
+      background-color: #F5F5F5;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+    }
+
+    .thumbnail {
+      width: 100px;
+      margin: auto;
+      .contain {
+        padding-top: 100%;
+      }
+    }
+    
+
+    .content {
+      padding: 25px 20px;
+      .icon {
+        top: -2px;
+      }
+      .title {
+        font-size: 22px;
+        font-weight: var(--fw-bold);
+        color: var(--color-dark);
+        @include text-limit(1, 1.4em, min);
+      }
+      .qty {
+        margin-top: 30px;
+        * {
+          font-size: 18px;
+        }
+      }
+      .action {
+        margin-top: 30px;
+        display: flex;
+        .link {
+          display: block;
+          font-weight: var(--fw-bold);
+          color: var(--color-primary);
+          transition: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .service-area {margin-bottom: 80px;}
+  .service-area .service-list {grid-template-columns: repeat(4, 1fr); gap: 20px;}
+
+  .innovation-area .innovation-list {grid-template-columns: repeat(3, 1fr);gap: 20px;}
+  .innovation-area .innovation-list .content .title {font-size: 20px;}
+  .innovation-area .innovation-list .content .qty {font-size: 16px;}
+  .innovation-area .innovation-list .content .qty * {font-size: 16px;}
+  .innovation-area .innovation-list .content .action .link {font-size: 18px;}
+}
+
+@media (max-width: 991px) {
+  .service-area {margin-bottom: 40px;}
+  .service-area .service-list {gap: 15px; margin: 0}
+
+  .innovation-area .innovation-list {grid-template-columns: repeat(2, 1fr);gap: 15px;}
+  .innovation-area .innovation-list .content {padding: 20px 15px;}
+  .innovation-area .innovation-list .content .title {font-size: 16px;}
+  .innovation-area .innovation-list .content .qty {font-size: 14px;}
+  .innovation-area .innovation-list .content .qty * {font-size: 14px;}
+  .innovation-area .innovation-list .content .action .link {font-size: 15px;}
+  .innovation-area .innovation-list .content .qty {margin-top: 20px;}
+  .innovation-area .innovation-list .content .action {margin-top: 20px;}
+  .innovation-area .innovation-list .content .icon {top: -4px;}
+  .innovation-area .innovation-list .content .icon svg {width: 16px;}
+}
+
+@media (max-width: 767px) {
+  .service-area .service-list {grid-template-columns: repeat(3, 1fr);}
+}
+
+@media (max-width: 575px) {
+  .service-area .service-list {grid-template-columns: repeat(2, 1fr);}
+
+  .innovation-area .innovation-list {grid-template-columns: repeat(1, 1fr);}
+}

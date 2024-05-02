@@ -23,6 +23,17 @@ const main = {
     "md_pdpa": "md_pdpa",
     "md_logs_view": "md_logs_view",
     "md_logs": "md_logs",
+    "md_mnu": "md_mnu",
+    "md_mnul": "md_mnul",
+    "md_mnug": "md_mnug",
+    "md_mnugl": "md_mnugl",
+    "md_mnusg": "md_mnusg",
+    "md_mnusgl": "md_mnusgl",
+    "md_ag": "md_ag",
+    "md_agl": "md_agl",
+    "md_agg": "md_agg",
+    "md_aggl": "md_aggl",
+    "sy_stf": "sy_stf",
 }
 
 //Masterkey
@@ -38,45 +49,104 @@ const masterkey = {
     "mph": "mph",
     "plc": "plc",
     "accept": "accept",
-    "ab": "ab",
+    "abs": "abs",
     "hc": "hc",
     "km": "km",
     "faq": "faq",
     "wel": "wel",
     "set": "set",
     "sv": "sv",
+    "rein": "rein",
+    "nwa": "nwa",
+    "lar": "lar",
+    "dcio": "dcio",
+    "cal": "cal",
+    "agif": "agif",
+    "god": "god",
+    "nwp": "nwp",
+    "cmf": "cmf",
+}
+
+// cmsg module page
+const module_page = {
+    "1": "detailAll",
+    "2": "download",
+    "download": "download",
+    "downloadAll": "downloadAll",
+    "group": "listAll",
+    "service": "services",
 }
 
 //urlPage
 const url_page = {
-    "nw": {
-        "1": "detailAll",
-        "2": "downloadAll",
-        "group": "listAll",
-    },
-    "km": {
-        "1": "detailAll",
-        "2": "downloadAll",
-        "group": "listAll",
-    },
-    "plc": {
-        "1": "detailAll",
-        "2": "downloadAll",
-    },
-    "ab": {
-        "1": "detailAll",
-        "2": "downloadAll",
-    },
-    "hc": {
-        "1": "detailAll",
-        "2": "downloadAll",
-    },
-    "faq": {
-        "1": "faqs",
-    },
-    "wel": {
-        "group": "listAll",
-    },
+    // "nw": {
+    //     "1": "detailAll",
+    //     "2": "download",
+    //     "group": "listAll",
+    //     "download": "download",
+    // },
+    // "nwa": {
+    //     "1": "detailAll",
+    //     "2": "download",
+    //     "group": "listAll",
+    //     "download": "download",
+    // },
+    // "lar": {
+    //     "1": "detailAll",
+    //     "2": "download",
+    //     "group": "listAll",
+    //     "download": "download",
+    // },
+    // "km": {
+    //     "1": "detailAll",
+    //     "2": "download",
+    //     "group": "listAll",
+    //     "download": "download",
+    // },
+    // "god": {
+    //     "1": "detailAll",
+    //     "2": "download",
+    //     "group": "listAll",
+    //     "download": "download",
+    // },
+    // "nwp": {
+    //     "1": "detailAll",
+    //     "2": "download",
+    //     "group": "listAll",
+    //     "download": "download",
+    // },
+    // "plc": {
+    //     "1": "detailAll",
+    //     "2": "downloadAll",
+    // },
+    // "ab": {
+    //     "1": "detailAll",
+    //     "2": "downloadAll",
+    // },
+    // "dcio": {
+    //     "1": "detailAll",
+    //     "2": "downloadAll",
+    // },
+    // "hc": {
+    //     "1": "detailAll",
+    //     "2": "downloadAll",
+    // },
+    // "faq": {
+    //     "1": "faqs",
+    // },
+    // "wel": {
+    //     "group": "listAll",
+    // },
+    // "rein": {
+    //     "1": "detailAll",
+    //     "group": "listAll",
+    // },
+    // "cal": {
+    //     "1": "detailAll",
+    //     "2": "download",
+    //     "group": "calendarAll",
+    //     "download": "download",
+    // },
 }
 
 //method_api
@@ -90,5 +160,6 @@ module.exports = {
     main: main,
     masterkey: masterkey,
     url_page: url_page,
+    module_page: module_page,
     method_api: method_api,
 }

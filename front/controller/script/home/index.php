@@ -1,14 +1,46 @@
 <?php
 $menuActive = "home";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js'.$lastModify.'"></script>';
+$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js'.$lastModify.'"></script>';
 
 // $homePage = new homePage;
 
 switch ($url->segment[0]) {
     default:
         // call top graphic
-        // $load_topgraphic = $homePage->load_topgraphic();
-        // $smarty->assign("load_topgraphic", $load_topgraphic);
+        $load_topgraphic = $homePage->load_topgraphic();
+        $smarty->assign("load_topgraphic", $load_topgraphic);
+        // call services
+        $load_services = $homePage->load_services();
+        $smarty->assign("load_services", $load_services);
+        // call innovation
+        $load_innovation = $homePage->load_innovation();
+        $smarty->assign("load_innovation", $load_innovation);
+        // call about
+        $load_about = $homePage->load_about();
+        $smarty->assign("load_about", $load_about);
+        // call news
+        $load_news = $homePage->load_news();
+        $array_news_list = array();
+        if (gettype($load_news->item->group) == 'array' && count($load_news->item->group) > 0) {
+            foreach ($load_news->item->group as $keyNewsGroup => $valueNewsGroup) {
+                $array_news_list['group'][] = $valueNewsGroup;
+            }
+        }
+        if (gettype($load_news->item->list) == 'array' && count($load_news->item->list) > 0) {
+            foreach ($load_news->item->list as $keyNewsList => $valueNewsList) {
+                $array_news_list['list'][$valueNewsList->gid][] = $valueNewsList;
+            }
+        }
+        // print_pre($array_news_list);
+        $smarty->assign("array_news_list", $array_news_list);
+
+        // active menu header
+        $header_active = header_active($url->url);
+        if (gettype($header_active) == 'array' && count($header_active) > 0) {
+            $language_modules['breadcrumb2'] = $header_active['page'][0];
+            $language_modules['metatitle'] = $header_active['page'][0];
+        }
 
         /*## Start SEO #####*/
         $seo_desc = "";

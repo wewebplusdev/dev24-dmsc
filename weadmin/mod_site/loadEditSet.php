@@ -60,6 +60,8 @@ foreach ($ValFac2 as $key => $value4) {
         $ValFac[$keyinner4][$key] = $valueinner4;
     }
 }
+$valPicName = $Row['addresspic'];
+$valPic = $mod_path_pictures . "/" . $Row['addresspic'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 
@@ -435,6 +437,12 @@ $myRand = time() . rand(111, 999);
                     </td>
                 </tr>
                 <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["social:yt"] ?> <?php echo  $langMod['social:link']; ?><span class="fontContantAlert"> </span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo $langMod["social:yt"] ?>][link]" id="socialYt" type="text" class="formInputContantTb" value="<?php echo $ValSocial[$langMod["social:yt"]]['link'] ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
+                    </td>
+                </tr>
+                <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["social:li"] ?> <?php echo  $langMod['social:link']; ?><span class="fontContantAlert"></span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo  $langMod["social:li"] ?>][link]" id="socialLi" type="text" class="formInputContantTb" value="<?php echo  $ValSocial[$langMod["social:li"]]['link'] ?>" /><br />
                         <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
@@ -541,6 +549,25 @@ $myRand = time() . rand(111, 999);
                         <input name="info[glongti]" id="glongti" value="<?php echo  $ValConfig['glongti'] ?>" />
                     </td>
                 </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["info:picaddress"] ?></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="file-input-wrapper">
+                            <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                            <input type="file" name="fileToUpload" id="fileToUpload" onchange="ajaxFileUpload_mul('#picname', 'loadInsertPic.php', 'fileToUpload', '#boxPicNew');" />
+                        </div>
+
+                        <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
+                        <div class="clearAll"></div>
+                        <div id="boxPicNew" class="formFontTileTxt">
+                            <? if (is_file($valPic)) { ?>
+                                <img src="<?= $valPic ?>"  style="float:left;border:#c8c7cc solid 1px;max-width:650px;"   />
+                                <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePic.php')"  title="Delete file" ><img src="../img/btn/delete.png" width="22" height="22"  border="0"/></div>
+                                <input type="hidden" name="picname" id="picname" value="<?= $valPicName ?>" />
+                            <? } ?>
+                        </div>
+                    </td>
+                </tr>
             </table>
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -574,7 +601,7 @@ $myRand = time() . rand(111, 999);
             });
 
             jQuery.ajaxFileUpload({
-                url: filename + '?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>' + '&element=' + eleID + '&keyid=' + keyID,
+                url: filename + '?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
                 secureuri: false,
                 fileElementId: eleID,
                 dataType: 'json',

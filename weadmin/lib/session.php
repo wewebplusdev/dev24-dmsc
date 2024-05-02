@@ -81,7 +81,7 @@ if (!isset($_SESSION[$valSiteManage . 'core_session_multilang'])) {
 }
 
 ## Core Cketitor #############################################
-$_SESSION["myBackOfficeSession"] = "/dev24-dmsc/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
+$_SESSION["myBackOfficeSession"] = "/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
 $valFolderCkEditor = "/ckeditor/upload/files/id" . $_SESSION[$valSiteManage . 'core_session_id'];
 if (!empty($_SESSION[$valSiteManage . "core_session_id"])) {
     if ($_SESSION[$valSiteManage . "core_session_id"] >= 1) {
@@ -251,12 +251,14 @@ if ($result_lastpath != 'weadmin') {
 }
 
 ## array file not allow
-$core_notfile_type = array('php', 'exe', 'ini');
-foreach($_FILES as $corechkerror_x => $corechkerror_val) {
-$corechk_ext =strtolower(pathinfo($_FILES[$corechkerror_x]["name"], PATHINFO_EXTENSION));
-    if(in_array($corechk_ext, $core_notfile_type)){
-			echo "<script>window.top.location.href = \"".$core_session_main_url."\";</script>";
-        die();
+if ($result_lastpath != 'php') {
+    $core_notfile_type = array('php', 'exe', 'ini');
+    foreach($_FILES as $corechkerror_x => $corechkerror_val) {
+    $corechk_ext =strtolower(pathinfo($_FILES[$corechkerror_x]["name"], PATHINFO_EXTENSION));
+        if(in_array($corechk_ext, $core_notfile_type)){
+                echo "<script>window.top.location.href = \"".$core_session_main_url."\";</script>";
+            die();
+        }
     }
 }
 

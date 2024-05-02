@@ -27,7 +27,8 @@ $sql .= "
 			" . $mod_tb_root_lang . "_pic ,
 			" . $mod_tb_root_lang . "_url,
 			" . $mod_tb_root . "_gid as gid,
-			" . $mod_tb_root . "_sgid as sgid 
+			" . $mod_tb_root . "_sgid as sgid ,
+			" . $mod_tb_root . "_view as view 
 			";
 $sql .= "  FROM  " . $mod_tb_root . "";
 $sql .= "  INNER JOIN " . $mod_tb_root_lang . "  ";
@@ -70,6 +71,8 @@ if (!is_file($valPic)) {
 $valUrl = rechangeQuot($Row[11]);
 $valGid = $Row['gid'];
 $valSGid = $Row['sgid'];
+$valView = number_format($Row['view']);
+
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
 logs_access('3', 'View');
@@ -249,8 +252,6 @@ logs_access('3', 'View');
                   <div class="formDivView"><?php echo $valEdate ?></div>
                </td>
             </tr>
-
-
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
@@ -258,6 +259,12 @@ logs_access('3', 'View');
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
                   <span class="formFontSubjectTxt"><?php echo $langTxt["us:titleinfo"] ?></span><br />
                   <span class="formFontTileTxt"><?php echo $langTxt["us:titleinfoDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:view"] ?>:</td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $valView ?></div>
                </td>
             </tr>
             <tr>

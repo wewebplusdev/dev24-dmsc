@@ -142,9 +142,6 @@ function sqlupdate($array, $dbname, $key, $where = null)
     } else {
         $sql_update = "Select * From " . $dbname . " where " . $listWhere;
     }
-    //    if (!empty($listWhere)) {
-    //        $sql_update .= " where " . $listWhere;
-    //    }
     $result_update = $db->Execute($sql_update);
 
     $updateSQL = $db->GetUpdateSQL($result_update, $array);
@@ -847,7 +844,7 @@ function pagepagination($uri, $limit = null)
         } else {
             $pageOn['on'] = 1;
         }
-    }else{
+    } else {
         $pageOn['on'] = 1;
     }
     return $pageOn;
@@ -2006,4 +2003,70 @@ function DateFormatInsert($DateTime, $timeAgre = null)
 
     $valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $Time;
     return $valReturn;
+}
+
+function page_redirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
+{
+    return encodeStr($table) . "|" . encodeStr($masterkey) . "|" . encodeStr($id) . "|" . encodeStr($language) . "|" . encodeStr($download);
+}
+
+
+function chkSyntaxAnd($var)
+{
+    return str_replace("&", "And", $var);
+}
+
+function check_url($url){
+    return ($url != "" && $url != "#") ? true : false;
+}
+
+#################################################
+function format($num,$length) {
+#################################################
+
+    $formated_num = strval($num);
+    while (strlen($formated_num) < $length) {
+        $formated_num = "0".$formated_num;
+    }
+    return $formated_num;
+}
+
+//#################################################
+function formatNum($myNumber) {
+//#################################################
+    $myNumber = intval($myNumber);
+    if ($myNumber<10) return ("0".$myNumber);
+    else return ($myNumber);
+}
+
+function header_active($link){
+    global $sitemapWeb, $currentLangWeb;
+    $array_page = array();
+    if (!empty($link)) {
+        foreach ($sitemapWeb->level_1->$currentLangWeb as $valueSitemapLv1) {
+            if (count((array)$valueSitemapLv1->level_2) > 0){
+                foreach ($valueSitemapLv1->level_2 as $valueLv2){
+                    if (count((array)$valueLv2->level_3) > 0){
+                        foreach ($valueLv2->level_3 as $valueLv3) {
+                            if (str_contains($valueLv3->url, $link)) {
+                                $array_page['page'][] = $valueLv3->subject;
+                                $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
+                            }
+                        }
+                    }else{
+                        if (str_contains($valueLv2->url, $link)) {
+                            $array_page['page'][] = $valueLv2->subject;
+                            $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
+                        }
+                    }
+                }
+            }else{
+                if (str_contains($valueSitemapLv1->url, $link)) {
+                    $array_page['page'][] = $valueSitemapLv1->subject;
+                    $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
+                }
+            }
+        }
+    }
+    return $array_page;
 }

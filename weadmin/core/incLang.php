@@ -482,4 +482,5 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 
     $langTxt["tit:selectlang"] = "เลือกภาษา";
     $langTxt["recaptcha:alert"] = "เกิดข้อผิดพลาดในการตรวจสอบความปลอดภัย";
+    $langMod["meu:setPermis"] = "ตั้งค่า";
 }

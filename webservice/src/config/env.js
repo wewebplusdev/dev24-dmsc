@@ -10,6 +10,8 @@ let hostBackend = `${core_protocal}://${process.env.hostBackend}${core_pathname_
 let containerBackend = `${core_protocal}://${process.env.containerBackend}${core_pathname_folderlocal}`; // backend
 let hostFrontend = `${core_protocal}://${process.env.hostFrontend}${core_pathname_folderlocal}`; // frontend
 let containerFrontend = `${core_protocal}://${process.env.containerFrontend}${core_pathname_folderlocal}`; // frontend
+let containerFrontend_http = `http://${process.env.containerFrontend}${core_pathname_folderlocal}`; // frontend
+
 // development
 if (NODE_ENV == 'development') {
     hostBackend = `${core_protocal}://${process.env.hostBackend_dev}${core_pathname_folderlocal}`; // backend
@@ -32,6 +34,7 @@ module.exports = {
     hostUpload: hostFrontend + '/upload',
     containerBackend: containerBackend,
     containerFrontend: containerFrontend,
+    containerFrontend_http: containerFrontend_http,
     hostFrontend: hostFrontend,
     hostBackend: hostBackend,
     jwtToken: process.env.JWTTOKEN,

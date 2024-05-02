@@ -7,6 +7,8 @@ const axios = require('axios');
 exports.getUploadPath = function (masterKey = null, type = null, file = null, typeUrl = 0) {
     if (typeUrl == 1) {
         return config.containerFrontend + "/upload/" + masterKey + "/" + type + "/" + file;
+    }else if(typeUrl == 2){
+        return config.containerFrontend_http + "/upload/" + "/" + masterKey + "/" + type + "/" + file;
     }else{
         return config.hostUpload + "/" + masterKey + "/" + type + "/" + file;
     }
@@ -98,7 +100,27 @@ exports.getDefaultPic = async function () {
 exports.getUrlWebsite = async function (masterkey, type) {
     try {
         if (config.fieldDB.url_page[masterkey][type] !== undefined) {
-            return `${config.hostFrontend}/${config.fieldDB.url_page[masterkey][type]}`;
+            if (!!short_language.trim()) {
+                return `${config.hostFrontend}/${short_language}/${config.fieldDB.url_page[masterkey][type]}`;
+            }else{
+                return `${config.hostFrontend}/${config.fieldDB.url_page[masterkey][type]}`;
+            }
+        } else {
+            return "";
+        }
+    } catch (error) {
+        return "";
+    }
+}
+
+exports.getUrlWebsiteCmsg = async function (type, short_language = '') {
+    try {
+        if (config.fieldDB.module_page[type] !== undefined) {
+            if (!!short_language.trim()) {
+                return `${config.hostFrontend}/${short_language}/${config.fieldDB.module_page[type]}`;
+            }else{
+                return `${config.hostFrontend}/${config.fieldDB.module_page[type]}`;
+            }
         } else {
             return "";
         }
@@ -128,4 +150,39 @@ exports.getTextReplace = async function (data) {
 
 exports.getClientIP = function(req){
     return req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(":").pop();
+}
+
+exports.getProfileAdmin = async function (language, crebyid) {
+    let conn = config.configDB.connectDB();
+    const query = util.promisify(conn.query).bind(conn);
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['sy_stf'] = config.fieldDB.main.sy_stf
+
+    try {
+        let sql_stff = `SELECT 
+        ${config_array_db['sy_stf']}_id as id 
+        ,${config_array_db['sy_stf']}_fnamethai as fnamethai 
+        ,${config_array_db['sy_stf']}_lnamethai as lnamethai 
+        ,${config_array_db['sy_stf']}_fnameeng as fnameeng 
+        ,${config_array_db['sy_stf']}_lnameeng as lnameeng 
+        FROM ${config_array_db['sy_stf']} 
+        WHERE ${config_array_db['sy_stf']}_status != 'Disable' 
+        AND ${config_array_db['sy_stf']}_id = '${crebyid}' 
+        `;
+        const select_stff = await query(sql_stff);
+        conn.destroy();
+        if (select_stff.length > 0) {
+            if (language == 'Thai') {
+                return `${select_stff[0].fnamethai} ${select_stff[0].lnamethai}`;
+            }else{
+                return `${select_stff[0].fnameeng} ${select_stff[0].lnameeng}`;
+            }
+        } else {
+            return '';
+        }
+    } catch (error) {
+        conn.destroy();
+        return '-';
+    }
 }

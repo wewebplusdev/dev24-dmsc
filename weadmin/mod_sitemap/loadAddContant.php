@@ -165,7 +165,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                         $row_groupid = $row_group[0];
                         $row_groupname = $row_group[1];
                      ?>
-                        <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputSubGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
+                        <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
                         </option>
                      <?php } ?>
                   </select>
@@ -290,6 +290,12 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
          return false;
 
       }
+	  
+		$(function() {
+			openSelectSub('openSelectGroup.php', '#boxSubGroup');
+		});
+		
+
    </script>
    <?php if ($_SESSION[$valSiteManage . 'core_session_language'] == "Thai") { ?>
       <script language="JavaScript" type="text/javascript" src="../js/datepickerThai.js"></script>

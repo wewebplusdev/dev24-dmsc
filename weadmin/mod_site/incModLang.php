@@ -70,7 +70,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["info:hotline"] = "Sales contact number";
   $langMod["info:hotlinede"] = "Input Format:021234567 Do not contain any characters or characters";
 
-  $langMod["inp:notepic"] = "Note: Please upload only .jpg, .png and .gif files, the size of the image is no more than 2 Mb and the uploaded image should be 1470 x 624 px.";
+  $langMod["inp:notepic"] = "Note: Please upload only .jpg, .png and .gif files, the size of the image is no more than 2 Mb and the uploaded image should be 1280 x 600 px.";
 
   // / * end nut * /
 
@@ -181,7 +181,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["info:hotline"] = "เบอร์โทรฝ่ายขาย ";
   $langMod["info:hotlinede"] = "รูปแบบในการกรอกเบอร์โทรศัพท์ : 021234567 ห้ามมีอักขระหรืออักษรใดๆ";
 
-  $langMod["inp:notepic"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 1470 x 624 พิกเซล";
+  $langMod["inp:notepic"] = "หมายเหตุ : กรุณาอัพโหลดเฉพาะไฟล์ .jpg, .png และ .gif เท่านั้น, ขนาดของรูปภาพไม่เกิน 2 Mb และรูปภาพที่ให้ในการอัพโหลดควรมีสัดส่วนที่ 1280 x 600 พิกเซล";
 
   /* end nut */
 

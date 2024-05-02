@@ -21,7 +21,8 @@ for ($i = 0; $i < $valSortCount; $i++) {
 logs_access('3', 'Sort Group');
 
 // load inc
-require_once './inc/function-mod.php';
+//require_once './inc/function-mod.php';
+include("./inc/function-mod.php");
 
 ?>
 <?php include("../lib/disconnect.php"); ?>

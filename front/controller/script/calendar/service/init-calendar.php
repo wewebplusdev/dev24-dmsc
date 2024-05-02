@@ -1,0 +1,74 @@
+<?php
+// Load calendar list #############################################
+$data = [
+    "method" => 'getCalendar',
+    "language" => $calendarPage->language,
+    "order" => 'desc',
+    "page" => $page['on'],
+    "limit" => $limit,
+    "gid" => $req['gid'],
+    "sdate" => $myStartDateOfMonth,
+    "edate" => $myEndDateOfMonth,
+];
+
+// call list
+$load_data = $calendarPage->load_data($data);
+$myCalendarEventCounter = array();
+$myCalendarEventCounter[0] = 0;
+$myCalendarEventList = array();
+if ($load_data->code == 1001 && $load_data->_numOfRows > 0) {
+    $smarty->assign("load_data", $load_data);
+    $EventMonth = array();
+    foreach ($load_data->item as $keyload_data => $valueload_data) {
+        if (!empty($valueload_data->sdate->full)) {
+            $sdate = date('Y-m-d', strtotime($valueload_data->sdate->full));
+            $EventMonth['sdate'] = $sdate;
+            if (!empty($valueload_data->edate->full)) {
+                $edate = date('Y-m-d', strtotime($valueload_data->edate->full));
+                $EventMonth['edate'] = $edate;
+            }
+
+            if (strcmp($EventMonth['sdate'], $myStartDateOfMonth) < 1) {
+                $myCalendarDateStart = $myStartDateOfMonth;
+            }else{
+                $myCalendarDateStart = $EventMonth['sdate'];
+            }
+
+            $myStart = substr($myCalendarDateStart, 8, 2) * 1;
+            if (!empty($EventMonth['edate'])) {
+                if (strcmp($myEndDateOfMonth, $EventMonth['edate']) < 1) {
+                    $myCalendarDateEnd = $myEndDateOfMonth;
+                } else {
+                    $myCalendarDateEnd = $EventMonth['edate'];
+                }
+            }else{
+                $myCalendarDateEnd = "0000-00-00";
+            }
+
+            if ($myCalendarDateEnd == "0000-00-00") {
+                $myCalendarEventCounter[$myStart]++;
+                $myCalendarEventList[$myStart][$valueload_data->id]['subject'] = $valueload_data->subject;
+                $myCalendarEventList[$myStart][$valueload_data->id]['color'] = $valueload_data->color;
+                $myCalendarEventList[$myStart][$valueload_data->id]['tb'] = $valueload_data->tb;
+                $myCalendarEventList[$myStart][$valueload_data->id]['language'] = $valueload_data->language;
+                $myCalendarEventList[$myStart][$valueload_data->id]['masterkey'] = $valueload_data->masterkey;
+                $myCalendarEventList[$myStart][$valueload_data->id]['url'] = $valueload_data->url;
+                $myCalendarEventList[$myStart][$valueload_data->id]['id'] = $valueload_data->id;
+            }else{
+                $myEnd = substr($myCalendarDateEnd, 8, 2) * 1;
+                for ($i = $myStart; $i <= $myEnd; $i++) {
+                    $myCalendarEventCounter[$i]++;
+                    $myCalendarEventList[$i][$valueload_data->id]['subject'] = $valueload_data->subject;
+                    $myCalendarEventList[$i][$valueload_data->id]['color'] = $valueload_data->color;
+                    $myCalendarEventList[$i][$valueload_data->id]['tb'] = $valueload_data->tb;
+                    $myCalendarEventList[$i][$valueload_data->id]['language'] = $valueload_data->language;
+                    $myCalendarEventList[$i][$valueload_data->id]['masterkey'] = $valueload_data->masterkey;
+                    $myCalendarEventList[$i][$valueload_data->id]['url'] = $valueload_data->url;
+                    $myCalendarEventList[$i][$valueload_data->id]['id'] = $valueload_data->id;
+                }
+            }
+        }
+    }
+}
+$smarty->assign("myCalendarEventCounter", $myCalendarEventCounter);
+$smarty->assign("myCalendarEventList", $myCalendarEventList);

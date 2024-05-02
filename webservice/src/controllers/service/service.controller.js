@@ -4,7 +4,6 @@ const general = require('../../middlewares/general.middleware');
 const modulus = require('../../middlewares/modulus.middleware');
 const code = config.returncode;
 const ip = require("ip");
-const axios = require('axios');
 const { base64encode, base64decode } = require('nodejs-base64');
 var fs = require('fs');
 
@@ -131,6 +130,7 @@ async function getService(req, res) {
     const page = req.body.page;
     const limit = req.body.limit;
     const tid = req.body.tid;
+    const search_keyword = req.body.keyword;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -162,6 +162,7 @@ async function getService(req, res) {
                 ,${config_array_db['md_cmsl']}_picType as picType 
                 ,${config_array_db['md_cmsl']}_picDefault as picDefault 
                 ,${config_array_db['md_cmsl']}_pic as pic 
+                ,${config_array_db['md_cmsl']}_pic2 as pic2 
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
                 ,${config_array_db['md_cmsl']}_target as target 
                 FROM ${config_array_db['md_cms']} 
@@ -179,6 +180,13 @@ async function getService(req, res) {
                     // Remove the last "OR" and everything after it:
                     let modifiedText = text.slice(0, lastOrIndex);
                     sql_list = sql_list + ` AND (${modifiedText})`;
+                }
+                if (search_keyword !== null && search_keyword !== undefined) {
+                    sql_list = sql_list + ` AND 
+                    (
+                        ${config_array_db['md_cmsl']}_subject LIKE '%${search_keyword}%' OR
+                        ${config_array_db['md_cmsl']}_title LIKE '%${search_keyword}%'
+                    ) `;
                 }
                 sql_list = sql_list + ` AND 
                 (
@@ -251,11 +259,21 @@ async function getService(req, res) {
                                 'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
                                 'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
                             }
+                            arr_data[i].pic2 = {
+                                'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
+                                'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
+                                'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
+                            }
                         } else {
                             arr_data[i].pic = {
                                 'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                                 'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                 'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                            }
+                            arr_data[i].pic2 = {
+                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic2),
+                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic2),
+                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic2),
                             }
                         }
                         arr_data[i].createDate = {

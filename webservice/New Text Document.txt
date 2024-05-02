@@ -1,0 +1,3 @@
+cmd
+cd C:\docker\php_8\volumes\src\dev24-dmsc\webservice
+docker compose up --build

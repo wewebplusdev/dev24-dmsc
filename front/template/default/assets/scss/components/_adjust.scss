@@ -1,0 +1,26 @@
+$--nav-lang-container: 30px;
+.nav-lang {
+    a,
+    button {
+        display: block;
+        width: $--nav-lang-container;
+        height: $--nav-lang-container;
+        line-height: $--nav-lang-container;
+        text-align: center;
+        filter: grayscale(1);
+        transition: all 200ms ease;
+        .flag {
+            transition: all 200ms ease;
+        }
+        &.active {
+            // color: var(--color-white);
+            // background: var(--color-primary);
+            filter: grayscale(0);
+        }
+        // &:hover {
+        //     .flag {
+        //         filter: grayscale(1);
+        //     }
+        // }
+    }
+}

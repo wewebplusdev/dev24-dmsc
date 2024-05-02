@@ -32,7 +32,7 @@ include("config.php");
 
       if ($_POST['inputHtml'] != "") {
          $filename = $_POST["valEditID"] . "-" . $randomNumber . ".html";
-         $HTMLToolContent = str_replace("\\\"", "\"", $_POST['inputHtml']);
+         $HTMLToolContent = str_replace("\\\"", "\"", rechangeText($_POST['inputHtml']));
          $fp = fopen($mod_path_html . "/" . $filename, "w");
          chmod($mod_path_html . "/" . $filename, 0777);
          fwrite($fp, $HTMLToolContent);
@@ -66,6 +66,7 @@ include("config.php");
          $update[] = $mod_tb_root_lang . "_picType='" . changeQuot($_POST['inputTypePic']) . "'";
          $update[] = $mod_tb_root_lang . "_picDefault='" . changeQuot($_POST['inputPicD']) . "'";
          $update[] = $mod_tb_root_lang . "_urlc='" . changeQuot($_POST['inputurlC']) . "'";
+         $update[] = $mod_tb_root_lang . "_urlc2='" . changeQuot($_POST['inputurlC2']) . "'";
          $update[] = $mod_tb_root_lang . "_target='" . changeQuot($_POST['inputmenutarget']) . "'";
 
          $update[] = $mod_tb_root_lang . "_type='" . $_POST["inputType"] . "'";

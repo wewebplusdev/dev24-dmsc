@@ -25,7 +25,8 @@ $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "�
 $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
-## Hide Group ###################################
+## etc ###################################
+$array_masterkey_2link = array("mobile");
 $array_masterkey_pic_number = array("rein");
 $array_masterkey_group = array();
 
@@ -38,11 +39,9 @@ $modPeriodType = array(
 $mod_url_search_th = "|weweb|";
 $mod_url_search_en = "|weweb|";
 
-$mod_url_search_front = "http://edailyreport.dmcr.go.th/milestone/detail/|id|";
-
 ## Size Photo ###################################
-$sizeWidthPic = "600";
-$sizeHeightPic = "600";
+$sizeWidthPic = "240";
+$sizeHeightPic = "240";
 
 $sizeWidthOff = "50";
 $sizeHeightOff = "50";
@@ -86,35 +85,4 @@ $mod_inputseach = array(
     , "inputTh"
     , "inputSearch"
 );
-
-$mod_distance = array(
-    5, 10, 15, 20, 25, 30
-);
-
-function match_todog($cid, $gid) {
-   global $coreLanguageSQL;
-
-   $sql = "SELECT md_todog_id FROM md_todog WHERE md_todog_cid=$cid AND md_todog_gid=$gid";
-   $query = wewebQueryDB($coreLanguageSQL, $sql);
-   $numrow = wewebNumRowsDB($coreLanguageSQL, $query);
-   if ($numrow > 0) {
-      return true;
-   }
-
-   return false;
-}
-
-function select_radius() {
-   global $coreLanguageSQL;
-
-   $sql = "SELECT md_radius_subject FROM md_radius WHERE 1 ORDER BY md_radius_subject ASC";
-   $query = wewebQueryDB($coreLanguageSQL, $sql);
-   $out = array();
-   while ($result = wewebFetchArrayDB($coreLanguageSQL, $query)) {
-      $out[] = $result[0];
-   }
-
-   return $out;
-}
-
 ?>

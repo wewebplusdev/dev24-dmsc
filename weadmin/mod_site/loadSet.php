@@ -98,6 +98,8 @@ foreach ($ValFac2 as $key => $value4) {
         $ValFac[$keyinner4][$key] = $valueinner4;
     }
 }
+$valPicName = $Row['addresspic'];
+$valPic = $mod_path_pictures . "/" . $Row['addresspic'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 logs_access('3', 'View');
@@ -272,6 +274,12 @@ logs_access('3', 'View');
                     </td>
                 </tr>
                 <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["social:yt"] ?> :<span class="fontContantAlert"></span></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="formDivView"><a href="<?php echo $ValSocial[$langMod["social:yt"]]['link'] ?>" target="_blank"><?php echo $ValSocial[$langMod["social:yt"]]['link'] ?></a></div>
+                    </td>
+                </tr>
+                <tr>
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["social:li"] ?> :<span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                         <div class="formDivView"><a href="<?php echo $ValSocial[$langMod["social:li"]]['link'] ?>" target="_blank"><?php echo $ValSocial[$langMod["social:li"]]['link'] ?></a></div>
@@ -353,6 +361,14 @@ logs_access('3', 'View');
                             [ <?php echo $ValConfig['glati'] ?> , <?php echo $ValConfig['glongti'] ?> ] <br/>
                             <iframe width="80%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $ValConfig['glati'] ?>,<?php echo $ValConfig['glongti'] ?>&hl=es;z=20&amp;output=embed"></iframe>
                             <br />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["info:picaddress"] ?>:<span class="fontContantAlert"></span></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="formDivView">
+                            <img src="<?= $valPic ?>" style="float:left;border:#c8c7cc solid 1px; max-width:600px;" onerror="this.src='<?= "../img/btn/nopic.jpg" ?>'" />
                         </div>
                     </td>
                 </tr>

@@ -21,14 +21,18 @@ $mod_fd_root = "mod_cmsg";
 ## Setting Value ###################################
 $modTxtShowCase = array("ประเภทการแสดงผล", "แสดงรายละเอียด", "เอกสารดาวน์โหลด", "เชื่อมโยงภายนอก");
 $modTxtShowPic = array("ประเภทการแสดงผลรูปภาพ", "เลือกจากระบบ", "อัพโหลด");
+$modTxtType = array("ประเภทข้อมูล", "Youtube", "วีดีโอ");
 $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "เปิดหน้าต่างใหม่");
 $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
+$modConfFrontURL['Thai'] = "th";
+$modConfFrontURL['Eng'] = "en";
+
 ## Hide Group ###################################
 $array_masterkey_group = array('plc', 'ab', 'hc', 'faq');
-
-$array_masterkey_group_home = array('nw');
+$array_masterkey_group_home = array('nw', 'abs');
+$array_masterkey_group_home2 = array('abs');
 
 $modPeriodType = array(
     1 => "ตามช่วงเวลา",
@@ -38,8 +42,6 @@ $modPeriodType = array(
 ## URL Search ###################################
 $mod_url_search_th = "|weweb|";
 $mod_url_search_en = "|weweb|";
-
-$mod_url_search_front = "http://edailyreport.dmcr.go.th/milestone/detail/|id|";
 
 ## Size Photo ###################################
 $sizeWidthPic = "600";
@@ -53,6 +55,8 @@ $sizeHeightAlbum = "720";
 
 $sizeWidthAlbumOff = "250";
 $sizeHeightAlbumOff = "250";
+
+$sizeVDO = 64;
 
 ## Mod Path RSS ###################################
 $mod_fullpath_pictures = $core_fullpath_rss . "/" . $masterkey . "/pictures";
@@ -87,35 +91,4 @@ $mod_inputseach = array(
     , "inputTh"
     , "inputSearch"
 );
-
-$mod_distance = array(
-    5, 10, 15, 20, 25, 30
-);
-
-function match_todog($cid, $gid) {
-   global $coreLanguageSQL;
-
-   $sql = "SELECT md_todog_id FROM md_todog WHERE md_todog_cid=$cid AND md_todog_gid=$gid";
-   $query = wewebQueryDB($coreLanguageSQL, $sql);
-   $numrow = wewebNumRowsDB($coreLanguageSQL, $query);
-   if ($numrow > 0) {
-      return true;
-   }
-
-   return false;
-}
-
-function select_radius() {
-   global $coreLanguageSQL;
-
-   $sql = "SELECT md_radius_subject FROM md_radius WHERE 1 ORDER BY md_radius_subject ASC";
-   $query = wewebQueryDB($coreLanguageSQL, $sql);
-   $out = array();
-   while ($result = wewebFetchArrayDB($coreLanguageSQL, $query)) {
-      $out[] = $result[0];
-   }
-
-   return $out;
-}
-
 ?>

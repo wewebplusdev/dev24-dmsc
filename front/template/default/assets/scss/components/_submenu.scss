@@ -1,0 +1,198 @@
+.full-dropdown-menu {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+
+    display: block !important;
+    position: fixed !important;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+
+    background: transparent;
+    /* Note: currently only Safari supports backdrop-filter */
+    backdrop-filter: blur(50px);
+    --webkit-backdrop-filter: blur(50px);
+    background-color: rgba(255, 255, 255, 0.5);
+
+    transform: translate(0, 100%);
+    transition: all 400ms ease-in-out;
+    &.show {
+        transform: translate(0, 0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.container-dropdown-menu {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.submenu-grid {
+  .submenu-col:not(:first-child) {
+    width: 75%;
+    .nav-list > li {
+      width: calc(100% / 3);
+    }
+  }
+}
+
+.submenu-col {
+    float: left;
+    width: 25%;
+    border-right: 1px solid rgba(42, 177, 112, 0.2);
+    position: relative;
+    &:not(:first-child) {
+      width: calc(75% / 2);
+    }
+    .link {
+        display: block;
+        line-height: 1.2em;
+        padding: 1rem 1.25rem;
+        color: var(--color-secondary);
+        &.active {
+            color: var(--color-light);
+            font-weight: var(--fw-bold);
+            background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+        }
+        &:hover {
+            color: var(--color-light);
+            background: var(--color-primary);
+        }
+    }
+    .has-submenu {
+        .link {
+            &::after {
+                @include google-icon;
+                content: "\e5cc";
+                position: relative;
+                display: inline;
+                float: right;
+                top: -4px;
+            }
+        }
+    }
+    .back-menu {
+        display: none;
+
+        font-size: 18px;
+        color: var(--color-primary);
+        padding: 15px;
+        padding-left: 40px;
+        border-bottom: 1px solid #ebebeb;
+        &::before {
+            @include google-icon;
+            content: "\e5cb";
+            position: absolute;
+            display: inline;
+            top: 10px;
+            left: 8px;
+            font-size: 26px;
+        }
+    }
+    ul.nav-list > li {
+        + li {
+            border-top: 1px solid rgba(42, 177, 112, 0.2);
+        }
+    }
+}
+.sub2menu {
+    display: none;
+    &.open {
+        display: block;
+    }
+}
+.sub3menu {
+    display: none;
+    &.open {
+        display: block;
+    }
+}
+
+.submenu-col,
+.submenu-col .scroll-wrapper,
+.submenu-col .mCustomScrollbar {
+    height: calc(100vh - 100px);
+}
+
+@media (min-width: 1200px) {
+    .container-dropdown-menu {
+        max-width: inherit;
+        width: 1210px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .container-dropdown-menu {
+        max-width: inherit;
+        width: 1310px;
+    }
+}
+
+@media (max-width: 1199px) {
+  .submenu-col:first-child {display: none;}
+  .submenu-col:not(:first-child) {width: calc(100% / 2);}
+}
+
+@media (max-width: 991px) {
+    .container-dropdown-menu {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .main-menu .dropdown-menu {
+        position: relative !important;
+        transform: none !important;
+    }
+    .full-dropdown-menu.show {
+        top: auto !important;
+    }
+
+    .submenu-col {
+        float: none;
+        width: 100%;
+    }
+    .submenu-col:not(:first-child) {width: 100%;}
+    .submenu-row > div:nth-child(1) {
+        display: none;
+    }
+    .sub1menu.hide-mobile {
+        position: absolute;
+        left: -100%;
+    }
+    .sub2menu.hide-mobile {
+        position: absolute;
+        left: -100%;
+    }
+    .sub2menu .back-menu {
+        display: block;
+    }
+    .sub3menu .back-menu {
+        display: block;
+    }
+    .sub3menu {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 100%;
+        background-color: #fff;
+        display: block;
+        opacity: 0;
+        transition: all 200ms ease;
+    }
+    .sub3menu.open {
+        position: relative;
+        left: 0;
+        opacity: 1;
+    }
+    .submenu-col {
+        border-right: transparent;
+    }
+}

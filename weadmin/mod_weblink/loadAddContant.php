@@ -31,6 +31,13 @@ $listGAllow = array();
 foreach ($listAuthen as $key => $value) {
    $listGAllow[] = $value['idG'];
 }
+
+if(!in_array($_REQUEST['masterkey'], $array_masterkey_2link)){
+   $lang_url = $langMod["tit:linkvdoc"];
+}else{
+   $lang_url = $langMod["inp:link_android"];
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -93,7 +100,9 @@ foreach ($listAuthen as $key => $value) {
                } else {
                   jQuery("#inputEditHTML").removeClass("formInputContantTbAlertY");
                }
-               jQuery('#inputHtml').val(alleditDetail);
+               // replace ckeditor href
+               var changeTexts = changeText(alleditDetail);
+               jQuery('#inputHtml').val(changeTexts);
             }else if(inputTypeC == 3){
                if (isBlank(inputurlC)) {
                   inputurlC.focus();
@@ -110,11 +119,29 @@ foreach ($listAuthen as $key => $value) {
                } else {
                   jQuery("#inputurlC").removeClass("formInputContantTbAlertY");
                }
+
+               <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_2link)){ ?>
+                  if (isBlank(inputurlC2)) {
+                     inputurlC2.focus();
+                     jQuery("#inputurlC2").addClass("formInputContantTbAlertY");
+                     return false;
+                  } else {
+                     jQuery("#inputurlC2").removeClass("formInputContantTbAlertY");
+                  }
+
+                  if (inputurlC2.value == "http://") {
+                     inputurlC2.focus();
+                     jQuery("#inputurlC2").addClass("formInputContantTbAlertY");
+                     return false;
+                  } else {
+                     jQuery("#inputurlC2").removeClass("formInputContantTbAlertY");
+                  }
+               <?php } ?>
             }
          }
-
+         jQuery('#editDetail').val(changeText(jQuery('#editDetail').val()));
          insertContactNew('insertContant.php');
-
+         jQuery('#editDetail').val(rechangeText(jQuery('#editDetail').val()));
       }
 
       jQuery(document).ready(function() {
@@ -355,6 +382,23 @@ foreach ($listAuthen as $key => $value) {
                   </div>
                </td>
             </tr>
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_home)){ ?>
+            <tr class="PicUpload" style="display: none;">
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album_hover"] ?></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="file-input-wrapper">
+                     <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                     <input type="file" name="fileToUpload2" id="fileToUpload2" onchange="ajaxFileUpload2();" />
+                  </div>
+
+                  <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
+                  <div class="clearAll"></div>
+                  <div id="boxPicNew2" class="formFontTileTxt">
+                     <input type="hidden" name="picname2" id="picname2" />
+                  </div>
+               </td>
+            </tr>
+            <?php } ?>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeLink">
@@ -367,12 +411,20 @@ foreach ($listAuthen as $key => $value) {
             <tr>
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
-            <tr id="boxInputlink">
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdoc"] ?><span class="fontContantAlert">*</span></td>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $lang_url ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlC" id="inputurlC" cols="45" rows="5" class="formTextareaContantTb">http://</textarea><br />
                   <span class="formFontNoteTxt"><?php echo $langMod["edit:linknote"] ?></span>
                </td>
             </tr>
+            <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_2link)){ ?>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:link_ios"] ?><span class="fontContantAlert">*</span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurlC2" id="inputurlC2" cols="45" rows="5" class="formTextareaContantTb">http://</textarea><br />
+                  <span class="formFontNoteTxt"><?php echo $langMod["edit:linknote"] ?></span>
+               </td>
+            </tr>
+            <?php } ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdoc"] ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
@@ -630,6 +682,48 @@ foreach ($listAuthen as $key => $value) {
                   } else {
                      jQuery("#boxPicNew").show();
                      jQuery("#boxPicNew").html(data.msg);
+                     setTimeout(jQuery.unblockUI, 200);
+                  }
+               }
+            },
+            error: function(data, status, e) {
+               alert(e);
+            }
+         })
+         return false;
+
+      }
+      /*################################# Upload Pic2 #######################*/
+      function ajaxFileUpload2() {
+         var valuepicname = jQuery("input#picname2").val();
+
+         jQuery.blockUI({
+            message: jQuery('#tallContent'),
+            css: {
+               border: 'none',
+               padding: '35px',
+               backgroundColor: '#000',
+               '-webkit-border-radius': '10px',
+               '-moz-border-radius': '10px',
+               opacity: .9,
+               color: '#fff'
+            }
+         });
+         
+         jQuery.ajaxFileUpload({
+            url: 'loadInsertPic2.php?myID=<?php echo $myRand ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
+            secureuri: false,
+            fileElementId: 'fileToUpload2',
+            dataType: 'json',
+            success: function(data, status) {
+               if (typeof(data.error) != 'undefined') {
+
+                  if (data.error != '') {
+                     alert(data.error);
+
+                  } else {
+                     jQuery("#boxPicNew2").show();
+                     jQuery("#boxPicNew2").html(data.msg);
                      setTimeout(jQuery.unblockUI, 200);
                   }
                }

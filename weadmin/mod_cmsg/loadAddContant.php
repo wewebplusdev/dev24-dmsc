@@ -24,8 +24,7 @@ From
 " . $mod_tb_permisGroup . "
 Where
 " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_misid = " . $_SESSION[$valSiteManage . "core_session_groupid"] . "
-AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'"
-;
+AND " . $mod_tb_permisGroup . "." . $mod_tb_permisGroup . "_masterkey = '" . $_REQUEST['masterkey'] . "'";
 $listAuthen = $dbConnect->execute($callGauthen);
 $listGAllow = array();
 foreach ($listAuthen as $key => $value) {
@@ -57,14 +56,14 @@ foreach ($listAuthen as $key => $value) {
       function executeSubmit() {
          with(document.myForm) {
 
-            <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
-            if (inputGroupID.value == 0) {
-               inputGroupID.focus();
-               jQuery("#inputGroupID").addClass("formInputContantTbAlertY");
-               return false;
-            } else {
-               jQuery("#inputGroupID").removeClass("formInputContantTbAlertY");
-            }
+            <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+               if (inputGroupID.value == 0) {
+                  inputGroupID.focus();
+                  jQuery("#inputGroupID").addClass("formInputContantTbAlertY");
+                  return false;
+               } else {
+                  jQuery("#inputGroupID").removeClass("formInputContantTbAlertY");
+               }
             <?php } ?>
 
             if (isBlank(inputSubject)) {
@@ -93,8 +92,10 @@ foreach ($listAuthen as $key => $value) {
                } else {
                   jQuery("#inputEditHTML").removeClass("formInputContantTbAlertY");
                }
-               jQuery('#inputHtml').val(alleditDetail);
-            }else if(inputTypeC == 3){
+               // replace ckeditor href
+               var changeTexts = changeText(alleditDetail);
+               jQuery('#inputHtml').val(changeTexts);
+            } else if (inputTypeC == 3) {
                if (isBlank(inputurlC)) {
                   inputurlC.focus();
                   jQuery("#inputurlC").addClass("formInputContantTbAlertY");
@@ -112,8 +113,9 @@ foreach ($listAuthen as $key => $value) {
                }
             }
          }
-
+         jQuery('#editDetail').val(changeText(jQuery('#editDetail').val()));
          insertContactNew('insertContant.php');
+         jQuery('#editDetail').val(rechangeText(jQuery('#editDetail').val()));
 
       }
 
@@ -216,39 +218,39 @@ foreach ($listAuthen as $key => $value) {
             </tr>
 
 
-            <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
-            <tr>
-               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group2"]; ?><span class="fontContantAlert">*</span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb select2">
-                     <option value="0"><?php echo $langMod["tit:selectg2"]; ?></option>
-                     <?php
-                     $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai'  ";
-                     $sqlChecklist = array();
-                     if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
-                        foreach ($listGAllow as $idGroup) {
-                           $sqlChecklist[] = $mod_tb_root_group . "_id = '".$idGroup."' ";
+            <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+               <tr>
+                  <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group2"]; ?><span class="fontContantAlert">*</span></td>
+                  <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                     <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb">
+                        <option value="0"><?php echo $langMod["tit:selectg2"]; ?></option>
+                        <?php
+                        $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai'  ";
+                        $sqlChecklist = array();
+                        if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
+                           foreach ($listGAllow as $idGroup) {
+                              $sqlChecklist[] = $mod_tb_root_group . "_id = '" . $idGroup . "' ";
+                           }
+                           if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                              $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
+                           }
+                        } else {
+                           if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                              $sql_group .= " and 1=0 ";
+                           }
                         }
-                        if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
-                           $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
-                        }
-                     }else{
-                        if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
-                           $sql_group .= " and 1=0 ";
-                        }
-                     }
-                     $sql_group .= " ORDER BY " . $mod_tb_root_group . "_order DESC";
-                     $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
-                     while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
-                        $row_groupid = $row_group[0];
-                        $row_groupname = $row_group[1];
-                     ?>
-                        <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputSubGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
-                        </option>
-                     <?php } ?>
-                  </select>
-               </td>
-            </tr>
+                        $sql_group .= " ORDER BY " . $mod_tb_root_group . "_order DESC";
+                        $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+                        while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
+                           $row_groupid = $row_group[0];
+                           $row_groupname = $row_group[1];
+                        ?>
+                           <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $row_groupname ?>
+                           </option>
+                        <?php } ?>
+                     </select>
+                  </td>
+               </tr>
             <?php } ?>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:subject"] ?><span class="fontContantAlert">*</span></td>
@@ -292,8 +294,8 @@ foreach ($listAuthen as $key => $value) {
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:picdefault"]; ?><span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <ul class="selectLayout">
-                        <?php
-                        $sql_nopic = "SELECT " . $core_tb_nopic . "_id as id
+                     <?php
+                     $sql_nopic = "SELECT " . $core_tb_nopic . "_id as id
                         ," . $core_tb_nopic . "_masterkey as masterkey
                         ," . $core_tb_nopic . "_subject as subject
                         ," . $core_tb_nopic . "_file as file 
@@ -302,22 +304,24 @@ foreach ($listAuthen as $key => $value) {
                         AND " . $core_tb_nopic . "_status != 'Disable'
                         ORDER BY " . $core_tb_nopic . "_order DESC
                         ";
-                        $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
-                        foreach ($query_nopic as $key => $value) {
-                           $valPic_layout1 = $core_pathname_upload . "/" . $value['masterkey'] . "/pictures/" . $value['file'];
-                        ?>
-                           <li>
-                              <div class="checkboxLayout">
-                                    <input type="radio" name="inputPicD" value="<?php echo $value['id']; ?>" <?php if($key == 0){ echo "checked"; } ?>>
-                                    <div class="cover">
-                                       <img src="<?php echo $valPic_layout1; ?>">
-                                    </div>
-                                    <div class="layout-title"><?php echo $value['subject']; ?></div>
+                     $query_nopic = wewebQueryDB($coreLanguageSQL, $sql_nopic);
+                     foreach ($query_nopic as $key => $value) {
+                        $valPic_layout1 = $core_pathname_upload . "/" . $value['masterkey'] . "/pictures/" . $value['file'];
+                     ?>
+                        <li>
+                           <div class="checkboxLayout">
+                              <input type="radio" name="inputPicD" value="<?php echo $value['id']; ?>" <?php if ($key == 0) {
+                                                                                                            echo "checked";
+                                                                                                         } ?>>
+                              <div class="cover">
+                                 <img src="<?php echo $valPic_layout1; ?>">
                               </div>
-                           </li>
-                        <?php
-                        }
-                        ?>
+                              <div class="layout-title"><?php echo $value['subject']; ?></div>
+                           </div>
+                        </li>
+                     <?php
+                     }
+                     ?>
                   </ul>
                </td>
             </tr>
@@ -401,7 +405,7 @@ foreach ($listAuthen as $key => $value) {
                </td>
             </tr>
          </table>
-         <br class="TypeLink" style="display: none;"/>
+         <br class="TypeLink" style="display: none;" />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -462,17 +466,17 @@ foreach ($listAuthen as $key => $value) {
                <td colspan="7" align="right" valign="top" height="15"></td>
             </tr>
 
-            <tr id="boxInputType" class="typeMain" style="display: none;">
+            <tr id="boxInputType" class="typeMain">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <label>
                      <div class="formDivRadioL"><input name="inputType" id="inputType" value="url" type="radio" class="formRadioContantTb" checked="checked" onclick="jQuery('#boxInputfile').hide();
-                              jQuery('#boxInputlink').show();" /></div>
+                              jQuery('#boxInputlinkYt').show();" /></div>
                      <div class="formDivRadioR"><?php echo $langMod["tit:linkvdo"] ?></div>
                   </label>
 
                   <label>
-                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlink').hide();
+                     <div class="formDivRadioL"><input name="inputType" id="inputType" value="file" type="radio" class="formRadioContantTb" onclick="jQuery('#boxInputlinkYt').hide();
                               jQuery('#boxInputfile').show();" /></div>
                      <div class="formDivRadioR"><?php echo $langMod["tit:uploadvdo"] ?></div>
                   </label>
@@ -480,7 +484,7 @@ foreach ($listAuthen as $key => $value) {
                </td>
             </tr>
 
-            <tr id="boxInputlink" class="">
+            <tr id="boxInputlinkYt" class="">
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:linkvdo"] ?></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><textarea name="inputurl" id="inputurl" cols="45" rows="5" class="formTextareaContantTb"></textarea><br />
                   <span class="formFontNoteTxt"><?php echo $langMod["tit:linkvdonote"] ?></span>
@@ -491,7 +495,7 @@ foreach ($listAuthen as $key => $value) {
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="file-input-wrapper">
                      <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
-                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" />
+                     <input type="file" name="inputVideoUpload" id="inputVideoUpload" onchange="ajaxVideoUpload();" accept=".mp4"/>
                   </div>
 
                   <span class="formFontNoteTxt"><?php echo $langMod["tit:uploadvdonote"] ?></span>
@@ -566,8 +570,8 @@ foreach ($listAuthen as $key => $value) {
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?= $langMod["txt:dateTime"] ?></span><br />
-                  <span class="formFontTileTxt"><?= $langMod["txt:dateTimeDe"] ?></span>
+                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:dateTime"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:dateTimeDe"] ?></span>
                </td>
             </tr>
             <tr>
@@ -576,12 +580,12 @@ foreach ($listAuthen as $key => $value) {
 
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb">วันเริ่มต้น<span class="fontContantAlert"></span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="sdateInputC" id="sdateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?= $valSdate ?>" /></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="sdateInputC" id="sdateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?php echo  $valSdate ?>" /></td>
             </tr>
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb">วันสิ้นสุด<span class="fontContantAlert"></span></td>
-               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="edateInputC" id="edateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?= $valEdate ?>" /><br />
-                  <span class="formFontNoteTxt"><?= $langMod["inp:notedate"] ?></span>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb"><input name="edateInputC" id="edateInputC" type="text" class="formInputContantTbShot datepick" autocomplete="off" value="<?php echo  $valEdate ?>" /><br />
+                  <span class="formFontNoteTxt"><?php echo  $langMod["inp:notedate"] ?></span>
                </td>
             </tr>
          </table>

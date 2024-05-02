@@ -12,13 +12,14 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
    if (strlen($myVar) >= 1) {
       $permissionID = $myVar;
 
-      $sqlRemore = "SELECT  " . $mod_tb_root_lang . "_pic ," . $mod_tb_root_lang . "_id  FROM " . $mod_tb_root_lang . " WHERE  " . $mod_tb_root_lang . "_cid='" . $permissionID . "' ";
+      $sqlRemore = "SELECT  " . $mod_tb_root_lang . "_pic ," . $mod_tb_root_lang . "_id," . $mod_tb_root_lang . "_filevdo  FROM " . $mod_tb_root_lang . " WHERE  " . $mod_tb_root_lang . "_cid='" . $permissionID . "' ";
       $QueryRemore = wewebQueryDB($coreLanguageSQL, $sqlRemore);
       $numberofrowRemore = wewebNumRowsDB($coreLanguageSQL, $QueryRemore);
       if ($numberofrowRemore >= 1) {
          while ($RowRemore = wewebFetchArrayDB($coreLanguageSQL, $QueryRemore)) {
             $deletepic = $RowRemore[0];
             $deleteid = $RowRemore[1];
+            $deletevideo = $RowRemore[2];
 
             ######################### Delete  In Folder Pic ###############################
             if (file_exists($mod_path_pictures . "/" . $deletepic)) {
@@ -31,6 +32,11 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
 
             if (file_exists($mod_path_real . "/" . $deletepic)) {
                @unlink($mod_path_real . "/" . $deletepic);
+            }
+
+            ######################### Delete  In Folder Video ###############################
+            if (file_exists($mod_path_vdo . "/" . $deletevideo)) {
+               @unlink($mod_path_vdo . "/" . $deletevideo);
             }
          }
       }
@@ -54,4 +60,6 @@ logs_access('3', 'Delete');
    <input name="module_orderby" type="hidden" id="module_orderby" value="<?php echo $_REQUEST['module_orderby'] ?>" />
    <?php include_once './inc-inputsearch.php'; ?>
 </form>
-<script language="JavaScript" type="text/javascript"> document.myFormAction.submit();</script>
+<script language="JavaScript" type="text/javascript">
+   document.myFormAction.submit();
+</script>

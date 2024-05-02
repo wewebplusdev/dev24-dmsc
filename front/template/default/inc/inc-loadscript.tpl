@@ -1,12 +1,39 @@
 
-<script src="{$template}/assets/js/jquery-3.6.0.js"></script>
+<!-- Core -->
+<script src="{$template}/assets/js/libs/jquery-3.6.0.js"></script>
+<script src="{$template}/assets/js/libs/jquery-ui.min.js"></script>
+<script src="{$template}/assets/js/libs/jquery.easing.min.js"></script>
+<script src="{$template}/assets/js/libs/jquery.mCustomScrollbar.js"></script>
+<script src="{$template}/assets/js/libs/modernizr.min.js"></script>
+<script src="{$template}/assets/js/libs/aos.js"></script>
+<script src="{$template}/assets/js/libs/popper.min.js"></script>
+<script src="{$template}/assets/js/libs/bootstrap.min.js"></script>
+<script src="{$template}/assets/js/libs/lazyload.min.js"></script>
+<script src="{$template}/assets/js/libs/select2.min.js"></script>
+<script src="{$template}/assets/js/libs/sweetalert.min.js"></script>
+<script src="{$template}/assets/js/libs/swiper-bundle.min.js"></script>
+<script src="{$template}/assets/js/libs/slick.min.js"></script>
+<script src="{$template}/assets/js/libs/fancybox.umd.js"></script>
+<script src="{$template}/assets/js/libs/trunk8.js"></script>
 <script src="{$template}/assets/js/cookie.js"></script>
+<script src="{$template}/assets/js/libs/moment.min.js"></script>
+<script src="{$template}/assets/js/libs/validator.min.js"></script>
+<script src="{$template}/assets/js/libs/feather.js"></script>
 
+<script>
+  feather.replace();
+</script>
+
+
+{* <!-- asw js -->
+<script src="{$template}/assets/js/accessibility.js"></script>  *}
+
+<!-- Module -->
 <script type="module" src="{$template}/assets/js/controller.js{$lastModify}"></script>
-
+<!-- Main -->
 <script src="{$template}/assets/js/main.js{$lastModify}"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Dev -->
+<script src="{$template}/assets/js/developer.js{$lastModify}"></script>
 
 <script type="text/javascript">var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;</script>
 
@@ -17,3 +44,4 @@
         {/foreach}
     {/if}
 {/strip}
+

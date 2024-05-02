@@ -279,9 +279,11 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                               <td align="left">
                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
+                                       <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_pic_number)){ ?>
                                        <td width="39" align="left" valign="top">
                                           <div style="width:29px; height:29px;  background:url(<?php echo $valPic ?>) center no-repeat; background-size: cover;background-repeat: no-repeat; border-radius: 50%;  "></div>
                                        </td>
+                                       <?php } ?>
                                        <td align="left" style="padding-left:10px; ">
                                           <a href="javascript:void(0)" class="btnview" onclick="
                                                    document.myFormHome.valEditID.value = '<?= $valID ?>';

@@ -51,3 +51,14 @@ max_execution_time=30000\n\
 short_open_tag=On\n\
 memory_limit=128M\n\
 post_max_size=128M\n' > /usr/local/etc/php/php.ini
+
+# SSL
+RUN mkdir -p /etc/apache2/ssl
+COPY ./_apache/cert-ssl/*.pem /etc/apache2/ssl/
+COPY ./_apache/apache-config/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN a2enmod ssl
+
+WORKDIR /var/www/html
+
+EXPOSE 80
+EXPOSE 443

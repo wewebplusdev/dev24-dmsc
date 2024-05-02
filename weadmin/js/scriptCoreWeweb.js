@@ -103,7 +103,8 @@ function checkLoginUser() {
         }
     });
 }
-function initialize() {
+
+function initialize(action = true) {
     let lat_attribute = $('#latInput').val();
     let long_attribute = $('#longInput').val();
     let lat_marker = '';
@@ -117,8 +118,6 @@ function initialize() {
         lat_marker = lat_attribute;
         long_marker = long_attribute;
     }
-    console.log(lat_marker);
-    console.log(long_marker);
     const map = new google.maps.Map(document.getElementById("map_canvas"), {
         zoom: 7,
         center: { lat: parseFloat(lat_marker), lng: parseFloat(long_marker) },
@@ -128,16 +127,18 @@ function initialize() {
     var myMarker = new google.maps.Marker({
         position: new google.maps.LatLng(parseFloat(lat_marker), parseFloat(long_marker)),
         map,
-        draggable: true
+        draggable: action
     });
-    // new google.maps.LatLng(parseFloat(valueSubEach[9]), parseFloat(valueSubEach[10])),
-    // console.log(myMarker);
-    google.maps.event.addListener(myMarker, 'dragend', function (evt) {
-        //  document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(6) + ' Current Lng: ' + evt.latLng.lng().toFixed(6) + '</p>';
-        $('#latInput').val(evt.latLng.lat().toFixed(6));
-        $('#longInput').val(evt.latLng.lng().toFixed(6));
-    });
+
+    if (action) {
+        google.maps.event.addListener(myMarker, 'dragend', function (evt) {
+            //  document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(6) + ' Current Lng: ' + evt.latLng.lng().toFixed(6) + '</p>';
+            $('#latInput').val(evt.latLng.lat().toFixed(6));
+            $('#longInput').val(evt.latLng.lng().toFixed(6));
+        });
+    }
 }
+
 function activeDate(){
     let inputDate = $('#dateInput').val();
     if(inputDate === ''){
@@ -1878,7 +1879,7 @@ function delAlbumUploadOut(fileAc) {
 function onLoadFCK() {
     if (!CKEDITOR.env.ie || CKEDITOR.env.version > 7)
         CKEDITOR.env.isCompatible = true;
-   var roxyFileman = '/dev24-dmsc/fileman/index.html';
+   var roxyFileman = '/fileman/index.html';
     //  var roxyFileman = '/fileman/index.php';
     CKEDITOR.replace('editDetail', {
         //filebrowserUploadUrl: "../../ckeditor/ckupload.php",
@@ -1915,7 +1916,7 @@ function onLoadFCK() {
 function onLoadFCKMini() {
     if (!CKEDITOR.env.ie || CKEDITOR.env.version > 7)
         CKEDITOR.env.isCompatible = true;
-   var roxyFileman = '/dev24-dmsc/fileman/index.html';
+   var roxyFileman = '/fileman/index.html';
     //  var roxyFileman = '/fileman/index.html';
     CKEDITOR.replace('editDetail', {
         //filebrowserUploadUrl: "../../ckeditor/ckupload.php",
@@ -2677,134 +2678,21 @@ function changeDefaultType(loaddder, statusid, tablename, statusname, masterkey,
     });
 }
 
-//######################## JUMPPAGE
-$(".divRightMain.showJumpPage table tbody tr:last").append(
-    '<td width="10" align="center" style="padding-right:5px;padding-left:5px;"><input class="formInputContantTbShotJumppage" type="number" min="0" step="1" id="pagination_jumppage" name="pagination_jumppage" value="" placeholder="ไปหน้า"></td>'
-);
-$('input[name="pagination_jumppage"]').keyup(function (e) {
-    if (e.keyCode == 13) {
-        var pagination_jumppage = $(this).val();
-        if ($.isNumeric(pagination_jumppage) && pagination_jumppage > 0) {
-            $('#myForm input[name="module_pageshow"]').val(pagination_jumppage);
-            $("#myForm").submit();
-        }
+// replace firewall
+var array_text_replace = {
+    href: '|wewebhief|',
+    src: '|wewebsic|',
+};
+function changeText(str){
+    for (const [key, value] of Object.entries(array_text_replace)) {
+        str = str.replaceAll(key, value);
     }
-});
-
-$(function () {
-    var var_conf_select2 = $("#input_conf_select2").val();
-    if (var_conf_select2 == 1) {
-
-    } else {
-        if ($("select").length > 0) {
-            $("select").select2();
-        }
-    }
-});
-
-// tooltip header
-$(".divLogin > a").each(function () {
-    strHTML = `
-      <span class="fontContantTbManage" style="display:none;">${$(this).attr(
-        "title"
-    )}</span>
-    `;
-    $(this).append(strHTML);
-});
-
-$(".divBtn-menu > a").each(function () {
-    strHTML = `
-      <span class="fontContantTbManage" style="display:none;">${$(this).attr(
-        "title"
-    )}</span>
-    `;
-    $(this).append(strHTML);
-});
-
-// tooltip all
-$(".divRightHead .borderBottom tr")
-    .children()
-    .eq(1)
-    .find("table tr td div")
-    .each(function () {
-        strHTML = `
-      <span class="fontContantTbManage" style="display:none;">${$(this).attr(
-            "title"
-        )}</span>
-    `;
-        $(this).append(strHTML);
-    });
-
-// topbar
-var scrollToTopID = "#scrollToTopBtn";
-// Show the button when user scrolls down 40px from the top
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 40) {
-        $(scrollToTopID).addClass("show");
-    } else {
-        $(scrollToTopID).removeClass("show");
-    }
-});
-
-// Scroll to the top when the button is clicked
-$(scrollToTopID).click(function () {
-    $("html, body").animate({ scrollTop: 0 }, 400);
-    return false;
-});
-
-$(".divRightHeadSearch td").removeAttr("style");
-
-$("#myForm .divRightMain").addClass("table-responsive");
-
-$('.formEndContantTb a[href="#defTop"]').closest("table").addClass("d-none");
-
-// check if an HTML element is empty using jQuery
-function isEmpty(el) {
-    return !$.trim(el.html());
-}
-$(document).ready(function () {
-    var tdsortEmpty = $(
-        ".divRightMain.table-responsive > table > tbody > tr > td > ul.ui-sortable"
-    );
-    tdsortEmpty.closest("table").removeClass("d-none");
-});
-var windowSize = $(window).width();
-if (windowSize <= 767) {
-    // console.log("screen width is less than 768");
-    $(".list-responsive").removeClass("divRightMain");
-
-    var tdEmpty = $(
-        '.divRightMain.table-responsive > table > tbody > tr > td[height="15"]'
-    );
-    if (isEmpty(tdEmpty)) {
-        tdEmpty.closest("tr").addClass("d-none");
-    }
-    var tdsortEmpty = $(
-        ".divRightMain.table-responsive > table > tbody > tr > td > ul.ui-sortable"
-    );
-    tdsortEmpty.closest("table").removeClass("d-none");
+    return str;
 }
 
-// Topic Responsive
-var hasCheckbox = $(
-    ".list-responsive .divRightContantOverTbL .formCheckboxList"
-);
-
-var topicArray = $(".list-responsive .fontTitlTbRight")
-    .map(function () {
-        return $.trim($(this).text());
-    })
-    .get();
-
-if (hasCheckbox.length > 0) {
-    // If the List has the formCheckboxList class, add an empty value at the beginning of the array to topicArray.
-    topicArray.unshift("");
+function rechangeText(str){
+    for (const [key, value] of Object.entries(array_text_replace)) {
+        str = str.replaceAll(value, key);
+    }
+    return str;
 }
-
-$(".tbBoxListwBorder > tbody > tr[class]").each(function () {
-    $(this)
-        .children("td")
-        .each(function (index) {
-            $(this).attr("data-label", topicArray[index]);
-        });
-});

@@ -4,7 +4,6 @@ const general = require('../../middlewares/general.middleware');
 const modulus = require('../../middlewares/modulus.middleware');
 const code = config.returncode;
 const ip = require("ip");
-const axios = require('axios');
 const { base64encode, base64decode } = require('nodejs-base64');
 var fs = require('fs');
 
@@ -20,6 +19,7 @@ async function getFaq(req, res) {
     const order = req.body.order;
     const page = req.body.page;
     const limit = req.body.limit;
+    const search_keyword = req.body.keyword;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -59,8 +59,15 @@ async function getFaq(req, res) {
                 WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['faq']}' 
                 AND ${config_array_db['md_cms']}_status != 'Disable' 
                 AND ${config_array_db['md_cmsl']}_language = '${language}' 
-                AND ${config_array_db['md_cmsl']}_subject != '' 
-                AND 
+                AND ${config_array_db['md_cmsl']}_subject != '' `;
+                if (search_keyword !== null && search_keyword !== undefined) {
+                    sql_list = sql_list + ` AND 
+                    (
+                        ${config_array_db['md_cmsl']}_subject LIKE '%${search_keyword}%' OR
+                        ${config_array_db['md_cmsl']}_title LIKE '%${search_keyword}%'
+                    ) `;
+                }
+                sql_list = sql_list + ` AND 
                 (
                     (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND ${config_array_db['md_cms']}_edate ='0000-00-00 00:00:00') OR
                     (${config_array_db['md_cms']}_sdate = '0000-00-00 00:00:00' AND TO_DAYS(${config_array_db['md_cms']}_edate)>=TO_DAYS(NOW())) OR

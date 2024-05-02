@@ -1,0 +1,14 @@
+.default-slick{
+    .slick-prev{left: -35px;z-index: 1;}
+    .slick-next {right: -35px;}
+    .slick-prev::before, 
+    .slick-next::before{color: var(--color-default);}
+    .slick-list{margin: 0 -10px;overflow: visible;
+        .slick-slide{padding: 0 10px;}
+    }
+    .slick-slide{opacity: 0;visibility: hidden;transition: all 200ms ease;
+        &.slick-active{opacity: 1;visibility: visible;}
+    }
+    .slick-dots {bottom: -35px;}
+    &.slick-dotted.slick-slider{margin-bottom: 50px;}
+}

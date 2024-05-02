@@ -48,6 +48,7 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["tit:selectgn"] = $langMod["meu:group"];
 	$langMod["tit:selectsg"] = "เลือก" . $langMod["meu:subgroup"];
 	$langMod["tit:selectsgn"] = $langMod["meu:subgroup"];
+	$langMod["tit:view"] = "เข้าชม";
 
 
 	$langMod["tit:inpName"] = "ชื่อ" . getNameMenu($_REQUEST["menukeyid"]);

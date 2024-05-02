@@ -24,7 +24,7 @@ if ($_REQUEST['execute'] == "insert") {
 
    if ($_POST['inputHtml'] != "") {
       $filename = $_POST["valEditID"] . "-" . $_SESSION[$valSiteManage . 'core_session_language'] . "-" . $randomNumber . ".html";
-      $HTMLToolContent = str_replace("\\\"", "\"", $_POST['inputHtml']);
+      $HTMLToolContent = str_replace("\\\"", "\"", rechangeText($_POST['inputHtml']));
       $fp = fopen($mod_path_html . "/" . $filename, "w");
       chmod($mod_path_html . "/" . $filename, 0777);
       fwrite($fp, $HTMLToolContent);
@@ -74,6 +74,7 @@ if ($_REQUEST['execute'] == "insert") {
             $insertLang[$mod_tb_root_lang . "_urlc"] = "'" . changeQuot($_REQUEST['inputurlC']) . "'";
             $insertLang[$mod_tb_root_lang . "_target"] = "'" . changeQuot($_REQUEST['inputmenutarget']) . "'";
             $insertLang[$mod_tb_root_lang . "_pic"] = "'" . $_POST["picname"] . "'";
+            $insertLang[$mod_tb_root_lang . "_pic2"] = "'" . $_POST["picname2"] . "'";
             $insertLang[$mod_tb_root_lang . "_type"] = "'" . $_POST["inputType"] . "'";
             $insertLang[$mod_tb_root_lang . "_url"] = "'" . changeQuot($_REQUEST['inputurl']) . "'";
             $insertLang[$mod_tb_root_lang . "_filevdo"] = "'" . $_POST["vdoname"] . "'";

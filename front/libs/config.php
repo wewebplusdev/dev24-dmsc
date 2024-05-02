@@ -45,31 +45,6 @@ switch ($modefunction) {
         break;
 }
 
-## config Sql ##
-$coreLanguageSQL = "mysqli";
-$_ENV = array(
-    // "PROD" => array(
-    //     "hostname" => "localhost",
-    //     "username" => "mommycle_web",
-    //     "password" => "webp@ss",
-    //     "name" => "mommycle_web",
-    // ),
-    "STAGING" => array(
-        "hostname" => "DB",
-        "username" => "root",
-        "password" => "dmscp@ssmariadb",
-        "name" => "2024_dmsc",
-    ),
-    "DEV" => array(
-        "hostname" => "DB",
-        "username" => "root",
-        "password" => "MYSQL_ROOT_PASSWORD",
-        "name" => "2024_dmsc",
-    ),
-);
-
-$core_db_charecter_set = array('charset' => "utf8", 'collation' => "utf8_general_ci");
-
 ## limit ##
 $limitpage['showperPage'] = 8;
 $limitpage['showperPageSeller'] = 11;
@@ -87,13 +62,12 @@ $lang_default = "th";
 
 ## url ##
 $url_show_lang = true;
-$url_show_default = "home";
+$url_show_default = "intro";
 
 ## config path system ##
 $path_template = array(
     "default" => array('front/template/default', 'style.css')
 );
-
 
 $lastModify = "?u=" . date("YdmHis");
 
@@ -107,6 +81,7 @@ $incfile['preloader'] = "inc/inc-preloader.tpl";
 $incfile['pagination'] = "inc/inc-pagination.tpl";
 $incfile['pdpa'] = "inc/inc-pdpa.tpl";
 $incfile['modal'] = "inc/inc-modal.tpl";
+$incfile['accessibility'] = "inc/inc-load-accessibility.tpl";
 
 ## addon js ##
 $listjs = array();
