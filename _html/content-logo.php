@@ -308,4 +308,6 @@
             }
         }
     });
+
+    $('.background').closest('.default-body').addClass('pt-0');
 </script>

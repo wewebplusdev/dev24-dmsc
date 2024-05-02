@@ -44,7 +44,7 @@
             </h1>
             <div class="graphic">
               <div class="obj">
-                <img src="<?php echo $core_template; ?>/img/uploads/obj-banner-about.png" alt="obj-banner-about" class="lazy img-cover">
+                <img src="<?php echo $core_template; ?>/img/uploads/obj-ba nner-about.png" alt="obj-banner-about" class="lazy img-cover">
               </div>
             </div>
           </div>
@@ -170,6 +170,7 @@
   .title-content {
     text-align: center;
     color: var(--color-black);
+    padding-top: 40px;
   }
   .title-content h2{
     font-size: 48px;
@@ -288,4 +289,5 @@
             }
         }
     });
+    $('.background').closest('.default-body').addClass('pt-0');
 </script>
