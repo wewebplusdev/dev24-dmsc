@@ -50,43 +50,45 @@
             </div>
             <!-- ck editor -->
             <div class="default-body">
-                <div class="background-cio">
-                    <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="backgroundinside-cio">
-                </div>
-                <div class="logo-person">
-                    <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="image-CIO">
-                </div>
-                <div class="bg-text">
-                    <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="background-text">
-                    <div class="text-name">
-                      <div class="position-name">
-                            <div class="name">นายแพทย์พิเชฐ บัญญัติ</div>
-                            <div class="position-work">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
-                      </div>
+                <div class="layout-dcio">
+                    <div class="background-cio">
+                        <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="backgroundinside-cio">
                     </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="contact">
-                    <div class="title-contact">
-                        <h3 title="ข้อมูลการติดต่อ">ข้อมูลการติดต่อ</h3>
+                    <div class="logo-person">
+                        <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="image-CIO">
                     </div>
-                    <div class="row d-contact">
-                        <div class="col">
-                            <p title="ที่อยู่">ที่อยู่</p>
-                            <p title="เบอร์โทร">เบอร์โทรศัพท์</p>
-                            <p title="โทรสาร">โทรสาร</p>
-                            <p title="อีเมล">ที่อยู่ไปรษณีย์อิเล็กทรอนิกส์</p>
-                        </div>
-                        <div class="col">
-                            <p>-</p>
-                            <p>0-2591-5453 ต่อ 99008</p>
-                            <p>-</p>
-                            <p>phichet.b@dmsc.mail.gp.th</p>
+                    <div class="bg-text">
+                        <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="background-text">
+                        <div class="text-name">
+                          <div class="position-name">
+                                <div class="name">นายแพทย์พิเชฐ บัญญัติ</div>
+                                <div class="position-work">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
+                          </div>
                         </div>
                     </div>
+                    <div class="container">
+                        <div class="contact">
+                            <div class="title-contact">
+                                <h3 title="ข้อมูลการติดต่อ">ข้อมูลการติดต่อ</h3>
+                            </div>
+                            <div class="row d-contact">
+                                <div class="col">
+                                    <p title="ที่อยู่">ที่อยู่</p>
+                                    <p title="เบอร์โทร">เบอร์โทรศัพท์</p>
+                                    <p title="โทรสาร">โทรสาร</p>
+                                    <p title="อีเมล">ที่อยู่ไปรษณีย์อิเล็กทรอนิกส์</p>
+                                </div>
+                                <div class="col">
+                                    <p>-</p>
+                                    <p>0-2591-5453 ต่อ 99008</p>
+                                    <p>-</p>
+                                    <p>phichet.b@dmsc.mail.gp.th</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div> 
     </div>
     <!-- ck editor -->
     </section>
@@ -110,7 +112,7 @@
 
     .logo-person {
         position: absolute;
-        top: 45%;
+        top: 30%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
@@ -190,17 +192,19 @@
 }
 
 @media (max-width: 991px) {
-    .logo-person img{width: 250px;}
+    .logo-person {top: 25%;}
+    .logo-person img{width: 200px;}
 }
 
 @media (max-width: 767px) {
+    .logo-person {top: 20%;}
     .bg-text {height: 100px;}
     .bg-text img {height: 100px;}
     .name{font-size: var(--typo-lg);}
     .position-work{font-size: var(--typo-xs);}
     .title-contact h3{font-size: var(--typo-lg);}
     .d-contact p{font-size: var(--typo-sm);}
-    .logo-person img{width: 200px;}
+    .logo-person img{width: 180px;}
 }
 
 @media (max-width: 575px) {

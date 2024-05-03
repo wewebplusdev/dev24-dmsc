@@ -56,18 +56,24 @@
             <!-- ck editor -->
             <div class="default-body">
                 <div class="background-logo">
-                    <div class="bg-sky">
-                        <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="img-vision" class="lazy img-cover">
-                    </div>
                     <div class="container">
                         <div class="content">
-                            <div class="logo">
-                                <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
-                            </div>
-                            <div class="title-text">
-                                <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                            <div class="center">
+                                <div class="logo">
+                                    <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
+                                </div>
+                                <div class="title-text">
+                                    <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="background-sky">
+                        <figure class="cover">
+                            <picture>
+                                <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="">
+                            </picture>
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -143,39 +149,51 @@
 </html>
 
 <style>
-    .background-logo {
-        position: relative;
+    .background-logo .cover {
+        height: 800px;
+
     }
 
     .logo {
-        display: flex;
-        justify-content: center;
-    }
-    .logo img{
-        margin-top: 30px;
+        text-align: center;
     }
 
-    .content{
-        position: relative;
+    .center {
+        margin-top: 100px;
+    }
+
+    .content {
+        position: absolute;
         z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
     }
 
     .title-text {
         text-align: center;
         color: var(--color-secondary);
     }
-    .title-text h2{
+
+    .title-text h2 {
         font-size: 48px;
         margin-top: 10px;
     }
 
-    .bg-sky {
-        position: absolute;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    figure img {
         width: 100%;
-        z-index: 0;
+        max-width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    figure.cover img {
+        object-fit: cover;
+        object-position: center;
     }
 
     .document-download-list {
@@ -228,10 +246,14 @@
             margin-bottom: 150px;
         }
 
-        .title-text h2{
+        .title-text h2 {
             font-size: 36px;
         }
-        .type-file{font-size: 18px;}
+
+        .type-file {
+            font-size: 18px;
+        }
+
         .whead .title {
             font-size: 32px;
         }
@@ -261,7 +283,13 @@
         .logo img {
             width: 300px;
         }
+        .background-logo .cover {
+            height: 500px;
 
+        }
+        .center{
+            margin-top: 50px;
+        }
 
     }
 
@@ -269,16 +297,20 @@
 
         .logo img {
             width: 150px;
-            margin-top: 0;
         }
 
-        .title-text h2{
+        .title-text h2 {
             font-size: 24px;
             margin-top: 0;
         }
 
         .whead .title {
             font-size: 24px;
+        }
+
+        .background-logo .cover {
+            height: 300px;
+
         }
 
 

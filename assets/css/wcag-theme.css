@@ -1,0 +1,483 @@
+[data-asw-filter=dark-contrast] body {
+  color: #ffffff;
+  background: #000000;
+}
+[data-asw-filter=dark-contrast] body img {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=dark-contrast] body video {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=dark-contrast] .layout-header {
+  background: #000000;
+}
+[data-asw-filter=dark-contrast] .layout-header .top-bar .nav-lang .nav-label {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-header .navbar-brand .brand-txt .title {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-header .navbar-brand .brand-txt .subtitle {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-header .main-menu .nav-link {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-header .main-menu .nav-link.active {
+  background: #ffffff;
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .layout-header .nav-search .form-search .btn-link {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-header .nav-search.open .form-search .btn-link {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .layout-header .nav-search.open .form-search {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-header .nav-search.open .form-control {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-header .nav-search .close-search {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .full-dropdown-menu {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-asw-filter=dark-contrast] .submenu-col {
+  border-right-color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .submenu-col .link {
+  color: #ffffff;
+  background: #000000;
+}
+[data-asw-filter=dark-contrast] .submenu-col .link:hover {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .submenu-col .link.active {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .submenu-col ul.nav-list > li + li {
+  border-top-color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .btn-primary,
+[data-asw-filter=dark-contrast] .btn-primary.focus,
+[data-asw-filter=dark-contrast] .btn-primary:focus,
+[data-asw-filter=dark-contrast] .btn-primary:not(:disabled):not(.disabled).active,
+[data-asw-filter=dark-contrast] .btn-primary:not(:disabled):not(.disabled):active,
+[data-asw-filter=dark-contrast] .show > .btn-primary.dropdown-toggle {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .card {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .swiper-default .swiper-button-next,
+[data-asw-filter=dark-contrast] .swiper-default .swiper-button-prev {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .nav-default .nav-link {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .nav-default .nav-link.active {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .nav-default .nav-link::before {
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .modal {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .top-graphic .swiper-default .swiper-pagination-bullet {
+  color: #ffffff;
+  background-color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .section .whead .title {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .section .whead .subtitle {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .wg-services {
+  background-color: #000000;
+  background-blend-mode: multiply;
+}
+[data-asw-filter=dark-contrast] .service-category .btn {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .service-category .btn::before {
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .service-category .btn.active,
+[data-asw-filter=dark-contrast] .service-category .btn.selected {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .service-list .item .card {
+  color: #000000;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .service-list .item .card::before {
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .service-list .item:hover .thumbnail .thumb-hover {
+  -webkit-filter: grayscale(1) invert(1);
+          filter: grayscale(1) invert(1);
+}
+[data-asw-filter=dark-contrast] .service-list .swiper-default .swiper-pagination-bullet {
+  color: #ffffff;
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .wg-research-group {
+  color: #ffffff !important;
+}
+[data-asw-filter=dark-contrast] .wg-research-list {
+  background-color: #000000;
+  background-blend-mode: luminosity;
+}
+[data-asw-filter=dark-contrast] .wg-research-group .card {
+  background: #ffffff !important;
+}
+[data-asw-filter=dark-contrast] .wg-research-list .wg-research-group .card,
+[data-asw-filter=dark-contrast] .wg-research-list .wg-research-group .card .whead .subtitle,
+[data-asw-filter=dark-contrast] .wg-research-list .wg-research-group .card .whead .title {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .wg-about {
+  color: #000000;
+  background-color: #000000;
+  background-blend-mode: luminosity;
+}
+[data-asw-filter=dark-contrast] .wg-about .content .line {
+  background-color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .wg-about .content .whead .subtitle,
+[data-asw-filter=dark-contrast] .wg-about .content .whead .title {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .wg-about .graphic {
+  -webkit-filter: grayscale(1) contrast(1) brightness(0.8);
+          filter: grayscale(1) contrast(1) brightness(0.8);
+}
+[data-asw-filter=dark-contrast] .wg-about-group .card {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#d4d4d4)) !important;
+  background: linear-gradient(#ffffff, #d4d4d4) !important;
+}
+[data-asw-filter=dark-contrast] .wg-about-group .grphic-obj img {
+  -webkit-filter: grayscale(1) invert(1);
+          filter: grayscale(1) invert(1);
+}
+[data-asw-filter=dark-contrast] .news-card {
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .news-card .title {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .news-card .action {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .news-link:hover .news-card {
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .wg-news {
+  background-color: #000000;
+  background-blend-mode: luminosity;
+}
+[data-asw-filter=dark-contrast] .wg-news .line {
+  background-color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .wg-lab .whead .title,
+[data-asw-filter=dark-contrast] .wg-lab .whead .subtitle {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .wg-lab .bg-obj img {
+  -webkit-filter: grayscale(1) brightness(0.3) contrast(1.4);
+          filter: grayscale(1) brightness(0.3) contrast(1.4);
+}
+[data-asw-filter=dark-contrast] .wg-contact .content,
+[data-asw-filter=dark-contrast] .wg-contact .content .link {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .wg-contact .bg img,
+[data-asw-filter=dark-contrast] .wg-lab .bg img {
+  -webkit-filter: grayscale(1) brightness(0.8) contrast(1.4);
+          filter: grayscale(1) brightness(0.8) contrast(1.4);
+}
+[data-asw-filter=dark-contrast] .layout-footer .footer-content {
+  background-color: #000000;
+}
+[data-asw-filter=dark-contrast] .layout-footer .footer-top .title {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-footer .footer-top .subtitle {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-footer .footer-top .title .link {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-footer .link {
+  color: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-footer .social .link .rounded-0 {
+  background: #ffffff;
+}
+[data-asw-filter=dark-contrast] .layout-footer .social .link .icon {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=dark-contrast] .layout-footer .footer-bar {
+  color: #000000;
+  background: -webkit-gradient(linear, right top, left top, from(#ffffff), to(#d4d4d4));
+  background: linear-gradient(to left, #ffffff, #d4d4d4);
+}
+
+[data-asw-filter=yellow-contrast] body {
+  color: #e6cf01;
+  background: #000000;
+}
+[data-asw-filter=yellow-contrast] body img {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] body video {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] .layout-header {
+  background: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-header .top-bar .nav-lang .nav-label {
+  color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .layout-header .navbar-brand .brand-txt .title {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-header .navbar-brand .brand-txt .subtitle {
+  color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .layout-header .main-menu .nav-link {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-header .main-menu .nav-link.active {
+  background: #e6cf01;
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-header .nav-search .form-search .btn-link {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-header .nav-search.open .form-search .btn-link {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-header .nav-search.open .form-search {
+  background: #e6cf01;
+  border-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-header .nav-search.open .form-control {
+  color: #000000;
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-header .nav-search .close-search {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .full-dropdown-menu {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-asw-filter=yellow-contrast] .submenu-col {
+  border-right-color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .submenu-col .link {
+  color: #e6cf01;
+  background: #000000;
+}
+[data-asw-filter=yellow-contrast] .submenu-col .link:hover {
+  color: #000000;
+  background: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .submenu-col .link.active {
+  color: #000000;
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .submenu-col ul.nav-list > li + li {
+  border-top-color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .btn-primary,
+[data-asw-filter=yellow-contrast] .btn-primary.focus,
+[data-asw-filter=yellow-contrast] .btn-primary:focus,
+[data-asw-filter=yellow-contrast] .btn-primary:not(:disabled):not(.disabled).active,
+[data-asw-filter=yellow-contrast] .btn-primary:not(:disabled):not(.disabled):active,
+[data-asw-filter=yellow-contrast] .show > .btn-primary.dropdown-toggle {
+  color: #000000;
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .card {
+  color: #000000;
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .swiper-default .swiper-button-next,
+[data-asw-filter=yellow-contrast] .swiper-default .swiper-button-prev {
+  color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .nav-default .nav-link {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .nav-default .nav-link.active {
+  color: #000000;
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .nav-default .nav-link::before {
+  background: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .top-graphic .swiper-default .swiper-pagination-bullet {
+  color: #e6cf01;
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .section .whead .title {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .section .whead .subtitle {
+  color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .wg-services {
+  background-color: #000000;
+  background-blend-mode: multiply;
+}
+[data-asw-filter=yellow-contrast] .service-category .btn {
+  color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .service-category .btn::before {
+  background: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .service-category .btn.active,
+[data-asw-filter=yellow-contrast] .service-category .btn.selected {
+  color: #000000;
+  background: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .service-list .item .card {
+  color: #000000;
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .service-list .item .card::before {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .service-list .item:hover .thumbnail .thumb-hover {
+  -webkit-filter: grayscale(1) invert(1);
+          filter: grayscale(1) invert(1);
+}
+[data-asw-filter=yellow-contrast] .service-list .swiper-default .swiper-pagination-bullet {
+  color: rgba(230, 207, 1, 0.7490196078);
+  background: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .wg-research-group {
+  color: #e6cf01 !important;
+}
+[data-asw-filter=yellow-contrast] .wg-research-list {
+  background-color: #000000;
+  background-blend-mode: luminosity;
+}
+[data-asw-filter=yellow-contrast] .wg-research-group .card {
+  background: #e6cf01 !important;
+}
+[data-asw-filter=yellow-contrast] .wg-research-list .wg-research-group .card,
+[data-asw-filter=yellow-contrast] .wg-research-list .wg-research-group .card .whead .subtitle,
+[data-asw-filter=yellow-contrast] .wg-research-list .wg-research-group .card .whead .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .wg-about {
+  color: #000000;
+  background-color: #000000;
+  background-blend-mode: luminosity;
+}
+[data-asw-filter=yellow-contrast] .wg-about .content .line {
+  background-color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .wg-about .content .whead .subtitle,
+[data-asw-filter=yellow-contrast] .wg-about .content .whead .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .wg-about .graphic {
+  -webkit-filter: grayscale(1) contrast(1) brightness(0.8);
+          filter: grayscale(1) contrast(1) brightness(0.8);
+}
+[data-asw-filter=yellow-contrast] .wg-about-group .card {
+  background: -webkit-gradient(linear, left top, left bottom, from(#e6cf01), to(#c2af00)) !important;
+  background: linear-gradient(#e6cf01, #c2af00) !important;
+}
+[data-asw-filter=yellow-contrast] .wg-about-group .grphic-obj img {
+  -webkit-filter: grayscale(1) invert(1);
+          filter: grayscale(1) invert(1);
+}
+[data-asw-filter=yellow-contrast] .news-card {
+  background: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .news-card .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .news-card .action {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .news-link:hover .news-card {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .wg-news {
+  background-color: #000000;
+  background-blend-mode: luminosity;
+}
+[data-asw-filter=yellow-contrast] .wg-news .line {
+  background-color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .wg-lab .whead .title,
+[data-asw-filter=yellow-contrast] .wg-lab .whead .subtitle {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .wg-lab .bg-obj img {
+  -webkit-filter: grayscale(1) brightness(0.3) contrast(1.4);
+          filter: grayscale(1) brightness(0.3) contrast(1.4);
+}
+[data-asw-filter=yellow-contrast] .wg-contact .content,
+[data-asw-filter=yellow-contrast] .wg-contact .content .link {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .wg-contact .bg img,
+[data-asw-filter=yellow-contrast] .wg-lab .bg img {
+  -webkit-filter: grayscale(1) brightness(0.8) contrast(1.4);
+          filter: grayscale(1) brightness(0.8) contrast(1.4);
+}
+[data-asw-filter=yellow-contrast] .layout-footer .footer-content {
+  background-color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-footer .footer-top .title {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-footer .footer-top .subtitle {
+  color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .layout-footer .footer-top .title .link {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-footer .link {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-footer .social .link .rounded-0 {
+  background: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .layout-footer .footer-bar {
+  color: #000000;
+  background: -webkit-gradient(linear, right top, left top, from(#e6cf01), to(#a39300));
+  background: linear-gradient(to left, #e6cf01, #a39300);
+}
+
+.readable-font span:not(.asw-wrapper *) {
+  font-family: OpenDyslexic3, Comic Sans MS, Arial, Helvetica, sans-serif !important;
+}
+.readable-font .asw-wrapper .material-icons {
+  font-family: "Material Icons" !important;
+}/*# sourceMappingURL=wcag-theme.css.map */
