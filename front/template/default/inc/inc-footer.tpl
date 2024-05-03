@@ -200,6 +200,7 @@
                                 {foreach $load_policy->item as $keyPolicy => $valuePolicy}
                                     {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
                                     {assign var="target" value="_self"}
+                                    {$downloadID = 0}
                                     {if $valuePolicy->typec eq 2}
                                         {$downloadID = $valuePolicy->attachment[0]->id}
                                     {/if}

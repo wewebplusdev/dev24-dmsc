@@ -117,7 +117,8 @@
         <div class="service-list" data-aos="fade-up" id="service-append">
           {foreach $load_data->item as $keyload_data => $valueload_data}
             <div class="item">
-              <a href="" class="link">
+              <a {if $valueload_data->url neq "" && $valueload_data->url neq "#"}href="{$valueload_data->url}"{if $valueload_data->target eq 2}target="_blank"{/if}{else}
+                href="javascript:void(0);"{/if} class="link">
                 <div class="card">
                   <div class="card-body">
                     <div class="thumbnail">

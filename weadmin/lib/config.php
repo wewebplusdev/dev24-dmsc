@@ -47,7 +47,8 @@ $core_variable_charset = "UTF-8";
 $core_relativepath_rss = "../../rss";
 
 ## Core Path Name  ##################################################
-$core_full_path = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http' . "://" . $_SERVER["HTTP_HOST"] . "" . $core_pathname_folderlocal;
+$core_full_path = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
+$core_full_path = $core_full_path . "://" . $_SERVER["HTTP_HOST"] . "" . $core_pathname_folderlocal;
 
 ## Core Path SQL Language ##################################################
 $coreLanguageSQL = "mysqli";
