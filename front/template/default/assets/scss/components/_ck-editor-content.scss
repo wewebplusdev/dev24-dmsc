@@ -34,7 +34,7 @@
   .title {
     font-size: 36px;
     color: var(--color-secondary);
-    margin: 50px 0;
+    margin-bottom: 50px;
   }
   .item {
     -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
@@ -121,7 +121,7 @@
     }
   }
 }
-// CK Content Structure
+
 
 // CK Content Experts
 
@@ -249,7 +249,6 @@
 }
 
 
-// CK Content Experts
 
 
 
@@ -885,7 +884,8 @@
   .our-history-info .content .desc {
     font-size: 18px !important;
     text-wrap: wrap !important;
-    max-width: 300px !important;
+    max-width: 50% !important;
+	
   }
   .history-timeline .h-bigger {
     font-size: 30px !important;
@@ -894,7 +894,7 @@
   }
 }
 
-// CK Content About
+
 
 
 // CK Content Policy Website
@@ -963,7 +963,7 @@
 }
 
 
-// CK Content Policy Website
+
 
 
 // CK Content Policy Privacy
@@ -1031,5 +1031,5 @@
 	  
   }
   
-  // CK Content Policy Privacy
+
 
