@@ -29,18 +29,18 @@
                 </li>
                 <li>
                   <a href="#" class="link">
-                  โครงสร้างองค์กร
+                    โครงสร้างองค์กร
                   </a>
                 </li>
                 <li>
                   <a href="#" class="link">
-                  โครงสร้างหน่วยงาน
+                    โครงสร้างหน่วยงาน
                   </a>
                 </li>
               </ol>
             </div>
             <h1 class="title">
-            โครงสร้างหน่วยงาน
+              โครงสร้างหน่วยงาน
             </h1>
             <div class="graphic">
               <div class="obj">
@@ -56,34 +56,13 @@
       <div class="default-body">
         <!-- ck editor -->
         <div class="editor-content">
-            <div class="organize-layout">
+          <div class="organize-layout">
             <div class="container">
-			<div class="row">
-				<div class="tree">
-					<ul>
-						<li> <a href="#"><img src="images/1.jpg"><span>Child</span></a>
-						<ul>
-							<li><a href="#"><img src="images/2.jpg"><span>Grand Child</span></a>
-							<ul>
-								<li> <a href="#"><img src="images/3.jpg"><span>Great Grand Child</span></a> </li>
-								<li> <a href="#"><img src="images/4.jpg"><span>Great Grand Child</span></a> </li>
-							</ul>
-						</li>
-						<li> <a href="#"><img src="images/5.jpg"><span>Grand Child</span></a>
-						<ul>
-							<li> <a href="#"><img src="images/6.jpg"><span>Great Grand Child</span></a> </li>
-							<li> <a href="#"><img src="images/7.jpg"><span>Great Grand Child</span></a> </li>
-							<li> <a href="#"><img src="images/8.jpg"><span>Great Grand Child</span></a> </li>
-						</ul>
-					</li>
-					<li><a href="#"><img src="images/9.jpg"><span>Grand Child</span></a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</div>
-</div>
+              <a href="<?php echo $core_template; ?>/img/uploads/organization.jpg" data-fancybox data-caption="Single image">
+              <img src="<?php echo $core_template; ?>/img/uploads/organization.jpg" alt="">
+              </a>
             </div>
+          </div>
         </div>
         <!-- ck editor -->
       </div>
@@ -95,8 +74,10 @@
   <?php include('inc/loadscript.php'); ?>
 
   <script>
+   Fancybox.bind("[data-fancybox]", {
    
-  </script>
+});
+</script>
 </body>
 
 </html>
