@@ -5,162 +5,6 @@
     <?php include('inc/metatag.php'); ?>
     <?php include('inc/loadstyle.php'); ?>
 
-    <style>
-        .layout-experts .content {
-
-            padding: 40px 30px;
-            font-size: 20px;
-            line-height: 1.5;
-        }
-
-        .layout-experts .font18 {
-            font-size: 18px;
-            font-weight: 400;
-            
-        }
-
-        .layout-experts .typo-xs {
-            font-size: 16px;
-            width: 100%;
-
-
-        }
-
-        .layout-experts .card-bottom {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .editor-content {
-            margin: 0;
-        }
-
-
-
-        .layout-experts .image-cover {
-            width: 240px;
-            height: 280px;
-        }
-
-        .layout-experts .image-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-
-        }
-
-        .layout-experts .color-mode img {
-            mix-blend-mode: screen;
-        }
-
-        .layout-experts .structure-column {
-            padding: 40px 40px 40px 60px;
-            font-size: 20px;
-
-        }
-
-        .layout-experts .title {
-            font-size: 36px;
-            color: var(--color-secondary);
-            margin-bottom: 50px;
-        }
-
-        .layout-experts .item {
-            -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
-            filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            color: var(--color-black);
-
-        }
-
-        .layout-experts .item a {
-            text-decoration: none;
-            color: var(--color-black);
-        }
-
-        .layout-experts .item a:hover {
-            color: var(--color-primary);
-        }
-
-        .layout-experts .item .col-9 {
-            padding: 0;
-        }
-
-        .layout-experts .opacity img {
-            opacity: 0.1;
-        }
-
-
-
-        .layout-experts .item-wrapper {
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
-            background-color: var(--color-light);
-            border: 1px solid #EBEBEB;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 576px) {
-
-            .layout-experts .item {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                line-height: 3rem;
-            }
-
-            .layout-experts .item-wrapper {
-                display: table;
-                padding: 20px 20px 40px 20px;
-                width: 350px;
-            }
-
-            .layout-experts .item-wrapper .card-bottom {
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .layout-experts .item-wrapper .card-bottom .text-primary {
-                text-align: center;
-            }
-
-            .layout-experts .bottom-content {
-                text-align: center;
-            }
-
-            .layout-experts .typo-xs {
-                margin-left: 20px;
-            }
-
-
-
-
-            .layout-experts .item-wrapper .card-bottom .font18 {
-                text-align: center;
-                margin-bottom: 40px;
-            }
-
-            .layout-experts .text-back {
-                bottom: 0;
-            }
-
-            .layout-experts .item-wrapper .card-top {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 20px;
-            }
-
-            .layout-experts .title {
-                text-align: center;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -237,8 +81,8 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">นางสาวประไพ วงศ์สินคงมั่น</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (เคมี)
-                                                    (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)
+                                                    วิทยาศาสตร์การแพทย์ (เคมี)<br>
+                                                    (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)<br>
                                                     หัวหน้าสำนักวิชการวิทยาศาสตร์การแพทย์</div>
                                             </div>
                                             <div class="typo-xs">
@@ -274,7 +118,7 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">นายอภิวัฏ ธวัชสิน</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (วิทยาศาสตร์กายภาพ)
+                                                    วิทยาศาสตร์การแพทย์<br> (วิทยาศาสตร์กายภาพ)<br>
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
@@ -310,7 +154,7 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">นางสิริภากร แสงกิจพร</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (ชีววิทยา)
+                                                    วิทยาศาสตร์การแพทย์ <br>(ชีววิทยา)<br>
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
@@ -347,7 +191,7 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">รอการแต่งตั้ง</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (จุลชีววิทยา)
+                                                    วิทยาศาสตร์การแพทย์<br> (จุลชีววิทยา)<br>
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
@@ -383,7 +227,7 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">นางนวลจันทร์ วิจักษณ์จินดา</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (ภูมิคุ้มกันวิทยา)
+                                                    วิทยาศาสตร์การแพทย์<br> (ภูมิคุ้มกันวิทยา)<br>
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
@@ -419,7 +263,7 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">นางสุภาพร ภูมิอมร</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (เทคโนโลยีชีวภาพ)
+                                                    วิทยาศาสตร์การแพทย์<br> (เทคโนโลยีชีวภาพ)<br>
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
@@ -458,7 +302,7 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">รอการแต่งตั้ง</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (มาตรฐานห้องปฏิบัติการ)
+                                                    วิทยาศาสตร์การแพทย์ <br>(มาตรฐานห้องปฏิบัติการ)<br>
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
@@ -496,7 +340,7 @@
                                             <div>
                                                 <div class="typo-md fw-bold text-primary">รอการแต่งตั้ง</div>
                                                 <div class="font18">ตำแหน่งผู้ทรงคุณวุฒิด้านวิจัยและพัฒนา
-                                                    วิทยาศาสตร์การแพทย์ (พิษวิทยา)
+                                                    วิทยาศาสตร์การแพทย์<br> (พิษวิทยา)<br>
                                                     (นักวิทยาศาสตร์การแพทย์ทรงคุณวุฒิ)</div>
                                             </div>
                                             <div class="typo-xs">
