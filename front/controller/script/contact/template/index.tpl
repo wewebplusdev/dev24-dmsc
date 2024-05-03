@@ -120,8 +120,8 @@
                               {/if}
                             </div>
                             <div class="action">
-                              <span class="text">Google map</span>
                               <a href="{$ul}/{$menuActive}/googlemap-agencies/{$valueList->id}" target="_blank" class="link">
+                                <span class="text">Google map</span>
                                 <span class="icon">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
                                     viewBox="0 0 14.25 14.25">

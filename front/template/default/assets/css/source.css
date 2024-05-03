@@ -7144,14 +7144,19 @@ div.swal2-html-container {
       -ms-flex-align: center;
           align-items: center;
 }
-.contact-center .contact-card .body .action .text {
-  font-weight: bold;
-  color: var(--color-primary);
-  margin-right: 10px;
-}
 .contact-center .contact-card .body .action .link {
   display: block;
   color: var(--color-primary);
+}
+.contact-center .contact-card .body .action .link:hover .text {
+  opacity: 0.8;
+}
+.contact-center .contact-card .body .action .text {
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-right: 5px;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .contact-service {
