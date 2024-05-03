@@ -44,7 +44,7 @@
             </h1>
             <div class="graphic">
               <div class="obj">
-                <img src="<?php echo $core_template; ?>/img/uploads/obj-ba nner-about.png" alt="obj-banner-about" class="lazy img-cover">
+                <img src="<?php echo $core_template; ?>/img/uploads/obj-banner-about.png" alt="obj-banner-about" class="lazy img-cover">
               </div>
             </div>
           </div>
