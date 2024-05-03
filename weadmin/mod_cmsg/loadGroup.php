@@ -282,7 +282,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                        <!--                                          <td width="39" align="left" valign="top">
                                              <div style="width:29px; height:29px;  background:url(<?php echo $valPic ?>) center no-repeat; background-size: cover;background-repeat: no-repeat; border-radius: 50%;  "></div>
                                           </td>-->
-                                       <td align="left" style="padding-left:10px; " valign="top">
+                                       <td align="left" valign="top">
                                           <a href="javascript:void(0)" class="btnview" onclick="
                                                    document.myFormHome.valEditID.value = '<?= $valID ?>';
                                                 "><?= $valName ?></a>

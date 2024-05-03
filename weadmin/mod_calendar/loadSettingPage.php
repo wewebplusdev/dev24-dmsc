@@ -130,7 +130,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
                <td id="boxSelectTest">
-                  <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchI" placeholder="<?= $langTxt["sch:search"] ?>" />
+                  <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
                </td>
                <td style="padding-right:10px;" align="right" width="6%"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
             </tr>
@@ -269,8 +269,10 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   }
             ?>
                   <tr class="<?= $valDivTr ?>">
-                     <td rowspan="2" class="divRightContantOverTbL" valign="top" align="center" bgcolor="<?= $valColor ?>">
+                     <!-- <td rowspan="2" class="divRightContantOverTbL" valign="top" align="center" bgcolor="<?= $valColor ?>">
 
+                     </td> -->
+                     <td class="divRightContantOverTbL" valign="top" align="center">
                      </td>
                      <td class="divRightContantOverTb" valign="top" align="left">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -293,6 +295,25 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 
                            </tr>
                         </table>
+                        <ul class="listper">
+
+                           <li style="width:100%; height: 30px;"><span>สิทธิการเข้าถึงกลุ่มนี้ : </span></li>
+
+                           <?php
+                           foreach ($listadmin as $showGpermis) {
+
+                              // print_pre($valID);
+
+                              echo "<li style='width:32.2%;'>"; //$listAllowPer[$valID][$showGpermis['sy_grp_id']]
+                              echo '<label style="background-color:#fff;color:#333;"><input type="checkbox" name="permis[' . $valID . '][' . $showGpermis['_id'] . ']"';
+                              if ($listAllowPer[$valID][$showGpermis['_id']] == 1) {
+                                 echo "checked";
+                              }
+                              echo '> ' . $showGpermis['_name'] . '</label>';
+                              echo "</li>";
+                           }
+                           ?>
+                        </ul>
                      </td>
 
                      <td class="divRightContantOverTb" valign="top" align="center">
@@ -301,7 +322,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                      </td>
                   </tr>
                   <tr class="<?= $valDivTr ?>">
-                     <td colspan="3" rowspan="1">
+                     <!-- <td colspan="3" rowspan="1">
                         <ul class="listper">
 
                            <li style="width:100%; "><span>สิทธิการเข้าถึงกลุ่มนี้ : </span></li>
@@ -321,7 +342,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                            }
                            ?>
                         </ul>
-                     </td>
+                     </td> -->
                   </tr>
 
                <?

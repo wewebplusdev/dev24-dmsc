@@ -2698,7 +2698,38 @@ function rechangeText(str){
 }
 
 
+// tooltip header
+$(".divLogin > a").each(function () {
+  strHTML = `
+    <span class="fontContantTbManage" style="display:none;">${$(this).attr(
+      "title"
+    )}</span>
+  `;
+  $(this).append(strHTML);
+});
 
+$(".divBtn-menu > a").each(function () {
+  strHTML = `
+    <span class="fontContantTbManage" style="display:none;">${$(this).attr(
+      "title"
+    )}</span>
+  `;
+  $(this).append(strHTML);
+});
+
+// tooltip all
+$(".divRightHead .borderBottom tr")
+  .children()
+  .eq(1)
+  .find("table tr td div")
+  .each(function () {
+    strHTML = `
+    <span class="fontContantTbManage" style="display:none;">${$(this).attr(
+      "title"
+    )}</span>
+  `;
+    $(this).append(strHTML);
+  });
 
 
 $('.formEndContantTb a[href="#defTop"]').closest("table").addClass("d-none");

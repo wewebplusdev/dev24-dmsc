@@ -144,7 +144,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       <div class="divRightHeadSearch">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
-               <td class="selectSearch2" style="width: 48%;">
+               <td style="width: 48%;">
                   <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="0"><?php echo $langMod["tit:selectg"]; ?></option>
                      <?php

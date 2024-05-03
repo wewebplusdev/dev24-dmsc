@@ -16,7 +16,7 @@
             <div class="divLogin-name">
                 <?php echo  $_SESSION[$valSiteManage . "core_session_name"] ?>
             </div>
-            <a href="javascript:void(0)" data-toggle="dropdown" title="<?php echo  $langTxt["menu:topmenu"] ?>">
+            <a href="javascript:void(0)" data-toggle="dropdown" title="<?php echo  $langTxt["menu:topmenu"] ?>" aria-expanded="false">
                 <div class="divLogin-img">
                     <?php
                     $valPicProfileTop = load_picmemberBack($_SESSION[$valSiteManage . "core_session_id"]);

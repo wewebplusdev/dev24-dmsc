@@ -177,7 +177,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
                <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
-                  <td>
+                  <td style="padding-bottom:  0 !important;">
                      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                         <tr>
                            <td>
