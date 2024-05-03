@@ -448,15 +448,23 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
    </form>
    <?php include("../lib/disconnect.php"); ?>
    <div id="toolbar-options" class="hidden">
-      <a href="javascript:void(0);" class="action_toolbar" onclick="
-                     document.myFormHome.inputLt.value = 'Thai';
-                     editContactNew('editContant.php');">Thai</a>
+      <? foreach ($arrLang as $key => $value) {
+      ?>
+         <a href="javascript:void(0);" class="action_toolbar" onclick="
+            document.myFormHome.inputLt.value = '<?= $value['key'] ?>';
+            editContactNew('editContant.php');"><?= $value['key'] ?></a>
+      <? }
+      ?>
    </div>
 
    <div id="toolbar-view" class="hidden">
-      <a href="javascript:void(0);" class="action_toolbar" onclick="
-                     document.myFormHome.inputLt.value = 'Thai';
-                     viewContactNew('viewContant.php');">Thai</a>
+   <? foreach ($arrLang as $key => $value) {
+      ?>
+         <a href="javascript:void(0);" class="action_toolbar" onclick="
+                     document.myFormHome.inputLt.value = '<?= $value['key'] ?>';
+                     viewContactNew('viewContant.php');"><?= $value['key'] ?></a>
+      <? }
+      ?>
    </div>
 </body>
 
