@@ -58,7 +58,7 @@
         <div class="editor-content">
           <div class="organize-layout">
             <div class="container">
-              <a href="<?php echo $core_template; ?>/img/uploads/organization.jpg" data-fancybox data-caption="Single image">
+              <a href="<?php echo $core_template; ?>/img/uploads/organization.jpg" data-fancybox data-caption="โครงสร้างหน่วยงาน">
               <img src="<?php echo $core_template; ?>/img/uploads/organization.jpg" alt="">
               </a>
             </div>
