@@ -2106,7 +2106,7 @@ div.swal2-html-container {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
   background-color: var(--color-light);
-  border: 1px solid #EBEBEB;
+  border: 1px solid #ebebeb;
   line-height: 1.5;
 }
 
@@ -2265,7 +2265,7 @@ div.swal2-html-container {
   width: 8px;
   height: 100%;
   border-radius: 5px;
-  background-color: #29B16F;
+  background-color: #29b16f;
   opacity: 0.3;
 }
 .history-timeline > .row {
@@ -2723,6 +2723,153 @@ div.swal2-html-container {
     font-size: 30px !important;
     text-align: center;
     margin-bottom: 40px;
+  }
+}
+.policy-website {
+  line-height: 1.5;
+  font-size: var(--typo-md);
+  font-weight: var(--fw-regular);
+}
+.policy-website .title {
+  color: var(--color-primary);
+  font-size: var(--typo-xl);
+  font-weight: var(--fw-bold);
+}
+.policy-website .policy-content {
+  margin-top: 40px;
+}
+.policy-website .policy-content .title {
+  color: var(--color-secondary);
+  margin: 40px 0;
+}
+.policy-website .policy-content .number {
+  color: var(--color-light);
+  background-color: #01377d;
+  min-width: 40px;
+  min-height: 40px;
+  font-size: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 20px;
+}
+.policy-website .policy-content ul {
+  padding: 0;
+}
+.policy-website .policy-content li {
+  list-style: none;
+  padding-left: 60px;
+  margin-bottom: 50px;
+}
+.policy-website .policy-content .special-policy {
+  padding-left: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .policy-website {
+    font-size: var(--typo-sm);
+  }
+  .policy-website .title {
+    font-size: var(--typo-md);
+  }
+  .policy-website .policy-content li {
+    margin-bottom: 20px;
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 575px) {
+  .policy-website {
+    font-size: var(--typo-xs);
+  }
+  .policy-website .title {
+    font-size: var(--typo-md);
+  }
+  .policy-website .headline {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20px;
+  }
+}
+.policy-privacy {
+  line-height: 1.5;
+  font-size: var(--typo-md);
+  font-weight: var(--fw-regular);
+}
+.policy-privacy .title {
+  color: var(--color-primary);
+  font-size: var(--typo-xl);
+  font-weight: var(--fw-bold);
+}
+.policy-privacy .policy-content {
+  margin-top: 40px;
+}
+.policy-privacy .policy-content .title {
+  color: var(--color-secondary);
+  margin: 40px 0;
+}
+.policy-privacy .policy-content .number {
+  color: var(--color-light);
+  background-color: #01377d;
+  min-width: 40px;
+  min-height: 40px;
+  font-size: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 20px;
+}
+.policy-privacy .policy-content ul {
+  padding: 0;
+}
+.policy-privacy .policy-content li {
+  list-style: none;
+  padding-left: 60px;
+  margin-bottom: 50px;
+  text-decoration: none;
+}
+.policy-privacy .policy-content .special-policy {
+  padding-left: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .policy-privacy {
+    font-size: var(--typo-sm);
+  }
+  .policy-privacy .title {
+    font-size: var(--typo-md);
+  }
+  .policy-privacy .policy-content li {
+    margin-bottom: 20px;
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 575px) {
+  .policy-privacy {
+    font-size: var(--typo-xs);
+  }
+  .policy-privacy .title {
+    font-size: var(--typo-sm);
+    margin-bottom: 20px;
   }
 }
 .layout-header {
