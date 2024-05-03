@@ -51,13 +51,13 @@
             <!-- ck editor -->
             <div class="default-body">
                 <div class="background-cio">
-                    <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="">
+                    <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="backgroundinside-cio">
                 </div>
                 <div class="logo-person">
-                    <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="">
+                    <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="image-CIO">
                 </div>
                 <div class="bg-text">
-                    <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="">
+                    <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="background-text">
                     <div class="text-name">
                       <div class="position-name">
                             <div class="name">นายแพทย์พิเชฐ บัญญัติ</div>

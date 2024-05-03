@@ -52,7 +52,7 @@
       <div class="default-body">
         <div class="container">
           <div class="thumbnail-content">
-            <img src="<?php echo $core_template; ?>/img/uploads/mission.png" alt="mission">
+            <img src="<?php echo $core_template; ?>/img/uploads/mission.png" alt="image-thumbnail">
           </div>
           <div class="content-text">
             <div class="title-content"><h5 class="title">กรมวิทยาศาสตร์การแพทย์มีอำนาจหน้าที่ ดังต่อไปนี้</h5></div>
