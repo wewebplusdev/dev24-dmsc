@@ -55,7 +55,7 @@
             </div>
             <!-- ck editor -->
             <div class="default-body">
-                <div class="background">
+                <div class="background-logo">
                     <div class="bg-sky">
                         <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="img-vision" class="lazy img-cover">
                     </div>
@@ -143,7 +143,7 @@
 </html>
 
 <style>
-    .background {
+    .background-logo {
         position: relative;
     }
 
@@ -309,5 +309,5 @@
         }
     });
 
-    $('.background').closest('.default-body').addClass('pt-0');
+    $('.background-logo').closest('.default-body').addClass('pt-0');
 </script>

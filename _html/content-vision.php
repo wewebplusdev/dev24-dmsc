@@ -55,7 +55,7 @@
       </div>
       <!-- ck editor -->
       <div class="default-body">
-        <div class="background">
+        <div class="background-vision">
           <div class="bg-city">
             <img src="<?php echo $core_template; ?>/img/background/bg-city.png" alt="img-vision" class="lazy img-cover">
           </div>
@@ -156,7 +156,7 @@
 
 <style>
 
-  .background {
+  .background-vision {
     position: relative;
   }
   .bg-city{
@@ -240,28 +240,14 @@
     .type-file{font-size: 18px;}
   }
 
-  @media (max-width: 991px) {
-   
-  }
-
-  @media (max-width: 767px) {
-    
-  }
 
   @media (max-width: 575px) {
-    .title-content h2{
-      font-size: var(--typo-lg);
-    }
-    .text-content h2{
-      font-size: var(--typo-lg);
-    }
-    .text-content p{
-      font-size: var(--typo-md);
-    }
-    .image-content {
-     display: none; 
-    }
+    .title-content h2{font-size: var(--typo-lg);}
+    .text-content h2{font-size: var(--typo-lg);}
+    .text-content p{font-size: var(--typo-md);}
+    .image-content {display: none; }
     .swiper-wrapper{margin-bottom: 200px;}
+ 
   }
 
 </style>
@@ -289,5 +275,5 @@
             }
         }
     });
-    $('.background').closest('.default-body').addClass('pt-0');
+    $('.background-vision').closest('.default-body').addClass('pt-0');
 </script>

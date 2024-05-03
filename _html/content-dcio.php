@@ -50,49 +50,47 @@
             </div>
             <!-- ck editor -->
             <div class="default-body">
-                <div class="content"></div>
-                <div class="bg-cio">
-                    <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="background">
+                <div class="background-cio">
+                    <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="">
                 </div>
                 <div class="logo-person">
-                    <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="รูปภาพ">
+                    <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="">
                 </div>
                 <div class="bg-text">
-                    <div class="position-relative">
-                        <div class="text"> </div>
-                        <div class="bg-left"><img src="<?php echo $core_template; ?>/img/background/bg-text-left.png" alt="background"></div>
-                        <div class="bg-right"><img src="<?php echo $core_template; ?>/img/background/bg-text-right.png" alt="background"></div>
-                        <div class="position-text">
-                            <h2 title="ชื่อ">นายแพทย์พิเชฐ บัญญัติ</h2>
-                            <p title="ตําแหน่ง">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</p>
-                        </div>
+                    <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="">
+                    <div class="text-name">
+                      <div class="position-name">
+                            <div class="name">นายแพทย์พิเชฐ บัญญัติ</div>
+                            <div class="position-work">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
+                      </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="contact">
-                        <div class="title-contact">
-                            <h3 title="ข้อมูลการติดต่อ" class="title">ข้อมูลการติดต่อ</h3>
+            </div>
+            <div class="container">
+                <div class="contact">
+                    <div class="title-contact">
+                        <h3 title="ข้อมูลการติดต่อ">ข้อมูลการติดต่อ</h3>
+                    </div>
+                    <div class="row d-contact">
+                        <div class="col">
+                            <p title="ที่อยู่">ที่อยู่</p>
+                            <p title="เบอร์โทร">เบอร์โทรศัพท์</p>
+                            <p title="โทรสาร">โทรสาร</p>
+                            <p title="อีเมล">ที่อยู่ไปรษณีย์อิเล็กทรอนิกส์</p>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <p title="ที่อยู่">ที่อยู่</p>
-                                <p title="เบอร์โทร">เบอร์โทรศัพท์</p>
-                                <p title="โทรสาร">โทรสาร</p>
-                                <p title="อีเมล">ที่อยู่ไปรษณีย์อิเล็กทรอนิกส์</p>
-                            </div>
-                            <div class="col">
-                                <p>-</p>
-                                <p>0-2591-5453 ต่อ 99008</p>
-                                <p>-</p>
-                                <p>phichet.b@dmsc.mail.gp.th</p>
-                            </div>
+                        <div class="col">
+                            <p>-</p>
+                            <p>0-2591-5453 ต่อ 99008</p>
+                            <p>-</p>
+                            <p>phichet.b@dmsc.mail.gp.th</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ck editor -->
-        </section>
-        <?php include('inc/footer.php'); ?>
+    </div>
+    <!-- ck editor -->
+    </section>
+    <?php include('inc/footer.php'); ?>
     </div>
     <?php include('inc/loadscript.php'); ?>
 
@@ -101,67 +99,62 @@
 </html>
 
 <style>
-    .defailt-body {
+    .background-cio {
         position: relative;
-    }
-
-    .content {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 0;
     }
 
     .logo-person {
         position: absolute;
-        top: 310px;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
+        z-index: 1;
     }
 
     .bg-text {
         position: relative;
+        background: linear-gradient(to top, #01377D, #2AB170);
+        height: 180px;
+        z-index: 2;
     }
 
-    .text {
-        background: linear-gradient(to top, #01377D, #2AB170);
+    .bg-text img {
         width: 100%;
         height: 180px;
         background-size: cover;
-    }
-
-    .bg-left {
-        position: absolute;
-        left: 0;
-        top: 0;
+        background-position: center;
+        background-repeat: no-repeat;
         opacity: 0.2;
-        mix-blend-mode: multiply;
     }
 
-    .bg-right {
+    .text-name {
         position: absolute;
-        right: 0;
+        color: white;
+        width: 100%;
+        height: 100%;
         top: 0;
-        opacity: 0.2;
-        mix-blend-mode: multiply;
     }
 
-    .position-text p {
-        text-align: center;
-        margin-top: 10px;
+    .position-name {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
     }
 
-    .position-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #fff;
+    .name {
+        font-size: 40px;
     }
 
-    .text img {
-        position: absolute;
-        left: 0;
+    .position-work {
+        font-size: var(--typo-md);
     }
 
     .title-contact {
@@ -173,96 +166,54 @@
         margin-top: 50px;
     }
 
-    .row {
+    .d-contact {
         margin-top: 30px;
         color: black;
     }
-
-    .bg-cio {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    .d-contact p{
+        font-size: var(--typo-md);
     }
+ 
+
+
 
 @media (max-width: 1440px) {
-    .logo-person {
-        top: 250px;
-    }
-    .logo-person img {
-        width: 300px;
-        height: 400px;
-    }
+   
+    .logo-person img {width: 300px;}
 }
-
 @media (max-width: 1199px) {
-    .logo-person {
-        top: 200px;
-    }
+    
+    .bg-text {height: 150px;}
+    .bg-text img {height: 150px;}
+    .name{font-size: var(--typo-xl);}
+    .position-work{font-size: var(--typo-default);}
 }
 
 @media (max-width: 991px) {
-    .logo-person {
-        top: 170px;
-    }
-    .logo-person img{
-        width: 180px;
-        height: 250px;
-    }
-    .text {
-        height: 100px;
-    }
-    .position-text h2{
-        font-size: 28px;
-    }
-    .position-text p{
-        font-size: 18px;
-    }
-    .bg-left img{
-        height: 100px;
-    }
-    .bg-right img{
-        height: 100px;
-    }
+    .logo-person img{width: 250px;}
 }
 
 @media (max-width: 767px) {
-    .logo-person {
-        top: 120px;
-    }
-    .title-contact {
-        font-size: 28px;
-    }
-    .col p{
-        font-size: 18px;
-    }
+    .bg-text {height: 100px;}
+    .bg-text img {height: 100px;}
+    .name{font-size: var(--typo-lg);}
+    .position-work{font-size: var(--typo-xs);}
+    .title-contact h3{font-size: var(--typo-lg);}
+    .d-contact p{font-size: var(--typo-sm);}
+    .logo-person img{width: 200px;}
 }
 
 @media (max-width: 575px) {
-    .logo-person {
-        top: 85px;
-    }
-    .logo-person img{
-        width: 130px;
-        height: 180px;
-    }
-    .position-text h2{
-        font-size: 20px;
-    }
-    .position-text p{
-        font-size: 14px;
-    }
-    .title-contact {
-        font-size: 20px;
-    }
-    .text {
-        height: 80px;
-    }
-    .bg-left img{
-        height: 80px;
-    }
-    .bg-right img{
-        height: 80px;
-    }
-}
-
+    .logo-person img{width: 150px;}
+   .name{font-size: var(--typo-md);}
+    .position-work{font-size: 16px;}
+    .title-contact h3{font-size: var(--typo-md);}
+    .d-contact p{font-size: 16px;}
+} 
 </style>
+
+<script>
+    $('.background-cio').closest('.default-body').addClass('pt-0');
+    $('.background-cio').closest('.default-body').addClass('pb-0');
+</script>
+
