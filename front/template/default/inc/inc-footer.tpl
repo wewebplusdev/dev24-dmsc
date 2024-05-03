@@ -198,10 +198,13 @@
                         <div class="policy">
                             <ul class="item-list">
                                 {foreach $load_policy->item as $keyPolicy => $valuePolicy}
-                                {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
-                                {assign var="target" value="_self"}
+                                    {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
+                                    {assign var="target" value="_self"}
+                                    {if $valuePolicy->typec eq 2}
+                                        {$downloadID = $valuePolicy->attachment[0]->id}
+                                    {/if}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|page_redirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|page_redirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language:$downloadID}"}
                                         {$target = $valuePolicy->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}
@@ -216,7 +219,7 @@
                     {/if}
                     <div class="col-md-auto" data-aos="fade-right">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
-                        <a href="javascript:void(0);" class="link sitemap">แผนผังเว็บไซต์</a>
+                        <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
                 </div>
             </div>

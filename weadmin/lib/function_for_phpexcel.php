@@ -12,6 +12,13 @@ $langModExcel["txt:credate"] = "วันที่สร้าง";
 $langModExcel["txt:status"] = "สถานะ";
 $langModExcel["txt:address"] = "ที่อยู่";
 
+$langModExcel["txt:name_report"] = "ชื่อ-นามสกุล ของผู้ถูกร้อง";
+$langModExcel["txt:rank_report"] = "ช่วงเวลาที่กระทำความผิด";
+$langModExcel["txt:fac_report"] = "ข้อเท็จจริงหรือพฤติการณ์การทุจริต";
+$langModExcel["txt:corruption_report"] = "กระทำความผิดต่อตำแหน่งหน้าที่ราชการ";
+$langModExcel["txt:rich_report"] = "ร่ำรวยผิดปกติ";
+$langModExcel["txt:confirm_report"] = "ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวที่ข้าพเจ้าได้ร้องเรียน/แจ้งเบาะแสข้างต้น เป็นเรื่องจริง";
+
 function print_pre($array)
 {
     echo "<pre class='printPRE'>";

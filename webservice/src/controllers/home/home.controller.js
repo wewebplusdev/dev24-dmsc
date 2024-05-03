@@ -53,6 +53,7 @@ async function getPopup(req, res) {
             ,${config_array_db['md_tgpl']}_target as target 
             ,${config_array_db['md_tgpl']}_type as type 
             ,${config_array_db['md_tgpl']}_urlc as urlc 
+            ,${config_array_db['md_tgpl']}_filevdo as filevdo 
             FROM ${config_array_db['md_tgp']} 
             INNER JOIN ${config_array_db['md_tgpl']} ON ${config_array_db['md_tgpl']}_cid = ${config_array_db['md_tgp']}_id
             WHERE ${config_array_db['md_tgp']}_masterkey = '${config_array_masterkey['popup']}' 
@@ -113,8 +114,10 @@ async function getPopup(req, res) {
                                 'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                 'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
                             }
-                        }else{
+                        }else if(select[i].type == 2){
                             arr_data[i].video = select[i].urlc;
+                        }else{
+                            arr_data[i].video = modulus.getUploadPath(select[i].masterkey, 'vdo', select[i].filevdo);
                         }
                         arr_data[i].url = select[i].url;
                         arr_data[i].target = (select[i].target == 2) ? '_blank' : '_self';

@@ -123,7 +123,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                   <table border="0" cellspacing="0" cellpadding="0" align="right">
                      <tr>
                         <td align="right">
-                           <?php if ($is_super == "SuperAdmin") { ?>
+                           <?php if ($is_super == "SuperAdmin" || true) { ?>
                               <div class="btnAdd" title="<?php echo $langTxt["btn:add"] ?>" onclick="document.myFormHome.inputLt.value = 'Thai';
                                           addContactNew('addContant.php');"></div>
                               <div class="btnDel" title="<?php echo $langTxt["btn:del"] ?>" onclick="
@@ -155,7 +155,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                <td align="left" valign="middle" class="divRightTitleTb"><span class="fontTitlTbRight"><?php echo $langMod["tit:subject"] ?></span></td>
                <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["mg:status"] ?></span></td>
                <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["us:lastdate"] ?></span></td>
-               <?php if ($is_super == "SuperAdmin") { ?>
+               <?php if ($is_super == "SuperAdmin" || true) { ?>
                   <td width="8%" class="divRightTitleTbR" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["mg:manage"] ?></span></td>
                <?php } ?>
             </tr>
@@ -289,7 +289,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                         <span class="fontContantTbTime"><?php echo $valTimeCredate ?></span>
                      </td>
                      <td class="divRightContantOverTbR" valign="top" align="center">
-                        <?php if ($is_super == "SuperAdmin") { ?>
+                        <?php if ($is_super == "SuperAdmin" || true) { ?>
                            <table border="0" cellspacing="0" cellpadding="0">
                               <tr>
                                  <td valign="top" align="center" width="30">

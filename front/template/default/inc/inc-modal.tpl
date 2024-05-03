@@ -41,33 +41,34 @@
                                             </figure>
                                         </div>
                                     {elseif $valueload_popup->type eq 2}
-
+                                        {$myUrlArray = "v="|explode:$valueload_popup->video}
+                                        {$myUrlCut = $myUrlArray[1]}
+                                        {$myUrlCutArray = "&"|explode:$myUrlCut}
+                                        {$myUrlCutAnd= $myUrlCutArray.0}
+                                        <div class="swiper-slide">
+                                            <div class="iframe-container">
+                                                <iframe
+                                                    src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1"
+                                                    title="Inside Of Saturn&#39;s Rings" style="border: none;"
+                                                    referrerpolicy="strict-origin-when-cross-origin">
+                                                    </iframe>
+                                            </div>
+                                        </div>
                                     {else}
-                                        
+                                        <div class="swiper-slide">
+                                            <div class="video-container">
+                                                {* <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                                                <source src="{$valueTgp->video->real}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                                </video> *}
+                                                <video loop="" autoplay="" muted="" controls>
+                                                <source src="{$valueload_popup->video}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                                </video>
+                                            </div>
+                                        </div>
                                     {/if}
-                                {/foreach}
-                                <div class="swiper-slide">
-                                  <div class="video-container">
-                                    {* <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
-                                    <source src="{$valueTgp->video->real}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                    </video> *}
-                                    <video loop="" autoplay="" muted="" controls>
-                                      <source src="{$template}/assets/video/petri-dish-pandas.mp4" type="video/mp4">
-                                      Your browser does not support the video tag.
-                                    </video>
-                                  </div>
-                                </div>
-                                
-                                <div class="swiper-slide">
-                                  <div class="iframe-container">
-                                      <iframe
-                                          src="https://www.youtube.com/embed/kETLbg89qA0"
-                                          title="Inside Of Saturn&#39;s Rings" style="border: none;
-                                          referrerpolicy="strict-origin-when-cross-origin">
-                                        </iframe>
-                                  </div>
-                                </div>
+                                {/foreach}                                
                             </div>
                             <div class="swiper-pagination"></div>
                             <!-- <div class="autoplay-progress">
