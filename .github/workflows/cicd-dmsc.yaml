@@ -42,7 +42,7 @@ jobs:
           cp -r /home/env/.htaccess /wwwroot/website
           rm -rf /wwwroot/website/webservice
           echo "copy Dockerfile"
-          cp -r /home/env/Dockerfile /wwwroot/website
+          cp -r /wwwroot/website/_setup/Dockerfile /wwwroot/website
 
       - name: Build & Start Container Image front-end & back-end
         run: |
