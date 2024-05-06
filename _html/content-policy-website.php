@@ -48,7 +48,7 @@
                 <div class="editor-content">
                     <div class="policy-website">
                         <div class="container">
-                            <div class="d-flex justify-content-center flex-column align-items-center mb-5 ">
+                            <div class="d-flex justify-content-center flex-column align-items-center mb-sm-4 mb-xl-5 ">
                                 <div class="d-flex justify-content-center text-nowrap headline">
                                     <div class="title">“กรมวิทยาศาสตร์การแพทย์”</div>
                                     <div class="align-self-center px-3">หรือ</div>

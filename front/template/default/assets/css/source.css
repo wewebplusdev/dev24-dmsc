@@ -2974,12 +2974,20 @@ div.swal2-html-container {
 .policy-website .policy-content li {
   list-style: none;
   padding-left: 60px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .policy-website .policy-content .special-policy {
   padding-left: 40px;
 }
 
+@media screen and (max-width: 991px) {
+  .policy-website {
+    font-size: var(--typo-xs);
+  }
+  .policy-website .title {
+    font-size: var(--typo-md);
+  }
+}
 @media screen and (max-width: 767px) {
   .policy-website {
     font-size: var(--typo-sm);
@@ -2998,6 +3006,7 @@ div.swal2-html-container {
   }
   .policy-website .title {
     font-size: var(--typo-md);
+    margin: 20px 0;
   }
   .policy-website .headline {
     -webkit-box-orient: vertical;
@@ -3053,19 +3062,41 @@ div.swal2-html-container {
 .policy-privacy .policy-content li {
   list-style: none;
   padding-left: 60px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-decoration: none;
 }
 .policy-privacy .policy-content .special-policy {
   padding-left: 40px;
 }
 
+@media screen and (max-width: 1440px) {
+  .policy-privacy .policy-content .title {
+    font-size: var(--typo-md);
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .policy-privacy .policy-content .title {
+    font-size: var(--typo-md);
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .policy-privacy {
+    font-size: var(--typo-xs);
+  }
+  .policy-privacy .policy-content .title {
+    font-size: var(--typo-md);
+    margin: 20px 0;
+  }
+}
 @media screen and (max-width: 767px) {
   .policy-privacy {
     font-size: var(--typo-sm);
   }
-  .policy-privacy .title {
+  .policy-privacy .policy-content .title {
     font-size: var(--typo-md);
+    margin: 20px 0;
   }
   .policy-privacy .policy-content li {
     margin-bottom: 20px;
@@ -3076,8 +3107,21 @@ div.swal2-html-container {
   .policy-privacy {
     font-size: var(--typo-xs);
   }
-  .policy-privacy .title {
-    font-size: var(--typo-sm);
+  .policy-privacy .policy-content .title {
+    font-size: var(--typo-md);
+    margin: 20px 0;
+  }
+  .policy-privacy .headline {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 20px;
   }
 }

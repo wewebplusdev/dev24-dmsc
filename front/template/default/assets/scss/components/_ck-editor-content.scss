@@ -972,13 +972,26 @@ border: none;}
     li {
       list-style: none;
       padding-left: 60px;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
     }
 
     .special-policy {
       padding-left: 40px;
     }
   }
+}
+
+@media screen and (max-width: 1440px) { 
+  
+}
+
+@media screen and (max-width: 1199px) {
+  
+}
+
+@media screen and (max-width: 991px) {
+  .policy-website {font-size: var(--typo-xs);}
+  .policy-website .title {font-size: var(--typo-md);}
 }
 
 @media screen and (max-width: 767px) {
@@ -989,7 +1002,7 @@ border: none;}
 
 @media screen and (max-width: 575px) {
   .policy-website {font-size: var(--typo-xs);}
-  .policy-website .title {font-size: var(--typo-md);}
+  .policy-website .title {font-size: var(--typo-md);  margin: 20px 0; }
   .policy-website .headline {flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;}
 }
 
@@ -1035,7 +1048,7 @@ border: none;}
     li {
       list-style: none;
       padding-left: 60px;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       text-decoration: none;
     }
 
@@ -1045,15 +1058,29 @@ border: none;}
   }
 }
 
+@media screen and (max-width: 1440px) { 
+  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 20px 0; }
+}
+
+@media screen and (max-width: 1199px) {
+  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 20px 0; }
+}
+
+@media screen and (max-width: 991px) {
+  .policy-privacy {font-size: var(--typo-xs);}
+  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 20px 0; }
+}
+
 @media screen and (max-width: 767px) {
   .policy-privacy {font-size: var(--typo-sm);}
-  .policy-privacy .title {font-size: var(--typo-md);}
+  .policy-privacy .policy-content .title {font-size: var(--typo-md);margin: 20px 0; }
   .policy-privacy .policy-content li {margin-bottom: 20px;padding-left: 0;}
 }
 
 @media screen and (max-width: 575px) {
   .policy-privacy {font-size: var(--typo-xs);}
-  .policy-privacy .title {font-size: var(--typo-sm);margin-bottom: 20px;}
+  .policy-privacy .policy-content .title {font-size: var(--typo-md);  margin: 20px 0; }
+  .policy-privacy .headline {flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;}
 }
 
 // CK Content Policy Privacy
