@@ -2,8 +2,6 @@ name: CI/CD DMSC
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 jobs:
   deploy:
     name: Auto Deploy
@@ -43,6 +41,8 @@ jobs:
           echo "copy .htaccess"
           cp -r /home/env/.htaccess /wwwroot/website
           rm -rf /wwwroot/website/webservice
+          echo "copy Dockerfile"
+          cp -r /home/env/Dockerfile /wwwroot/website
 
       - name: Build & Start Container Image front-end & back-end
         run: |
