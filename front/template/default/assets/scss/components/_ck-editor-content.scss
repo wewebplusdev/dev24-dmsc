@@ -17,6 +17,12 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+
+    .contact{
+      .text-nowrap{
+        margin-right: 10px;
+      }
+    }
 	
   }
   .image-cover {
@@ -36,6 +42,10 @@
     font-size: 36px;
     color: var(--color-secondary);
     margin: 50px 0;
+
+    &:first-child {
+      margin-top: 20px;
+    }
   }
   .item {
     -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
@@ -92,7 +102,7 @@
           font-size: var(--typo-xl);
         }
         .font20 {
-          font-size: var(--typo-md);
+          font-size: var(--typo-xs);
         }
 
         .contact{
@@ -133,6 +143,10 @@
       align-items: center;
       line-height: 3rem;
 	 
+    }
+
+    .title{
+      margin: 20px 0;
     }
 
     .item-wrapper {
@@ -206,6 +220,13 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+
+    .contact{
+      .text-nowrap{
+        margin-right: 10px;
+      }
+    }
+	
 	
   }
   .image-cover {
@@ -225,6 +246,10 @@
     font-size: 36px;
     color: var(--color-secondary);
     margin: 50px 0;
+
+    &:first-child {
+      margin-top:20px ;
+    }
   }
   .item {
     -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
@@ -277,10 +302,10 @@
     .item-wrapper {
       .card-bottom {
         .title-name{
-          font-size: var(--typo-xl);
+          font-size: var(--typo-lg);
         }
         .font20 {
-          font-size: var(--typo-sm);
+          font-size: var(--typo-xs);
         }
 
         .contact{
@@ -320,7 +345,12 @@
       flex-direction: column;
       align-items: center;
       line-height: 3rem;
-	 
+      margin: 0;
+    }
+
+    .title {
+      font-size: var(--typo-lg);
+      margin: 20px 0;
     }
 
     .item-wrapper {
@@ -345,7 +375,7 @@
         }
 
         .contact{
-          font-size: 20px;
+          font-size: var(--typo-xs);
     
         }
       }

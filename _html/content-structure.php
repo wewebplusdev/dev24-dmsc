@@ -84,12 +84,12 @@
                                             </div>
                                             <div class="typo-xs contact">
                                                 <div  class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">Email :</div>
+                                                    <div class="text-nowrap">Email :</div>
                                                     <div class="">-</div>
                                                 </div>
                                                 <a href="tel:0-2589-9862">
-                                                    <div  class="d-flex align-items-center ">
-                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                    <div  class="d-flex align-items-center">
+                                                        <div class="text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-2589-9862, 0-2951-0000</div>
                                                     </div>
                                                 </a>
