@@ -2,8 +2,8 @@ name: SonarCloud
 on:
   push:
     branches: [ analysis ]
-  # pull_request:
-  #   branches: [ analysis ]
+  pull_request:
+    branches: [ analysis ]
 jobs:
   sonarcloud:
     name: SonarCloud

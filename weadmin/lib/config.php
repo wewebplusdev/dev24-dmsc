@@ -20,9 +20,6 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'local
     // $_CORE_ENV = "DEV";
     $_CORE_ENV = "UAT";
     $core_pathname_folderlocal = "/dev24-dmsc";
-}elseif($_SERVER['HTTP_HOST'] == 'project.wewebcloud.com'){
-    $_CORE_ENV = "WEWEB";
-    $core_pathname_folderlocal = "/dev24-dmsc";
 }elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
     $_CORE_ENV = "PROD";
 }else{
@@ -87,12 +84,12 @@ $core_icon_librarypath = "../img/iconmenu";
 
 ## Database Connect #################################################
 $_ENV = array(
-    // "PROD" => array(
-    //     "hostname" => "localhost",
-    //     "username" => "mommycle_web",
-    //     "password" => "webp@ss",
-    //     "name" => "mommycle_web",
-    // ),
+    "PROD" => array(
+        "hostname" => "45.136.253.128:9906",
+        "username" => "root",
+        "password" => "@69lk!logmLi20041:;",
+        "name" => "2024_dmsc_dev",
+    ),
     "UAT" => array(
         "hostname" => "45.136.253.128:9906",
         "username" => "root",
@@ -103,12 +100,6 @@ $_ENV = array(
         "hostname" => "DB",
         "username" => "wewebadmin",
         "password" => "!root!Wewebp@ss9!",
-        "name" => "2024_dmsc",
-    ),
-    "WEWEB" => array(
-        "hostname" => "127.0.0.1",
-        "username" => "root",
-        "password" => "IySY?Pk7!!mH",
         "name" => "2024_dmsc",
     ),
     "DEV" => array(

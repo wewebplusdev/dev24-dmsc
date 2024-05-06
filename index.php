@@ -10,11 +10,16 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'local
     $path_root = ""; #ถ้า root อยู่ public
     $http_protocal = "https";
     $http_status = true;
-}else{
+}elseif($_SERVER['HTTP_HOST'] == 'uat.wewebplus.com' || $_SERVER['HTTP_HOST'] == 'api.wewebplus.com'){
     $_CORE_ENV = "STAGING";
     $path_root = ""; #ถ้า root อยู่ public
     $http_protocal = "https";
     $http_status = true;
+}else{
+    $_CORE_ENV = "PROD";
+    $path_root = ""; #ถ้า root อยู่ public
+    $http_protocal = "http";
+    $http_status = false;
 }
 
 define("_http", $http_protocal);
