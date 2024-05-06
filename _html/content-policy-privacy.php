@@ -64,7 +64,7 @@
 
                                 </ul>
 
-                                <ul>
+                                <ul class="margin-policy">
                                     <div class="title d-flex align-items-center">
                                         <div class="number">2</div>
                                         <div class="typo-md">ขอบเขตการบังคับใช้นโยบายฉบับนี้</div>

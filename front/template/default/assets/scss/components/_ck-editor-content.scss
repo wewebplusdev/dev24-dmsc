@@ -125,7 +125,7 @@
           font-size: var(--typo-md);
         }
         .font20 {
-          font-size: var(--typo-sm);
+          font-size: var(--typo-xs);
         }
 
         .contact{
@@ -927,7 +927,7 @@ border: none;}
   
 
   .our-history-info .content .desc {font-size: 18px;max-width: 50%;}
-  .history-timeline .h-bigger {font-size: 24px;text-align: center;margin: 40px 0  20px 0;}
+  .history-timeline .h-bigger {font-size: 24px;text-align: center;margin: 20px 0;}
 }
 
 // CK Content About
@@ -986,23 +986,30 @@ border: none;}
 }
 
 @media screen and (max-width: 1199px) {
-  
+  .policy-website {font-size: var(--typo-sm);}
+  .policy-website .title {font-size: var(--typo-md); }
+  .policy-website .policy-content{margin: 0;}
+  .policy-website .policy-content li {margin-bottom: 20px;padding-left: 0;}
 }
 
 @media screen and (max-width: 991px) {
-  .policy-website {font-size: var(--typo-xs);}
-  .policy-website .title {font-size: var(--typo-md);}
+  .policy-website {font-size: var(--typo-sm);}
+  .policy-website .title {font-size: var(--typo-md); }
+  .policy-website .policy-content{margin: 0;}
+  .policy-website .policy-content li {margin-bottom: 20px;padding-left: 0;}
 }
 
 @media screen and (max-width: 767px) {
   .policy-website {font-size: var(--typo-sm);}
-  .policy-website .title {font-size: var(--typo-md);}
+  .policy-website .title {font-size: var(--typo-md); }
+  .policy-website .policy-content{margin: 0;}
   .policy-website .policy-content li {margin-bottom: 20px;padding-left: 0;}
 }
 
 @media screen and (max-width: 575px) {
   .policy-website {font-size: var(--typo-xs);}
-  .policy-website .title {font-size: var(--typo-md);  margin: 20px 0; }
+  .policy-website .title {font-size: var(--typo-md); }
+  .policy-website .policy-content  .title {font-size: var(--typo-md);  margin: 20px 0; }
   .policy-website .headline {flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;}
 }
 
@@ -1023,6 +1030,12 @@ border: none;}
 
   .policy-content {
     margin-top: 40px;
+
+    .margin-policy{
+    li{
+      margin-bottom: 10px;
+    }
+  } 
 
     .title {
       color: var(--color-secondary);
@@ -1055,6 +1068,8 @@ border: none;}
     .special-policy {
       padding-left: 40px;
     }
+
+    
   }
 }
 
@@ -1079,6 +1094,8 @@ border: none;}
 
 @media screen and (max-width: 575px) {
   .policy-privacy {font-size: var(--typo-xs);}
+  .policy-privacy .policy-content{margin-top: 30px;}
+ 
   .policy-privacy .policy-content .title {font-size: var(--typo-md);  margin: 20px 0; }
   .policy-privacy .headline {flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;}
 }
