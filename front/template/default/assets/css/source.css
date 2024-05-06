@@ -2154,6 +2154,7 @@ div.swal2-html-container {
         -ms-flex-align: center;
             align-items: center;
     line-height: 3rem;
+    margin: 0;
   }
   .layout-structure .title {
     margin: 20px 0;
