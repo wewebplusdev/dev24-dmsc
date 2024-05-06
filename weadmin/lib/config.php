@@ -85,10 +85,10 @@ $core_icon_librarypath = "../img/iconmenu";
 ## Database Connect #################################################
 $_ENV = array(
     "PROD" => array(
-        "hostname" => "45.136.253.128:9906",
-        "username" => "root",
-        "password" => "@69lk!logmLi20041:;",
-        "name" => "2024_dmsc_dev",
+        "hostname" => "192.168.200.171",
+        "username" => "wewebadmin",
+        "password" => "!root!Wewebp@ss9!",
+        "name" => "2024_dmsc_uat",
     ),
     "UAT" => array(
         "hostname" => "45.136.253.128:9906",

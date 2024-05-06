@@ -77,6 +77,7 @@ exports.logs_access_api = async function (req, authData, code) {
 async function client_access_api(req, authData, code){
     const method = req.body.method ? req.body.method : req?.route?.path?.split('/')?.pop();
     const app_token = authData?.appInfo?.app_token ? authData.appInfo.app_token : 'Unknown User';
+    var returncode = config.returncode;
 
     let conn = config.configDB.connectDB();
     const query = util.promisify(conn.query).bind(conn);
@@ -131,7 +132,7 @@ async function client_access_api(req, authData, code){
         const insert_data = await query(queryData);
     } catch (error) {
         console.log('client_access_api');
-        console.log(code.error_wrong.msg);
+        console.log(returncode.error_wrong.msg);
     }
     conn.destroy();
 }
