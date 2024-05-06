@@ -531,14 +531,14 @@
   }
 
   .swiper-pagination-bullet {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 
   .swiper-pagination-bullet-active {
     background-color: var(--color-primary);
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 20px;
   }
 
@@ -900,6 +900,20 @@ border: none;}
   .history-timeline .row {margin: 0;}
   .history-timeline .timeline-list p {font-size: 24px;}
   .history-timeline .h-bigger {font-size: 50px;text-align: center;margin: 40px 0 40px 0;}
+  .each-year{
+    .swiper-pagination-bullet {
+      width: 16px;
+      height: 16px;
+    }
+  
+    .swiper-pagination-bullet-active {
+      background-color: var(--color-primary);
+      width: 16px;
+      height: 16px;
+      border-radius: 20px;
+    }
+  }
+  
 }
 
 @media (max-width: 767px) {
@@ -912,6 +926,20 @@ border: none;}
   .our-history-info .content .subtitle {font-size: 30px;}
   .our-history-info .content .desc {font-size: 24px;text-wrap: wrap;max-width: 600px;}
   .history-timeline .h-bigger {font-size: 40px;text-align: center;margin-bottom: 40px;}
+
+  .each-year{
+  .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+    width: 14px;
+    height: 14px;
+    border-radius: 20px;
+  }
+}
 }
 
 @media (max-width: 575px) {
@@ -924,7 +952,18 @@ border: none;}
   .our-history-info .content {line-height: 1; padding-bottom: 40px;}
   .our-history-info .content .title {font-size: var(--typo-md);}
   .our-history-info .content .subtitle {font-size: var(--typo-md);}
-  
+  .each-year {
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+    width: 12px;
+    height: 12px;
+    border-radius: 20px;
+  }}
 
   .our-history-info .content .desc {font-size: 18px;max-width: 50%;}
   .history-timeline .h-bigger {font-size: 24px;text-align: center;margin: 20px 0;}
