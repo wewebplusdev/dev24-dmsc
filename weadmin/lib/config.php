@@ -20,10 +20,10 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'local
     // $_CORE_ENV = "DEV";
     $_CORE_ENV = "UAT";
     $core_pathname_folderlocal = "/dev24-dmsc";
-}elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
-    $_CORE_ENV = "PROD";
-}else{
+}elseif($_SERVER['HTTP_HOST'] == 'uat.wewebplus.com' || $_SERVER['HTTP_HOST'] == 'api.wewebplus.com'){
     $_CORE_ENV = "STAGING";
+}else{
+    $_CORE_ENV = "PROD";
 }
 
 ## Core Login session  ######################################################
