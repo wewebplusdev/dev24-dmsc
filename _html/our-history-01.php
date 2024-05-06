@@ -55,52 +55,52 @@
         </figure>
       </div>
       <div class="default-body">
-        <div class="our-history-info">
-          <div class="container">
-            <div class="row align-items-end">
-              <div class="col-xl-6">
-                <div class="thumbnails">
-                  <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
+        <!-- ck editor -->
+        
+        
+        <div class="editor-content">
+          <div class="our-history-info">
+            <div class="container">
+              <div class="row align-items-end">
+                <div class="col-xl-6">
+                  <div class="thumbnails">
+                    <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
+                  </div>
                 </div>
-              </div>
-              <div class="col-xl-6 ">
-                <div class="content">
-                  <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
-                  <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>
-                  <div class="desc">
-                    มีการปรับปรุงเปลี่ยนแปลงโครงสร้างหลายครั้ง เพื่อให้เกิดความเหมาะสมกับภาระหน้าที่
-                    <br>
-                    และให้ทันต่อสภาพความเปลี่ยนแปลงทางด้านเทคโนโลยี สังคม และสิ่งแวดล้อม
+                <div class="col-xl-6 ">
+                  <div class="content">
+                    <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
+                    <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>
+                    <div class="desc">
+                      มีการปรับปรุงเปลี่ยนแปลงโครงสร้างหลายครั้ง เพื่อให้เกิดความเหมาะสมกับภาระหน้าที่
+                      <br>
+                      และให้ทันต่อสภาพความเปลี่ยนแปลงทางด้านเทคโนโลยี สังคม และสิ่งแวดล้อม
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="nav-default each-year">
-          <div class="container">
-            <div class="title typo-md fw-bold text-secondary mb-3">ความเป็นมา</div>
-            <div class="swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="our-history-01.php" class="nav-link active">2565 - ปัจจุบัน</a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="our-history-02.php" class="nav-link">2564 - 2545</a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="our-history-03.php" class="nav-link">2540 - 2526</a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="our-history-04.php" class="nav-link">2517 - 2485</a>
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-            <!-- ck editor -->
-
-            
-            <div class="editor-content">
+              <div class="nav-default each-year">
+                <div class="container">
+                  <div class="title typo-md fw-bold text-secondary mb-3">ความเป็นมา</div>
+                  <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="our-history-01.php" class="nav-link active">2565 - ปัจจุบัน</a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="our-history-02.php" class="nav-link">2564 - 2545</a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="our-history-03.php" class="nav-link">2540 - 2526</a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="our-history-04.php" class="nav-link">2517 - 2485</a>
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
               <div class="history-timeline">
                 <div class="row">
                   <div class="col-lg-6  timeline-dot ">

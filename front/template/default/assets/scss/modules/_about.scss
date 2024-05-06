@@ -1,37 +1,37 @@
-.our-history-info {
-  margin-bottom: 60px;
+// .our-history-info {
+//   margin-bottom: 60px;
 
-  .thumbnails {
-    width: 670px;
-  }
+//   .thumbnails {
+//     width: 670px;
+//   }
 
-  .content {
-    display: inline-grid;
-    gap: 20px;
-    text-align: right;
-    width: 0px;
-    margin-left: -215px;
-    padding-bottom: 70px;
+//   .content {
+//     display: inline-grid;
+//     gap: 20px;
+//     text-align: right;
+//     width: 0px;
+//     margin-left: -215px;
+//     padding-bottom: 70px;
 
-    .title {
-      font-size: 70px;
-      color: var(--color-secondary);
+//     .title {
+//       font-size: 70px;
+//       color: var(--color-secondary);
 
-    }
+//     }
 
-    .subtitle {
-      font-size: 50px;
-      font-weight: var(--fw-black);
-      color: var(--color-primary);
-    }
+//     .subtitle {
+//       font-size: 50px;
+//       font-weight: var(--fw-black);
+//       color: var(--color-primary);
+//     }
 
-    .desc {
-      font-size: var(--typo-md);
-      line-height: 1.4em;
-      width: max-content;
-    }
-  }
-}
+//     .desc {
+//       font-size: var(--typo-md);
+//       line-height: 1.4em;
+//       width: max-content;
+//     }
+//   }
+// }
 
 .each-year {
   .nav-link {
@@ -64,81 +64,81 @@
   }
 }
 
-.history-timeline {
-  position: relative;
+// .history-timeline {
+//   position: relative;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 100%;
-    border-radius: 5px;
-    background-color: #29B16F;
-    opacity: 0.3;
-  }
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 8px;
+//     height: 100%;
+//     border-radius: 5px;
+//     background-color: #29B16F;
+//     opacity: 0.3;
+//   }
 
-  >.row {
-    align-items: end;
-    margin: 0 -50px;
-    margin-bottom: 160px;
+//   >.row {
+//     align-items: end;
+//     margin: 0 -50px;
+//     margin-bottom: 160px;
 
-    >div {
-      padding: 0 50px;
-    }
+//     >div {
+//       padding: 0 50px;
+//     }
 
-    .timeline-dot {
-      &::before {
-        content: "";
-        position: absolute;
-        right: -8px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        outline: 6px solid var(--color-primary);
-        background-color: var(--color-light);
-      }
-    }
-  }
+//     .timeline-dot {
+//       &::before {
+//         content: "";
+//         position: absolute;
+//         right: -8px;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         width: 16px;
+//         height: 16px;
+//         border-radius: 50%;
+//         outline: 6px solid var(--color-primary);
+//         background-color: var(--color-light);
+//       }
+//     }
+//   }
 
-  // .timeline-layout {
-  //     width: 600px;
-  // }
-  .h-bigger {
-    font-size: 120px;
-    font-weight: var(--fw-black);
-    line-height: normal;
-    color: var(--color-primary);
-  }
+//   // .timeline-layout {
+//   //     width: 600px;
+//   // }
+//   .h-bigger {
+//     font-size: 120px;
+//     font-weight: var(--fw-black);
+//     line-height: normal;
+//     color: var(--color-primary);
+//   }
 
-  .timeline-list {
-    li {
-      font-size: var(--typo-md);
-      color: var(--color-primary);
+//   .timeline-list {
+//     li {
+//       font-size: var(--typo-md);
+//       color: var(--color-primary);
 
-      &:not(:last-child) {
-        margin-bottom: 15px;
-      }
+//       &:not(:last-child) {
+//         margin-bottom: 15px;
+//       }
 
-      p {
-        color: var(--color-default);
-        line-height: 1.4em;
-      }
-    }
-  }
+//       p {
+//         color: var(--color-default);
+//         line-height: 1.4em;
+//       }
+//     }
+//   }
 
-  .thumbnails {
-    margin-top: 30px;
+//   .thumbnails {
+//     margin-top: 30px;
 
-    img {
-      width: 100%;
-    }
-  }
-}
+//     img {
+//       width: 100%;
+//     }
+//   }
+// }
 
 .document-download-list {
   width: 100%;
