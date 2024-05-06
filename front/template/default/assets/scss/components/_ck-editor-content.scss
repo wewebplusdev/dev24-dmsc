@@ -165,7 +165,7 @@
        
         }
         .font20 {
-          font-size: var(--typo-sm);
+          font-size: var(--typo-xs);
           margin-bottom: 20px;
          
         }
@@ -1072,7 +1072,7 @@ border: none;}
 }
 
 @media screen and (max-width: 767px) {
-  .policy-privacy {font-size: var(--typo-sm);}
+  .policy-privacy {font-size: var(--typo-xs);}
   .policy-privacy .policy-content .title {font-size: var(--typo-md);margin: 20px 0; }
   .policy-privacy .policy-content li {margin-bottom: 20px;padding-left: 0;}
 }
