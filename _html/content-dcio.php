@@ -50,24 +50,26 @@
             </div>
             <!-- ck editor -->
             <div class="default-body">
-                <div class="layout-dcio">
-                    <div class="background-cio">
-                        <img src="<?php echo $core_template; ?>/img/background/bg-cio.png" alt="backgroundinside-cio">
-                    </div>
-                    <div class="logo-person">
-                        <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="image-CIO">
-                    </div>
-                    <div class="bg-text">
-                        <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="background-text">
-                        <div class="text-name">
-                          <div class="position-name">
-                                <div class="name">นายแพทย์พิเชฐ บัญญัติ</div>
-                                <div class="position-work">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
-                          </div>
+                <div class="container">
+                    <div class="editor-content">
+                        <div class="layout-dcio">
+                            <div class="logo-person">
+                                <div class="person-dcio">
+                                    <img src="<?php echo $core_template; ?>/img/uploads/logo-person.png" alt="image-CIO">
+                                </div>
+                            </div>
+                            <div class="bg-text">
+                                <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="">
+                                <div class="text-name">
+                                    <div class="position-name">
+                                        <div class="name">นายแพทย์พิเชฐ บัญญัติ</div>
+                                        <div class="position-work">รองอธิบดีกรมวิทยาศาสตร์การแพทย์</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-cio"></div>
                         </div>
-                    </div>
-                    <div class="container">
-                        <div class="contact">
+                        <div class="contact-dcio">
                             <div class="title-contact">
                                 <h3 title="ข้อมูลการติดต่อ">ข้อมูลการติดต่อ</h3>
                             </div>
@@ -88,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
     </div>
     <!-- ck editor -->
     </section>
@@ -101,37 +103,51 @@
 </html>
 
 <style>
-    .background-cio {
+    .layout-dcio {
         position: relative;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: 0;
+        padding: 100px 0;
     }
 
     .logo-person {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-    }
-
-    .bg-text {
         position: relative;
-        background: linear-gradient(to top, #01377D, #2AB170);
-        height: 180px;
-        z-index: 2;
+        overflow: hidden;
+        top: 0;
+        height: 70%;
     }
 
-    .bg-text img {
-        width: 100%;
-        height: 180px;
+    .person-dcio {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .bg-cio {
+        position: absolute;
+        background-image: url("../front/template/default/assets/img/background/bg-cio.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        width: 100vw;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+
+    .bg-text {
+        position: absolute;
+        background: linear-gradient(to top, #01377D, #2AB170);
+        height: 180px;
+        width: 100vw;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    .bg-text img {
         opacity: 0.2;
+        height: 180px;
     }
 
     .text-name {
@@ -152,6 +168,7 @@
     }
 
     .name {
+        font-weight: bold;
         font-size: 40px;
     }
 
@@ -159,65 +176,29 @@
         font-size: var(--typo-md);
     }
 
-    .title-contact {
-        color: #01377D;
+    .contact-dcio {
+        padding: 50px 0;
+    }
+    .title-contact h3 {
+        color: var(--color-secondary);
         font-size: 36px;
+        font-weight: bold;
     }
 
-    .contact {
-        margin-top: 50px;
-    }
-
-    .d-contact {
-        margin-top: 30px;
-        color: black;
-    }
-    .d-contact p{
+    .d-contact p {
         font-size: var(--typo-md);
     }
- 
-
-
 
 @media (max-width: 1440px) {
-   
-    .logo-person img {width: 300px;}
-}
-@media (max-width: 1199px) {
+    .person-dcio img{width: 300px;}
+    .name{font-size: 36px;}
     
-    .bg-text {height: 150px;}
-    .bg-text img {height: 150px;}
-    .name{font-size: var(--typo-xl);}
-    .position-work{font-size: var(--typo-default);}
 }
 
-@media (max-width: 991px) {
-    .logo-person {top: 25%;}
-    .logo-person img{width: 200px;}
-}
-
-@media (max-width: 767px) {
-    .logo-person {top: 20%;}
-    .bg-text {height: 100px;}
-    .bg-text img {height: 100px;}
-    .name{font-size: var(--typo-lg);}
-    .position-work{font-size: var(--typo-xs);}
-    .title-contact h3{font-size: var(--typo-lg);}
-    .d-contact p{font-size: var(--typo-sm);}
-    .logo-person img{width: 180px;}
-}
-
-@media (max-width: 575px) {
-    .logo-person img{width: 150px;}
-   .name{font-size: var(--typo-md);}
-    .position-work{font-size: 16px;}
-    .title-contact h3{font-size: var(--typo-md);}
-    .d-contact p{font-size: 16px;}
-} 
 </style>
 
 <script>
-    $('.background-cio').closest('.default-body').addClass('pt-0');
-    $('.background-cio').closest('.default-body').addClass('pb-0');
+    $('.bg-cio').closest('.default-body').addClass('pt-0');
+    $('.bg-cio').closest('.default-body').addClass('pb-0');
+    $('.bg-cio').closest('.editor-content').addClass('mt-0');
 </script>
-

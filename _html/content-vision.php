@@ -55,7 +55,7 @@
       </div>
       <!-- ck editor -->
       <div class="default-body">
-        <div class="background-vision">
+        <!-- <div class="background-vision">
           <div class="bg-city">
             <img src="<?php echo $core_template; ?>/img/background/bg-city.png" alt="background-city" class="lazy img-cover">
           </div>
@@ -75,6 +75,29 @@
               <div class="image-content">
                 <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
               </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="background-vision">
+          <div class="editor-content">
+            <div class="container">
+              <div class="content">
+                  <div class="title-content">
+                       <h2>วิสัยทัศน์</h2>
+                       <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
+                  </div>
+                  <div class="text-content">
+                    <h2>กรมวิทยาศาสตร์การแพทย์</h2>
+                    <p>เป็นองค์การชั้นนำด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</p>
+                    <h2>1 ใน 3 ของเอเชีย</h2>
+                    <p>ภายในปี พ.ศ. 2570 โดยเทคโนโลยีดิจิทัล</p>
+                    <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
+                  </div>
+                  <div class="image-content">
+                    <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
+                  </div>  
+              </div>
+              <div class="bg-city"></div>
             </div>
           </div>
         </div>
@@ -156,43 +179,45 @@
 
 <style>
 
-  .background-vision {
-    position: relative;
-  }
-  .bg-city{
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    z-index: 0;
-  }
-  .title-content {
-    text-align: center;
-    color: var(--color-black);
-    padding-top: 40px;
-  }
-  .title-content h2{
-    font-size: 48px;
-  }
   .content{
     position: relative;
-    z-index: 1;
+    padding: 100px 0;
   }
-  .text-content {
+  .title-content{
+    text-align: center;
+    color: var(--color-dark);
+  }
+
+  .title-content h2{
+    font-weight: bold;
+    font-size: 48px;
+  }
+  .text-content{
     text-align: center;
     color: var(--color-secondary);
   }
+
   .text-content h2{
+    font-weight: bold;
     font-size: 48px;
   }
-  .text-content p {
+
+  .text-content p{
     font-size: 40px;
   }
-
-  .image-content {
+  .image-content{
     text-align: center;
     margin-left: 150px;
+  }
+  .bg-city {
+    position: absolute;
+    background-image: url('../front/template/default/assets/img/background/bg-city.png');
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
   }
 
   .whead .title{
@@ -238,6 +263,10 @@
   @media (max-width: 1199px) {
     .swiper-wrapper{margin-bottom: 100px;}
     .type-file{font-size: 18px;}
+  }
+
+  @media (max-width: 991px) {
+    .image-content{margin-left: 100px;}
   }
 
 

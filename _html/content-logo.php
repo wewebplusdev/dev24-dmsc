@@ -267,7 +267,13 @@
         .title-text h2 {
             font-size: 32px;
         }
+        .center{
+            margin-top: 50px;
+        }
+        .background-logo .cover {
+            height: 500px;
 
+        }
 
         .desc {
             margin-bottom: 10px;
@@ -283,13 +289,7 @@
         .logo img {
             width: 300px;
         }
-        .background-logo .cover {
-            height: 500px;
 
-        }
-        .center{
-            margin-top: 50px;
-        }
 
     }
 
@@ -312,7 +312,13 @@
             height: 300px;
 
         }
-
+        .desc {
+            font-size: 16px;
+        }
+        
+        .type-file {
+            font-size: 16px;
+        }
 
     }
 </style>

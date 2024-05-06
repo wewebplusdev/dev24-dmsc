@@ -189,7 +189,10 @@
 
   @media (max-width: 575px) {
     .text p {
-      font-size: var(--typo-default);
+      font-size: 16px;
+    }
+    .number {
+      font-size: 16px;
     }
   }
 </style>
