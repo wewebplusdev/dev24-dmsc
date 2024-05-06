@@ -462,6 +462,10 @@
     margin: 0 -50px;
     margin-bottom: 160px;
 
+    &:last-child{
+      margin-bottom: 0;
+    }
+
     > div {
       padding: 0 50px;
     }
@@ -890,7 +894,7 @@ border: none;}
 
   .history-timeline > .row > div {padding: 0;}
   .history-timeline .row {margin: 0;}
-  .history-timeline .timeline-list p {font-size: 30px;}
+  .history-timeline .timeline-list p {font-size: 24px;}
   .history-timeline .h-bigger {font-size: 50px;text-align: center;margin: 40px 0 40px 0;}
 }
 
@@ -901,8 +905,7 @@ border: none;}
 
   .our-history-info .content .title {font-size: 50px;}
   .our-history-info .content .subtitle {font-size: 40px;}
-  .our-history-info .content .desc {font-size: 20px;}
-  .our-history-info .content .desc {font-size: 18px;text-wrap: wrap;max-width: 600px;}
+  .our-history-info .content .desc {font-size: 24px;text-wrap: wrap;max-width: 600px;}
   .history-timeline .h-bigger {font-size: 50px;text-align: center;margin-bottom: 40px;}
 }
 
@@ -911,15 +914,15 @@ border: none;}
   .layout-view .btn-group .btn-list {pointer-events: none;opacity: 0.5;}
 
   .history-timeline .h-bigger {font-size: 32px;text-align: center;}
-  .history-timeline .timeline-list p {font-size: 20px;}
+  .history-timeline .timeline-list p {font-size: 16px;}
 
   .our-history-info .content {line-height: 1;}
   .our-history-info .content .title {font-size: var(--typo-md);}
   .our-history-info .content .subtitle {font-size: var(--typo-md);}
   
 
-  .our-history-info .content .desc {font-size: 20px;max-width: 50%;}
-  .history-timeline .h-bigger {font-size: 30px;text-align: center;margin-bottom: 40px;}
+  .our-history-info .content .desc {font-size: 16px;max-width: 50%;}
+  .history-timeline .h-bigger {font-size: 24px;text-align: center;margin: 40px 0  20px 0;}
 }
 
 // CK Content Policy Website

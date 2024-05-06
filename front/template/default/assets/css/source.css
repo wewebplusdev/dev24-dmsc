@@ -2441,6 +2441,9 @@ div.swal2-html-container {
   margin: 0 -50px;
   margin-bottom: 160px;
 }
+.history-timeline > .row:last-child {
+  margin-bottom: 0;
+}
 .history-timeline > .row > div {
   padding: 0 50px;
 }
@@ -2857,7 +2860,7 @@ div.swal2-html-container {
     margin: 0;
   }
   .history-timeline .timeline-list p {
-    font-size: 30px;
+    font-size: 24px;
   }
   .history-timeline .h-bigger {
     font-size: 50px;
@@ -2883,10 +2886,7 @@ div.swal2-html-container {
     font-size: 40px;
   }
   .our-history-info .content .desc {
-    font-size: 20px;
-  }
-  .our-history-info .content .desc {
-    font-size: 18px;
+    font-size: 24px;
     text-wrap: wrap;
     max-width: 600px;
   }
@@ -2909,7 +2909,7 @@ div.swal2-html-container {
     text-align: center;
   }
   .history-timeline .timeline-list p {
-    font-size: 20px;
+    font-size: 16px;
   }
   .our-history-info .content {
     line-height: 1;
@@ -2921,13 +2921,13 @@ div.swal2-html-container {
     font-size: var(--typo-md);
   }
   .our-history-info .content .desc {
-    font-size: 20px;
+    font-size: 16px;
     max-width: 50%;
   }
   .history-timeline .h-bigger {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 40px 0 20px 0;
   }
 }
 .policy-website {
