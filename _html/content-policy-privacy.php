@@ -48,7 +48,7 @@
                 <div class="editor-content">
                     <div class="policy-privacy">
                         <div class="container">
-                            <div class="d-flex justify-content-center flex-column align-items-center mb-sm-4 mb-xl-5">
+                            <div class="d-flex justify-content-center flex-column align-items-center mb-sm-3 mb-xl-4">
                                 <div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ตามที่พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 ได้กำหนดมาตรการในการคุ้มครองข้อมูลส่วนบุคคล เพื่อให้การดำเนินการ
                                     คุ้มครองข้อมูลส่วนบุคคลของกรมวิทยาศาสตร์การแพทย์ เป็นไปอย่างมีประสิทธิภาพ สามารถปฏิบัติตามได้อย่างเป็นรูปธรรม กรม
                                     วิทยาศาสตร์การแพทย์ จึงกำหนดนโยบายการคุ้มครองข้อมูลส่วนบุคคล ไว้ดังต่อไปนี้</div>

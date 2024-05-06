@@ -2158,6 +2158,7 @@ div.swal2-html-container {
   }
   .layout-structure .title {
     margin: 20px 0;
+    font-size: var(--typo-lg);
   }
   .layout-structure .item-wrapper {
     display: table;
@@ -2967,7 +2968,6 @@ div.swal2-html-container {
 }
 .policy-website {
   line-height: 1.5;
-  font-size: var(--typo-md);
   font-weight: var(--fw-regular);
 }
 .policy-website .title {
@@ -2976,11 +2976,11 @@ div.swal2-html-container {
   font-weight: var(--fw-bold);
 }
 .policy-website .policy-content {
-  margin-top: 40px;
+  margin: 0;
 }
 .policy-website .policy-content .title {
   color: var(--color-secondary);
-  margin: 40px 0;
+  margin: 30px 0;
 }
 .policy-website .policy-content .number {
   color: var(--color-light);
@@ -3083,7 +3083,6 @@ div.swal2-html-container {
 }
 .policy-privacy {
   line-height: 1.5;
-  font-size: var(--typo-md);
   font-weight: var(--fw-regular);
 }
 .policy-privacy .title {
@@ -3091,15 +3090,12 @@ div.swal2-html-container {
   font-size: var(--typo-xl);
   font-weight: var(--fw-bold);
 }
-.policy-privacy .policy-content {
-  margin-top: 40px;
-}
 .policy-privacy .policy-content .margin-policy li {
   margin-bottom: 10px;
 }
 .policy-privacy .policy-content .title {
   color: var(--color-secondary);
-  margin: 40px 0;
+  margin: 30px 0;
 }
 .policy-privacy .policy-content .number {
   color: var(--color-light);
