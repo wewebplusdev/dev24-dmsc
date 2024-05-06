@@ -19,36 +19,36 @@ jobs:
           rm -rf *
           echo "Clean up directory _work."
 
-      - name: Deploy API
-        run: |
-          cd /wwwroot/webservice
-          docker compose down
-          cp -r /home/website/webservice /wwwroot
-          echo "copy .env"
-          cp -r /home/env/.env /wwwroot/webservice/src
+      # - name: Deploy API
+      #   run: |
+      #     cd /wwwroot/webservice
+      #     docker compose down
+      #     cp -r /home/website/webservice /wwwroot
+      #     echo "copy .env"
+      #     cp -r /home/env/.env /wwwroot/webservice/src
 
-      - name: Build & Start Container Image API
-        run: |
-          cd /wwwroot/webservice
-          docker compose up --build -d
-          echo "service api is running..."
+      # - name: Build & Start Container Image API
+      #   run: |
+      #     cd /wwwroot/webservice
+      #     docker compose up --build -d
+      #     echo "service api is running..."
 
-      - name: Deploy front-end & back-end
-        run: |
-          cd /wwwroot/website
-          docker compose down
-          cp -r /home/website /wwwroot
-          echo "copy .htaccess"
-          cp -r /home/env/.htaccess /wwwroot/website
-          rm -rf /wwwroot/website/webservice
+      # - name: Deploy front-end & back-end
+      #   run: |
+      #     cd /wwwroot/website
+      #     docker compose down
+      #     cp -r /home/website /wwwroot
+      #     echo "copy .htaccess"
+      #     cp -r /home/env/.htaccess /wwwroot/website
+      #     rm -rf /wwwroot/website/webservice
 
-      - name: Build & Start Container Image front-end & back-end
-        run: |
-          cd /wwwroot/website
-          docker compose up --build -d
-          echo "website is running..."
+      # - name: Build & Start Container Image front-end & back-end
+      #   run: |
+      #     cd /wwwroot/website
+      #     docker compose up --build -d
+      #     echo "website is running..."
 
-      - name: Clean up project temp
-        run: |
-          rm -rf /home/website/*
-          echo "Clean up successfully..."
+      # - name: Clean up project temp
+      #   run: |
+      #     rm -rf /home/website/*
+      #     echo "Clean up successfully..."
