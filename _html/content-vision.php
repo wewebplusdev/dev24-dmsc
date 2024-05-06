@@ -184,6 +184,7 @@
 
   .text-content p {
     font-size: 40px;
+    line-height: 1.5em;
   }
 
   .image-content {

@@ -150,6 +150,8 @@
         width: 100%;
         height: 180px;
         background-image: url("../front/template/default/assets/img/uploads/bg-text.png");
+        background-size: cover;
+        background-position: center;
     }
 
     .text-name {
