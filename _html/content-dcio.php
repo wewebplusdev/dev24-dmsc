@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="bg-text">
-                                <img src="<?php echo $core_template; ?>/img/uploads/bg-text.png" alt="">
+                                <div class="bg-text-img"></div>
                                 <div class="text-name">
                                     <div class="position-name">
                                         <div class="name">นายแพทย์พิเชฐ บัญญัติ</div>
@@ -107,7 +107,6 @@
         position: relative;
         padding: 100px 0;
     }
-
     .logo-person {
         position: relative;
         overflow: hidden;
@@ -145,13 +144,16 @@
         transform: translateX(-50%);
         z-index: 1;
     }
-    .bg-text img {
+    .bg-text-img {
+        position: absolute;
         opacity: 0.2;
+        width: 100%;
         height: 180px;
+        background-image: url("../front/template/default/assets/img/uploads/bg-text.png");
     }
 
     .text-name {
-        position: absolute;
+        position: relative;
         color: white;
         width: 100%;
         height: 100%;
@@ -194,7 +196,25 @@
     .name{font-size: 36px;}
     
 }
+@media (max-width: 1199px) {
+    .title-contact h3{font-size: var(--typo-md);}
+    .d-contact p{font-size: var(--typo-sm);}
+}
 
+@media (max-width: 767px) {
+    .person-dcio {margin-bottom: 0;}
+    .name{font-size: var(--typo-lg);}
+    .position-work{font-size: var(--typo-default);}
+    .bg-text{height: 150px;}
+    .bg-text-img{height: 150px;}
+}
+
+@media (max-width: 575px) {
+    .name{font-size: var(--typo-md);}
+    .position-work{font-size: 14px;}
+    .title-contact h3{font-size: var(--typo-sm);}
+    .d-contact p{font-size: 14px;}
+}
 </style>
 
 <script>

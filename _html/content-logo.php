@@ -55,25 +55,21 @@
             </div>
             <!-- ck editor -->
             <div class="default-body">
-                <div class="background-logo">
-                    <div class="container">
-                        <div class="content">
-                            <div class="center">
-                                <div class="logo">
-                                    <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
-                                </div>
-                                <div class="title-text">
-                                    <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                <div class="editor-content">
+                    <div class="background-logo">
+                        <div class="container">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="logo">
+                                        <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
+                                    </div>
+                                    <div class="title-text">
+                                        <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="background-sky"></div>
                         </div>
-                    </div>
-                    <div class="background-sky">
-                        <figure class="cover">
-                            <picture>
-                                <img src="<?php echo $core_template; ?>/img/uploads/sky.png" alt="">
-                            </picture>
-                        </figure>
                     </div>
                 </div>
             </div>
@@ -149,9 +145,13 @@
 </html>
 
 <style>
-    .background-logo .cover {
-        height: 800px;
+    .editor-content {
+        margin-top: 0;
+    }
 
+    .background-logo {
+        position: relative;
+        padding: 400px 0;
     }
 
     .logo {
@@ -181,31 +181,24 @@
         margin-top: 10px;
     }
 
-    figure img {
-        width: 100%;
-        max-width: 100%;
+    .background-sky {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+        background-image: url("../front/template/default/assets/img/uploads/sky.png");
+        width: 100vw;
         height: 100%;
+        top: 0;
+        left: 50%;
+        z-index: -1;
+        transform: translateX(-50%);
     }
-
-    figure.cover img {
-        object-fit: cover;
-        object-position: center;
-    }
-
     .document-download-list {
         margin-top: 50px;
     }
-
     .document-download-list .item {
         -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
         filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
         color: var(--color-black);
     }
-
 
     .whead .title {
         font-size: 36px;
@@ -213,15 +206,12 @@
         padding-bottom: 15px;
         border-bottom: 2px solid #29B171;
     }
-
     .desc {
         margin-bottom: 25px;
     }
-
     .swiper-wrapper {
         margin-bottom: 40px;
     }
-
     .swiper-slide {
         padding: 25px 20px 25px 30px;
         height: 180px;
@@ -245,41 +235,34 @@
         .swiper-wrapper {
             margin-bottom: 150px;
         }
-
         .title-text h2 {
             font-size: 36px;
         }
-
         .type-file {
             font-size: 18px;
         }
-
         .whead .title {
             font-size: 32px;
         }
     }
 
     @media (max-width: 991px) {
+        .background-logo {
+            padding: 300px 0;
+        }
         .logo img {
             width: 320px;
         }
-
         .title-text h2 {
             font-size: 32px;
         }
-        .center{
+        .center {
             margin-top: 50px;
         }
-        .background-logo .cover {
-            height: 500px;
-
-        }
-
         .desc {
             margin-bottom: 10px;
             font-size: 18px;
         }
-
         .type-file {
             font-size: 18px;
         }
@@ -290,15 +273,15 @@
             width: 300px;
         }
 
-
     }
 
     @media (max-width: 575px) {
-
         .logo img {
-            width: 150px;
+            width: 250px;
         }
-
+        .background-logo {
+            padding: 250px 0;
+        }
         .title-text h2 {
             font-size: 24px;
             margin-top: 0;
@@ -307,15 +290,9 @@
         .whead .title {
             font-size: 24px;
         }
-
-        .background-logo .cover {
-            height: 300px;
-
-        }
         .desc {
             font-size: 16px;
         }
-        
         .type-file {
             font-size: 16px;
         }

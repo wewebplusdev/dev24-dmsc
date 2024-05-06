@@ -78,24 +78,25 @@
             </div>
           </div>
         </div> -->
-        <div class="background-vision">
-          <div class="editor-content">
+
+        <div class="editor-content">
+          <div class="background-vision">
             <div class="container">
               <div class="content">
-                  <div class="title-content">
-                       <h2>วิสัยทัศน์</h2>
-                       <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
-                  </div>
-                  <div class="text-content">
-                    <h2>กรมวิทยาศาสตร์การแพทย์</h2>
-                    <p>เป็นองค์การชั้นนำด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</p>
-                    <h2>1 ใน 3 ของเอเชีย</h2>
-                    <p>ภายในปี พ.ศ. 2570 โดยเทคโนโลยีดิจิทัล</p>
-                    <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
-                  </div>
-                  <div class="image-content">
-                    <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
-                  </div>  
+                <div class="title-content">
+                  <h2>วิสัยทัศน์</h2>
+                  <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
+                </div>
+                <div class="text-content">
+                  <h2>กรมวิทยาศาสตร์การแพทย์</h2>
+                  <p>เป็นองค์การชั้นนำด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</p>
+                  <h2>1 ใน 3 ของเอเชีย</h2>
+                  <p>ภายในปี พ.ศ. 2570 โดยเทคโนโลยีดิจิทัล</p>
+                  <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
+                </div>
+                <div class="image-content">
+                  <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
+                </div>
               </div>
               <div class="bg-city"></div>
             </div>
@@ -178,37 +179,40 @@
 </html>
 
 <style>
-
-  .content{
+  .content {
     position: relative;
     padding: 100px 0;
   }
-  .title-content{
+
+  .title-content {
     text-align: center;
     color: var(--color-dark);
   }
 
-  .title-content h2{
+  .title-content h2 {
     font-weight: bold;
     font-size: 48px;
   }
-  .text-content{
+
+  .text-content {
     text-align: center;
     color: var(--color-secondary);
   }
 
-  .text-content h2{
+  .text-content h2 {
     font-weight: bold;
     font-size: 48px;
   }
 
-  .text-content p{
+  .text-content p {
     font-size: 40px;
   }
-  .image-content{
+
+  .image-content {
     text-align: center;
     margin-left: 150px;
   }
+
   .bg-city {
     position: absolute;
     background-image: url('../front/template/default/assets/img/background/bg-city.png');
@@ -220,7 +224,7 @@
     transform: translateX(-50%);
   }
 
-  .whead .title{
+  .whead .title {
     color: var(--color-secondary);
     font-size: 36px;
     padding-top: 50px;
@@ -228,81 +232,105 @@
     border-bottom: 2px solid var(--color-primary);
   }
 
-  .swiper-wrapper{
+  .swiper-wrapper {
     margin-bottom: 40px;
   }
-  .swiper-slide{
+
+  .swiper-slide {
     height: 180px;
     padding: 25px 20px 25px 30px;
   }
 
-  .swiper-pagination-bullet{
+  .swiper-pagination-bullet {
     width: 20px;
     height: 20px;
     background-color: var(--color-border);
   }
-  .swiper-pagination-bullet-active{
+
+  .swiper-pagination-bullet-active {
     background-color: var(--color-primary);
     width: 20px;
     height: 20px;
   }
 
   @media (max-width: 1440px) {
-    .title-content h2{
+    .title-content h2 {
       font-size: var(--typo-xl);
     }
-    .text-content h2{
+
+    .text-content h2 {
       font-size: var(--typo-xl);
     }
-    .text-content p{
+
+    .text-content p {
       font-size: var(--typo-lg);
     }
   }
 
 
   @media (max-width: 1199px) {
-    .swiper-wrapper{margin-bottom: 100px;}
-    .type-file{font-size: 18px;}
+    .swiper-wrapper {
+      margin-bottom: 100px;
+    }
+
+    .type-file {
+      font-size: 18px;
+    }
   }
 
   @media (max-width: 991px) {
-    .image-content{margin-left: 100px;}
+    .image-content {
+      margin-left: 100px;
+    }
   }
 
 
   @media (max-width: 575px) {
-    .title-content h2{font-size: var(--typo-lg);}
-    .text-content h2{font-size: var(--typo-lg);}
-    .text-content p{font-size: var(--typo-md);}
-    .image-content {display: none; }
-    .swiper-wrapper{margin-bottom: 200px;}
- 
-  }
+    .title-content h2 {
+      font-size: var(--typo-lg);
+    }
 
+    .text-content h2 {
+      font-size: var(--typo-lg);
+    }
+
+    .text-content p {
+      font-size: var(--typo-md);
+    }
+
+    .image-content {
+      display: none;
+    }
+
+    .swiper-wrapper {
+      margin-bottom: 200px;
+    }
+
+  }
 </style>
 
 <script>
-    var downloadSwiper = new Swiper(".document-download-list .swiper", {
-        // slidesPerView: "auto",
+  var downloadSwiper = new Swiper(".document-download-list .swiper", {
+    // slidesPerView: "auto",
+    slidesPerView: 2,
+    // freeMode: true,
+    spaceBetween: 40,
+    watchSlidesProgress: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
         slidesPerView: 2,
-        // freeMode: true,
-        spaceBetween: 40,
-        watchSlidesProgress: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 2,
-            },
-            768: {
-                slidesPerView: 3,
-            },
-            1200: {
-                slidesPerView: 2,
-            }
-        }
-    });
-    $('.background-vision').closest('.default-body').addClass('pt-0');
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      1200: {
+        slidesPerView: 2,
+      }
+    }
+  });
+  $('.background-vision').closest('.default-body').addClass('pt-0');
 </script>
