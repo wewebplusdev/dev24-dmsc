@@ -2879,11 +2879,14 @@ div.swal2-html-container {
   .layout-view .btn-group > button svg {
     width: 18px;
   }
+  .history-timeline .timeline-list p {
+    font-size: 20px;
+  }
   .our-history-info .content .title {
-    font-size: 50px;
+    font-size: 40px;
   }
   .our-history-info .content .subtitle {
-    font-size: 40px;
+    font-size: 30px;
   }
   .our-history-info .content .desc {
     font-size: 24px;
@@ -2891,7 +2894,7 @@ div.swal2-html-container {
     max-width: 600px;
   }
   .history-timeline .h-bigger {
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     margin-bottom: 40px;
   }
@@ -2913,6 +2916,7 @@ div.swal2-html-container {
   }
   .our-history-info .content {
     line-height: 1;
+    padding-bottom: 40px;
   }
   .our-history-info .content .title {
     font-size: var(--typo-md);
@@ -2921,7 +2925,7 @@ div.swal2-html-container {
     font-size: var(--typo-md);
   }
   .our-history-info .content .desc {
-    font-size: 16px;
+    font-size: 18px;
     max-width: 50%;
   }
   .history-timeline .h-bigger {
