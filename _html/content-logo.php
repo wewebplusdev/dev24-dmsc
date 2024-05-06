@@ -55,20 +55,22 @@
             </div>
             <!-- ck editor -->
             <div class="default-body">
-                <div class="editor-content">
-                    <div class="background-logo">
-                        <div class="container">
-                            <div class="content">
-                                <div class="center">
-                                    <div class="logo">
-                                        <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
-                                    </div>
-                                    <div class="title-text">
-                                        <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                <div class="layout-logo">
+                    <div class="editor-content">
+                        <div class="background-logo">
+                            <div class="container">
+                                <div class="content">
+                                    <div class="center">
+                                        <div class="logo">
+                                            <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
+                                        </div>
+                                        <div class="title-text">
+                                            <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="background-sky"></div>
                             </div>
-                            <div class="background-sky"></div>
                         </div>
                     </div>
                 </div>
@@ -179,6 +181,7 @@
     .title-text h2 {
         font-size: 48px;
         margin-top: 10px;
+        font-weight: bold;
     }
 
     .background-sky {

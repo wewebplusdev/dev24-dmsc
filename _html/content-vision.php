@@ -55,50 +55,28 @@
       </div>
       <!-- ck editor -->
       <div class="default-body">
-        <!-- <div class="background-vision">
-          <div class="bg-city">
-            <img src="<?php echo $core_template; ?>/img/background/bg-city.png" alt="background-city" class="lazy img-cover">
-          </div>
-          <div class="container">
-            <div class="content">
-              <div class="title-content">
-                <h2 class="title">วิสัยทัศน์</h2>
-                <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
-              </div>
-              <div class="text-content">
-                <h2>กรมวิทยาศาสตร์การแพทย์</h2>
-                <p>เป็นองค์การชั้นนำด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</p>
-                <h2>1 ใน 3 ของเอเชีย</h2>
-                <p>ภายในปี พ.ศ. 2570 โดยเทคโนโลยีดิจิทัล</p>
-                <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
-              </div>
-              <div class="image-content">
-                <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <div class="editor-content">
-          <div class="background-vision">
-            <div class="container">
-              <div class="content">
-                <div class="title-content">
-                  <h2>วิสัยทัศน์</h2>
-                  <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
+        <div class="layout-vision">
+          <div class="editor-content">
+            <div class="background-vision">
+              <div class="container">
+                <div class="content">
+                  <div class="title-content">
+                    <h2>วิสัยทัศน์</h2>
+                    <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
+                  </div>
+                  <div class="text-content">
+                    <h2>กรมวิทยาศาสตร์การแพทย์</h2>
+                    <p>เป็นองค์การชั้นนำด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</p>
+                    <h2>1 ใน 3 ของเอเชีย</h2>
+                    <p>ภายในปี พ.ศ. 2570 โดยเทคโนโลยีดิจิทัล</p>
+                    <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
+                  </div>
+                  <div class="image-content">
+                    <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
+                  </div>
                 </div>
-                <div class="text-content">
-                  <h2>กรมวิทยาศาสตร์การแพทย์</h2>
-                  <p>เป็นองค์การชั้นนำด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</p>
-                  <h2>1 ใน 3 ของเอเชีย</h2>
-                  <p>ภายในปี พ.ศ. 2570 โดยเทคโนโลยีดิจิทัล</p>
-                  <img src="<?php echo $core_template; ?>/img/uploads/img-w.png" alt="image">
-                </div>
-                <div class="image-content">
-                  <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
-                </div>
+                <div class="bg-city"></div>
               </div>
-              <div class="bg-city"></div>
             </div>
           </div>
         </div>
