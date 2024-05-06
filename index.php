@@ -75,6 +75,7 @@ if (empty($url->segment[0])) {
     header("Location:" . $linklang . "/" . $url_show_default);
     exit();
 }
+
 $smarty->assign("ul", $linklang);
 $smarty->assign("langon", $url->pagelang[2]);
 

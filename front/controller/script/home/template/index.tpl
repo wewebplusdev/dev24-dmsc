@@ -34,7 +34,7 @@
                     {else}
                         <div class="swiper-slide">
                             <div class="item">
-                                <a href="{$valueTgp->pic->url}" class="link" target="{$valueTgp->pic->target}">
+                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target}">
                                     <figure class="cover">
                                         <picture>
                                             <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">

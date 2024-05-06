@@ -141,6 +141,7 @@ abstract class controller
                     setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
                     setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
                     self::revoke_token($auth_webservice);
+
                 }
             }
         } catch (Exception $e) {
@@ -239,6 +240,24 @@ abstract class controller
         ];
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
+    }
+
+    public function content_website($content, $language){
+        if (gettype($content) == 'object' && count((array)$content) > 0) {
+            $array_content = array();
+            foreach ($content as $keycontent => $valuecontent) {
+                $array_content[$keycontent]['type'] = $valuecontent->type;
+                
+                foreach ($language as $valuelanguage) {
+                    $current_lang = $valuelanguage->subject;
+                    $array_content[$keycontent]['display'][$valuelanguage->short] = $valuecontent->display->$current_lang;
+                }
+            }
+
+            if (count($array_content) > 0) {
+                file_put_contents('./webservice_json/content_language_web.json', json_encode($array_content));
+            }
+        }
     }
 
     function load_insert_logs($req){
