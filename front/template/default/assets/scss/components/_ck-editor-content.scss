@@ -26,7 +26,7 @@
 	
   }
   .image-cover {
-    width: 240px;
+    width: 220px;
     
     img {
       width: 100%;
@@ -41,7 +41,7 @@
   .title {
     font-size: 36px;
     color: var(--color-secondary);
-    margin: 50px 0;
+    margin: 50px 0 15px 0;
 
     &:first-child {
       margin-top: 20px;
@@ -99,14 +99,14 @@
     .item-wrapper {
       .card-bottom {
         .title-name{
-          font-size: var(--typo-xl);
+          font-size: var(--typo-lg);
         }
         .font20 {
           font-size: var(--typo-xs);
         }
 
         .contact{
-          font-size: var(--typo-sm);
+          font-size: var(--typo-xs);
         }
       }
     }
@@ -224,6 +224,10 @@
     justify-content: space-between;
     padding: 20px;
 
+    .title-name{
+      margin-bottom: 10px;
+    }
+
     .contact{
       .text-nowrap{
         margin-right: 10px;
@@ -233,7 +237,7 @@
 	
   }
   .image-cover {
-    width: 240px;
+    width: 220px;
     
     img {
       width: 100%;
@@ -248,7 +252,7 @@
   .title {
     font-size: 36px;
     color: var(--color-secondary);
-    margin: 50px 0;
+    margin-bottom:15px;
 
     &:first-child {
       margin-top:20px ;
@@ -353,7 +357,7 @@
 
     .title {
       font-size: var(--typo-lg);
-      margin: 20px 0;
+      margin: 20px 0 10px 0;
     }
 
     .item-wrapper {
@@ -896,11 +900,12 @@ border: none;}
       display: none;
     }
   }
-
+  .history-timeline .timeline-list { padding-left: 20px;}
+  .history-timeline .thumbnails {margin: 0 0 20px 0;}
   .history-timeline > .row > div {padding: 0;}
   .history-timeline .row {margin: 0;}
   .history-timeline .timeline-list p {font-size: 24px;}
-  .history-timeline .h-bigger {font-size: 50px;text-align: center;margin: 40px 0 40px 0;}
+  .history-timeline .h-bigger {font-size: 50px;text-align: center;margin: 40px 0 20px 0;}
   .each-year{
     .swiper-pagination-bullet {
       width: 16px;
@@ -926,7 +931,7 @@ border: none;}
   .our-history-info .content .title {font-size: 40px;}
   .our-history-info .content .subtitle {font-size: 30px;}
   .our-history-info .content .desc {font-size: 24px;text-wrap: wrap;max-width: 600px;}
-  .history-timeline .h-bigger {font-size: 40px;text-align: center;margin-bottom: 40px;}
+  .history-timeline .h-bigger {font-size: 40px;text-align: center;margin: 40px 0 15px 0;}
 
   .each-year{
   .swiper-pagination-bullet {
@@ -967,7 +972,7 @@ border: none;}
   }}
 
   .our-history-info .content .desc {font-size: 18px;max-width: 50%;}
-  .history-timeline .h-bigger {font-size: 24px;text-align: center;margin: 20px 0;}
+  .history-timeline .h-bigger {font-size: 24px;text-align: center;margin: 20px 0 10px 0;}
 }
 
 // CK Content About
@@ -990,7 +995,7 @@ border: none;}
 
     .title {
       color: var(--color-secondary);
-      margin: 30px 0;
+      margin: 30px 0 15px 0;
     }
 
     .number {
@@ -1035,6 +1040,7 @@ border: none;}
 @media screen and (max-width: 991px) {
   .policy-website {font-size: var(--typo-sm);}
   .policy-website .title {font-size: var(--typo-md); }
+  .policy-website .policy-content  .title {font-size: var(--typo-md);}
   .policy-website .policy-content{margin: 0;}
   .policy-website .policy-content li {margin-bottom: 20px;padding-left: 0;}
 }
@@ -1049,7 +1055,6 @@ border: none;}
 @media screen and (max-width: 575px) {
   .policy-website {font-size: var(--typo-xs);}
   .policy-website .title {font-size: var(--typo-md); }
-  .policy-website .policy-content  .title {font-size: var(--typo-md);  margin: 20px 0; }
   .policy-website .headline {flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;}
 }
 
@@ -1079,7 +1084,7 @@ border: none;}
 
     .title {
       color: var(--color-secondary);
-      margin: 30px 0;
+      margin: 30px 0 15px 0;
     }
 
     .number {
@@ -1114,29 +1119,28 @@ border: none;}
 }
 
 @media screen and (max-width: 1440px) { 
-  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 20px 0; }
+ 
 }
 
 @media screen and (max-width: 1199px) {
-  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 20px 0; }
+
 }
 
 @media screen and (max-width: 991px) {
   .policy-privacy {font-size: var(--typo-xs);}
-  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 20px 0; }
+  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 30px 0 10px 0; }
 }
 
 @media screen and (max-width: 767px) {
   .policy-privacy {font-size: var(--typo-xs);}
-  .policy-privacy .policy-content .title {font-size: var(--typo-md);margin: 20px 0; }
+
   .policy-privacy .policy-content li {margin-bottom: 20px;padding-left: 0;}
 }
 
 @media screen and (max-width: 575px) {
   .policy-privacy {font-size: var(--typo-xs);}
-  .policy-privacy .policy-content{margin-top: 30px;}
- 
-  .policy-privacy .policy-content .title {font-size: var(--typo-md);  margin: 20px 0; }
+  .policy-privacy .policy-content{margin-top: 20px;}
+  .policy-privacy .policy-content .title {font-size: var(--typo-md); margin: 20px 0 5px 0; }
   .policy-privacy .headline {flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;}
 }
 

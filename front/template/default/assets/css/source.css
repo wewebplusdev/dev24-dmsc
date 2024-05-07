@@ -2067,7 +2067,7 @@ div.swal2-html-container {
   margin-right: 10px;
 }
 .layout-structure .image-cover {
-  width: 240px;
+  width: 220px;
 }
 .layout-structure .image-cover img {
   width: 100%;
@@ -2082,7 +2082,7 @@ div.swal2-html-container {
 .layout-structure .title {
   font-size: 36px;
   color: var(--color-secondary);
-  margin: 50px 0;
+  margin: 50px 0 15px 0;
 }
 .layout-structure .title:first-child {
   margin-top: 20px;
@@ -2121,13 +2121,13 @@ div.swal2-html-container {
 
 @media screen and (max-width: 1200px) {
   .layout-structure .item-wrapper .card-bottom .title-name {
-    font-size: var(--typo-xl);
+    font-size: var(--typo-lg);
   }
   .layout-structure .item-wrapper .card-bottom .font20 {
     font-size: var(--typo-xs);
   }
   .layout-structure .item-wrapper .card-bottom .contact {
-    font-size: var(--typo-sm);
+    font-size: var(--typo-xs);
   }
 }
 @media screen and (max-width: 768px) {
@@ -2238,11 +2238,14 @@ div.swal2-html-container {
           justify-content: space-between;
   padding: 20px;
 }
+.layout-experts .card-bottom .title-name {
+  margin-bottom: 10px;
+}
 .layout-experts .card-bottom .contact .text-nowrap {
   margin-right: 10px;
 }
 .layout-experts .image-cover {
-  width: 240px;
+  width: 220px;
 }
 .layout-experts .image-cover img {
   width: 100%;
@@ -2257,7 +2260,7 @@ div.swal2-html-container {
 .layout-experts .title {
   font-size: 36px;
   color: var(--color-secondary);
-  margin: 50px 0;
+  margin-bottom: 15px;
 }
 .layout-experts .title:first-child {
   margin-top: 20px;
@@ -2333,7 +2336,7 @@ div.swal2-html-container {
   }
   .layout-experts .title {
     font-size: var(--typo-lg);
-    margin: 20px 0;
+    margin: 20px 0 10px 0;
   }
   .layout-experts .item-wrapper {
     display: table;
@@ -2855,6 +2858,12 @@ div.swal2-html-container {
     content: "";
     display: none;
   }
+  .history-timeline .timeline-list {
+    padding-left: 20px;
+  }
+  .history-timeline .thumbnails {
+    margin: 0 0 20px 0;
+  }
   .history-timeline > .row > div {
     padding: 0;
   }
@@ -2867,7 +2876,7 @@ div.swal2-html-container {
   .history-timeline .h-bigger {
     font-size: 50px;
     text-align: center;
-    margin: 40px 0 40px 0;
+    margin: 40px 0 20px 0;
   }
   .each-year .swiper-pagination-bullet {
     width: 16px;
@@ -2908,7 +2917,7 @@ div.swal2-html-container {
   .history-timeline .h-bigger {
     font-size: 40px;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 40px 0 15px 0;
   }
   .each-year .swiper-pagination-bullet {
     width: 14px;
@@ -2963,7 +2972,7 @@ div.swal2-html-container {
   .history-timeline .h-bigger {
     font-size: 24px;
     text-align: center;
-    margin: 20px 0;
+    margin: 20px 0 10px 0;
   }
 }
 .policy-website {
@@ -2980,7 +2989,7 @@ div.swal2-html-container {
 }
 .policy-website .policy-content .title {
   color: var(--color-secondary);
-  margin: 30px 0;
+  margin: 30px 0 15px 0;
 }
 .policy-website .policy-content .number {
   color: var(--color-light);
@@ -3033,6 +3042,9 @@ div.swal2-html-container {
   .policy-website .title {
     font-size: var(--typo-md);
   }
+  .policy-website .policy-content .title {
+    font-size: var(--typo-md);
+  }
   .policy-website .policy-content {
     margin: 0;
   }
@@ -3063,10 +3075,6 @@ div.swal2-html-container {
   .policy-website .title {
     font-size: var(--typo-md);
   }
-  .policy-website .policy-content .title {
-    font-size: var(--typo-md);
-    margin: 20px 0;
-  }
   .policy-website .headline {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -3095,7 +3103,7 @@ div.swal2-html-container {
 }
 .policy-privacy .policy-content .title {
   color: var(--color-secondary);
-  margin: 30px 0;
+  margin: 30px 0 15px 0;
 }
 .policy-privacy .policy-content .number {
   color: var(--color-light);
@@ -3127,34 +3135,18 @@ div.swal2-html-container {
   padding-left: 40px;
 }
 
-@media screen and (max-width: 1440px) {
-  .policy-privacy .policy-content .title {
-    font-size: var(--typo-md);
-    margin: 20px 0;
-  }
-}
-@media screen and (max-width: 1199px) {
-  .policy-privacy .policy-content .title {
-    font-size: var(--typo-md);
-    margin: 20px 0;
-  }
-}
 @media screen and (max-width: 991px) {
   .policy-privacy {
     font-size: var(--typo-xs);
   }
   .policy-privacy .policy-content .title {
     font-size: var(--typo-md);
-    margin: 20px 0;
+    margin: 30px 0 10px 0;
   }
 }
 @media screen and (max-width: 767px) {
   .policy-privacy {
     font-size: var(--typo-xs);
-  }
-  .policy-privacy .policy-content .title {
-    font-size: var(--typo-md);
-    margin: 20px 0;
   }
   .policy-privacy .policy-content li {
     margin-bottom: 20px;
@@ -3166,11 +3158,11 @@ div.swal2-html-container {
     font-size: var(--typo-xs);
   }
   .policy-privacy .policy-content {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .policy-privacy .policy-content .title {
     font-size: var(--typo-md);
-    margin: 20px 0;
+    margin: 20px 0 5px 0;
   }
   .policy-privacy .headline {
     -webkit-box-orient: vertical;

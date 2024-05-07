@@ -68,7 +68,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts1.png" alt="นางสาวประไพ วงศ์สินคงมั่น">
                                             </div>
@@ -105,7 +105,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts2.png" alt="นายอภิวัฏ ธวัชสิน">
                                             </div>
@@ -141,7 +141,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts3.png" alt="นางสิริภากร แสงกิจพร">
                                             </div>
@@ -175,7 +175,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="position-absolute image-cover ">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts-back.png" alt="">
                                             </div>
@@ -214,7 +214,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts4.png" alt="นางนวลจันทร์ วิจักษณ์จินดา">
                                             </div>
@@ -250,7 +250,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts5.png" alt="นางสุภาพร ภูมิอมร">
                                             </div>
@@ -286,7 +286,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="position-absolute image-cover ">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts-back.png" alt="">
                                             </div>
@@ -325,7 +325,7 @@
 
                                         <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
 
-                                        <div class="position-relative card-top col-xl-5 col-lg-3 col-md-4 col-sm-5">
+                                        <div class="position-relative card-top col-auto">
                                             <div class="position-absolute image-cover ">
                                                 <img src="<?php echo $core_template; ?>/img/uploads/experts/experts-back.png" alt="">
                                             </div>
