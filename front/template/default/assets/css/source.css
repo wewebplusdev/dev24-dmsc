@@ -2327,9 +2327,6 @@ div.swal2-html-container {
   .layout-dcio .name {
     font-size: 36px;
   }
-  .layout-vision .title-content h2 {
-    font-size: var(--typo-xl);
-  }
 }
 @media (max-width: 1199px) {
   .contact-dcio .title-contact h3 {
@@ -2346,6 +2343,9 @@ div.swal2-html-container {
   }
   .layout-vision .text-content p {
     font-size: var(--typo-lg);
+  }
+  .layout-vision .title-content h2 {
+    font-size: var(--typo-xl);
   }
   .layout-swiper .type-file {
     font-size: 18px;
@@ -2431,8 +2431,12 @@ div.swal2-html-container {
   .layout-mission .title-content {
     margin: 10px 0;
   }
+  .layout-mission .text {
+    width: 100%;
+  }
   .layout-mission .text p {
     font-size: 16px;
+    line-height: 1.5em;
   }
   .layout-mission .number {
     font-size: 16px;
