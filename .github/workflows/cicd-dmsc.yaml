@@ -41,8 +41,8 @@ jobs:
           echo "copy .htaccess"
           cp -r /home/env/.htaccess /wwwroot/website
           rm -rf /wwwroot/website/webservice
-          echo "copy Dockerfile"
-          cp -r /wwwroot/website/_setup/Dockerfile /wwwroot/website
+          echo "copy SSL"
+          cp -r /home/_apache /wwwroot/website
 
       - name: Build & Start Container Image front-end & back-end
         run: |
