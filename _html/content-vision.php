@@ -82,7 +82,7 @@
         </div>
       </div>
       <!-- ck editor -->
-      <div class="document-download-list">
+      <div class="document-download-list layout-swiper">
         <div class="container">
           <div class="whead">
             <h2 class="title text-center">เอกสารดาวน์โหลด</h2>
@@ -169,10 +169,10 @@
     },
     breakpoints: {
       0: {
-        slidesPerView: 2,
+        slidesPerView: 1,
       },
       768: {
-        slidesPerView: 3,
+        slidesPerView: 2,
       },
       1200: {
         slidesPerView: 2,

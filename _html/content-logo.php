@@ -76,7 +76,7 @@
                 </div>
             </div>
             <!-- ck editor -->
-            <div class="document-download-list">
+            <div class="document-download-list layout-swiper">
                 <div class="container">
                     <div class="whead">
                         <h2 class="title text-center">เอกสารดาวน์โหลด</h2>
@@ -146,163 +146,6 @@
 
 </html>
 
-<style>
-    .editor-content {
-        margin-top: 0;
-    }
-
-    .background-logo {
-        position: relative;
-        padding: 400px 0;
-    }
-
-    .logo {
-        text-align: center;
-    }
-
-    .center {
-        margin-top: 100px;
-    }
-
-    .content {
-        position: absolute;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .title-text {
-        text-align: center;
-        color: var(--color-secondary);
-    }
-
-    .title-text h2 {
-        font-size: 48px;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-
-    .background-sky {
-        position: absolute;
-        background-image: url("../front/template/default/assets/img/uploads/sky.png");
-        width: 100vw;
-        height: 100%;
-        top: 0;
-        left: 50%;
-        z-index: -1;
-        transform: translateX(-50%);
-    }
-    .document-download-list {
-        margin-top: 50px;
-    }
-    .document-download-list .item {
-        -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
-        filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
-        color: var(--color-black);
-    }
-
-    .whead .title {
-        font-size: 36px;
-        color: var(--color-secondary);
-        padding-bottom: 15px;
-        border-bottom: 2px solid #29B171;
-    }
-    .desc {
-        margin-bottom: 25px;
-    }
-    .swiper-wrapper {
-        margin-bottom: 40px;
-    }
-    .swiper-slide {
-        padding: 25px 20px 25px 30px;
-        height: 180px;
-    }
-
-    .swiper-pagination-bullet {
-        opacity: 1;
-        background: var(--color-border);
-        height: 20px;
-        width: 20px;
-    }
-
-    .swiper-pagination-bullet-active {
-        background: #2AB170;
-        height: 20px;
-        width: 20px;
-
-    }
-
-    @media (max-width: 1199px) {
-        .swiper-wrapper {
-            margin-bottom: 150px;
-        }
-        .title-text h2 {
-            font-size: 36px;
-        }
-        .type-file {
-            font-size: 18px;
-        }
-        .whead .title {
-            font-size: 32px;
-        }
-    }
-
-    @media (max-width: 991px) {
-        .background-logo {
-            padding: 300px 0;
-        }
-        .logo img {
-            width: 320px;
-        }
-        .title-text h2 {
-            font-size: 32px;
-        }
-        .center {
-            margin-top: 50px;
-        }
-        .desc {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        .type-file {
-            font-size: 18px;
-        }
-    }
-
-    @media (max-width: 767px) {
-        .logo img {
-            width: 300px;
-        }
-
-    }
-
-    @media (max-width: 575px) {
-        .logo img {
-            width: 250px;
-        }
-        .background-logo {
-            padding: 250px 0;
-        }
-        .title-text h2 {
-            font-size: 24px;
-            margin-top: 0;
-        }
-
-        .whead .title {
-            font-size: 24px;
-        }
-        .desc {
-            font-size: 16px;
-        }
-        .type-file {
-            font-size: 16px;
-        }
-
-    }
-</style>
-
 <script>
     var downloadSwiper = new Swiper(".document-download-list .swiper", {
         // slidesPerView: "auto",
@@ -316,7 +159,7 @@
         },
         breakpoints: {
             0: {
-                slidesPerView: 2,
+                slidesPerView: 1,
             },
             768: {
                 slidesPerView: 3,
