@@ -56,8 +56,6 @@ switch ($url->segment[1]) {
             $smarty->assign("load_group", $load_group);
         }
 
-        // require_once _DIR . '/front/controller/script/' . $menuActive . '/service/init-calendar.php'; #load calendar
-
         // setup seo and text modules
         $language_modules = array();
         $language_modules['breadcrumb1'] = $languageFrontWeb->eventcalendar->display->$currentLangWeb;
@@ -72,15 +70,6 @@ switch ($url->segment[1]) {
         $seo_pic = "";
         $calendarPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
-        
-        // /*## Set up pagination #####*/
-        // $pagination['total'] = $load_data->_maxRecordCount;
-        // $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
-        // $pagination['limit'] = $limit;
-        // $pagination['curent'] = $page['on'];
-        // $pagination['method'] = $page;
-        // $smarty->assign("pagination",$pagination);
-        // /*## Set up pagination #####*/
 
         $settingPage = array(
             "page" => $menuActive,

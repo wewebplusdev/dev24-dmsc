@@ -34,7 +34,6 @@ if (!empty($url->segment[1])) {
         $load_rss = $rssPage->load_rss($data, 'news');
         if ($load_rss->_numOfRows > 0) {
             $TitleRSS = 'กรมวิทยาศาสตร์การแพทย์ กระทรวงสาธารณสุข';
-            // $TitleRSS = $load_rss_group->item[0]->subject;
             $urlRss = _URL . 'listAll/' . $load_rss->item[0]->masterkey . "/" . $load_rss->item[0]->gid;
             require_once _DIR . '/front/controller/script/' . $menuActive . '/service/create.php';
         } else {
