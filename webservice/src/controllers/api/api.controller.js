@@ -184,7 +184,6 @@ async function loadRedirect(req, res) {
                         if (action == 'link') {
                             arr_data.url = select_list[0].url;
                         }
-                        console.log(view);
                         if (view == 1) {
                             let update = new Array;
                             update.push(`${config_array_db['md_mnusg']}_view = ${config_array_db['md_mnusg']}_view + 1`);

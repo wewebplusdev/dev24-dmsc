@@ -239,4 +239,15 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["txt:subject"] = "หัวข้อ";
 	$langMod["txt:title"] = "รายละเอียด";
 	$langMod["txt:ip"] = "IP";
+	$langMod["txt:address"] = "ที่อยู่";
+	$langMod["txt:subject"] = "ข้อมูลผู้ติดต่อ";
+	$langMod["txt:subjectDe"] = "โปรดป้อน ชื่อและคำบรรยาย เพื่อใช้ในการแสดงผลเนื้อหาในหน้ารวมข้อมูลทั้งหมดของเมนูนี้บนเว็บไซต์ของคุณ";
+	$langMod["txt:report"] = "ข้อมูลรายงาน";
+	$langMod["txt:reportDe"] = "โปรดป้อน ชื่อและคำบรรยาย เพื่อใช้ในการแสดงผลเนื้อหาในหน้ารวมข้อมูลทั้งหมดของเมนูนี้บนเว็บไซต์ของคุณ";
+	$langMod["txt:name_report"] = "ชื่อ-นามสกุล ของผู้ถูกร้อง";
+	$langMod["txt:rank_report"] = "ช่วงเวลาที่กระทำความผิด";
+	$langMod["txt:fac_report"] = "ข้อเท็จจริงหรือพฤติการณ์การทุจริต";
+	$langMod["txt:corruption_report"] = "กระทำความผิดต่อตำแหน่งหน้าที่ราชการ";
+	$langMod["txt:rich_report"] = "ร่ำรวยผิดปกติ";
+	$langMod["txt:confirm_report"] = "ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวที่ข้าพเจ้าได้ร้องเรียน/แจ้งเบาะแสข้างต้น เป็นเรื่องจริง";
 }

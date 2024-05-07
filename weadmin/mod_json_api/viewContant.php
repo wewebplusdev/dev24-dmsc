@@ -120,7 +120,7 @@ logs_access('3', 'View');
                   <table border="0" cellspacing="0" cellpadding="0" align="right">
                      <tr>
                         <td align="right">
-                           <?php if ($is_super == "SuperAdmin") { ?>
+                           <?php if ($is_super == "SuperAdmin" || true) { ?>
                               <div class="btnEditView" title="<?php echo $langTxt["btn:edit"] ?>" onclick="
                                                 document.myFormHome.valEditID.value =<?php echo $valID ?>;
                                                 editContactNew('../<?php echo $mod_fd_root ?>/editContant.php')"></div>

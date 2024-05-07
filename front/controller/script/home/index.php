@@ -9,6 +9,7 @@ switch ($url->segment[0]) {
     default:
         // call popup
         $load_popup = $homePage->load_popup();
+        // print_pre($load_popup);
         $smarty->assign("load_popup", $load_popup);
         // call top graphic
         $load_topgraphic = $homePage->load_topgraphic();

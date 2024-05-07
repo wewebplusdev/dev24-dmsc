@@ -2,7 +2,6 @@
 $menuActive = "contact-form";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 $listjs[] = '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render='. $recaptcha_sitekey .'"></script>';
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/form.js"></script>';
 
 $menuActiveApi = "contact";
 
@@ -10,37 +9,27 @@ $contactPage = new contactPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[1]) {
+    case 'insert-corruption':
+        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/insert-corruption.php'; #load service
+        break;
+
     case 'insert-global':
         require_once _DIR . '/front/controller/script/' . $menuActive . '/service/insert-global.php'; #load service
         break;
 
+    case 'corruption':
+        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/corruption.js"></script>';
+        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/corruption.php'; #load service
+        break;
+
     default:
-        $masterkey = 'nw';
-        
-        $data = [
-            "action" => $contactPage->method_module[$menuActiveApi]['action'],
-            "method" => $contactPage->method_module[$menuActiveApi]['method_list'],
-            "language" => $contactPage->language,
-            "order" => $req['order'],
-            "page" => $page['on'],
-            "limit" => $limit,
-            "keyword" => $req['keyword'],
-            "gid" => $req['gid'],
-            "masterkey" => $masterkey,
-        ];
-
-        // call list
-        $load_data = $contactPage->load_data($data);
-        $smarty->assign("load_data", $load_data);
-
+        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/form.js"></script>';
         // setup seo and text modules
         $language_modules = array();
         // active menu header
         $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb1'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
-        }
+        $language_modules['breadcrumb1'] = $header_active['page'][0];
+        $language_modules['metatitle'] = $header_active['page'][0];
         $smarty->assign("language_modules", $language_modules);
        
         /*## Start SEO #####*/

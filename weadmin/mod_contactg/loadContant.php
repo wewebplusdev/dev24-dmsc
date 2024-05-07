@@ -138,7 +138,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?php echo $valLinkNav1 ?>" target="_self"><?php echo $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo $valNav2 ?></span></td>
                <td class="divRightNavTb" align="right">
                   <!-- ######### Start Menu Sub Mod ########## -->
-                  <div class="menuSubMod">
+                  <!-- <div class="menuSubMod">
                      <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:group2"] ?>
                      </a>
@@ -147,7 +147,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                      <a href="index.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:contant"] ?>
                      </a>
-                  </div>
+                  </div> -->
                   <!-- ######### End Menu Sub Mod ########## -->
                </td>
             </tr>
@@ -158,7 +158,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
 
             <tr>
-               <td>
+               <!-- <td>
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                      <tr>
                         <td>
@@ -188,7 +188,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                         </td>
                      </tr>
                   </table>
-               </td>
+               </td> -->
                <td id="boxSelectTest">
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                      <tr>
@@ -220,7 +220,11 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                              alert('<?php echo $langTxt["mg:selpermis"] ?>');
                                           }
                                       "></div>
+                              <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_detail)) { ?>
+                              <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel2.php';document.myFormExport.submit()">
+                              <?php }else{ ?>
                               <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel.php';document.myFormExport.submit()">
+                              <?php } ?>
                         </td>
                      <?php } ?>
                      </tr>
@@ -259,7 +263,15 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 " . $mod_tb_root . "_email as email,
 " . $mod_tb_root . "_name as name,
 " . $mod_tb_root . "_ip as ip ,
-" . $mod_tb_root_group_lang . "_subject as group_subject
+" . $mod_tb_root_group_lang . "_subject as group_subject,
+" . $mod_tb_root . "_address as address ,
+
+" . $mod_tb_root . "_complaint_name as complaint_name ,
+" . $mod_tb_root . "_complaint_time as complaint_time ,
+" . $mod_tb_root . "_complaint_fac as complaint_fac ,
+" . $mod_tb_root . "_complaint_desc1 as complaint_desc1 ,
+" . $mod_tb_root . "_complaint_desc2 as complaint_desc2 ,
+" . $mod_tb_root . "_complaint_confirm as complaint_confirm 
 ";
 
             $sql = $sql . "  FROM " . $mod_tb_root . "";

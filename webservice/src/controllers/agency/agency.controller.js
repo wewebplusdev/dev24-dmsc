@@ -211,7 +211,7 @@ async function getService(req, res) {
                 sql_list = sql_list + `
                 ORDER BY ${config_array_db['md_ag']}_order ${order} 
                 `;
-                console.log(sql_list);
+                // console.log(sql_list);
             const select_list = await query(sql_list);
             if (select_list.length > 0) {
                 let count_totalrecord;

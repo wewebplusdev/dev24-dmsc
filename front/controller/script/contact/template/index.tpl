@@ -57,11 +57,37 @@
             <div class="iframe-container">
               <iframe class="responsive-iframe" src="https://maps.google.com/maps?q={$settingWeb['contact']->glati},{$settingWeb['contact']->glongti}&hl=es;z=20&amp;output=embed" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
+            <a href="{$ul}/{$menuActive}/map-google" class="link btn-full-screen" target="_blank">
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                  <g id="full-screen" transform="translate(-0.323 -0.323)">
+                    <path id="Path_452891" data-name="Path 452891" d="M19.677.323H14.194a.645.645,0,1,0,0,1.29h3.874L12.135,7.275a.645.645,0,1,0,.891.934l6.006-5.733V6.452a.645.645,0,0,0,1.29,0V.968a.645.645,0,0,0-.645-.645Z" fill="#2ab170"/>
+                    <path id="Path_452892" data-name="Path 452892" d="M19.677,13.548a.645.645,0,0,0-.645.645V18.12l-6-6a.645.645,0,1,0-.912.912l6,6H14.194a.645.645,0,1,0,0,1.29h5.484a.645.645,0,0,0,.645-.645V14.194A.645.645,0,0,0,19.677,13.548Z" fill="#2ab170"/>
+                    <path id="Path_452893" data-name="Path 452893" d="M7.286,12.447,1.613,18.12V14.194a.645.645,0,0,0-1.29,0v5.484a.645.645,0,0,0,.645.645H6.452a.645.645,0,1,0,0-1.29H2.525L8.2,13.359a.645.645,0,1,0-.912-.912Z" fill="#2ab170"/>
+                    <path id="Path_452894" data-name="Path 452894" d="M2.525,1.613H6.452a.645.645,0,1,0,0-1.29H.968A.645.645,0,0,0,.323.968V6.452a.645.645,0,1,0,1.29,0V2.525L7.286,8.2A.645.645,0,1,0,8.2,7.286Z" fill="#2ab170"/>
+                  </g>
+                </svg>  
+              </span>
+              {$languageFrontWeb->viewlargemap->display->$currentLangWeb}
+            </a>
           </div>
           <div class="tab-pane fade" id="nav-02">
             <figure class="cover">
               <img src="{$settingWeb['addresspic']}" alt="{$settingWeb['addresspic']}" class="img-cover">
             </figure>
+            <a href="{$ul}/{$menuActive}/map-graphic" class="link btn-full-screen" target="_blank">
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                  <g id="full-screen" transform="translate(-0.323 -0.323)">
+                    <path id="Path_452891" data-name="Path 452891" d="M19.677.323H14.194a.645.645,0,1,0,0,1.29h3.874L12.135,7.275a.645.645,0,1,0,.891.934l6.006-5.733V6.452a.645.645,0,0,0,1.29,0V.968a.645.645,0,0,0-.645-.645Z" fill="#2ab170"/>
+                    <path id="Path_452892" data-name="Path 452892" d="M19.677,13.548a.645.645,0,0,0-.645.645V18.12l-6-6a.645.645,0,1,0-.912.912l6,6H14.194a.645.645,0,1,0,0,1.29h5.484a.645.645,0,0,0,.645-.645V14.194A.645.645,0,0,0,19.677,13.548Z" fill="#2ab170"/>
+                    <path id="Path_452893" data-name="Path 452893" d="M7.286,12.447,1.613,18.12V14.194a.645.645,0,0,0-1.29,0v5.484a.645.645,0,0,0,.645.645H6.452a.645.645,0,1,0,0-1.29H2.525L8.2,13.359a.645.645,0,1,0-.912-.912Z" fill="#2ab170"/>
+                    <path id="Path_452894" data-name="Path 452894" d="M2.525,1.613H6.452a.645.645,0,1,0,0-1.29H.968A.645.645,0,0,0,.323.968V6.452a.645.645,0,1,0,1.29,0V2.525L7.286,8.2A.645.645,0,1,0,8.2,7.286Z" fill="#2ab170"/>
+                  </g>
+                </svg>  
+              </span>
+              {$languageFrontWeb->viewlargemap->display->$currentLangWeb}
+            </a>
           </div>
         </div>
       </div>
@@ -86,17 +112,16 @@
                               {$valueList->address}
                               {if $valueList->tel neq ""}
                                 <br>
-                                โทรศัพท์กลาง : {$valueList->tel}
+                                {$languageFrontWeb->centraltelephone->display->$currentLangWeb} : {$valueList->tel}
                               {/if}
                               {if $valueList->fax neq "" && $valueList->email neq ""}
                                 <br>
-                                {if $valueList->fax neq ""}โทรสาร:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}{/if}
+                                {if $valueList->fax neq ""}{$languageFrontWeb->fax->display->$currentLangWeb}:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}{/if}
                               {/if}
                             </div>
                             <div class="action">
-                              <span class="text">Google map</span>
                               <a href="{$ul}/{$menuActive}/googlemap-agencies/{$valueList->id}" target="_blank" class="link">
-                                ดูแผนที่
+                                <span class="text">Google map</span>
                                 <span class="icon">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
                                     viewBox="0 0 14.25 14.25">
@@ -132,7 +157,7 @@
       <div class="contact-service">
         <div class="container">
           <div class="whead">
-            <h2 class="title">บริการ</h2>
+            <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
           </div>
           <div class="contact-service-list">
             {foreach $load_data_service->item as $keyload_data_service => $valueload_data_service}
@@ -140,13 +165,7 @@
                 <div class="row no-gutters align-items-start mb-3">
                   <div class="col-auto">
                     <div class="icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22.741" height="25" viewBox="0 0 22.741 25">
-                        <g id="customer-service" transform="translate(-1.13)">
-                          <path id="Path_452614" data-name="Path 452614"
-                            d="M21.561,18.14l-.028-.033a9.6,9.6,0,0,0-5.318-3.171A6.618,6.618,0,0,0,18.6,11.765h1.675a1.7,1.7,0,0,0,1.7-1.7v-.5a9.559,9.559,0,1,0-19.118,0v.5a1.7,1.7,0,0,0,1.7,1.7H6.177A6.619,6.619,0,0,0,8.62,14.974a9.587,9.587,0,0,0-5.153,3.133l-.028.033A9.293,9.293,0,0,0,1.13,24.265V25H23.87v-.735a9.293,9.293,0,0,0-2.309-6.125ZM12.39,14.692a5.123,5.123,0,0,1-4.624-2.928H11.44V10.294H7.324a5.117,5.117,0,1,1,5.066,4.4Zm8.119-4.629a.231.231,0,0,1-.231.231h-1.34a6.574,6.574,0,0,0,0-1.471h1.541c.022.242.034.487.034.735ZM12.421,1.471A8.1,8.1,0,0,1,20.2,7.353H18.591a6.587,6.587,0,0,0-12.4,0H4.638a8.1,8.1,0,0,1,7.782-5.882ZM4.564,10.294a.231.231,0,0,1-.231-.231v-.5c0-.248.012-.493.034-.735h1.48a6.574,6.574,0,0,0,0,1.471ZM2.634,23.529a7.936,7.936,0,0,1,1.928-4.44l.028-.033a8.266,8.266,0,0,1,6.353-2.879h3.114a8.266,8.266,0,0,1,6.353,2.88l.028.033a7.937,7.937,0,0,1,1.928,4.44Z"
-                            fill="#fff" />
-                        </g>
-                      </svg>
+                      <img src="{$valueload_data_service->pic->real}" alt="{$valueload_data_service->pic->real}">
                     </div>
                   </div>
                   <div class="col">
@@ -154,7 +173,7 @@
                   </div>
                 </div>
                 <div class="tel">
-                  <span class="fw-bold">เบอร์โทรศัพท์ :</span>
+                  <span class="fw-bold">{$languageFrontWeb->contact_tel->display->$currentLangWeb} :</span>
                   {$valueload_data_service->tel}
                 </div>
               </div>
