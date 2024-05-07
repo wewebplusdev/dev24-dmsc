@@ -1,17 +1,15 @@
-const construc_class =  (async (content_web) => {
-    // "use strict";
-    console.log(content_web);
 
-    // try {
-    //     const response = await fetch("./webservice_json/content_language_web.json");
-    //     if (!response.ok) {
-    //         throw new Error("Failed to fetch JSON");
-    //     }
-    //     content_web = await response.json();
-    // } catch (error) {
-    //     console.error("An error occurred:", error);
-    // }
-    // content_web = await fetchData();
+
+(async () => {
+    "use strict";
+
+    // let content_web;
+    // await $.getJSON("./webservice_json/content_language_web.json", function (data) {
+    //     content_web = data;
+    // }).fail(function () {
+    //     console.log("An error has occurred. get json fail.");
+    // });
+    // console.log(language);
     // console.log(content_web);
     const t = {
         en: {
@@ -140,7 +138,6 @@ const construc_class =  (async (content_web) => {
             key: "readable-guide",
             icon: "local_library"
         }];
-    console.log(t);
 
     class n {
         constructor(e, content) {
@@ -264,6 +261,15 @@ const construc_class =  (async (content_web) => {
                     this.reset()
                 }
                 )),
+                // this.menu.querySelector("select").value = this.settings.lang,
+                // this.menu.querySelector("select").addEventListener("change", (e=>{
+                //     this.settings.lang = e.target.value,
+                //     this.locale = t[this.settings.lang] || t.en,
+                //     this.saveSettings(),
+                //     this.translate()
+                // }
+                // )),
+                // this.menu.querySelector(".asw-footer a").setAttribute("href", n),
                 this.translate(),
                 this.config.container.appendChild(this.menu),
                 this.rendered = !0,
@@ -272,6 +278,7 @@ const construc_class =  (async (content_web) => {
         reset() {
             this.settings.states = {},
                 this.changeFilter(),
+                // this.changeFilterYellow(),
                 this.changeControls(),
                 this.changeFont(void 0, 1),
                 this.saveSettings(),
@@ -319,11 +326,31 @@ const construc_class =  (async (content_web) => {
         }
 
         close() {
+            // this.menu.style.display = "block"
             this.menu.querySelectorAll("div > .asw-wrapper").forEach((t => {
                 t.classList.remove("active")
             }
             ))
         }
+
+        // clickItemYellow(t) {
+        //     let e = t.dataset.key;
+        //     t.classList.contains("asw-filter") ? (document.querySelectorAll(".asw-filter").forEach((function(t) {
+        //         t.classList.remove("asw-selected")
+        //     }
+        //     )),
+        //     this.settings.states.contrast = this.settings.states.contrast !== e && e,
+        //     this.settings.states.contrast && t.classList.add("asw-selected"),
+        //     this.changeFilterYellow(this.settings.states.contrast)) : (this.settings.states[e] = !this.settings.states[e],
+        //     t.classList.toggle("asw-selected", this.settings.states[e]),
+
+
+        //     this.changeControls()),
+        //     this.saveSettings()
+
+        //     console.log(e)
+        // }
+
         changeControls() {
             let t = [{
                 id: "highlight-title",
@@ -421,7 +448,12 @@ const construc_class =  (async (content_web) => {
             let e = "";
             if (t) {
                 let s = "";
+                // "dark-contrast" == t ? s = "color: #fff !important;fill: #FFF !important;background-color: #000 !important;" : 
+
+                // "yellow-contrast" == t ? s = "color: #ff0 !important;fill:; background-color: #000 !important;" : 
+
                 "light-contrast" == t ? s = " color: #000 !important;fill: #000 !important;background-color: #FFF !important;" :
+                    // "high-contrast" == t ? s += this.getFilterCSS("contrast(125%)") : 
                     "high-contrast" == t ? s = " filter: contrast(125%);" :
                         "high-saturation" == t ? s += this.getFilterCSS("saturate(200%)") :
                             "low-saturation" == t ? s += this.getFilterCSS("saturate(50%)") :
@@ -431,6 +463,49 @@ const construc_class =  (async (content_web) => {
                 "high-contrast" != t && "light-contrast" != t || (n = [
                     "body",
                 ]);
+                // "dark-contrast" != t && "light-contrast" != t || (n = 
+                //     [
+                //         "body", 
+                //         "h1", 
+                //         "h2", 
+                //         "h3", 
+                //         "h4", 
+                //         "h5", 
+                //         "h6", 
+                //         "img", 
+                //         "p", 
+                //         "i", 
+                //         "svg", 
+                //         "a", 
+                //         "button", 
+                //         "label", 
+                //         "li", 
+                //         "ol",
+                //         ".text-gradient-primary"
+                //     ]
+                // );
+                // "yellow-contrast" != t && "light-contrast" != t || (n = 
+                //     [
+                //         ".layout-header .navbar", 
+                //         "body", 
+                //         "h1", 
+                //         "h2", 
+                //         "h3", 
+                //         "h4", 
+                //         "h5", 
+                //         "h6", 
+                //         "img", 
+                //         "p", 
+                //         "i", 
+                //         "svg", 
+                //         "a", 
+                //         "button", 
+                //         "label", 
+                //         "li", 
+                //         "ol",
+                //         ".text-gradient-primary"
+                //     ]
+                // );
                 for (var i = n.length; i--;)
                     e += '[data-asw-filter="' + t + '"] ' + n[i] + "{" + s + "}"
             }
@@ -450,7 +525,8 @@ const construc_class =  (async (content_web) => {
         }
     }
 
-    window.addEventListener("load", (() => {
+    document.addEventListener("DOMContentLoaded", (() => {
+        // alert("Hello! I am an alert box!!"); 
         let t, e = document.createElement("div");
         e.innerHTML = '<div class="asw-widget -mb"> <a href="javascript:void(0);" class="asw-menu-btn-mobile" title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false"> <svg xmlns="http://www.w3.org/2000/svg" style="fill:#fff" viewBox="0 0 24 24" width="30px" height="30px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg> </a> </div>';
         let i = function (t) {
@@ -474,29 +550,14 @@ const construc_class =  (async (content_web) => {
             settings: i
         }));
 
-        // show now
+        // show เลย
         t = new n({
             container: e
         }).render()
         document.body.appendChild(e)
-    }));
-});
 
-async function fetchData() {
-    try {
-        const response = await fetch("./webservice_json/content_language_web.json");
-        if (!response.ok) {
-            throw new Error("Failed to fetch JSON");
-        }
-        return await response.json();
-    } catch (error) {
-        console.error("An error occurred while fetching data:", error);
-        return null;
     }
+    ));
 }
+)();
 
-(async () => {
-    content_web = await fetchData();
-    console.log(content_web);
-    await construc_class(content_web);
-})();
