@@ -35,9 +35,7 @@ if (!$ERROR) {
    $ext = $p->ret();
    $picname = $filename . "." . $ext;
    ##  Real ################################################################################
-   if (copy($inputGallery, $mod_path_album . "/" . $picname)) {
-      chmod($mod_path_album . "/" . $picname, 0777);
-   }
+   copy($inputGallery, $mod_path_album . "/" . $picname);
 
    $imgReal = $mod_path_album . "/" . $picname; // File image location
    ##  Pictures ################################################################################

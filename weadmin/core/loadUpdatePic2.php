@@ -74,9 +74,7 @@ include("../lib/function.php");
 			$picname=$filename.".".$ext;
 			
 			##  Real ################################################################################
-			if(copy($inputGallery,$core_pathname_crupload."/".$picname)){
-				chmod($core_pathname_crupload."/".$picname,0775);
-			}
+			copy($inputGallery,$core_pathname_crupload."/".$picname);
 			
 		$update = array();
 		$update[]=$core_tb_setting."_header  	='".$picname."'";
