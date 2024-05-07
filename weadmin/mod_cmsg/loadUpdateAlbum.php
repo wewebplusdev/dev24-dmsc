@@ -7,8 +7,8 @@ include("../lib/function.php");
 include("incModLang.php");
 include("config.php");
 
-			if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0777); }
-			if(!is_dir($mod_path_album)) { mkdir($mod_path_album,0777); }  
+			if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0775); }
+			if(!is_dir($mod_path_album)) { mkdir($mod_path_album,0775); }  
 			
 
 			$inputGallery=$_FILES['myfile']['tmp_name'];
@@ -28,9 +28,7 @@ include("config.php");
 			$picname=$filename.".".$ext;
 			
 			##  Real ################################################################################
-			if(copy($inputGallery,$mod_path_album."/".$picname)){
-				@chmod($mod_path_album."/".$picname,0777);
-			}
+			copy($inputGallery,$mod_path_album."/".$picname);
 			
 			$imgReal = $mod_path_album."/".$picname; // File image location
 			
@@ -39,9 +37,7 @@ include("config.php");
 			$arrImgInfo=getimagesize($imgReal);
 			if($arrImgInfo[0]<=($sizeWidthPic+10)){
 			
-				if(copy($inputGallery,$mod_path_album."/reB_".$picname)){
-					@chmod($mod_path_real."/reB_".$picname,0777);
-				}
+				copy($inputGallery,$mod_path_album."/reB_".$picname);
 			
 			}else{
 				$newfilename = $mod_path_album."/reB_".$picname; // New file name for thumb

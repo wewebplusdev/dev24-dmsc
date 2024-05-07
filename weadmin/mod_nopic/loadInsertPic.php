@@ -53,10 +53,10 @@ include("config.php");
 			
 
 
-		if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0777); }
-		if(!is_dir($mod_path_pictures)) { mkdir($mod_path_pictures,0777); }  
-		if(!is_dir($mod_path_office)) { mkdir($mod_path_office,0777); }  
-		if(!is_dir($mod_path_real)) { mkdir($mod_path_real,0777); }  
+		if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0775); }
+		if(!is_dir($mod_path_pictures)) { mkdir($mod_path_pictures,0775); }  
+		if(!is_dir($mod_path_office)) { mkdir($mod_path_office,0775); }  
+		if(!is_dir($mod_path_real)) { mkdir($mod_path_real,0775); }  
 
 			if(file_exists($mod_path_office."/".$_REQUEST['delpicname'])) {
 				@unlink($mod_path_office."/".$_REQUEST['delpicname']);
@@ -85,9 +85,7 @@ include("config.php");
 			$picname=$filename.".".$ext;
 			
 			##  Real ################################################################################
-			if(copy($inputGallery,$mod_path_real."/".$picname)){
-				@chmod($mod_path_real."/".$picname,0777);
-			}
+			copy($inputGallery,$mod_path_real."/".$picname);
 			
 			$imgReal = $mod_path_real."/".$picname; // File image location
 			
@@ -95,9 +93,7 @@ include("config.php");
 			$arrImgInfo=getimagesize($imgReal);
 			if($arrImgInfo[0]<=($sizeWidthPic+10)){
 			
-				if(copy($inputGallery,$mod_path_pictures."/".$picname)){
-					@chmod($mod_path_real."/".$picname,0777);
-				}
+				copy($inputGallery,$mod_path_pictures."/".$picname);
 			
 			}else{
 			$newfilename = $mod_path_pictures."/".$picname;; // New file name for thumb

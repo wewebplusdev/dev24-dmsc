@@ -2,12 +2,6 @@
 
 class homePage extends controller
 {
-    public function __construct()
-    {
-        // super class init
-        parent::__construct();
-    }
-    
     public function load_topgraphic()
     {
         if (empty($this->token_access)) {
@@ -26,8 +20,7 @@ class homePage extends controller
             "page" => 1,
             "limit" => 15,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
     
     public function load_services()
@@ -48,8 +41,7 @@ class homePage extends controller
             "page" => 1,
             "limit" => 15,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
     public function load_popup()
@@ -70,8 +62,7 @@ class homePage extends controller
             "page" => 1,
             "limit" => 15,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
     public function load_innovation()
@@ -92,8 +83,7 @@ class homePage extends controller
             "page" => 1,
             "limit" => 15,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
     public function load_about()
@@ -114,8 +104,7 @@ class homePage extends controller
             "page" => 1,
             "limit" => 15,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
     public function load_news()
@@ -136,7 +125,6 @@ class homePage extends controller
             "page" => 1,
             "limit" => 15,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 }

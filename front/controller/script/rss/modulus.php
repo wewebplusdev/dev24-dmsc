@@ -2,12 +2,6 @@
 
 class rssPage extends controller
 {
-    public function __construct()
-    {
-        // super class init
-        parent::__construct();
-    }
-
     public function load_rss($data)
     {
         if (empty($this->token_access)) {
@@ -20,7 +14,6 @@ class rssPage extends controller
             'Authorization: Bearer ' . $this->token_access,
         ];
         
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 }

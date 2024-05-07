@@ -55,8 +55,6 @@ switch ($url->segment[0]) {
 
         // call list
         $load_data = $downloadAllPage->load_data($data);
-        // print_pre($data);
-        // print_pre($load_data);die;
         $smarty->assign("load_data", $load_data);
         
         // setup seo and text modules
@@ -67,10 +65,6 @@ switch ($url->segment[0]) {
             $language_modules['breadcrumb2'] = $header_active['page'][0];
             $language_modules['metatitle'] = $header_active['page'][0];
         }
-        // if ($masterkey == 'lar') {
-        //     $language_modules['breadcrumb2'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
-        //     $language_modules['metatitle'] = $languageFrontWeb->Lawsregulations->display->$currentLangWeb;
-        // }
         $smarty->assign("language_modules", $language_modules);
        
         /*## Start SEO #####*/
