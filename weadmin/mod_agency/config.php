@@ -2,13 +2,20 @@
 ## Mod Table ###################################
 $mod_tb_root = "md_ag";
 $mod_tb_root_lang = "md_agl";
+$mod_tb_root_group = "md_agg";
+$mod_tb_root_group_lang = "md_aggl";
 
+$mod_tb_permis = "sy_grp";
+$mod_tb_permisGroup = "md_cmsp";
 ## Mod Folder ###################################
 $mod_fd_root = "mod_agency";
 
 $keyGoogleMap = 'AIzaSyCurPGwavTFgJOilsQYTEjdCme657vfa7I';
 ## Setting Value ###################################
-$modTxtShowPic = array("การแสดงผลรูปภาพ", "ไม่แสดงผล", "แสดงผล");
+$modTxtShowPic = array("ประเภทการแสดงผลรูปภาพ", "เลือกจากระบบ", "อัพโหลด");
+
+## etc ###################################
+$array_masterkey_group = array('agif');
 
 ## URL Search ###################################
 $mod_url_search_th = "downloadDw.php";

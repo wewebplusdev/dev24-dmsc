@@ -47,73 +47,100 @@
                         <form class="form-default">
                             <input type="hidden" name="date" value="{$req.date}">
                             <div class="top">
-                                <div class="row justify-content-between">
-                                    <div class="col-auto">
-                                        <div class="row gutters-20 align-items-center">
-                                            <div class="col-auto">
-                                                <div class="typo-md fw-bold text-light">กลุ่ม</div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-group form-select form-group-calendar -group">
-                                                    <label class="control-label visually-hidden"
-                                                        for="group">กลุ่ม</label>
-                                                    <div class="select-wrapper">
-                                                        <select class="select-calendar -change-group" name="group" id="group"
-                                                            style="width: 100%;">
-                                                            <option value="0">เลือกทั้งหมด</option>
-                                                            {foreach $load_group->item as $keyload_group => $valueload_group}
-                                                                <option value="{$valueload_group->id}">{$valueload_group->subject}</option>
-                                                            {/foreach}
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
+                              <div class="default-filter mb-sm-3 mb-2">
+                                <div class="row gutters-20 align-items-center">
+                                  <div class="col-lg-auto">
+                                    <div class="title-left">ค้นหา</div>
+                                  </div>
+                                  <div class="col-lg">
+                                    <div class="form-group form-search">
+                                      <label class="control-label visually-hidden" for="">พิมพ์คำค้นหา</label>
+                                      <div class="block-control">
+                                        <input class="form-control" type="search" id="" placeholder="พิมพ์คำค้นหา">
+                                        <div class="search">
+                                          <a href="" class="link">
+                                            <span class="icon">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33.621 33.621">
+                                                <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(1.5 1.5)">
+                                                  <path id="Path_41" data-name="Path 41" d="M31.167,17.833A13.333,13.333,0,1,1,17.833,4.5,13.333,13.333,0,0,1,31.167,17.833Z" transform="translate(-4.5 -4.5)" fill="none" stroke="#29b171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+                                                  <path id="Path_42" data-name="Path 42" d="M32.225,32.225l-7.25-7.25" transform="translate(-2.225 -2.225)" fill="none" stroke="#29b171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+                                                </g>
+                                              </svg>
+                                            </span>
+                                          </a>
                                         </div>
+                                      </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="row gutters-20">
-                                            <div class="col">
-                                                <div class="form-group form-select form-group-calendar -year">
-                                                    <label class="control-label" for="year">ปี :</label>
-                                                    <div class="select-wrapper">
-                                                        <select class="select-calendar -change-year" name="year" id="year"
-                                                            style="width: 100%;">
-                                                            {for $index = $yearNow; $index >= $yearNow - 5; $index--}
-                                                                <option value="{$index}" {if $YearCurrent eq $index}selected{/if} data-lang="{$langon}">{$index}</option>
-                                                            {/for}
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-group form-select form-group-calendar -month">
-                                                    <label class="control-label" for="month">เดือน :</label>
-                                                    <div class="select-wrapper">
-                                                        <select class="select-calendar -change-month" name="month" id="month"
-                                                            style="width: 100%;">
-                                                            {foreach $strMonthCut as $keystrMonthCut => $valuestrMonthCut}
-                                                                {if $keystrMonthCut gte 1}
-                                                                    <option value="{$keystrMonthCut}" {if $keystrMonthCut eq $myCalendarDateMonth}selected{/if}>{$valuestrMonthCut}</option>
-                                                                {/if}
-                                                            {/foreach}
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                  </div>
                                 </div>
+                              </div>
+                              <div class="row gutters-20 justify-content-between">
+                                  <div class="col-lg">
+                                      <div class="row gutters-20 align-items-center">
+                                          <div class="col-lg-auto">
+                                              <div class="title-left">กลุ่ม</div>
+                                          </div>
+                                          <div class="col-lg">
+                                              <div class="form-group form-select form-group-calendar -group">
+                                                  <label class="control-label visually-hidden"
+                                                      for="group">กลุ่ม</label>
+                                                  <div class="select-wrapper">
+                                                      <select class="select-calendar -change-group" name="group" id="group"
+                                                          style="width: 100%;">
+                                                          <option value="0">เลือกทั้งหมด</option>
+                                                          {foreach $load_group->item as $keyload_group => $valueload_group}
+                                                              <option value="{$valueload_group->id}">{$valueload_group->subject}</option>
+                                                          {/foreach}
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-auto">
+                                      <div class="row gutters-20">
+                                          <div class="col-sm mb-sm-0 mb-3">
+                                              <div class="form-group form-select form-group-calendar -year">
+                                                  <label class="control-label" for="year">ปี :</label>
+                                                  <div class="select-wrapper">
+                                                      <select class="select-calendar -change-year" name="year" id="year"
+                                                          style="width: 100%;">
+                                                          {for $index = $yearNow; $index >= $yearNow - 5; $index--}
+                                                              <option value="{$index}" {if $YearCurrent eq $index}selected{/if} data-lang="{$langon}">{$index}</option>
+                                                          {/for}
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm">
+                                              <div class="form-group form-select form-group-calendar -month">
+                                                  <label class="control-label" for="month">เดือน :</label>
+                                                  <div class="select-wrapper">
+                                                      <select class="select-calendar -change-month" name="month" id="month"
+                                                          style="width: 100%;">
+                                                          {foreach $strMonthCut as $keystrMonthCut => $valuestrMonthCut}
+                                                              {if $keystrMonthCut gte 1}
+                                                                  <option value="{$keystrMonthCut}" {if $keystrMonthCut eq $myCalendarDateMonth}selected{/if}>{$valuestrMonthCut}</option>
+                                                              {/if}
+                                                          {/foreach}
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
                             </div>
                             <div class="middle">
                                 <div class="row align-items-center">
-                                    <div class="col">
+                                    <div class="col-md mb-md-0 mb-3">
                                         <div class="month-topic">
                                             <span class="-append-month">{$MonthCurrent}</span> <span class="-append-year">{$YearCurrent}</span>
                                         </div>
                                     </div>
-                                    <div class="col-auto">
+                                    <div class="col-md-auto">
                                         <div class="row gutters-20">
-                                            <div class="col">
+                                            <div class="col-md col-auto pr-md-2 pr-0">
                                                 <div class="select">
                                                     <a href="javascript:void(0);" class="link active -click-datenow">
                                                         วันนี้

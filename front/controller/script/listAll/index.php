@@ -68,9 +68,10 @@ switch ($url->segment[0]) {
         // active menu header
         $header_active = header_active($url->url);
         if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb2'] = $header_active[0];
-            $language_modules['metatitle'] = $header_active[0];
+            $language_modules['breadcrumb2'] = $header_active['page'][0];
+            $language_modules['metatitle'] = $header_active['page'][0];
         }
+
         if ($masterkey == 'nw') {
             $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;

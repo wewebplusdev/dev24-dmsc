@@ -60,6 +60,8 @@ foreach ($ValFac2 as $key => $value4) {
         $ValFac[$keyinner4][$key] = $valueinner4;
     }
 }
+$valPicName = $Row['addresspic'];
+$valPic = $mod_path_pictures . "/" . $Row['addresspic'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 
@@ -548,7 +550,7 @@ $myRand = time() . rand(111, 999);
                     </td>
                 </tr>
                 <tr>
-                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album"] ?></td>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["info:picaddress"] ?></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                         <div class="file-input-wrapper">
                             <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
@@ -558,7 +560,11 @@ $myRand = time() . rand(111, 999);
                         <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
                         <div class="clearAll"></div>
                         <div id="boxPicNew" class="formFontTileTxt">
-                            <input type="hidden" name="picname" id="picname" />
+                            <? if (is_file($valPic)) { ?>
+                                <img src="<?= $valPic ?>"  style="float:left;border:#c8c7cc solid 1px;max-width:650px;"   />
+                                <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePic.php')"  title="Delete file" ><img src="../img/btn/delete.png" width="22" height="22"  border="0"/></div>
+                                <input type="hidden" name="picname" id="picname" value="<?= $valPicName ?>" />
+                            <? } ?>
                         </div>
                     </td>
                 </tr>

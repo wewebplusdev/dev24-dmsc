@@ -9,6 +9,7 @@ switch ($url->segment[0]) {
     default:
         // call popup
         $load_popup = $homePage->load_popup();
+        // print_pre($load_popup);
         $smarty->assign("load_popup", $load_popup);
         // call top graphic
         $load_topgraphic = $homePage->load_topgraphic();
@@ -37,6 +38,13 @@ switch ($url->segment[0]) {
         }
         // print_pre($array_news_list);
         $smarty->assign("array_news_list", $array_news_list);
+
+        // active menu header
+        $header_active = header_active($url->url);
+        if (gettype($header_active) == 'array' && count($header_active) > 0) {
+            $language_modules['breadcrumb2'] = $header_active['page'][0];
+            $language_modules['metatitle'] = $header_active['page'][0];
+        }
 
         /*## Start SEO #####*/
         $seo_desc = "";

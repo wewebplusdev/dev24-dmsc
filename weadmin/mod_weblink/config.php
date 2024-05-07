@@ -25,7 +25,8 @@ $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "�
 $modStatus = array("Enable", "Disable");
 $modStatusHome = array("Enable", "Disable", "Home");
 
-## Hide Group ###################################
+## etc ###################################
+$array_masterkey_2link = array("mobile");
 $array_masterkey_pic_number = array("rein");
 $array_masterkey_group = array();
 $array_masterkey_home = array('rein');

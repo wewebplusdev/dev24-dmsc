@@ -120,7 +120,7 @@ include("config.php");
 			$h = $sizeHeightOff;
 			$thumbnail = resize($imgReal, $w, $h, $newfilename);
 
-			$msg .= "<img src=\"" . $mod_path_pictures . "/" . $picname . "\"  style=\"float:left;border:#c8c7cc solid 1px; width: calc(100% - 600px);\"  />";
+			$msg .= "<img src=\"" . $mod_path_pictures . "/" . $picname . "\"  style=\"float:left;border:#c8c7cc solid 1px;max-width:650px;\"  />";
 			$msg .= "<div style=\"width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;\" onclick=\"delPicUpload(\'deletePic.php\')\"  title=\"Delete file\" ><img src=\"../img/btn/delete.png\" width=\"22\" height=\"22\"  border=\"0\"/></div>";
 			$msg .= "<input name=\"picname\" type=\"hidden\" id=\"picname\" value=\"$picname\" /> ";
 		} else {

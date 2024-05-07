@@ -1,12 +1,12 @@
-name: CI/CD
+name: CI/CD DMSC
 on:
   push:
-    branches: [main, staging]
+    branches: [main]
 jobs:
   deploy:
     name: Auto Deploy
     runs-on: 
-      - wwp-cloud-ubuntu
+      - dmsc-prod-server
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -41,6 +41,13 @@ jobs:
           echo "copy .htaccess"
           cp -r /home/env/.htaccess /wwwroot/website
           rm -rf /wwwroot/website/webservice
+          echo "copy upload & ckupload"
+          rm -rf /wwwroot/website/upload/*
+          cp -r /home/assets/upload/upload /wwwroot/website
+          rm -rf /wwwroot/website/ckeditor/upload/*
+          cp -r /home/assets/ck/upload /wwwroot/website/ckeditor
+          echo "copy SSL"
+          cp -r /home/_apache /wwwroot/website
 
       - name: Build & Start Container Image front-end & back-end
         run: |

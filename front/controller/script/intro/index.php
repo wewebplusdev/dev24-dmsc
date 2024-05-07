@@ -8,7 +8,7 @@ switch ($url->segment[0]) {
     default:
         // call intro
         $load_intro = $introPage->load_intro();
-        if (count($load_intro->item) < 1) {
+        if ($load_intro->code != 1001) {
             header('location:' . $linklang . "/home");
         }
         $array_intro = array();

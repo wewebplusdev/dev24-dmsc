@@ -54,7 +54,7 @@ post_max_size=128M\n' > /usr/local/etc/php/php.ini
 
 # SSL
 RUN mkdir -p /etc/apache2/ssl
-COPY ./_apache/cert-ssl/*.pem /etc/apache2/ssl/
+COPY ./_apache/cert-ssl/* /etc/apache2/ssl/
 COPY ./_apache/apache-config/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod ssl
 

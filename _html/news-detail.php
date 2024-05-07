@@ -282,6 +282,36 @@
             </div>
           </div>
 
+          <div class="layout-detail-bottom">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col">
+                  <a href="" class="btn btn-comment">
+                    <span class="icon">
+                      <svg id="_x31_4_comment" xmlns="http://www.w3.org/2000/svg" width="20" height="18.667" viewBox="0 0 20 18.667">
+                        <g id="Group_91176" data-name="Group 91176" transform="translate(0 0)">
+                          <path id="Path_452816" data-name="Path 452816" d="M5.5,20.333a.667.667,0,0,1-.667-.667V16.333h-2a2,2,0,0,1-2-2V3.667a2,2,0,0,1,2-2h16a2,2,0,0,1,2,2V14.333a2,2,0,0,1-2,2h-8.1L5.917,20.187A.665.665,0,0,1,5.5,20.333ZM2.833,3a.667.667,0,0,0-.667.667V14.333A.667.667,0,0,0,2.833,15H5.5a.666.666,0,0,1,.667.667V18.28l3.917-3.134A.666.666,0,0,1,10.5,15h8.333a.667.667,0,0,0,.667-.667V3.667A.667.667,0,0,0,18.833,3Z" transform="translate(-0.833 -1.667)" fill="#2ab170" />
+                        </g>
+                        <g id="Group_91177" data-name="Group 91177" transform="translate(4 5.333)">
+                          <path id="Path_452817" data-name="Path 452817" d="M17.167,9.667H6.5a.667.667,0,0,1,0-1.333H17.167a.667.667,0,0,1,0,1.333Z" transform="translate(-5.833 -8.333)" fill="#2ab170" />
+                        </g>
+                        <g id="Group_91178" data-name="Group 91178" transform="translate(4 8)">
+                          <path id="Path_452818" data-name="Path 452818" d="M11.833,13H6.5a.667.667,0,0,1,0-1.333h5.333a.667.667,0,0,1,0,1.333Z" transform="translate(-5.833 -11.667)" fill="#2ab170" />
+                        </g>
+                      </svg>
+                    </span>
+                    เเสดงความคิดเห็น
+                  </a>
+                </div>
+                <div class="col-auto">
+                  <a href="" class="btn btn-back">
+                    ย้อนกลับ
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="news-area">
             <div class="container">
               <div class="whead">
@@ -331,7 +361,6 @@
   <?php include('inc/loadscript.php'); ?>
 
   <script>
-
     var downloadSwiper = new Swiper(".document-download-list .swiper", {
       // slidesPerView: "auto",
       slidesPerView: 2,

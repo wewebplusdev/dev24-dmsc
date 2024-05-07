@@ -4,7 +4,7 @@
             <div class="nav-lang">
                 <div class="row justify-content-end align-items-center gutters-10">
                     <div class="col-auto">
-                        <div class="nav-label">เลือกภาษา</div>
+                        <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
                     </div>
                     {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
                         <div class="col-auto">
@@ -44,6 +44,7 @@
                 </span>
             </button>
             <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
+           
                 {if count((array)$sitemapWeb) gte 1}
                 <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0">
                     {foreach $sitemapWeb->level_1->$currentLangWeb as $keySitemapLv1 => $valueSitemapLv1}
@@ -59,7 +60,7 @@
                             {if count((array)$valueSitemapLv1->level_2) gte 1}
                                 <li class="nav-item">
                                     <div class="dropdown">
-                                        <a class="nav-link dropdown-toggle" href="javascript:void;" title="{$valueSitemapLv1->subject}"
+                                        <a class="nav-link dropdown-toggle menu-{$valueSitemapLv1->id}" href="javascript:void;" title="{$valueSitemapLv1->subject}"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             data-aos="fade-left">{$valueSitemapLv1->subject}</a>
                                         <div class="dropdown-menu full-dropdown-menu">
@@ -82,12 +83,12 @@
                                                                     {/if}
                                                                     {if count((array)$valueLv2->level_3) gte 1}
                                                                         <li class="has-submenu">
-                                                                            <a href="javascript:void(0)" class="link"
+                                                                            <a href="javascript:void(0)" title="{$valueLv2->subject}"  class="link"
                                                                                 id="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">{$valueLv2->subject}</a>
                                                                         </li>
                                                                     {else}
                                                                         <li>
-                                                                            <a href="{$news_url}" target="{$target}" class="link">{$valueLv2->subject}</a>
+                                                                            <a href="{$news_url}" target="{$target}"  title="{$valueLv2->subject}"  class="link">{$valueLv2->subject}</a>
                                                                         </li>
                                                                     {/if}
                                                                 {/if}
@@ -100,7 +101,7 @@
                                                             <div class="submenu-col sub2menu" data-submenu-parent="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">
                                                                 <div class="scroll-wrapper mCustomScrollbar">
                                                                     <!-- sub2menu -->
-                                                                    <div class="back-menu">เว็บไซต์ส่วนกลาง & ส่วนภูมิภาค</div>
+                                                                    <div class="back-menu">{$valueLv2->subject}</div>
                                                                     <ul class="nav-list fluid">
                                                                     {foreach $valueLv2->level_3 as $keyLv3 => $valueLv3}
                                                                         {if $valueLv3->subject neq ""}
@@ -113,7 +114,7 @@
                                                                                 {assign var="news_url" value="javascript:void(0);"}
                                                                             {/if}
                                                                             <li>
-                                                                                <a href="{$news_url}" target="{$target}" class="link">{$valueLv3->subject}</a>
+                                                                                <a href="{$news_url}" target="{$target}" title="{$valueLv3->subject}"  class="link">{$valueLv3->subject}</a>
                                                                             </li>
                                                                         {/if}
                                                                     {/foreach}
@@ -129,7 +130,7 @@
                                 </li>
                             {else}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{$news_url}" target="{$target}"  title="{$valueSitemapLv1->subject}" data-aos="fade-left">{$valueSitemapLv1->subject}</a>
+                                    <a class="nav-link menu-{$valueSitemapLv1->id}" href="{$news_url}" target="{$target}"  title="{$valueSitemapLv1->subject}" data-aos="fade-left">{$valueSitemapLv1->subject}</a>
                                 </li>
                             {/if}
                         {/if}
@@ -137,13 +138,13 @@
                 </ul>
                 {/if}
                 <div class="nav-search" data-aos="fade-left">
-                    <form class="form-default form-search" method="post" role="search" action="{$ul}/search">
+                    <form class="form-default form-search" method="get" role="search" action="{$ul}/searchAll">
                         <div class="input-group">
                             <a href="javascript:void(0)" class="btn-link">
                                 <span class="visually-hidden">Search</span>
                                 <span data-feather="search"></span>
                             </a>
-                            <input class="form-control" name="keywords" type="text" placeholder="ค้นหา" aria-label="Search">
+                            <input class="form-control" name="keyword" type="text" placeholder="{$languageFrontWeb->search->display->$currentLangWeb}" aria-label="Search">
                         </div>
                     </form>
                     <a href="javascript:void(0)" class="close-search">

@@ -23,7 +23,15 @@ $sql .= "   " . $mod_tb_root . "_id as id,
 " . $mod_tb_root . "_email as email,
 " . $mod_tb_root . "_name as name,
 " . $mod_tb_root . "_status as status ,
-" . $mod_tb_root . "_ip as ip 
+" . $mod_tb_root . "_ip as ip ,
+" . $mod_tb_root . "_address as address ,
+
+" . $mod_tb_root . "_complaint_name as complaint_name ,
+" . $mod_tb_root . "_complaint_time as complaint_time ,
+" . $mod_tb_root . "_complaint_fac as complaint_fac ,
+" . $mod_tb_root . "_complaint_desc1 as complaint_desc1 ,
+" . $mod_tb_root . "_complaint_desc2 as complaint_desc2 ,
+" . $mod_tb_root . "_complaint_confirm as complaint_confirm 
 ";
 $sql .= " FROM " . $mod_tb_root . " 
 WHERE " . $mod_tb_root . "_masterkey='" . $_REQUEST["masterkey"] . "' 
@@ -49,6 +57,15 @@ $valTel = rechangeQuot($Row['tel']);
 $valEmail = rechangeQuot($Row['email']);
 $valName = rechangeQuot($Row['name']);
 $valIP = rechangeQuot($Row['ip']);
+$valAddress = rechangeQuot($Row['address']);
+
+$valComplaintName = rechangeQuot($Row['complaint_name']);
+$valComplaintTime = rechangeQuot($Row['complaint_time']);
+$valComplaintFac = rechangeQuot($Row['complaint_fac']);
+$valComplaintDesc1 = rechangeQuot($Row['complaint_desc1']);
+$valComplaintDesc2 = rechangeQuot($Row['complaint_desc2']);
+$valComplaintConfirm = rechangeQuot($Row['complaint_confirm']);
+
 
 if ($valID > 0) {
    $update = array();
@@ -122,11 +139,11 @@ logs_access('3', 'View');
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
-                  <span class="formFontSubjectTxt"><?php echo  $langMod["txt:subject"] ?></span><br />
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:subject"] ?></span><br />
                   <span class="formFontTileTxt"><?php echo  $langMod["txt:subjectDe"] ?></span>
                </td>
             </tr>
-            <tr>
+            <!-- <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo  $langMod["meu:group2"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView">
@@ -142,11 +159,17 @@ logs_access('3', 'View');
                      ?>
                   </div>
                </td>
-            </tr>
+            </tr> -->
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:name"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo  $valName ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:address"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $valAddress ?></div>
                </td>
             </tr>
             <tr>
@@ -175,6 +198,53 @@ logs_access('3', 'View');
             </tr>
          </table>
          <br />
+         <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_detail)) { ?>
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:report"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo  $langMod["txt:reportDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:name_report"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $valComplaintName ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:rank_report"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $valComplaintTime ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:fac_report"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $modValueFac[$valComplaintFac] ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:corruption_report"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $valComplaintDesc1 ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:rich_report"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $valComplaintDesc2 ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:confirm_report"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo  $modValueConfirm[$valComplaintConfirm] ?></div>
+               </td>
+            </tr>
+         </table>
+         <br />
+         <?php } ?>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">

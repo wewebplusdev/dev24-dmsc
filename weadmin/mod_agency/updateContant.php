@@ -18,6 +18,7 @@ include("config.php");
 	if ($execute == "update") {
 
 		$update = array();
+		$update[] = $mod_tb_root . "_gid='" . $_POST["inputGroupID"] . "'";
 		$update[] = $mod_tb_root . "_lastbyid='" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
 		$update[] = $mod_tb_root . "_lastby='" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
 		$update[] = $mod_tb_root . "_lastdate=NOW()";
@@ -31,11 +32,15 @@ include("config.php");
 		if ($count_check > 0) {
 			$update = array();
 			$update[] = $mod_tb_root_lang . "_subject='" . changeQuot($_POST['inputSubject']) . "'";
+			$update[] = $mod_tb_root_lang . "_title='" . changeQuot($_POST['inputDescription']) . "'";
 			$update[] = $mod_tb_root_lang . "_address='" . changeQuot($_POST['inputAddress']) . "'";
 			$update[] = $mod_tb_root_lang . "_tel='" . changeQuot($_POST['inputTel']) . "'";
 			$update[] = $mod_tb_root_lang . "_fax='" . changeQuot($_POST['inputFax']) . "'";
+			$update[] = $mod_tb_root_lang . "_email='" . changeQuot($_POST['inputEmail']) . "'";
 			$update[] = $mod_tb_root_lang . "_lat='" . changeQuot($_POST['latInput']) . "'";
 			$update[] = $mod_tb_root_lang . "_long='" . changeQuot($_POST['longInput']) . "'";
+			$update[] = $mod_tb_root_lang . "_picType='" . changeQuot($_POST['inputTypePic']) . "'";
+			$update[] = $mod_tb_root_lang . "_picDefault='" . changeQuot($_POST['inputPicD']) . "'";
 
 			$update[] = $mod_tb_root_lang . "_lastbyid='" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
 			$update[] = $mod_tb_root_lang . "_lastby='" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
@@ -49,11 +54,14 @@ include("config.php");
 			$insertLang[$mod_tb_root_lang . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
 			$insertLang[$mod_tb_root_lang . "_language"] = "'" . $_POST['inputLt'] . "'";
 			$insertLang[$mod_tb_root_lang . "_subject"] = "'" . changeQuot($_REQUEST['inputSubject']) . "'";
+			$insertLang[$mod_tb_root_lang . "_title"] = "'" . changeQuot($_REQUEST['inputDescription']) . "'";
 			$insertLang[$mod_tb_root_lang . "_address"] = "'" . changeQuot($_REQUEST['inputAddress']) . "'";
 			$insertLang[$mod_tb_root_lang . "_tel"] = "'" . changeQuot($_REQUEST['inputTel']) . "'";
 			$insertLang[$mod_tb_root_lang . "_fax"] = "'" . changeQuot($_REQUEST['inputFax']) . "'";
 			$insertLang[$mod_tb_root_lang . "_lat"] = "'" . changeQuot($_REQUEST['latInput']) . "'";
 			$insertLang[$mod_tb_root_lang . "_long"] = "'" . changeQuot($_REQUEST['longInput']) . "'";
+			$insertLang[$mod_tb_root_lang . "_picType"] = "'" . changeQuot($_REQUEST['inputTypePic']) . "'";
+			$insertLang[$mod_tb_root_lang . "_picDefault"] = "'" . changeQuot($_REQUEST['inputPicD']) . "'";
 
 			$insertLang[$mod_tb_root_lang . "_lastbyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
 			$insertLang[$mod_tb_root_lang . "_lastby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";

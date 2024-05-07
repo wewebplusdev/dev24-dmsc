@@ -22,6 +22,7 @@ async function loadRedirect(req, res) {
     const action = req.body.action;
     const view = req.body.view;
     const download = req.body.download;
+    const urlc2 = req.body.urlc2;
     const result = general.checkParam([method, table, id, masterkey, language]);
     const code = config.returncode;
     // db tables
@@ -35,7 +36,7 @@ async function loadRedirect(req, res) {
     config_array_db['md_mnu'] = config.fieldDB.main.md_mnu
     config_array_db['md_mnul'] = config.fieldDB.main.md_mnul
     config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
-
+    
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
@@ -52,6 +53,7 @@ async function loadRedirect(req, res) {
                     ,${config_array_db['md_cmsl']}_title as title 
                     ,${config_array_db['md_cmsl']}_typec as typec 
                     ,${config_array_db['md_cmsl']}_urlc as urlc 
+                    ,${config_array_db['md_cmsl']}_urlc2 as urlc2 
                     ,${config_array_db['md_cmsl']}_id as lid 
                     FROM ${config_array_db['md_cms']} 
                     INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
@@ -67,7 +69,11 @@ async function loadRedirect(req, res) {
                         let arr_data = {};
                         if (action == 'link') {
                             if (select_list[0].typec == 3) {
-                                arr_data.url = select_list[0].urlc;
+                                if (urlc2?.length > 0) {
+                                    arr_data.url = select_list[0].urlc2;
+                                }else{
+                                    arr_data.url = select_list[0].urlc;
+                                }
                             }else{
                                 if (download < 1) {
                                     // const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, select_list[0].typec, short_language);
@@ -178,7 +184,6 @@ async function loadRedirect(req, res) {
                         if (action == 'link') {
                             arr_data.url = select_list[0].url;
                         }
-                        console.log(view);
                         if (view == 1) {
                             let update = new Array;
                             update.push(`${config_array_db['md_mnusg']}_view = ${config_array_db['md_mnusg']}_view + 1`);

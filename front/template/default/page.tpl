@@ -15,13 +15,14 @@
 
 <body>
     {* {include file="{$incfile.preloader}" title=title} *}
-    <div class="global-container" data-uri="{$uri}">
+    <div class="global-container" data-menu="{$header_active.header[0]}">
         {include file="{$incfile.header}" title=title}
         {include file="{$fileInclude|templateInclude}" title=pageContent}
         {include file="{$incfile.footer}" title=title}
         {include file="{$incfile.modal}" title=title}
     </div>
     {include file="{$incfile.loadscript}" title=title}
+    {include file="{$incfile.accessibility}" title=title}
 </body>
 
 </html>

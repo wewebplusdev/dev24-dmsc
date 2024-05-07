@@ -19,11 +19,11 @@ abstract class controller
         global $url, $_CORE_ENV;
 
         if ($_CORE_ENV == 'DEV') {
-            $this->URL_API =  'http://192.168.1.150:4040/service-api/v1';
-            // $this->URL_API =  'http://192.168.101.39:4040/service-api/v1';
-            $this->URL_API =  'http://192.168.1.105:4040/service-api/v1';
+            // $this->URL_API =  'http://192.168.1.150:4040/service-api/v1';
+            $this->URL_API =  'http://192.168.101.39:4040/service-api/v1';
+            // $this->URL_API =  'http://192.168.1.100:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
-            $this->URL_API =  'http://13.229.72.11:4040/service-api/v1';
+            $this->URL_API =  'http://192.168.200.146:4040/service-api/v1';
         }else{
             $this->URL_API =  'http://api.wewebplus.com:4040/service-api/v1';
         }
@@ -70,6 +70,27 @@ abstract class controller
                 'method_detail' => 'getNewsDetail',
                 'method_group' => 'getNewsGroup',
                 'method_list' => 'getNews',
+            ),
+            'downloadBook' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'mobile-application' => array(
+                'action' => 'news',
+                'method_detail' => 'getNewsDetail',
+                'method_group' => 'getNewsGroup',
+                'method_list' => 'getNews',
+            ),
+            'searchAll' => array(
+                'action' => 'search',
+                'method_list' => 'getSearch',
+            ),
+            'contact' => array(
+                'action' => 'agency',
+                'method_list' => 'getAgency',
+                'method_list_service' => 'getService',
             ),
         );
 
@@ -120,6 +141,7 @@ abstract class controller
                     setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
                     setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
                     self::revoke_token($auth_webservice);
+
                 }
             }
         } catch (Exception $e) {
@@ -192,6 +214,7 @@ abstract class controller
             "action" => $req['action'],
             "download" => $req['download'],
             "view" => $req['view'],
+            "urlc2" => $req['urlc2'],
         ];
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
@@ -217,6 +240,24 @@ abstract class controller
         ];
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
+    }
+
+    public function content_website($content, $language){
+        if (gettype($content) == 'object' && count((array)$content) > 0) {
+            $array_content = array();
+            foreach ($content as $keycontent => $valuecontent) {
+                $array_content[$keycontent]['type'] = $valuecontent->type;
+                
+                foreach ($language as $valuelanguage) {
+                    $current_lang = $valuelanguage->subject;
+                    $array_content[$keycontent]['display'][$valuelanguage->short] = $valuecontent->display->$current_lang;
+                }
+            }
+
+            if (count($array_content) > 0) {
+                file_put_contents('./webservice_json/content_language_web.json', json_encode($array_content));
+            }
+        }
     }
 
     function load_insert_logs($req){
