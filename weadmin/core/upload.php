@@ -68,9 +68,7 @@ include("../lib/classpic.php");
 			$picname=$filenameimg.".".$ext;
 			
 			##  Real ################################################################################
-			if(copy($inputGallery,"../../upload/core/".$picname)){
-				chmod("../../upload/core/".$picname,0775);
-			}
+			copy($inputGallery,"../../upload/core/".$picname);
 			
 			$imgReal = "../../upload/core/".$picname; // File image location
 			

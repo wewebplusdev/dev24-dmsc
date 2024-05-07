@@ -40,7 +40,7 @@ switch ($_POST['function']) {
         //$filename = iconv('UTF-8','windows-874',$filename);
         $HTMLToolContent = str_replace("\\\"", "\"", $_POST['datahtml']);
         $fp = fopen("template/" . $filename, "w");
-        chmod("template/" . $filename, 0777);
+        // chmod("template/" . $filename, 0777);
         fwrite($fp, $HTMLToolContent);
         fclose($fp);
         break;
