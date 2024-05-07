@@ -225,7 +225,7 @@
   }
 
   .form-select {
-    min-width: 300px;
+    width: 300px;
 
     .control-label {
       color: var(--color-default);
@@ -387,6 +387,7 @@
   .default-header .title { font-size: 28px; }
   
   .default-filter { margin-bottom: 15px; }
+  .default-filter .form-select {width: 100%;}
   .default-filter .body {margin-bottom: 20px;}
   .default-filter .form-group { margin-bottom: 10px; min-width: auto; }
 

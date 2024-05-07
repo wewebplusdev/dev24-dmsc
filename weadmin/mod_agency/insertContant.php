@@ -17,6 +17,7 @@ if ($_REQUEST['execute'] == "insert") {
 
 	$insert = array();
 	$insert[$mod_tb_root . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
+	$insert[$mod_tb_root . "_gid"] = "'" . $_POST["inputGroupID"] . "'";
 	$insert[$mod_tb_root . "_crebyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
 	$insert[$mod_tb_root . "_creby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
 	$insert[$mod_tb_root . "_lastbyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
@@ -37,11 +38,16 @@ if ($_REQUEST['execute'] == "insert") {
 				$insertLang[$mod_tb_root_lang . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
 				$insertLang[$mod_tb_root_lang . "_language"] = "'" . $_SESSION[$valSiteManage . 'core_session_language'] . "'";
 				$insertLang[$mod_tb_root_lang . "_subject"] = "'" . changeQuot($_REQUEST['inputSubject']) . "'";
+				$insertLang[$mod_tb_root_lang . "_title"] = "'" . changeQuot($_REQUEST['inputDescription']) . "'";
 				$insertLang[$mod_tb_root_lang . "_address"] = "'" . changeQuot($_REQUEST['inputAddress']) . "'";
 				$insertLang[$mod_tb_root_lang . "_tel"] = "'" . changeQuot($_REQUEST['inputTel']) . "'";
 				$insertLang[$mod_tb_root_lang . "_fax"] = "'" . changeQuot($_REQUEST['inputFax']) . "'";
+				$insertLang[$mod_tb_root_lang . "_email"] = "'" . changeQuot($_REQUEST['inputEmail']) . "'";
 				$insertLang[$mod_tb_root_lang . "_lat"] = "'" . changeQuot($_REQUEST['latInput']) . "'";
 				$insertLang[$mod_tb_root_lang . "_long"] = "'" . changeQuot($_REQUEST['longInput']) . "'";
+				$insertLang[$mod_tb_root_lang . "_picType"] = "'" . changeQuot($_REQUEST['inputTypePic']) . "'";
+				$insertLang[$mod_tb_root_lang . "_picDefault"] = "'" . changeQuot($_REQUEST['inputPicD']) . "'";
+				$insertLang[$mod_tb_root_lang . "_pic"] = "'" . $_POST["picname"] . "'";
 				$insertLang[$mod_tb_root_lang . "_lastbyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
 				$insertLang[$mod_tb_root_lang . "_lastby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
 				$insertLang[$mod_tb_root_lang . "_lastdate"] = "NOW()";

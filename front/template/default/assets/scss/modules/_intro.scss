@@ -30,6 +30,9 @@ $intro-content-height: 130px;
       object-position: center;
     }
   }
+  .iframe-container {
+    padding-top: calc(100vh - $intro-content-height);
+  }
 }
 .intro-content {
   position: absolute;

@@ -49,7 +49,6 @@
         </figure>
       </div>
       <!-- ck editor -->
-      <!-- ck editor -->
       <div class="document-download-list">
             <div class="container">
               <div class="whead">

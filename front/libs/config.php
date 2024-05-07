@@ -81,6 +81,7 @@ $incfile['preloader'] = "inc/inc-preloader.tpl";
 $incfile['pagination'] = "inc/inc-pagination.tpl";
 $incfile['pdpa'] = "inc/inc-pdpa.tpl";
 $incfile['modal'] = "inc/inc-modal.tpl";
+$incfile['accessibility'] = "inc/inc-load-accessibility.tpl";
 
 ## addon js ##
 $listjs = array();

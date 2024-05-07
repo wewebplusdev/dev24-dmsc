@@ -247,7 +247,7 @@
                                     <div class="col">
                                         <div class="content">
                                             <div class="row align-items-center">
-                                                <div class="col col-head">
+                                                <div class="col col-head col-12">
                                                     <div class="head">
                                                         <div class="title">{$valueload_data->subject}</div>
                                                         <div class="date">{$valueload_data->createDate->style}</div>
@@ -314,6 +314,7 @@
                                                 </div>
                                                 {if $valueload_data->typec eq 2}
                                                     <div class="col-auto">
+                                                    <div class="action">
                                                         <a href="{$news_url}" target="{$target}" class="link">
                                                             <div class="d-flex align-items-center">
                                                                 <span class="icon mr-2">
@@ -340,6 +341,7 @@
                                                                 <div class="txt text-primary  fw-bold">{$languageFrontWeb->downloads->display->$currentLangWeb}</div>
                                                             </div>
                                                         </a>
+                                                        </div>
                                                     </div>
                                                 {else}
                                                     <div class="col-xl-auto col-12">

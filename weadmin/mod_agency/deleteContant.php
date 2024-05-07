@@ -12,6 +12,25 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
 	if (strlen($myVar) >= 1) {
 		$permissionID = $myVar;
 
+		$sql = "SELECT  " . $mod_tb_root_lang . "_pic FROM " . $mod_tb_root_lang . " WHERE  " . $mod_tb_root_lang . "_cid='" . $permissionID . "' ";
+		$Query = wewebQueryDB($coreLanguageSQL, $sql);
+		$NumRows = wewebNumRowsDB($coreLanguageSQL, $Query);
+		if ($NumRows > 0) {
+			while ($Row = wewebFetchArrayDB($coreLanguageSQL, $Query)) {
+				$deletepic = $Row[0];
+				######################### Delete  In Folder Pic ###############################
+				if (file_exists($mod_path_pictures . "/" . $deletepic)) {
+					@unlink($mod_path_pictures . "/" . $deletepic);
+				}
+				if (file_exists($mod_path_office . "/" . $deletepic)) {
+					@unlink($mod_path_office . "/" . $deletepic);
+				}
+				if (file_exists($mod_path_real . "/" . $deletepic)) {
+					@unlink($mod_path_real . "/" . $deletepic);
+				}
+			}
+		}
+
 		######################### Delete  Contant ###############################
 		$sqllang = "DELETE FROM " . $mod_tb_root_lang . " WHERE " . $mod_tb_root_lang . "_cid=" . $permissionID . " ";
 		$Querylang = wewebQueryDB($coreLanguageSQL, $sqllang);

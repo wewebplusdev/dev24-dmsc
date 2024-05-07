@@ -78,6 +78,7 @@ async function getWebSetting(req, res) {
             ,${config_array_db['md_sitl']}_social as social 
             ,${config_array_db['md_sitl']}_config as config 
             ,${config_array_db['md_sitl']}_subjectoffice as subjectoffice 
+            ,${config_array_db['md_sitl']}_addresspic as addresspic 
             FROM ${config_array_db['md_sit']} 
             INNER JOIN ${config_array_db['md_sitl']} ON ${config_array_db['md_sitl']}_containid = ${config_array_db['md_sit']}_id
             WHERE ${config_array_db['md_sit']}_masterkey = '${config_array_masterkey['set']}' 
@@ -96,6 +97,13 @@ async function getWebSetting(req, res) {
                     arr_data_setting.metatitle = select_setting[i].metatitle;
                     arr_data_setting.keywords = select_setting[i].keywords;
                     arr_data_setting.description = select_setting[i].description;
+
+                    arr_data_setting.addresspic = {
+                        'real': modulus.getUploadPath(select_setting[i].masterkey, 'real', select_setting[i].addresspic),
+                        'pictures': modulus.getUploadPath(select_setting[i].masterkey, 'pictures', select_setting[i].addresspic),
+                        'office': modulus.getUploadPath(select_setting[i].masterkey, 'office', select_setting[i].addresspic),
+                    }
+                    
                     let social = PHPUnserialize.unserialize(select_setting[i].social);
                     for (const [key, value] of Object.entries(social)) {
                         // Create a new display object if it doesn't exist
@@ -457,6 +465,7 @@ async function getPolicy(req, res) {
     const order = req.body.order;
     const page = req.body.page;
     const limit = req.body.limit;
+    const file_id = req.body.file_id;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -465,6 +474,7 @@ async function getPolicy(req, res) {
     config_array_db['md_cmsl'] = config.fieldDB.main.md_cmsl
     config_array_db['md_cmg'] = config.fieldDB.main.md_cmg
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
+    config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['plc'] = config.fieldDB.masterkey.plc
@@ -491,6 +501,7 @@ async function getPolicy(req, res) {
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
                 ,${config_array_db['md_cmsl']}_target as target 
                 ,'${config_array_db['md_cms']}' as tb 
+                ,${config_array_db['md_cmsl']}_id as lid 
                 FROM ${config_array_db['md_cms']} 
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                 WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['plc']}' 
@@ -549,6 +560,37 @@ async function getPolicy(req, res) {
                         arr_data[i].language = language;
                         arr_data[i].tb = select[i].tb;
                         arr_data[i].typec = select[i].typec;
+
+                        // attachments
+                        let sql_video = `SELECT 
+                        ${config_array_db['md_cmf']}_id as id
+                        ,${config_array_db['md_cmf']}_contantid as contantid
+                        ,${config_array_db['md_cmf']}_filename as filename
+                        ,${config_array_db['md_cmf']}_name as name 
+                        ,${config_array_db['md_cmf']}_download as download 
+                        FROM ${config_array_db['md_cmf']} 
+                        WHERE ${config_array_db['md_cmf']}_contantid = '${select[i].lid}' 
+                        AND ${config_array_db['md_cmf']}_language = '${language}' 
+                        `;
+                        if (file_id > 0) {
+                            sql_video = sql_video + ` AND ${config_array_db['md_cmf']}_id = '${file_id}' `;
+                        }
+                        const select_attachments = await query(sql_video);
+                        if (select_attachments.length > 0) {
+                            let array_attachments = [];
+                            for (let index = 0; index < select_attachments.length; index++) {
+                                array_attachments[index] = {};
+                                array_attachments[index].id = select_attachments[index].id;
+                                array_attachments[index].name = select_attachments[index].name;
+                                array_attachments[index].filename = select_attachments[index].filename;
+                                array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);
+                                array_attachments[index].download = select_attachments[index].download;
+                            }
+                            arr_data[i].attachment = array_attachments;
+                        } else {
+                            arr_data[i].attachment = ``;
+                        }
+
                         if (select[i].typec == 2) {
                             const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
                             arr_data[i].url = `${getUrlWeb}/${select[i].id}/${select[i].masterkey}`;

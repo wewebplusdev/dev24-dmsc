@@ -206,7 +206,7 @@
 
 
 .form-select {
-    min-width: 370px;
+    min-width: 300px;
     .control-label {
         position: absolute;
         top: 50%;
@@ -264,6 +264,7 @@
     font-size: var(--typo-sm);
     font-weight: var(--fw-medium);
     padding: 20px 30px;
+    line-height: 1.3em;
 }
 .select2-container--option-filter .select2-results__option:hover {
     background-color: var(--color-secondary);

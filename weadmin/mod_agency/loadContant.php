@@ -115,6 +115,51 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
     <div class="divRightHeadSearch">
       <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
         <tr>
+          <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
+                <tr>
+                  <td>
+                    <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle" style="min-width:120px;">
+                      <option value=""><?php echo $langMod["tit:selectg2"]; ?></option>
+                      <?php
+                      $sql_group = "SELECT 
+                    " . $mod_tb_root_group . "_id,
+                    " . $mod_tb_root_group_lang . "_subject 
+                    FROM " . $mod_tb_root_group . " 
+                    INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid 
+                    WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' 
+                    AND " . $mod_tb_root_group_lang . "_language='Thai' ";
+                      $sqlChecklist = array();
+                      if (gettype($listGAllow) == 'array' && count($listGAllow) > 0) {
+                        foreach ($listGAllow as $idGroup) {
+                          $sqlChecklist[] = $mod_tb_root_group . "_id = '" . $idGroup . "' ";
+                        }
+                        if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                          $sql_group .= " and ( " . implode(" or ", $sqlChecklist) . ") ";
+                        }
+                      } else {
+                        if ($_SESSION[$valSiteManage . 'core_session_level'] != "admin") {
+                          $sql_group .= " and 1=0 ";
+                        }
+                      }
+                      $sql_group .= "ORDER BY " . $mod_tb_root_group . "_order DESC";
+                      $query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+                      while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
+                        $row_groupid = $row_group[0];
+                        $row_groupname = $row_group[1];
+                        $row_groupnameeng = $row_group[2];
+                        $valNameShow = $row_groupname;
+                      ?>
+                        <option value="<?php echo $row_groupid ?>" <?php if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?php } ?>><?php echo $valNameShow ?>
+                        </option>
+                      <?php } ?>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          <?php } ?>
           <td id="boxSelectTest" class="textSearch2">
             <input name="inputSearch" type="text" id="inputSearch" value="<?php echo  trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo  $langTxt["sch:search"] ?>" />
           </td>
@@ -174,15 +219,19 @@ if(Paging_CountChecked('CheckBoxID',document.myForm.TotalCheckBoxID.value)>0) {
         ," . $mod_tb_root_lang . "_tel as tel
         ," . $mod_tb_root_lang . "_fax as fax
         ," . $mod_tb_root_lang . "_lat as lat
-        ," . $mod_tb_root_lang . "_long as lng 
-        ";
+        ," . $mod_tb_root_lang . "_long as lng ,
+        " . $mod_tb_root_lang . "_picType as picType,
+        " . $mod_tb_root_lang . "_pic as pic,
+        " . $core_tb_nopic . "_masterkey as masterkey_pic,
+        " . $core_tb_nopic . "_file as picDefault ";
 
         $sql = $sql . "  FROM " . $mod_tb_root . "";
         $sql = $sql . "  INNER JOIN " . $mod_tb_root_lang . " ON " . $mod_tb_root . "_id = " . $mod_tb_root_lang . "_cid";
+        $sql = $sql . "  LEFT JOIN " . $core_tb_nopic . " ON " . $core_tb_nopic . "_id = " . $mod_tb_root_lang . "_picDefault";
 
         $sql = $sql . "  WHERE " . $mod_tb_root . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND  " . $mod_tb_root_lang . "_language = 'Thai'";
         $sql = $sql . $sqlSearch;
-        
+
         $query = wewebQueryDB($coreLanguageSQL, $sql);
         $count_totalrecord = wewebNumRowsDB($coreLanguageSQL, $query);
 
@@ -231,6 +280,24 @@ if(Paging_CountChecked('CheckBoxID',document.myForm.TotalCheckBoxID.value)>0) {
               $valStatusClass =  "fontContantTbDisable";
             }
 
+            $valPicType = $row['picType'];
+
+            if ($valPicType == 2) {
+              $valPic = $mod_path_office . "/" . $row['pic'];
+              if (is_file($valPic)) {
+                $valPic = $valPic;
+              } else {
+                $valPic = "../img/btn/nopic.jpg";
+              }
+            } else {
+              $valPic = $core_pathname_upload . "/" . $row['masterkey_pic'] . "/office/" . $row['picDefault'];
+              if (is_file($valPic)) {
+                $valPic = $valPic;
+              } else {
+                $valPic = "../img/btn/nopic.jpg";
+              }
+            }
+
             if ($valDivTr == "divSubOverTb") {
               $valDivTr =  "divOverTb";
               $valImgCycle = "boxprofile_l.png";
@@ -244,10 +311,11 @@ if(Paging_CountChecked('CheckBoxID',document.myForm.TotalCheckBoxID.value)>0) {
               <td class="divRightContantOverTb" valign="top" align="left">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td width="39" align="left" valign="top" style="display:none;">
-
+                    <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
+                    <td width="39" align="left" valign="top">
                       <div style="width:29px; height:29px;  background:url(<?php echo  $valPic ?>) center no-repeat; background-size: cover;background-repeat: no-repeat; border-radius: 50%;  "></div>
                     </td>
+                    <?php } ?>
                     <td align="left">
                       <div class="widthDiv"><a href="javascript:void(0)" class="btnview" onclick="
    document.myFormHome.valEditID.value=<?php echo  $valID ?>;"><?php echo  $valName ?></a></div>

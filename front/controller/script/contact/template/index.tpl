@@ -57,158 +57,130 @@
             <div class="iframe-container">
               <iframe class="responsive-iframe" src="https://maps.google.com/maps?q={$settingWeb['contact']->glati},{$settingWeb['contact']->glongti}&hl=es;z=20&amp;output=embed" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
+            <a href="{$ul}/{$menuActive}/map-google" class="link btn-full-screen" target="_blank">
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                  <g id="full-screen" transform="translate(-0.323 -0.323)">
+                    <path id="Path_452891" data-name="Path 452891" d="M19.677.323H14.194a.645.645,0,1,0,0,1.29h3.874L12.135,7.275a.645.645,0,1,0,.891.934l6.006-5.733V6.452a.645.645,0,0,0,1.29,0V.968a.645.645,0,0,0-.645-.645Z" fill="#2ab170"/>
+                    <path id="Path_452892" data-name="Path 452892" d="M19.677,13.548a.645.645,0,0,0-.645.645V18.12l-6-6a.645.645,0,1,0-.912.912l6,6H14.194a.645.645,0,1,0,0,1.29h5.484a.645.645,0,0,0,.645-.645V14.194A.645.645,0,0,0,19.677,13.548Z" fill="#2ab170"/>
+                    <path id="Path_452893" data-name="Path 452893" d="M7.286,12.447,1.613,18.12V14.194a.645.645,0,0,0-1.29,0v5.484a.645.645,0,0,0,.645.645H6.452a.645.645,0,1,0,0-1.29H2.525L8.2,13.359a.645.645,0,1,0-.912-.912Z" fill="#2ab170"/>
+                    <path id="Path_452894" data-name="Path 452894" d="M2.525,1.613H6.452a.645.645,0,1,0,0-1.29H.968A.645.645,0,0,0,.323.968V6.452a.645.645,0,1,0,1.29,0V2.525L7.286,8.2A.645.645,0,1,0,8.2,7.286Z" fill="#2ab170"/>
+                  </g>
+                </svg>  
+              </span>
+              {$languageFrontWeb->viewlargemap->display->$currentLangWeb}
+            </a>
           </div>
           <div class="tab-pane fade" id="nav-02">
             <figure class="cover">
-              <img src="{$template}/assets/img/static/graphic-map.jpg" alt="" class="img-cover">
+              <img src="{$settingWeb['addresspic']}" alt="{$settingWeb['addresspic']}" class="img-cover">
             </figure>
+            <a href="{$ul}/{$menuActive}/map-graphic" class="link btn-full-screen" target="_blank">
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                  <g id="full-screen" transform="translate(-0.323 -0.323)">
+                    <path id="Path_452891" data-name="Path 452891" d="M19.677.323H14.194a.645.645,0,1,0,0,1.29h3.874L12.135,7.275a.645.645,0,1,0,.891.934l6.006-5.733V6.452a.645.645,0,0,0,1.29,0V.968a.645.645,0,0,0-.645-.645Z" fill="#2ab170"/>
+                    <path id="Path_452892" data-name="Path 452892" d="M19.677,13.548a.645.645,0,0,0-.645.645V18.12l-6-6a.645.645,0,1,0-.912.912l6,6H14.194a.645.645,0,1,0,0,1.29h5.484a.645.645,0,0,0,.645-.645V14.194A.645.645,0,0,0,19.677,13.548Z" fill="#2ab170"/>
+                    <path id="Path_452893" data-name="Path 452893" d="M7.286,12.447,1.613,18.12V14.194a.645.645,0,0,0-1.29,0v5.484a.645.645,0,0,0,.645.645H6.452a.645.645,0,1,0,0-1.29H2.525L8.2,13.359a.645.645,0,1,0-.912-.912Z" fill="#2ab170"/>
+                    <path id="Path_452894" data-name="Path 452894" d="M2.525,1.613H6.452a.645.645,0,1,0,0-1.29H.968A.645.645,0,0,0,.323.968V6.452a.645.645,0,1,0,1.29,0V2.525L7.286,8.2A.645.645,0,1,0,8.2,7.286Z" fill="#2ab170"/>
+                  </g>
+                </svg>  
+              </span>
+              {$languageFrontWeb->viewlargemap->display->$currentLangWeb}
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="contact-section">
-      <div class="contact-center">
-        <div class="container">
-          <div class="whead">
-            <h2 class="title">ส่วนกลาง</h2>
-          </div>
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <?php for ($i = 1; $i <= 6; $i++) { ?>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="contact-card">
-                    <div class="head">สำนักงานเลขานุการกรม</div>
-                    <div class="body">
-                      <div class="desc">
-                        สำนักงานเลขานุการกรม กรมวิทยาศาสตร์การแพทย์
-                        <br>
-                        88/7 บำราศนราดูร ถ.ติวานนท์ ต.ตลาดขวัญ อ.เมือง จ.นนทบุรี 11000
-                        <br>
-                        โทรศัพท์กลาง : 0-2951-0000 | ฝ่ายประชาสัมพันธ์ : ต่อ 99017,99081
-                        <br>
-                        โทรสาร: 0-2591-1707 | E-mail: prdmsc@dmsc.mail.go.th Map
-                      </div>
-                      <div class="action">
-                        <span class="text">Google map</span>
-                        <a href="" class="link">
-                          ดูแผนที่
-                          <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
-                              viewBox="0 0 14.25 14.25">
-                              <g id="Icon_ionic-ios-arrow-dropright" data-name="Icon ionic-ios-arrow-dropright"
-                                transform="translate(-3.375 -3.375)">
-                                <path id="Path_25" data-name="Path 25"
-                                  d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
-                                  transform="translate(-5.661 -3.389)" fill="#2ab170" />
-                                <path id="Path_26" data-name="Path 26"
-                                  d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
-                                  fill="#2ab170" />
-                              </g>
-                            </svg>
-                          </span>
-                        </a>
+    {if $array_agency|count gte 1}
+      <div class="contact-section">
+        {foreach $array_agency as $keyarray_agency => $valuearray_agency}
+          <div class="contact-center">
+            <div class="container">
+              <div class="whead">
+                <h2 class="title">{$valuearray_agency.group.subject}</h2>
+              </div>
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  {foreach $valuearray_agency.list as $keyList => $valueList}
+                    <div class="swiper-slide">
+                      <div class="item">
+                        <div class="contact-card">
+                          <div class="head">{$valueList->subject}</div>
+                          <div class="body">
+                            <div class="desc">
+                              {$valueList->address}
+                              {if $valueList->tel neq ""}
+                                <br>
+                                {$languageFrontWeb->centraltelephone->display->$currentLangWeb} : {$valueList->tel}
+                              {/if}
+                              {if $valueList->fax neq "" && $valueList->email neq ""}
+                                <br>
+                                {if $valueList->fax neq ""}{$languageFrontWeb->fax->display->$currentLangWeb}:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}{/if}
+                              {/if}
+                            </div>
+                            <div class="action">
+                              <a href="{$ul}/{$menuActive}/googlemap-agencies/{$valueList->id}" target="_blank" class="link">
+                                <span class="text">Google map</span>
+                                <span class="icon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
+                                    viewBox="0 0 14.25 14.25">
+                                    <g id="Icon_ionic-ios-arrow-dropright" data-name="Icon ionic-ios-arrow-dropright"
+                                      transform="translate(-3.375 -3.375)">
+                                      <path id="Path_25" data-name="Path 25"
+                                        d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
+                                        transform="translate(-5.661 -3.389)" fill="#2ab170" />
+                                      <path id="Path_26" data-name="Path 26"
+                                        d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
+                                        fill="#2ab170" />
+                                    </g>
+                                  </svg>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  {/foreach}
                 </div>
+                <div class="swiper-pagination"></div>
               </div>
-              <?php } ?>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
-        </div>
+        {/foreach}
+        <div class="contact-bg"></div>
       </div>
-      <div class="contact-center">
+    {/if}
+
+    {if $load_data_service->code eq 1001}
+      <div class="contact-service">
         <div class="container">
           <div class="whead">
-            <h2 class="title">ส่วนภูมิภาค</h2>
+            <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
           </div>
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <?php for ($i = 1; $i <= 6; $i++) { ?>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="contact-card">
-                    <div class="head">สำนักงานเลขานุการกรม</div>
-                    <div class="body">
-                      <div class="desc">
-                        สำนักงานเลขานุการกรม กรมวิทยาศาสตร์การแพทย์
-                        <br>
-                        88/7 บำราศนราดูร ถ.ติวานนท์ ต.ตลาดขวัญ อ.เมือง จ.นนทบุรี 11000
-                        <br>
-                        โทรศัพท์กลาง : 0-2951-0000 | ฝ่ายประชาสัมพันธ์ : ต่อ 99017,99081
-                        <br>
-                        โทรสาร: 0-2591-1707 | E-mail: prdmsc@dmsc.mail.go.th Map
-                      </div>
-                      <div class="action">
-                        <span class="text">Google map</span>
-                        <a href="" class="link">
-                          ดูแผนที่
-                          <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
-                              viewBox="0 0 14.25 14.25">
-                              <g id="Icon_ionic-ios-arrow-dropright" data-name="Icon ionic-ios-arrow-dropright"
-                                transform="translate(-3.375 -3.375)">
-                                <path id="Path_25" data-name="Path 25"
-                                  d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
-                                  transform="translate(-5.661 -3.389)" fill="#2ab170" />
-                                <path id="Path_26" data-name="Path 26"
-                                  d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
-                                  fill="#2ab170" />
-                              </g>
-                            </svg>
-                          </span>
-                        </a>
-                      </div>
+          <div class="contact-service-list">
+            {foreach $load_data_service->item as $keyload_data_service => $valueload_data_service}
+              <div class="item">
+                <div class="row no-gutters align-items-start mb-3">
+                  <div class="col-auto">
+                    <div class="icon">
+                      <img src="{$valueload_data_service->pic->real}" alt="{$valueload_data_service->pic->real}">
                     </div>
                   </div>
+                  <div class="col">
+                    <div class="title">{$valueload_data_service->subject}</div>
+                  </div>
+                </div>
+                <div class="tel">
+                  <span class="fw-bold">{$languageFrontWeb->contact_tel->display->$currentLangWeb} :</span>
+                  {$valueload_data_service->tel}
                 </div>
               </div>
-              <?php } ?>
-            </div>
-            <div class="swiper-pagination"></div>
+            {/foreach}
           </div>
         </div>
       </div>
-      <div class="contact-bg"></div>
-    </div>
-    <div class="contact-service">
-      <div class="container">
-        <div class="whead">
-          <h2 class="title">บริการ</h2>
-        </div>
-        <div class="contact-service-list">
-          <?php for ($i = 1; $i <= 9; $i++) { ?>
-          <div class="item">
-            <div class="row no-gutters align-items-start mb-3">
-              <div class="col-auto">
-                <div class="icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22.741" height="25" viewBox="0 0 22.741 25">
-                    <g id="customer-service" transform="translate(-1.13)">
-                      <path id="Path_452614" data-name="Path 452614"
-                        d="M21.561,18.14l-.028-.033a9.6,9.6,0,0,0-5.318-3.171A6.618,6.618,0,0,0,18.6,11.765h1.675a1.7,1.7,0,0,0,1.7-1.7v-.5a9.559,9.559,0,1,0-19.118,0v.5a1.7,1.7,0,0,0,1.7,1.7H6.177A6.619,6.619,0,0,0,8.62,14.974a9.587,9.587,0,0,0-5.153,3.133l-.028.033A9.293,9.293,0,0,0,1.13,24.265V25H23.87v-.735a9.293,9.293,0,0,0-2.309-6.125ZM12.39,14.692a5.123,5.123,0,0,1-4.624-2.928H11.44V10.294H7.324a5.117,5.117,0,1,1,5.066,4.4Zm8.119-4.629a.231.231,0,0,1-.231.231h-1.34a6.574,6.574,0,0,0,0-1.471h1.541c.022.242.034.487.034.735ZM12.421,1.471A8.1,8.1,0,0,1,20.2,7.353H18.591a6.587,6.587,0,0,0-12.4,0H4.638a8.1,8.1,0,0,1,7.782-5.882ZM4.564,10.294a.231.231,0,0,1-.231-.231v-.5c0-.248.012-.493.034-.735h1.48a6.574,6.574,0,0,0,0,1.471ZM2.634,23.529a7.936,7.936,0,0,1,1.928-4.44l.028-.033a8.266,8.266,0,0,1,6.353-2.879h3.114a8.266,8.266,0,0,1,6.353,2.88l.028.033a7.937,7.937,0,0,1,1.928,4.44Z"
-                        fill="#fff" />
-                    </g>
-                  </svg>
-                </div>
-              </div>
-              <div class="col">
-                <div class="title">สอบถามข้อมูลทั่วไป</div>
-              </div>
-            </div>
-            <div class="tel">
-              <span class="fw-bold">เบอร์โทรศัพท์ :</span>
-              <a href="tel:0 2589 9850-7" class="link">0 2589 9850-7</a>
-              <br>
-              Operator กด 0, ฝ่ายประชาสัมพันธ์
-              <br>
-              ต่อ 99081
-            </div>
-          </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
+    {/if}
   </div>
 </section>
