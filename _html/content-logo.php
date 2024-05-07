@@ -171,4 +171,5 @@
     });
 
     $('.background-logo').closest('.default-body').addClass('pt-0');
+    $('.background-logo').closest('.default-body').addClass('pb-0');
 </script>
