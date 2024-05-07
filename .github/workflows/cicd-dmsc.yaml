@@ -42,10 +42,10 @@ jobs:
           cp -r /home/env/.htaccess /wwwroot/website
           rm -rf /wwwroot/website/webservice
           echo "copy upload & ckupload"
-          rm -rf /wwwroot/website/upload
-          cp -r /home/assets/upload /wwwroot/website
-          rm -rf /wwwroot/website/ckeditor/upload
-          cp -r /home/assets/ck /wwwroot/website/ckeditor
+          rm -rf /wwwroot/website/upload/*
+          cp -r /home/assets/upload/upload /wwwroot/website
+          rm -rf /wwwroot/website/ckeditor/upload/*
+          cp -r /home/assets/ck/upload /wwwroot/website/ckeditor
           echo "copy SSL"
           cp -r /home/_apache /wwwroot/website
 
