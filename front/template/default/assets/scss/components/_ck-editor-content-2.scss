@@ -77,10 +77,10 @@
         font-size: var(--typo-md);
     }
 
-    .contact-dcio {
-        padding: 50px 0;
-    }
+}
 
+.contact-dcio {
+    padding: 50px 0;
     .title-contact {
         h3 {
             color: var(--color-secondary);
@@ -288,13 +288,13 @@
 }
 
 @media (max-width: 1440px) {
-    .person-dcio {
+    .layout-dcio  .person-dcio {
         img {
             width: 300px;
         }
     }
 
-    .name {
+    .layout-dcio  .name {
         font-size: 36px;
     }
 
@@ -316,13 +316,13 @@
 }
 
 @media (max-width: 1199px) {
-    .title-contact {
+    .contact-dcio .title-contact {
         h3 {
             font-size: var(--typo-md);
         }
     }
 
-    .d-contact {
+    .contact-dcio .d-contact {
         p {
             font-size: var(--typo-sm);
         }
@@ -334,9 +334,6 @@
         }
     }
 
-    .swiper-wrapper {
-        margin-bottom: 100px;
-    }
 
     .type-file {
         font-size: 18px;
@@ -383,11 +380,11 @@
 
     .desc {
         margin-bottom: 10px;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .type-file {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -396,11 +393,11 @@
         margin-bottom: 0;
     }
 
-    .name {
+    .layout-dcio  .name {
         font-size: var(--typo-lg);
     }
 
-    .position-work {
+    .layout-dcio  .position-work {
         font-size: var(--typo-default);
     }
 
@@ -426,25 +423,34 @@
     .swiper-wrapper {
         margin-bottom: 10px;
     }
+    .desc {
+        margin-bottom: 10px;
+        font-size: var(--typo-default)
+    }
+
+    .type-file {
+        font-size: var(--typo-default);
+    }
 }
 
 @media (max-width: 575px) {
-    .name {
+    .layout-dcio  .name {
         font-size: var(--typo-md);
         margin-bottom: 5px;
     }
 
-    .position-work {
+    .layout-dcio  .position-work {
         font-size: 16px;
     }
 
-    .title-contact {
+    .layout-dcio .title-contact {
         h3 {
             font-size: var(--typo-sm);
+            
         }
     }
 
-    .d-contact {
+    .contact-dcio .d-contact {
         p {
             font-size: 16px;
         }
@@ -513,10 +519,10 @@
     }
 
     .desc {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .type-file {
-        font-size: 16px;
+        font-size: 18px;
     }
 }

@@ -2120,15 +2120,16 @@ div.swal2-html-container {
 .layout-dcio .position-work {
   font-size: var(--typo-md);
 }
-.layout-dcio .contact-dcio {
+
+.contact-dcio {
   padding: 50px 0;
 }
-.layout-dcio .title-contact h3 {
+.contact-dcio .title-contact h3 {
   color: var(--color-secondary);
   font-size: 36px;
   font-weight: bold;
 }
-.layout-dcio .d-contact p {
+.contact-dcio .d-contact p {
   font-size: var(--typo-md);
 }
 
@@ -2320,10 +2321,10 @@ div.swal2-html-container {
 }
 
 @media (max-width: 1440px) {
-  .person-dcio img {
+  .layout-dcio .person-dcio img {
     width: 300px;
   }
-  .name {
+  .layout-dcio .name {
     font-size: 36px;
   }
   .title-content h2 {
@@ -2337,17 +2338,14 @@ div.swal2-html-container {
   }
 }
 @media (max-width: 1199px) {
-  .title-contact h3 {
+  .contact-dcio .title-contact h3 {
     font-size: var(--typo-md);
   }
-  .d-contact p {
+  .contact-dcio .d-contact p {
     font-size: var(--typo-sm);
   }
   .text p {
     font-size: var(--typo-sm);
-  }
-  .swiper-wrapper {
-    margin-bottom: 100px;
   }
   .type-file {
     font-size: 18px;
@@ -2378,20 +2376,20 @@ div.swal2-html-container {
   }
   .desc {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
   }
   .type-file {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media (max-width: 767px) {
   .person-dcio {
     margin-bottom: 0;
   }
-  .name {
+  .layout-dcio .name {
     font-size: var(--typo-lg);
   }
-  .position-work {
+  .layout-dcio .position-work {
     font-size: var(--typo-default);
   }
   .bg-text {
@@ -2409,19 +2407,26 @@ div.swal2-html-container {
   .swiper-wrapper {
     margin-bottom: 10px;
   }
+  .desc {
+    margin-bottom: 10px;
+    font-size: var(--typo-default);
+  }
+  .type-file {
+    font-size: var(--typo-default);
+  }
 }
 @media (max-width: 575px) {
-  .name {
+  .layout-dcio .name {
     font-size: var(--typo-md);
     margin-bottom: 5px;
   }
-  .position-work {
+  .layout-dcio .position-work {
     font-size: 16px;
   }
-  .title-contact h3 {
+  .layout-dcio .title-contact h3 {
     font-size: var(--typo-sm);
   }
-  .d-contact p {
+  .contact-dcio .d-contact p {
     font-size: 16px;
   }
   .title-content {
@@ -2470,10 +2475,10 @@ div.swal2-html-container {
     font-size: 24px;
   }
   .desc {
-    font-size: 16px;
+    font-size: 18px;
   }
   .type-file {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .layout-header {
