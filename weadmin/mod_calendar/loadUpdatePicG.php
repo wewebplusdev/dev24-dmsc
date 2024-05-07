@@ -90,7 +90,7 @@ if (!empty($_FILES['fileToUpload']['error'])) {
 
       ##  Real ################################################################################
       if (copy($inputGallery, $mod_path_real . "/" . $picname)) {
-         @chmod($mod_path_real . "/" . $picname, 0777);
+         chmod($mod_path_real . "/" . $picname, 0777);
       }
 
       $imgReal = $mod_path_real . "/" . $picname; // File image location
@@ -99,7 +99,7 @@ if (!empty($_FILES['fileToUpload']['error'])) {
       if ($arrImgInfo[0] <= ($sizeWidthPic + 10)) {
 
          if (copy($inputGallery, $mod_path_pictures . "/" . $picname)) {
-            @chmod($mod_path_real . "/" . $picname, 0777);
+            chmod($mod_path_real . "/" . $picname, 0777);
          }
       } else {
          $newfilename = $mod_path_pictures . "/" . $picname; // New file name for thumb

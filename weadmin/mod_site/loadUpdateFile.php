@@ -66,7 +66,7 @@ include("config.php");
 			$filenamedoc = "file-download-$myrand.$fileTypeName";
 			
 			if(copy($inputFileToUpload,$mod_path_file."/".$filenamedoc)){
-				@chmod($mod_path_file."/".$filenamedoc,0775);
+				chmod($mod_path_file."/".$filenamedoc,0775);
 			}
 		
 		if($_REQUEST['nametodoc']==""){

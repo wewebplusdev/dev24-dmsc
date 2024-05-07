@@ -75,7 +75,7 @@ include("../lib/function.php");
 			
 			##  Real ################################################################################
 			if(copy($inputGallery,$core_pathname_crupload."/".$picname)){
-				@chmod($core_pathname_crupload."/".$picname,0775);
+				chmod($core_pathname_crupload."/".$picname,0775);
 			}
 			
 		$update = array();

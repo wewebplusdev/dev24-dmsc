@@ -68,7 +68,7 @@ include("config.php");
 			$filenamedoc = "vdo-".$_REQUEST['myID'].".$fileTypeName";
 			
 			if(copy($inputFileToUpload,$mod_path_vdo."/".$filenamedoc)){
-				@chmod($mod_path_vdo."/".$filenamedoc,0775);
+				chmod($mod_path_vdo."/".$filenamedoc,0775);
 			}
 			
 		$update = array();

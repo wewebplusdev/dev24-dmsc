@@ -77,7 +77,7 @@ include("config.php");
 				$filenamedoc = "vdo-" . $_REQUEST['myID'] . "-$myNewRand.$extension";
 		
 				if (copy($inputFileToUpload, $mod_path_vdo . "/" . $filenamedoc)) {
-					@chmod($mod_path_vdo . "/" . $filenamedoc, 0777);
+					chmod($mod_path_vdo . "/" . $filenamedoc, 0777);
 				}
 				$linkRelativePath = $mod_path_vdo . "/" . $filenamedoc;
 				$imageType = strstr($filenamedoc, '.');

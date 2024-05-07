@@ -29,7 +29,7 @@ include("config.php");
 			
 			##  Real ################################################################################
 			if(copy($inputGallery,$mod_path_album."/".$picname)){
-				@chmod($mod_path_album."/".$picname,0775);
+				chmod($mod_path_album."/".$picname,0775);
 			}
 			
 			$imgReal = $mod_path_album."/".$picname; // File image location
@@ -40,7 +40,7 @@ include("config.php");
 			if($arrImgInfo[0]<=($sizeWidthPic+10)){
 			
 				if(copy($inputGallery,$mod_path_album."/reB_".$picname)){
-					@chmod($mod_path_real."/reB_".$picname,0775);
+					chmod($mod_path_real."/reB_".$picname,0775);
 				}
 			
 			}else{
