@@ -52,8 +52,8 @@ include("config.php");
 			
 
 
-			if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0777); }
-			if(!is_dir($mod_path_file)) { mkdir($mod_path_file,0777); }  
+			if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0775); }
+			if(!is_dir($mod_path_file)) { mkdir($mod_path_file,0775); }  
 
 			$inputFileToUpload=$_FILES['inputFileUpload3']['tmp_name'];
 			$inputFileToName=$_FILES['inputFileUpload3']['name'];
@@ -66,7 +66,7 @@ include("config.php");
 			$filenamedoc = "file-download-$myrand.$fileTypeName";
 			
 			if(copy($inputFileToUpload,$mod_path_file."/".$filenamedoc)){
-				@chmod($mod_path_file."/".$filenamedoc,0777);
+				@chmod($mod_path_file."/".$filenamedoc,0775);
 			}
 		
 		if($_REQUEST['nametodoc']==""){

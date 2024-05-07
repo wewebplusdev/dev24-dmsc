@@ -51,8 +51,8 @@ include("config.php");
 		$error = 'No file was uploaded..';
 	}else{
 			
-			if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0777); }
-			if(!is_dir($mod_path_vdo)) { mkdir($mod_path_vdo,0777); }  
+			if(!is_dir($core_pathname_upload."/".$_REQUEST['masterkey'])) { mkdir($core_pathname_upload."/".$_REQUEST['masterkey'],0775); }
+			if(!is_dir($mod_path_vdo)) { mkdir($mod_path_vdo,0775); }  
 			
 			if(file_exists($mod_path_vdo."/".$_REQUEST['delvdoname'])) {
 				@unlink($mod_path_vdo."/".$_REQUEST['delvdoname']);
@@ -68,7 +68,7 @@ include("config.php");
 			$filenamedoc = "vdo-".$_REQUEST['myID'].".$fileTypeName";
 			
 			if(copy($inputFileToUpload,$mod_path_vdo."/".$filenamedoc)){
-				@chmod($mod_path_vdo."/".$filenamedoc,0777);
+				@chmod($mod_path_vdo."/".$filenamedoc,0775);
 			}
 			
 		$update = array();
