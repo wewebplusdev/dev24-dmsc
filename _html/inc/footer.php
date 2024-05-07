@@ -15,7 +15,7 @@
       </div>
       <div class="footer-middle">
         <div class="row justify-content-lg-between">
-          <div class="col-md-auto" data-aos="fade-up">
+          <div class="col-sm-6 col-lg-4" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto" data-aos="fade-up">
+          <div class="col-sm-6 col-lg-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -46,7 +46,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto" data-aos="fade-up">
+          <div class="col-sm-6 col-lg-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -61,7 +61,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-auto" data-aos="fade-up">
+          <div class="col-sm-6 col-lg-auto" data-aos="fade-up">
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">

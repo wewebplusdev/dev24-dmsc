@@ -2318,10 +2318,6 @@ div.swal2-html-container {
   line-height: 1.5;
 }
 
-.editor-content {
-  margin: 0;
-}
-
 @media screen and (max-width: 1200px) {
   .layout-experts .item-wrapper .card-bottom .title-name {
     font-size: var(--typo-lg);
