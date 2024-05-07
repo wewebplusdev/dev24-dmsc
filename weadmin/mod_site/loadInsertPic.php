@@ -94,9 +94,7 @@ include("config.php");
 			$picname = $filename . "." . $ext;
 
 			##  Real ################################################################################
-			if (copy($inputGallery, $mod_path_real . "/" . $picname)) {
-				chmod($mod_path_real . "/" . $picname, 0777);
-			}
+			copy($inputGallery, $mod_path_real . "/" . $picname);
 
 			$imgReal = $mod_path_real . "/" . $picname; // File image location
 
@@ -104,9 +102,7 @@ include("config.php");
 			$arrImgInfo = getimagesize($imgReal);
 			if ($arrImgInfo[0] <= ($sizeWidthPic + 10)) {
 
-				if (copy($inputGallery, $mod_path_pictures . "/" . $picname)) {
-					chmod($mod_path_real . "/" . $picname, 0777);
-				}
+				copy($inputGallery, $mod_path_pictures . "/" . $picname);
 			} else {
 				$newfilename = $mod_path_pictures . "/" . $picname;; // New file name for thumb
 				$w = $sizeWidthPic;

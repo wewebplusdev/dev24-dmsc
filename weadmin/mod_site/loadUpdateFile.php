@@ -65,9 +65,7 @@ include("config.php");
 			$myrand = rand(111111111,999999999);
 			$filenamedoc = "file-download-$myrand.$fileTypeName";
 			
-			if(copy($inputFileToUpload,$mod_path_file."/".$filenamedoc)){
-				chmod($mod_path_file."/".$filenamedoc,0775);
-			}
+			copy($inputFileToUpload,$mod_path_file."/".$filenamedoc);
 		
 		if($_REQUEST['nametodoc']==""){
 		$nameToinput= $fileNameNew;

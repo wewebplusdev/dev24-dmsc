@@ -35,16 +35,14 @@ if (!$ERROR) {
    $ext = $p->ret();
    $picname = $filename . "." . $ext;
    ##  Real ################################################################################
-copy($inputGallery, $mod_path_album . "/" . $picname);
+   copy($inputGallery, $mod_path_album . "/" . $picname);
 
    $imgReal = $mod_path_album . "/" . $picname; // File image location
    ##  Pictures ################################################################################
    $arrImgInfo = getimagesize($imgReal);
    if ($arrImgInfo[0] <= ($sizeWidthPic + 10)) {
 
-      if (copy($inputGallery, $mod_path_album . "/reB_" . $picname)) {
-         chmod($mod_path_real . "/reB_" . $picname, 0777);
-      }
+      copy($inputGallery, $mod_path_album . "/reB_" . $picname);
    } else {
       $newfilename = $mod_path_album . "/reB_" . $picname; // New file name for thumb
       $w = $sizeWidthAlbum;

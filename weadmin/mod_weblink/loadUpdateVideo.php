@@ -67,9 +67,7 @@ include("config.php");
 			$myNewRand =randomNameUpdate(2);
 			$filenamedoc = "vdo-".$_REQUEST['myID'].".$fileTypeName";
 			
-			if(copy($inputFileToUpload,$mod_path_vdo."/".$filenamedoc)){
-				chmod($mod_path_vdo."/".$filenamedoc,0775);
-			}
+			copy($inputFileToUpload,$mod_path_vdo."/".$filenamedoc);
 			
 		$update = array();
 		$update[]=$mod_tb_root_lang."_filevdo  	='".$filenamedoc."'";

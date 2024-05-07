@@ -37,9 +37,7 @@ include("config.php");
 			$arrImgInfo=getimagesize($imgReal);
 			if($arrImgInfo[0]<=($sizeWidthPic+10)){
 			
-				if(copy($inputGallery,$mod_path_album."/reB_".$picname)){
-					chmod($mod_path_real."/reB_".$picname,0775);
-				}
+				copy($inputGallery,$mod_path_album."/reB_".$picname);
 			
 			}else{
 				$newfilename = $mod_path_album."/reB_".$picname; // New file name for thumb
