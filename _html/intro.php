@@ -52,29 +52,29 @@
       <div class="intro-content">
         <div class="container">
           <div class="row row-0 height">
-            <div class="col-md">
-              <div class="logo">
-                <div class="symbol">
-                  <picture>
-                    <source srcset="<?php echo $core_template; ?>/img/static/brand.webp" type="image/webp">
-                    <img src="<?php echo $core_template; ?>/img/static/brand.png" alt="DMSC LOGO" class="lazy">
-                  </picture>
-                </div>
-                <div class="txt">
-                  <strong>กรมวิทยาศาสตร์การแพทย์<br> กระทรวงสาธารณสุข </strong><br>
-                  <span>Department of Medical Sciences<br> Ministry of Public Health</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-auto">
+            <div class="col-lg-auto  order-lg-2 ">
               <div class="action">
-                <div class="row row-20">
+                <div class="row row-20 justify-content-center ">
                   <div class="col-auto">
                     <a href="#" class="btn btn-light" title="ลงนามถวายพระพร">ลงนามถวายพระพร</a>
                   </div>
                   <div class="col-auto">
                     <a href="index.php" class="btn btn-primary" title="เข้าสู่เว็บไซต์">เข้าสู่เว็บไซต์</a>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg order-lg-1">
+              <div class="logo row justify-content-center ">
+                <div class="symbol col-lg-auto">
+                  <picture>
+                    <source srcset="<?php echo $core_template; ?>/img/static/brand.webp" type="image/webp">
+                    <img src="<?php echo $core_template; ?>/img/static/brand.png" alt="DMSC LOGO" class="lazy">
+                  </picture>
+                </div>
+                <div class="txt col-lg ">
+                  <strong>กรมวิทยาศาสตร์การแพทย์<br> กระทรวงสาธารณสุข </strong><br>
+                  <span>Department of Medical Sciences<br> Ministry of Public Health</span>
                 </div>
               </div>
             </div>
