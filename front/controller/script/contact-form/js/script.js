@@ -1,4 +1,4 @@
-let contactMap = new Swiper(".contact-center .swiper", {
+var contactMap = new Swiper(".contact-center .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 2,
   // freeMode: true,
