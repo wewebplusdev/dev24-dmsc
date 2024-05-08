@@ -1,4 +1,4 @@
-FROM php:8.3.0-apache
+FROM php:8.3.6-apache
 
 # mysqli
 RUN docker-php-ext-install mysqli
@@ -9,8 +9,8 @@ RUN docker-php-ext-install pdo pdo_mysql
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# update apt
-RUN apt-get update -y
+# update apt && apache2
+RUN apt-get update && apt-get install apache2 -y
 
 # update ping
 RUN apt-get install -y iputils-ping
