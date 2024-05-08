@@ -1,6 +1,6 @@
 <?php
 
-class MainPage extends controller
+class mainPage extends controller
 {
     public $settingWeb;
     
@@ -10,7 +10,7 @@ class MainPage extends controller
         parent::__construct();
         try {
             if ($this->token_revoke) {
-                $settingWeb = self::loadSettingWeb();
+                $settingWeb = self::load_setting_web();
                 if ($settingWeb->code === 1001) {
                     $_SESSION['settingWeb'] = $settingWeb->item;
                     $this->settingWeb = $_SESSION['settingWeb'];
@@ -24,7 +24,7 @@ class MainPage extends controller
 
     }
 
-    private function loadSettingWeb()
+    private function load_setting_web()
     {
         if (empty($this->token_access)) {
             return false;
@@ -43,7 +43,7 @@ class MainPage extends controller
         return $response;
     }
 
-    function loadPolicy()
+    function load_policy()
     {
         if (empty($this->token_access)) {
             return false;
