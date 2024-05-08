@@ -131,7 +131,7 @@ class member {
         unset($_SESSION[_URL]['token']);
         $_SESSION[_URL]['reboot'] = true;
     
-        setcookie("token", null, time() - ((60 * 60) * $this->token_cookie_timeout), "/", _URL, true, true);
+        setcookie("token", null, time() - ((60 * 60) * $this->token_cookie_timeout), "/", _URL, false, true);
         unset($_COOKIE['token']);
     
         if (!empty($_SESSION[_URL]['token']) || !empty($_COOKIE['token'])) {
@@ -148,7 +148,7 @@ class member {
         $setToken = setcookie("token", $setPut, time() + ((60 * 60) * $this->token_cookie_timeout), "/", _URL, true, true);
     
         if (!empty($tokenList['member_info']['md_mem_email'])) {
-            $setEmailLast = setcookie("lastlogin", $tokenList['member_info']['md_mem_email'], time() + (86400 * 30), "/", _URL, true, true);
+            $setEmailLast = setcookie("lastlogin", $tokenList['member_info']['md_mem_email'], time() + (86400 * 30), "/", _URL, false, true);
         }
     }
     

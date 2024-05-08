@@ -59,7 +59,7 @@ switch ($url->segment[0]) {
 
         /*#### Start Update View #####*/
         if (!isset($_COOKIE['VIEW_DETAIL_' . $load_data->item[0]->masterkey . '_' . urldecode($load_data->item[0]->id)])) {
-            setcookie("VIEW_DETAIL_" . $load_data->item[0]->masterkey . '_' . urldecode($load_data->item[0]->id), true, time() + 600, "/", _URL, true, true);
+            setcookie("VIEW_DETAIL_" . $load_data->item[0]->masterkey . '_' . urldecode($load_data->item[0]->id), true, time() + 600, "/");
             $array_req = array(
                 'table' => $load_data->item[0]->tb,
                 'masterkey' => $load_data->item[0]->masterkey,

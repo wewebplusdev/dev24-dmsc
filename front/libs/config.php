@@ -33,8 +33,8 @@ switch ($modefunction) {
             echo "<i>## TOKEN DEL MODE ##</i>";
             $_COOKIE["token"] = "";
             unset($_COOKIE["token"]);
-            setcookie("token", null, time() - 3600, "/", _URL, true, true);
-            setcookie("token", null, time() - 3600, null, null, true, true);
+            setcookie("token", null, time() - 3600, "/", _URL, false, true);
+            setcookie("token", null, time() - 3600, null, null, false, true);
             exit();
             break;
         
