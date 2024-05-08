@@ -220,7 +220,7 @@
     .title-text {
         text-align: center;
         color: var(--color-secondary);
-    
+        padding: 0 10px;
         h2 {
             font-size: 48px;
             margin-top: 10px;
@@ -259,22 +259,36 @@
         margin-top: 50px;
     
         .item {
-            -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+            -webkit-filter: drop-shadow(0px 10px 20px rgba(224, 200, 200, 0.1));
             filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
             color: var(--color-black);
         }
     }
     
     .desc {
+        color: var(--color-black);
+        font-weight: bold;
+        font-size: var(--typo-sm);
         margin-bottom: 25px;
+        line-height: 1.5em;
+    }
+
+    .type-file{
+        color: var(--color-black);
+        font-size: 16px;
+    }
+    .type-file .item-list li + li {
+        padding-left: 10px;
+        margin-left: 10px;
+        border-left: 1px solid rgba(67, 67, 67, 0.4);
     }
     
     .swiper-wrapper {
-        margin-bottom: 40px;
+        margin-bottom: 80px;
     }
     
     .swiper-slide {
-        padding: 25px 20px 25px 30px;
+        padding: 25px 0;
         height: 180px;
     }
     
@@ -304,6 +318,11 @@
     .layout-dcio .top-dcio .name {
         font-size: 36px;
     }
+
+    .layout-swiper  .type-file .item-list li{
+        width: 100%;
+    }
+    .layout-swiper .type-file .item-list li + li {margin-left: 0; margin-top: 10px; padding: 0;border: none;}
 
 
 }
@@ -339,11 +358,6 @@
         h2 {
             font-size: var(--typo-xl);
         }
-    }
-
-
-    .layout-swiper .type-file {
-        font-size: 18px;
     }
 
     .background-logo .title-text {
@@ -427,16 +441,22 @@
         }
     }
     .layout-swiper .swiper-wrapper {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
     .layout-swiper .desc {
         margin-bottom: 10px;
         font-size: var(--typo-default)
     }
-
-    .layout-swiper .type-file {
-        font-size: var(--typo-default);
+    .layout-swiper .type-file .item-list li {
+        width: auto;
     }
+    .layout-swiper .type-file .item-list li + li {
+        padding-left: 10px;
+        margin-left: 10px;
+        margin-top: 0;
+        border-left: 1px solid rgba(67, 67, 67, 0.4);
+    }
+
 }
 
 @media (max-width: 575px) {
@@ -534,8 +554,11 @@
     .layout-swiper .desc {
         font-size: 18px;
     }
-
-    .layout-swiper .type-file {
-        font-size: 18px;
+    .layout-swiper  .type-file .item-list li{
+        width: 100%;
+    }
+    .layout-swiper .type-file .item-list li + li {margin-left: 0; margin-top: 10px; padding: 0;border: none;}
+    .layout-swiper .swiper-wrapper {
+        margin-bottom: 80px;
     }
 }
