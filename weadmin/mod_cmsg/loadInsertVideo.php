@@ -75,9 +75,7 @@ include("config.php");
 				$myNewRand = randomNameUpdate(2);
 				$filenamedoc = "vdo-" . $_REQUEST['myID'] . "-$myNewRand.$extension";
 		
-				if (copy($inputFileToUpload, $mod_path_vdo . "/" . $filenamedoc)) {
-					@chmod($mod_path_vdo . "/" . $filenamedoc, 0777);
-				}
+				copy($inputFileToUpload, $mod_path_vdo . "/" . $filenamedoc);
 				$linkRelativePath = $mod_path_vdo . "/" . $filenamedoc;
 				$imageType = strstr($filenamedoc, '.');
 		

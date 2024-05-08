@@ -4,8 +4,6 @@
 <head>
   <?php include('inc/metatag.php'); ?>
   <?php include('inc/loadstyle.php'); ?>
-
- 
 </head>
 
 <body>
@@ -56,53 +54,52 @@
         </figure>
       </div>
       <div class="default-body">
-        <!-- ck editor -->
-        <div class="editor-content">
-              <div class="our-history-info">
-                <div class="container">
-                  <div class="row align-items-end">
-                    <div class="col-xl-6">
-                      <div class="thumbnails">
-                        <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
-                      </div>
-                    </div>
-                    <div class="col-xl-6">
-                      <div class="content">
-                        <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
-                        <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>
-                        <div class="desc">
-                          มีการปรับปรุงเปลี่ยนแปลงโครงสร้างหลายครั้ง เพื่อให้เกิดความเหมาะสมกับภาระหน้าที่
-                          <br>
-                          และให้ทันต่อสภาพความเปลี่ยนแปลงทางด้านเทคโนโลยี สังคม และสิ่งแวดล้อม
-                        </div>
-                      </div>
-                    </div>
+        <div class="our-history-info">
+          <div class="container">
+            <div class="row align-items-end">
+              <div class="col-auto">
+                <div class="thumbnails">
+                  <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="content">
+                  <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
+                  <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>
+                  <div class="desc">
+                    มีการปรับปรุงเปลี่ยนแปลงโครงสร้างหลายครั้ง เพื่อให้เกิดความเหมาะสมกับภาระหน้าที่
+                    <br>
+                    และให้ทันต่อสภาพความเปลี่ยนแปลงทางด้านเทคโนโลยี สังคม และสิ่งแวดล้อม
                   </div>
                 </div>
               </div>
-              <div class="nav-default each-year">
-                <div class="container">
-                  <div class="title typo-md fw-bold text-secondary mb-3">ความเป็นมา</div>
-                  <div class="swiper">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <a href="our-history-01.php" class="nav-link">2565 - ปัจจุบัน</a>
-                      </div>
-                      <div class="swiper-slide">
-                        <a href="our-history-02.php" class="nav-link">2564 - 2545</a>
-                      </div>
-                      <div class="swiper-slide">
-                        <a href="our-history-03.php" class="nav-link">2540 - 2526</a>
-                      </div>
-                      <div class="swiper-slide">
-                        <a href="our-history-04.php" class="nav-link active">2517 - 2485</a>
-                      </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-default each-year">
+          <div class="container">
+            <div class="title typo-md fw-bold text-secondary mb-3">ความเป็นมา</div>
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="our-history-01.php" class="nav-link">2565 - ปัจจุบัน</a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="our-history-02.php" class="nav-link">2564 - 2545</a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="our-history-03.php" class="nav-link">2540 - 2526</a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="our-history-04.php" class="nav-link active">2517 - 2485</a>
+                </div>
+              </div>
+            </div>
+            <!-- ck editor -->
+            <div class="editor-content">
               <div class="history-timeline">
                 <div class="row align-items-start">
-                  <div class="col-lg-6 timeline-dot">
+                  <div class="col-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2517</div>
                       <ul class="timeline-list">
@@ -111,53 +108,53 @@
                             มีพระราชกฤษฎีกาแบ่งส่วนราชการกรมวิทยาศาสตร์
                             การแพทย์ กระทรวงสาธารณสุข พ.ศ. 2517 เมื่อวันที่
                             16 พฤษภาคม พ.ศ. 2517 แบ่งส่วนราชการออกเป็น
-                            10 หน่วยงาน คือ<br>
-                            1. สำนักงานเลขานุการกรม<br>
+                            10 หน่วยงาน คือ
+                            1. สำนักงานเลขานุการกรม
                             2. กองพยาธิวิทยาคลินิก (เปลี่ยนชื่อมาจากกองชันสูตร
-                            ทางแพทย์)<br>
-                            3. กองวิเคราะห์ยา<br>
-                            4. กองวิเคราะห์อาหาร<br>
-                            5. กองพิษวิทยา<br>
-                            6. กองวิจัยทางแพทย์<br>
-                            7. กองกีฏวิทยาทางการแพทย์<br>
-                            8. กองป้องกันอันตรายจากรังสี<br>
-                            9. กองบริการชันสูตรสาธารณสุขภูมิภาค<br>
-                            10. สถาบันวิจัยไวรัส<br>
+                            ทางแพทย์)
+                            3. กองวิเคราะห์ยา
+                            4. กองวิเคราะห์อาหาร
+                            5. กองพิษวิทยา
+                            6. กองวิจัยทางแพทย์
+                            7. กองกีฏวิทยาทางการแพทย์
+                            8. กองป้องกันอันตรายจากรังสี
+                            9. กองบริการชันสูตรสาธารณสุขภูมิภาค
+                            10. สถาบันวิจัยไวรัส
                           </p>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col">
                     <div class="thumbnails ml-auto">
-                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-12.jpg" alt="">
+                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-01.jpg" alt="">
                     </div>
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-lg-6 order-lg-2">
+                  <div class="col order-lg-2">
                     <div class="h-bigger">2510</div>
                     <ul class="timeline-list">
                       <li>
                         <p>
                           กรมวิทยาศาสตร์การแพทย์ได้ทำการทดลอง วางแผน
                           พัฒนาปรับปรุง การแบ่งส่วนราชการเป็นการ
-                          ภายในเพื่อความเหมาะสม ดังต่อไปนี้ คือ<br>
+                          ภายในเพื่อความเหมาะสม ดังต่อไปนี้ คือ
                           - กองวิจัยทางแพทย์เดิม แยกออกเป็น สถาบันวิจัย
-                          ไวรัส สถาบันวิจัยต้นไม้ยา และกองควบคุมชีววัตถุ<br>
+                          ไวรัส สถาบันวิจัยต้นไม้ยา และกองควบคุมชีววัตถุ
                           - กองชันสูตรทางแพทย์เดิม แยกออกเป็น โรงเรียน
                           พนักงานวิทยาศาสตร์การแพทย์ สถาบันพยาธิวิทยา
                           กองชันสูตรทางแพทย์ส่วนภูมิภาค
-                          และหน่วยวิจัยยุงลายร่วมมือกับองค์การอนามัยโลก<br>
+                          และหน่วยวิจัยยุงลายร่วมมือกับองค์การอนามัยโลก
                           - กองวิเคราะห์ยาเดิม แยกออกเป็น สถาบันมาตรฐาน
-                          และกองนิติวิทยาศาสตร์<br>
+                          และกองนิติวิทยาศาสตร์
                           - กองวิเคราะห์อาหารและเครื่องดื่ม เปลี่ยนเป็น
                           สถาบันวิเคราะห์วิจัยอาหาร
                         </p>
                       </li>
                     </ul>
                   </div>
-                  <div class="col-lg-6 order-lg-1 timeline-dot">
+                  <div class="col-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
                         <img src="<?php echo $core_template; ?>/img/uploads/img-history-02.jpg" alt="">
@@ -166,7 +163,7 @@
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-lg-6 timeline-dot">
+                  <div class="col-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2509</div>
                       <ul class="timeline-list">
@@ -182,27 +179,27 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col">
                     <div class="thumbnails ml-auto">
-                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-14.jpg" alt="">
+                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-01.jpg" alt="">
                     </div>
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-lg-6 order-lg-2">
+                  <div class="col order-lg-2">
                     <div class="h-bigger">2495</div>
                     <ul class="timeline-list">
                       <li>
                         <p>
                           มีพระราชกฤษฎีกาจัดวางระเบียบราชการกรม
                           วิทยาศาสตร์การแพทย์ ในกระทรวงการสาธารณสุข
-                          พ.ศ. 2495 ประกอบด้วยส่วนราชการภายใน 6 กอง คือ<br>
-                          1.สำนักเลขานุการกรม<br>
-                          2. กองวิจัยทางแพทย์<br>
+                          พ.ศ. 2495 ประกอบด้วยส่วนราชการภายใน 6 กอง คือ
+                          1.สำนักเลขานุการกรม
+                          2. กองวิจัยทางแพทย์
                           3. กองชันสูตรทางการแพทย์ (เปลี่ยนชื่อมาจากกอง
-                          ชันสูตรโรค)<br>
-                          4. กองวิเคราะห์ยา<br>
-                          5. กองวิเคราะห์อาหารและเครื่องดื่ม<br>
+                          ชันสูตรโรค)
+                          4. กองวิเคราะห์ยา
+                          5. กองวิเคราะห์อาหารและเครื่องดื่ม
                           (แยกมาจากกองเภสัชกรรมเดิม)
                           6. กองโอสถศาลา สำหรับกองเคมีได้ยุบหน่วยงาน
                         </p>
@@ -217,16 +214,16 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col-lg-6 order-lg-1 timeline-dot">
+                  <div class="col-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
-                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-15.jpg" alt="">
+                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-02.jpg" alt="">
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="row align-items-start">
-                  <div class="col-lg-6 timeline-dot">
+                  <div class="col-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">2485</div>
                       <ul class="timeline-list">
@@ -236,12 +233,12 @@
                             การแพทย์ก่อตั้งขึ้นตามพระราชกฤษฎีกาจัดวาง
                             ระเบียบราชการกรมวิทยาศาสตร์การ
                             แพทย์ ในกระทรวงการสาธารณสุข พ.ศ. 2485
-                            ประกอบด้วยส่วนราชการภายใน 6 กอง<br>
-                            1.สำนักงานเลขานุการกรม<br>
-                            2. กองเภสัชกรรม<br>
-                            3. กองชันสูตรโรค<br>
-                            4. กองเคมี<br>
-                            5. กองวัคซีนและเซรุ่ม<br>
+                            ประกอบด้วยส่วนราชการภายใน 6 กอง
+                            1.สำนักงานเลขานุการกรม
+                            2. กองเภสัชกรรม
+                            3. กองชันสูตรโรค
+                            4. กองเคมี
+                            5. กองวัคซีนและเซรุ่ม
                             6. กองโอสถศาลา (โอนมาจากกรมสาธารณสุข
                             กระทรวงมหาดไทย)
                             และโรงงานเภสัชกรรม (โอนมาจากกรมวิทยาศาสตร์
@@ -253,9 +250,9 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col">
                     <div class="thumbnails ml-auto">
-                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-16.jpg" alt="">
+                      <img src="<?php echo $core_template; ?>/img/uploads/img-history-01.jpg" alt="">
                     </div>
                   </div>
                 </div>
@@ -284,17 +281,12 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
       breakpoints: {
         0: {
-          slidesPerView: 1,
-          spaceBetween: 10,
+          slidesPerView: 2,
         },
         768: {
-          slidesPerView: 2,
+          slidesPerView: 3,
         },
         1200: {
           slidesPerView: 4,

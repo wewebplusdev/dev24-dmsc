@@ -36,7 +36,6 @@ switch ($url->segment[0]) {
                 $array_news_list['list'][$valueNewsList->gid][] = $valueNewsList;
             }
         }
-        // print_pre($array_news_list);
         $smarty->assign("array_news_list", $array_news_list);
 
         // active menu header
