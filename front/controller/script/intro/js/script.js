@@ -22,7 +22,7 @@ var introSwiper = new Swiper(".intro-slider .swiper", {
       }else{
         $('.-intro-action').hide();
       }
-      $('.-intro-action').attr('href', ($(activeSlide).data('url') != "#" && $(activeSlide).data('url') != "") ? $(activeSlide).data('url') : 'javascript:void(0);');
+      $('.-intro-action').attr('href', ($(activeSlide).data('url') != "#" && $(activeSlide).data('url') != "") ? $(activeSlide).data('url') : '#');
       $('.-intro-action').attr('target', ($(activeSlide).data('url') != "#" && $(activeSlide).data('url') != "") ? $(activeSlide).data('target') : '_self');
     }
   }
