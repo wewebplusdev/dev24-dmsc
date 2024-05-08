@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-class CalendarPage extends controller
+class calendarPage extends controller
 {
     public function load_data($data)
     {
