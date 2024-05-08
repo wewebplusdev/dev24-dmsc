@@ -9,7 +9,7 @@ abstract class Controller
     public $ecaptchaSecretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
     public $tokenAccess;
     public $language;
-    public $Token_revoketokenRevoke;
+    public $TokenRevoketokenRevoke;
     public $urlApi;
     public $methodMasterkey;
     public $methodModule;
@@ -148,7 +148,7 @@ abstract class Controller
         }
     }
 
-    function search_engine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
+    function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
     {
         global $smarty;
 
@@ -193,8 +193,9 @@ abstract class Controller
         $smarty->assign("seo", $list);
     }
     
-    public function load_url_redirect($req)
+    public function loadUrlRedirect($req)
     {
+        
         if (empty($this->tokenAccess)) {
             return false;
         }
