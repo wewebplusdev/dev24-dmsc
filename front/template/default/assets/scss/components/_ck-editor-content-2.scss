@@ -1,105 +1,107 @@
 // CK Content CIO
 
-.layout-dcio {
-    position: relative;
-    padding: 100px 0;
-
-    .logo-person {
+.layout-dcio{
+    .top-dcio {
         position: relative;
-        overflow: hidden;
-        top: 0;
-        height: 70%;
-    }
-
-    .person-dcio {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-        margin-bottom: 60px;
-    }
-
-    .bg-cio {
-        position: absolute;
-        background-image: url("../img/background/bg-cio.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100vw;
-        height: 100%;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-    }
-
-    .bg-text {
-        position: absolute;
-        background: linear-gradient(to top, #01377D, #2AB170);
-        height: 180px;
-        width: 100vw;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        z-index: 1;
-    }
-
-    .bg-text-img {
-        position: absolute;
-        opacity: 0.2;
-        width: 100%;
-        height: 180px;
-        background-image: url("../img/uploads/bg-text.png");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .text-name {
-        position: relative;
-        color: white;
-        width: 100%;
-        height: 100%;
-        top: 0;
-    }
-
-    .position-name {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .name {
-        font-weight: bold;
-        font-size: 40px;
-        margin-bottom: 15px;
-    }
-
-    .position-work {
-        font-size: var(--typo-md);
-    }
-
-}
-
-.contact-dcio {
-    padding: 50px 0;
-    .title-contact {
-        h3 {
-            color: var(--color-secondary);
-            font-size: 36px;
-            font-weight: bold;
+        padding: 100px 0;
+    
+        .logo-person {
+            position: relative;
+            overflow: hidden;
+            top: 0;
+            height: 70%;
         }
-    }
-
-    .d-contact {
-        p {
+    
+        .person-dcio {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    
+        .bg-cio {
+            position: absolute;
+            background-image: url("../img/background/bg-cio.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100vw;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+    
+        .bg-text {
+            position: absolute;
+            background: linear-gradient(to top, #01377D, #2AB170);
+            height: 180px;
+            width: 100vw;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+    
+        .bg-text-img {
+            position: absolute;
+            opacity: 0.2;
+            width: 100%;
+            height: 180px;
+            background-image: url("../img/background/bg-text.png");
+            background-size: cover;
+            background-position: center;
+        }
+    
+        .text-name {
+            position: relative;
+            color: white;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+    
+        .position-name {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+        }
+    
+        .name {
+            font-weight: bold;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+    
+        .position-work {
             font-size: var(--typo-md);
         }
+    
     }
+    
+    .contact-dcio {
+        padding: 50px 0;
+        .title-contact {
+            h3 {
+                color: var(--color-secondary);
+                font-size: 36px;
+                font-weight: bold;
+            }
+        }
+    
+        .d-contact {
+            p {
+                font-size: var(--typo-md);
+            }
+        }
+    }
+    
 }
 
-// CK Content Mission
-
+//CK Content Mission
 .layout-mission {
     .title-content {
         margin: 50px 0;
@@ -293,13 +295,13 @@
 
 
 @media (max-width: 1440px) {
-    .layout-dcio  .person-dcio {
+    .layout-dcio .top-dcio .person-dcio {
         img {
             width: 300px;
         }
     }
 
-    .layout-dcio .name {
+    .layout-dcio .top-dcio .name {
         font-size: 36px;
     }
 
@@ -307,13 +309,13 @@
 }
 
 @media (max-width: 1199px) {
-    .contact-dcio .title-contact {
+    .layout-dcio .contact-dcio .title-contact {
         h3 {
             font-size: var(--typo-md);
         }
     }
 
-    .contact-dcio .d-contact {
+    .layout-dcio .contact-dcio .d-contact {
         p {
             font-size: var(--typo-sm);
         }
@@ -355,6 +357,9 @@
             font-size: 32px;
         }
     }
+    .layout-vision .image-content {
+        margin-left: 110px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -390,23 +395,23 @@
 }
 
 @media (max-width: 767px) {
-    .layout-dcio .person-dcio {
+    .layout-dcio .top-dcio .person-dcio {
         margin-bottom: 0;
     }
 
-    .layout-dcio  .name {
+    .layout-dcio .top-dcio .name {
         font-size: var(--typo-lg);
     }
 
-    .layout-dcio  .position-work {
+    .layout-dcio .top-dcio .position-work {
         font-size: var(--typo-default);
     }
 
-    .layout-dcio .bg-text {
+    .layout-dcio .top-dcio .bg-text {
         height: 150px;
     }
 
-    .layout-dcio .bg-text-img {
+    .layout-dcio .top-dcio .bg-text-img {
         height: 150px;
     }
 
@@ -435,16 +440,16 @@
 }
 
 @media (max-width: 575px) {
-    .layout-dcio .name {
+    .layout-dcio .top-dcio .name {
         font-size: var(--typo-md);
         margin-bottom: 5px;
     }
 
-    .layout-dcio  .position-work {
+    .layout-dcio .top-dcio .position-work {
         font-size: 16px;
     }
 
-    .layout-dcio .title-contact {
+    .layout-dcio .contact-dcio .title-contact {
         h3 {
             font-size: var(--typo-sm);
             
@@ -454,7 +459,7 @@
         margin-top: 50px;
     }
 
-    .contact-dcio .d-contact {
+    .layout-dcio .contact-dcio .d-contact {
         p {
             font-size: 16px;
         }
