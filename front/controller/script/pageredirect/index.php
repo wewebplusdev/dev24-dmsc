@@ -28,10 +28,10 @@ if (!empty($url->segment[1])) {
     // print_pre($array_req);
     
     // call redirect 
-    $loadUrlRedirect = $pageredirectage->loadUrlRedirect($array_req);
-    // print_pre($loadUrlRedirect);die;
-    if ($loadUrlRedirect->code === 1001 && !empty($loadUrlRedirect->item->url)) {
-        header('location:' . $loadUrlRedirect->item->url);
+    $load_url_redirect = $pageredirectage->load_url_redirect($array_req);
+    // print_pre($load_url_redirect);die;
+    if ($load_url_redirect->code === 1001 && !empty($load_url_redirect->item->url)) {
+        header('location:' . $load_url_redirect->item->url);
     }else{
         header('location:' . $linklang . "/home");
     }

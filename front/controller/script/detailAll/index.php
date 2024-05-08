@@ -67,7 +67,7 @@ switch ($url->segment[0]) {
                 'language' => $load_data->item[0]->language,
                 'action' => 'view',
             );
-            $load_update_view = $detailAllPage->loadUrlRedirect($array_req);
+            $load_update_view = $detailAllPage->load_url_redirect($array_req);
         }
         /*#### End Update View #####*/
 
