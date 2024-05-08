@@ -17,7 +17,7 @@ class mainPage extends controller
                 }
             }
             // generate content_language_Web
-            self::content_website($this->settingWeb->language_front, $this->settingWeb->language);
+            self::contentWebsite($this->settingWeb->language_front, $this->settingWeb->language);
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
