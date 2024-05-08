@@ -62,7 +62,7 @@
                                 <div class="content">
                                     <div class="center">
                                         <div class="logo">
-                                            <img src="<?php echo $core_template; ?>/img/uploads/img-logo.png" alt="รูปโลโก้">
+                                            <img src="<?php echo $core_template; ?>/img/uploads/image-logo.png" alt="รูปโลโก้">
                                         </div>
                                         <div class="title-text">
                                             <h2>ตราสัญลักษณ์ กรมวิทยาศาสตร์การแพทย์</h2>
