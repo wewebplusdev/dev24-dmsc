@@ -9,7 +9,7 @@ abstract class Controller
     public $ecaptchaSecretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
     public $tokenAccess;
     public $language;
-    public $TokenRevoketokenRevoke;
+    public $tokenRevoketokenRevoke;
     public $urlApi;
     public $methodMasterkey;
     public $methodModule;
@@ -148,7 +148,7 @@ abstract class Controller
         }
     }
 
-    function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
+    public function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
     {
         global $smarty;
 
