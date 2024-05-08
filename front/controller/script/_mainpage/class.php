@@ -1,32 +1,34 @@
 <?php
 abstract class Controller
 {
-    const APP_TOKEN = 'website-token-api';
-    const APP_USER = 'dmsc-website-api';
-    const APP_SECRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
+    const _APP_TOKEN = 'website-token-api';
+    const _APP_USER = 'dmsc-website-api';
+    const _APP_SERCRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
 
-    public $recaptchaSitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
-    public $ecaptchaSecretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
-    public $tokenAccess;
+    public $Recaptcha_sitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
+    public $Recaptcha_secretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
+    public $Token_access;
     public $language;
-    public $Token_revoketokenRevoke;
+    public $Token_revoke;
     public $urlApi;
-    public $methodMasterkey;
-    public $methodModule;
+    public $Method_masterkey;
+    public $Method_module;
 
     public function __construct()
     {
         global $url, $_CORE_ENV;
 
         if ($_CORE_ENV == 'DEV') {
-            $this->urlApi =  'https://192.168.101.249:4040/service-api/v1';
-        }elseif($_CORE_ENV == 'PROD'){
-            $this->urlApi =  'https://192.168.200.146:4040/service-api/v1';
+            // $this->urlApi =  'http://192.168.1.150:4040/service-api/v1';
+            $this->urlApi =  'http://192.168.101.249:4040/service-api/v1';
+            // $this->urlApi =  'http://192.168.1.100:4040/service-api/v1';
+        }else if($_CORE_ENV == 'PROD'){
+            $this->urlApi =  'http://192.168.200.146:4040/service-api/v1';
         }else{
-            $this->urlApi =  'https://api.wewebplus.com:4040/service-api/v1';
+            $this->urlApi =  'http://api.wewebplus.com:4040/service-api/v1';
         }
 
-        $this->methodModule = array(
+        $this->Method_module = array(
             'detailAll' => array(
                 'action' => 'news',
                 'method_detail' => 'getNewsDetail',
@@ -92,7 +94,7 @@ abstract class Controller
             ),
         );
 
-        $this->methodMasterkey = array(
+        $this->Method_masterkey = array(
             'sv' => array(
                 'action' => 'service',
                 'services' => 'getService',
@@ -112,10 +114,10 @@ abstract class Controller
 
 
         try {
-            $this->tokenAccess = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';
+            $this->Token_access = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';
             $this->language = $url->pagelang[4];
-            $this->tokenRevoke = $_COOKIE['Tokenrevoke'] ? $_COOKIE['Tokenrevoke'] : '';
-            if (!empty($this->tokenAccess)) {
+            $this->Token_revoke = $_COOKIE['Tokenrevoke'] ? $_COOKIE['Tokenrevoke'] : '';
+            if (!empty($this->Token_access)) {
                 // revoke token
                 if (empty($this->Tokenrevoke) || empty($_SESSION['settingWeb'])) {
                     $load_check_auth = self::load_check_auth();
@@ -195,14 +197,14 @@ abstract class Controller
     
     public function load_url_redirect($req)
     {
-        if (empty($this->tokenAccess)) {
+        if (empty($this->Token_access)) {
             return false;
         }
         
         $url = $this->urlApi . "/api";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            'Authorization: Bearer ' . $this->Token_access,
         ];
         $data = [
             "method" => "loadRedirect",
@@ -221,7 +223,7 @@ abstract class Controller
 
     private function revoke_token($auth_webservice){
         global $url;
-        $this->tokenAccess = $auth_webservice->tokenid;
+        $this->Token_access = $auth_webservice->tokenid;
         $this->language = $url->pagelang[4];
         $this->Tokenrevoke = 1;
     }
@@ -230,12 +232,12 @@ abstract class Controller
         $url = $this->urlApi . "/gettoken";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            'Authorization: Bearer ' . $this->Token_access,
         ];
         $data = [
-            "apptoken" => self::APP_TOKEN,
-            "user" => self::APP_USER,
-            "secretkey" => self::APP_SECRET,
+            "apptoken" => self::_APP_TOKEN,
+            "user" => self::_APP_USER,
+            "secretkey" => self::_APP_SERCRET,
         ];
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
@@ -263,11 +265,11 @@ abstract class Controller
         $url = $this->urlApi . "/setting";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            'Authorization: Bearer ' . $this->Token_access,
         ];
         $data = [
             "user" => self::_APP_USER,
-            "secretkey" => self::APP_SECRET,
+            "secretkey" => self::_APP_SERCRET,
             "method" => $req['method'],
             "browser" => $req['browser'],
             "uniqid" => $req['uniqid'],
@@ -281,7 +283,7 @@ abstract class Controller
         $url = $this->urlApi . "/getuser";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            'Authorization: Bearer ' . $this->Token_access,
         ];
         $response = $this->sendCURL($url, $header, 'POST', '');
         return $response;
