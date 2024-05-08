@@ -1,12 +1,15 @@
+// services filter
 $('.services-filter').on('click', async function(){
 
     if ($(this).hasClass('active')) {
         $(this).removeClass('active');
-    } else {
+    }else{
         $(this).addClass('active');
     }
-
-    let array_gid = $('.services-filter.active').map((_, value) => $(value).data('id')).get();
+    let array_gid = new Array;
+    $('.services-filter.active').map((key,value) => {
+        array_gid.push($(value).data('id'));
+    });
 
     if (array_gid.length > 0 || true) {
         const settings = {
@@ -29,9 +32,9 @@ $('.services-filter').on('click', async function(){
 
         if (result?.code === 1001 && result?._numOfRows > 0) {
             let strHTML = ``;
-            result?.item?.list.forEach(value => {
-                let url = getSafeUrl(value.url);
-                let target = (url !== 'javascript:void(0);') ? value.target : "_self";
+            result?.item?.list.map((value) => {
+                let url = (value.url != '#' && value.url != "") ? value.url : "javascript:void(0);";
+                let target = (value.url != '#' && value.url != "") ? value.target : "_self";
                 strHTML += `
                 <div class="swiper-slide">
                     <div class="item">
@@ -54,15 +57,11 @@ $('.services-filter').on('click', async function(){
                 </div>
                 `;
             });
-            $('#service-append').empty().append(strHTML);
-        } else {
+            $('#service-append').empty();
+            $('#service-append').append(strHTML);
+        }else{
             $('#service-append').empty();
         }
         reload_swiper();
     }
 });
-
-function getSafeUrl(url) {
-    const urlPattern = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
-    return urlPattern.test(url) ? url : 'javascript:void(0);';
-}
