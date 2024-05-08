@@ -14,9 +14,7 @@ const validate_step = (action) => {
             data_array.map((v) => {
                 if (!v.trim()) {
                     status = false;
-                    return false;
                 }
-                return true; 
             });
 
             if (!status) {
@@ -74,7 +72,7 @@ $('#form-contact').validator().on('submit', function (e) {
         e.preventDefault();
 
         $("#submit-form").attr("disabled", true);
-        let formData = new FormData($("#form-contact")[0]);
+        var formData = new FormData($("#form-contact")[0]);
         $.ajax({
             url: `${path}${language}/contact-form/insert-corruption`,
             type: "POST",
@@ -100,7 +98,7 @@ $('#form-contact').validator().on('submit', function (e) {
                         allowOutsideClick: false,
                         didOpen: () => {
                             Swal.showLoading()
-                            let timerInterval = setInterval(() => {
+                            timerInterval = setInterval(() => {
                             }, 100)
                         },
                         willClose: () => {

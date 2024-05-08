@@ -42,7 +42,7 @@ $('.services-filter').on('click', async function(){
         if (result?.code === 1001 && result?._numOfRows > 0) {
             let strHTML = ``;
             result?.item?.map((value) => {
-                let url = (value.url != '#' && value.url != "") ? value.url : "#";
+                let url = (value.url != '#' && value.url != "") ? value.url : "javascript:void(0);";
                 let target = (value.url != '#' && value.url != "") ? value.target : "_self";
                 strHTML += `
                 <div class="item">
