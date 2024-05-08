@@ -68,9 +68,7 @@ include("config.php");
          $myNewRand = randomNameUpdate(2);
          $filenamedoc = "file-" . $_REQUEST['myID'] . "-" . $_REQUEST['langt'] . "-" . $myNewRand . ".$fileTypeName";
 
-         if (copy($inputFileToUpload, $mod_path_file . "/" . $filenamedoc)) {
-            @chmod($mod_path_file . "/" . $filenamedoc, 0777);
-         }
+         copy($inputFileToUpload, $mod_path_file . "/" . $filenamedoc);
 
          $fileNameLast = explode("." . $fileTypeName, $inputFileToName);
          if ($_REQUEST['nametodoc'] == "") {

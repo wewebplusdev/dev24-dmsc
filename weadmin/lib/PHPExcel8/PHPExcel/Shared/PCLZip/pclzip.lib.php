@@ -3554,7 +3554,7 @@ class PclZip
                 // ----- Look for chmod option
                 if (isset($p_options[PCLZIP_OPT_SET_CHMOD])) {
                     // ----- Change the mode of the file
-                    @chmod($p_entry['filename'], $p_options[PCLZIP_OPT_SET_CHMOD]);
+                    chmod($p_entry['filename'], $p_options[PCLZIP_OPT_SET_CHMOD]);
                 }
             }
         }
