@@ -13,7 +13,7 @@ switch ($resultData['case']) {
             "browser" => $resultData['browser'],
             "uniqid" => $resultData['uniqid'],
         ];
-        $load_fetch_api = $reverse_proxy->loadInsertLogs($req);
+        $load_fetch_api = $reverse_proxy->load_insert_logs($req);
 
         break;
 
@@ -23,7 +23,7 @@ switch ($resultData['case']) {
             "browser" => $resultData['browser'],
             "uniqid" => $resultData['uniqid'],
         ];
-        $load_fetch_api = $reverse_proxy->loadInsertLogs($req);
+        $load_fetch_api = $reverse_proxy->load_insert_logs($req);
 
         break;
 

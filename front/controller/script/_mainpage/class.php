@@ -118,14 +118,14 @@ abstract class Controller
             if (!empty($this->tokenAccess)) {
                 // revoke token
                 if (empty($this->Tokenrevoke) || empty($_SESSION['settingWeb'])) {
-                    $loadCheckAuth = self::loadCheckAuth();
-                    if ($loadCheckAuth->code === 1007) {
+                    $load_check_auth = self::load_check_auth();
+                    if ($load_check_auth->code === 1007) {
                         // authentication token
-                        $authWebservice = self::authWebservice();
-                        if ($authWebservice->code === 1001) {
-                            setcookie("web_token", encodeStr($authWebservice->tokenid), $authWebservice->expire_at, "/", _URL, true, true);
+                        $auth_webservice = self::auth_webservice();
+                        if ($auth_webservice->code === 1001) {
+                            setcookie("web_token", encodeStr($auth_webservice->tokenid), $auth_webservice->expire_at, "/", _URL, true, true);
                             setcookie("Tokenrevoke", 1, time() + (3600), "/", _URL, true, true); // life time 1 hour
-                            self::revokeToken($authWebservice);
+                            self::revoke_token($auth_webservice);
                         }
                         
                     }else{
@@ -135,11 +135,11 @@ abstract class Controller
                 }
             }else{
                 // authentication token
-                $authWebservice = self::authWebservice();
-                if ($authWebservice->code === 1001) {
-                    setcookie("web_token", encodeStr($authWebservice->tokenid), ($authWebservice->expire_at), "/", _URL_,true,true);
+                $auth_webservice = self::auth_webservice();
+                if ($auth_webservice->code === 1001) {
+                    setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", _URL_,true,true);
                     setcookie("Tokenrevoke", 1, time() + (3600), "/",_URL, true,true); // life time 1 hour
-                    self::revokeToken($authWebservice);
+                    self::revoke_token($auth_webservice);
 
                 }
             }
@@ -219,14 +219,14 @@ abstract class Controller
         return $response;
     }
 
-    private function revokeToken($authWebservice){
+    private function revoke_token($auth_webservice){
         global $url;
-        $this->tokenAccess = $authWebservice->tokenid;
+        $this->tokenAccess = $auth_webservice->tokenid;
         $this->language = $url->pagelang[4];
         $this->Tokenrevoke = 1;
     }
 
-    private function authWebservice(){
+    private function auth_webservice(){
         $url = $this->urlApi . "/gettoken";
         $header = [
             'Content-Type: application/json',
@@ -241,7 +241,7 @@ abstract class Controller
         return $response;
     }
 
-    public function contentWebsite($content, $language){
+    public function content_website($content, $language){
         if (gettype($content) == 'object' && count((array)$content) > 0) {
             $array_content = array();
             foreach ($content as $keycontent => $valuecontent) {
@@ -259,7 +259,7 @@ abstract class Controller
         }
     }
 
-    public function loadInsertLogs($req){
+    function load_insert_logs($req){
         $url = $this->urlApi . "/setting";
         $header = [
             'Content-Type: application/json',
@@ -276,7 +276,7 @@ abstract class Controller
         return $response;
     }
 
-    private function loadCheckAuth()
+    private function load_check_auth()
     {
         $url = $this->urlApi . "/getuser";
         $header = [
@@ -287,11 +287,11 @@ abstract class Controller
         return $response;
     }
 
-    protected static function sendCURL($url, $header, $type, $data = null)
+    protected static function sendCURL($url, $header, $type, $data = NULL)
     {
         $request = curl_init();
 
-        if ($header != null) {
+        if ($header != NULL) {
             curl_setopt($request, CURLOPT_HTTPHEADER, $header);
         }
 
@@ -300,7 +300,7 @@ abstract class Controller
         curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
 
         if (strtoupper($type) === 'POST') {
-            curl_setopt($request, CURLOPT_POST, true);
+            curl_setopt($request, CURLOPT_POST, TRUE);
             curl_setopt($request, CURLOPT_POSTFIELDS, $data);
         }
 
