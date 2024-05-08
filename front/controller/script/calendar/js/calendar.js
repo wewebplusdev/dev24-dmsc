@@ -161,7 +161,7 @@ async function reload_event(){
     })
     
     $('.event-group .event-item').each(function () {
-        strHTML = `
+        let strHTML = `
         <span class="tooltip" style="display:none;">${$(this).attr('title')}</span>
       `;
         $(this).append(strHTML);
