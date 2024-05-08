@@ -29,15 +29,14 @@ switch ($modefunction) {
         exit();
         break;
 
-        case 'delcookie':
-            echo "<i>## TOKEN DEL MODE ##</i>";
-            $_COOKIE["token"] = "";
-            unset($_COOKIE["token"]);
-            setcookie("token", null, time() - 3600, "/", _URL, false, true);
-            setcookie("token", null, time() - 3600, null, null, false, true);
-            exit();
-            break;
-        
+    case 'delcookie':
+        echo "<i>## TOKEN DEL MODE ##</i>";
+        $_COOKIE["token"] = "";
+        unset($_COOKIE["token"]);
+        setcookie("token", null, time() - 3600, "/");
+        setcookie("token", null, time() - 3600);
+        exit();
+        break;
 
 
     default:

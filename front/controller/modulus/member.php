@@ -130,28 +130,27 @@ class member {
         $_SESSION[_URL]['token'] = "";
         unset($_SESSION[_URL]['token']);
         $_SESSION[_URL]['reboot'] = true;
-    
-        setcookie("token", null, time() - ((60 * 60) * $this->token_cookie_timeout), "/", _URL, false, true);
+
+        setcookie("token", null, time() - ((60 * 60) * $this->token_cookie_timeout), "/", false);
         unset($_COOKIE['token']);
-    
+
         if (!empty($_SESSION[_URL]['token']) || !empty($_COOKIE['token'])) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-    
 
     function saveCookie() {
         $setPut = $_SESSION[_URL]['token'];
         $tokenList = unserialize(decodeStr($_SESSION[_URL]["token"]));
-        $setToken = setcookie("token", $setPut, time() + ((60 * 60) * $this->token_cookie_timeout), "/", _URL, true, true);
-    
+        $setToken = setcookie("token", $setPut, time() + ((60 * 60) * $this->token_cookie_timeout), "/", _URL, true);
+
         if (!empty($tokenList['member_info']['md_mem_email'])) {
-            $setEmailLast = setcookie("lastlogin", $tokenList['member_info']['md_mem_email'], time() + (86400 * 30), "/", _URL, false, true);
+            $setEmailLast = setcookie("lastlogin", $tokenList['member_info']['md_mem_email'], time() + (86400 * 30));
         }
     }
-    
+
     function reloadUser() {
         $_SESSION[_URL]['reboot'] = false;
         $reloadToken = unserialize(decodeStr($_COOKIE['token']));
