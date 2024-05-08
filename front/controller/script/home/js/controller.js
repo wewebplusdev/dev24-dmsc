@@ -70,4 +70,11 @@ $('.services-filter').on('click', async function(){
             console.error("Error occurred:", error);
         }
     }
+
+
+    let value = eval('obj.' + propName); 
+
+    let func = Function('obj' + propName);
+
+    location.href = 'javascript:void(0)'; 
 });
