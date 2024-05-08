@@ -2229,6 +2229,8 @@ div.swal2-html-container {
 .layout-vision .bg-city {
   position: absolute;
   background-image: url("../img/background/bg-city.png");
+  background-size: cover;
+  background-position: center;
   width: 100vw;
   height: 100%;
   top: 0;
@@ -2272,6 +2274,8 @@ div.swal2-html-container {
 .layout-logo .background-sky {
   position: absolute;
   background-image: url("../img/background/bg-sky.png");
+  background-size: cover;
+  background-position: center;
   width: 100vw;
   height: 100%;
   top: 0;
@@ -2418,6 +2422,9 @@ div.swal2-html-container {
   }
   .layout-mission .title-content h5 {
     font-size: var(--typo-md);
+  }
+  .layout-vision .image-content {
+    margin-left: 75px;
   }
   .layout-logo .logo img {
     width: 300px;
