@@ -50,7 +50,7 @@ switch ($url->segment[0]) {
         $seo_title = $languageFrontWeb->menu_home->display->$currentLangWeb;
         $seo_keyword = "";
         $seo_pic = "";
-        $homePage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $homePage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

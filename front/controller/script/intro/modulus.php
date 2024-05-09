@@ -8,7 +8,7 @@ class introPage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/setting";
+        $url = $this->urlAPI . "/setting";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

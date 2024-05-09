@@ -10,7 +10,7 @@ $seo_desc = "";
 $seo_title = $languageFrontWeb->pageerror->display->$currentLangWeb;
 $seo_keyword = "";
 $seo_pic = "";
-$errorPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+$errorPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
 /*## End SEO #####*/
 
 $settingPage = array(

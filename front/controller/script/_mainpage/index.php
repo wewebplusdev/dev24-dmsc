@@ -6,32 +6,32 @@
  * and open the template in the editor.
 */
 
-$mainPage = new mainPage;
+$MainPage = new MainPage;
 
 #### POLICY
-$load_policy = $mainPage->load_policy();
-// print_pre($load_policy);
-$smarty->assign("load_policy", $load_policy);
+$loadPolicy = $MainPage->loadPolicy();
+// print_pre($loadPolicy);
+$smarty->assign("loadPolicy", $loadPolicy);
 
 #### SETTING
 $settingWeb = array();
-$settingWeb['subject'] = $mainPage->settingWeb->setting->subject;
-$settingWeb['subjectoffice'] = $mainPage->settingWeb->setting->subjectoffice;
-$settingWeb['description'] = $mainPage->settingWeb->setting->description;
-$settingWeb['keywords'] = $mainPage->settingWeb->setting->keywords;
-$settingWeb['metatitle'] = $mainPage->settingWeb->setting->metatitle;
-$settingWeb['contact'] = $mainPage->settingWeb->setting->config;
-$settingWeb['social'] = $mainPage->settingWeb->setting->social;
-$settingWeb['addresspic'] = $mainPage->settingWeb->setting->addresspic->real;
+$settingWeb['subject'] = $MainPage->settingWeb->setting->subject;
+$settingWeb['subjectoffice'] = $MainPage->settingWeb->setting->subjectoffice;
+$settingWeb['description'] = $MainPage->settingWeb->setting->description;
+$settingWeb['keywords'] = $MainPage->settingWeb->setting->keywords;
+$settingWeb['metatitle'] = $MainPage->settingWeb->setting->metatitle;
+$settingWeb['contact'] = $MainPage->settingWeb->setting->config;
+$settingWeb['social'] = $MainPage->settingWeb->setting->social;
+$settingWeb['addresspic'] = $MainPage->settingWeb->setting->addresspic->real;
 
-$languageWeb = $mainPage->settingWeb->language;
-$languageFrontWeb = $mainPage->settingWeb->language_front;
-$lcfWeb = $mainPage->settingWeb->facebook;
-$sitemapWeb = $mainPage->settingWeb->sitemap;
-$currentLangWeb = $mainPage->settingWeb->current_lang;
-$logsView = $mainPage->settingWeb->count_view;
-$recaptchaSitekey = $mainPage->recaptchaSitekey;
-$recaptchaSecretkey = $mainPage->recaptchaSecretkey;
+$languageWeb = $MainPage->settingWeb->language;
+$languageFrontWeb = $MainPage->settingWeb->language_front;
+$lcfWeb = $MainPage->settingWeb->facebook;
+$sitemapWeb = $MainPage->settingWeb->sitemap;
+$currentLangWeb = $MainPage->settingWeb->current_lang;
+$logsView = $MainPage->settingWeb->count_view;
+$recaptchaSitekey = $MainPage->recaptchaSitekey;
+$recaptchaSecretkey = $MainPage->recaptchaSecretkey;
 
 $smarty->assign("settingWeb", $settingWeb);
 $smarty->assign("languageWeb", $languageWeb);

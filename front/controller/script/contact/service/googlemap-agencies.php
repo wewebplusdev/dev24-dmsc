@@ -40,7 +40,7 @@ $seo_desc = "";
 $seo_title = $load_data_agency->item[0]->subject;
 $seo_keyword = "";
 $seo_pic = "";
-$contactPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+$contactPage->searchEngine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
 /*## End SEO #####*/
 
 $settingPage = array(

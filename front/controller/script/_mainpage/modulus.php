@@ -1,6 +1,6 @@
 <?php
 
-class mainPage extends controller
+class MainPage extends controller
 {
     public $settingWeb;
     
@@ -10,7 +10,7 @@ class mainPage extends controller
         parent::__construct();
         try {
             if ($this->tokenRevoke) {
-                $settingWeb = self::load_setting_web();
+                $settingWeb = self::loadSettingWeb();
                 if ($settingWeb->code === 1001) {
                     $_SESSION['settingWeb'] = $settingWeb->item;
                     $this->settingWeb = $_SESSION['settingWeb'];
@@ -24,13 +24,13 @@ class mainPage extends controller
 
     }
 
-    private function load_setting_web()
+    private function loadSettingWeb()
     {
         if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URLAPI . "/setting";
+        $url = $this->urlAPI . "/setting";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -43,13 +43,13 @@ class mainPage extends controller
         return $response;
     }
 
-    function load_policy()
+    function loadPolicy()
     {
         if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URLAPI . "/setting";
+        $url = $this->urlAPI . "/setting";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

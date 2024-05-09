@@ -10,7 +10,7 @@ abstract class controller
     public $tokenAccess;
     public $language;
     public $tokenRevoke;
-    public $URLAPI;
+    public $urlAPI;
     public $medthodMasterkey;
     public $medthodModule;
 
@@ -19,13 +19,11 @@ abstract class controller
         global $url, $_CORE_ENV;
 
         if ($_CORE_ENV == 'DEV') {
-            // $this->URLAPI =  'http://192.168.1.150:4040/service-api/v1';
-            $this->URLAPI =  'http://192.168.101.249:4040/service-api/v1';
-            // $this->URLAPI =  'http://192.168.1.100:4040/service-api/v1';
-        }else if($_CORE_ENV == 'PROD'){
-            $this->URLAPI =  'http://192.168.200.146:4040/service-api/v1';
+            $this->urlAPI =  'http://192.168.101.249:4040/service-api/v1';
+        }elseif($_CORE_ENV == 'PROD'){
+            $this->urlAPI =  'http://192.168.200.146:4040/service-api/v1';
         }else{
-            $this->URLAPI =  'http://api.wewebplus.com:4040/service-api/v1';
+            $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
         }
 
         $this->medthodModule = array(
@@ -149,7 +147,7 @@ abstract class controller
         }
     }
 
-    function search_engine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
+    public function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
     {
         global $smarty;
 
@@ -194,13 +192,13 @@ abstract class controller
         $smarty->assign("seo", $list);
     }
     
-    public function load_url_redirect($req)
+    public function loadUrlRedirect($req)
     {
         if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URLAPI . "/api";
+        $url = $this->urlAPI . "/api";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -228,7 +226,7 @@ abstract class controller
     }
 
     private function auth_webservice(){
-        $url = $this->URLAPI . "/gettoken";
+        $url = $this->urlAPI . "/gettoken";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -261,7 +259,7 @@ abstract class controller
     }
 
     function load_insert_logs($req){
-        $url = $this->URLAPI . "/setting";
+        $url = $this->urlAPI . "/setting";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -279,7 +277,7 @@ abstract class controller
 
     private function load_check_auth()
     {
-        $url = $this->URLAPI . "/getuser";
+        $url = $this->urlAPI . "/getuser";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

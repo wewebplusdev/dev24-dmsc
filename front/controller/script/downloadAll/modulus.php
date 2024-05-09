@@ -8,7 +8,7 @@ class downloadAllPage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/" . $data['action'];
+        $url = $this->urlAPI . "/" . $data['action'];
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

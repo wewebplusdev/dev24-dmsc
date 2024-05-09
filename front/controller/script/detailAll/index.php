@@ -67,7 +67,7 @@ switch ($url->segment[0]) {
                 'language' => $load_data->item[0]->language,
                 'action' => 'view',
             );
-            $load_update_view = $detailAllPage->load_url_redirect($array_req);
+            $load_update_view = $detailAllPage->loadUrlRedirect($array_req);
         }
         /*#### End Update View #####*/
 
@@ -93,7 +93,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = $language_modules['pictures'];
-        $detailAllPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $detailAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

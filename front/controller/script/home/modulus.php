@@ -8,7 +8,7 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/home";
+        $url = $this->urlAPI . "/home";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -29,7 +29,7 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/home";
+        $url = $this->urlAPI . "/home";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -50,7 +50,7 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/home";
+        $url = $this->urlAPI . "/home";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -71,7 +71,7 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/home";
+        $url = $this->urlAPI . "/home";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -92,7 +92,7 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/home";
+        $url = $this->urlAPI . "/home";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
@@ -113,7 +113,7 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/home";
+        $url = $this->urlAPI . "/home";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

@@ -8,7 +8,7 @@ class reverse_proxy extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/" . $controller;
+        $url = $this->urlAPI . "/" . $controller;
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

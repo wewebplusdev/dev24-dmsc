@@ -8,7 +8,7 @@ class calendarPage extends controller
             return false;
         }
         
-        $url = $this->URLAPI . "/calendar";
+        $url = $this->urlAPI . "/calendar";
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

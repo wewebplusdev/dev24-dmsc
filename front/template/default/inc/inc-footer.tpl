@@ -193,11 +193,11 @@
             </div>
             <div class="footer-bottom">
                 <div class="row">
-                    {if $load_policy->_numOfRows gte 1}
+                    {if $loadPolicy->_numOfRows gte 1}
                     <div class="col-md" data-aos="fade-left">
                         <div class="policy">
                             <ul class="item-list">
-                                {foreach $load_policy->item as $keyPolicy => $valuePolicy}
+                                {foreach $loadPolicy->item as $keyPolicy => $valuePolicy}
                                     {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
                                     {assign var="target" value="_self"}
                                     {$downloadID = 0}

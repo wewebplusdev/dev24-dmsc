@@ -30,7 +30,7 @@ switch ($url->segment[0]) {
         $seo_title = "";
         $seo_keyword = "";
         $seo_pic = "";
-        $introPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $introPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(
