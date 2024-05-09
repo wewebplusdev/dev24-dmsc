@@ -1,6 +1,7 @@
 <?php
 $menuActive = "pageredirect";
-define('LOCATION_HEADER', LOCATION_HEADER );
+
+define('LOCATION_HEADER', 'Location:');
 
 $Pageredirectage = new Pageredirectage;
 if (!empty($url->segment[1])) {
@@ -14,6 +15,8 @@ if (!empty($url->segment[1])) {
         $view = 0;
     }
     /*#### End Update View #####*/
+   
+
     $array_req = array(
         'table' => decodeStr($case_slug[0]),
         'masterkey' => decodeStr($case_slug[1]),
@@ -24,14 +27,18 @@ if (!empty($url->segment[1])) {
         'urlc2' => decodeStr($case_slug[5]),
         'view' => $view,
     );
+    // print_pre($array_req);
+    
+    // call redirect 
     $loadUrlRedirect = $Pageredirectage->loadUrlRedirect($array_req);
+    // print_pre($loadUrlRedirect);die;
     if ($loadUrlRedirect->code === 1001 && !empty($loadUrlRedirect->item->url)) {
-        header(LOCATION_HEADER  . $loadUrlRedirect->item->url);
+        header(LOCATION_HEADER . $loadUrlRedirect->item->url);
     }else{
-        header(LOCATION_HEADER  . $linklang . "/home");
+        header(LOCATION_HEADER . $linklang . "/home");
     }
 }else{
-    header(LOCATION_HEADER  . $linklang . "/home");
+    header(LOCATION_HEADER . $linklang . "/home");
 }
 
 exit(0);
