@@ -2,7 +2,7 @@
 $menuActive = "feed";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$feedPage = new feedPage;
+$FeedPage = new FeedPage;
 
 $contentID = $url->segment[1];
 
@@ -16,12 +16,12 @@ switch ($url->segment[0]) {
         $data = [
             "action" => 'feed',
             "method" => 'getFeed',
-            "language" => $feedPage->language,
+            "language" => $FeedPage->language,
             "contentid" => $contentID,
         ];
 
         // call list
-        $load_data = $feedPage->load_data($data);
+        $load_data = $FeedPage->load_data($data);
         if ($load_data->code != 1001) {
             header('location:' . $linklang . "/home");
         }
@@ -77,7 +77,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $feedPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $FeedPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         $settingPage = array(

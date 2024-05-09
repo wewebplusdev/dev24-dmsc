@@ -1,6 +1,6 @@
 <?php
 
-class downloadAllPage extends controller
+class DownloadAllPage extends controller
 {
     public function load_data($data)
     {

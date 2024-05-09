@@ -2,7 +2,7 @@
 $menuActive = "downloadAll";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$downloadAllPage = new downloadAllPage;
+$DownloadAllPage = new DownloadAllPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
@@ -26,9 +26,9 @@ switch ($url->segment[0]) {
 
         $limit = 12;
         $data_group = [
-            "action" => $downloadAllPage->medthodModule[$menuActive]['action'],
-            "method" => $downloadAllPage->medthodModule[$menuActive]['method_group'],
-            "language" => $downloadAllPage->language,
+            "action" => $DownloadAllPage->medthodModule[$menuActive]['action'],
+            "method" => $DownloadAllPage->medthodModule[$menuActive]['method_group'],
+            "language" => $DownloadAllPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
@@ -36,15 +36,15 @@ switch ($url->segment[0]) {
         ];
 
         // call group
-        $load_group = $downloadAllPage->load_data($data_group);
+        $load_group = $DownloadAllPage->load_data($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
 
         $data = [
-            "action" => $downloadAllPage->medthodModule[$menuActive]['action'],
-            "method" => $downloadAllPage->medthodModule[$menuActive]['method_list'],
-            "language" => $downloadAllPage->language,
+            "action" => $DownloadAllPage->medthodModule[$menuActive]['action'],
+            "method" => $DownloadAllPage->medthodModule[$menuActive]['method_list'],
+            "language" => $DownloadAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -54,7 +54,7 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $downloadAllPage->load_data($data);
+        $load_data = $DownloadAllPage->load_data($data);
         $smarty->assign("load_data", $load_data);
         
         // setup seo and text modules
@@ -72,7 +72,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $downloadAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $DownloadAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/

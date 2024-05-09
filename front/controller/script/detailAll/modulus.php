@@ -1,6 +1,6 @@
 <?php
 
-class detailAllPage extends controller
+class DetailAllPage extends controller
 {
     public function load_data($data)
     {

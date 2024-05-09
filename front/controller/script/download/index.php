@@ -1,7 +1,7 @@
 <?php
 $menuActive = "download";
 
-$downloadPage = new downloadPage;
+$DownloadPage = new DownloadPage;
 
 $contentid = $url->segment[1];
 $masterkey = $url->segment[2];
@@ -15,9 +15,9 @@ switch ($url->segment[0]) {
         $req['gid'] = $_REQUEST['gid'];
 
         $data = [
-            "action" => $downloadPage->medthodModule[$menuActive]['action'],
-            "method" => $downloadPage->medthodModule[$menuActive]['method_list'],
-            "language" => $downloadPage->language,
+            "action" => $DownloadPage->method_module[$menuActive]['action'],
+            "method" => $DownloadPage->method_module[$menuActive]['method_list'],
+            "language" => $DownloadPage->language,
             "order" => 'DESC',
             "page" => 1,
             "limit" => 1,
@@ -27,7 +27,7 @@ switch ($url->segment[0]) {
         ];
 
         // call detail
-        $load_data = $downloadPage->load_data($data);
+        $load_data = $DownloadPage->load_data($data);
         if ($load_data->code == 1001) {
             $smarty->assign("load_data", $load_data);
         }

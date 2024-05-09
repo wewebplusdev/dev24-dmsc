@@ -2,7 +2,7 @@
 $menuActive = "detailAll";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$detailAllPage = new detailAllPage;
+$DetailAllPage = new DetailAllPage;
 
 $contentid = $url->segment[1];
 $masterkey = $url->segment[2];
@@ -16,16 +16,16 @@ switch ($url->segment[0]) {
         $req['gid'] = $_REQUEST['gid'];
 
         $data = [
-            "action" => $detailAllPage->medthodModule[$menuActive]['action'],
-            "method" => $detailAllPage->medthodModule[$menuActive]['method_detail'],
-            "language" => $detailAllPage->language,
+            "action" => $DetailAllPage->medthodModule[$menuActive]['action'],
+            "method" => $DetailAllPage->medthodModule[$menuActive]['method_detail'],
+            "language" => $DetailAllPage->language,
             "contentid" => $contentid,
             "gid" => $groupid,
             "masterkey" => $masterkey
         ];
 
         // call detail
-        $load_data = $detailAllPage->load_data($data);
+        $load_data = $DetailAllPage->load_data($data);
         if ($load_data->code == 1001) {
             $smarty->assign("load_data", $load_data);
         }
@@ -38,9 +38,9 @@ switch ($url->segment[0]) {
             // content other
             $limit = 12;
             $data = [
-                "action" => $detailAllPage->medthodModule[$menuActive]['action'],
-                "method" => $detailAllPage->medthodModule[$menuActive]['method_list'],
-                "language" => $detailAllPage->language,
+                "action" => $DetailAllPage->medthodModule[$menuActive]['action'],
+                "method" => $DetailAllPage->medthodModule[$menuActive]['method_list'],
+                "language" => $DetailAllPage->language,
                 "order" => 'desc',
                 "page" => 1,
                 "limit" => $limit,
@@ -49,7 +49,7 @@ switch ($url->segment[0]) {
             ];
 			// print_pre($data);
 
-            $load_data_other = $detailAllPage->load_data($data);
+            $load_data_other = $DetailAllPage->load_data($data);
             if ($load_data_other->code == 1001) {
                 $key_list = array_search($load_data->item[0]->id, array_column($load_data_other->item, 'id'));
                 unset($load_data_other->item[$key_list]);
@@ -67,7 +67,7 @@ switch ($url->segment[0]) {
                 'language' => $load_data->item[0]->language,
                 'action' => 'view',
             );
-            $load_update_view = $detailAllPage->loadUrlRedirect($array_req);
+            $load_update_view = $DetailAllPage->loadUrlRedirect($array_req);
         }
         /*#### End Update View #####*/
 
@@ -93,7 +93,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = $language_modules['pictures'];
-        $detailAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $DetailAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

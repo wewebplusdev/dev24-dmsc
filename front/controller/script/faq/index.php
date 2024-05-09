@@ -2,7 +2,7 @@
 $menuActive = "faq";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$faqPage = new faqPage;
+$FaqPage = new FaqPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
@@ -21,9 +21,9 @@ switch ($url->segment[0]) {
 
         $limit = 12;
         $data = [
-            "action" => $faqPage->medthodMasterkey[$masterkey]['action'],
-            "method" => $faqPage->medthodMasterkey[$masterkey][$menuActive],
-            "language" => $faqPage->language,
+            "action" => $FaqPage->medthodMasterkey[$masterkey]['action'],
+            "method" => $FaqPage->medthodMasterkey[$masterkey][$menuActive],
+            "language" => $FaqPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -31,7 +31,7 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $faqPage->load_data($data);
+        $load_data = $FaqPage->load_data($data);
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
@@ -54,7 +54,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $faqPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $FaqPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
