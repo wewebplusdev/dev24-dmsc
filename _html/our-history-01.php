@@ -101,8 +101,8 @@
             </div>
             <!-- ck editor -->
             <div class="editor-content">
-              <div class="history-timeline">
-                <div class="row">
+              <div class="history-timeline container">
+                <div class="row align-items-start">
                   <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">ปัจจุบัน</div>
@@ -127,7 +127,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row align-items-start">
                   <div class="col-lg-6 order-lg-2">
                     <div class="h-bigger">2552</div>
                     <ul class="timeline-list">

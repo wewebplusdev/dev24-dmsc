@@ -196,7 +196,7 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="col">
+                    <div class="col-lg-6">
                       <div class="thumbnails ml-auto">
                         <img src="<?php echo $core_template; ?>/img/uploads/img-history-05.jpg" alt="">
                       </div>
