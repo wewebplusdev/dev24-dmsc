@@ -388,7 +388,7 @@
       // slidesPerView: "auto",
       slidesPerView: 3,
       // freeMode: true,
-      spaceBetween: 30,
+      spaceBetween: 40,
       watchSlidesProgress: true,
       pagination: {
         el: ".swiper-pagination",

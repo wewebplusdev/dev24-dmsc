@@ -5322,11 +5322,7 @@ div.swal2-html-container {
   font-weight: var(--fw-bold);
   color: var(--color-secondary);
 }
-.detail-body .swiper:not(.gallery-slide .swiper) {
-  overflow: visible;
-}
 .detail-body .swiper:not(.gallery-slide .swiper) .swiper-slide {
-  opacity: 0;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
