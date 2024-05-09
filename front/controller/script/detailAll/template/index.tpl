@@ -511,7 +511,7 @@
                                     <div>แสดงความคิดเห็น</div>
                                 </button>
                             </div>
-                            <div class="col btn-back" style="text-align: end;"><button>ย้อนกลับ</button></div>
+                            <div class="col-auto btn-back" style="text-align: end;"><button>ย้อนกลับ</button></div>
                         </div>
                         <div class="under-line"></div>
 
@@ -523,7 +523,7 @@
                         <!-- fb comment show here  -->
                     
                         <div id="fb-comments"  class="fb-comments collapse"
-                            data-href="https://www.dmcr.go.th/detailAll/70880/nws/11" data-width="100%" data-numposts="5"  >
+                            data-href="https://www.dmcr.go.th/detailAll/70880/nws/11" data-width="100%" data-numposts="5" data-mobile="true"  >
                           </div>
 
                         <!-- fb comment show end  -->

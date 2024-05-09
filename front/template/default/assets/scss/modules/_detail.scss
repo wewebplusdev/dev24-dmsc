@@ -368,7 +368,12 @@
 
   .vdo {margin: 0 0 40px 0;}
 
+  .detail-body .news-area .comment .btn-facebook button {font-size:16px ;}
+  .detail-body .news-area .comment .btn-back button {font-size:16px ;}
+
+  
 }
+
 
 @media (max-width: 991px) {
   .default-bar {margin-bottom: 20px;}
@@ -412,4 +417,6 @@
   .default-bar .whead .title {font-size: 20px;}
   .default-bar .box,
   .default-bar .box strong{font-size: 15px;}
+
+ 
 }
