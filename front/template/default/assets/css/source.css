@@ -5775,6 +5775,12 @@ div.swal2-html-container {
 .intro-content .action {
   text-align: right;
 }
+.intro-content .action .button-full {
+  display: block;
+}
+.intro-content .action .button-res {
+  display: none;
+}
 .intro-content .action .btn {
   padding: 0 30px;
   height: 55px;
@@ -5791,19 +5797,37 @@ div.swal2-html-container {
   }
 }
 @media (max-width: 991px) {
-  .intro-content .height {
-    height: 100px;
+  .intro-content {
+    height: 40dvh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 40px;
   }
-  .intro-page {
-    min-height: inherit;
+  .intro-content .action {
+    text-align: center;
   }
-  .intro-slider {
-    position: relative;
-    bottom: inherit;
+  .intro-content .action .button-full {
+    display: none;
+  }
+  .intro-content .action .button-res {
+    display: block;
+  }
+  .intro-content .action .btn {
+    background-color: rgb(2, 172, 124);
+    color: var(--color-light);
+    min-width: 60%;
+    border: 2px solid var(--color-light);
+  }
+  .intro-content .action .btn:hover {
+    background-color: var(--color-secondary);
   }
   .intro-slider .cover {
-    height: auto;
-    padding-top: 56.25%;
+    height: 60dvh;
   }
   .intro-slider .video-container {
     padding-top: 56.25%;
@@ -5812,11 +5836,13 @@ div.swal2-html-container {
     position: relative;
   }
   .intro-content .logo .symbol {
-    width: 60px;
+    width: 150px;
+    margin: 20px 0;
   }
   .intro-content .logo .txt {
     font-size: 14px;
     padding-left: 12px;
+    text-align: center;
   }
   .intro-content .logo .txt strong {
     font-size: 18px;
@@ -5828,9 +5854,9 @@ div.swal2-html-container {
   }
   .intro-content .action .btn {
     padding: 0 15px;
-    height: 42px;
-    line-height: 42px;
-    font-size: 16px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 18px;
   }
   .intro-content .action > .row {
     margin: 0 -7.5px;
@@ -5845,16 +5871,35 @@ div.swal2-html-container {
 @media (max-width: 767px) {
   .intro-content .height {
     height: auto;
-    padding: 20px 0;
+  }
+  .intro-content {
+    height: 40dvh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .intro-content .logo .symbol {
+    width: 150px;
+    margin: 20px 0;
   }
   .intro-content .action {
-    margin-top: 15px;
+    margin: 15px 0;
   }
   .intro-content .action .btn {
-    min-width: 100%;
+    min-width: 70%;
   }
   .intro-content .logo .txt {
     font-size: 13px;
+    text-align: center;
+    margin-top: 15px;
   }
   .intro-content .logo .txt strong {
     font-size: 16px;
