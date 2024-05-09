@@ -15,6 +15,7 @@ const validate_step = (action) => {
                 if (!v.trim()) {
                     status = false;
                 }
+                return v;
             });
 
             if (!status) {
