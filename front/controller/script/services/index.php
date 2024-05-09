@@ -2,11 +2,17 @@
 $menuActive = "services";
 $ServicePage = new ServicePage;
 $limit = 15;
+define('SCRIPT_TAG', '<script type="text/javascript" src="');
+
+
+
+
+
 
 $masterkey = $url->segment[1];
 switch ($url->segment[2]) {
     case 'pagination':
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/pagination.js"></script>';
+        $listjs[] = SCRIPT_TAG. _URL . 'front/controller/script/' . $menuActive . '/js/pagination.js"></script>';
 
         $jsonData = file_get_contents('php://input');
         $resultData = json_decode($jsonData, true);
@@ -36,8 +42,8 @@ switch ($url->segment[2]) {
         break;
 
     default:
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js"></script>';
+        $listjs[] = SCRIPT_TAG. _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+        $listjs[] = SCRIPT_TAG. _URL . 'front/controller/script/' . $menuActive . '/js/controller.js"></script>';
         if (empty($masterkey)) {
             $masterkey = 'sv';
             header('location:' . $linklang . "/" . $menuActive . "/" . $masterkey);
