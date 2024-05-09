@@ -1,11 +1,11 @@
 <?php
 $menuActive = "contact-form";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
-$listjs[] = '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render='. $recaptchaSitekey .'"></script>';
+$listjs[] = '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render='. $recaptcha_sitekey .'"></script>';
 
 $menuActiveApi = "contact";
 
-$ContactPage = new ContactPage;
+$contactPage = new contactPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[1]) {
@@ -37,7 +37,7 @@ switch ($url->segment[1]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $ContactPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $contactPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

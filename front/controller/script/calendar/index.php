@@ -3,6 +3,10 @@ $menuActive = "calendar";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/calendar.js'.$lastModify.'"></script>';
 
+
+define('CALENDAR_CONFIG_PATH', '/service/config-calendar.php');
+define('CALENDAR_INIT_PATH', '/service/init-calendar.php');
+
 $CalendarPage = new CalendarPage;
 $limit = 100;
 
@@ -12,8 +16,8 @@ switch ($url->segment[1]) {
         $req['gid'] = $_REQUEST['gid'];
         $smarty->assign("req", $req);
 
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/init-calendar.php'; #load calendar
+        require_once _DIR . '/front/controller/script/' . $menuActive . CALENDAR_CONFIG_PATH; #load calendar
+        require_once _DIR . '/front/controller/script/' . $menuActive . CALENDAR_INIT_PATH; #load calendar
 
         $settingPage = array(
             "page" => $menuActive,
@@ -26,8 +30,8 @@ switch ($url->segment[1]) {
         $req['gid'] = $_REQUEST['gid'];
         $smarty->assign("req", $req);
 
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/init-calendar.php'; #load calendar
+        require_once _DIR . '/front/controller/script/' . $menuActive . CALENDAR_CONFIG_PATH; #load calendar
+        require_once _DIR . '/front/controller/script/' . $menuActive . CALENDAR_INIT_PATH; #load calendar
 
         $settingPage = array(
             "page" => $menuActive,
@@ -40,7 +44,7 @@ switch ($url->segment[1]) {
         $req['date'] = $_REQUEST['date'] ? $_REQUEST['date'] : strtotime(date('Y-m-d'));
         $smarty->assign("req", $req);
 
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
+        require_once _DIR . '/front/controller/script/' . $menuActive . CALENDAR_CONFIG_PATH; #load calendar
 
         $data_group = [
             "method" => 'getCalendarGroup',
