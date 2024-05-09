@@ -26,8 +26,8 @@ switch ($url->segment[0]) {
 
         $limit = 12;
         $data_group = [
-            "action" => $downloadAllPage->method_module[$menuActive]['action'],
-            "method" => $downloadAllPage->method_module[$menuActive]['method_group'],
+            "action" => $downloadAllPage->medthodModule[$menuActive]['action'],
+            "method" => $downloadAllPage->medthodModule[$menuActive]['method_group'],
             "language" => $downloadAllPage->language,
             "order" => 'desc',
             "page" => $page['on'],
@@ -42,8 +42,8 @@ switch ($url->segment[0]) {
         }
 
         $data = [
-            "action" => $downloadAllPage->method_module[$menuActive]['action'],
-            "method" => $downloadAllPage->method_module[$menuActive]['method_list'],
+            "action" => $downloadAllPage->medthodModule[$menuActive]['action'],
+            "method" => $downloadAllPage->medthodModule[$menuActive]['method_list'],
             "language" => $downloadAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],

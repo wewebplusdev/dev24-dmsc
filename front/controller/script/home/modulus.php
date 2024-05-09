@@ -4,14 +4,14 @@ class homePage extends controller
 {
     public function load_topgraphic()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
+        $url = $this->URLAPI . "/home";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getTopgraphic",
@@ -25,14 +25,14 @@ class homePage extends controller
     
     public function load_services()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
+        $url = $this->URLAPI . "/home";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getService",
@@ -46,14 +46,14 @@ class homePage extends controller
 
     public function load_popup()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
+        $url = $this->URLAPI . "/home";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getPopup",
@@ -67,14 +67,14 @@ class homePage extends controller
 
     public function load_innovation()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
+        $url = $this->URLAPI . "/home";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getInnovationGroup",
@@ -88,14 +88,14 @@ class homePage extends controller
 
     public function load_about()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
+        $url = $this->URLAPI . "/home";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getAbout",
@@ -109,14 +109,14 @@ class homePage extends controller
 
     public function load_news()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
+        $url = $this->URLAPI . "/home";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getNews",

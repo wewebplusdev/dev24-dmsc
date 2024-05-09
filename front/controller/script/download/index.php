@@ -15,8 +15,8 @@ switch ($url->segment[0]) {
         $req['gid'] = $_REQUEST['gid'];
 
         $data = [
-            "action" => $downloadPage->method_module[$menuActive]['action'],
-            "method" => $downloadPage->method_module[$menuActive]['method_list'],
+            "action" => $downloadPage->medthodModule[$menuActive]['action'],
+            "method" => $downloadPage->medthodModule[$menuActive]['method_list'],
             "language" => $downloadPage->language,
             "order" => 'DESC',
             "page" => 1,

@@ -11,7 +11,7 @@ switch ($url->segment[2]) {
         $jsonData = file_get_contents('php://input');
         $resultData = json_decode($jsonData, true);
 
-        $resultData['action'] = $servicePage->method_masterkey[$masterkey]['action'];
+        $resultData['action'] = $servicePage->medthodMasterkey[$masterkey]['action'];
         $resultData['language'] = $servicePage->language;
 
         // call list
@@ -56,8 +56,8 @@ switch ($url->segment[2]) {
         $smarty->assign("req", $req);
 
         $data_group = [
-            "action" => $servicePage->method_masterkey[$masterkey]['action'],
-            "method" => $servicePage->method_masterkey[$masterkey]['loadGroup'],
+            "action" => $servicePage->medthodMasterkey[$masterkey]['action'],
+            "method" => $servicePage->medthodMasterkey[$masterkey]['loadGroup'],
             "language" => $servicePage->language,
             "order" => 'desc',
             "page" => $page['on'],
@@ -76,8 +76,8 @@ switch ($url->segment[2]) {
         }
 
         $data = [
-            "action" => $servicePage->method_masterkey[$masterkey]['action'],
-            "method" => $servicePage->method_masterkey[$masterkey][$menuActive],
+            "action" => $servicePage->medthodMasterkey[$masterkey]['action'],
+            "method" => $servicePage->medthodMasterkey[$masterkey][$menuActive],
             "language" => $servicePage->language,
             "order" => $req['order'],
             "page" => $page['on'],

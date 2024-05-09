@@ -22,8 +22,8 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data = [
-            "action" => $searchAllPage->method_module[$menuActive]['action'],
-            "method" => $searchAllPage->method_module[$menuActive]['method_list'],
+            "action" => $searchAllPage->medthodModule[$menuActive]['action'],
+            "method" => $searchAllPage->medthodModule[$menuActive]['method_list'],
             "language" => $searchAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],

@@ -16,8 +16,8 @@ switch ($url->segment[0]) {
         $req['gid'] = $_REQUEST['gid'];
 
         $data = [
-            "action" => $detailAllPage->method_module[$menuActive]['action'],
-            "method" => $detailAllPage->method_module[$menuActive]['method_detail'],
+            "action" => $detailAllPage->medthodModule[$menuActive]['action'],
+            "method" => $detailAllPage->medthodModule[$menuActive]['method_detail'],
             "language" => $detailAllPage->language,
             "contentid" => $contentid,
             "gid" => $groupid,
@@ -38,8 +38,8 @@ switch ($url->segment[0]) {
             // content other
             $limit = 12;
             $data = [
-                "action" => $detailAllPage->method_module[$menuActive]['action'],
-                "method" => $detailAllPage->method_module[$menuActive]['method_list'],
+                "action" => $detailAllPage->medthodModule[$menuActive]['action'],
+                "method" => $detailAllPage->medthodModule[$menuActive]['method_list'],
                 "language" => $detailAllPage->language,
                 "order" => 'desc',
                 "page" => 1,

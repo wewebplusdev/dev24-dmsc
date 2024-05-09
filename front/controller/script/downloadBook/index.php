@@ -26,8 +26,8 @@ switch ($url->segment[0]) {
 
         $limit = 12;
         $data_group = [
-            "action" => $downloadBookPage->method_module[$menuActive]['action'],
-            "method" => $downloadBookPage->method_module[$menuActive]['method_group'],
+            "action" => $downloadBookPage->medthodModule[$menuActive]['action'],
+            "method" => $downloadBookPage->medthodModule[$menuActive]['method_group'],
             "language" => $downloadBookPage->language,
             "order" => 'desc',
             "page" => $page['on'],
@@ -42,8 +42,8 @@ switch ($url->segment[0]) {
         }
 
         $data = [
-            "action" => $downloadBookPage->method_module[$menuActive]['action'],
-            "method" => $downloadBookPage->method_module[$menuActive]['method_list'],
+            "action" => $downloadBookPage->medthodModule[$menuActive]['action'],
+            "method" => $downloadBookPage->medthodModule[$menuActive]['method_list'],
             "language" => $downloadBookPage->language,
             "order" => $req['order'],
             "page" => $page['on'],

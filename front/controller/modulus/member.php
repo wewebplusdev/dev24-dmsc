@@ -5,6 +5,7 @@ class Member {
     private $tokenTimeout;
     private $tokenCookieTimeout;
     private $tokenAction;
+    const DATE_FORMAT = "Y:m:d H:i:s";
 
     public function __construct() {
         global $tokenTimeout, $tokenCookieTimeout, $tokenAction;
@@ -17,9 +18,9 @@ class Member {
 
         $list = array();
         $list['ip'] = getip();
-        $list['login_status'] = false;
+        $list['loginStatus'] = false;
         $list['actionfail'] = false;
-        $list['start'] = date("Y:m:d H:i:s");
+        $list['start'] = date(self::DATE_FORMAT);
         $list['exp'] = $this->generateExp();
         $list['cookie_id'] = $_COOKIE['PHPSESSID'];
         $list['member_info'] = false;
@@ -28,7 +29,7 @@ class Member {
         return $this->tokenSave($list);
     }
 
-    function tokenUpdate($array) {
+    public function tokenUpdate($array) {
 
         $_SESSION[_URL]['reboot'] = false;
         $tokenList = unserialize(decodeStr($_SESSION[_URL]["token"]));
@@ -54,19 +55,19 @@ class Member {
 
     public function tokenCheck() {
         $tokenList = unserialize(decodeStr($_SESSION[_URL]["token"]));
-        $dateNow = strtotime(date("Y:m:d H:i:s"));
+        $dateNow = strtotime(date(self::DATE_FORMAT));
         $dateTokenExp = strtotime($tokenList['exp']);
 
         if ($tokenList['url'] != _URL) {
             $this->tokenClear();
         } else {
             if ($tokenList['actionfail'] >= $this->tokenAction) {
-                $tokenList['login_status'] = false;
+                $tokenList['loginStatus'] = false;
                 $tokenList['msg'] = "TOKEN BLOCK WAIT " . $this->tokenCookieTimeout . " HR.";
                 $tokenList['codeerror'] = 1;
             } elseif ($dateTokenExp <= $dateNow) {
-                $tokenList['login_status'] = false;
-                $tokenList['start'] = date("Y:m:d H:i:s");
+                $tokenList['loginStatus'] = false;
+                $tokenList['start'] = date(self::DATE_FORMAT);
                 $tokenList['exp'] = $this->generateExp();
                 $tokenList['msg'] = "TOKEN EXPIRED";
                 $tokenList['codeerror'] = 2;
@@ -96,8 +97,8 @@ class Member {
     }
 
     public function generateExp() {
-        $timestamp = strtotime(date("Y:m:d H:i:s")) + 60 * $this->tokenTimeout;
-        $time = date('Y:m:d H:i:s', $timestamp);
+        $timestamp = strtotime(date(self::DATE_FORMAT)) + 60 * $this->token_timeout;
+        $time = date(self::DATE_FORMAT, $timestamp);
         return $time;
     }
 
@@ -106,9 +107,9 @@ class Member {
         return $tokenList['codeerror'];
     }
 
-    public function login_status() {
+    public function loginStatus() {
         $tokenList = unserialize(decodeStr($_SESSION[_URL]["token"]));
-        return $tokenList['login_status'];
+        return $tokenList['loginStatus'];
     }
 
     public function tokenClear() {
@@ -120,9 +121,9 @@ class Member {
         unset($_COOKIE['token']);
 
         if (!empty($_SESSION[_URL]['token']) || !empty($_COOKIE['token'])) {
-            return FALSE;
+            return false;
         } else {
-            return TRUE;
+            return true;
         }
     }
 
@@ -139,7 +140,7 @@ class Member {
     public function reloadUser() {
         $_SESSION[_URL]['reboot'] = false;
         $reloadToken = unserialize(decodeStr($_COOKIE['token']));
-        if (!empty($reloadToken['member_info']) && !empty($reloadToken['login_status'])) {
+        if (!empty($reloadToken['member_info']) && !empty($reloadToken['loginStatus'])) {
             return $this->tokenSave($reloadToken);
         } else {
             $this->tokenCreate();

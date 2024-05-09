@@ -15,8 +15,8 @@ if (!empty($url->segment[1])) {
         $req['page'] = (isset($_REQUEST['page']) && !empty($_REQUEST['page'])) ? $_REQUEST['page'] : 1;
 
         $data_group = [
-            "action" => $jsonPage->method_module[$menuActive]['action'],
-            "method" => $jsonPage->method_module[$menuActive]['method_group'],
+            "action" => $jsonPage->medthodModule[$menuActive]['action'],
+            "method" => $jsonPage->medthodModule[$menuActive]['method_group'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "id" => $group,
@@ -26,8 +26,8 @@ if (!empty($url->segment[1])) {
         ];
         $load_json_group = $jsonPage->load_json($data_group, 'news');
         $data = [
-            "action" => $jsonPage->method_module[$menuActive]['action'],
-            "method" => $jsonPage->method_module[$menuActive]['method_list'],
+            "action" => $jsonPage->medthodModule[$menuActive]['action'],
+            "method" => $jsonPage->medthodModule[$menuActive]['method_list'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "gid" => $group,

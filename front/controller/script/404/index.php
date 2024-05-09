@@ -3,7 +3,7 @@
 $menuActive = "404";
 $listjs[] = '<script type="text/javascript" src="'._URL.'front/controller/script/'.$menuActive.'/js/script.js'.$lastModify.'"></script>';
 
-$errorPage = new errorPage;
+$errorPage = new ErrorPage;
 
 /*## Start SEO #####*/
 $seo_desc = "";

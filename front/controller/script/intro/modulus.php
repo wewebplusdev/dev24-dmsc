@@ -4,14 +4,14 @@ class introPage extends controller
 {
     public function load_intro()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/setting";
+        $url = $this->URLAPI . "/setting";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getIntro",

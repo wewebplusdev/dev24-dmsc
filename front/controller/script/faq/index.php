@@ -21,8 +21,8 @@ switch ($url->segment[0]) {
 
         $limit = 12;
         $data = [
-            "action" => $faqPage->method_masterkey[$masterkey]['action'],
-            "method" => $faqPage->method_masterkey[$masterkey][$menuActive],
+            "action" => $faqPage->medthodMasterkey[$masterkey]['action'],
+            "method" => $faqPage->medthodMasterkey[$masterkey][$menuActive],
             "language" => $faqPage->language,
             "order" => $req['order'],
             "page" => $page['on'],

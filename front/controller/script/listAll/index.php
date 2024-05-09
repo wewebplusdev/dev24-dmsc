@@ -28,8 +28,8 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data_group = [
-            "action" => $listAllPage->method_module[$menuActive]['action'],
-            "method" => $listAllPage->method_module[$menuActive]['method_group'],
+            "action" => $listAllPage->medthodModule[$menuActive]['action'],
+            "method" => $listAllPage->medthodModule[$menuActive]['method_group'],
             "language" => $listAllPage->language,
             "order" => 'desc',
             "page" => $page['on'],
@@ -44,8 +44,8 @@ switch ($url->segment[0]) {
         }
 
         $data = [
-            "action" => $listAllPage->method_module[$menuActive]['action'],
-            "method" => $listAllPage->method_module[$menuActive]['method_list'],
+            "action" => $listAllPage->medthodModule[$menuActive]['action'],
+            "method" => $listAllPage->medthodModule[$menuActive]['method_list'],
             "language" => $listAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],

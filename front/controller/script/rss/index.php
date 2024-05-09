@@ -10,8 +10,8 @@ if (!empty($url->segment[1])) {
 
     if (!empty($masterkey)) {
         $data_group = [
-            "action" => $rssPage->method_module[$menuActive]['action'],
-            "method" => $rssPage->method_module[$menuActive]['method_group'],
+            "action" => $rssPage->medthodModule[$menuActive]['action'],
+            "method" => $rssPage->medthodModule[$menuActive]['method_group'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "id" => $group,
@@ -22,8 +22,8 @@ if (!empty($url->segment[1])) {
         $load_rss_group = $rssPage->load_rss($data_group, 'news');
 
         $data = [
-            "action" => $rssPage->method_module[$menuActive]['action'],
-            "method" => $rssPage->method_module[$menuActive]['method_list'],
+            "action" => $rssPage->medthodModule[$menuActive]['action'],
+            "method" => $rssPage->medthodModule[$menuActive]['method_list'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "gid" => $group,

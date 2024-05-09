@@ -1,34 +1,34 @@
 <?php
 abstract class controller
 {
-    const _APP_TOKEN = 'website-token-api';
-    const _APP_USER = 'dmsc-website-api';
-    const _APP_SERCRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
+    const APP_TOKEN = 'website-token-api';
+    const APP_API = 'dmsc-website-api';
+    const APP_SECRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
 
-    public $recaptcha_sitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
-    public $recaptcha_secretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
-    public $token_access;
+    public $recaptchaSitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
+    public $recaptchaSecretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
+    public $tokenAccess;
     public $language;
-    public $token_revoke;
-    public $URL_API;
-    public $method_masterkey;
-    public $method_module;
+    public $tokenRevoke;
+    public $URLAPI;
+    public $medthodMasterkey;
+    public $medthodModule;
 
     public function __construct()
     {
         global $url, $_CORE_ENV;
 
         if ($_CORE_ENV == 'DEV') {
-            // $this->URL_API =  'http://192.168.1.150:4040/service-api/v1';
-            $this->URL_API =  'http://192.168.101.249:4040/service-api/v1';
-            // $this->URL_API =  'http://192.168.1.100:4040/service-api/v1';
+            // $this->URLAPI =  'http://192.168.1.150:4040/service-api/v1';
+            $this->URLAPI =  'http://192.168.101.249:4040/service-api/v1';
+            // $this->URLAPI =  'http://192.168.1.100:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
-            $this->URL_API =  'http://192.168.200.146:4040/service-api/v1';
+            $this->URLAPI =  'http://192.168.200.146:4040/service-api/v1';
         }else{
-            $this->URL_API =  'http://api.wewebplus.com:4040/service-api/v1';
+            $this->URLAPI =  'http://api.wewebplus.com:4040/service-api/v1';
         }
 
-        $this->method_module = array(
+        $this->medthodModule = array(
             'detailAll' => array(
                 'action' => 'news',
                 'method_detail' => 'getNewsDetail',
@@ -94,7 +94,7 @@ abstract class controller
             ),
         );
 
-        $this->method_masterkey = array(
+        $this->medthodMasterkey = array(
             'sv' => array(
                 'action' => 'service',
                 'services' => 'getService',
@@ -114,24 +114,24 @@ abstract class controller
 
 
         try {
-            $this->token_access = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';
+            $this->tokenAccess = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';
             $this->language = $url->pagelang[4];
-            $this->token_revoke = $_COOKIE['token_revoke'] ? $_COOKIE['token_revoke'] : '';
-            if (!empty($this->token_access)) {
+            $this->tokenRevoke = $_COOKIE['tokenRevoke'] ? $_COOKIE['tokenRevoke'] : '';
+            if (!empty($this->tokenAccess)) {
                 // revoke token
-                if (empty($this->token_revoke) || empty($_SESSION['settingWeb'])) {
+                if (empty($this->tokenRevoke) || empty($_SESSION['settingWeb'])) {
                     $load_check_auth = self::load_check_auth();
                     if ($load_check_auth->code === 1007) {
                         // authentication token
                         $auth_webservice = self::auth_webservice();
                         if ($auth_webservice->code === 1001) {
                             setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
-                            setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
+                            setcookie("tokenRevoke", 1, time() + (3600), "/", false); // life time 1 hour
                             self::revoke_token($auth_webservice);
                         }
                     }else{
-                        setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
-                        $this->token_revoke = 1;
+                        setcookie("tokenRevoke", 1, time() + (3600), "/", false); // life time 1 hour
+                        $this->tokenRevoke = 1;
                     }
                 }
             }else{
@@ -139,7 +139,7 @@ abstract class controller
                 $auth_webservice = self::auth_webservice();
                 if ($auth_webservice->code === 1001) {
                     setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
-                    setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
+                    setcookie("tokenRevoke", 1, time() + (3600), "/", false); // life time 1 hour
                     self::revoke_token($auth_webservice);
 
                 }
@@ -196,14 +196,14 @@ abstract class controller
     
     public function load_url_redirect($req)
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/api";
+        $url = $this->URLAPI . "/api";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "loadRedirect",
@@ -222,21 +222,21 @@ abstract class controller
 
     private function revoke_token($auth_webservice){
         global $url;
-        $this->token_access = $auth_webservice->tokenid;
+        $this->tokenAccess = $auth_webservice->tokenid;
         $this->language = $url->pagelang[4];
-        $this->token_revoke = 1;
+        $this->tokenRevoke = 1;
     }
 
     private function auth_webservice(){
-        $url = $this->URL_API . "/gettoken";
+        $url = $this->URLAPI . "/gettoken";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
-            "apptoken" => self::_APP_TOKEN,
-            "user" => self::_APP_USER,
-            "secretkey" => self::_APP_SERCRET,
+            "apptoken" => self::APP_TOKEN,
+            "user" => self::APP_API,
+            "secretkey" => self::APP_SECRET,
         ];
         $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
         return $response;
@@ -261,14 +261,14 @@ abstract class controller
     }
 
     function load_insert_logs($req){
-        $url = $this->URL_API . "/setting";
+        $url = $this->URLAPI . "/setting";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
-            "user" => self::_APP_USER,
-            "secretkey" => self::_APP_SERCRET,
+            "user" => self::APP_API,
+            "secretkey" => self::APP_SECRET,
             "method" => $req['method'],
             "browser" => $req['browser'],
             "uniqid" => $req['uniqid'],
@@ -279,10 +279,10 @@ abstract class controller
 
     private function load_check_auth()
     {
-        $url = $this->URL_API . "/getuser";
+        $url = $this->URLAPI . "/getuser";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $response = $this->sendCURL($url, $header, 'POST', '');
         return $response;
