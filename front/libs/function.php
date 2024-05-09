@@ -213,7 +213,7 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
 
 ##############################################
 
-function DateThai($strDate, $function = null, $lang = "th", $type = "shot")
+function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
 {
 
     global $strMonthCut, $url;

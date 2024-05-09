@@ -179,7 +179,7 @@ $SuffixTime = array(
     )
 );
 
-$DateThai = array(
+$dateThai = array(
     // Day
     "l" => array( // Full day
         "Monday" => "วันจันทร์",

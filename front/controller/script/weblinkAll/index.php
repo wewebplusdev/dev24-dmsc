@@ -2,7 +2,7 @@
 $menuActive = "weblinkAll";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$weblinkAllPage = new weblinkAllPage;
+$WeblinkAllPage = new WeblinkAllPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
@@ -27,9 +27,9 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data_group = [
-            "action" => $weblinkAllPage->medthodModule[$menuActive]['action'],
-            "method" => $weblinkAllPage->medthodModule[$menuActive]['method_group'],
-            "language" => $weblinkAllPage->language,
+            "action" => $WeblinkAllPage->medthodModule[$menuActive]['action'],
+            "method" => $WeblinkAllPage->medthodModule[$menuActive]['method_group'],
+            "language" => $WeblinkAllPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
@@ -37,15 +37,15 @@ switch ($url->segment[0]) {
         ];
         
         // call group
-        $load_group = $weblinkAllPage->load_data($data_group);
+        $load_group = $WeblinkAllPage->load_data($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
 
         $data = [
-            "action" => $weblinkAllPage->medthodModule[$menuActive]['action'],
-            "method" => $weblinkAllPage->medthodModule[$menuActive]['method_list'],
-            "language" => $weblinkAllPage->language,
+            "action" => $WeblinkAllPage->medthodModule[$menuActive]['action'],
+            "method" => $WeblinkAllPage->medthodModule[$menuActive]['method_list'],
+            "language" => $WeblinkAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -55,7 +55,7 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $weblinkAllPage->load_data($data);
+        $load_data = $WeblinkAllPage->load_data($data);
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
@@ -73,7 +73,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $weblinkAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $WeblinkAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/

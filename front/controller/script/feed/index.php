@@ -3,13 +3,15 @@ $menuActive = "feed";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
 $FeedPage = new FeedPage;
+define('HOME_PATH', '/home');
+define('LOCATION_PREFIX', 'location:');
 
 $contentID = $url->segment[1];
 
 switch ($url->segment[0]) {
     default:
         if (empty($contentID)) {
-            header('location:' . $linklang . "/home");
+            header(LOCATION_PREFIX . $linklang . HOME_PATH);
         }
         $smarty->assign("contentID", $contentID);
 
@@ -23,9 +25,8 @@ switch ($url->segment[0]) {
         // call list
         $load_data = $FeedPage->load_data($data);
         if ($load_data->code != 1001) {
-            header('location:' . $linklang . "/home");
+            header(LOCATION_PREFIX . $linklang . HOME_PATH);
         }
-        // print_pre($load_data);
 
         $context = stream_context_create(array('ssl'=>array(
             'verify_peer' => false, 
@@ -50,14 +51,13 @@ switch ($url->segment[0]) {
                     $array_data[$keyRss]['enclosure'] = (string) $item->enclosure->attributes()->url;
                     $keyRss++;
                 }
-                // print_pre($array_data);
 
                 $smarty->assign("array_data", $array_data);
             } else {
-                header('location:' . $linklang . "/home");
+                header(LOCATION_PREFIX . $linklang . HOME_PATH);
             }
         } else {
-            header('location:' . $linklang . "/home");
+            header(LOCATION_PREFIX . $linklang . HOME_PATH);
         }
 
         // setup seo and text modules
