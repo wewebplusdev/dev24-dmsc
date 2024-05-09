@@ -1,17 +1,21 @@
 <?php
 
-class homePage extends controller
+class HomePage extends controller
 {
+    const HOME_PATH = "/home";
+    const CONTENT_TYPE_JSON = 'Content-Type: application/json';
+    const AUTHORIZATION_HEADER = 'Authorization: Bearer ';
+    
     public function load_topgraphic()
     {
         if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->urlAPI . "/home";
+        $url = $this->urlAPI . self::HOME_PATH;
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getTopgraphic",
@@ -29,10 +33,10 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->urlAPI . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getService",
@@ -44,16 +48,16 @@ class homePage extends controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_popup()
+    public function loadPopup()
     {
         if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->urlAPI . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getPopup",
@@ -71,10 +75,10 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->urlAPI . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getInnovationGroup",
@@ -92,10 +96,10 @@ class homePage extends controller
             return false;
         }
         
-        $url = $this->urlAPI . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getAbout",
@@ -107,16 +111,16 @@ class homePage extends controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_news()
+    public function loadNews()
     {
         if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->urlAPI . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getNews",

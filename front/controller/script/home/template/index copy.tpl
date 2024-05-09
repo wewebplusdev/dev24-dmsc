@@ -13,7 +13,7 @@
     </ul>
 
     {* Start Popup *}
-    {if $load_popup->_numOfRows gte 1}
+    {if $loadPopup->_numOfRows gte 1}
         <h2>Popup</h2>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -29,7 +29,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                {foreach $load_popup->item as $keyPopup => $valuePopup}
+                {foreach $loadPopup->item as $keyPopup => $valuePopup}
                     {if $valuePopup->type eq 1}
                         <img src="{$valuePopup->pic->pictures}" class="card-img-top" alt="{$valuePopup->pic->pictures}">
                         <div class="card-body">
