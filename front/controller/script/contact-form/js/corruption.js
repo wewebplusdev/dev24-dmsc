@@ -31,6 +31,7 @@ const validate_step = (action) => {
     return status;
 }
 
+
 (() => {
     load_recaptch();
 })();
