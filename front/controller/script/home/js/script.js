@@ -92,10 +92,12 @@ function reload_swiper() {
     serviceSwiper = new Swiper(".service-slide .swiper", {
         slidesPerView: 5,
         watchSlidesProgress: true,
+        
         grid: {
             rows: 3,
-            // fill: "row"
+            fill: "row"
         },
+
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",

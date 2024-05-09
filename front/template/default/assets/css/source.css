@@ -4091,6 +4091,9 @@ div.swal2-html-container {
 .service-list {
   margin: -20px;
 }
+.service-list .service-slide .swiper-wrapper {
+  height: auto;
+}
 .service-list .item {
   padding: 20px;
 }

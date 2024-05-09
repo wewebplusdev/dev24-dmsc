@@ -131,6 +131,11 @@
 }
 .service-list {
   margin: -20px;
+  .service-slide {
+    .swiper-wrapper{
+      height: auto;
+    }
+  }
   .item {
     padding: 20px;
     .card {
