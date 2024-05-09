@@ -5409,6 +5409,49 @@ div.swal2-html-container {
 .detail-body .news-area .swiper .swiper-slide-fully-visible {
   opacity: 1;
 }
+.detail-body .news-area .under-line {
+  width: 100%;
+  height: 1px;
+  background-color: #E5E5E5;
+  margin: 30px 0;
+}
+.detail-body .news-area .comment .btn-facebook button {
+  color: var(--color-primary);
+  background-color: var(--color-light);
+  border: 1px solid var(--color-primary);
+  padding: 15px 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.detail-body .news-area .comment .btn-facebook button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+.detail-body .news-area .comment .btn-facebook button:hover .comment-light {
+  display: block;
+}
+.detail-body .news-area .comment .btn-facebook button:hover .comment-green {
+  display: none;
+}
+.detail-body .news-area .comment .btn-facebook button .comment-light {
+  display: none;
+}
+.detail-body .news-area .comment .btn-facebook button img {
+  margin-right: 12px;
+}
+.detail-body .news-area .comment .btn-back button {
+  color: #AAAAAA;
+  background-color: var(--color-light);
+  border: 1px solid #AAAAAA;
+  padding: 15px 28px;
+}
+.detail-body .news-area .comment .btn-back button:hover {
+  background-color: #AAAAAA;
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
 
 .default-bar {
   margin-bottom: 40px;
