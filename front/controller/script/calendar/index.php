@@ -3,7 +3,7 @@ $menuActive = "calendar";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/calendar.js'.$lastModify.'"></script>';
 
-$calendarPage = new calendarPage;
+$CalendarPage = new CalendarPage;
 $limit = 100;
 
 switch ($url->segment[1]) {
@@ -44,14 +44,14 @@ switch ($url->segment[1]) {
 
         $data_group = [
             "method" => 'getCalendarGroup',
-            "language" => $calendarPage->language,
+            "language" => $CalendarPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
         ];
 
         // call group
-        $load_group = $calendarPage->load_data($data_group);
+        $load_group = $CalendarPage->load_data($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
@@ -68,7 +68,7 @@ switch ($url->segment[1]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $calendarPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $CalendarPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

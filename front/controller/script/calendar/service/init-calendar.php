@@ -2,7 +2,7 @@
 // Load calendar list #############################################
 $data = [
     "method" => 'getCalendar',
-    "language" => $calendarPage->language,
+    "language" => $CalendarPage->language,
     "order" => 'desc',
     "page" => $page['on'],
     "limit" => $limit,
@@ -12,7 +12,7 @@ $data = [
 ];
 
 // call list
-$load_data = $calendarPage->load_data($data);
+$load_data = $CalendarPage->load_data($data);
 $myCalendarEventCounter = array();
 $myCalendarEventCounter[0] = 0;
 $myCalendarEventList = array();

@@ -43,7 +43,7 @@ class MainPage extends controller
         return $response;
     }
 
-    private function loadPolicy()
+    public function loadPolicy()
     {
         if (empty($this->tokenAccess)) {
             return false;
