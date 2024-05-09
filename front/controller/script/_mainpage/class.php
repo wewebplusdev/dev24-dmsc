@@ -219,8 +219,8 @@ abstract class Controller
             "view" => $req['view'],
             "urlc2" => $req['urlc2'],
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+
     }
 
     private function revokeToken($authWebservice){
@@ -241,8 +241,8 @@ abstract class Controller
             "user" => self::APP_API,
             "secretkey" => self::APP_SECRET,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+        
     }
 
     public function contentWebsite($content, $language){
@@ -263,7 +263,7 @@ abstract class Controller
         }
     }
 
-    function loadInsertLogs($req){
+    private function loadInsertLogs($req){
         $url = $this->urlAPI . "/setting";
         $header = [
             self::CONTENT_TYPE_JSON,
@@ -276,8 +276,8 @@ abstract class Controller
             "browser" => $req['browser'],
             "uniqid" => $req['uniqid'],
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+      
     }
 
     private function loadCheckAuth()
@@ -287,34 +287,32 @@ abstract class Controller
             self::CONTENT_TYPE_JSON,
             self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', '');
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', '');
+       
     }
 
     protected static function sendCURL($url, $header, $type, $data = null)
     {
         $request = curl_init();
-
+    
         if ($header != null) {
             curl_setopt($request, CURLOPT_HTTPHEADER, $header);
         }
-
+    
         curl_setopt($request, CURLOPT_URL, $url);
         curl_setopt($request, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
-
+    
         if (strtoupper($type) === 'POST') {
             curl_setopt($request, CURLOPT_POST, true);
             curl_setopt($request, CURLOPT_POSTFIELDS, $data);
         }
-
+    
         curl_setopt($request, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
         
         $response = curl_exec($request);
-        if (!empty($response)) {
-            $response = json_decode($response);
-        }
-        return $response;
+        return !empty($response) ? json_decode($response) : $response;
     }
+    
 }
