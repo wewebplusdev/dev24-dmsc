@@ -1,4 +1,6 @@
 <?php
+define('NO_RSS_MESSAGE', 'no rss');
+
 $menuActive = "rss";
 $RssPage = new RssPage;
 
@@ -37,11 +39,11 @@ if (!empty($url->segment[1])) {
             $urlRss = _URL . 'listAll/' . $loadRss->item[0]->masterkey . "/" . $loadRss->item[0]->gid;
             require_once _DIR . '/front/controller/script/' . $menuActive . '/service/create.php';
         } else {
-            echo ('no rss');
+            echo NO_RSS_MESSAGE;
         }
     } else {
-        echo ('no rss');
+        echo NO_RSS_MESSAGE;
     }
 } else {
-    echo ('no rss');
+    echo NO_RSS_MESSAGE;
 }
