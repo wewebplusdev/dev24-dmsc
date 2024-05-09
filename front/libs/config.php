@@ -49,8 +49,8 @@ $limitpage['showperPage'] = 8;
 $limitpage['showperPageSeller'] = 11;
 
 ## config token ##
-$token_timeout = 240; // หน่วยเป็นนาที
-$token_cookie_timeout = "8"; // หน่วยเป็นชม
+$tokenTimeout = 240; // หน่วยเป็นนาที
+$tokenCookieTimeout = "8"; // หน่วยเป็นชม
 $token_action = "10"; // การเข้าที่หน้าสงสัยจำนวนครั้ง จะบล๊อคไม่ให้เข้าสู่ระบบตามจำนวน $token_cookie_timeout
 $lang_set = array(
     "th" => array("", "Thai", "th", "", "Thai"),
