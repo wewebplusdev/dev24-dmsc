@@ -54,52 +54,56 @@
         </figure>
       </div>
       <div class="default-body">
-        <div class="our-history-info">
-          <div class="container">
-            <div class="row align-items-end">
-              <div class="col-auto">
-                <div class="thumbnails">
-                  <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
+        <!-- ck editor -->
+        <div class="editor-content">
+          <div class="our-history-info">
+            <div class="container">
+              <div class="row align-items-end">
+                <div class="col-xl-6">
+                  <div class="thumbnails">
+                    <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
+                  </div>
                 </div>
-              </div>
-              <div class="col-auto">
-                <div class="content">
-                  <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
-                  <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>
-                  <div class="desc">
-                    มีการปรับปรุงเปลี่ยนแปลงโครงสร้างหลายครั้ง เพื่อให้เกิดความเหมาะสมกับภาระหน้าที่
-                    <br>
-                    และให้ทันต่อสภาพความเปลี่ยนแปลงทางด้านเทคโนโลยี สังคม และสิ่งแวดล้อม
+                <div class="col-xl-6 ">
+                  <div class="content">
+                    <div class="title">กรมวิทยาศาสตร์การแพทย์</div>
+                    <div class="subtitle">ก่อตั้งขึ้นเป็นเวลา 81 ปี</div>
+                    <div class="desc">
+                      มีการปรับปรุงเปลี่ยนแปลงโครงสร้างหลายครั้ง เพื่อให้เกิดความเหมาะสมกับภาระหน้าที่
+                      <br>
+                      และให้ทันต่อสภาพความเปลี่ยนแปลงทางด้านเทคโนโลยี สังคม และสิ่งแวดล้อม
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="nav-default each-year">
-          <div class="container">
-            <div class="title typo-md fw-bold text-secondary mb-3">ความเป็นมา</div>
-            <div class="swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="our-history-01.php" class="nav-link active">2565 - ปัจจุบัน</a>
+          <div class="nav-default each-year">
+            <div class="container">
+              <div class="title typo-md fw-bold text-secondary mb-3">ความเป็นมา</div>
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <a href="our-history-01.php" class="nav-link active">2565 - ปัจจุบัน</a>
+                  </div>
+                  <div class="swiper-slide">
+                    <a href="our-history-02.php" class="nav-link">2564 - 2545</a>
+                  </div>
+                  <div class="swiper-slide">
+                    <a href="our-history-03.php" class="nav-link">2540 - 2526</a>
+                  </div>
+                  <div class="swiper-slide">
+                    <a href="our-history-04.php" class="nav-link">2517 - 2485</a>
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <a href="our-history-02.php" class="nav-link">2564 - 2545</a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="our-history-03.php" class="nav-link">2540 - 2526</a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="our-history-04.php" class="nav-link">2517 - 2485</a>
-                </div>
+                <div class="swiper-pagination"></div>
               </div>
             </div>
             <!-- ck editor -->
             <div class="editor-content">
               <div class="history-timeline">
                 <div class="row">
-                  <div class="col-6 timeline-dot">
+                  <div class="col-lg-6 timeline-dot">
                     <div class="timeline-layout">
                       <div class="h-bigger">ปัจจุบัน</div>
                       <ul class="timeline-list">
@@ -117,14 +121,14 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-6">
                     <div class="thumbnails ml-auto">
                       <img src="<?php echo $core_template; ?>/img/uploads/img-history-01.jpg" alt="">
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col order-lg-2">
+                  <div class="col-lg-6 order-lg-2">
                     <div class="h-bigger">2552</div>
                     <ul class="timeline-list">
                       <li>
@@ -134,23 +138,20 @@
                       </li>
                       <li>
                         <p>
-                          หน่วยงานที่ได้จัดตั้งขึ้นเป็นการภายใน 10 หน่วยงาน
-                          <br>
-                          โดยนำกองการแพทย์จีโนมิกส์ และสนับสนุนนวัตกรรม
-                          <br>
+                          หน่วยงานที่ได้จัดตั้งขึ้นเป็นการภายใน 10 หน่วยงาน                       
+                          โดยนำกองการแพทย์จีโนมิกส์ และสนับสนุนนวัตกรรม                        
                           ไปรวมกับสถาบันชีววิทยาศาสตร์ทางการแพทย์
                         </p>
                       </li>
                       <li>
                         <p>
                           เนื่องจากมีภาระงานที่ใกล้เคียงกัน และเปลี่ยนชื่อกลุ่มงาน
-                          <br>
                           คุ้มครองจริยธรรม เป็น กลุ่มงานจริยธรรม
                         </p>
                       </li>
                     </ul>
                   </div>
-                  <div class="col-6 order-lg-1 timeline-dot">
+                  <div class="col-lg-6 order-lg-1 timeline-dot">
                     <div class="timeline-layout">
                       <div class="thumbnails">
                         <img src="<?php echo $core_template; ?>/img/uploads/img-history-02.jpg" alt="">
@@ -183,12 +184,17 @@
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
       breakpoints: {
         0: {
-          slidesPerView: 2,
+          slidesPerView: 1,
+          spaceBetween: 10,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
         1200: {
           slidesPerView: 4,
