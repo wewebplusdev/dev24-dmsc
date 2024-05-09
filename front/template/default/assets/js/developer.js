@@ -26,7 +26,7 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
             },
             "data": JSON.stringify({
                 "case": 'logs_Website',
-                "controller": 'setting',
+                "Controller": 'setting',
                 "method": 'LogsViewWebsite',
                 "browser": sitename,
                 "uniqid": uniq_id,

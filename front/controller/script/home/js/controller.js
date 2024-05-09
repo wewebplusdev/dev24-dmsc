@@ -20,7 +20,7 @@ $('.services-filter').on('click', async function(){
                 "Content-Type": `application/json`,
             },
             "data": JSON.stringify({
-                "controller": 'home',
+                "Controller": 'home',
                 "method": 'getService',
                 "gid": array_gid,
                 "order": 'DESC',

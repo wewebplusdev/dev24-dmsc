@@ -1,6 +1,6 @@
 <?php
 
-class FaqPage extends controller
+class FaqPage extends Controller
 {
     public function load_data($data)
     {

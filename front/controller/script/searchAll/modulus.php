@@ -1,6 +1,6 @@
 <?php
 
-class SearchAllPage extends controller
+class SearchAllPage extends Controller
 {
     public function load_data($data)
     {

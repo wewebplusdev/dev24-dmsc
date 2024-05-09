@@ -30,13 +30,13 @@ switch ($resultData['case']) {
     case 'dynamic':
         $data = array();
         foreach ($resultData as $key => $value) {
-            if ($key == 'case' || $key == 'controller') {
+            if ($key == 'case' || $key == 'Controller') {
                 continue;
             }
             $data[$key] = $value;
         }
         $data['language'] = $ReverseProxy->language;
-        $loadFetchApi = $ReverseProxy->loadFetchApi($data, $resultData['controller']);
+        $loadFetchApi = $ReverseProxy->loadFetchApi($data, $resultData['Controller']);
 
         break;
 
@@ -49,7 +49,7 @@ switch ($resultData['case']) {
             "page" => $resultData['page'],
             "limit" => $resultData['limit'],
         ];
-        $loadFetchApi = $ReverseProxy->loadFetchApi($data, $resultData['controller']);
+        $loadFetchApi = $ReverseProxy->loadFetchApi($data, $resultData['Controller']);
 
         break;
 }

@@ -1,6 +1,6 @@
 <?php
 
-class HomePage extends controller
+class HomePage extends Controller
 {
     const HOME_PATH = "/home";
     const CONTENT_TYPE_JSON = 'Content-Type: application/json';

@@ -40,7 +40,7 @@ async function accept_cookieconsent() {
         },
         "data": JSON.stringify({
             "case": 'logs_pdpa',
-            "controller": 'setting',
+            "Controller": 'setting',
             "method": 'acceptLogsPDPA',
             "browser": sitename,
             "uniqid": uniq_id,

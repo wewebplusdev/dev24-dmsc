@@ -1,6 +1,6 @@
 <?php
 
-class MainPage extends controller
+class MainPage extends Controller
 {
     public $settingWeb;
     

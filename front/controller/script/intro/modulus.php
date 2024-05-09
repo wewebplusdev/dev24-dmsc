@@ -1,6 +1,6 @@
 <?php
 
-class IntroPage extends controller
+class IntroPage extends Controller
 {
     public function loadIntro()
     {

@@ -1,6 +1,6 @@
 <?php
 
-class ServicePage extends controller
+class ServicePage extends Controller
 {
     public function load_data($data)
     {

@@ -1,6 +1,6 @@
 <?php
 
-class WeblinkAllPage extends controller
+class WeblinkAllPage extends Controller
 {
     public function load_data($data)
     {

@@ -29,7 +29,7 @@ $('.services-filter').on('click', async function(){
             },
             "data": JSON.stringify({
                 "case": 'dynamic',
-                "controller": action,
+                "Controller": action,
                 "method": method,
                 "tid": array_gid,
                 "order": sort,
@@ -80,7 +80,7 @@ $('.services-filter').on('click', async function(){
             },
             "data": JSON.stringify({
                 "method": method,
-                "controller": action,
+                "Controller": action,
                 "tid": array_gid,
                 "order": sort,
                 "page": page,

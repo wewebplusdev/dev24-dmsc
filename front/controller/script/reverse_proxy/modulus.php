@@ -1,14 +1,14 @@
 <?php
 
-class ReverseProxy extends controller
+class ReverseProxy extends Controller
 {
-    public function loadFetchApi($data, $controller)
+    public function loadFetchApi($data, $Controller)
     {
         if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->urlAPI . "/" . $controller;
+        $url = $this->urlAPI . "/" . $Controller;
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,

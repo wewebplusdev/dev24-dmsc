@@ -1,6 +1,6 @@
 <?php
 
-class RssPage extends controller
+class RssPage extends Controller
 {
     public function loadRss($data)
     {

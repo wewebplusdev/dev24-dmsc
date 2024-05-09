@@ -1,6 +1,6 @@
 <?php
 
-class JsonPage extends controller
+class JsonPage extends Controller
 {
     public function loadJson($data)
     {

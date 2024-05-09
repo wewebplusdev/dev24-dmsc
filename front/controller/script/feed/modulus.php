@@ -1,6 +1,6 @@
 <?php
 
-class FeedPage extends controller
+class FeedPage extends Controller
 {
     public function __construct()
     {

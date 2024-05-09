@@ -1,5 +1,5 @@
 <?php
-abstract class controller
+abstract class Controller
 {
     const APP_TOKEN = 'website-token-api';
     const APP_API = 'dmsc-website-api';

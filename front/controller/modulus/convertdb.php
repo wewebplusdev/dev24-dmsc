@@ -17,18 +17,14 @@ switch ($type) {
        
         break;
 }
-
 if (!empty($generate)) {
     $sql = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
-        WHERE TABLE_SCHEMA = '$core_db_name' 
+        WHERE TABLE_SCHEMA = '$core_db_name'
         AND ENGINE = '$setFrom'";
-
     $rs = mysql_query($sql);
-
     echo "##################";
     echo $setFrom . " > " . $setTo . "<br>";
     echo "##################";
-
     while ($row = mysql_fetch_array($rs)) {
         $tbl = $row[0];
         $sql = "ALTER TABLE `$tbl` ENGINE=$setTo";
