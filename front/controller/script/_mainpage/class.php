@@ -5,6 +5,8 @@ abstract class controller
     const APP_API = 'dmsc-website-api';
     const APP_SECRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
 
+    const CONTENT_TYPE_JSON = 'Content-Type: application/json';
+    const AUTHORIZATION_HEADER = 'Authorization: Bearer ';
 
 
     
@@ -203,8 +205,8 @@ abstract class controller
         
         $url = $this->urlAPI . "/api";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "loadRedirect",
@@ -231,8 +233,8 @@ abstract class controller
     private function authWebservice(){
         $url = $this->urlAPI . "/gettoken";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "apptoken" => self::APP_TOKEN,
@@ -264,8 +266,8 @@ abstract class controller
     function loadInsertLogs($req){
         $url = $this->urlAPI . "/setting";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "user" => self::APP_API,
@@ -282,8 +284,8 @@ abstract class controller
     {
         $url = $this->urlAPI . "/getuser";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->tokenAccess,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $response = $this->sendCURL($url, $header, 'POST', '');
         return $response;
