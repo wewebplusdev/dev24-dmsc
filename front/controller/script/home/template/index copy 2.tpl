@@ -1,10 +1,10 @@
 <section class="layout-body">
 
-    {if $load_topgraphic->_numOfRows gte 1}
+    {if $loadTopgraphic->_numOfRows gte 1}
     <div class="top-graphic" data-aos="fade-down">
         <div class="swiper swiper-default">
             <div class="swiper-wrapper">
-                {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
+                {foreach $loadTopgraphic->item as $keyTgp => $valueTgp}
                     {if $valueTgp->type eq 1}
                         <div class="swiper-slide">
                             <div class="item">

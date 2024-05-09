@@ -1,6 +1,6 @@
 <?php
 $menuActive = "rss";
-$rssPage = new rssPage;
+$RssPage = new RssPage;
 
 if (!empty($url->segment[1])) {
     $explo1 = explode(".xml", $url->segment[1]);
@@ -10,8 +10,8 @@ if (!empty($url->segment[1])) {
 
     if (!empty($masterkey)) {
         $data_group = [
-            "action" => $rssPage->medthodModule[$menuActive]['action'],
-            "method" => $rssPage->medthodModule[$menuActive]['method_group'],
+            "action" => $RssPage->medthodModule[$menuActive]['action'],
+            "method" => $RssPage->medthodModule[$menuActive]['method_group'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "id" => $group,
@@ -19,11 +19,11 @@ if (!empty($url->segment[1])) {
             "limit" => 15,
             "masterkey" => $masterkey,
         ];
-        $load_rss_group = $rssPage->load_rss($data_group, 'news');
+        $load_rss_group = $RssPage->loadRss($data_group, 'news');
 
         $data = [
-            "action" => $rssPage->medthodModule[$menuActive]['action'],
-            "method" => $rssPage->medthodModule[$menuActive]['method_list'],
+            "action" => $RssPage->medthodModule[$menuActive]['action'],
+            "method" => $RssPage->medthodModule[$menuActive]['method_list'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "gid" => $group,
@@ -31,10 +31,10 @@ if (!empty($url->segment[1])) {
             "limit" => 100,
             "masterkey" => $masterkey,
         ];
-        $load_rss = $rssPage->load_rss($data, 'news');
-        if ($load_rss->_numOfRows > 0) {
+        $loadRss = $RssPage->loadRss($data, 'news');
+        if ($loadRss->_numOfRows > 0) {
             $TitleRSS = 'กรมวิทยาศาสตร์การแพทย์ กระทรวงสาธารณสุข';
-            $urlRss = _URL . 'listAll/' . $load_rss->item[0]->masterkey . "/" . $load_rss->item[0]->gid;
+            $urlRss = _URL . 'listAll/' . $loadRss->item[0]->masterkey . "/" . $loadRss->item[0]->gid;
             require_once _DIR . '/front/controller/script/' . $menuActive . '/service/create.php';
         } else {
             echo ('no rss');

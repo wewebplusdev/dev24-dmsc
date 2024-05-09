@@ -60,10 +60,10 @@
     {* End Popup *}
 
     {* Start Top Graphic *}
-    {if $load_topgraphic->_numOfRows gte 1}
+    {if $loadTopgraphic->_numOfRows gte 1}
         <h2>Top Graphic</h2>
         <div class="d-flex flex-row p-2">
-            {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
+            {foreach $loadTopgraphic->item as $keyTgp => $valueTgp}
                 <div class="card" style="width: 18rem;">
                     {if $valueTgp->type eq 1}
                         <img src="{$valueTgp->pic->pictures}" class="card-img-top" alt="{$valueTgp->pic->pictures}">

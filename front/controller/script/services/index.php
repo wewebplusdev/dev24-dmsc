@@ -1,6 +1,6 @@
 <?php
 $menuActive = "services";
-$servicePage = new servicePage;
+$ServicePage = new ServicePage;
 $limit = 15;
 
 $masterkey = $url->segment[1];
@@ -11,11 +11,11 @@ switch ($url->segment[2]) {
         $jsonData = file_get_contents('php://input');
         $resultData = json_decode($jsonData, true);
 
-        $resultData['action'] = $servicePage->medthodMasterkey[$masterkey]['action'];
-        $resultData['language'] = $servicePage->language;
+        $resultData['action'] = $ServicePage->medthodMasterkey[$masterkey]['action'];
+        $resultData['language'] = $ServicePage->language;
 
         // call list
-        $load_data = $servicePage->load_data($resultData);
+        $load_data = $ServicePage->load_data($resultData);
         $smarty->assign("load_data", $load_data);
 
         /*## Set up pagination #####*/
@@ -56,16 +56,16 @@ switch ($url->segment[2]) {
         $smarty->assign("req", $req);
 
         $data_group = [
-            "action" => $servicePage->medthodMasterkey[$masterkey]['action'],
-            "method" => $servicePage->medthodMasterkey[$masterkey]['loadGroup'],
-            "language" => $servicePage->language,
+            "action" => $ServicePage->medthodMasterkey[$masterkey]['action'],
+            "method" => $ServicePage->medthodMasterkey[$masterkey]['loadGroup'],
+            "language" => $ServicePage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => 100,
         ];
         
         // call group
-        $load_group = $servicePage->load_data($data_group);
+        $load_group = $ServicePage->load_data($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
@@ -76,9 +76,9 @@ switch ($url->segment[2]) {
         }
 
         $data = [
-            "action" => $servicePage->medthodMasterkey[$masterkey]['action'],
-            "method" => $servicePage->medthodMasterkey[$masterkey][$menuActive],
-            "language" => $servicePage->language,
+            "action" => $ServicePage->medthodMasterkey[$masterkey]['action'],
+            "method" => $ServicePage->medthodMasterkey[$masterkey][$menuActive],
+            "language" => $ServicePage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -88,16 +88,16 @@ switch ($url->segment[2]) {
         $smarty->assign("dataOption",$data);
 
         // call list
-        $load_data = $servicePage->load_data($data);
+        $load_data = $ServicePage->load_data($data);
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
         $language_modules = array();
         if ($masterkey == 'sv') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
-        }else if ($masterkey == 'rein') {
+            $language_modules['breadcrumb2'] = $languageFrontWeb->ServicePage->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->ServicePage->display->$currentLangWeb;
+        }elseif ($masterkey == 'rein') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->ResearchAndInnovation->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->ResearchAndInnovation->display->$currentLangWeb;
@@ -109,7 +109,7 @@ switch ($url->segment[2]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $servicePage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $ServicePage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/

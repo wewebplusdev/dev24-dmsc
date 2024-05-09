@@ -1,6 +1,6 @@
 <?php
 
-if ($load_rss->_numOfRows > 0) {
+if ($loadRss->_numOfRows > 0) {
     header("Content-Type: application/xml; charset=utf-8");
     $copyright = str_replace("http://", "", _URL);
     $copyright = str_replace("www.", "", _URL);
@@ -16,7 +16,7 @@ if ($load_rss->_numOfRows > 0) {
     $data .= "<copyright>" . $copyright . "</copyright>\r\n";
     $data2 = "";
     
-    foreach ($load_rss->item as $value) {
+    foreach ($loadRss->item as $value) {
         /* ###### Start Img ##############*/
         $url_pic = $value->pic->pictures;
         $urlrelative = str_replace(_URL, "", $value->pic->pictures);

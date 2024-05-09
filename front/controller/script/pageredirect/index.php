@@ -27,11 +27,8 @@ if (!empty($url->segment[1])) {
         'urlc2' => decodeStr($case_slug[5]),
         'view' => $view,
     );
-    // print_pre($array_req);
     
-    // call redirect 
     $loadUrlRedirect = $Pageredirectage->loadUrlRedirect($array_req);
-    // print_pre($loadUrlRedirect);die;
     if ($loadUrlRedirect->code === 1001 && !empty($loadUrlRedirect->item->url)) {
         header(LOCATION_HEADER . $loadUrlRedirect->item->url);
     }else{

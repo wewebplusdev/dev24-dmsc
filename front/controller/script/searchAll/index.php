@@ -2,7 +2,7 @@
 $menuActive = "searchAll";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$searchAllPage = new searchAllPage;
+$SearchAllPage = new SearchAllPage;
 
 $masterkey = $url->segment[1];
 
@@ -22,9 +22,9 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data = [
-            "action" => $searchAllPage->medthodModule[$menuActive]['action'],
-            "method" => $searchAllPage->medthodModule[$menuActive]['method_list'],
-            "language" => $searchAllPage->language,
+            "action" => $SearchAllPage->medthodModule[$menuActive]['action'],
+            "method" => $SearchAllPage->medthodModule[$menuActive]['method_list'],
+            "language" => $SearchAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -32,7 +32,7 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $searchAllPage->load_data($data);
+        $load_data = $SearchAllPage->load_data($data);
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
@@ -53,7 +53,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $searchAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $SearchAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/

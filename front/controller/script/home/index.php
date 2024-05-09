@@ -12,8 +12,8 @@ switch ($url->segment[0]) {
         // print_pre($loadPopup);
         $smarty->assign("loadPopup", $loadPopup);
         // call top graphic
-        $load_topgraphic = $HomePage->load_topgraphic();
-        $smarty->assign("load_topgraphic", $load_topgraphic);
+        $loadTopgraphic = $HomePage->loadTopgraphic();
+        $smarty->assign("loadTopgraphic", $loadTopgraphic);
         // call services
         $load_services = $HomePage->load_services();
         $smarty->assign("load_services", $load_services);

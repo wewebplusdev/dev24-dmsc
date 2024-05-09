@@ -1,8 +1,8 @@
 <?php
 
-class rssPage extends controller
+class RssPage extends controller
 {
-    public function load_rss($data)
+    public function loadRss($data)
     {
         if (empty($this->tokenAccess)) {
             return false;

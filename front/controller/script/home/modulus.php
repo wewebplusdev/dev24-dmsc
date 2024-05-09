@@ -6,7 +6,7 @@ class HomePage extends controller
     const CONTENT_TYPE_JSON = 'Content-Type: application/json';
     const AUTHORIZATION_HEADER = 'Authorization: Bearer ';
     
-    public function load_topgraphic()
+    public function loadTopgraphic()
     {
         if (empty($this->tokenAccess)) {
             return false;
