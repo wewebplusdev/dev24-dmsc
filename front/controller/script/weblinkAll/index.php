@@ -38,6 +38,8 @@ switch ($url->segment[0]) {
         
         // call group
         $load_group = $weblinkAllPage->load_data($data_group);
+        // print_pre($data_group);
+        // print_pre($load_group);die;
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
@@ -56,6 +58,8 @@ switch ($url->segment[0]) {
 
         // call list
         $load_data = $weblinkAllPage->load_data($data);
+        // print_pre($data);
+        // print_pre($load_data);die;
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules

@@ -75,7 +75,9 @@ include("config.php");
                 $myNewRand = rand(119, 999);
                 $filenamedoc = "vdo-" . $_REQUEST['myID'] . "-" . $_REQUEST['langt'] . "-" . $myNewRand . ".$extension";
         
-                copy($inputFileToUpload, $mod_path_vdo . "/" . $filenamedoc);
+                if (copy($inputFileToUpload, $mod_path_vdo . "/" . $filenamedoc)) {
+                    @chmod($mod_path_vdo . "/" . $filenamedoc, 0777);
+                }
                 $linkRelativePath = $mod_path_vdo . "/" . $filenamedoc;
         
                 $msg .= "<a href=\"javascript:void(0)\"  onclick=\" delVideoUpload(\'deleteVideoInsert.php\')\" ><img src=\"../img/btn/delete.png\" align=\"absmiddle\" title=\"Delete file\"  hspace=\"10\"  vspace=\"10\"   border=\"0\" /></a>Video Upload | " . $langMod["file:type"] . ": " . $extension . "  | " . $langMod["file:size"] . ": " . get_IconSize($linkRelativePath) . "";

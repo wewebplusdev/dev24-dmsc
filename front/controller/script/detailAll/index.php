@@ -26,6 +26,8 @@ switch ($url->segment[0]) {
 
         // call detail
         $load_data = $detailAllPage->load_data($data);
+        // print_pre($data);
+        // print_pre($load_data);die;
         if ($load_data->code == 1001) {
             $smarty->assign("load_data", $load_data);
         }

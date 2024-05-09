@@ -2,6 +2,12 @@
 
 class introPage extends controller
 {
+    public function __construct()
+    {
+        // super class init
+        parent::__construct();
+    }
+
     public function load_intro()
     {
         if (empty($this->token_access)) {
@@ -17,6 +23,7 @@ class introPage extends controller
             "method" => "getIntro",
             "language" => $this->language,
         ];
-        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
     }
 }

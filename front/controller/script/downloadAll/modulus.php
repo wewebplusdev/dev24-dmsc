@@ -2,6 +2,12 @@
 
 class downloadAllPage extends controller
 {
+    public function __construct()
+    {
+        // super class init
+        parent::__construct();
+    }
+
     public function load_data($data)
     {
         if (empty($this->token_access)) {
@@ -14,6 +20,7 @@ class downloadAllPage extends controller
             'Authorization: Bearer ' . $this->token_access,
         ];
         
-        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
+        return $response;
     }
 }

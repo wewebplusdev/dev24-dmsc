@@ -131,7 +131,8 @@ class member {
         unset($_SESSION[_URL]['token']);
         $_SESSION[_URL]['reboot'] = true;
 
-        setcookie("token", null, time() - ((60 * 60) * $this->token_cookie_timeout), "/", false);
+        setcookie("token", null, time() - ((60 * 60) * $this->token_cookie_timeout));
+        setcookie("token", null, time() - ((60 * 60) * $this->token_cookie_timeout), "/");
         unset($_COOKIE['token']);
 
         if (!empty($_SESSION[_URL]['token']) || !empty($_COOKIE['token'])) {

@@ -35,7 +35,7 @@ include("config.php");
          $filename = $_POST["valEditID"] . "-" . $_REQUEST['inputLt'] . "-" . $randomNumber . ".html";
          $HTMLToolContent = str_replace("\\\"", "\"", rechangeText($_POST['inputHtml']));
          $fp = fopen($mod_path_html . "/" . $filename, "w");
-         // chmod($mod_path_html . "/" . $filename, 0777);
+         chmod($mod_path_html . "/" . $filename, 0777);
          fwrite($fp, $HTMLToolContent);
          fclose($fp);
       }

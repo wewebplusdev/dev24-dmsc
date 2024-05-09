@@ -20,7 +20,7 @@ abstract class controller
 
         if ($_CORE_ENV == 'DEV') {
             // $this->URL_API =  'http://192.168.1.150:4040/service-api/v1';
-            $this->URL_API =  'http://api.wewebplus.com:4040/service-api/v1';
+            $this->URL_API =  'http://192.168.101.39:4040/service-api/v1';
             // $this->URL_API =  'http://192.168.1.100:4040/service-api/v1';
         }else if($_CORE_ENV == 'PROD'){
             $this->URL_API =  'http://192.168.200.146:4040/service-api/v1';
@@ -125,12 +125,12 @@ abstract class controller
                         // authentication token
                         $auth_webservice = self::auth_webservice();
                         if ($auth_webservice->code === 1001) {
-                            setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
-                            setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
+                            setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
+                            setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
                             self::revoke_token($auth_webservice);
                         }
                     }else{
-                        setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
+                        setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
                         $this->token_revoke = 1;
                     }
                 }
@@ -138,8 +138,8 @@ abstract class controller
                 // authentication token
                 $auth_webservice = self::auth_webservice();
                 if ($auth_webservice->code === 1001) {
-                    setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
-                    setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
+                    setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/");
+                    setcookie("token_revoke", 1, time() + (3600), "/"); // life time 1 hour
                     self::revoke_token($auth_webservice);
 
                 }

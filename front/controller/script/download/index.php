@@ -25,9 +25,11 @@ switch ($url->segment[0]) {
             "file_id" => $file_id,
             "masterkey" => $masterkey,
         ];
+        // print_pre($data);
 
         // call detail
         $load_data = $downloadPage->load_data($data);
+        // print_pre($load_data);die;
         if ($load_data->code == 1001) {
             $smarty->assign("load_data", $load_data);
         }

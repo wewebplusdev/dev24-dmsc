@@ -44,6 +44,7 @@ switch ($url->segment[1]) {
             }
         }
         rsort($array_agency);
+        // print_pre($array_agency);
         $smarty->assign("array_agency", $array_agency);
 
 
@@ -61,6 +62,8 @@ switch ($url->segment[1]) {
 
         // call list
         $load_data_service = $contactPage->load_data($data_service);
+        // print_pre($data_service);
+        // print_pre($load_data_service);
         $smarty->assign("load_data_service", $load_data_service);
 
         // setup seo and text modules

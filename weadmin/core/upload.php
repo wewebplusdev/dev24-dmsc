@@ -43,9 +43,9 @@ include("../lib/classpic.php");
 		$error = 'No file was uploaded..';
 	}else{
 	
-		if(!is_dir("../../upload")) { mkdir("../../upload",0775); }
-		if(!is_dir("../../upload/core")) { mkdir("../../upload/core",0775); }
-		if(!is_dir("../../upload/core/50")) { mkdir("../../upload/core/50",0775); }
+		if(!is_dir("../../upload")) { mkdir("../../upload",0777); }
+		if(!is_dir("../../upload/core")) { mkdir("../../upload/core",0777); }
+		if(!is_dir("../../upload/core/50")) { mkdir("../../upload/core/50",0777); }
 
 	
 			if(file_exists("../../upload/core/".$deletepicname)) {
@@ -68,7 +68,9 @@ include("../lib/classpic.php");
 			$picname=$filenameimg.".".$ext;
 			
 			##  Real ################################################################################
-			copy($inputGallery,"../../upload/core/".$picname);
+			if(copy($inputGallery,"../../upload/core/".$picname)){
+				@chmod("../../upload/core/".$picname,0777);
+			}
 			
 			$imgReal = "../../upload/core/".$picname; // File image location
 			
