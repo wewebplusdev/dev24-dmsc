@@ -13,10 +13,10 @@ if ($responseData->success) {
     $arrData['ip'] = getip();
     $arrData['action'] = 'contact';
     $arrData['method'] = 'insertContact';
-    $arrData['language'] = $contactPage->language;
+    $arrData['language'] = $ContactPage->language;
 
     // insert
-    $insert_data = $contactPage->load_data($arrData);
+    $insert_data = $ContactPage->load_data($arrData);
     if ($insert_data->code == 1001) {
         $arrJson = array(
             'code' => 1001,

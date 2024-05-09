@@ -2,7 +2,7 @@
 $menuActive = "contact";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$contactPage = new contactPage;
+$ContactPage = new ContactPage;
 
 switch ($url->segment[1]) {
     case 'googlemap-agencies':
@@ -24,9 +24,9 @@ switch ($url->segment[1]) {
         
         // agency
         $data_agency = [
-            "action" => $contactPage->medthodModule[$menuActive]['action'],
-            "method" => $contactPage->medthodModule[$menuActive]['method_list'],
-            "language" => $contactPage->language,
+            "action" => $ContactPage->medthodModule[$menuActive]['action'],
+            "method" => $ContactPage->medthodModule[$menuActive]['method_list'],
+            "language" => $ContactPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => 100,
@@ -34,7 +34,7 @@ switch ($url->segment[1]) {
         ];
 
         // call list
-        $load_data_agency = $contactPage->load_data($data_agency);
+        $load_data_agency = $ContactPage->load_data($data_agency);
         $array_agency = array();
         if ($load_data_agency->_numOfRows > 0) {
             foreach ($load_data_agency->item as $keyarray_agency => $valuearray_agency) {
@@ -50,9 +50,9 @@ switch ($url->segment[1]) {
         // service
         $masterkey_service = 'csv';
         $data_service = [
-            "action" => $contactPage->medthodModule[$menuActive]['action'],
-            "method" => $contactPage->medthodModule[$menuActive]['method_list_service'],
-            "language" => $contactPage->language,
+            "action" => $ContactPage->medthodModule[$menuActive]['action'],
+            "method" => $ContactPage->medthodModule[$menuActive]['method_list_service'],
+            "language" => $ContactPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => 100,
@@ -60,7 +60,7 @@ switch ($url->segment[1]) {
         ];
 
         // call list
-        $load_data_service = $contactPage->load_data($data_service);
+        $load_data_service = $ContactPage->load_data($data_service);
         $smarty->assign("load_data_service", $load_data_service);
 
         // setup seo and text modules
@@ -78,7 +78,7 @@ switch ($url->segment[1]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $contactPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $ContactPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

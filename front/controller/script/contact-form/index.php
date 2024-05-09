@@ -5,7 +5,7 @@ $listjs[] = '<script type="text/javascript" src="https://www.google.com/recaptch
 
 $menuActiveApi = "contact";
 
-$contactPage = new contactPage;
+$ContactPage = new ContactPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[1]) {
@@ -37,7 +37,7 @@ switch ($url->segment[1]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $contactPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $ContactPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

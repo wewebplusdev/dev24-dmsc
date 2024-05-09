@@ -1,6 +1,6 @@
 <?php
 
-class contactPage extends controller
+class ContactPage extends controller
 {
     public function load_data($data)
     {
