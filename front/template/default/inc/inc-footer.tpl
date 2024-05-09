@@ -4,12 +4,12 @@
         <div class="container">
             <div class="footer-top">
                 <div class="row">
-                    <div class="col-md col-left" data-aos="fade-left">
+                    <div class="col-md col-left" data-aos="fade-up">
                         <div class="title">{$languageFrontWeb->department->display->$currentLangWeb}</div>
                         <div class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</div>
                     </div>
                     {if $settingWeb.contact->tel2 neq ""}
-                        <div class="col-auto col-right" data-aos="fade-right">
+                        <div class="col-auto col-right" data-aos="fade-up">
                             <div class="title"><a href="tel:{$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
                             <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
                         </div>
@@ -191,10 +191,10 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom" >
                 <div class="row">
                     {if $load_policy->_numOfRows gte 1}
-                    <div class="col-md" data-aos="fade-left">
+                    <div class="col-md" data-aos="fade-up">
                         <div class="policy">
                             <ul class="item-list">
                                 {foreach $load_policy->item as $keyPolicy => $valuePolicy}
@@ -211,14 +211,14 @@
                                         {assign var="news_url" value="javascript:void(0);"}
                                     {/if}
                                     <li>
-                                        <a href="{$news_url}" class="link" target="{$target}">{$valuePolicy->subject}</a>
+                                        <a  href="{$news_url}" class="link" target="{$target}">{$valuePolicy->subject}</a>
                                     </li>
                                 {/foreach}
                             </ul>
                         </div>
                     </div>
                     {/if}
-                    <div class="col-md-auto" data-aos="fade-right">
+                    <div class="col-md-auto" data-aos="fade-up">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
                         <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>

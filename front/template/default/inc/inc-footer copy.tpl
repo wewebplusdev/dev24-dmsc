@@ -191,7 +191,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom" >
                 <div class="row">
                     {if $load_policy->_numOfRows gte 1}
                     <div class="col-md" data-aos="fade-left">

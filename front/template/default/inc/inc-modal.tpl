@@ -82,6 +82,20 @@
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
+                        <div class="position-absolute" style="margin-top:20px; left:20px;">
+                        <form action="" class="form-default form-contact" style="background-image:none; clip-path:none">
+                            <div class="form-group">
+    
+                                <div class="block-control mb-md-3 mb-2">
+                                    <label class="text-white container-check">ไม่ต้องแสดงวันนี้อีก
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
+    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     </div>
                 </div>
             </div>
