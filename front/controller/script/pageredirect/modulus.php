@@ -1,6 +1,6 @@
 <?php
 
-class pageredirectage extends controller
+class Pageredirectage extends controller
 {
    
 }

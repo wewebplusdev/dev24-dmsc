@@ -1,8 +1,8 @@
 <?php
 
-class reverse_proxy extends controller
+class ReverseProxy extends controller
 {
-    public function load_fetch_api($data, $controller)
+    public function loadFetchApi($data, $controller)
     {
         if (empty($this->tokenAccess)) {
             return false;
