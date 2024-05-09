@@ -1,8 +1,8 @@
 <?php
 
-class introPage extends controller
+class IntroPage extends controller
 {
-    public function load_intro()
+    public function loadIntro()
     {
         if (empty($this->tokenAccess)) {
             return false;

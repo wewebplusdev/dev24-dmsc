@@ -1,6 +1,6 @@
 <?php
 $menuActive = "json";
-$jsonPage = new jsonPage;
+$JsonPage = new JsonPage;
 
 header('Content-Type: application/json; charset=utf-8');
 if (!empty($url->segment[1])) {
@@ -15,8 +15,8 @@ if (!empty($url->segment[1])) {
         $req['page'] = (isset($_REQUEST['page']) && !empty($_REQUEST['page'])) ? $_REQUEST['page'] : 1;
 
         $data_group = [
-            "action" => $jsonPage->medthodModule[$menuActive]['action'],
-            "method" => $jsonPage->medthodModule[$menuActive]['method_group'],
+            "action" => $JsonPage->medthodModule[$menuActive]['action'],
+            "method" => $JsonPage->medthodModule[$menuActive]['method_group'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "id" => $group,
@@ -24,10 +24,10 @@ if (!empty($url->segment[1])) {
             "limit" => 15,
             "masterkey" => $masterkey,
         ];
-        $load_json_group = $jsonPage->load_json($data_group, 'news');
+        $load_json_group = $JsonPage->loadJson($data_group, 'news');
         $data = [
-            "action" => $jsonPage->medthodModule[$menuActive]['action'],
-            "method" => $jsonPage->medthodModule[$menuActive]['method_list'],
+            "action" => $JsonPage->medthodModule[$menuActive]['action'],
+            "method" => $JsonPage->medthodModule[$menuActive]['method_list'],
             "language" => $url->pagelang[4],
             "order" => 'DESC',
             "gid" => $group,
@@ -35,9 +35,9 @@ if (!empty($url->segment[1])) {
             "limit" => $req['limit'],
             "masterkey" => $masterkey,
         ];
-        $load_json = $jsonPage->load_json($data, 'news');
-        if ($load_json->_numOfRows > 0) {
-            echo json_encode($load_json);
+        $loadJson = $JsonPage->loadJson($data, 'news');
+        if ($loadJson->_numOfRows > 0) {
+            echo json_encode($loadJson);
         } else {
             $arrJson = array(
                 'code' => 400,

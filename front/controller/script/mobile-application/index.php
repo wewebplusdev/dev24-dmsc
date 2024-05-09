@@ -2,7 +2,7 @@
 $menuActive = "mobile-application";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$mobileApplicationPage = new mobileApplicationPage;
+$MobileApplicationPage = new MobileApplicationPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
@@ -26,9 +26,9 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data_group = [
-            "action" => $mobileApplicationPage->medthodModule[$menuActive]['action'],
-            "method" => $mobileApplicationPage->medthodModule[$menuActive]['method_group'],
-            "language" => $mobileApplicationPage->language,
+            "action" => $MobileApplicationPage->medthodModule[$menuActive]['action'],
+            "method" => $MobileApplicationPage->medthodModule[$menuActive]['method_group'],
+            "language" => $MobileApplicationPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
@@ -36,15 +36,15 @@ switch ($url->segment[0]) {
         ];
         
         // call group
-        $load_group = $mobileApplicationPage->load_data($data_group);
+        $load_group = $MobileApplicationPage->load_data($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
 
         $data = [
-            "action" => $mobileApplicationPage->medthodModule[$menuActive]['action'],
-            "method" => $mobileApplicationPage->medthodModule[$menuActive]['method_list'],
-            "language" => $mobileApplicationPage->language,
+            "action" => $MobileApplicationPage->medthodModule[$menuActive]['action'],
+            "method" => $MobileApplicationPage->medthodModule[$menuActive]['method_list'],
+            "language" => $MobileApplicationPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -54,7 +54,7 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $mobileApplicationPage->load_data($data);
+        $load_data = $MobileApplicationPage->load_data($data);
         $smarty->assign("load_data", $load_data);
 
         // setup seo and text modules
@@ -72,7 +72,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $mobileApplicationPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $MobileApplicationPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/

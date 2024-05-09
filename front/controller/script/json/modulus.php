@@ -1,8 +1,8 @@
 <?php
 
-class jsonPage extends controller
+class JsonPage extends controller
 {
-    public function load_json($data)
+    public function loadJson($data)
     {
         if (empty($this->tokenAccess)) {
             return false;

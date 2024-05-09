@@ -2,22 +2,22 @@
 $menuActive = "intro";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$introPage = new introPage;
+$IntroPage = new IntroPage;
 
 switch ($url->segment[0]) {
     default:
         // call intro
-        $load_intro = $introPage->load_intro();
-        if ($load_intro->code != 1001) {
+        $loadIntro = $IntroPage->loadIntro();
+        if ($loadIntro->code != 1001) {
             header('location:' . $linklang . "/home");
         }
         $array_intro = array();
         $status_has_data = false;
-        foreach ($load_intro->item as $keyload_intro => $valueload_intro) {
-            if (!empty($valueload_intro->subject)) {
+        foreach ($loadIntro->item as $keyloadIntro => $valueloadIntro) {
+            if (!empty($valueloadIntro->subject)) {
                 $status_has_data = true;
             }
-            $array_intro[] = $valueload_intro;
+            $array_intro[] = $valueloadIntro;
         }
         $smarty->assign("array_intro", $array_intro);
 
@@ -30,7 +30,7 @@ switch ($url->segment[0]) {
         $seo_title = "";
         $seo_keyword = "";
         $seo_pic = "";
-        $introPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $IntroPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

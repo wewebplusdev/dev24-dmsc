@@ -1,6 +1,6 @@
 <?php
 
-class mobileApplicationPage extends controller
+class MobileApplicationPage extends controller
 {
     public function load_data($data)
     {

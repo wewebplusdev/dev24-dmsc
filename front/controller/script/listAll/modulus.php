@@ -1,6 +1,6 @@
 <?php
 
-class listAllPage extends controller
+class ListAllPage extends controller
 {
     public function load_data($data)
     {
