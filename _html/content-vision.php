@@ -62,14 +62,14 @@
                 <div class="content">
                   <div class="title-content">
                     <h2>วิสัยทัศน์</h2>
-                    <img src="<?php echo $core_template; ?>/img/uploads/image-w.png" alt="image">
+                    <img src="<?php echo $core_template; ?>/img/uploads/image-quotation-marks.png" alt="image">
                   </div>
                   <div class="text-content">
                     <h2>กรมวิทยาศาสตร์การแพทย์</h2>
                     <p>เป็นองค์การชั้นนำด้านวิทยาศาสตร์การแพทย์และสาธารณสุข</p>
                     <h2>1 ใน 3 ของเอเชีย</h2>
                     <p>ภายในปี พ.ศ. 2570 โดยเทคโนโลยีดิจิทัล</p>
-                    <img src="<?php echo $core_template; ?>/img/uploads/image-w.png" alt="image">
+                    <img src="<?php echo $core_template; ?>/img/uploads/image-quotation-marks.png" alt="image">
                   </div>
                   <div class="image-content">
                     <img src="<?php echo $core_template; ?>/img/uploads/physician.png" alt="image-physician">
