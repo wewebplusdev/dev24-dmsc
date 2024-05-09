@@ -39,8 +39,8 @@ class MainPage extends Controller
             "method" => "getWebSetting",
             "language" => $this->language,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+       
     }
 
     public function loadPolicy()
@@ -61,7 +61,7 @@ class MainPage extends Controller
             "page" => 1,
             "limit" => 15
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+      
     }
 }

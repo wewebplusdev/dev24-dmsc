@@ -28,6 +28,7 @@ const validate_step = (action) => {
             }
             break;
     }
+    return status;
 }
 
 (() => {
