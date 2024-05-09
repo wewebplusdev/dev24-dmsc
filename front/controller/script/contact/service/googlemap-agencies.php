@@ -28,10 +28,10 @@ $smarty->assign("load_data_agency", $load_data_agency);
 // setup seo and text modules
 $language_modules = array();
 // active menu header
-$header_active = header_active($url->url);
-if (gettype($header_active) == 'array' && count($header_active) > 0) {
-    $language_modules['breadcrumb1'] = $header_active['page'][0];
-    $language_modules['metatitle'] = $header_active['page'][0];
+$headerActive = headerActive($url->url);
+if (gettype($headerActive) == 'array' && count($headerActive) > 0) {
+    $language_modules['breadcrumb1'] = $headerActive['page'][0];
+    $language_modules['metatitle'] = $headerActive['page'][0];
 }
 $smarty->assign("language_modules", $language_modules);
 

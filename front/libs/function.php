@@ -796,7 +796,7 @@ function formatNum($myNumber) {
     else return ($myNumber);
 }
 
-function header_active($link){
+function headerActive($link){
     global $sitemapWeb, $currentLangWeb;
     $array_page = array();
     if (!empty($link)) {
