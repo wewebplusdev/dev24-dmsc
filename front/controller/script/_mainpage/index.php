@@ -10,7 +10,6 @@ $MainPage = new MainPage;
 
 #### POLICY
 $loadPolicy = $MainPage->loadPolicy();
-// print_pre($loadPolicy);
 $smarty->assign("loadPolicy", $loadPolicy);
 
 #### SETTING
@@ -41,6 +40,5 @@ $smarty->assign("sitemapWeb", $sitemapWeb);
 $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
 $smarty->assign("recaptchaSitekey", $recaptchaSitekey);
-// print_pre($settingWeb);
 
 

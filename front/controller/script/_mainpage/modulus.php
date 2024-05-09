@@ -17,7 +17,7 @@ class MainPage extends controller
                 }
             }
             // generate content_language_Web
-            self::content_website($this->settingWeb->language_front, $this->settingWeb->language);
+            self::contentWebsite($this->settingWeb->language_front, $this->settingWeb->language);
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
@@ -43,7 +43,7 @@ class MainPage extends controller
         return $response;
     }
 
-    function loadPolicy()
+    private function loadPolicy()
     {
         if (empty($this->tokenAccess)) {
             return false;
