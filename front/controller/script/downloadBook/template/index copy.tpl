@@ -218,7 +218,7 @@
                         {assign var="downloadID" value=""}
                         {if $valueload_data->typec eq 2}
                             {$downloadID = $valueload_data->attachment[0]->id}
-                            {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|get_Icon}
+                            {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|getIcon}
                         {/if}
                         {if $checkUrl}
                             {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
@@ -283,7 +283,7 @@
                                                                                     fill="#2ab170" />
                                                                             </svg>
                                                                         </span>
-                                                                        <div class="txt"><strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> {$valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|get_IconSize}</div>
+                                                                        <div class="txt"><strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> {$valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|getIconSize}</div>
                                                                     </div>
                                                                 </li>
                                                                 <li>

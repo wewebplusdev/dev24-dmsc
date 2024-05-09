@@ -130,7 +130,7 @@
                     {assign var="downloadID" value=""}
                     {if $valueload_data->typec eq 2}
                         {$downloadID = $valueload_data->attachment[0]->id}
-                        {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|get_Icon}
+                        {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|getIcon}
                     {/if}
                     {if $checkUrl}
                         {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}

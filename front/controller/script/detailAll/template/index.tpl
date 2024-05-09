@@ -312,7 +312,7 @@
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 {foreach $load_data->item[0]->attachment as $keyattachment => $valueattachment}
-                                    {$fileinfo = $valueattachment->filename|fileinclude:'file':{$load_data->item[0]->masterkey}|get_Icon}
+                                    {$fileinfo = $valueattachment->filename|fileinclude:'file':{$load_data->item[0]->masterkey}|getIcon}
                                     {assign var="download_url" value="{$ul}/pageredirect/{$load_data->item[0]->tb|page_redirect:$load_data->item[0]->masterkey:$load_data->item[0]->id:$load_data->item[0]->language:$valueattachment->id}"}
                                     <div class="swiper-slide">
                                         <div class="item">
@@ -416,7 +416,7 @@
                                                                       <strong>{$languageFrontWeb->filetype->display->$currentLangWeb} :</strong> <span>{$fileinfo.type}</span>
                                                                   </li>
                                                                   <li>
-                                                                      <strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> <span>{$valueattachment->filename|fileinclude:'file':{$load_data->item[0]->masterkey}|get_IconSize}</span>
+                                                                      <strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> <span>{$valueattachment->filename|fileinclude:'file':{$load_data->item[0]->masterkey}|getIconSize}</span>
                                                                   </li>
                                                                   <li>
                                                                       <strong>{$languageFrontWeb->docdownload->display->$currentLangWeb} :</strong> <span>{$valueattachment->download|number_format} {$languageFrontWeb->view2->display->$currentLangWeb}</span>

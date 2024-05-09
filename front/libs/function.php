@@ -199,9 +199,9 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
     if (!empty($dbname)) {
 
         $sqlReturn = " and ((" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00')  ";
-        $sqlReturn .= " OR (" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND TO_DAYS(" . $dbname . "" . $nameend . ")>=TO_DAYS(NOW()) )";
-        $sqlReturn .= " OR (TO_DAYS(" . $dbname . "" . $namestart . ")<=TO_DAYS(NOW()) AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00' ) ";
-        $sqlReturn .= " OR (TO_DAYS(" . $dbname . "" . $namestart . ")<=TO_DAYS(NOW()) AND  TO_DAYS(" . $dbname . "" . $nameend . ")>=TO_DAYS(NOW())  )";
+        $sqlReturn .= " OR (" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND TO_dayS(" . $dbname . "" . $nameend . ")>=TO_dayS(NOW()) )";
+        $sqlReturn .= " OR (TO_dayS(" . $dbname . "" . $namestart . ")<=TO_dayS(NOW()) AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00' ) ";
+        $sqlReturn .= " OR (TO_dayS(" . $dbname . "" . $namestart . ")<=TO_dayS(NOW()) AND  TO_dayS(" . $dbname . "" . $nameend . ")>=TO_dayS(NOW())  )";
         $sqlReturn .= " OR ( " . $dbname . "." . $dbname . "_sdate Is Null and " . $dbname . "." . $dbname . "_edate Is Null )) ";
 
 
@@ -227,7 +227,7 @@ function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
     $strMonth_real = date("n", strtotime($strDate));
     $strMonth_full = date("n", strtotime($strDate));
     $strMonth_number = date("n", strtotime($strDate));
-    $strDay = date("j", strtotime($strDate));
+    $strday = date("j", strtotime($strDate));
     $strHour = date("H", strtotime($strDate));
     $strMinute = date("i", strtotime($strDate));
     $strSeconds = date("s", strtotime($strDate));
@@ -237,23 +237,23 @@ function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
     if (!empty($strDate)) {
         switch ($function) {
             case '1':
-                $day = "$strDay $strMonth $strYear";
+                $day = "$strday $strMonth $strYear";
                 break;
             case '2':
-                $day = "$strDay $strMonth $strYear2";
+                $day = "$strday $strMonth $strYear2";
                 break;
             case '3':
-                $day = "$strDay $strMonth $strYear_mini";
+                $day = "$strday $strMonth $strYear_mini";
                 break;
             case '4':
-                $day = "$strDay $strMonth $strYear , $strHour:$strMinute ";
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute ";
                 break;
 
             case '5':
-                $day = "$strDay $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
                 break;
             case '6':
-                $day = "$strDay";
+                $day = "$strday";
                 break;
             case '7':
                 $day = "$strMonth $strYear";
@@ -268,7 +268,7 @@ function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
                 $day = "$strYear";
                 break;
             case '11':
-                $day = "วันที่ $strDay $strMonth $strYear | เวลา $strHour:$strMinute น.";
+                $day = "วันที่ $strday $strMonth $strYear | เวลา $strHour:$strMinute น.";
                 break;
             case '12':
 
@@ -305,43 +305,43 @@ function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
                 break;
 
             case '13':
-                $day = "$strDay<br/>$strMonth";
+                $day = "$strday<br/>$strMonth";
                 break;
             case '14':
-                $day = "$strDay" . "th" . " $strMonth_full $strYear2";
+                $day = "$strday" . "th" . " $strMonth_full $strYear2";
                 break;
             case '15':
-                $day = "$strMonth_full $strDay, $strYear2";
+                $day = "$strMonth_full $strday, $strYear2";
                 break;
             case '16':
-                $day = "$strDay.$strMonth_number.$strYear_mini_en";
+                $day = "$strday.$strMonth_number.$strYear_mini_en";
                 break;
             case '17':
-                $day = "$strDay.$strMonth_number.$strYear2";
+                $day = "$strday.$strMonth_number.$strYear2";
                 break;
             case '18':
                 $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "<strong>$strDay</strong>$strMonth_number.$strYear2";
+                $day = "<strong>$strday</strong>$strMonth_number.$strYear2";
                 break;
             case '19':
                 $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "$strDay.$strMonth_number.$strYear2";
+                $day = "$strday.$strMonth_number.$strYear2";
                 break;
             case '20':
                 $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
-                $day = "$strMonth $strDay, $strYear2";
+                $day = "$strMonth $strday, $strYear2";
                 break;
             case '21':
-                $day = "$strDay $strMonth";
+                $day = "$strday $strMonth";
                 break;
             case '22':
-                $day = "$strDay $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
+                $day = "$strday $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
                 break;
             case '23':
-                $day = "$strDay $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
+                $day = "$strday $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
                 break;
             case '24':
-                $day = "$strDay $strMonth $strYear";
+                $day = "$strday $strMonth $strYear";
                 break;
             case '25':
                 $day = $strYear . '' . sprintf("%02d", $strMonth_number);
@@ -597,10 +597,10 @@ function txtReplaceHTML($data)
 
 ####################################################
 
-function get_IconSize($LinkRelativePath)
+function getIconSize($linkRelativePath)
 {
     ####################################################
-    $filesize = @filesize($LinkRelativePath);
+    $filesize = @filesize($linkRelativePath);
     if ($filesize < 10485) {
         $sizeFile = number_format($filesize / 1024, 2) . " Kb";
     } else {
@@ -611,42 +611,42 @@ function get_IconSize($LinkRelativePath)
 
 ####################################################
 
-function get_Icon($DownloadFile, $type = "")
+function getIcon($downloadFile, $type = "")
 {
     ####################################################
 
-    $ImageType = strrchr($DownloadFile, '.');
+    $imageType = strrchr($downloadFile, '.');
 
-    if (($ImageType == ".jpg") || ($ImageType == ".png") || ($ImageType == ".gif") || ($ImageType == ".bmp")) {
+    if (($imageType == ".jpg") || ($imageType == ".png") || ($imageType == ".gif") || ($imageType == ".bmp")) {
         $tocss = "picture";
-        $TypeImgFile = "file-picture-o";
-    } elseif ($ImageType == ".pdf") {
+        $typeImgFile = "file-picture-o";
+    } elseif ($imageType == ".pdf") {
         $tocss = "pdf";
-        $TypeImgFile = "file-pdf-o";
-    } elseif ($ImageType == ".txt") {
+        $typeImgFile = "file-pdf-o";
+    } elseif ($imageType == ".txt") {
         $tocss = "txt";
-        $TypeImgFile = "file-text-o";
-    } elseif (($ImageType == ".zip") || ($ImageType == ".rar")) {
+        $typeImgFile = "file-text-o";
+    } elseif (($imageType == ".zip") || ($imageType == ".rar")) {
         $tocss = "achive";
-        $TypeImgFile = "file-zip-o";
-    } elseif ($ImageType == ".xls" || $ImageType == ".xlsx") {
+        $typeImgFile = "file-zip-o";
+    } elseif ($imageType == ".xls" || $imageType == ".xlsx") {
         $tocss = "xls";
-        $TypeImgFile = "file-excel-o";
-    } elseif ($ImageType == ".ppt" || $ImageType == ".pptx") {
+        $typeImgFile = "file-excel-o";
+    } elseif ($imageType == ".ppt" || $imageType == ".pptx") {
         $tocss = "ppt";
-        $TypeImgFile = "file-powerpoint-o";
-    } elseif ($ImageType == ".rtf" || $ImageType == ".doc" || $ImageType == ".docx") {
+        $typeImgFile = "file-powerpoint-o";
+    } elseif ($imageType == ".rtf" || $imageType == ".doc" || $imageType == ".docx") {
         $tocss = "doc";
-        $TypeImgFile = "file-word-o";
+        $typeImgFile = "file-word-o";
     } else {
         $tocss = "other";
-        $TypeImgFile = "file-o";
+        $typeImgFile = "file-o";
     }
 
 
     $fileCheck = array(
-        "icon" => $TypeImgFile,
-        "type" => $ImageType,
+        "icon" => $typeImgFile,
+        "type" => $imageType,
         "tocss" => $tocss
     );
     if (!empty($type)) {
@@ -698,21 +698,21 @@ function getDateNow()
 {
     ############################################
     $today = getdate();
-    $Day = $today['mday'];
-    $Month = $today['mon'];
-    $Year = $today['year'];
-    $DateIs = sprintf("%04d-%02d-%02d", $Year, $Month, $Day);
-    return ($DateIs);
+    $day = $today['mday'];
+    $month = $today['mon'];
+    $year = $today['year'];
+    $dateIs = sprintf("%04d-%02d-%02d", $year, $month, $day);
+    return ($dateIs);
 }
 
 //#################################################
-function getEndDayOfMonth($myDate)
+function getEnddayOfMonth($myDate)
 {
     //#################################################
     $myEndOfMonth = array(0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-    $myDateArray = explode("-", $myDate);
-    $myMonth = $myDateArray[1] * 1;
-    $myYear = $myDateArray[0] * 1;
+    $mydataArray = explode("-", $myDate);
+    $myMonth = $mydataArray[1] * 1;
+    $myYear = $mydataArray[0] * 1;
     if ($myMonth >= 1 && $myMonth <= 12) {
         if ($myMonth == 2) {
             //check leap year ---
@@ -730,35 +730,35 @@ function getEndDayOfMonth($myDate)
 }
 
 //#################################################
-function DateFormatInsert($DateTime, $timeAgre = null)
+function dateFormatInsert($dateTime, $timeAgre = null)
 {
     //#################################################
     global $url;
-    if ($DateTime == "") {
-        $DateTime = "00-00-0000";
+    if ($dateTime == "") {
+        $dateTime = "00-00-0000";
     }
 
     if (!empty($timeAgre)) {
-        $Time = $timeAgre;
+        $time = $timeAgre;
     } else {
-        $Time = "00:00:00";
+        $time = "00:00:00";
     }
 
-    $DateArr = explode("/", $DateTime);
-    $dataYear = $DateArr[2];
-    if ($DateArr[1] >= 1) {
-        $dataM = $DateArr[1];
+    $dataArr = explode("/", $dateTime);
+    $dataYear = $dataArr[2];
+    if ($dataArr[1] >= 1) {
+        $dataM = $dataArr[1];
     } else {
         $dataM = "00";
     }
 
-    if ($DateArr[0] >= 1) {
-        $dataD = $DateArr[0];
+    if ($dataArr[0] >= 1) {
+        $dataD = $dataArr[0];
     } else {
         $dataD = "00";
     }
 
-    $valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $Time;
+    $valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $time;
     return $valReturn;
 }
 
