@@ -521,7 +521,7 @@
                             nonce="IFt1dfew"></script>
 
                         <!-- fb comment show here  -->
-                    
+                     
                         <div id="fb-comments"  class="fb-comments collapse"
                             data-href="https://www.dmcr.go.th/detailAll/70880/nws/11" data-width="100%" data-numposts="5" data-mobile="true"  >
                           </div>
