@@ -4022,7 +4022,7 @@ div.swal2-html-container {
 }
 
 .service-category {
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 30px;
 }
 .service-category .service-category-list {
@@ -4545,6 +4545,9 @@ div.swal2-html-container {
 .wg-news .wg-news-nav .action {
   margin-top: 40px;
 }
+.wg-news .wg-news-nav .action-not-show {
+  display: none;
+}
 .wg-news .wg-news-tab {
   width: 1000px;
   padding-right: 140px;
@@ -4976,6 +4979,16 @@ div.swal2-html-container {
   .wg-services {
     padding: 50px 0 110px;
   }
+  .wg-services .whead {
+    text-align: center;
+  }
+  .wg-services .action {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .wg-about .wg-about-group-list {
+    width: auto;
+  }
   .service-category .service-category-list {
     margin: -10px;
   }
@@ -4993,6 +5006,13 @@ div.swal2-html-container {
   }
   .wg-research .wg-research-main {
     padding: 50px 0;
+  }
+  .wg-research .wg-research-main .whead {
+    text-align: center;
+  }
+  .wg-research .wg-research-main .action {
+    margin-top: 20px;
+    text-align: center;
   }
   .wg-research-group .graphic {
     width: 240px;
@@ -5047,6 +5067,16 @@ div.swal2-html-container {
   .wg-about .content {
     padding: 50px 0 30px 0;
   }
+  .wg-about .content .whead {
+    text-align: center;
+  }
+  .wg-about .content .line {
+    display: none;
+  }
+  .wg-about .content .action {
+    margin-top: 20px;
+    text-align: center;
+  }
   .wg-about .content .whead .subtitle,
   .wg-about .content .whead .title {
     color: var(--color-secondary);
@@ -5093,10 +5123,24 @@ div.swal2-html-container {
     white-space: nowrap;
   }
   .wg-news .wg-news-nav .action {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     margin-top: 15px;
+  }
+  .wg-news .wg-news-nav .whead {
+    text-align: center;
+  }
+  .wg-news .wg-news-nav .line {
+    display: none;
+  }
+  .wg-news .wg-news-nav .action-show {
+    display: none;
+  }
+  .wg-news .wg-news-nav .action-not-show {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
   }
   .wg-news .wg-news-tab {
     padding-right: 0;
