@@ -10,7 +10,7 @@
  * @author Pandalittle CH
  */
 
-class url
+class Url
 {
     public $url;
     public $parametter;
