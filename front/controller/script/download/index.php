@@ -7,6 +7,15 @@ $contentid = $url->segment[1];
 $masterkey = $url->segment[2];
 $file_id = $url->segment[3];
 switch ($url->segment[0]) {
+    
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         if (empty($contentid) || empty($masterkey) || empty($file_id)) {
             header('location:' . $linklang . "/home");
