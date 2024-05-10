@@ -5407,9 +5407,6 @@ div.swal2-html-container {
   font-weight: var(--fw-bold);
   color: var(--color-secondary);
 }
-.detail-body .swiper-pagination-bullet {
-  width: 10px;
-}
 .detail-body .swiper-button-next {
   right: -80px;
   width: 54px;
@@ -5422,6 +5419,9 @@ div.swal2-html-container {
   color: var(--color-light);
   border: 2px solid var(--color-light);
 }
+.detail-body .swiper-button-next::after {
+  font-size: 25px;
+}
 .detail-body .swiper-button-prev {
   left: -80px;
   width: 54px;
@@ -5433,6 +5433,9 @@ div.swal2-html-container {
   background-color: var(--color-primary);
   color: var(--color-light);
   border: 2px solid var(--color-light);
+}
+.detail-body .swiper-button-prev::after {
+  font-size: 25px;
 }
 .detail-body .swiper:not(.gallery-slide .swiper) .swiper-slide {
   -webkit-transition: all 0.4s ease-in-out;
@@ -5958,6 +5961,9 @@ div.swal2-html-container {
   }
 }
 @media (max-width: 991px) {
+  .intro-content .height {
+    height: auto;
+  }
   .intro-content {
     height: 40dvh;
     display: -webkit-box;
@@ -5967,7 +5973,10 @@ div.swal2-html-container {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding-top: 40px;
+    padding-top: 5%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .intro-content .action {
     text-align: center;
@@ -5998,7 +6007,7 @@ div.swal2-html-container {
   }
   .intro-content .logo .symbol {
     width: 150px;
-    margin: 20px 0;
+    margin: 30px 0;
   }
   .intro-content .logo .txt {
     font-size: 14px;
@@ -6058,7 +6067,7 @@ div.swal2-html-container {
     min-width: 70%;
   }
   .intro-content .logo .txt {
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     margin-top: 15px;
   }
