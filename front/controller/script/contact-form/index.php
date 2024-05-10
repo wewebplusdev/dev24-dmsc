@@ -1,7 +1,10 @@
 <?php
+define('JS_SCRIPT_START', '<script type="text/javascript" src="');
+define('SCRIPT_PATH', 'front/controller/script/');
+define('FULL_SCRIPT_PATH', '/front/controller/script/');
 $menuActive = "contact-form";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
-$listjs[] = '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render='. $recaptcha_sitekey .'"></script>';
+$listjs[] = JS_SCRIPT_START . _URL . SCRIPT_PATH . $menuActive . '/js/script.js"></script>';
+$listjs[] = JS_SCRIPT_START . 'https://www.google.com/recaptcha/api.js?render='. $recaptcha_sitekey .'"></script>';
 
 $menuActiveApi = "contact";
 
@@ -10,20 +13,20 @@ $contactPage = new contactPage;
 $masterkey = $url->segment[1];
 switch ($url->segment[1]) {
     case 'insert-corruption':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/insert-corruption.php'; #load service
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-corruption.php'; #load service
         break;
 
     case 'insert-global':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/insert-global.php'; #load service
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-global.php'; #load service
         break;
 
     case 'corruption':
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/corruption.js"></script>';
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/corruption.php'; #load service
+        $listjs[] = JS_SCRIPT_START . _URL . SCRIPT_PATH . $menuActive . '/js/corruption.js"></script>';
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/corruption.php'; #load service
         break;
 
     default:
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/form.js"></script>';
+        $listjs[] = JS_SCRIPT_START . _URL . SCRIPT_PATH . $menuActive . '/js/form.js"></script>';
         // setup seo and text modules
         $language_modules = array();
         // active menu header

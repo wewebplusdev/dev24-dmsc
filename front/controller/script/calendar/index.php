@@ -73,4 +73,4 @@ switch ($url->segment[1]) {
 
 $smarty->assign("menuActive", $menuActive);
 $smarty->assign("fileInclude", $settingPage);
-?>
+
