@@ -1,10 +1,4 @@
 <?php
-
-
-define('VERSION_TAG', 'Version/[VER]');
-define('OPERAMINI_TAG', 'Opera Mini/[VER]');
-define('OPERAMOBI_TAG', 'Opera Mobi');
-define('AMAZON_TAG', 'Amazon CloudFront');
 /**
  * Mobile Detect Library
  * =====================
@@ -602,18 +596,12 @@ class MobileDetect
      *
      * @var array
      */
-
-
-
-
-
-
     protected static $properties = array(
 
         // Build
         'Mobile'        => 'Mobile/[VER]',
         'Build'         => 'Build/[VER]',
-        'Version'       => VERSION_TAG,
+        'Version'       => 'Version/[VER]',
         'VendorID'      => 'VendorID/[VER]',
 
         // Devices
@@ -637,9 +625,9 @@ class MobileDetect
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront'      => 'NetFront/[VER]',
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
-        'Opera'         => array( ' OPR/[VER]', OPERAMINI_TAG, VERSION_TAG ),
-        'Opera Mini'    => OPERAMINI_TAG,
-        'Opera Mobi'    => OPERAMOBI_TAG,
+        'Opera'         => array( ' OPR/[VER]', 'Opera Mini/[VER]', 'Version/[VER]' ),
+        'Opera Mini'    => 'Opera Mini/[VER]',
+        'Opera Mobi'    => 'Version/[VER]',
         'UC Browser'    => 'UC Browser[VER]',
         'MQQBrowser'    => 'MQQBrowser/[VER]',
         'MicroMessenger' => 'MicroMessenger/[VER]',
@@ -649,7 +637,7 @@ class MobileDetect
         'Iron'          => 'Iron/[VER]',
         // @note: Safari 7534.48.3 is actually Version 5.1.
         // @note: On BlackBerry the Version is overwriten by the OS.
-        'Safari'        => array( VERSION_TAG, 'Safari/[VER]' ),
+        'Safari'        => array( 'Version/[VER]', 'Safari/[VER]' ),
         'Skyfire'       => 'Skyfire/[VER]',
         'Tizen'         => 'Tizen/[VER]',
         'Webkit'        => 'webkit[ /][VER]',
@@ -664,7 +652,7 @@ class MobileDetect
         // OS
         'iOS'              => ' \bi?OS\b [VER][ ;]{1}',
         'Android'          => 'Android [VER]',
-        'BlackBerry'       => array('BlackBerry[\w]+/[VER]', 'BlackBerry.*Version/[VER]', VERSION_TAG),
+        'BlackBerry'       => array('BlackBerry[\w]+/[VER]', 'BlackBerry.*Version/[VER]', 'Version/[VER]'),
         'BREW'             => 'BREW [VER]',
         'Java'             => 'Java/[VER]',
         // @reference: http://windowsteamblog.com/windows_phone/b/wpdev/archive/2011/08/29/introducing-the-ie9-on-windows-phone-mango-user-agent-string.aspx
@@ -861,7 +849,7 @@ class MobileDetect
         }
 
         if (count($this->getCfHeaders()) > 0) {
-            return $this->userAgent = AMAZON_TAG;
+            return $this->userAgent = 'Amazon CloudFront';
         }
         return $this->userAgent = null;
     }
@@ -1160,7 +1148,7 @@ class MobileDetect
         }
 
         // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === AMAZON_TAG) {
+        if ($this->getUserAgent() === 'Amazon CloudFront') {
             $cfHeaders = $this->getCfHeaders();
             if(array_key_exists('HTTP_CLOUDFRONT_IS_MOBILE_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_MOBILE_VIEWER'] === 'true') {
                 return true;
@@ -1188,7 +1176,7 @@ class MobileDetect
     public function isTablet($userAgent = null, $httpHeaders = null)
     {
         // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === AMAZON_TAG) {
+        if ($this->getUserAgent() === 'Amazon CloudFront') {
             $cfHeaders = $this->getCfHeaders();
             if(array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true') {
                 return true;
@@ -1387,7 +1375,7 @@ class MobileDetect
             ( $this->is('Skyfire') && $this->version('Skyfire', self::VERSION_TYPE_FLOAT) >= 4.1 && $this->is('AndroidOS') && $this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3 ) ||
 
             // Opera Mobile 11.5-12: Tested on Android 2.3
-            ( $this->is('Opera') && $this->version(OPERAMOBI_TAG, self::VERSION_TYPE_FLOAT) >= 11.5 && $this->is('AndroidOS') ) ||
+            ( $this->is('Opera') && $this->version('Opera Mobi', self::VERSION_TYPE_FLOAT) >= 11.5 && $this->is('AndroidOS') ) ||
 
             // Meego 1.2 - Tested on Nokia 950 and N9
             $this->is('MeeGoOS') ||
@@ -1443,7 +1431,7 @@ class MobileDetect
             $this->match('NokiaN8|NokiaC7|N97.*Series60|Symbian/3') ||
 
             // @todo: report this (tested on Nokia N71)
-            $this->version(OPERAMOBI_TAG, self::VERSION_TYPE_FLOAT) >= 11 && $this->is('SymbianOS')
+            $this->version('Opera Mobi', self::VERSION_TYPE_FLOAT) >= 11 && $this->is('SymbianOS')
         ){
             return self::MOBILE_GRADE_B;
         }
