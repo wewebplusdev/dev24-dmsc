@@ -38,7 +38,7 @@ let scSwiper = new Swiper(".service-category-list .swiper", {
     }
 });
 
-let serviceSwiper = reload_swiper();
+
 
 let researchSwiper = new Swiper(".wg-research-list .swiper", {
     slidesPerView: 3,
@@ -129,5 +129,5 @@ function reload_swiper() {
         }
     });
 }
-
 $('#popupModal').modal('show');
+
