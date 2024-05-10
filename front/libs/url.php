@@ -1,7 +1,5 @@
 <?php
 
-    define('SCRIPT_PATH', '/front/controller/script/');
-
 /**
  * Description of url
  *
@@ -10,20 +8,9 @@
  * @author Pandalittle CH
  */
 
-class Url
+class url
 {
-    public $url;
-    public $parametter;
-    public $segment;
-    public $uri;
-    public $pagelang;
-    public $optionurl;
-    public $rootDocument;
-    public $rootDir;
-    public $onFolder;
-    public $onfolderType;
-    public $onModulus;
-
+    public $url, $parametter, $segment, $uri, $pagelang, $optionurl, $rootDocument, $rootDir, $onFolder, $onfolderType, $onModulus;
     public $listfilemodulus = array("config.php", "modulus.php", "index.php");
     public $listcheckurl = array("");
 
@@ -79,7 +66,7 @@ class Url
             $uri_frist = cleanArray(explode('&', $urlall[1]));
             foreach ($uri_frist as $xuri) {
                 $thum = explode('=', $xuri, 2);
-                if (count($thum) == 2 && trim($thum[0]) != "") {
+                if (count($thum) == 2 and trim($thum[0]) != "") {
                     $uri[trim($thum[0])] = trim($thum[1]);
                 }
             }
@@ -106,7 +93,7 @@ class Url
 
     public function page()
     {
-        $folderpage = _DIR . SCRIPT_PATH . $this->segment[0] . "/";
+        $folderpage = _DIR . '/front/controller/script/' . $this->segment[0] . "/";
         if (file_exists($folderpage)) {
             $statuspage = $this->checkpagefile($folderpage);
             if (!empty($statuspage)) {
@@ -136,7 +123,7 @@ class Url
                 $loderpage['load'][] = $path . "/" . $value;
             }
         } else {
-            $path = _DIR . SCRIPT_PATH . $url_show_default;
+            $path = _DIR . '/front/controller/script/' . $url_show_default;
             $loderpage['pagename'] = $url_show_default;
             $loderpage['load'][] = $path . "/lang/" . $this->pagelang[2] . ".php";
             foreach ($this->listfilemodulus as $value) {
@@ -162,7 +149,7 @@ class Url
         $listfile = array("config.php", "class.php", "modulus.php", "index.php");
         $loderpage = array();
         foreach ($array as $value) {
-            $path = _DIR . SCRIPT_PATH . $value . "/";
+            $path = _DIR . '/front/controller/script/' . $value . "/";
 
             foreach ($listfile as $isfile) {
                 $loderpage[] = $path . $isfile;
