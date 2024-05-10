@@ -16,6 +16,9 @@ if (!empty($_REQUEST['mode'])) {
     $modefunction = null;
 }
 
+
+define('UPLOAD_DIR', '/upload');
+
 switch ($modefunction) {
     case 'debug':
         echo "<pre>";
@@ -97,9 +100,9 @@ $path_compile = _DIR . '/front/temp/template';
 $path_cache = _DIR . '/front/temp/cache';
 
 ## config path upload ##
-$path_upload = _DIR . '/upload';
-// $path_upload = '/upload';
-$path_upload_url = _URL . '/upload';
+$path_upload = _DIR .UPLOAD_DIR;
+// $path_upload =UPLOAD_DIR;
+$path_upload_url = _URL .UPLOAD_DIR;
 
 
 $core_pathname_upload = "/upload";

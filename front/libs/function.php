@@ -68,6 +68,8 @@ function configlang($lang)
 
 define('SELECT_ALL_FROM', 'SELECT * FROM');
 define('WHERE', 'WHERE');
+define('SECONDS', ' วินาที');
+define('MIN', ' นาที');
 ## sql insert ##
 function sqlinsert($array, $dbname, $key)
 {
@@ -287,23 +289,23 @@ function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
 
                 $mins = $menos / 60;
                 if ($mins < 1) {
-                    $showing = $menos . " วินาที";
+                    $showing = $menos . SECONDS;
                 } else {
                     $minsfinal = floor($mins);
                     $secondsfinal = $menos - ($minsfinal * 60);
                     $hours = $minsfinal / 60;
                     if ($hours < 1) {
-                        $showing = $minsfinal . " นาที " . $secondsfinal . " วินาที";
+                        $showing = $minsfinal . MIN . $secondsfinal . SECONDS;
                     } else {
                         $hoursfinal = floor($hours);
                         $minssuperfinal = $minsfinal - ($hoursfinal * 60);
                         $days = $hoursfinal / 24;
                         if ($days < 1) {
-                            $showing = $hoursfinal . " ชั่วโมง " . $minssuperfinal . " นาที " . $secondsfinal . " วินาที";
+                            $showing = $hoursfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
                         } else {
                             $daysfinal = floor($days);
                             $hourssuperfinal = $hoursfinal - ($daysfinal * 24);
-                            $showing = "ผ่านมาแล้ว " . $daysfinal . " วัน " . $hourssuperfinal . " ชั่วโมง " . $minssuperfinal . " นาที " . $secondsfinal . " วินาที";
+                            $showing = "ผ่านมาแล้ว " . $daysfinal . " วัน " . $hourssuperfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
                         }
                     }
                 }

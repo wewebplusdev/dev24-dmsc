@@ -641,7 +641,7 @@ class MobileDetect
         'NetFront'      => 'NetFront/[VER]',
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
         'Opera'         => array( ' OPR/[VER]', OPERAMINI_TAG, VERSION_TAG ),
-        'Opera Mini'    => OPERAMINI_TAG,
+        OPERAMINI    => OPERAMINI_TAG,
         OPERAMOBI    => OPERAMOBI_TAG,
         'UC Browser'    => 'UC Browser[VER]',
         'MQQBrowser'    => 'MQQBrowser/[VER]',
@@ -1439,7 +1439,7 @@ class MobileDetect
             $this->is('Blackberry') && $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) >= 5 && $this->version('BlackBerry', self::VERSION_TYPE_FLOAT)<6 ||
 
             //Opera Mini (5.0-6.5) - Tested on iOS 3.2/4.3 and Android 2.3
-            ($this->version('Opera Mini', self::VERSION_TYPE_FLOAT) >= 5.0 && $this->version('Opera Mini', self::VERSION_TYPE_FLOAT) <= 7.0 &&
+            ($this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) >= 5.0 && $this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) <= 7.0 &&
             ($this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3 || $this->is('iOS')) ) ||
 
             // Nokia Symbian^3 - Tested on Nokia N8 (Symbian^3), C7 (Symbian^3), also works on N97 (Symbian^1)
