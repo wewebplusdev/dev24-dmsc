@@ -6574,14 +6574,34 @@ div.swal2-html-container {
   .layout-view .btn-group > button svg {
     width: 18px;
   }
+  .document-download-list .box {
+    line-height: 1.1em;
+  }
+  .document-download-list .head .title {
+    font-size: 18px;
+  }
+  .document-download-list .head .date {
+    font-size: 14px;
+  }
+  .document-download-list .box .txt {
+    font-size: 14px;
+  }
 }
 @media (max-width: 575px) {
   .document-download-list.-layout-grid .item {
     width: 100%;
   }
-  .layout-view .btn-group .btn-list {
-    pointer-events: none;
-    opacity: 0.5;
+  .document-download-list .thumbnail {
+    width: 100%;
+  }
+  .document-download-list.-layout-list .row {
+    display: block;
+  }
+  .document-download-list.-layout-list .action {
+    padding: 20px 10px;
+  }
+  .document-download-list.-layout-list .thumbnail .cover {
+    padding-top: 80%;
   }
 }
 .event-calendar {
