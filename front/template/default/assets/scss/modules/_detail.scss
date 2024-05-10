@@ -28,9 +28,7 @@
     }
   }
 
-  .swiper-pagination-bullet{
-    width: 10px;
-  }
+ 
 
 
     .swiper-button-next{
@@ -45,6 +43,10 @@
         color: var(--color-light);
         border: 2px solid var(--color-light);
       }
+
+      &::after {
+        font-size: 25px;
+      }
     }
 
     .swiper-button-prev{
@@ -58,6 +60,10 @@
         background-color: var(--color-primary);
         color: var(--color-light);
         border: 2px solid var(--color-light);
+      }
+
+      &::after {
+        font-size: 25px;
       }
     }
 

@@ -178,7 +178,7 @@
                                   </g>
                                 </svg>
                               </span>
-                              <div class="txt text-primary fw-bold">{$languageFrontWeb->linkandroid->display->$currentLangWeb}</div>
+                              <div class="txt fw-bold">{$languageFrontWeb->linkandroid->display->$currentLangWeb}</div>
                            </div>
                           </a>
                           <a href="{$news_url2}" class="link -web-link" target="{$target2}">
@@ -195,7 +195,7 @@
                                   </g>
                                 </svg>
                               </span>
-                              <div class="txt text-primary fw-bold">{$languageFrontWeb->linkios->display->$currentLangWeb}</div>
+                              <div class="txt fw-bold">{$languageFrontWeb->linkios->display->$currentLangWeb}</div>
                             </div>
                           </a>
                         </div>

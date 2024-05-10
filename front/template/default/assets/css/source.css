@@ -2557,6 +2557,9 @@ div.swal2-html-container {
   -webkit-transition: height 400ms ease;
   transition: height 400ms ease;
 }
+.layout-header .lag-mobile {
+  display: none;
+}
 .layout-header .top-bar {
   position: relative;
   z-index: 10;
@@ -2927,6 +2930,26 @@ div.swal2-html-container {
   .layout-header .navbar {
     padding-bottom: 10px;
     padding-top: 10px;
+  }
+  .layout-header .lag-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: var(--color-light);
+    padding: 20px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    font-size: 18px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .layout-header .lag-mobile img {
+    width: 40px;
+  }
+  .layout-header .nav-lang .lag-desktop {
+    display: none;
   }
   .layout-header .top-bar .nav-lang .nav-label {
     display: none;
@@ -5384,9 +5407,6 @@ div.swal2-html-container {
   font-weight: var(--fw-bold);
   color: var(--color-secondary);
 }
-.detail-body .swiper-pagination-bullet {
-  width: 10px;
-}
 .detail-body .swiper-button-next {
   right: -80px;
   width: 54px;
@@ -5399,6 +5419,9 @@ div.swal2-html-container {
   color: var(--color-light);
   border: 2px solid var(--color-light);
 }
+.detail-body .swiper-button-next::after {
+  font-size: 25px;
+}
 .detail-body .swiper-button-prev {
   left: -80px;
   width: 54px;
@@ -5410,6 +5433,9 @@ div.swal2-html-container {
   background-color: var(--color-primary);
   color: var(--color-light);
   border: 2px solid var(--color-light);
+}
+.detail-body .swiper-button-prev::after {
+  font-size: 25px;
 }
 .detail-body .swiper:not(.gallery-slide .swiper) .swiper-slide {
   -webkit-transition: all 0.4s ease-in-out;
@@ -5935,6 +5961,9 @@ div.swal2-html-container {
   }
 }
 @media (max-width: 991px) {
+  .intro-content .height {
+    height: auto;
+  }
   .intro-content {
     height: 40dvh;
     display: -webkit-box;
@@ -5944,7 +5973,10 @@ div.swal2-html-container {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding-top: 40px;
+    padding-top: 5%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .intro-content .action {
     text-align: center;
@@ -5975,7 +6007,7 @@ div.swal2-html-container {
   }
   .intro-content .logo .symbol {
     width: 150px;
-    margin: 20px 0;
+    margin: 30px 0;
   }
   .intro-content .logo .txt {
     font-size: 14px;
@@ -6035,7 +6067,7 @@ div.swal2-html-container {
     min-width: 70%;
   }
   .intro-content .logo .txt {
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     margin-top: 15px;
   }
@@ -6379,30 +6411,32 @@ div.swal2-html-container {
 .document-download-list.-layout-grid .action {
   margin-top: 30px;
 }
-.document-download-list.-layout-grid .action .-read-more {
+.document-download-list.-layout-grid .-read-more {
   margin-right: 40px;
 }
-.document-download-list.-layout-grid .action .-web-link {
+.document-download-list.-layout-grid .-web-link {
   margin-top: 50px;
 }
-.document-download-list.-layout-grid .action .-web-link:hover {
+.document-download-list.-layout-grid .-web-link:hover {
   text-decoration: underline;
 }
-.document-download-list .item {
+
+.item {
   -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
           filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
 }
-.document-download-list .item:not(:last-child) {
+.item:not(:last-child) {
   margin-bottom: 20px;
 }
-.document-download-list .item-wrapper {
+
+.item-wrapper {
   position: relative;
   display: block;
   background-color: var(--color-light);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
           clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
 }
-.document-download-list .item-wrapper::before {
+.item-wrapper::before {
   content: "";
   position: absolute;
   background: url(../img/static/obj-download.png) no-repeat bottom right;
@@ -6412,7 +6446,7 @@ div.swal2-html-container {
   bottom: 0;
   right: 0;
 }
-.document-download-list .item-wrapper::after {
+.item-wrapper::after {
   content: "";
   position: absolute;
   top: 0;
@@ -6426,31 +6460,39 @@ div.swal2-html-container {
   opacity: 0;
   visibility: hidden;
 }
-.document-download-list .item-wrapper:hover::after {
+.item-wrapper:hover::after {
   opacity: 1;
   visibility: visible;
 }
-.document-download-list .item-wrapper:hover .head * {
+.item-wrapper:hover .head * {
   color: var(--color-light);
   fill: var(--color-light);
 }
-.document-download-list .item-wrapper:hover .box * {
+.item-wrapper:hover .action a {
+  color: var(--color-light);
+}
+.item-wrapper:hover .action a path {
+  fill: var(--color-light);
+}
+.item-wrapper:hover .box * {
   color: var(--color-light);
   fill: var(--color-light);
 }
-.document-download-list .thumbnail {
+
+.thumbnail {
   position: relative;
   z-index: 1;
   width: 200px;
 }
-.document-download-list .thumbnail .cover {
+.thumbnail .cover {
   padding-top: 100%;
 }
-.document-download-list .head {
+
+.head {
   margin-bottom: 20px;
   width: 700px;
 }
-.document-download-list .head .title {
+.head .title {
   font-size: var(--typo-md);
   font-weight: var(--fw-bold);
   color: var(--color-dark);
@@ -6464,33 +6506,35 @@ div.swal2-html-container {
   min-height: 1.3em;
   margin-bottom: 10px;
 }
-.document-download-list .head .date {
+.head .date {
   color: var(--color-dark);
   font-weight: var(--fw-bold);
 }
-.document-download-list .content {
+
+.content {
   position: relative;
   z-index: 1;
   padding: 0 30px;
 }
-.document-download-list .box .item-list li {
+
+.box .item-list li {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
-.document-download-list .box .item-list li + li {
+.box .item-list li + li {
   padding-left: 15px;
   margin-left: 15px;
   border-left: 1px solid var(--color-border);
 }
-.document-download-list .box .icon {
+.box .icon {
   margin-right: 10px;
 }
-.document-download-list .box .txt {
+.box .txt {
   font-size: 20px;
   color: var(--color-dark);
 }
-.document-download-list .box .type {
+.box .type {
   font-size: 16px;
   font-weight: var(--fw-medium);
   color: var(--color-default);
@@ -6499,14 +6543,15 @@ div.swal2-html-container {
   width: max-content;
   margin-left: auto;
 }
-.document-download-list .box.-download svg * path {
+.box.-download svg * path {
   fill: #2ab170 !important;
 }
-.document-download-list .action .link {
+
+.action .link {
   color: var(--color-primary);
   display: block;
 }
-.document-download-list .action .link:hover {
+.action .link:hover {
   text-decoration: underline;
 }
 

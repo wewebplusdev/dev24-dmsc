@@ -169,6 +169,7 @@
 
       &:hover {
         // background: linear-gradient(#2ab170 30%, #01377d 100%);
+       
       }
     }
 
@@ -205,6 +206,9 @@
 
     .action {
       margin-top: 30px;
+
+     
+      }
 
       .-read-more {
         margin-right: 40px;
@@ -270,6 +274,17 @@
           color: var(--color-light);
           fill: var(--color-light);
         }
+      }
+
+      .action{
+       a{
+        color: var(--color-light);
+
+        path{
+          fill: var(--color-light);
+        }
+        
+       }
       }
 
       .box {
@@ -368,7 +383,7 @@
       }
     }
   }
-}
+
 
 .layout-view {
   .btn-group {
