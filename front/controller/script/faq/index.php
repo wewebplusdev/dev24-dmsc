@@ -46,10 +46,11 @@ switch ($url->segment[0]) {
         $language_modules = array();
         // active menu header
         $headerActive = headerActive($url->url);
-        if (gettype($headerActive) == 'array' && count($headerActive) > 0) {
+        if (is_array($headerActive) && !empty($headerActive)) {
             $language_modules['breadcrumb2'] = $headerActive['page'][0];
             $language_modules['metatitle'] = $headerActive['page'][0];
         }
+        
         if ($masterkey == 'faq') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->faq->display->$currentLangWeb;

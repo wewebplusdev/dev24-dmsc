@@ -257,9 +257,10 @@ abstract class Controller
                 }
             }
 
-            if (count($array_content) > 0) {
+            if (!empty($array_content)) {
                 file_put_contents('./webservice_json/content_language_web.json', json_encode($array_content));
             }
+            
         }
     }
 
