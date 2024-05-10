@@ -12,18 +12,7 @@
 
 class url
 {
-    public $url;
-    public $parametter;
-    public $segment;
-    public $uri;
-    public $pagelang;
-    public $optionurl;
-    public $rootDocument;
-    public $rootDir;
-    public $onFolder;
-    public $onfolderType;
-    public $onModulus;
-
+    public $url, $parametter, $segment, $uri, $pagelang, $optionurl, $rootDocument, $rootDir, $onFolder, $onfolderType, $onModulus;
     public $listfilemodulus = array("config.php", "modulus.php", "index.php");
     public $listcheckurl = array("");
 
