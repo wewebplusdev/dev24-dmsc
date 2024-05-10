@@ -2557,6 +2557,9 @@ div.swal2-html-container {
   -webkit-transition: height 400ms ease;
   transition: height 400ms ease;
 }
+.layout-header .lag-mobile {
+  display: none;
+}
 .layout-header .top-bar {
   position: relative;
   z-index: 10;
@@ -2927,6 +2930,26 @@ div.swal2-html-container {
   .layout-header .navbar {
     padding-bottom: 10px;
     padding-top: 10px;
+  }
+  .layout-header .lag-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: var(--color-light);
+    padding: 20px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    font-size: 18px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .layout-header .lag-mobile img {
+    width: 40px;
+  }
+  .layout-header .nav-lang .lag-desktop {
+    display: none;
   }
   .layout-header .top-bar .nav-lang .nav-label {
     display: none;

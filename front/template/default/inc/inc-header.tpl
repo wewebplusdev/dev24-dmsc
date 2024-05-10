@@ -2,7 +2,7 @@
     <div class="top-bar" data-aos="fade-down" data-aos-delay="200">
         <div class="container">
             <div class="nav-lang">
-                <div class="row justify-content-end align-items-center gutters-10">
+                <div class="row justify-content-end align-items-center gutters-10 lag-desktop">
                     <div class="col-auto">
                         <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
                     </div>
@@ -135,7 +135,20 @@
                             {/if}
                         {/if}
                     {/foreach}
-                </ul>
+                    </ul>
+                    <div class="row gutters-10 lag-mobile">
+                    <div class="col-auto">
+                        <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
+                    </div>
+                    {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
+                        <div class="col-auto">
+                            <a title="{$valueLangWeb->subject}" class="nav-lang-th{if $currentLangWeb eq $valueLangWeb->subject} active{/if}" target="_self" href="{$ul}/lang/{$valueLangWeb->short}">
+                                <span class="visually-hidden">{$valueLangWeb->subject}</span>
+                                <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag">
+                            </a>
+                        </div>
+                    {/foreach}
+                </div>
                 {/if}
                 <div class="nav-search" data-aos="fade-left">
                     <form class="form-default form-search" method="get" role="search" action="{$ul}/searchAll">
