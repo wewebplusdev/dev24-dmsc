@@ -847,9 +847,9 @@ class MobileDetect
     {
         // Invalidate cache due to #375
         $this->cache = array();
-
+    
         if (false === empty($userAgent)) {
-            return $this->userAgent = $userAgent;
+            $this->userAgent = $userAgent;
         } else {
             $this->userAgent = null;
             foreach ($this->getUaHttpHeaders() as $altHeader) {
@@ -857,17 +857,21 @@ class MobileDetect
                     $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
                 }
             }
-
+    
             if (!empty($this->userAgent)) {
-                return $this->userAgent = trim($this->userAgent);
+                $this->userAgent = trim($this->userAgent);
             }
         }
-
-        if (count($this->getCfHeaders()) > 0) {
-            return $this->userAgent = AMAZON_TAG;
+    
+        if (empty($this->userAgent) && count($this->getCfHeaders()) > 0) {
+            $this->userAgent = AMAZON_TAG;
+        } elseif (empty($this->userAgent)) {
+            $this->userAgent = null;
         }
-        return $this->userAgent = null;
+    
+        return $this->userAgent;
     }
+    
 
     /**
      * Retrieve the User-Agent.

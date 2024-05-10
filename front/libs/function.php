@@ -709,7 +709,7 @@ function getDateNow()
     $month = $today['mon'];
     $year = $today['year'];
     $dateIs = sprintf("%04d-%02d-%02d", $year, $month, $day);
-    return ($dateIs);
+    return $dateIs;
 }
 
 //#################################################
