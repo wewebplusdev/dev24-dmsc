@@ -2,12 +2,6 @@
 
 class FeedPage extends Controller
 {
-    public function __construct()
-    {
-        // super class init
-        parent::__construct();
-    }
-
     public function loadData($data)
     {
         if (empty($this->tokenAccess)) {
@@ -20,8 +14,7 @@ class FeedPage extends Controller
             'Authorization: Bearer ' . $this->tokenAccess,
         ];
         
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
     public function curXML($url)
@@ -34,7 +27,6 @@ class FeedPage extends Controller
         curl_setopt($request, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
         
-        $response = curl_exec($request);
-        return $response;
+        return curl_exec($request);
     }
 }
