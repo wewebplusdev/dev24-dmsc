@@ -1,5 +1,5 @@
 function reload_swiper() {
-    let scSwiper = new Swiper(".service-category-list .swiper", {
+    new Swiper(".service-category-list .swiper", {
         slidesPerView: 5,
         watchSlidesProgress: true,
         navigation: {
@@ -21,6 +21,5 @@ function reload_swiper() {
             },
         }
     });
-    // Use "scSwiper" if needed
 }
 reload_swiper();
