@@ -847,9 +847,9 @@ class MobileDetect
     {
         // Invalidate cache due to #375
         $this->cache = array();
-    
+
         if (false === empty($userAgent)) {
-            $this->userAgent = $userAgent;
+            return $this->userAgent = $userAgent;
         } else {
             $this->userAgent = null;
             foreach ($this->getUaHttpHeaders() as $altHeader) {
@@ -857,21 +857,17 @@ class MobileDetect
                     $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
                 }
             }
-    
+
             if (!empty($this->userAgent)) {
-                $this->userAgent = trim($this->userAgent);
+                return $this->userAgent = trim($this->userAgent);
             }
         }
-    
-        if (empty($this->userAgent) && count($this->getCfHeaders()) > 0) {
-            $this->userAgent = AMAZON_TAG;
-        } elseif (empty($this->userAgent)) {
-            $this->userAgent = null;
+
+        if (count($this->getCfHeaders()) > 0) {
+            return $this->userAgent = AMAZON_TAG;
         }
-    
-        return $this->userAgent;
+        return $this->userAgent = null;
     }
-    
 
     /**
      * Retrieve the User-Agent.
@@ -1052,27 +1048,26 @@ class MobileDetect
      */
     public function checkHttpHeadersForMobile()
     {
-        $isMobile = false;
-    
+
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
                 if (is_array($matchType['matches'])) {
                     foreach ($matchType['matches'] as $_match) {
                         if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
-                            $isMobile = true;
-                            break 2; 
+                            return true;
                         }
                     }
+
+                    return false;
                 } else {
-                    $isMobile = true;
-                    break; 
+                    return true;
                 }
             }
         }
-    
-        return $isMobile;
+
+        return false;
+
     }
-    
 
     /**
      * Magic overloading method.
