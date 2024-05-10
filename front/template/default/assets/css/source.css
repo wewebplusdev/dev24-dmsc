@@ -6411,30 +6411,32 @@ div.swal2-html-container {
 .document-download-list.-layout-grid .action {
   margin-top: 30px;
 }
-.document-download-list.-layout-grid .action .-read-more {
+.document-download-list.-layout-grid .-read-more {
   margin-right: 40px;
 }
-.document-download-list.-layout-grid .action .-web-link {
+.document-download-list.-layout-grid .-web-link {
   margin-top: 50px;
 }
-.document-download-list.-layout-grid .action .-web-link:hover {
+.document-download-list.-layout-grid .-web-link:hover {
   text-decoration: underline;
 }
-.document-download-list .item {
+
+.item {
   -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
           filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
 }
-.document-download-list .item:not(:last-child) {
+.item:not(:last-child) {
   margin-bottom: 20px;
 }
-.document-download-list .item-wrapper {
+
+.item-wrapper {
   position: relative;
   display: block;
   background-color: var(--color-light);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
           clip-path: polygon(0 0, 100% 0, 100% 100%, 2.25em 100%, 0 calc(100% - 2em));
 }
-.document-download-list .item-wrapper::before {
+.item-wrapper::before {
   content: "";
   position: absolute;
   background: url(../img/static/obj-download.png) no-repeat bottom right;
@@ -6444,7 +6446,7 @@ div.swal2-html-container {
   bottom: 0;
   right: 0;
 }
-.document-download-list .item-wrapper::after {
+.item-wrapper::after {
   content: "";
   position: absolute;
   top: 0;
@@ -6458,31 +6460,39 @@ div.swal2-html-container {
   opacity: 0;
   visibility: hidden;
 }
-.document-download-list .item-wrapper:hover::after {
+.item-wrapper:hover::after {
   opacity: 1;
   visibility: visible;
 }
-.document-download-list .item-wrapper:hover .head * {
+.item-wrapper:hover .head * {
   color: var(--color-light);
   fill: var(--color-light);
 }
-.document-download-list .item-wrapper:hover .box * {
+.item-wrapper:hover .action a {
+  color: var(--color-light);
+}
+.item-wrapper:hover .action a path {
+  fill: var(--color-light);
+}
+.item-wrapper:hover .box * {
   color: var(--color-light);
   fill: var(--color-light);
 }
-.document-download-list .thumbnail {
+
+.thumbnail {
   position: relative;
   z-index: 1;
   width: 200px;
 }
-.document-download-list .thumbnail .cover {
+.thumbnail .cover {
   padding-top: 100%;
 }
-.document-download-list .head {
+
+.head {
   margin-bottom: 20px;
   width: 700px;
 }
-.document-download-list .head .title {
+.head .title {
   font-size: var(--typo-md);
   font-weight: var(--fw-bold);
   color: var(--color-dark);
@@ -6496,33 +6506,35 @@ div.swal2-html-container {
   min-height: 1.3em;
   margin-bottom: 10px;
 }
-.document-download-list .head .date {
+.head .date {
   color: var(--color-dark);
   font-weight: var(--fw-bold);
 }
-.document-download-list .content {
+
+.content {
   position: relative;
   z-index: 1;
   padding: 0 30px;
 }
-.document-download-list .box .item-list li {
+
+.box .item-list li {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
-.document-download-list .box .item-list li + li {
+.box .item-list li + li {
   padding-left: 15px;
   margin-left: 15px;
   border-left: 1px solid var(--color-border);
 }
-.document-download-list .box .icon {
+.box .icon {
   margin-right: 10px;
 }
-.document-download-list .box .txt {
+.box .txt {
   font-size: 20px;
   color: var(--color-dark);
 }
-.document-download-list .box .type {
+.box .type {
   font-size: 16px;
   font-weight: var(--fw-medium);
   color: var(--color-default);
@@ -6531,14 +6543,15 @@ div.swal2-html-container {
   width: max-content;
   margin-left: auto;
 }
-.document-download-list .box.-download svg * path {
+.box.-download svg * path {
   fill: #2ab170 !important;
 }
-.document-download-list .action .link {
+
+.action .link {
   color: var(--color-primary);
   display: block;
 }
-.document-download-list .action .link:hover {
+.action .link:hover {
   text-decoration: underline;
 }
 
