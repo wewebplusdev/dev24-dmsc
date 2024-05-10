@@ -28,8 +28,8 @@ class FeedPage extends Controller
     {
         $request = curl_init();
         curl_setopt($request, CURLOPT_URL, $url);
-        curl_setopt($request, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($request, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($request, CURLOPT_SSL_VERIFYPEER, 2);
 
         curl_setopt($request, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);

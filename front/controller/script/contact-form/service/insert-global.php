@@ -1,9 +1,19 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
+$requestParams = [
+    'secret' => $recaptchaSecretkey,
+    'response' => $_POST['g-recaptcha-response']
+];
 
-$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $recaptchaSecretkey . '&response=' . $_POST['g-recaptcha-response']);
+$requestQuery = http_build_query($requestParams);
+
+$verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
+
+$verifyResponse = file_get_contents($verifyUrl);
+
 $responseData = json_decode($verifyResponse);
+
 
 if ($responseData->success) {
     $arrData = array();

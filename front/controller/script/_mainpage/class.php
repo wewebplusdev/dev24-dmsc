@@ -300,8 +300,8 @@ abstract class Controller
         }
     
         curl_setopt($request, CURLOPT_URL, $url);
-        curl_setopt($request, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($request, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($request, CURLOPT_SSL_VERIFYPEER, 2);
     
         if (strtoupper($type) === 'POST') {
             curl_setopt($request, CURLOPT_POST, true);
