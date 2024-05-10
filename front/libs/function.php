@@ -669,36 +669,17 @@ function loadSendEmailTo($mailTo, $mailFrom = null, $subjectMail = null, $messag
 
 
 ///  FORMAT FORM NUM VALUE /////
-function addzero($value)
+function addZero($value)
 {
-    $valuelen = strlen($value);
-    switch ($valuelen) {
-        case 1:
-            return '000000' . $value;
-            break;
-        case 2:
-            return '00000' . $value;
-            break;
-        case 3:
-            return '0000' . $value;
-            break;
-        case 4:
-            return '000' . $value;
-            break;
-        case 5:
-            return '00' . $value;
-            break;
-        case 6:
-            return '0' . $value;
-            break;
-        case 7:
-            return $value;
-            break;
-        default:
-            return $value;
-            break;
+    $valueLen = strlen($value);
+    $paddingLength = 7 - $valueLen;
+    if ($paddingLength > 0 && $paddingLength <= 6) {
+        return str_repeat('0', $paddingLength) . $value;
+    } else {
+        return $value;
     }
 }
+
 
 ############################################
 function getDateNow()
