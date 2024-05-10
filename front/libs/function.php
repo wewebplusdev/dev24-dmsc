@@ -120,7 +120,6 @@ function sqlupdate($array, $dbname, $key, $where = null)
 ## get ip ##
 function getip()
 {
-
     $ip = false;
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -147,8 +146,9 @@ function getip()
             }
         }
     }
-    return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+    return $ip ? $ip : $_SERVER['REMOTE_ADDR'];
 }
+
 
 ## encodeStr ##
 function encodeStr($variable)
@@ -162,8 +162,9 @@ function encodeStr($variable)
     for ($i = 0; $i < strlen($variable); $i++) {
         $temp .= $variable[$i] . $key[$index];
         $index++;
-        if ($index >= strlen($key))
+        if ($index >= strlen($key)){
             $index = 0;
+        }
     }
     $variable = strrev($temp);
     $variable = base64_encode($variable);
@@ -793,11 +794,15 @@ function format($num,$length) {
 
 //#################################################
 function formatNum($myNumber) {
-//#################################################
+    //#################################################
     $myNumber = intval($myNumber);
-    if ($myNumber<10) return ("0".$myNumber);
-    else return ($myNumber);
+    if ($myNumber < 10) {
+        return "0" . $myNumber;
+    } else {
+        return $myNumber;
+    }
 }
+
 
 function headerActive($link){
     global $sitemapWeb, $currentLangWeb;
