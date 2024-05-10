@@ -3,6 +3,8 @@
   define('OPERAMINI_TAG', 'Opera Mini/[VER]');
   define('OPERAMOBI_TAG', 'Opera Mobi');
   define('AMAZON_TAG', 'Amazon CloudFront');
+  define('OPERAMOBI', 'Opera Mobi');
+
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
     $path_root = "/dev24-dmsc"; #ถ้า root ไม่ได้อยู่ public
     $_CORE_ENV = "DEV";

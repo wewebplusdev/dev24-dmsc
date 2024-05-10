@@ -81,10 +81,7 @@ class MobileDetect
      * A type for the version() method indicating a float return value.
      */
     const VERSION_TYPE_FLOAT        = 'float';
-    const VERSIONTAG = 'Version/[VER]';
-    const OPERAMINI_TAG = 'Opera Mini/[VER]';
-    const OPERAMOBI_TAG = 'Opera Mobi';
-    const AMAZON_TAG = 'Amazon CloudFront';
+
     
 
 
@@ -645,7 +642,7 @@ class MobileDetect
         'NokiaBrowser'  => 'NokiaBrowser/[VER]',
         'Opera'         => array( ' OPR/[VER]', OPERAMINI_TAG, VERSION_TAG ),
         'Opera Mini'    => OPERAMINI_TAG,
-        'Opera Mobi'    => OPERAMOBI_TAG,
+        OPERAMOBI    => OPERAMOBI_TAG,
         'UC Browser'    => 'UC Browser[VER]',
         'MQQBrowser'    => 'MQQBrowser/[VER]',
         'MicroMessenger' => 'MicroMessenger/[VER]',
