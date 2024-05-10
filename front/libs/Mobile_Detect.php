@@ -1052,26 +1052,27 @@ class MobileDetect
      */
     public function checkHttpHeadersForMobile()
     {
-
+        $isMobile = false;
+    
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
                 if (is_array($matchType['matches'])) {
                     foreach ($matchType['matches'] as $_match) {
                         if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
-                            return true;
+                            $isMobile = true;
+                            break 2; 
                         }
                     }
-
-                    return false;
                 } else {
-                    return true;
+                    $isMobile = true;
+                    break; 
                 }
             }
         }
-
-        return false;
-
+    
+        return $isMobile;
     }
+    
 
     /**
      * Magic overloading method.
