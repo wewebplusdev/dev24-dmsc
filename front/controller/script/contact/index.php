@@ -71,11 +71,10 @@ switch ($url->segment[1]) {
         $language_modules = array();
         // active menu header
         $headerActive = headerActive($url->url);
-        if (is_array($headerActive) && !empty($headerActive)) {
+        if (gettype($headerActive) == 'array' && count($headerActive) > 0) {
             $language_modules['breadcrumb1'] = $headerActive['page'][0];
             $language_modules['metatitle'] = $headerActive['page'][0];
         }
-        
         $smarty->assign("language_modules", $language_modules);
        
         /*## Start SEO #####*/

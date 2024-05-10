@@ -1,10 +1,4 @@
 <?php
-
-
-define('VERSION_TAG', 'Version/[VER]');
-define('OPERAMINI_TAG', 'Opera Mini/[VER]');
-define('OPERAMOBI_TAG', 'Opera Mobi');
-define('AMAZON_TAG', 'Amazon CloudFront');
 /**
  * Mobile Detect Library
  * =====================
@@ -605,6 +599,10 @@ class MobileDetect
 
 
 
+     define('VERSION_TAG', 'Version/[VER]');
+     define('OPERAMINI_TAG', 'Opera Mini/[VER]');
+     define('OPERAMOBI_TAG', 'Opera Mobi');
+     define('AMAZON_TAG', 'Amazon CloudFront');
 
 
 
