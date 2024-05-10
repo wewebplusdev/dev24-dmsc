@@ -27,6 +27,10 @@
 
 class MobileDetect
 {
+
+    
+    
+    
     /**
      * Mobile detection type.
      *
@@ -77,6 +81,12 @@ class MobileDetect
      * A type for the version() method indicating a float return value.
      */
     const VERSION_TYPE_FLOAT        = 'float';
+    const VERSIONTAG = 'Version/[VER]';
+    const OPERAMINI_TAG = 'Opera Mini/[VER]';
+    const OPERAMOBI_TAG = 'Opera Mobi';
+    const AMAZON_TAG = 'Amazon CloudFront';
+    
+
 
     /**
      * A cache for resolved matches
@@ -599,14 +609,12 @@ class MobileDetect
 
 
 
-     define('VERSION_TAG', 'Version/[VER]');
-     define('OPERAMINI_TAG', 'Opera Mini/[VER]');
-     define('OPERAMOBI_TAG', 'Opera Mobi');
-     define('AMAZON_TAG', 'Amazon CloudFront');
-
+   
 
 
     protected static $properties = array(
+
+        
 
         // Build
         'Mobile'        => 'Mobile/[VER]',
