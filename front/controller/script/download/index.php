@@ -75,13 +75,14 @@ switch ($url->segment[0]) {
             }
             exit();
         } else {
-            if (($file_extension == 'pdf' || $file_extension == "PDF")) {
+            if ($file_extension == 'pdf' || $file_extension == "PDF") {
                 header('Content-type:application/pdf');
                 header('Content-disposition: inline; filename="' . $file_name . '.' . $file_extension . '"');
                 header('content-Transfer-Encoding:binary');
                 header('Accept-Ranges:bytes');
                 @readfile($path_file);
-            } else {
+            }
+            else {
                 if (file_exists($path_file)) {
                     header('Content-Description: File Transfer');
                     header('Content-Type: application/' . $file_extension);

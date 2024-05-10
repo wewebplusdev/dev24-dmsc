@@ -16,7 +16,7 @@ $verifyResponse = file_get_contents($verifyUrl);
 $responseData = json_decode($verifyResponse);
 
 
-if ($responseData->success || true) {
+if ($responseData->success) {
     $arrData = array();
     foreach ($_POST as $key_form => $value_form) {
         $arrData[$key_form] = $value_form;
@@ -33,14 +33,14 @@ if ($responseData->success || true) {
             'code' => 1001,
             'msg' => 'success',
         );
-    }else{
+    } else {
         $arrJson = array(
             'code' => 400,
             'msg' => 'unsuccess',
             'icon' => 'error',
             'title' => $languageFrontWeb->errorReturn->display->$currentLangWeb,
             'text' => $languageFrontWeb->tryAgainReturn->display->$currentLangWeb,
-        );   
+        );
     }
     echo json_encode($arrJson);
 }else{

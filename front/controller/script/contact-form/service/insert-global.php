@@ -39,7 +39,7 @@ if ($responseData->success) {
             'icon' => 'error',
             'title' => $languageFrontWeb->errorReturn->display->$currentLangWeb,
             'text' => $languageFrontWeb->tryAgainReturn->display->$currentLangWeb,
-        );   
+        );
     }
     echo json_encode($arrJson);
 }else{

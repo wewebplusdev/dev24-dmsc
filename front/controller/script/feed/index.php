@@ -37,7 +37,7 @@ switch ($url->segment[0]) {
         }
 
         $context = stream_context_create(array('ssl'=>array(
-            'verify_peer' => false, 
+            'verify_peer' => false,
             "verify_peer_name"=>false
         )));
         
