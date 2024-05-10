@@ -31,8 +31,8 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $FeedPage->load_data($data);
-        if ($load_data->code != 1001) {
+        $loadData = $FeedPage->loadData($data);
+        if ($loadData->code != 1001) {
             header(LOCATION_PREFIX . $linklang . HOME_PATH);
         }
 
@@ -42,7 +42,7 @@ switch ($url->segment[0]) {
         )));
         
         libxml_set_streams_context($context);
-        $sxml = simplexml_load_file($load_data->item[0]->api);
+        $sxml = simplexml_load_file($loadData->item[0]->api);
         
         // Check if the XML was loaded successfully
         if ($sxml !== false) {
@@ -70,8 +70,8 @@ switch ($url->segment[0]) {
 
         // setup seo and text modules
         $language_modules = array();
-        $language_modules['breadcrumb2'] = $load_data->item[0]->subject;
-        $language_modules['metatitle'] = $load_data->item[0]->subject;
+        $language_modules['breadcrumb2'] = $loadData->item[0]->subject;
+        $language_modules['metatitle'] = $loadData->item[0]->subject;
         // active menu header
         $headerActive = headerActive($url->url);
         if (gettype($headerActive) == 'array' && count($headerActive) > 0) {

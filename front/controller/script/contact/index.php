@@ -34,7 +34,7 @@ switch ($url->segment[1]) {
         ];
 
         // call list
-        $load_data_agency = $ContactPage->load_data($data_agency);
+        $load_data_agency = $ContactPage->loadData($data_agency);
         $array_agency = array();
         if ($load_data_agency->_numOfRows > 0) {
             foreach ($load_data_agency->item as $keyarray_agency => $valuearray_agency) {
@@ -60,7 +60,7 @@ switch ($url->segment[1]) {
         ];
 
         // call list
-        $load_data_service = $ContactPage->load_data($data_service);
+        $load_data_service = $ContactPage->loadData($data_service);
         $smarty->assign("load_data_service", $load_data_service);
 
         // setup seo and text modules

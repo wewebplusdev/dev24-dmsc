@@ -122,9 +122,9 @@
             </div>
         </div>
         <div class="container">
-            {if $load_data->_numOfRows gte 1}
+            {if $loadData->_numOfRows gte 1}
                 <div class="manual-list">
-                {foreach $load_data->item as $keyload_data => $valueload_data}
+                {foreach $loadData->item as $keyload_data => $valueload_data}
                     {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
                     {assign var="target" value="_self"}
                     {assign var="downloadID" value=""}

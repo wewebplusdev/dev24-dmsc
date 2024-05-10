@@ -43,7 +43,7 @@ switch ($url->segment[1]) {
         ];
 
         // call group
-        $load_group = $CalendarPage->load_data($data_group);
+        $load_group = $CalendarPage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }

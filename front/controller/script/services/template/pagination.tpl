@@ -1,4 +1,4 @@
-{if $load_data->_numOfRows gte 1}
+{if $loadData->_numOfRows gte 1}
     {include file="inc/inc-pagination.tpl" title=title}
 {/if}
 

@@ -21,12 +21,12 @@ switch ($url->segment[2]) {
         $resultData['language'] = $ServicePage->language;
 
         // call list
-        $load_data = $ServicePage->load_data($resultData);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $ServicePage->loadData($resultData);
+        $smarty->assign("load_data", $loadData);
 
         /*## Set up pagination #####*/
         $page['page'] = str_replace("/pagination", "", $page['page']);
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];
@@ -71,7 +71,7 @@ switch ($url->segment[2]) {
         ];
         
         // call group
-        $load_group = $ServicePage->load_data($data_group);
+        $load_group = $ServicePage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
@@ -94,8 +94,8 @@ switch ($url->segment[2]) {
         $smarty->assign("dataOption",$data);
 
         // call list
-        $load_data = $ServicePage->load_data($data);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $ServicePage->loadData($data);
+        $smarty->assign("load_data", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
@@ -119,7 +119,7 @@ switch ($url->segment[2]) {
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

@@ -36,24 +36,24 @@ switch ($url->segment[0]) {
         ];
 
         // call detail
-        $load_data = $DownloadPage->load_data($data);
-        if ($load_data->code == 1001) {
-            $smarty->assign("load_data", $load_data);
+        $loadData = $DownloadPage->loadData($data);
+        if ($loadData->code == 1001) {
+            $smarty->assign("load_data", $loadData);
         }
-        if ($load_data->code != 1001 || (gettype($load_data->item[0]->attachment) != 'array' || count($load_data->item[0]->attachment) < 1)) {
+        if ($loadData->code != 1001 || (gettype($loadData->item[0]->attachment) != 'array' || count($loadData->item[0]->attachment) < 1)) {
             header('location:' . $linklang . "/home");
         }
 
-        $filename = explode(".", $load_data->item[0]->attachment[0]->filename);
+        $filename = explode(".", $loadData->item[0]->attachment[0]->filename);
         $file_extension = $filename[count($filename) - 1];
-        $file_name = $load_data->item[0]->attachment[0]->name ? $load_data->item[0]->attachment[0]->name : $load_data->item[0]->attachment[0]->filename;
+        $file_name = $loadData->item[0]->attachment[0]->name ? $loadData->item[0]->attachment[0]->name : $loadData->item[0]->attachment[0]->filename;
         if ($file_extension == 'pdf' || $file_extension == 'PDF') {
             $action_type = "view";
         } else {
             $action_type = "download";
         }
 
-        $path_file = fileinclude($load_data->item[0]->attachment[0]->filename, 'file', $load_data->item[0]->masterkey, 'other');
+        $path_file = fileinclude($loadData->item[0]->attachment[0]->filename, 'file', $loadData->item[0]->masterkey, 'other');
         if ($action_type == 'download') {
             if (file_exists($path_file)) {
                 header('Content-Description: File Transfer');

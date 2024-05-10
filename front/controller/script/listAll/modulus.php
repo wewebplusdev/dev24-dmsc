@@ -2,7 +2,7 @@
 
 class ListAllPage extends Controller
 {
-    public function load_data($data)
+    public function loadData($data)
     {
         if (empty($this->tokenAccess)) {
             return false;

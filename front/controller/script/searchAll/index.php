@@ -40,8 +40,8 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $SearchAllPage->load_data($data);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $SearchAllPage->loadData($data);
+        $smarty->assign("load_data", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
@@ -65,7 +65,7 @@ switch ($url->segment[0]) {
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

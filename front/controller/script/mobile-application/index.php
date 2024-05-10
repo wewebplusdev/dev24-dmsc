@@ -44,7 +44,7 @@ switch ($url->segment[0]) {
         ];
         
         // call group
-        $load_group = $MobileApplicationPage->load_data($data_group);
+        $load_group = $MobileApplicationPage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
@@ -62,8 +62,8 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $MobileApplicationPage->load_data($data);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $MobileApplicationPage->loadData($data);
+        $smarty->assign("load_data", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
@@ -84,7 +84,7 @@ switch ($url->segment[0]) {
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

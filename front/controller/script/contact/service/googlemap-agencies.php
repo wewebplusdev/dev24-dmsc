@@ -19,7 +19,7 @@ $data_agency = [
 ];
 
 // call list
-$load_data_agency = $ContactPage->load_data($data_agency);
+$load_data_agency = $ContactPage->loadData($data_agency);
 if ($load_data_agency->code != 1001) {
     header('location:' . $linklang . '/' . $menuActive);
 }

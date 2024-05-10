@@ -98,7 +98,7 @@
       </div>
     </div>
     <div class="container">
-      {if $load_data->_numOfRows gte 1}
+      {if $loadData->_numOfRows gte 1}
         <div class="layout-search">
           {if $req.keyword neq ""}
             <div class="text-results">
@@ -106,7 +106,7 @@
             </div>
           {/if}
           <div class="search-list">
-            {foreach $load_data->item as $keyload_data => $valueload_data}
+            {foreach $loadData->item as $keyload_data => $valueload_data}
               {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
               {assign var="target" value="_self"}
               {assign var="downloadID" value=""}
@@ -140,7 +140,7 @@
         </div>
       {/if}
     </div>
-    {if $load_data->_numOfRows gte 1}
+    {if $loadData->_numOfRows gte 1}
       {include file="inc/inc-pagination.tpl" title=title}
     {/if}
   </div>

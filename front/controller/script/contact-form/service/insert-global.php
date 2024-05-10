@@ -26,7 +26,7 @@ if ($responseData->success) {
     $arrData['language'] = $ContactPage->language;
 
     // insert
-    $insert_data = $ContactPage->load_data($arrData);
+    $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
         $arrJson = array(
             'code' => 1001,

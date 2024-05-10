@@ -8,7 +8,7 @@ class FeedPage extends Controller
         parent::__construct();
     }
 
-    public function load_data($data)
+    public function loadData($data)
     {
         if (empty($this->tokenAccess)) {
             return false;
