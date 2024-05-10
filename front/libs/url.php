@@ -1,4 +1,5 @@
 <?php
+define('SCRIPT_FOLDER', '/front/controller/script/');
 
 /**
  * Description of url
@@ -93,7 +94,7 @@ class url
 
     public function page()
     {
-        $folderpage = _DIR . '/front/controller/script/' . $this->segment[0] . "/";
+        $folderpage = _DIR . SCRIPT_FOLDER . $this->segment[0] . "/";
         if (file_exists($folderpage)) {
             $statuspage = $this->checkpagefile($folderpage);
             if (!empty($statuspage)) {
@@ -123,7 +124,7 @@ class url
                 $loderpage['load'][] = $path . "/" . $value;
             }
         } else {
-            $path = _DIR . '/front/controller/script/' . $url_show_default;
+            $path = _DIR . SCRIPT_FOLDER . $url_show_default;
             $loderpage['pagename'] = $url_show_default;
             $loderpage['load'][] = $path . "/lang/" . $this->pagelang[2] . ".php";
             foreach ($this->listfilemodulus as $value) {
@@ -149,7 +150,7 @@ class url
         $listfile = array("config.php", "class.php", "modulus.php", "index.php");
         $loderpage = array();
         foreach ($array as $value) {
-            $path = _DIR . '/front/controller/script/' . $value . "/";
+            $path = _DIR . SCRIPT_FOLDER . $value . "/";
 
             foreach ($listfile as $isfile) {
                 $loderpage[] = $path . $isfile;

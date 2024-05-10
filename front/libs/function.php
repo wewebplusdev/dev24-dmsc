@@ -614,9 +614,8 @@ function getIconSize($linkRelativePath)
     } else {
         $sizeFile = number_format($filesize / (1024 * 1024), 2) . " Mb";
     }
-    return ($sizeFile);
+    return $sizeFile;
 }
-
 ####################################################
 
 function getIcon($downloadFile, $type = "")
