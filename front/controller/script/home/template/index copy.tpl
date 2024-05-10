@@ -89,15 +89,15 @@
     {* End Top Graphic *}
     
     {* Start Services *}
-    {if $load_services->_numOfRows gte 1}
+    {if $loadServices->_numOfRows gte 1}
         <h2>Services</h2>
         <ul>
-            {foreach $load_services->item->group as $keyload_services_group => $load_services_group}
+            {foreach $loadServices->item->group as $keyload_services_group => $load_services_group}
                 <li><a href="javascript:void(0);" class="services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</a></li>
             {/foreach}
         </ul>
         <div class="d-flex flex-row p-2" id="service-append">
-            {foreach $load_services->item->list as $keyload_services_list => $valueload_services_list}
+            {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
                 {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
                 {assign var="target" value="_self"}
                 {if $checkUrl}
@@ -120,10 +120,10 @@
     {* End Services *}
 
     {* Start Innovation *}
-    {if $load_innovation->_numOfRows gte 1}
+    {if $loadInnovation->_numOfRows gte 1}
         <h2>Innovation</h2>
         <div class="d-flex flex-row p-2" id="service-append">
-            {foreach $load_innovation->item as $keyload_innovation_list => $valueload_innovation_list}
+            {foreach $loadInnovation->item as $keyload_innovation_list => $valueload_innovation_list}
                 <div class="card" style="width: 18rem;">
                     <a href="{$valueload_innovation_list->url}" target="{$valueload_innovation_list->target}">
                         <img src="{$valueload_innovation_list->pic->pictures}" class="card-img-top" alt="{$valueload_innovation_list->pic->pictures}">

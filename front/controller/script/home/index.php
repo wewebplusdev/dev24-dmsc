@@ -17,19 +17,18 @@ switch ($url->segment[0]) {
     default:
         // call popup
         $loadPopup = $HomePage->loadPopup();
-        // print_pre($loadPopup);
         $smarty->assign("loadPopup", $loadPopup);
         // call top graphic
         $loadTopgraphic = $HomePage->loadTopgraphic();
         $smarty->assign("loadTopgraphic", $loadTopgraphic);
         // call services
-        $load_services = $HomePage->load_services();
-        $smarty->assign("load_services", $load_services);
+        $loadServices = $HomePage->loadServices();
+        $smarty->assign("load_services", $loadServices);
         // call innovation
-        $load_innovation = $HomePage->load_innovation();
-        $smarty->assign("load_innovation", $load_innovation);
+        $loadInnovation = $HomePage->loadInnovation();
+        $smarty->assign("load_innovation", $loadInnovation);
         // call about
-        $load_about = $HomePage->load_about();
+        $load_about = $HomePage->loadAbout();
         $smarty->assign("load_about", $load_about);
         // call news
         $loadNews = $HomePage->loadNews();

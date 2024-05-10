@@ -27,7 +27,7 @@ class HomePage extends Controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
     
-    public function load_services()
+    public function loadServices()
     {
         if (empty($this->tokenAccess)) {
             return false;
@@ -69,7 +69,7 @@ class HomePage extends Controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_innovation()
+    public function loadInnovation()
     {
         if (empty($this->tokenAccess)) {
             return false;
@@ -90,7 +90,7 @@ class HomePage extends Controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_about()
+    public function loadAbout()
     {
         if (empty($this->tokenAccess)) {
             return false;

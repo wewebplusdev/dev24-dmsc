@@ -51,7 +51,7 @@
         </div>
     {/if}
 
-    {if $load_services->_numOfRows gte 1}
+    {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
             <div class="wg-services lazy" data-bg="{$template}/assets/img/background/bg-services.webp"
                 data-bg-hidpi="{$template}/assets/img/background/bg-services@2x.webp">
@@ -73,7 +73,7 @@
                         <div class="service-category-list">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper">
-                                    {foreach $load_services->item->group as $keyload_services_group => $load_services_group}
+                                    {foreach $loadServices->item->group as $keyload_services_group => $load_services_group}
                                         <div class="swiper-slide">
                                             <div class="item">
                                                 <button type="button" class="btn services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</button>
@@ -90,7 +90,7 @@
                         <div class="service-slide">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper" id="service-append">
-                                    {foreach $load_services->item->list as $keyload_services_list => $valueload_services_list}
+                                    {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
                                         {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
                                         {assign var="target" value="_self"}
                                         {if $checkUrl}
@@ -131,7 +131,7 @@
         </div>
     {/if}
 
-    {if $load_innovation->_numOfRows gte 1}
+    {if $loadInnovation->_numOfRows gte 1}
         <div class="section section-ii">
             <div class="wg-research">
                 <div class="wg-research-main" data-aos="fade-up">
@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    {foreach $load_innovation->item as $keyload_innovation => $valueload_innovation}
+                    {foreach $loadInnovation->item as $keyload_innovation => $valueload_innovation}
                         {if $keyload_innovation < 2}
                             {if $keyload_innovation eq 0}
                                 {$fade_action = "right"}
@@ -194,14 +194,14 @@
                         {/if}
                     {/foreach}
                 </div>
-                {if $load_innovation->item|count gte 2}
+                {if $loadInnovation->item|count gte 2}
                     <div class="wg-research-list lazy"
                         data-bg="{$template}/assets/img/background/bg-wg-research.webp"
                         data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp">
                         <div class="container">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper">
-                                    {foreach $load_innovation->item as $keyload_innovation => $valueload_innovation}
+                                    {foreach $loadInnovation->item as $keyload_innovation => $valueload_innovation}
                                         {if $keyload_innovation > 1}
                                             <div class="swiper-slide">
                                                 <div class="item">

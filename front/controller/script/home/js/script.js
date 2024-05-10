@@ -82,14 +82,13 @@ let newsSwiper = new Swiper(".wg-news-slide .swiper", {
     }
 });
 
-// $('#popupModal').modal('show');
 
 function reload_swiper() {
     if (typeof serviceSwiper != 'undefined') {
         serviceSwiper.destroy();
     }
 
-    serviceSwiper = new Swiper(".service-slide .swiper", {
+    let serviceSwiper = new Swiper(".service-slide .swiper", {
         slidesPerView: 5,
         watchSlidesProgress: true,
         grid: {
