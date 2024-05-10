@@ -7,6 +7,14 @@ $ListAllPage = new ListAllPage;
 $masterkey = $url->segment[1];
 
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         if (empty($masterkey)) {
             $masterkey = 'nw';

@@ -6,6 +6,14 @@ $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/sc
 $HomePage = new HomePage;
 
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         // call popup
         $loadPopup = $HomePage->loadPopup();

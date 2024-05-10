@@ -5,7 +5,16 @@ $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/sc
 $IntroPage = new IntroPage;
 
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
+    
         // call intro
         $loadIntro = $IntroPage->loadIntro();
         if ($loadIntro->code != 1001) {

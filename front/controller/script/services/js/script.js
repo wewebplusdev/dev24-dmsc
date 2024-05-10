@@ -1,4 +1,3 @@
-let serviceSwiper = reload_swiper();
 
 function reload_swiper() {
     let scSwiper = new Swiper(".service-category-list .swiper", {
@@ -24,3 +23,4 @@ function reload_swiper() {
         }
     });
 }
+reload_swiper();
