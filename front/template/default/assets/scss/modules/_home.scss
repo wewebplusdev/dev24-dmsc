@@ -44,7 +44,7 @@
   min-height: 600px;
 }
 .service-category {
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 30px;
   .service-category-list {
     position: relative;
@@ -466,6 +466,8 @@
     .action {
       margin-top: 50px;
     }
+
+   
   }
   .wg-about-group-list {
     width: 620px;
@@ -567,6 +569,10 @@
     padding-right: 40px;
     .action {
       margin-top: 40px;
+    }
+
+    .action-not-show {
+      display: none;
     }
   }
   .wg-news-tab {
@@ -1025,6 +1031,21 @@
   }
   .wg-services {
     padding: 50px 0 110px;
+
+    .whead{
+      text-align: center;
+     
+    }
+
+    .action{
+      text-align: center;
+      margin-top: 20px;
+     
+    }
+  }
+
+  .wg-about .wg-about-group-list{
+    width: auto;
   }
   .service-category .service-category-list {
     margin: -10px;
@@ -1043,6 +1064,15 @@
   }
   .wg-research .wg-research-main {
     padding: 50px 0;
+
+    .whead{
+      text-align: center;
+    }
+
+    .action{
+      margin-top: 20px;
+      text-align: center;
+    }
   }
   .wg-research-group .graphic {
     width: 240px;
@@ -1093,6 +1123,19 @@
   }
   .wg-about .content {
     padding: 50px 0 30px 0;
+
+    .whead{
+      text-align: center;
+    }
+
+    .line{
+      display: none;
+    }
+
+    .action{
+      margin-top: 20px;
+      text-align: center;
+    }
   }
   .wg-about .content .whead .subtitle,
   .wg-about .content .whead .title {
@@ -1134,10 +1177,31 @@
     white-space: nowrap;
   }
   .wg-news .wg-news-nav .action {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     margin-top: 15px;
+  }
+
+  .wg-news .wg-news-nav {
+
+    .whead{
+      text-align: center;
+    }
+
+    .line{
+      display: none;
+    }
+
+    .action-show{
+      display: none;
+    }
+    
+    .action-not-show{
+      display: block;
+      margin-bottom: 20px;
+      text-align: center;
+    }
   }
   .wg-news .wg-news-tab {
     padding-right: 0;
@@ -1181,6 +1245,8 @@
   }
   .wg-research .wg-research-main {
     padding: 40px 0;
+
+    
   }
   .wg-research-list {
     padding-bottom: 40px;

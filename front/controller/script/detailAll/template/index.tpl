@@ -223,9 +223,9 @@
             {if $load_data->item[0]->album|gettype eq "array" && $load_data->item[0]->album|count gte 1}
                 <div class="gallery-block my-lg-4 my-0">
                     <div class="container">
-                        <div class="gallery-slide">
+                        <div class="gallery-slide" >
                             <div class="swiper gallery-swiper-2">
-                                <div class="swiper-wrapper">
+                                <div class="swiper-wrapper" >
                                     <div class="swiper-slide">
                                         <figure class="cover">
                                             <a href="{$load_data->item[0]->pic->real}" class="link" data-fancybox="gallery">
@@ -246,7 +246,9 @@
                                     {/foreach}
 
                                 </div>
-                            </div>
+                                </div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
                             <div class="gallery-slider-nav">
                                 <div thumbsSlider="" class="swiper gallery-swiper-">
                                     <div class="swiper-wrapper">
@@ -521,7 +523,7 @@
                             nonce="IFt1dfew"></script>
 
                         <!-- fb comment show here  -->
-                    
+                     
                         <div id="fb-comments"  class="fb-comments collapse"
                             data-href="https://www.dmcr.go.th/detailAll/70880/nws/11" data-width="100%" data-numposts="5" data-mobile="true"  >
                           </div>

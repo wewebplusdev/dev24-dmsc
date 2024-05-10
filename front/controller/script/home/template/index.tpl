@@ -57,13 +57,13 @@
                 data-bg-hidpi="{$template}/assets/img/background/bg-services@2x.webp">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col">
+                        <div class="col-lg">
                             <div class="whead mb-0" data-aos="fade-right">
                                 <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->serviceen->display->$currentLangWeb}</p>
                             </div>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-lg-auto">
                             <div class="action" data-aos="fade-left">
                                 <a href="{$ul}/services" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                             </div>
@@ -137,13 +137,13 @@
                 <div class="wg-research-main" data-aos="fade-up">
                     <div class="container">
                         <div class="row align-items-center">
-                            <div class="col">
+                            <div class="col-lg">
                                 <div class="whead mb-0">
                                     <h2 class="title">{$languageFrontWeb->researchth->display->$currentLangWeb}</h2>
                                     <p class="subtitle">{$languageFrontWeb->researchen->display->$currentLangWeb}</p>
                                 </div>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-lg-auto">
                                 <div class="action">
                                     <a href="{$ul}/services/rein" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                                 </div>
@@ -328,7 +328,12 @@
                                     <h2 class="title">{$languageFrontWeb->titlenewsth->display->$currentLangWeb}</h2>
                                     <p class="subtitle">{$languageFrontWeb->titlenewsen->display->$currentLangWeb}</p>
                                     <div class="line"></div>
+                                  
                                 </div>
+                                <div class="action action-not-show">
+                                <a href="{$ul}/listAll/{$valueNewsGroup->masterkey}" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
+                            </div>
+                                
                                 <div class="nav nav-default flex-column" id="news-tab" role="tablist"
                                     aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
@@ -337,9 +342,10 @@
                                             aria-selected="true">{$valueNewsGroup->subject}</button>
                                     {/foreach}
                                 </div>
-                                <div class="action">
+                                <div class="action action-show">
                                     <a href="{$ul}/listAll/{$valueNewsGroup->masterkey}" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                                 </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-auto">

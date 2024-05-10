@@ -194,7 +194,7 @@
             <div class="footer-bottom" >
                 <div class="row">
                     {if $load_policy->_numOfRows gte 1}
-                    <div class="col-md" data-aos="fade-up">
+                    <div class="col-md align-self-center" data-aos="fade-up">
                         <div class="policy">
                             <ul class="item-list">
                                 {foreach $load_policy->item as $keyPolicy => $valuePolicy}
@@ -220,7 +220,7 @@
                     {/if}
                     <div class="col-md-auto" data-aos="fade-up">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
-                        <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
+                        <a href="javascript:void(0);" class="link sitemap btn btn-primary text-white">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
                 </div>
             </div>
