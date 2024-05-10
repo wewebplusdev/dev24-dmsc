@@ -18,8 +18,10 @@ function printPre($expression, $return = false, $wrap = false)
             fclose($fh);
         }
         return $str;
-    } else
-        echo $str;
+    } else {
+          echo $str;
+    }
+      
 }
 
 ## clean array ##
@@ -491,7 +493,7 @@ function resize($img, $w, $h, $newfilename)
     $newImg = imagecreatetruecolor($nWidth, $nHeight);
 
     /* Check if this image is PNG or GIF, then set if Transparent */
-    if (($imgInfo[2] == 1) or ($imgInfo[2] == 3)) {
+    if (($imgInfo[2] == 1) || ($imgInfo[2] == 3)) {
         imagealphablending($newImg, false);
         imagesavealpha($newImg, true);
         $transparent = imagecolorallocatealpha($newImg, 255, 255, 255, 127);
