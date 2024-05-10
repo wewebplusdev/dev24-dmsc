@@ -1,6 +1,6 @@
 <?php
 ## print pre ##
-function print_pre($expression, $return = false, $wrap = false)
+function printPre($expression, $return = false, $wrap = false)
 {
     $css = 'border:1px dashed #06f;background:#69f;padding:1em;text-align:left;z-index:99999;font-size:12px;position:relative';
     if ($wrap) {
@@ -65,12 +65,12 @@ function configlang($lang)
 
 
 define('SELECT_ALL_FROM', 'SELECT * FROM');
-
+define('WHERE', 'WHERE');
 ## sql insert ##
 function sqlinsert($array, $dbname, $key)
 {
     global $db;
-    $sql_insert = SELECT_ALL_FROM . " " . $dbname . " WHERE " . $key . " = -1";
+    $sql_insert = SELECT_ALL_FROM . " " . $dbname . WHERE . $key . " = -1";
     $result_insert = $db->Execute($sql_insert);
 
     $sql_create_insert = $db->GetInsertSQL($result_insert, $array);
@@ -99,9 +99,9 @@ function sqlupdate($array, $dbname, $key, $where = null)
     }
 
     if (!empty($where)) {
-        $sql_update = SELECT_ALL_FROM . " " . $dbname . " WHERE " . $listWhere . " = " . $where;
+        $sql_update = SELECT_ALL_FROM . " " . $dbname . WHERE . $listWhere . " = " . $where;
     } else {
-        $sql_update = SELECT_ALL_FROM . " " . $dbname . " WHERE " . $listWhere;
+        $sql_update = SELECT_ALL_FROM . " " . $dbname . WHERE . $listWhere;
     }
 
     $result_update = $db->Execute($sql_update);

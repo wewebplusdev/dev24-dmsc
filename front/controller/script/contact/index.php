@@ -1,4 +1,8 @@
 <?php
+define('SCRIPT_PATH', '/front/controller/script/');
+
+
+
 $menuActive = "contact";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
@@ -6,15 +10,15 @@ $ContactPage = new ContactPage;
 
 switch ($url->segment[1]) {
     case 'googlemap-agencies':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/googlemap-agencies.php';
+        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/googlemap-agencies.php';
         break;
 
     case 'map-google':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/map-google.php';
+        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/map-google.php';
         break;
 
     case 'map-graphic':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/map-graphic.php';
+        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/map-graphic.php';
         break;
 
     default:

@@ -43,7 +43,7 @@ require_once _DIR . '/front/libs/url.php'; #load url
 require_once _DIR . '/front/libs/Mobile_Detect.php'; #load url
 
 ##check divice ##
-$detectDivice = new Mobile_Detect;
+$detectDivice = new MobileDetect;
 
 ## load modulus ##
 require_once _DIR . '/front/controller/modulus/member.php'; #load member status
