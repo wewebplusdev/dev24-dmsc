@@ -223,9 +223,9 @@
             {if $load_data->item[0]->album|gettype eq "array" && $load_data->item[0]->album|count gte 1}
                 <div class="gallery-block my-lg-4 my-0">
                     <div class="container">
-                        <div class="gallery-slide">
+                        <div class="gallery-slide" >
                             <div class="swiper gallery-swiper-2">
-                                <div class="swiper-wrapper">
+                                <div class="swiper-wrapper" >
                                     <div class="swiper-slide">
                                         <figure class="cover">
                                             <a href="{$load_data->item[0]->pic->real}" class="link" data-fancybox="gallery">
@@ -246,7 +246,9 @@
                                     {/foreach}
 
                                 </div>
-                            </div>
+                                </div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
                             <div class="gallery-slider-nav">
                                 <div thumbsSlider="" class="swiper gallery-swiper-">
                                     <div class="swiper-wrapper">

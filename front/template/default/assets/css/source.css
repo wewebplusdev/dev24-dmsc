@@ -5384,6 +5384,33 @@ div.swal2-html-container {
   font-weight: var(--fw-bold);
   color: var(--color-secondary);
 }
+.detail-body .swiper-pagination-bullet {
+  width: 10px;
+}
+.detail-body .swiper-button-next {
+  right: -80px;
+  width: 54px;
+  height: 54px;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.detail-body .swiper-button-next:hover {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: 2px solid var(--color-light);
+}
+.detail-body .swiper-button-prev {
+  left: -80px;
+  width: 54px;
+  height: 54px;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.detail-body .swiper-button-prev:hover {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: 2px solid var(--color-light);
+}
 .detail-body .swiper:not(.gallery-slide .swiper) .swiper-slide {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
