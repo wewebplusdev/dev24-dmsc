@@ -67,7 +67,7 @@ class url
             $uri_frist = cleanArray(explode('&', $urlall[1]));
             foreach ($uri_frist as $xuri) {
                 $thum = explode('=', $xuri, 2);
-                if (count($thum) == 2 and trim($thum[0]) != "") {
+                if (count($thum) == 2 && trim($thum[0]) != "") {
                     $uri[trim($thum[0])] = trim($thum[1]);
                 }
             }

@@ -6,6 +6,6 @@ require_once _DIR . '/front/libs/smarty4320/Smarty.class.php';
 $smarty = new Smarty;
 // $smarty = new SmartyBC();
 $smarty->loadPlugin('smarty_compiler_switch');
-$smarty->debugging = FALSE;
-$smarty->caching = FALSE;
+$smarty->debugging = false;
+$smarty->caching = false;
 $smarty->setTemplateDir($path_template[$templateweb])->setCompileDir($path_compile)->setCacheDir($path_cache);
