@@ -37,12 +37,11 @@ $('#form-contact').validator().on('submit', function (e) {
                         showCancelButton: false,
                         allowOutsideClick: false,
                         didOpen: () => {
-                            Swal.showLoading()
-                            let timerInterval = setInterval(() => {
-                            }, 100)
+                            Swal.showLoading();
+                            setInterval(() => {}, 100);
                         },
                         willClose: () => {
-                            clearInterval(timerInterval)
+                            clearInterval();
                         },
                         timer: 3000,
                     });
