@@ -19,7 +19,7 @@ $('.services-filter').on('click', async function(){
         array_gid.push($(value).data('id'));
     });
 
-    if (array_gid.length > 0 || true) {
+    if (array_gid.length > 0) {
         const settings = {
             "url": `${path}${language}/reverse_proxy`,
             "method": "POST",
