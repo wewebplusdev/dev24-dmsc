@@ -1282,19 +1282,17 @@ figure.ratio .img-ratio.ratio-9x16 {
   height: 20px;
 }
 
+@media (min-width: 576px) {
+  .popup-modal .btn-close {
+    padding: 0;
+  }
+  .modal .btn-close .material-symbols-rounded {
+    font-size: 40px;
+  }
+}
 @media (min-width: 992px) {
   .popup-modal .modal-dialog {
     max-width: 1024px;
-  }
-}
-@media (min-width: 1200px) {
-  .popup-modal .modal-dialog {
-    max-width: 1180px;
-  }
-}
-@media (min-width: 1441px) {
-  .popup-modal .modal-dialog {
-    max-width: 1280px;
   }
 }
 .pagination-block {
@@ -4248,7 +4246,7 @@ div.swal2-html-container {
   max-width: 37px;
 }
 .layout-footer .contact .desc {
-  font-size: var(--typo-default);
+  font-size: 18px;
   font-weight: var(--fw-regular);
   line-height: 1.4em;
 }
@@ -4319,6 +4317,7 @@ div.swal2-html-container {
 }
 .layout-footer .copyright {
   margin: 0;
+  font-size: 16px;
 }
 .layout-footer .visitors {
   display: -webkit-box;
@@ -4327,13 +4326,14 @@ div.swal2-html-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 16px;
 }
 .layout-footer .visitors .box {
-  margin-left: 15px;
+  margin-left: 13px;
   border: 1px solid;
   border-radius: var(--rounded);
-  line-height: 38px;
-  padding: 0 15px;
+  line-height: 30px;
+  padding: 0 10px;
 }
 .layout-footer .footer-content {
   background-color: var(--color-light);
@@ -4401,7 +4401,7 @@ div.swal2-html-container {
 
 @media (max-width: 1600px) {
   .layout-footer .footer-top .title {
-    font-size: 44px;
+    font-size: 38px;
   }
   .layout-footer .footer-top .subtitle {
     font-size: 32px;
@@ -4411,24 +4411,34 @@ div.swal2-html-container {
   }
   .layout-footer .contact .icon {
     max-width: 36px;
+    margin-right: 12px;
   }
   .layout-footer .contact .desc {
-    font-size: var(--typo-xs);
+    font-size: 16px;
   }
   .layout-footer .ipv6 {
     width: 85px;
   }
   .layout-footer .policy {
-    font-size: 16px;
+    font-size: 15px;
   }
   .layout-footer .sitemap {
-    font-size: 16px;
+    font-size: 15px;
   }
   .layout-footer .footer-bar {
-    font-size: 16px;
+    font-size: 15px;
+  }
+  .layout-footer .copyright {
+    font-size: 15px;
+  }
+  .layout-footer .visitors {
+    font-size: 15px;
+  }
+  .layout-footer .footer-middle .text-follow-us {
+    font-size: 18px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1540px) {
   .layout-footer .footer-top {
     padding: 50px 0;
   }
@@ -4871,7 +4881,7 @@ div.swal2-html-container {
   padding: 0 20px 0 60px;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   .line {
     margin-bottom: 20px;
     margin-top: 20px;
@@ -4906,6 +4916,9 @@ div.swal2-html-container {
   .select2-container--option-filter .select2-results__option {
     font-size: 20px;
     padding: 18px 20px;
+  }
+  .nav-default.flex-column .nav-link {
+    font-size: 18px;
   }
 }
 @media (max-width: 1199px) {
@@ -5855,7 +5868,7 @@ div.swal2-html-container {
     font-size: 26px;
   }
   .wg-services {
-    padding: 70px 0 130px;
+    padding: 70px 0 90px;
   }
   .service-category .btn {
     height: 54px;
@@ -5894,25 +5907,26 @@ div.swal2-html-container {
     padding: 70px 0;
   }
   .wg-research-group .whead .title {
-    font-size: 32px;
+    font-size: 28px;
   }
   .wg-research-group .whead .subtitle {
-    font-size: 24px;
+    font-size: 20px;
+    margin-top: 5px;
   }
   .wg-research-group .whead .total {
-    font-size: 60px;
+    font-size: 50px;
     margin-top: 50px;
   }
   .wg-research-group .whead .unit {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 10px;
   }
   .wg-research-group .whead .unit span {
-    font-size: 32px;
+    font-size: 26px;
     margin-left: 5px;
   }
   .wg-research-group .graphic {
-    width: 330px;
+    width: 300px;
   }
   .wg-research-group.-left .whead {
     padding: 30px 30px 30px 160px;
@@ -5928,31 +5942,50 @@ div.swal2-html-container {
   }
   .wg-research-group.-left .bg-obj img,
   .wg-research-group.-right .bg-obj img {
-    height: 140px;
+    height: 125px;
   }
   .wg-research-list {
-    padding-bottom: 70px;
+    padding-bottom: 0;
+    margin-bottom: 100px;
+    background-size: cover;
+    background-position: bottom center;
+    height: 251px;
+  }
+  .wg-research-group .card {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 2em 100%, 0 calc(100% - 2em));
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 2em 100%, 0 calc(100% - 2em));
   }
   .wg-research-list .wg-research-group .card-body {
     padding: 40px;
   }
   .wg-research-list .wg-research-group .bg-obj {
-    max-width: 180px;
+    max-width: 140px;
+  }
+  .wg-about-group .title {
+    font-size: 28px;
   }
   .wg-about .content .desc {
-    font-size: var(--typo-xs);
+    font-size: 16px;
   }
   .wg-about .content .action {
     margin-top: 40px;
   }
+  .wg-about-group .action {
+    font-size: 18px;
+  }
   .wg-about-group .action span {
-    font-size: 32px;
+    font-size: 26px;
+    margin-left: 5px;
+    top: 7px;
   }
   .wg-about-group .grphic-obj {
     width: 70px;
   }
   .wg-news {
     padding: 150px 0 70px;
+  }
+  .wg-news .wg-news-list .item {
+    padding: 0 10px;
   }
   .wg-news .wg-news-nav .action {
     margin-top: 30px;
@@ -5963,16 +5996,16 @@ div.swal2-html-container {
   }
   .wg-news .wg-news-slide .swiper-default .swiper-button-next,
   .wg-news .wg-news-slide .swiper-default .swiper-button-prev {
-    width: 54px;
-    height: 54px;
+    width: 48px;
+    height: 48px;
   }
   .wg-news .wg-news-slide .swiper-default .swiper-button-next:after,
   .wg-news .wg-news-slide .swiper-default .swiper-button-prev:after {
-    font-size: 34px;
+    font-size: 28px;
   }
   .wg-lab .bg-obj {
     margin: 20px 0;
-    width: 120px;
+    width: 100px;
   }
   .wg-lab .bg {
     width: 56vw;
@@ -5980,8 +6013,11 @@ div.swal2-html-container {
   .wg-contact .bg {
     width: 44vw;
   }
+  .wg-contact .content .contact-list .icon {
+    margin-right: 12px;
+  }
   .wg-contact .contact-list .desc {
-    font-size: var(--typo-xs);
+    font-size: 16px;
   }
   .wg-contact .content,
   .wg-lab .content {
@@ -6034,6 +6070,8 @@ div.swal2-html-container {
   }
   .wg-research-list {
     padding-bottom: 60px;
+    margin-bottom: 0;
+    height: auto;
   }
   .wg-research-list .wg-research-group .bg-obj {
     max-width: 140px;
@@ -7073,18 +7111,35 @@ div.swal2-html-container {
 
 @media (max-width: 1600px) {
   .news-card .card-body {
-    padding: 25px;
+    padding: 20px;
   }
   .news-card .title {
     font-size: var(--typo-default);
   }
-}
-@media (max-width: 1440px) {
+  .news-card .thumbnail {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 1.25em 100%, 0 calc(100% - 1.25em));
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 1.25em 100%, 0 calc(100% - 1.25em));
+  }
+  .news-card {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.25em), calc(100% - 1.25em) 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.25em), calc(100% - 1.25em) 100%, 0 100%);
+  }
   .news-card .title {
-    font-size: var(--typo-xs);
+    font-size: 16px;
+  }
+  .news-card .line {
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
   .news-card .desc {
+    font-size: 14px;
+  }
+  .news-card .action {
     font-size: 16px;
+    margin-top: 10px;
+  }
+  .news-card .action span {
+    font-size: 22px;
   }
   .news-list {
     gap: 30px;
@@ -9743,7 +9798,7 @@ div.swal2-html-container {
   .btn {
     height: 50px;
     line-height: 50px;
-    min-width: 150px;
+    min-width: 140px;
     font-size: 18px;
   }
   .swiper-default .swiper-pagination-bullet {
