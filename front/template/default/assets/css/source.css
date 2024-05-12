@@ -4386,7 +4386,7 @@ div.swal2-html-container {
   border-top: 1px solid #cccccc;
   margin-top: -1px;
   padding: 20px 0;
-  font-size: var(--typo-xs);
+  font-size: 16px;
 }
 .layout-footer .footer-bar {
   font-size: var(--typo-xs);
@@ -5845,12 +5845,12 @@ div.swal2-html-container {
     width: 44vw;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1540px) {
   .section .whead .title {
-    font-size: 38px;
+    font-size: 36px;
   }
   .section .whead .subtitle {
-    font-size: 28px;
+    font-size: 26px;
   }
   .wg-services {
     padding: 70px 0 130px;
@@ -9733,15 +9733,16 @@ div.swal2-html-container {
     width: 1210px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1540px) {
   .container {
     max-width: inherit;
     width: 1210px;
   }
   .btn {
-    height: 54px;
-    line-height: 54px;
-    min-width: 160px;
+    height: 50px;
+    line-height: 50px;
+    min-width: 150px;
+    font-size: 18px;
   }
   .swiper-default .swiper-pagination-bullet {
     height: 16px;

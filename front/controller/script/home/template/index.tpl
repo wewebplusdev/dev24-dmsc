@@ -262,44 +262,75 @@
                         </div>
                     </div>
                     {if $load_about->_numOfRows gte 1}
-                        <div class="col-lg-auto">
-                            <div class="wg-about-group-list">
-                                <div class="row no-gutters">
-                                    {foreach $load_about->item as $keyload_about => $valueload_about}
-                                        {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
-                                        {assign var="target" value="_self"}
-                                        {if $checkUrl}
-                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|page_redirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
-                                            {$target = $valueload_about->target}
-                                        {else}
-                                            {assign var="news_url" value="javascript:void(0);"}
-                                        {/if}
-                                        <div class="col-6">
-                                            <a href="{$news_url}" class="link" target="{$target}">
-                                                <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <h3 class="title">{$valueload_about->subject}</h3>
-                                                            <div class="grphic-obj">
-                                                                <div class="contain">
-                                                                    <img src="{$valueload_about->pic->pictures}"
-                                                                        alt="{$valueload_about->subject}" class="img-contain lazy">
-                                                                </div>
-                                                            </div>
-                                                            <div class="action">
-                                                                {$languageFrontWeb->readmore->display->$currentLangWeb}
-                                                                <span
-                                                                    class="material-symbols-rounded">expand_circle_right</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    {/foreach}
+                      <div class="col-lg-auto">
+                          <div class="wg-about-group-list">
+                              <div class="row no-gutters">
+                                  {foreach $load_about->item as $keyload_about => $valueload_about}
+                                      {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
+                                      {assign var="target" value="_self"}
+                                      {if $checkUrl}
+                                          {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|page_redirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
+                                          {$target = $valueload_about->target}
+                                      {else}
+                                          {assign var="news_url" value="javascript:void(0);"}
+                                      {/if}
+                                      <div class="col-6">
+                                          <a href="{$news_url}" class="link" target="{$target}">
+                                              <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
+                                                  <div class="card">
+                                                      <div class="card-body">
+                                                          <h3 class="title">{$valueload_about->subject}</h3>
+                                                          <div class="grphic-obj">
+                                                              <div class="contain">
+                                                                  <img src="{$valueload_about->pic->pictures}"
+                                                                      alt="{$valueload_about->subject}" class="img-contain lazy">
+                                                              </div>
+                                                          </div>
+                                                          <div class="action">
+                                                              {$languageFrontWeb->readmore->display->$currentLangWeb}
+                                                              <span
+                                                                  class="material-symbols-rounded">expand_circle_right</span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </div>
+                                  {/foreach}
+                              </div>
+                          </div>
+                      </div>
+                      {* <div class="wg-about-group-list">
+                        {foreach $load_about->item as $keyload_about => $valueload_about}
+                          {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
+                          {assign var="target" value="_self"}
+                          {if $checkUrl}
+                              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|page_redirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
+                              {$target = $valueload_about->target}
+                          {else}
+                              {assign var="news_url" value="javascript:void(0);"}
+                          {/if}
+                          <a href="{$news_url}" class="link" target="{$target}">
+                            <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
+                              <div class="card">
+                                <div class="card-body">
+                                  <h3 class="title">{$valueload_about->subject}</h3>
+                                  <div class="grphic-obj">
+                                    <div class="contain">
+                                      <img src="{$valueload_about->pic->pictures}"
+                                          alt="{$valueload_about->subject}" class="img-contain lazy">
+                                    </div>
+                                  </div>
+                                  <div class="action">
+                                    {$languageFrontWeb->readmore->display->$currentLangWeb}
+                                    <span class="material-symbols-rounded">expand_circle_right</span>
+                                  </div>
                                 </div>
+                              </div>
                             </div>
-                        </div>
+                          </a>
+                        {/foreach}
+                      </div> *}
                     {/if}
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
