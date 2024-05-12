@@ -4271,6 +4271,8 @@ div.swal2-html-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0.6em 100%, 0 calc(100% - 0.6em));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0.6em 100%, 0 calc(100% - 0.6em));
 }
 .layout-footer .social .link .icon {
   -webkit-filter: grayscale(1) brightness(100) invert(1);

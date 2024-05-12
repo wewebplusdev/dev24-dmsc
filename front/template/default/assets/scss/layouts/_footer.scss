@@ -36,6 +36,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, .6em 100%, 0 calc(100% - .6em));
       }
       .icon {
         filter: grayscale(1) brightness(100) invert(1);
