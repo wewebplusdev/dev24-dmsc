@@ -14,7 +14,7 @@ $modStatus = array("Enable", "Disable");
 
 ## Size Pic ###################################
 $sizeWidthReal = "1920";
-$sizeHeightReal = "310";
+$sizeHeightReal = "800";
 
 $sizeWidthPic = "800";
 $sizeHeightPic = "800";

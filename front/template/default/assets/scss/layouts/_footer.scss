@@ -12,7 +12,8 @@
       max-width: 37px;
     }
     .desc {
-      font-size: var(--typo-default);
+      // font-size: var(--typo-default);
+      font-size: 18px;
       font-weight: var(--fw-regular);
       line-height: 1.4em;
     }
@@ -36,6 +37,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, .6em 100%, 0 calc(100% - .6em));
       }
       .icon {
         filter: grayscale(1) brightness(100) invert(1);
@@ -101,16 +103,18 @@
   }
   .copyright {
     margin: 0;
+    font-size: 16px;
   }
   .visitors {
     display: flex;
     align-items: center;
+    font-size: 16px;
     .box {
-      margin-left: 15px;
+      margin-left: 13px;
       border: 1px solid;
       border-radius: var(--rounded);
-      line-height: 38px;
-      padding: 0 15px;
+      line-height: 30px;
+      padding: 0 10px;
     }
   }
   .footer-content {
@@ -164,12 +168,8 @@
     border-top: 1px solid #cccccc;
     margin-top: -1px;
     padding: 20px 0;
-    font-size: var(--typo-xs);
-
-    .btn{
-      min-width: 140px;
-      font-size: 16px;
-    }
+    // font-size: var(--typo-xs);
+    font-size: 16px;
   }
   .footer-bar {
     font-size: var(--typo-xs);
@@ -182,7 +182,7 @@
 
 @media (max-width: 1600px) {
   .layout-footer .footer-top .title {
-    font-size: 44px;
+    font-size: 38px;
   }
   .layout-footer .footer-top .subtitle {
     font-size: 32px;
@@ -192,29 +192,40 @@
   }
   .layout-footer .contact .icon {
     max-width: 36px;
+    margin-right: 12px;
   }
   .layout-footer .contact .desc {
-    font-size: var(--typo-xs);
+    font-size: 16px;
   }
   .layout-footer .ipv6 {
     width: 85px;
   }
   .layout-footer .policy {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 15px;
   }
   .layout-footer .sitemap {
-    font-size: 16px;
+    font-size: 15px;
   }
   .layout-footer .footer-bar {
-    font-size: 16px;
+    font-size: 15px;
+  }
+
+  .layout-footer .copyright {
+    font-size: 15px;
+  }
+  .layout-footer .visitors {
+    font-size: 15px;
+  }
+
+  .layout-footer .footer-middle .text-follow-us {
+    font-size: 18px;
   }
 
   .layout-footer .footer-bottom .btn{
     min-width: 170px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1540px) {
   .layout-footer .footer-top {
     padding: 50px 0;
   }
@@ -231,6 +242,23 @@
     padding: 50px 0;
   }
 }
+// @media (max-width: 1440px) {
+//   .layout-footer .footer-top {
+//     padding: 50px 0;
+//   }
+//   .layout-footer .footer-top .title {
+//     font-size: 38px;
+//   }
+//   .layout-footer .footer-top .subtitle {
+//     font-size: 28px;
+//   }
+//   .layout-footer .footer-top .subtitle .icon {
+//     width: 36px;
+//   }
+//   .layout-footer .footer-middle {
+//     padding: 50px 0;
+//   }
+// }
 @media (max-width: 1199px) {
   .layout-footer .footer-top {
     padding: 40px 0;
