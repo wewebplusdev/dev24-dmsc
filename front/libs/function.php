@@ -329,22 +329,22 @@ function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
 
 ############################################
 
-function changeQuot($Data)
+function changeQuot($daTa)
 {
     ############################################
     global $coreLanguageSQL;
 
-    $valTrim = trim($Data);
+    $valTrim = trim($daTa);
     $valChangeQuot = $valTrim;
     $valChangeQuot = str_replace("'", "&rsquo;", str_replace('"', '&quot;', $valChangeQuot));
 
     return $valChangeQuot;
 }
 
-function rechangeQuot($Data)
+function rechangeQuot($daTa)
 {
     ############################################
-    $valChangeQuot = sanitize($Data);
+    $valChangeQuot = sanitize($daTa);
     $valChangeQuot = str_replace("&rsquo;", "'", str_replace('&quot;', '"', $valChangeQuot));
     return $valChangeQuot;
 }
@@ -358,9 +358,7 @@ function sanitize($input)
     //     $input = stripslashes($input); //it is, so strip any slashes and prepare for next step;
     // }
     //if get_magic_quotes_gpc() is on, slashes were already stripped .. if it's off, mysqli_real_escape_string() will take care of the rest;
-    $output = addslashes($input);
-
-    return $output;
+    return addslashes($input);
 }
 
 ## page pagination ##
@@ -555,9 +553,7 @@ function callhtml($valhtml)
 
 function txtReplaceHTML($data)
 {
-    ####################################################
-    $dataHTML = str_replace("\\", "", $data);
-    return $dataHTML;
+    return str_replace("\\", "", $data);
 }
 
 ####################################################
@@ -641,14 +637,13 @@ function addZero($value)
 ############################################
 function getDateNow()
 {
-    ############################################
     $today = getdate();
     $day = $today['mday'];
     $month = $today['mon'];
     $year = $today['year'];
-    $dateIs = sprintf("%04d-%02d-%02d", $year, $month, $day);
-    return $dateIs;
+    return sprintf("%04d-%02d-%02d", $year, $month, $day);
 }
+
 
 //#################################################
 function getEnddayOfMonth($myDate)
@@ -703,8 +698,8 @@ function dateFormatInsert($dateTime, $timeAgre = null)
         $dataD = "00";
     }
 
-    $valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $time;
-    return $valReturn;
+    return $dataYear . "-" . $dataM . "-" . $dataD . " " . $time;
+
 }
 
 function page_redirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
@@ -718,7 +713,7 @@ function chkSyntaxAnd($var)
     return str_replace("&", "And", $var);
 }
 
-function check_url($url){
+function checkUrl($url){
     return ($url != "" && $url != "#") ? true : false;
 }
 

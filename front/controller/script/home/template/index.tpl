@@ -91,7 +91,7 @@
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper" id="service-append">
                                     {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
-                                        {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
+                                        {assign var="checkUrl" value="{$valueload_services_list->url|checkUrl}"}
                                         {assign var="target" value="_self"}
                                         {if $checkUrl}
                                             {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
@@ -266,7 +266,7 @@
                             <div class="wg-about-group-list">
                                 <div class="row no-gutters">
                                     {foreach $load_about->item as $keyload_about => $valueload_about}
-                                        {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
+                                        {assign var="checkUrl" value="{$valueload_about->url|checkUrl}"}
                                         {assign var="target" value="_self"}
                                         {if $checkUrl}
                                             {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|page_redirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
@@ -353,7 +353,7 @@
                                             <div class="swiper swiper-default">
                                                 <div class="swiper-wrapper">
                                                     {foreach $valueNewsListGroup as $keyNewsList => $valueNewsList}
-                                                        {assign var="checkUrl" value="{$valueNewsList->url|check_url}"}
+                                                        {assign var="checkUrl" value="{$valueNewsList->url|checkUrl}"}
                                                         {assign var="target" value="_self"}
                                                         {if $checkUrl}
                                                             {assign var="news_url" value="{$ul}/pageredirect/{$valueNewsList->tb|page_redirect:$valueNewsList->masterkey:$valueNewsList->id:$valueNewsList->language}"}

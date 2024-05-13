@@ -188,7 +188,7 @@
                                                     {$keys = array_keys($myCalendarEventList[$mCount])}
                                                     {$firstKey = $keys[0]}
                                                     
-                                                    {assign var="checkUrlShow" value="{$myCalendarEventList[$mCount][$firstKey]['url']|check_url}"}
+                                                    {assign var="checkUrlShow" value="{$myCalendarEventList[$mCount][$firstKey]['url']|checkUrl}"}
                                                     {assign var="targetShow" value="_self"}
                                                     {if $checkUrlShow}
                                                         {assign var="news_urlShow" value="{$ul}/pageredirect/{$myCalendarEventList[$mCount][$firstKey]['tb']|page_redirect:$myCalendarEventList[$mCount][$firstKey]['masterkey']:$myCalendarEventList[$mCount][$firstKey]['id']:$myCalendarEventList[$mCount][$firstKey]['language']}"}
@@ -215,7 +215,7 @@
                                                                             <span class="material-symbols-rounded close-event">cancel</span>
                                                                         </div>
                                                                         {foreach $myCalendarEventList[$mCount] as $keyList => $valueList}
-                                                                            {assign var="checkUrl" value="{$valueList['url']|check_url}"}
+                                                                            {assign var="checkUrl" value="{$valueList['url']|checkUrl}"}
                                                                             {assign var="target" value="_self"}
                                                                             {if $checkUrl}
                                                                                 {assign var="news_url" value="{$ul}/pageredirect/{$valueList['tb']|page_redirect:$valueList['masterkey']:$valueList['id']:$valueList['language']}"}
@@ -261,7 +261,7 @@
                                                 {$keys = array_keys($myCalendarEventList[$mCount])}
                                                 {$firstKey = $keys[0]}
 
-                                                {assign var="checkUrlShow" value="{$myCalendarEventList[$mCount][$firstKey]['url']|check_url}"}
+                                                {assign var="checkUrlShow" value="{$myCalendarEventList[$mCount][$firstKey]['url']|checkUrl}"}
                                                 {assign var="targetShow" value="_self"}
                                                 {if $checkUrlShow}
                                                     {assign var="news_urlShow" value="{$ul}/pageredirect/{$myCalendarEventList[$mCount][$firstKey]['tb']|page_redirect:$myCalendarEventList[$mCount][$firstKey]['masterkey']:$myCalendarEventList[$mCount][$firstKey]['id']:$myCalendarEventList[$mCount][$firstKey]['language']}"}
@@ -288,7 +288,7 @@
                                                                         <span class="material-symbols-rounded close-event">cancel</span>
                                                                     </div>
                                                                     {foreach $myCalendarEventList[$mCount] as $keyList => $valueList}
-                                                                        {assign var="checkUrl" value="{$valueList['url']|check_url}"}
+                                                                        {assign var="checkUrl" value="{$valueList['url']|checkUrl}"}
                                                                         {assign var="target" value="_self"}
                                                                         {if $checkUrl}
                                                                             {assign var="news_url" value="{$ul}/pageredirect/{$valueList['tb']|page_redirect:$valueList['masterkey']:$valueList['id']:$valueList['language']}"}
@@ -358,7 +358,7 @@
                 <div class="container">
                     <div class="title">รายการกิจกรรม</div>
                     {foreach $loadData->item as $keyload_data => $valueload_data}
-                        {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
+                        {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
                         {assign var="target" value="_self"}
                         {if $checkUrl}
                             {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language}"}

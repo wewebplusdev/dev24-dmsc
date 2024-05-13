@@ -198,7 +198,7 @@
                         <div class="policy">
                             <ul class="item-list">
                                 {foreach $loadPolicy->item as $keyPolicy => $valuePolicy}
-                                {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
+                                {assign var="checkUrl" value="{$valuePolicy->url|checkUrl}"}
                                 {assign var="target" value="_self"}
                                     {if $checkUrl}
                                         {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|page_redirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language}"}

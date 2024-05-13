@@ -98,7 +98,7 @@
         </ul>
         <div class="d-flex flex-row p-2" id="service-append">
             {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
-                {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
+                {assign var="checkUrl" value="{$valueload_services_list->url|checkUrl}"}
                 {assign var="target" value="_self"}
                 {if $checkUrl}
                     {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
@@ -145,7 +145,7 @@
         <h2>About</h2>
         <div class="d-flex flex-row p-2" id="service-append">
         {foreach $load_about->item as $keyload_about_list => $valueload_about_list}
-            {assign var="checkUrl" value="{$valueload_about_list->url|check_url}"}
+            {assign var="checkUrl" value="{$valueload_about_list->url|checkUrl}"}
             {assign var="target" value="_self"}
             {if $checkUrl}
                 {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about_list->tb|page_redirect:$valueload_about_list->masterkey:$valueload_about_list->id:$valueload_about_list->language}"}
@@ -181,7 +181,7 @@
             <div class="d-flex flex-row p-2" id="service-append">
                 {foreach $array_news_list['list'] as $keyNews => $valueNews}
                     {foreach $valueNews as $keySubNews => $valueload_news_list}
-                        {assign var="checkUrl" value="{$valueload_news_list->url|check_url}"}
+                        {assign var="checkUrl" value="{$valueload_news_list->url|checkUrl}"}
                         {assign var="target" value="_self"}
                         {if $checkUrl}
                             {assign var="news_url" value="{$ul}/pageredirect/{$valueload_news_list->tb|page_redirect:$valueload_news_list->masterkey:$valueload_news_list->id:$valueload_news_list->language}"}

@@ -15,5 +15,4 @@ class WeblinkAllPage extends Controller
         ];
         
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
-    }
-}
+    

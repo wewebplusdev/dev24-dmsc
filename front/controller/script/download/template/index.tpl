@@ -440,7 +440,7 @@
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 {foreach $load_data_other->item as $keyload_data_other => $valueload_data_other}
-                                    {assign var="checkUrl" value="{$valueload_data_other->url|check_url}"}
+                                    {assign var="checkUrl" value="{$valueload_data_other->url|checkUrl}"}
                                     {assign var="target" value="_self"}
                                     {if $checkUrl}
                                         {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|page_redirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language}"}

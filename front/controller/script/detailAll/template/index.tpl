@@ -446,7 +446,7 @@
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 {foreach $load_data_other->item as $keyload_data_other => $valueload_data_other}
-                                    {assign var="checkUrl" value="{$valueload_data_other->url|check_url}"}
+                                    {assign var="checkUrl" value="{$valueload_data_other->url|checkUrl}"}
                                     {assign var="target" value="_self"}
                                     {assign var="downloadID" value=""}
                                     {if $valueload_data_other->typec eq 2}

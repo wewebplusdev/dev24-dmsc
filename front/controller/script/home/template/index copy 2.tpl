@@ -64,7 +64,7 @@
                         <div class="swiper swiper-default">
                             <div class="swiper-wrapper" id="service-append">
                                 {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
-                                    {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
+                                    {assign var="checkUrl" value="{$valueload_services_list->url|checkUrl}"}
                                     {assign var="target" value="_self"}
                                     {if $checkUrl}
                                         {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}

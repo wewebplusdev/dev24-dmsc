@@ -49,7 +49,7 @@
                 <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0">
                     {foreach $sitemapWeb->level_1->$currentLangWeb as $keySitemapLv1 => $valueSitemapLv1}
                         {if $valueSitemapLv1->subject neq ""}
-                            {assign var="checkUrl" value="{$valueSitemapLv1->url|check_url}"}
+                            {assign var="checkUrl" value="{$valueSitemapLv1->url|checkUrl}"}
                             {assign var="target" value="_self"}
                             {if $checkUrl}
                                 {assign var="news_url" value="{$ul}/pageredirect/{$valueSitemapLv1->tb|page_redirect:$valueSitemapLv1->masterkey:$valueSitemapLv1->id:$currentLangWeb}"}
@@ -73,7 +73,7 @@
                                                             <ul class="nav-list fluid">
                                                             {foreach $valueSitemapLv1->level_2 as $keyLv2 => $valueLv2}
                                                                 {if $valueLv2->subject neq ""}
-                                                                    {assign var="checkUrl" value="{$valueLv2->url|check_url}"}
+                                                                    {assign var="checkUrl" value="{$valueLv2->url|checkUrl}"}
                                                                     {assign var="target" value="_self"}
                                                                     {if $checkUrl}
                                                                         {assign var="news_url" value="{$ul}/pageredirect/{$valueLv2->tb|page_redirect:$valueLv2->masterkey:$valueLv2->id:$currentLangWeb}"}
@@ -105,7 +105,7 @@
                                                                     <ul class="nav-list fluid">
                                                                     {foreach $valueLv2->level_3 as $keyLv3 => $valueLv3}
                                                                         {if $valueLv3->subject neq ""}
-                                                                            {assign var="checkUrl" value="{$valueLv3->url|check_url}"}
+                                                                            {assign var="checkUrl" value="{$valueLv3->url|checkUrl}"}
                                                                             {assign var="target" value="_self"}
                                                                             {if $checkUrl}
                                                                                 {assign var="news_url" value="{$ul}/pageredirect/{$valueLv3->tb|page_redirect:$valueLv3->masterkey:$valueLv3->id:$currentLangWeb}"}

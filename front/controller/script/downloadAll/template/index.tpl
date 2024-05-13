@@ -218,7 +218,7 @@
             {if $loadData->_numOfRows gte 1}
                 <div class="document-download-list -layout-grid" id="download-list">
                     {foreach $loadData->item as $keyload_data => $valueload_data}
-                        {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
+                        {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
                         {assign var="target" value="_self"}
                         {assign var="downloadID" value=""}
                         {if $valueload_data->typec eq 2}

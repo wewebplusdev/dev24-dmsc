@@ -631,7 +631,7 @@ class MobileDetect
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
         // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
-        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'),
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
@@ -859,7 +859,7 @@ class MobileDetect
      $this->userAgent = trim($this->userAgent);
 
      if (empty($this->userAgent) && count($this->getCfHeaders()) > 0) {
-         $this->userAgent = AMAZON_TAG; 
+         $this->userAgent = AMAZON_TAG;
      }
  }
  return $this->userAgent;
@@ -1380,7 +1380,7 @@ private function isMobileGradeA($isMobile)
     return
         // Conditions for Mobile Grade A
         $this->is('iOS') && ($this->version('iPad', self::VERSION_TYPE_FLOAT) >= 4.3 ||
-        $this->version('iPhone', self::VERSION_TYPE_FLOAT) >= 4.3 || 
+        $this->version('iPhone', self::VERSION_TYPE_FLOAT) >= 4.3 ||
         $this->version('iPod', self::VERSION_TYPE_FLOAT) >= 4.3) ||
         
         ($this->version('Android', self::VERSION_TYPE_FLOAT) > 2.1 && $this->is('Webkit')) ||
