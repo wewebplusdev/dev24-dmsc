@@ -20,7 +20,7 @@ abstract class Controller
     public $medthodModule;
 
     public function __construct()
-    { 
+    {
         global $url, $_CORE_ENV;
 
         $this->setApiUrl($_CORE_ENV);
@@ -206,11 +206,12 @@ private function initializeMethodMasterkey()
         
         private function generateTitle($infoSetting, $title)
         {
+            $list_last = !empty($infoSetting->metatitle) ? $infoSetting->metatitle : (!empty($infoSetting->subject) ? $infoSetting->subject : 'Template Website');
+
             if (!empty($title)) {
-                $list_last = !empty($infoSetting->metatitle) ? $infoSetting->metatitle : (!empty($infoSetting->subject) ? $infoSetting->subject : 'Template Website');
                 return trim($title) . " - " . $list_last;
             } else {
-                return !empty($infoSetting->metatitle) ? $infoSetting->metatitle : (!empty($infoSetting->subject) ? $infoSetting->subject : 'Template Website');
+                return $list_last;
             }
         }
         
@@ -306,9 +307,8 @@ private function initializeMethodMasterkey()
             "uniqid" => $req['uniqid'],
         ];
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
-      
     }
-
+    
     private function loadCheckAuth()
     {
         $url = $this->urlAPI . "/getuser";
