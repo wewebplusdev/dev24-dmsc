@@ -83,17 +83,17 @@ let newsSwiper = new Swiper(".wg-news-slide .swiper", {
 });
 
 
+let serviceSwiper;
 function reload_swiper() {
-    if (typeof serviceSwiper != 'undefined') {
+    if (typeof serviceSwiper !== 'undefined') {
         serviceSwiper.destroy();
     }
 
-    let serviceSwiper = new Swiper(".service-slide .swiper", {
+    serviceSwiper = new Swiper(".service-slide .swiper", {
         slidesPerView: 5,
         watchSlidesProgress: true,
         grid: {
             rows: 3,
-            // fill: "row"
         },
         navigation: {
             nextEl: ".swiper-button-next",
