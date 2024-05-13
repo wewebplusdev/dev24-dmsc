@@ -214,134 +214,119 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
 ##############################################
 
 function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
-    {
-            global $strMonthCut;
+{
+    global $strMonthCut;
 
-            $strYear = date("Y", strtotime($strDate)) + 543;
-            $strMonth = date("n", strtotime($strDate));
-            $strMonth_full = date("n", strtotime($strDate));
-            $strday = date("j", strtotime($strDate));
-            $strHour = date("H", strtotime($strDate));
-            $strMinute = date("i", strtotime($strDate));
-            $strSeconds = date("s", strtotime($strDate));
+    $strYear = date("Y", strtotime($strDate)) + 543;
+    $strMonth_real = date("n", strtotime($strDate));
+    $strMonth = $strMonthCut[$type][$lang][$strMonth_real];
+    $strday = date("j", strtotime($strDate));
+    $strHour = date("H", strtotime($strDate));
+    $strMinute = date("i", strtotime($strDate));
+    $strSeconds = date("s", strtotime($strDate));
 
-            $strMonth = $strMonthCut[$type][$lang][$strMonth];
-            $strMonth_full = $strMonthCut['full'][$lang][$strMonth_full];
+    if (!empty($strDate)) {
+        switch ($function) {
+            case '1':
+                $day = "$strday $strMonth $strYear";
+                break;
+            case '2':
+                $day = "$strday $strMonth " . date("Y", strtotime($strDate));
+                break;
+            case '3':
+                $day = "$strday $strMonth " . substr($strYear, 2, 4);
+                break;
+            case '4':
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute ";
+                break;
+            case '5':
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
+                break;
+            case '6':
+                $day = "$strday";
+                break;
+            case '7':
+                $day = "$strMonth $strYear";
+                break;
+            case '8':
+                $day = "$strHour:$strMinute";
+                break;
+            case '9':
+                $day = "$strMonth";
+                break;
+            case '10':
+                $day = "$strYear";
+                break;
+            case '11':
+                $day = "วันที่ $strday $strMonth $strYear | เวลา $strHour:$strMinute น.";
+                break;
+            case '12':
+                // Calculate time difference
+                $previousTimeStamp = strtotime(str_replace("-", "/", $strDate));
+                $lastTimeStamp = strtotime(str_replace("-", "/", date("Y-m-d H:i:s")));
+                $difference = $lastTimeStamp - $previousTimeStamp;
 
-            if (!empty($strDate)) {
-                switch ($function) {
-                    case '1':
-                        $day = "$strday $strMonth $strYear";
-                        break;
-                    case '2':
-                        $day = "$strday $strMonth " . (date("Y", strtotime($strDate)));
-                        break;
-                    case '3':
-                        $day = "$strday $strMonth " . substr($strYear, 2, 4);
-                        break;
-                    case '4':
-                        $day = "$strday $strMonth $strYear , $strHour:$strMinute ";
-                        break;
-                    case '5':
-                        $day = "$strday $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
-                        break;
-                    case '6':
-                        $day = "$strday";
-                        break;
-                    case '7':
-                        $day = "$strMonth $strYear";
-                        break;
-                    case '8':
-                        $day = "$strHour:$strMinute";
-                        break;
-                    case '9':
-                        $day = "$strMonth";
-                        break;
-                    case '10':
-                        $day = "$strYear";
-                        break;
-                    case '11':
-                        $day = "วันที่ $strday $strMonth $strYear | เวลา $strHour:$strMinute น.";
-                        break;
-                    case '12':
-                        $previousTimeStamp = strtotime(str_replace("-", "/", $strDate));
-                        $lastTimeStamp = strtotime(str_replace("-", "/", date("Y-m-d H:i:s")));
-                        $menos = $lastTimeStamp - $previousTimeStamp;
-                        $mins = $menos / 60;
-                        if ($mins < 1) {
-                            $showing = $menos . SECONDS;
-                        } else {
-                            $minsfinal = floor($mins);
-                            $secondsfinal = $menos - ($minsfinal * 60);
-                            $hours = $minsfinal / 60;
-                            if ($hours < 1) {
-                                $showing = $minsfinal . MIN . $secondsfinal . SECONDS;
-                            } else {
-                                $hoursfinal = floor($hours);
-                                $minssuperfinal = $minsfinal - ($hoursfinal * 60);
-                                $days = $hoursfinal / 24;
-                                if ($days < 1) {
-                                    $showing = $hoursfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
-                                } else {
-                                    $daysfinal = floor($days);
-                                    $hourssuperfinal = $hoursfinal - ($daysfinal * 24);
-                                    $showing = "ผ่านมาแล้ว " . $daysfinal . " วัน " . $hourssuperfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
-                                }
-                            }
-                        }
-                        $day = $showing;
-                        break;
-                    case '13':
-                        $day = "$strday<br/>$strMonth";
-                        break;
-                    case '14':
-                        $day = "$strday" . "th" . " $strMonth_full " . date("Y", strtotime($strDate));
-                        break;
-                    case '15':
-                        $day = "$strMonth_full $strday, " . date("Y", strtotime($strDate));
-                        break;
-                    case '16':
-                        $day = "$strday.$strMonth.$strYear";
-                        break;
-                    case '17':
-                        $day = "$strday.$strMonth." . date("Y", strtotime($strDate));
-                        break;
-                    case '18':
-                        $strMonth = sprintf("%02d", $strMonth);
-                        $day = "<strong>$strday</strong>$strMonth." . date("Y", strtotime($strDate));
-                        break;
-                    case '19':
-                        $strMonth = sprintf("%02d", $strMonth);
-                        $day = "$strday.$strMonth." . date("Y", strtotime($strDate));
-                        break;
-                    case '20':
-                        $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
-                        $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
-                        break;
-                    case '21':
-                        $day = "$strday $strMonth";
-                        break;
-                    case '22':
-                        $day = "$strday $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
-                        break;
-                    case '23':
-                        $day = "$strday $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
-                        break;
-                    case '24':
-                        $day = "$strday $strMonth $strYear";
-                        break;
-                    case '25':
-                        $day = $strYear . '' . sprintf("%02d", $strMonth);
-                        break;
-                    default:
-                        break;
+                // Format time difference
+                $day = formatTimeDifference($difference);
+                break;
+            case '13':
+                $day = "$strday<br/>$strMonth";
+                break;
+            case '14':
+                $day = "$strday" . "th" . " $strMonth " . date("Y", strtotime($strDate));
+                break;
+            case '15':
+                $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
+                break;
+            case '16':
+                $day = "$strday.$strMonth_real.$strYear";
+                break;
+            case '17':
+                $day = "$strday.$strMonth_real." . date("Y", strtotime($strDate));
+                break;
+            case '18':
+                $strMonth_real = sprintf("%02d", $strMonth_real);
+                $day = "<strong>$strday</strong>$strMonth_real." . date("Y", strtotime($strDate));
+                break;
+            case '19':
+                $strMonth_real = sprintf("%02d", $strMonth_real);
+                $day = "$strday.$strMonth_real." . date("Y", strtotime($strDate));
+                break;
+            case '20':
+                // Check if month translation exists
+                if (isset($strMonthCut['shot2']['en'][$strMonth_real])) {
+                    $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
+                    $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
+                } else {
+                    $day = "-";
                 }
-            } else {
+                break;
+            case '21':
+                $day = "$strday $strMonth";
+                break;
+            case '22':
+                $day = "$strday $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
+                break;
+            case '23':
+                $day = "$strday $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
+                break;
+            case '24':
+                $day = "$strday $strMonth $strYear";
+                break;
+            case '25':
+                $day = $strYear . '' . sprintf("%02d", $strMonth_real);
+                break;
+            default:
                 $day = "-";
-            }
-
-            return $day;
+                break;
         }
+    } else {
+        $day = "-";
+    }
+
+    return $day;
+}
+
 
 
 ############################################
