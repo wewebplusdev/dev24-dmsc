@@ -1352,22 +1352,22 @@ class MobileDetect
 {
     $isMobile = $this->isMobile();
 
-    if ($this->isMobileGradeA()) {
-        return self::MOBILE_GRADE_A;
+    if ($this->isMobileGradeA($isMobile)) {
+        return self::MOBILE_GRDE_A;
     }
 
-    if ($this->isMobileGradeB()) {
+    if ($this->isMobileGradeB($isMobile)) {
         return self::MOBILE_GRADE_B;
     }
 
-    if ($this->isMobileGradeC()) {
+    if ($this->isMobileGradeC($isMobile)) {
         return self::MOBILE_GRADE_C;
     }
 
     return false;
 }
 
-private function isMobileGradeA()
+private function isMobileGradeA($isMobile)
 {
 
     return (
@@ -1396,7 +1396,7 @@ private function isMobileGradeA()
     );
 }
 
-private function isMobileGradeB()
+private function isMobileGradeB($isMobile)
 {
     return (
         // Conditions for Mobile Grade B
@@ -1410,7 +1410,7 @@ private function isMobileGradeB()
     );
 }
 
-private function isMobileGradeC()
+private function isMobileGradeC($isMobile)
 {
     return (
         ($this->version('BlackBerry', self::VERSION_TYPE_FLOAT) <= 5.0) ||
