@@ -4,7 +4,6 @@ require_once _DIR . '/front/libs/smarty4320/Smarty.class.php';
 
 ## smarty start ##
 $smarty = new Smarty;
-// $smarty = new SmartyBC();
 $smarty->loadPlugin('smarty_compiler_switch');
 $smarty->debugging = false;
 $smarty->caching = false;
