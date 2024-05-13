@@ -10,7 +10,7 @@
                     </div>
                     {if $settingWeb.contact->tel2 neq ""}
                         <div class="col-auto col-right" data-aos="fade-up">
-                            <div class="title"><a href="tel:{$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
+                            <div class="title"><a href="tel:{$settingWeb.contact->tel2}" title="Telephone"  class="link">{$settingWeb.contact->tel2}</a></div>
                             <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
                         </div>
                     {/if}

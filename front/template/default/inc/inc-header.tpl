@@ -153,7 +153,7 @@
                 <div class="nav-search" data-aos="fade-left">
                     <form class="form-default form-search" method="get" role="search" action="{$ul}/searchAll">
                         <div class="input-group">
-                            <a href="javascript:void(0)" class="btn-link">
+                            <a href="javascript:void(0)" title="Search" class="btn-link">
                                 <span class="visually-hidden">Search</span>
                                 <span data-feather="search"></span>
                             </a>
