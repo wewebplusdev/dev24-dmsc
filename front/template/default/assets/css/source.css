@@ -4494,10 +4494,6 @@ div.swal2-html-container {
   padding: 20px 0;
   font-size: 16px;
 }
-.layout-footer .footer-bottom .btn {
-  min-width: 140px;
-  font-size: 16px;
-}
 .layout-footer .footer-bar {
   font-size: var(--typo-xs);
   font-weight: var(--fw-regular);
