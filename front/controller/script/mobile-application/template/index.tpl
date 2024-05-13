@@ -136,13 +136,13 @@
               {$downloadID = $valueload_data->attachment[0]->id}
             {/if}
             {if $checkUrl}
-              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
+              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
               {$target = $valueload_data->target}
             {else}
               {assign var="news_url" value="javascript:void(0);"}
             {/if}
             {if $checkUrl2}
-              {assign var="news_url2" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}|{'urlc2'|encodeStr}"}
+              {assign var="news_url2" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}|{'urlc2'|encodeStr}"}
               {$target2 = $valueload_data->target}
             {else}
               {assign var="news_url2" value="javascript:void(0);"}

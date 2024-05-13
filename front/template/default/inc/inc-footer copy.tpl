@@ -201,7 +201,7 @@
                                 {assign var="checkUrl" value="{$valuePolicy->url|checkUrl}"}
                                 {assign var="target" value="_self"}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|page_redirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|pageRedirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language}"}
                                         {$target = $valuePolicy->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}

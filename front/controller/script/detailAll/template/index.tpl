@@ -313,7 +313,7 @@
                             <div class="swiper-wrapper">
                                 {foreach $loadData->item[0]->attachment as $keyattachment => $valueattachment}
                                     {$fileinfo = $valueattachment->filename|fileinclude:'file':{$loadData->item[0]->masterkey}|getIcon}
-                                    {assign var="download_url" value="{$ul}/pageredirect/{$loadData->item[0]->tb|page_redirect:$loadData->item[0]->masterkey:$loadData->item[0]->id:$loadData->item[0]->language:$valueattachment->id}"}
+                                    {assign var="download_url" value="{$ul}/pageredirect/{$loadData->item[0]->tb|pageRedirect:$loadData->item[0]->masterkey:$loadData->item[0]->id:$loadData->item[0]->language:$valueattachment->id}"}
                                     <div class="swiper-slide">
                                         <div class="item">
                                             <div class="item-wrapper">
@@ -453,7 +453,7 @@
                                         {$downloadID = $valueload_data_other->attachment[0]->id}
                                     {/if}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|page_redirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language:$downloadID}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|pageRedirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language:$downloadID}"}
                                         {$target = $valueload_data_other->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}

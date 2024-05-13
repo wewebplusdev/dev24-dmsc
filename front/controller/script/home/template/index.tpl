@@ -94,7 +94,7 @@
                                         {assign var="checkUrl" value="{$valueload_services_list->url|checkUrl}"}
                                         {assign var="target" value="_self"}
                                         {if $checkUrl}
-                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
+                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|pageRedirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
                                             {$target = $valueload_services_list->target}
                                         {else}
                                             {assign var="news_url" value="javascript:void(0);"}
@@ -269,7 +269,7 @@
                                         {assign var="checkUrl" value="{$valueload_about->url|checkUrl}"}
                                         {assign var="target" value="_self"}
                                         {if $checkUrl}
-                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|page_redirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
+                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|pageRedirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
                                             {$target = $valueload_about->target}
                                         {else}
                                             {assign var="news_url" value="javascript:void(0);"}
@@ -356,7 +356,7 @@
                                                         {assign var="checkUrl" value="{$valueNewsList->url|checkUrl}"}
                                                         {assign var="target" value="_self"}
                                                         {if $checkUrl}
-                                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueNewsList->tb|page_redirect:$valueNewsList->masterkey:$valueNewsList->id:$valueNewsList->language}"}
+                                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueNewsList->tb|pageRedirect:$valueNewsList->masterkey:$valueNewsList->id:$valueNewsList->language}"}
                                                             {$target = $valueNewsList->target}
                                                         {else}
                                                             {assign var="news_url" value="javascript:void(0);"}

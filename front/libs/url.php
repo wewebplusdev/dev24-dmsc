@@ -11,7 +11,17 @@ define('SCRIPT_FOLDER', '/front/controller/script/');
 
 class url
 {
-    public $url, $parametter, $segment, $uri, $pagelang, $optionurl, $rootDocument, $rootDir, $onFolder, $onfolderType, $onModulus;
+    public $url;
+    public $parametter;
+    public $segment;
+    public $uri;
+    public $pagelang;
+    public $optionurl;
+    public $rootDocument;
+    public $rootDir;
+    public $onFolder;
+    public $onfolderType;
+    public $onModulus;
     public $listfilemodulus = array("config.php", "modulus.php", "index.php");
     public $listcheckurl = array("");
 
@@ -26,7 +36,7 @@ class url
     
         $this->processUrlSegments($url_show_lang, $lang_set, $lang_default, $url_show_default);
     
-        $this->processUrlParameters($this->url); 
+        $this->processUrlParameters($this->url);
     }
     
     private function initializePaths($pathFirst)

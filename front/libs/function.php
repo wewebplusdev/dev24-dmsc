@@ -702,7 +702,7 @@ function dateFormatInsert($dateTime, $timeAgre = null)
 
 }
 
-function page_redirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
+function pageRedirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
 {
     return encodeStr($table) . "|" . encodeStr($masterkey) . "|" . encodeStr($id) . "|" . encodeStr($language) . "|" . encodeStr($download);
 }

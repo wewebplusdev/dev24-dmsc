@@ -134,7 +134,7 @@
               {$downloadID = $valueload_data->attachment[0]->id}
             {/if}
             {if $checkUrl}
-              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
+              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
               {$target = $valueload_data->target}
             {else}
               {assign var="news_url" value="javascript:void(0);"}

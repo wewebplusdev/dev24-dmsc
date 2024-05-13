@@ -443,7 +443,7 @@
                                     {assign var="checkUrl" value="{$valueload_data_other->url|checkUrl}"}
                                     {assign var="target" value="_self"}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|page_redirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|pageRedirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language}"}
                                         {$target = $valueload_data_other->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}
