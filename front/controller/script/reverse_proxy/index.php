@@ -8,25 +8,14 @@ $resultData = json_decode($jsonData, true);
 
 switch ($resultData['case']) {
     case 'logs_Website':
-        $req = [
-            "method" => $resultData['method'],
-            "browser" => $resultData['browser'],
-            "uniqid" => $resultData['uniqid'],
-        ];
-        $loadFetchApi = $ReverseProxy->loadInsertLogs($req);
-
-        break;
-
     case 'logs_pdpa':
-        $req = [
-            "method" => $resultData['method'],
-            "browser" => $resultData['browser'],
-            "uniqid" => $resultData['uniqid'],
-        ];
-        $loadFetchApi = $ReverseProxy->loadInsertLogs($req);
-
-        break;
-
+            $req = [
+                "method" => $resultData['method'],
+                "browser" => $resultData['browser'],
+                "uniqid" => $resultData['uniqid'],
+            ];
+            $loadFetchApi = $ReverseProxy->loadInsertLogs($req);
+            break;
     case 'dynamic':
         $data = array();
         foreach ($resultData as $key => $value) {
