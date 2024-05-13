@@ -23,10 +23,10 @@ switch ($url->segment[0]) {
         $smarty->assign("loadTopgraphic", $loadTopgraphic);
         // call services
         $loadServices = $HomePage->loadServices();
-        $smarty->assign("load_services", $loadServices);
+        $smarty->assign("loadServices", $loadServices);
         // call innovation
         $loadInnovation = $HomePage->loadInnovation();
-        $smarty->assign("load_innovation", $loadInnovation);
+        $smarty->assign("loadInnovation", $loadInnovation);
         // call about
         $load_about = $HomePage->loadAbout();
         $smarty->assign("load_about", $load_about);

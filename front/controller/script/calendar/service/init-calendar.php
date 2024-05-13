@@ -17,7 +17,7 @@ $myCalendarEventCounter = array();
 $myCalendarEventCounter[0] = 0;
 $myCalendarEventList = array();
 if ($loadData->code == 1001 && $loadData->_numOfRows > 0) {
-    $smarty->assign("load_data", $loadData);
+    $smarty->assign("loadData", $loadData);
     $EventMonth = array();
     foreach ($loadData->item as $keyload_data => $valueload_data) {
         if (!empty($valueload_data->sdate->full)) {

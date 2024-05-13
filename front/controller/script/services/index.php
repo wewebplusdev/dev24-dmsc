@@ -27,7 +27,7 @@ switch ($url->segment[2]) {
 
         // call list
         $loadData = $ServicePage->loadData($resultData);
-        $smarty->assign("load_data", $loadData);
+        $smarty->assign("loadData", $loadData);
 
         /*## Set up pagination #####*/
         $page['page'] = str_replace("/pagination", "", $page['page']);
@@ -100,7 +100,7 @@ switch ($url->segment[2]) {
 
         // call list
         $loadData = $ServicePage->loadData($data);
-        $smarty->assign("load_data", $loadData);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();

@@ -38,7 +38,7 @@ switch ($url->segment[0]) {
         // call detail
         $loadData = $DownloadPage->loadData($data);
         if ($loadData->code == 1001) {
-            $smarty->assign("load_data", $loadData);
+            $smarty->assign("loadData", $loadData);
         }
         if ($loadData->code != 1001 || (gettype($loadData->item[0]->attachment) != 'array' || count($loadData->item[0]->attachment) < 1)) {
             header('location:' . $linklang . "/home");

@@ -65,7 +65,7 @@ switch ($url->segment[0]) {
 
         // call list
         $loadData = $ListAllPage->loadData($data);
-        $smarty->assign("load_data", $loadData);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
