@@ -338,7 +338,7 @@
                                                                         </g>
                                                                     </svg>
                                                                 </span>
-                                                                <div class="txt text-primary  fw-bold">{$languageFrontWeb->downloads->display->$currentLangWeb}</div>
+                                                                <div class="txt fw-bold">{$languageFrontWeb->downloads->display->$currentLangWeb}</div>
                                                             </div>
                                                         </a>
                                                         </div>
@@ -366,7 +366,7 @@
                                                                                     </g>
                                                                                 </svg>
                                                                             </span>
-                                                                            <div class="txt text-primary fw-bold">{$languageFrontWeb->readmore->display->$currentLangWeb}</div>
+                                                                            <div class="txt fw-bold">{$languageFrontWeb->readmore->display->$currentLangWeb}</div>
                                                                         </div>
                                                                     </a>
                                                                 </div>

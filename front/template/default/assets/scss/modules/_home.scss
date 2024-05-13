@@ -304,13 +304,7 @@
       flex-direction: row-reverse;
     }
     .graphic {
-      left: 0;
-      img{
-        width: 440px;
-        height: 380px;
-        background-size: cover;
-        background-position: center;
-      }
+      left: -30px;
       
     }
     .bg-obj {
@@ -340,12 +334,7 @@
     }
     .graphic {
       right: 0;
-      img{
-        width: 440px;
-        height: 380px;
-        background-size: cover;
-        background-position: center;
-      }
+      
     }
     .bg-obj {
       bottom: 0;
