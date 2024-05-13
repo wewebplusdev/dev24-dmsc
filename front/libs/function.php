@@ -130,28 +130,20 @@ function getip()
     }
     if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ips = explode(", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
-        if ($ip) {
-            array_unshift($ips, $ip);
-            $ip = false;
-        }
-        for ($i = 0; $i < count($ips); $i++) {
-            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ips[$i])) {
-                if (version_compare(phpversion(), "5.0.0", ">=")) {
-                    if (ip2long($ips[$i]) !== false) {
-                        $ip = $ips[$i];
-                        break;
-                    }
-                } else {
-                    if (ip2long($ips[$i]) !== -1) {
-                        $ip = $ips[$i];
-                        break;
-                    }
+        foreach ($ips as $ipCandidate) {
+            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ipCandidate)) {
+                if (filter_var($ipCandidate, FILTER_VALIDATE_IP) !== false) {
+                    $ip = $ipCandidate;
+                    break;
                 }
             }
         }
     }
+
+    // Return the determined IP or fallback to REMOTE_ADDR
     return $ip ? $ip : $_SERVER['REMOTE_ADDR'];
 }
+
 
 
 ## encodeStr ##
@@ -222,146 +214,135 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
 ##############################################
 
 function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
-{
+    {
+            global $strMonthCut;
 
-    global $strMonthCut, $url;
+            $strYear = date("Y", strtotime($strDate)) + 543;
+            $strMonth = date("n", strtotime($strDate));
+            $strMonth_full = date("n", strtotime($strDate));
+            $strday = date("j", strtotime($strDate));
+            $strHour = date("H", strtotime($strDate));
+            $strMinute = date("i", strtotime($strDate));
+            $strSeconds = date("s", strtotime($strDate));
 
-    ##############################################
-    $strYear = date("Y", strtotime($strDate)) + 543;
-    $strYear2 = date("Y", strtotime($strDate));
-    $strYear_mini = substr($strYear, 2, 4);
-    $strYear_mini_en = substr($strYear2, 2, 4);
-    $strMonth = date("n", strtotime($strDate));
-    $strMonth_real = date("n", strtotime($strDate));
-    $strMonth_full = date("n", strtotime($strDate));
-    $strMonth_number = date("n", strtotime($strDate));
-    $strday = date("j", strtotime($strDate));
-    $strHour = date("H", strtotime($strDate));
-    $strMinute = date("i", strtotime($strDate));
-    $strSeconds = date("s", strtotime($strDate));
+            $strMonth = $strMonthCut[$type][$lang][$strMonth];
+            $strMonth_full = $strMonthCut['full'][$lang][$strMonth_full];
 
-    $strMonth = $strMonthCut[$type][$lang][$strMonth];
-    $strMonth_full = $strMonthCut['full'][$lang][$strMonth_full];
-    if (!empty($strDate)) {
-        switch ($function) {
-            case '1':
-                $day = "$strday $strMonth $strYear";
-                break;
-            case '2':
-                $day = "$strday $strMonth $strYear2";
-                break;
-            case '3':
-                $day = "$strday $strMonth $strYear_mini";
-                break;
-            case '4':
-                $day = "$strday $strMonth $strYear , $strHour:$strMinute ";
-                break;
-
-            case '5':
-                $day = "$strday $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
-                break;
-            case '6':
-                $day = "$strday";
-                break;
-            case '7':
-                $day = "$strMonth $strYear";
-                break;
-            case '8':
-                $day = "$strHour:$strMinute";
-                break;
-            case '9':
-                $day = "$strMonth";
-                break;
-            case '10':
-                $day = "$strYear";
-                break;
-            case '11':
-                $day = "วันที่ $strday $strMonth $strYear | เวลา $strHour:$strMinute น.";
-                break;
-            case '12':
-
-                $previousTimeStamp = strtotime(str_replace("-", "/", $strDate));
-                $lastTimeStamp = strtotime(str_replace("-", "/", date("Y-m-d H:i:s")));
-
-                // strtotime("2013/09/17 12:34:11");
-
-                $menos = $lastTimeStamp - $previousTimeStamp;
-
-                $mins = $menos / 60;
-                if ($mins < 1) {
-                    $showing = $menos . SECONDS;
-                } else {
-                    $minsfinal = floor($mins);
-                    $secondsfinal = $menos - ($minsfinal * 60);
-                    $hours = $minsfinal / 60;
-                    if ($hours < 1) {
-                        $showing = $minsfinal . MIN . $secondsfinal . SECONDS;
-                    } else {
-                        $hoursfinal = floor($hours);
-                        $minssuperfinal = $minsfinal - ($hoursfinal * 60);
-                        $days = $hoursfinal / 24;
-                        if ($days < 1) {
-                            $showing = $hoursfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
+            if (!empty($strDate)) {
+                switch ($function) {
+                    case '1':
+                        $day = "$strday $strMonth $strYear";
+                        break;
+                    case '2':
+                        $day = "$strday $strMonth " . (date("Y", strtotime($strDate)));
+                        break;
+                    case '3':
+                        $day = "$strday $strMonth " . substr($strYear, 2, 4);
+                        break;
+                    case '4':
+                        $day = "$strday $strMonth $strYear , $strHour:$strMinute ";
+                        break;
+                    case '5':
+                        $day = "$strday $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
+                        break;
+                    case '6':
+                        $day = "$strday";
+                        break;
+                    case '7':
+                        $day = "$strMonth $strYear";
+                        break;
+                    case '8':
+                        $day = "$strHour:$strMinute";
+                        break;
+                    case '9':
+                        $day = "$strMonth";
+                        break;
+                    case '10':
+                        $day = "$strYear";
+                        break;
+                    case '11':
+                        $day = "วันที่ $strday $strMonth $strYear | เวลา $strHour:$strMinute น.";
+                        break;
+                    case '12':
+                        $previousTimeStamp = strtotime(str_replace("-", "/", $strDate));
+                        $lastTimeStamp = strtotime(str_replace("-", "/", date("Y-m-d H:i:s")));
+                        $menos = $lastTimeStamp - $previousTimeStamp;
+                        $mins = $menos / 60;
+                        if ($mins < 1) {
+                            $showing = $menos . SECONDS;
                         } else {
-                            $daysfinal = floor($days);
-                            $hourssuperfinal = $hoursfinal - ($daysfinal * 24);
-                            $showing = "ผ่านมาแล้ว " . $daysfinal . " วัน " . $hourssuperfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
+                            $minsfinal = floor($mins);
+                            $secondsfinal = $menos - ($minsfinal * 60);
+                            $hours = $minsfinal / 60;
+                            if ($hours < 1) {
+                                $showing = $minsfinal . MIN . $secondsfinal . SECONDS;
+                            } else {
+                                $hoursfinal = floor($hours);
+                                $minssuperfinal = $minsfinal - ($hoursfinal * 60);
+                                $days = $hoursfinal / 24;
+                                if ($days < 1) {
+                                    $showing = $hoursfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
+                                } else {
+                                    $daysfinal = floor($days);
+                                    $hourssuperfinal = $hoursfinal - ($daysfinal * 24);
+                                    $showing = "ผ่านมาแล้ว " . $daysfinal . " วัน " . $hourssuperfinal . " ชั่วโมง " . $minssuperfinal . MIN . $secondsfinal . SECONDS;
+                                }
+                            }
                         }
-                    }
+                        $day = $showing;
+                        break;
+                    case '13':
+                        $day = "$strday<br/>$strMonth";
+                        break;
+                    case '14':
+                        $day = "$strday" . "th" . " $strMonth_full " . date("Y", strtotime($strDate));
+                        break;
+                    case '15':
+                        $day = "$strMonth_full $strday, " . date("Y", strtotime($strDate));
+                        break;
+                    case '16':
+                        $day = "$strday.$strMonth.$strYear";
+                        break;
+                    case '17':
+                        $day = "$strday.$strMonth." . date("Y", strtotime($strDate));
+                        break;
+                    case '18':
+                        $strMonth = sprintf("%02d", $strMonth);
+                        $day = "<strong>$strday</strong>$strMonth." . date("Y", strtotime($strDate));
+                        break;
+                    case '19':
+                        $strMonth = sprintf("%02d", $strMonth);
+                        $day = "$strday.$strMonth." . date("Y", strtotime($strDate));
+                        break;
+                    case '20':
+                        $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
+                        $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
+                        break;
+                    case '21':
+                        $day = "$strday $strMonth";
+                        break;
+                    case '22':
+                        $day = "$strday $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
+                        break;
+                    case '23':
+                        $day = "$strday $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
+                        break;
+                    case '24':
+                        $day = "$strday $strMonth $strYear";
+                        break;
+                    case '25':
+                        $day = $strYear . '' . sprintf("%02d", $strMonth);
+                        break;
+                    default:
+                        break;
                 }
-                $day = $showing;
-                break;
+            } else {
+                $day = "-";
+            }
 
-            case '13':
-                $day = "$strday<br/>$strMonth";
-                break;
-            case '14':
-                $day = "$strday" . "th" . " $strMonth_full $strYear2";
-                break;
-            case '15':
-                $day = "$strMonth_full $strday, $strYear2";
-                break;
-            case '16':
-                $day = "$strday.$strMonth_number.$strYear_mini_en";
-                break;
-            case '17':
-                $day = "$strday.$strMonth_number.$strYear2";
-                break;
-            case '18':
-                $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "<strong>$strday</strong>$strMonth_number.$strYear2";
-                break;
-            case '19':
-                $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "$strday.$strMonth_number.$strYear2";
-                break;
-            case '20':
-                $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
-                $day = "$strMonth $strday, $strYear2";
-                break;
-            case '21':
-                $day = "$strday $strMonth";
-                break;
-            case '22':
-                $day = "$strday $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
-                break;
-            case '23':
-                $day = "$strday $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
-                break;
-            case '24':
-                $day = "$strday $strMonth $strYear";
-                break;
-            case '25':
-                $day = $strYear . '' . sprintf("%02d", $strMonth_number);
-                break;
-            default:
-                break;
+            return $day;
         }
-    } else {
-        $day = "-";
-    }
-    return $day;
-}
+
 
 ############################################
 
@@ -788,31 +769,38 @@ function formatNum($myNumber) {
 function headerActive($link){
     global $sitemapWeb, $currentLangWeb;
     $array_page = array();
+
     if (!empty($link)) {
         foreach ($sitemapWeb->level_1->$currentLangWeb as $valueSitemapLv1) {
-            if (count((array)$valueSitemapLv1->level_2) > 0){
-                foreach ($valueSitemapLv1->level_2 as $valueLv2){
-                    if (count((array)$valueLv2->level_3) > 0){
-                        foreach ($valueLv2->level_3 as $valueLv3) {
-                            if (str_contains($valueLv3->url, $link)) {
-                                $array_page['page'][] = $valueLv3->subject;
-                                $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
-                            }
-                        }
-                    }else{
-                        if (str_contains($valueLv2->url, $link)) {
-                            $array_page['page'][] = $valueLv2->subject;
-                            $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
-                        }
-                    }
-                }
-            }else{
-                if (str_contains($valueSitemapLv1->url, $link)) {
-                    $array_page['page'][] = $valueSitemapLv1->subject;
-                    $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
-                }
+            if (isLinkInLevel($valueSitemapLv1, $link, $array_page)) {
+                break;
             }
         }
     }
+
     return $array_page;
+}
+function isLinkInLevel($level, $link, &$array_page) {
+    if (str_contains($level->url, $link)) {
+        $array_page['page'][] = $level->subject;
+        $array_page['header'][] = "menu-" . $level->id;
+        return true;
+    }
+    if (count((array)$level->level_2) > 0) {
+        foreach ($level->level_2 as $valueLv2) {
+            if (isLinkInLevel($valueLv2, $link, $array_page)) {
+                return true;
+            }
+        }
+    }
+    if (count((array)$level->level_3) > 0) {
+        foreach ($level->level_3 as $valueLv3) {
+            if (str_contains($valueLv3->url, $link)) {
+                $array_page['page'][] = $valueLv3->subject;
+                $array_page['header'][] = "menu-" . $level->id;
+                return true;
+            }
+        }
+    }
+    return false;
 }
