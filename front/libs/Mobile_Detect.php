@@ -1044,26 +1044,26 @@ class MobileDetect
      */
     public function checkHttpHeadersForMobile()
     {
-
+        $isMobile = false;
         foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {
             if (isset($this->httpHeaders[$mobileHeader])) {
                 if (is_array($matchType['matches'])) {
                     foreach ($matchType['matches'] as $_match) {
                         if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
-                            return true;
+                            $isMobile = true;
+                            break 2; 
                         }
                     }
-
-                    return false;
                 } else {
-                    return true;
+                    $isMobile = true;
+                    break; 
                 }
             }
         }
-
-        return false;
-
+    
+        return $isMobile;
     }
+    
 
     /**
      * Magic overloading method.
@@ -1074,7 +1074,7 @@ class MobileDetect
      * @return mixed
      * @throws BadMethodCallException when the method doesn't exist and doesn't start with 'is'
      */
-    public function __call($name, $arguments)
+    public function __call($name)
     {
         // make sure the name starts with 'is', otherwise
         if (substr($name, 0, 2) !== 'is') {
@@ -1184,26 +1184,26 @@ class MobileDetect
      * @param  array  $httpHeaders deprecated
      * @return bool
      */
-    public function isTablet($userAgent = null, $httpHeaders = null)
-    {
-        // Check specifically for cloudfront headers if the useragent === 'Amazon CloudFront'
-        if ($this->getUserAgent() === AMAZON_TAG) {
-            $cfHeaders = $this->getCfHeaders();
-            if(array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true') {
-                return true;
-            }
+    public function isTablet($userAgent = null)
+{
+    if ($this->getUserAgent() === AMAZON_TAG) {
+        $cfHeaders = $this->getCfHeaders();
+        if(array_key_exists('HTTP_CLOUDFRONT_IS_TABLET_VIEWER', $cfHeaders) && $cfHeaders['HTTP_CLOUDFRONT_IS_TABLET_VIEWER'] === 'true') {
+            return true;
         }
-
-        $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
-
-        foreach (self::$tabletDevices as $_regex) {
-            if ($this->match($_regex, $userAgent)) {
-                return true;
-            }
-        }
-
-        return false;
     }
+
+    $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
+
+    foreach (self::$tabletDevices as $_regex) {
+        if ($this->match($_regex, $userAgent)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
     /**
      * This method checks for a certain property in the
@@ -1307,40 +1307,40 @@ class MobileDetect
         if (empty($propertyName)) {
             return false;
         }
-
+    
         // set the $type to the default if we don't recognize the type
         if ($type !== self::VERSION_TYPE_STRING && $type !== self::VERSION_TYPE_FLOAT) {
             $type = self::VERSION_TYPE_STRING;
         }
-
+    
         $properties = self::getProperties();
-
+    
         // Check if the property exists in the properties array.
         if (true === isset($properties[$propertyName])) {
-
+    
             // Prepare the pattern to be matched.
             // Make sure we always deal with an array (string is converted).
             $properties[$propertyName] = (array) $properties[$propertyName];
-
+    
             foreach ($properties[$propertyName] as $propertyMatchString) {
-
+    
                 $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);
-
+    
                 // Identify and extract the version.
                 preg_match(sprintf('#%s#is', $propertyPattern), $this->userAgent, $match);
-
+    
                 if (false === empty($match[1])) {
-                    $version = ($type == self::VERSION_TYPE_FLOAT ? $this->prepareVersionNo($match[1]) : $match[1]);
-
-                    return $version;
+                    return ($type == self::VERSION_TYPE_FLOAT ? $this->prepareVersionNo($match[1]) : $match[1]);
                 }
-
+    
             }
-
+    
         }
-
+    
         return false;
     }
+    
+    
 
     /**
      * Retrieve the mobile grading, using self::MOBILE_GRADE_* constants.
