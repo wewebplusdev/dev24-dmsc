@@ -131,11 +131,9 @@ function getip()
     if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ips = explode(", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
         foreach ($ips as $ipCandidate) {
-            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ipCandidate)) {
-                if (filter_var($ipCandidate, FILTER_VALIDATE_IP) !== false) {
-                    $ip = $ipCandidate;
-                    break;
-                }
+            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ipCandidate) && filter_var($ipCandidate, FILTER_VALIDATE_IP) !== false) {
+                $ip = $ipCandidate;
+                break;
             }
         }
     }
@@ -337,9 +335,7 @@ function changeQuot($Data)
     global $coreLanguageSQL;
 
     $valTrim = trim($Data);
-    //    $valChangeQuot = wewebEscape($coreLanguageSQL, $valTrim);
     $valChangeQuot = $valTrim;
-    //$valChangeQuot=str_replace("'","&rsquo;",str_replace('"','&quot;',$valChangeQuot));
     $valChangeQuot = str_replace("'", "&rsquo;", str_replace('"', '&quot;', $valChangeQuot));
 
     return $valChangeQuot;
@@ -349,9 +345,7 @@ function rechangeQuot($Data)
 {
     ############################################
     $valChangeQuot = sanitize($Data);
-    // $valChangeQuot = htmlspecialchars(str_replace("&rsquo;", "'", str_replace('&quot;', '"', $valChangeQuot)));
     $valChangeQuot = str_replace("&rsquo;", "'", str_replace('&quot;', '"', $valChangeQuot));
-    //$valChangeQuot = str_replace('\r\n','<br/>',$valChangeQuot);
     return $valChangeQuot;
 }
 
@@ -766,26 +760,29 @@ function headerActive($link){
     return $array_page;
 }
 function isLinkInLevel($level, $link, &$array_page) {
+    $found = false;
+
     if (str_contains($level->url, $link)) {
         $array_page['page'][] = $level->subject;
         $array_page['header'][] = "menu-" . $level->id;
-        return true;
-    }
-    if (count((array)$level->level_2) > 0) {
+        $found = true;
+    } elseif (count((array)$level->level_2) > 0) {
         foreach ($level->level_2 as $valueLv2) {
             if (isLinkInLevel($valueLv2, $link, $array_page)) {
-                return true;
+                $found = true;
+                break;
             }
         }
-    }
-    if (count((array)$level->level_3) > 0) {
+    } elseif (count((array)$level->level_3) > 0) {
         foreach ($level->level_3 as $valueLv3) {
             if (str_contains($valueLv3->url, $link)) {
                 $array_page['page'][] = $valueLv3->subject;
                 $array_page['header'][] = "menu-" . $level->id;
-                return true;
+                $found = true;
+                break;
             }
         }
     }
-    return false;
+
+    return $found;
 }
