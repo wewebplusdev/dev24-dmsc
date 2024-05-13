@@ -1421,7 +1421,7 @@ private function isMobileGradeA($isMobile)
 
 private function isMobileGradeB($isMobile)
 {
-    return (
+     (
         // Conditions for Mobile Grade B
         ($this->is('iOS') && $this->version('iPad', self::VERSION_TYPE_FLOAT) < 4.3) ||
         ($this->is('iOS') && $this->version('iPhone', self::VERSION_TYPE_FLOAT) < 4.3) ||
@@ -1435,7 +1435,7 @@ private function isMobileGradeB($isMobile)
 
 private function isMobileGradeC($isMobile)
 {
-    return (
+     (
         ($this->version('BlackBerry', self::VERSION_TYPE_FLOAT) <= 5.0) ||
         ($this->match('MSIEMobile|Windows CE.*Mobile') || $this->version('Windows Mobile', self::VERSION_TYPE_FLOAT) <= 5.2) ||
         ($this->is('iOS') && $this->version('iPad', self::VERSION_TYPE_FLOAT) <= 3.2) ||
