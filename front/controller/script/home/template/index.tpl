@@ -335,11 +335,11 @@
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
                     <picture>
-                        <source srcset="{$template}/assets/img/static/wg-about-graphic.webp"
-                            data-srcset="{$template}/assets/img/static/wg-about-graphic@2x.webp"
+                        <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
+                            data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
                             type="image/webp">
-                        <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic@2x.png" alt=""
+                        <img src="{$template}/assets/img/static/wg-about-graphic01.png"
+                            data-src="{$template}/assets/img/static/wg-about-graphic01.png" alt=""
                             class="lazy">
                     </picture>
                 </div>

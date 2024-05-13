@@ -5698,9 +5698,9 @@ div.swal2-html-container {
 }
 .wg-about .graphic {
   position: absolute;
-  bottom: -167px;
+  bottom: -160px;
   left: 50%;
-  margin-left: -550px;
+  margin-left: -420px;
   width: 1020px;
   pointer-events: none;
 }
@@ -5971,9 +5971,9 @@ div.swal2-html-container {
     padding: 50px;
   }
   .wg-about .graphic {
-    bottom: -140px;
-    margin-left: -480px;
-    width: 850px;
+    bottom: -110px;
+    margin-left: -300px;
+    width: 650px;
   }
   .wg-news .wg-news-tab {
     width: 880px;
@@ -6204,8 +6204,8 @@ div.swal2-html-container {
   }
   .wg-about .graphic {
     bottom: -108px;
-    margin-left: -380px;
-    width: 660px;
+    margin-left: -280px;
+    width: 580px;
   }
   .wg-about .wg-about-group-list {
     width: 525px;
@@ -6367,7 +6367,7 @@ div.swal2-html-container {
     margin-left: auto;
   }
   .wg-about .graphic {
-    margin-left: -530px;
+    margin-left: -500px;
   }
   .wg-news {
     padding: 100px 0 50px;
@@ -6507,9 +6507,9 @@ div.swal2-html-container {
     width: auto;
   }
   .wg-about .graphic {
-    width: 540px;
-    margin-left: -450px;
-    bottom: -88px;
+    width: 510px;
+    margin-left: -415px;
+    bottom: -80px;
   }
 }
 @media (max-width: 575px) {
@@ -6605,8 +6605,8 @@ div.swal2-html-container {
   }
   .wg-about .graphic {
     bottom: -72px;
-    margin-left: -344px;
-    width: 440px;
+    margin-left: -318px;
+    width: 400px;
   }
   .wg-about .content {
     text-align: center;
@@ -7769,7 +7769,6 @@ div.swal2-html-container {
 .thumbnail {
   position: relative;
   z-index: 1;
-  width: 200px;
 }
 .thumbnail .cover {
   padding-top: 100%;
@@ -10221,6 +10220,41 @@ div.swal2-html-container {
   color: var(--color-primary);
 }
 
+@media screen and (max-width: 1600px) {
+  .section .whead .title {
+    font-size: 40px;
+  }
+  .section .whead .subtitle {
+    font-size: 28px;
+  }
+  .wg-research-group .whead .title {
+    font-size: 32px;
+  }
+  .wg-research-group .whead .subtitle {
+    font-size: 24px;
+  }
+  .wg-research-group .whead .total {
+    font-size: 60px;
+  }
+  .wg-research-group .whead .unit {
+    font-size: 24px;
+  }
+  .wg-about-group .title {
+    font-size: 24px;
+  }
+  .layout-footer .footer-top .title {
+    font-size: 40px;
+  }
+  .layout-footer .footer-top .subtitle {
+    font-size: 28px;
+  }
+  .event-list .date {
+    font-size: 24px;
+  }
+  .event-list .desc {
+    font-size: 20px;
+  }
+}
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;
@@ -10312,40 +10346,5 @@ div.swal2-html-container {
   .swiper-default .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active,
   .swiper-default .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
     margin: 0 12px;
-  }
-}
-@media screen and (max-width: 1600px) {
-  .section .whead .title {
-    font-size: 40px;
-  }
-  .section .whead .subtitle {
-    font-size: 28px;
-  }
-  .wg-research-group .whead .title {
-    font-size: 32px;
-  }
-  .wg-research-group .whead .subtitle {
-    font-size: 24px;
-  }
-  .wg-research-group .whead .total {
-    font-size: 60px;
-  }
-  .wg-research-group .whead .unit {
-    font-size: 24px;
-  }
-  .wg-about-group .title {
-    font-size: 24px;
-  }
-  .layout-footer .footer-top .title {
-    font-size: 40px;
-  }
-  .layout-footer .footer-top .subtitle {
-    font-size: 28px;
-  }
-  .event-list .date {
-    font-size: 24px;
-  }
-  .event-list .desc {
-    font-size: 20px;
   }
 }/*# sourceMappingURL=source.css.map */
