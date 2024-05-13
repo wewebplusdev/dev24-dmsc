@@ -191,50 +191,39 @@ private function initializeMethodMasterkey()
         }
     
 
-    public function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
-    {
-        global $smarty;
-
-        $list = array();
-        if (!empty($title)) {
-            if (!empty($infoSetting->metatitle)) {
-                $list_last = $infoSetting->metatitle;
-            } elseif (!empty($infoSetting->subject)) {
-                $list_last = $infoSetting->subject;
+        public function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
+        {
+            global $smarty;
+        
+            $list = array();
+            $list['title'] = $this->generateTitle($infoSetting, $title);
+            $list['desc'] = $this->generateDescription($infoSetting, $desc);
+            $list['keyword'] = $this->generateKeywords($infoSetting, $keyword);
+            $list['pic'] = $pic ?: '';
+        
+            $smarty->assign("seo", $list);
+        }
+        
+        private function generateTitle($infoSetting, $title)
+        {
+            if (!empty($title)) {
+                $list_last = !empty($infoSetting->metatitle) ? $infoSetting->metatitle : (!empty($infoSetting->subject) ? $infoSetting->subject : 'Template Website');
+                return trim($title) . " - " . $list_last;
             } else {
-                $list_last = 'Template Website';
-            }
-
-            $list['title'] = trim($title) . " - " . $list_last;
-        } else {
-            if (!empty($infoSetting->metatitle)) {
-                $list['title'] = $infoSetting->metatitle;
-            } elseif (!empty($infoSetting->subject)) {
-                $list['title'] = $infoSetting->subject;
-            } else {
-                $list['title'] = 'Template Website';
+                return !empty($infoSetting->metatitle) ? $infoSetting->metatitle : (!empty($infoSetting->subject) ? $infoSetting->subject : 'Template Website');
             }
         }
-
-        if (!empty($desc)) {
-            $list['desc'] = trim($desc);
-        } else {
-            $list['desc'] = $infoSetting->description;
+        
+        private function generateDescription($infoSetting, $desc)
+        {
+            return !empty($desc) ? trim($desc) : $infoSetting->description;
         }
-
-        if (!empty($keyword)) {
-            $list['keyword'] = trim($keyword);
-        } else {
-            $list['keyword'] = $infoSetting->keywords;
+        
+        private function generateKeywords($infoSetting, $keyword)
+        {
+            return !empty($keyword) ? trim($keyword) : $infoSetting->keywords;
         }
-
-        if (!empty($pic)) {
-            $list['pic'] = $pic;
-        } else {
-            $list['pic'] = "";
-        }
-        $smarty->assign("seo", $list);
-    }
+        
     
     public function loadUrlRedirect($req)
     {
