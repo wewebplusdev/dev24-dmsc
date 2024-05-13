@@ -1496,20 +1496,39 @@
     margin-left: -344px;
     width: 440px;
   }
+  .wg-about .content {
+    text-align: center;
+  }
+  .wg-about .content .line {
+    margin: 15px auto;
+  }
   .wg-news .wg-news-list {
     margin: 0 -7.5px;
   }
   .wg-news .wg-news-list .item {
     padding: 0 7.5px;
   }
+  .wg-news .whead .line {
+    margin: 15px auto;
+  }
   .wg-news .wg-news-slide .swiper-default .swiper-button-next,
   .wg-news .wg-news-slide .swiper-default .swiper-button-prev {
-    height: 50px;
-    width: 50px;
+    height: 42px;
+    width: 42px;
   }
   .wg-news .wg-news-slide .swiper-default .swiper-button-next::after,
   .wg-news .wg-news-slide .swiper-default .swiper-button-prev::after {
-    font-size: 28px;
+    font-size: 24px;
+  }
+
+  .wg-news .wg-news-nav .action {
+    margin-top: 100px;
+    left: 0;
+    text-align: center;
+  }
+
+  .wg-news .wg-news-nav .nav-default {
+    margin-top: 35px;
   }
 }
 

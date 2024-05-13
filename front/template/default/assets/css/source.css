@@ -1282,7 +1282,7 @@ figure.ratio .img-ratio.ratio-9x16 {
   height: 20px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 376px) {
   .popup-modal .btn-close {
     padding: 0;
   }
@@ -4194,6 +4194,15 @@ div.swal2-html-container {
     min-width: 150px;
     font-size: 16px;
   }
+  .layout-header .nav-lang {
+    padding: 10px 15px 15px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .layout-header .nav-lang .nav-label {
+    font-size: 18px;
+    color: var(--color-light);
+    margin-bottom: 8px;
+  }
 }
 @media (max-width: 767px) {
   .layout-header {
@@ -4232,6 +4241,15 @@ div.swal2-html-container {
   }
   .layout-header-fullmap .btn {
     min-width: 100%;
+  }
+  .layout-header .main-menu .nav-link {
+    font-size: 16px;
+  }
+  .layout-header .nav-lang .nav-label {
+    font-size: 16px;
+  }
+  .layout-header .main-menu .dropdown .nav-link.dropdown-toggle::after {
+    font-size: 22px;
   }
 }
 .layout-footer .link {
@@ -6441,20 +6459,37 @@ div.swal2-html-container {
     margin-left: -344px;
     width: 440px;
   }
+  .wg-about .content {
+    text-align: center;
+  }
+  .wg-about .content .line {
+    margin: 15px auto;
+  }
   .wg-news .wg-news-list {
     margin: 0 -7.5px;
   }
   .wg-news .wg-news-list .item {
     padding: 0 7.5px;
   }
+  .wg-news .whead .line {
+    margin: 15px auto;
+  }
   .wg-news .wg-news-slide .swiper-default .swiper-button-next,
   .wg-news .wg-news-slide .swiper-default .swiper-button-prev {
-    height: 50px;
-    width: 50px;
+    height: 42px;
+    width: 42px;
   }
   .wg-news .wg-news-slide .swiper-default .swiper-button-next::after,
   .wg-news .wg-news-slide .swiper-default .swiper-button-prev::after {
-    font-size: 28px;
+    font-size: 24px;
+  }
+  .wg-news .wg-news-nav .action {
+    margin-top: 100px;
+    left: 0;
+    text-align: center;
+  }
+  .wg-news .wg-news-nav .nav-default {
+    margin-top: 35px;
   }
 }
 @media (max-width: 475px) {
@@ -9843,9 +9878,9 @@ div.swal2-html-container {
     width: 100%;
   }
   .btn {
-    height: 50px;
-    line-height: 50px;
-    min-width: 120px;
+    height: 46px;
+    line-height: 46px;
+    min-width: 110px;
     font-size: 16px;
   }
   .swiper-default .swiper-pagination-bullet {

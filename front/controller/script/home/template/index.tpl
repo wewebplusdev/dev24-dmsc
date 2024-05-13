@@ -56,14 +56,14 @@
             <div class="wg-services lazy" data-bg="{$template}/assets/img/background/bg-services.webp"
                 data-bg-hidpi="{$template}/assets/img/background/bg-services@2x.webp">
                 <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col">
+                    <div class="row align-items-center text-sm-left text-center">
+                        <div class="col-sm mb-sm-0 mb-3">
                             <div class="whead mb-0" data-aos="fade-right">
                                 <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->serviceen->display->$currentLangWeb}</p>
                             </div>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-sm-auto">
                             <div class="action" data-aos="fade-left">
                                 <a href="{$ul}/services" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                             </div>
@@ -355,7 +355,7 @@
                     <div class="row no-gutters">
                         <div class="col-lg">
                             <div class="wg-news-nav" data-aos="fade-left" data-aos-delay="200">
-                                <div class="whead">
+                                <div class="whead text-sm-left text-center pb-sm-0 pb-5">
                                     <h2 class="title">{$languageFrontWeb->titlenewsth->display->$currentLangWeb}</h2>
                                     <p class="subtitle">{$languageFrontWeb->titlenewsen->display->$currentLangWeb}</p>
                                     <div class="line"></div>
