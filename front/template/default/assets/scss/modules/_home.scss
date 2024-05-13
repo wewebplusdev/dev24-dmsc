@@ -305,6 +305,13 @@
     }
     .graphic {
       left: 0;
+      img{
+        width: 440px;
+        height: 380px;
+        background-size: cover;
+        background-position: center;
+      }
+      
     }
     .bg-obj {
       bottom: 0;
@@ -332,7 +339,13 @@
       }
     }
     .graphic {
-      right: 10px;
+      right: 0;
+      img{
+        width: 440px;
+        height: 380px;
+        background-size: cover;
+        background-position: center;
+      }
     }
     .bg-obj {
       bottom: 0;

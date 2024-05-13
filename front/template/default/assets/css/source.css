@@ -4719,6 +4719,18 @@ div.swal2-html-container {
     margin-top: 15px;
   }
 }
+.section .whead .title {
+  font-size: 35px;
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+}
+.section .whead .subtitle {
+  font-size: 30px;
+  font-weight: var(--fw-regular);
+  line-height: 1.3em;
+  color: var(--color-primary);
+}
+
 .default-body {
   position: relative;
   overflow: hidden;
@@ -5545,6 +5557,12 @@ div.swal2-html-container {
 .wg-research-group.-left .graphic {
   left: 0;
 }
+.wg-research-group.-left .graphic img {
+  width: 440px;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+}
 .wg-research-group.-left .bg-obj {
   bottom: 0;
   right: 30%;
@@ -5572,7 +5590,13 @@ div.swal2-html-container {
   color: var(--color-secondary-light);
 }
 .wg-research-group.-right .graphic {
-  right: 10px;
+  right: 0;
+}
+.wg-research-group.-right .graphic img {
+  width: 440px;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
 }
 .wg-research-group.-right .bg-obj {
   bottom: 0;
