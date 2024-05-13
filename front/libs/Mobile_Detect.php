@@ -1359,23 +1359,21 @@ private function checkHeaderValueForMobile($headerValue, $matches)
      * @return string One of the self::MOBILE_GRADE_* constants.
      */
     public function mobileGrade()
-{
-    $isMobile = $this->isMobile();
-
-    if ($this->isMobileGradeA($isMobile)) {
-        return self::MOBILE_GRDE_A;
+    {
+        $isMobile = $this->isMobile();
+        $mobileGrade = false;
+    
+        if ($this->isMobileGradeA($isMobile)) {
+            $mobileGrade = self::MOBILE_GRDE_A;
+        } elseif ($this->isMobileGradeB()) {
+            $mobileGrade = self::MOBILE_GRADE_B;
+        } elseif ($this->isMobileGradeC($isMobile)) {
+            $mobileGrade = self::MOBILE_GRADE_C;
+        }
+    
+        return $mobileGrade;
     }
-
-    if ($this->isMobileGradeB($isMobile)) {
-        return self::MOBILE_GRADE_B;
-    }
-
-    if ($this->isMobileGradeC($isMobile)) {
-        return self::MOBILE_GRADE_C;
-    }
-
-    return false;
-}
+    
 
 private function isMobileGradeA($isMobile)
 {
@@ -1419,7 +1417,7 @@ private function isMobileGradeA($isMobile)
         $this->version('Opera', self::VERSION_TYPE_FLOAT) >= 10 && !$isMobile;
 }
 
-private function isMobileGradeB($isMobile)
+private function isMobileGradeB()
 {
     return 
         // Conditions for Mobile Grade B
