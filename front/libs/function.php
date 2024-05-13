@@ -522,8 +522,8 @@ function resize($img, $w, $h, $newfilename)
     return $newfilename;
 }
 
-function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false)
-{
+function fileinclude($filename, $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false, $fileType = 'html') {
+
     global $path_upload, $path_upload_url, $path_template, $templateweb, $core_pathname_upload, $detectDivice;
 
     if ($for == 'linkthumb') {
@@ -547,17 +547,14 @@ function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $fo
         $setFoldet = $path_upload_url;
         $setimg = str_replace($path_upload, "", $checkFile);
 
-        if (!empty($crop)) {
-            if (file_exists($checkFileCrop)) {
-                $setimg = str_replace($path_upload, "", $checkFileCrop);
-            }
+        if (!empty($crop) && file_exists($checkFileCrop)) {
+            $setimg = str_replace($path_upload, "", $checkFileCrop);
         }
-
-        if (!empty($cropthumb)) {
-            if (file_exists($checkFileCropThumb)) {
-                $setimg = str_replace($path_upload, "", $checkFileCropThumb);
-            }
+        
+        if (!empty($cropthumb) && file_exists($checkFileCropThumb)) {
+            $setimg = str_replace($path_upload, "", $checkFileCropThumb);
         }
+        
     } else {
         $setFoldet = _URL . $path_template[$templateweb][0];
         $setimg = "/assets/img/static/brand.png";
@@ -663,9 +660,9 @@ function getIcon($downloadFile, $type = "")
     }
 }
 
-function loadSendEmailTo($mailTo, $mailFrom = null, $subjectMail = null, $messageMail = null, $typeMail = 1, $pdfFile = null)
-{
-}
+// function loadSendEmailTo($mailTo, $mailFrom = null, $subjectMail = null, $messageMail = null, $typeMail = 1, $pdfFile = null)
+// {
+// }
 
 
 ///  FORMAT FORM NUM VALUE /////
@@ -696,26 +693,26 @@ function getDateNow()
 //#################################################
 function getEnddayOfMonth($myDate)
 {
-    //#################################################
     $myEndOfMonth = array(0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
     $mydataArray = explode("-", $myDate);
     $myMonth = $mydataArray[1] * 1;
     $myYear = $mydataArray[0] * 1;
+    $endDay = 0;
     if ($myMonth >= 1 && $myMonth <= 12) {
         if ($myMonth == 2) {
-            //check leap year ---
+            // Check leap year
             if (($myYear % 4) == 0) {
-                return 29;
+                $endDay = 29;
             } else {
-                return 28;
+                $endDay = 28;
             }
         } else {
-            return $myEndOfMonth[$myMonth];
+            $endDay = $myEndOfMonth[$myMonth];
         }
-    } else {
-        return 0;
     }
+    return $endDay;
 }
+
 
 //#################################################
 function dateFormatInsert($dateTime, $timeAgre = null)

@@ -1429,7 +1429,7 @@ private function isMobileGradeB($isMobile)
         ($this->is('Blackberry') && $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) >= 5 && $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) < 6) ||
         (($this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) >= 5.0 && $this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) <= 7.0) && ($this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3 || $this->is('iOS'))) ||
         ($this->match('NokiaN8|NokiaC7|N97.*Series60|Symbian/3')) ||
-        ($this->version(OPERAMOBI_TAG, self::VERSION_TYPE_FLOAT) >= 11 && $this->is('SymbianOS'))
+        ($this->version(OPERAMOBI_TAG, self::VERSION_TYPE_FLOAT) >= 11 && $this->is('SymbianOS'));
     
 }
 
@@ -1441,7 +1441,7 @@ private function isMobileGradeC($isMobile)
         ($this->is('iOS') && $this->version('iPad', self::VERSION_TYPE_FLOAT) <= 3.2) ||
         ($this->is('iOS') && $this->version('iPhone', self::VERSION_TYPE_FLOAT) <= 3.2) ||
         ($this->is('iOS') && $this->version('iPod', self::VERSION_TYPE_FLOAT) <= 3.2) ||
-        ($this->version('IE', self::VERSION_TYPE_FLOAT) <= 7.0 && !$isMobile)
+        ($this->version('IE', self::VERSION_TYPE_FLOAT) <= 7.0 && !$isMobile);
     
 }
 

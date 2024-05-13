@@ -205,13 +205,15 @@ private function initializeMethodMasterkey()
         }
         
         private function generateTitle($infoSetting, $title)
-{
-    $list_last = !empty($infoSetting->metatitle) ? $infoSetting->metatitle : (!empty($infoSetting->subject) ? $infoSetting->subject : 'Template Website');
+            {
+                $list_last = !empty($infoSetting->metatitle) ? $infoSetting->metatitle : $infoSetting->subject;
+                $list_last = !empty($list_last) ? $list_last : 'Template Website';
 
-    $titlePrefix = !empty($title) ? trim($title) . " - " : '';
+                $titlePrefix = !empty($title) ? trim($title) . " - " : '';
 
-    return $titlePrefix . $list_last;
-}
+                return $titlePrefix . $list_last;
+            }
+
 
         
         private function generateDescription($infoSetting, $desc)
