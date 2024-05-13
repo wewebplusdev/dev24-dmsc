@@ -843,31 +843,27 @@ class MobileDetect
      *
      * @return string|null
      */
-    public function setUserAgent($userAgent = null)
-    {
-        // Invalidate cache due to #375
-        $this->cache = array();
+    
+     public function setUserAgent($userAgent = null)
+     {
+ $this->cache = [];
+ $this->userAgent = null;
+ if (!empty($userAgent)) {
+     $this->userAgent = $userAgent;
+ } else {
+     foreach ($this->getUaHttpHeaders() as $altHeader) {
+         if (!empty($this->httpHeaders[$altHeader])) {
+             $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
+         }
+     }
+     $this->userAgent = trim($this->userAgent);
 
-        if (false === empty($userAgent)) {
-            return $this->userAgent = $userAgent;
-        } else {
-            $this->userAgent = null;
-            foreach ($this->getUaHttpHeaders() as $altHeader) {
-                if (false === empty($this->httpHeaders[$altHeader])) { // @todo: should use getHttpHeader(), but it would be slow. (Serban)
-                    $this->userAgent .= $this->httpHeaders[$altHeader] . " ";
-                }
-            }
-
-            if (!empty($this->userAgent)) {
-                return $this->userAgent = trim($this->userAgent);
-            }
-        }
-
-        if (count($this->getCfHeaders()) > 0) {
-            return $this->userAgent = AMAZON_TAG;
-        }
-        return $this->userAgent = null;
-    }
+     if (empty($this->userAgent) && count($this->getCfHeaders()) > 0) {
+         $this->userAgent = AMAZON_TAG; 
+     }
+ }
+ return $this->userAgent;
+}
 
     /**
      * Retrieve the User-Agent.
