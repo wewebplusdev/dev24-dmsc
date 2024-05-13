@@ -74,12 +74,16 @@ class url
         }
     }
     
-    private function redirectDefaultLanguage($lang_default)
-    {
+    private function redirectDefaultLanguage($lang_default, $lang_set)
+{
+    if (isset($lang_set[$lang_default][2])) {
         $urlNewDirect = str_replace('//', '/', "/" . $this->onFolder . "/" . $lang_set[$lang_default][2]);
         header("Location:" . $urlNewDirect);
         exit();
+    } else {
+        return false;
     }
+}
     
     private function processUrlParameters($url)
     {
