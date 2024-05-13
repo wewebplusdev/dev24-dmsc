@@ -19,49 +19,70 @@ class url
     {
         global $url_show_lang, $lang_set, $lang_default, $url_show_default;
         $pathFirst = $this->onRoot();
-
-        $this->rootDir = str_replace("\\", '/', dirname(__FILE__)); # _DIR
+    
+        $this->initializePaths($pathFirst);
+    
+        $this->defineBaseUrl();
+    
+        $this->processUrlSegments($url_show_lang, $lang_set, $lang_default, $url_show_default);
+    
+        $this->processUrlParameters();
+    }
+    
+    private function initializePaths($pathFirst)
+    {
+        $this->rootDir = str_replace("\\", '/', dirname(__FILE__));
         $this->rootDocument = str_replace('//', '/', str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] . "/" . $pathFirst));
         $this->url = end(explode($pathFirst, str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REQUEST_URI'])));
-
-        define("_URL", _http . "://" . str_replace('//', '/', $_SERVER['HTTP_HOST'] . "/" . $this->onFolder) . "/");
-
+    }
+    
+    private function defineBaseUrl()
+    {
+        define("URL", _http . "://" . str_replace('//', '/', $_SERVER['HTTP_HOST'] . "/" . $this->onFolder) . "/");
+    }
+    
+    private function processUrlSegments($url_show_lang, $lang_set, $lang_default, $url_show_default)
+    {
         $urlall = explode("?", $this->url);
         $segment = cleanArray(explode('/', $urlall[0]));
         $this->segment = $segment;
         $this->onModulus = $segment['0'] ? $segment['0'] : $url_show_default;
+    
         if (!empty($url_show_lang)) {
-            if (isset($lang_set[$this->segment[0]])) {
-                $this->pagelang = $lang_set[$this->segment[0]];
-                array_splice($this->segment, 0, 1);
-            } else {
-                $this->pagelang = $lang_set[$lang_default];
-                $urlNewDirect = str_replace('//', '/', "/" . $this->onFolder . "/" . $this->pagelang[2]);
-                header("Location:" . $urlNewDirect);
-                exit();
-            }
+            $this->processLanguageSegment($lang_set, $lang_default);
         } else {
-            if (!empty($_SESSION['pagelang'])) {
-                $this->pagelang = $lang_set[$_SESSION['pagelang']];
-            } else {
-                $this->pagelang = $lang_set[$lang_default];
-            }
+            $this->processSessionLanguage($lang_set, $lang_default);
         }
-
-        foreach ($this->listcheckurl as $valueCheckurl) {
-            if (!empty($this->segment[0]) && !empty($valueCheckurl)) {
-                if (strpos($this->segment[0], $valueCheckurl) !== false) {
-                    $listnewsegment = explode($valueCheckurl, $this->segment[0]);
-                    $this->segment[0] = str_replace("-", "", $valueCheckurl);
-                    foreach ($listnewsegment as $keyUrl => $valueUrl) {
-                        if (!empty($valueUrl)) {
-                            $this->optionurl[] = trim(str_replace("-", " ", urldecode($valueUrl)));
-                        }
-                    }
-                }
-            }
+    }
+    
+    private function processLanguageSegment($lang_set, $lang_default)
+    {
+        if (isset($lang_set[$this->segment[0]])) {
+            $this->pagelang = $lang_set[$this->segment[0]];
+            array_splice($this->segment, 0, 1);
+        } else {
+            $this->redirectDefaultLanguage($lang_default);
         }
-
+    }
+    
+    private function processSessionLanguage($lang_set, $lang_default)
+    {
+        if (!empty($_SESSION['pagelang'])) {
+            $this->pagelang = $lang_set[$_SESSION['pagelang']];
+        } else {
+            $this->pagelang = $lang_set[$lang_default];
+        }
+    }
+    
+    private function redirectDefaultLanguage($lang_default)
+    {
+        $urlNewDirect = str_replace('//', '/', "/" . $this->onFolder . "/" . $lang_set[$lang_default][2]);
+        header("Location:" . $urlNewDirect);
+        exit();
+    }
+    
+    private function processUrlParameters()
+    {
         if (!empty($urlall[1])) {
             $this->parametter = $urlall[1];
             $uri_frist = cleanArray(explode('&', $urlall[1]));
@@ -74,6 +95,7 @@ class url
             $this->uri = $uri;
         }
     }
+    
 
     public function onRoot()
     {

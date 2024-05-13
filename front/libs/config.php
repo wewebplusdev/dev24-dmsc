@@ -101,7 +101,6 @@ $path_cache = _DIR . '/front/temp/cache';
 
 ## config path upload ##
 $path_upload = _DIR .UPLOAD_DIR;
-// $path_upload =UPLOAD_DIR;
 $path_upload_url = _URL .UPLOAD_DIR;
 
 
