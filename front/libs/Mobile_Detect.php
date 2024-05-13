@@ -1377,9 +1377,9 @@ private function checkHeaderValueForMobile($headerValue, $matches)
 
 private function isMobileGradeA($isMobile)
 {
-    return 
+    return
         // Conditions for Mobile Grade A
-        $this->is('iOS') && ($this->version('iPad', self::VERSION_TYPE_FLOAT) >= 4.3 || 
+        $this->is('iOS') && ($this->version('iPad', self::VERSION_TYPE_FLOAT) >= 4.3 ||
         $this->version('iPhone', self::VERSION_TYPE_FLOAT) >= 4.3 || 
         $this->version('iPod', self::VERSION_TYPE_FLOAT) >= 4.3) ||
         
@@ -1388,23 +1388,23 @@ private function isMobileGradeA($isMobile)
         ($this->is('BlackBerry') && $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) >= 6.0) ||
         $this->match('Playbook.*Tablet') ||
         
-        (($this->version('webOS', self::VERSION_TYPE_FLOAT) >= 1.4 && $this->match('Palm|Pre|Pixi')) || 
+        (($this->version('webOS', self::VERSION_TYPE_FLOAT) >= 1.4 && $this->match('Palm|Pre|Pixi')) ||
         $this->match('hp.*TouchPad')) ||
         
         ($this->is('Firefox') && $this->version('Firefox', self::VERSION_TYPE_FLOAT) >= 18) ||
         ($this->is('Chrome') && $this->is('AndroidOS') && $this->version('Android', self::VERSION_TYPE_FLOAT) >= 4.0) ||
         
-        ($this->is('Skyfire') && $this->version('Skyfire', self::VERSION_TYPE_FLOAT) >= 4.1 && 
+        ($this->is('Skyfire') && $this->version('Skyfire', self::VERSION_TYPE_FLOAT) >= 4.1 &&
         $this->is('AndroidOS') && $this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3) ||
         
-        ($this->is('Opera') && $this->version(OPERAMOBI_TAG, self::VERSION_TYPE_FLOAT) >= 11.5 && 
+        ($this->is('Opera') && $this->version(OPERAMOBI_TAG, self::VERSION_TYPE_FLOAT) >= 11.5 &&
         $this->is('AndroidOS')) ||
         
         $this->is('MeeGoOS') ||
         $this->is('Tizen') ||
         
         ($this->is('Dolfin') && $this->version('Bada', self::VERSION_TYPE_FLOAT) >= 2.0) ||
-        (($this->is('UC Browser') || $this->is('Dolfin')) && 
+        (($this->is('UC Browser') || $this->is('Dolfin')) &&
         $this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3) ||
         
         $this->match('Kindle Fire') || ($this->is('Kindle') && $this->version('Kindle', self::VERSION_TYPE_FLOAT) >= 3.0) ||
@@ -1419,7 +1419,7 @@ private function isMobileGradeA($isMobile)
 
 private function isMobileGradeB()
 {
-    return 
+    return
         // Conditions for Mobile Grade B
         ($this->is('iOS') && $this->version('iPad', self::VERSION_TYPE_FLOAT) < 4.3) ||
         ($this->is('iOS') && $this->version('iPhone', self::VERSION_TYPE_FLOAT) < 4.3) ||
@@ -1433,7 +1433,7 @@ private function isMobileGradeB()
 
 private function isMobileGradeC($isMobile)
 {
-    return 
+    return
         ($this->version('BlackBerry', self::VERSION_TYPE_FLOAT) <= 5.0) ||
         ($this->match('MSIEMobile|Windows CE.*Mobile') || $this->version('Windows Mobile', self::VERSION_TYPE_FLOAT) <= 5.2) ||
         ($this->is('iOS') && $this->version('iPad', self::VERSION_TYPE_FLOAT) <= 3.2) ||
