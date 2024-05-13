@@ -1,4 +1,4 @@
-.breadcrumb-block{margin-bottom: 20px;}
+.breadcrumb-block{margin-bottom: 20px; line-height: 2;}
 .breadcrumb{
 	background-color: transparent; 
 	margin: 0; 
@@ -69,6 +69,10 @@
     .breadcrumb li:nth-child(3) .link {max-width: 300px;}
   }
 
+@media screen and (max-width: 1199px) {
+    .breadcrumb li:nth-child(3) .link {max-width: 363px;}
+}
+
 @media (max-width: 991px) {
   .breadcrumb-block {margin-bottom: 10px;}
   .breadcrumb .link .icon {margin-right: 5px;}
@@ -77,6 +81,7 @@
 
 @media (max-width: 767px) {
   .breadcrumb .link {font-size: 16px;}
+  .breadcrumb li:nth-child(3) .link {max-width: 250px;}
 }
 
 

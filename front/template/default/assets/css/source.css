@@ -544,6 +544,7 @@ figure.ratio .img-ratio.ratio-9x16 {
 
 .breadcrumb-block {
   margin-bottom: 20px;
+  line-height: 2;
 }
 
 .breadcrumb {
@@ -595,6 +596,11 @@ figure.ratio .img-ratio.ratio-9x16 {
     max-width: 300px;
   }
 }
+@media screen and (max-width: 1199px) {
+  .breadcrumb li:nth-child(3) .link {
+    max-width: 363px;
+  }
+}
 @media (max-width: 991px) {
   .breadcrumb-block {
     margin-bottom: 10px;
@@ -609,6 +615,9 @@ figure.ratio .img-ratio.ratio-9x16 {
 @media (max-width: 767px) {
   .breadcrumb .link {
     font-size: 16px;
+  }
+  .breadcrumb li:nth-child(3) .link {
+    max-width: 250px;
   }
 }
 .btn {
@@ -7684,7 +7693,6 @@ div.swal2-html-container {
 .thumbnail {
   position: relative;
   z-index: 1;
-  width: 200px;
 }
 .thumbnail .cover {
   padding-top: 100%;
@@ -8308,6 +8316,7 @@ div.swal2-html-container {
 }
 
 .event-list .item {
+  line-height: 1.3;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -8349,7 +8358,7 @@ div.swal2-html-container {
   background-size: contain;
   bottom: 0;
   right: 0;
-  opacity: 0;
+  opacity: 1;
 }
 .event-list .link * {
   -webkit-transition: all 0.2s ease-in-out;
