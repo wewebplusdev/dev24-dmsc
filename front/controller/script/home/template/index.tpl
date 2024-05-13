@@ -34,7 +34,7 @@
                     {else}
                         <div class="swiper-slide">
                             <div class="item">
-                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target}">
+                                <a href="{$valueTgp->url}" class="link" title="Image Top Graphic" target="{$valueTgp->pic->target}">
                                     <figure class="cover">
                                         <picture>
                                             <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
@@ -164,7 +164,7 @@
                                 {$backgroud_img = "wg-research-graphic-02.png"}
                             {/if}
                             <div class="col-lg" data-aos="fade-{$fade_action}">
-                                <a href="{$valueload_innovation->url}" class="link">
+                                <a href="{$valueload_innovation->url}" title="Research" class="link">
                                     <div class="wg-research-group -{$fade_action_converse}">
                                         <div class="row no-gutters">
                                             <div class="col">
@@ -205,7 +205,7 @@
                                         {if $keyload_innovation > 1}
                                             <div class="swiper-slide">
                                                 <div class="item">
-                                                    <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target}">
+                                                    <a href="{$valueload_innovation->url}" title="Innovation" class="link" target="{$valueload_innovation->target}">
                                                         <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                                                             <div class="card">
                                                                 <div class="card-body">
@@ -275,7 +275,7 @@
                                             {assign var="news_url" value="javascript:void(0);"}
                                         {/if}
                                         <div class="col-6">
-                                            <a href="{$news_url}" class="link" target="{$target}">
+                                            <a href="{$news_url}" title="menu" class="link" target="{$target}">
                                                 <div class="wg-about-group" data-aos="fade-down" data-aos-delay="200">
                                                     <div class="card">
                                                         <div class="card-body">
@@ -369,7 +369,7 @@
                                                         {/if}
                                                         <div class="swiper-slide">
                                                             <div class="item">
-                                                                <a href="{$news_url}" class="link news-link" target="{$target}">
+                                                                <a href="{$news_url}" title="News" class="link news-link" target="{$target}">
                                                                     <div class="news-card card">
                                                                         <div class="thumbnail">
                                                                             <figure class="cover">
@@ -458,8 +458,8 @@
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->contactinfo->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email2}"
-                                                        class="link">{$settingWeb.contact->email2}</a></span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email2}" title="Mail"
+                                                        class="link">{$settingWeb.contact->email2} </a></span>
                                             </p>
                                         </div>
                                     </div>
@@ -473,7 +473,7 @@
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->inqairebout->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="{$settingWeb.contact->email3}"
+                                                <span class="d-block">E-mail : <a href="{$settingWeb.contact->email3}" title="Mail"
                                                         class="link">{$settingWeb.contact->email3}</a></span>
                                             </p>
                                         </div>
@@ -486,9 +486,9 @@
                                     </div>
                                     <div class="col">
                                         <p class="desc">
-                                            <span class="d-block">โทรศัพท์. <a href="tel:0-2589-9850"
+                                            <span class="d-block">โทรศัพท์. <a href="tel:0-2589-9850" title="Telephone"
                                                     class="link">0-2589-9850</a> ถึง 8 ต่อ 99968</span>
-                                            <span class="d-block">มือถือ. <a href="tel:098-915-6809"
+                                            <span class="d-block">มือถือ. <a href="tel:098-915-6809" title="Telephone"
                                                     class="link">098-915-6809</a></span>
                                         </p>
                                     </div>
@@ -501,7 +501,7 @@
                                     <div class="col">
                                         <p class="desc">
                                             <span class="d-block">รับ-ส่งหนังสือราชการ</span>
-                                            <span class="d-block">E-mail : <a href="saraban@dmsc.mail.go.th"
+                                            <span class="d-block">E-mail : <a href="saraban@dmsc.mail.go.th" title="Mail"
                                                     class="link">saraban@dmsc.mail.go.th</a></span>
                                         </p>
                                     </div>
