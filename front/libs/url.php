@@ -26,7 +26,7 @@ class url
     
         $this->processUrlSegments($url_show_lang, $lang_set, $lang_default, $url_show_default);
     
-        $this->processUrlParameters();
+        $this->processUrlParameters($this->url); 
     }
     
     private function initializePaths($pathFirst)
@@ -81,8 +81,9 @@ class url
         exit();
     }
     
-    private function processUrlParameters()
+    private function processUrlParameters($url)
     {
+        $urlall = explode("?", $url);
         if (!empty($urlall[1])) {
             $this->parametter = $urlall[1];
             $uri_frist = cleanArray(explode('&', $urlall[1]));
