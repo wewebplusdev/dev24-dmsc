@@ -19,7 +19,7 @@
         }
         &:nth-child(3) {
             .link {
-                max-width: 550px;
+                max-width: 600px;
                 overflow: hidden;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
@@ -65,9 +65,6 @@
         color: var(--color-light);
     }
 }
-@media (max-width: 1199px) {
-    .breadcrumb li:nth-child(3) .link {max-width: 300px;}
-  }
 
 @media screen and (max-width: 1199px) {
     .breadcrumb li:nth-child(3) .link {max-width: 363px;}
@@ -84,5 +81,8 @@
   .breadcrumb li:nth-child(3) .link {max-width: 250px;}
 }
 
+@media (max-width: 575px) {
+  .breadcrumb li:nth-child(3) .link {max-width: 100px;}
+}
 
 
