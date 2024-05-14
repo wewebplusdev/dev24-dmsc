@@ -1,5 +1,11 @@
 .pagination-block {
     margin-top: 45px;
+
+    .pagination-label {
+        span{
+            color: var(--color-primary);
+        }
+    }
      
 }
 
