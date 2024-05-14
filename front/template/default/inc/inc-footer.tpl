@@ -44,7 +44,7 @@
                                     <div class="col">
                                         <p class="desc">
                                             <span class="d-block">{$languageFrontWeb->contactinformation->display->$currentLangWeb}</span>
-                                            <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}" title="Telephone" class="link">{$settingWeb.contact->tel}</a>
+                                            <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}" class="link">{$settingWeb.contact->tel}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                     <div class="col">
                                         <p class="desc">
                                             <span class="d-block">{$languageFrontWeb->fax->display->$currentLangWeb}</span>
-                                            <a href="javascript:void(0);" title="Fax" class="link">{$settingWeb.contact->fax}</a>
+                                            <a href="javascript:void(0);" class="link">{$settingWeb.contact->fax}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -81,9 +81,9 @@
                                         <p class="desc">
                                             <span class="d-block">{$languageFrontWeb->email->display->$currentLangWeb}</span>
                                             <a href="mailto:{$settingWeb.contact->email2}" class="link"><span
-                                                    title="Email" class="d-block">{$settingWeb.contact->email2}</span></a>
+                                                    class="d-block">{$settingWeb.contact->email2}</span></a>
                                             <a href="mailto:{$settingWeb.contact->email}" class="link"><span
-                                                  title="Email"  class="d-block">{$settingWeb.contact->email}</span></a>
+                                                    class="d-block">{$settingWeb.contact->email}</span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                     <div class="col">
                                         <p class="desc">
                                             <span class="d-block">{$languageFrontWeb->idso->display->$currentLangWeb}</span>
-                                            <span class="d-block">E-mail : <a href="{$settingWeb.contact->email2}" title="Email"
+                                            <span class="d-block">E-mail : <a href="{$settingWeb.contact->email2}"
                                                     class="link">{$settingWeb.contact->email2}</a></span>
                                         </p>
                                     </div>

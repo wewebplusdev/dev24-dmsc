@@ -271,7 +271,7 @@
     color: var(--color-light);
 }
 .select2-container--option-filter .select2-results__option--selected {
-    background-color: var(--color-border) ;
+    background-color: var(--color-border) !important;
     &:hover {
         color: var(--color-default);
     }
