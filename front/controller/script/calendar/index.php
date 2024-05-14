@@ -17,9 +17,9 @@ switch ($url->segment[1]) {
         $req = array();
         $req['gid'] = $_REQUEST['gid'];
         $smarty->assign("req", $req);
-        
-        include _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
-        include _DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'; #load calendar
+
+        include_once _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
+        include_once _DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'; #load calendar
         
 
         $settingPage = array(
