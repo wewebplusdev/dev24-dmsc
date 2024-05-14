@@ -19,17 +19,21 @@
 <script src="{$template}/assets/js/libs/moment.min.js"></script>
 <script src="{$template}/assets/js/libs/validator.min.js"></script>
 <script src="{$template}/assets/js/libs/feather.js"></script>
+<script src="{$template}/assets/js/guides.js"></script>
+<script src="{$template}/assets/js/guides.min.js"></script>
+
 
 <script>
   feather.replace();
 </script>
 
 
-{* <!-- asw js -->
-<script src="{$template}/assets/js/accessibility.js"></script>  *}
+  {* <!-- asw js -->
+  <script src="{$template}/assets/js/accessibility.js"></script>  *}
 
 <!-- Module -->
 <script type="module" src="{$template}/assets/js/controller.js{$lastModify}"></script>
+
 <!-- Main -->
 <script src="{$template}/assets/js/main.js{$lastModify}"></script>
 <!-- Dev -->

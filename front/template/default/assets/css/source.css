@@ -7096,9 +7096,9 @@ div.swal2-html-container {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  line-height: 1.4em;
+  line-height: 1.5em;
   -webkit-line-clamp: 2;
-  min-height: 2.8em;
+  min-height: 3em;
 }
 .news-card .desc {
   font-size: var(--typo-xs);

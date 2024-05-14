@@ -17,7 +17,7 @@
     font-size: var(--typo-sm);
     font-weight: var(--fw-bold);
     color: var(--color-secondary);
-    @include text-limit(2, 1.4em, min);
+    @include text-limit(2, 1.5em, min);
   }
   .desc {
     font-size: var(--typo-xs);
