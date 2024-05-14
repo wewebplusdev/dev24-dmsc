@@ -691,6 +691,9 @@
 [data-asw-filter=yellow-contrast] .default-pagination .pagination .page-item .link {
   color: #ffffff;
 }
+[data-asw-filter=yellow-contrast] .select2-container--option-pagination .select2-results__options {
+  scrollbar-color: #e6cf01 #000000;
+}
 
 .readable-font span:not(.asw-wrapper *) {
   font-family: OpenDyslexic3, Comic Sans MS, Arial, Helvetica, sans-serif !important;

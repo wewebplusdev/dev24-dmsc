@@ -751,7 +751,9 @@ $yellowSecondary: #e6cf01bf;
   }
 
  
-
+  .select2-container--option-pagination .select2-results__options{
+    scrollbar-color: $yellowPrimary $black;
+  }
  
 }
 
