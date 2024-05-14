@@ -137,8 +137,6 @@ $strMonthCut['full']['en'] = array('', 'January', 'February', 'March', 'April', 
 
 $weekDay['th'] = array('อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส');
 $weekDay['en'] = array('Su', 'M', 'T', 'W', 'Th', 'F', 'Sa');
-$weekFullDay['th'] = array('อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์');
-$weekFullDay['en'] = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 
 $colorpatten = array("#e6e6e6", "#f46b23", "#ffb400", "#e7352b", "#8d42a1", "#3853d8", "#20a5ea", "#5cb328", "#7c5e4c", "#484848", "#01d2f9", "#7f8c8d");
 

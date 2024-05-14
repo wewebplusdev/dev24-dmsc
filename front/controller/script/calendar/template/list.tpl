@@ -1,7 +1,7 @@
 {if $load_data->code eq 1001 && $load_data->_numOfRows gte 1}
     <div class="event-list">
         <div class="container">
-            <div class="title">{$languageFrontWeb->calendar_activity_list->display->$currentLangWeb}</div>
+            <div class="title">รายการกิจกรรม</div>
             {foreach $load_data->item as $keyload_data => $valueload_data}
                 {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
                 {assign var="target" value="_self"}
@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-auto">
                                 <div class="read-more">
-                                    {$languageFrontWeb->readmore->display->$currentLangWeb}
+                                    อ่านต่อ
                                     <span class="material-symbols-rounded">expand_circle_right</span>
                                 </div>
                             </div>

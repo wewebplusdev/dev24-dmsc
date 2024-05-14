@@ -35,7 +35,6 @@ $recaptcha_secretkey = $mainPage->recaptcha_secretkey;
 
 $smarty->assign("settingWeb", $settingWeb);
 $smarty->assign("languageWeb", $languageWeb);
-$smarty->assign("count_languageWeb", isset($languageWeb) ? count((array) $languageWeb) : 0);
 $smarty->assign("languageFrontWeb", $languageFrontWeb);
 $smarty->assign("lcfWeb", $lcfWeb);
 $smarty->assign("sitemapWeb", $sitemapWeb);
@@ -43,3 +42,5 @@ $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
 $smarty->assign("recaptcha_sitekey", $recaptcha_sitekey);
 // print_pre($settingWeb);
+
+

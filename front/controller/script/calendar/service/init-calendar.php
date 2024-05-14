@@ -7,7 +7,6 @@ $data = [
     "page" => $page['on'],
     "limit" => $limit,
     "gid" => $req['gid'],
-    "keyword" => $req['keyword'],
     "sdate" => $myStartDateOfMonth,
     "edate" => $myEndDateOfMonth,
 ];
@@ -24,11 +23,9 @@ if ($load_data->code == 1001 && $load_data->_numOfRows > 0) {
         if (!empty($valueload_data->sdate->full)) {
             $sdate = date('Y-m-d', strtotime($valueload_data->sdate->full));
             $EventMonth['sdate'] = $sdate;
-            if (!empty($valueload_data->edate->full) && $valueload_data->isdateto == 1) {
+            if (!empty($valueload_data->edate->full)) {
                 $edate = date('Y-m-d', strtotime($valueload_data->edate->full));
                 $EventMonth['edate'] = $edate;
-            }else{
-                $EventMonth['edate'] = "0000-00-00";
             }
 
             if (strcmp($EventMonth['sdate'], $myStartDateOfMonth) < 1) {
@@ -73,7 +70,5 @@ if ($load_data->code == 1001 && $load_data->_numOfRows > 0) {
         }
     }
 }
-// print_pre($myCalendarEventList);
 $smarty->assign("myCalendarEventCounter", $myCalendarEventCounter);
 $smarty->assign("myCalendarEventList", $myCalendarEventList);
-$smarty->assign("weekFullDay", $weekFullDay[$url->pagelang[2]]);
