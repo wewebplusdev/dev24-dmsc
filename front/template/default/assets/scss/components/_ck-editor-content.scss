@@ -653,13 +653,12 @@
       }
   
       .action {
-        margin-top: 30px;
-  
+    
         .-read-more {
           margin-right: 40px;
         }
         .-web-link {
-          margin-top: 50px;
+          
           &:hover {
             text-decoration: underline;
           }
@@ -954,7 +953,6 @@
   
   @media (max-width: 575px) {
     .document-download-list.-layout-grid .item {width: 100%;}
-    .layout-view .btn-group .btn-list {pointer-events: none;opacity: 0.5;}
   
     .history-timeline .h-bigger {font-size: 32px;text-align: center;}
     .history-timeline .timeline-list p {font-size: 16px;}

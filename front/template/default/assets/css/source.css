@@ -2670,14 +2670,8 @@ div.swal2-html-container {
   margin-top: 10px;
   border: none;
 }
-.document-download-list.-layout-grid .action {
-  margin-top: 30px;
-}
 .document-download-list.-layout-grid .action .-read-more {
   margin-right: 40px;
-}
-.document-download-list.-layout-grid .action .-web-link {
-  margin-top: 50px;
 }
 .document-download-list.-layout-grid .action .-web-link:hover {
   text-decoration: underline;
@@ -3025,10 +3019,6 @@ div.swal2-html-container {
 @media (max-width: 575px) {
   .document-download-list.-layout-grid .item {
     width: 100%;
-  }
-  .layout-view .btn-group .btn-list {
-    pointer-events: none;
-    opacity: 0.5;
   }
   .history-timeline .h-bigger {
     font-size: 32px;
@@ -4877,7 +4867,6 @@ div.swal2-html-container {
   top: 0;
   right: 50%;
   margin-right: -690px;
-  padding-top: 20px;
 }
 
 .default-filter {
@@ -5581,7 +5570,7 @@ div.swal2-html-container {
   color: var(--color-secondary-light);
 }
 .wg-research-group.-right .graphic {
-  right: 0;
+  right: -10px;
 }
 .wg-research-group.-right .bg-obj {
   bottom: 0;
@@ -6062,9 +6051,6 @@ div.swal2-html-container {
   }
   .wg-research-group.-left .graphic {
     left: -20px;
-  }
-  .wg-research-group.-right .graphic {
-    right: -30px;
   }
   .wg-research-group.-left .bg-obj img,
   .wg-research-group.-right .bg-obj img {
@@ -7692,13 +7678,10 @@ div.swal2-html-container {
   border: none;
 }
 .document-download-list.-layout-grid .action {
-  margin-top: 30px;
+  padding: 10px 0;
 }
 .document-download-list.-layout-grid .action .-read-more {
   margin-right: 40px;
-}
-.document-download-list.-layout-grid .action .-web-link {
-  margin-top: 50px;
 }
 .document-download-list.-layout-grid .action .-web-link:hover {
   text-decoration: underline;
@@ -7758,6 +7741,7 @@ div.swal2-html-container {
 }
 .document-download-list .item-wrapper:hover .action {
   padding: 10px;
+  width: 150px;
   border: 1px solid var(--color-light);
 }
 .document-download-list .item-wrapper:hover .action * {
@@ -8006,7 +7990,7 @@ div.swal2-html-container {
     display: block;
   }
   .document-download-list.-layout-list .action {
-    padding: 20px 10px;
+    padding: 30px 10px;
   }
   .document-download-list.-layout-list .thumbnail .cover {
     padding-top: 80%;
@@ -10244,15 +10228,40 @@ div.swal2-html-container {
   }
   .layout-footer .footer-top .title {
     font-size: 40px;
+    line-height: 1.5em;
   }
   .layout-footer .footer-top .subtitle {
     font-size: 28px;
+  }
+  .layout-footer .contact .desc {
+    font-size: 16px;
+  }
+  .layout-footer .policy ul.item-list {
+    font-size: 16px;
+  }
+  .layout-footer .visitors {
+    font-size: 16px;
+  }
+  .layout-footer .copyright {
+    font-size: 16px;
+  }
+  .layout-footer .sitemap {
+    font-size: 16px;
+  }
+  .layout-footer .footer-middle .text-follow-us {
+    font-size: 16px;
   }
   .event-list .date {
     font-size: 24px;
   }
   .event-list .desc {
     font-size: 20px;
+  }
+  .breadcrumb .link {
+    font-size: 16px;
+  }
+  .default-header .title {
+    font-size: 34px;
   }
 }
 @media screen and (max-width: 1540px) {
@@ -10290,12 +10299,17 @@ div.swal2-html-container {
     font-size: 18px;
   }
 }
+@media screen and (max-width: 1440px) {
+  .default-header .title {
+    font-size: 32px;
+  }
+}
 @media screen and (max-width: 1199px) {
   .section .whead .title {
-    font-size: 34px;
+    font-size: 32px;
   }
   .section .whead .subtitle {
-    font-size: 24px;
+    font-size: 22px;
   }
   .wg-research-group .whead .title {
     font-size: 28px;
@@ -10313,10 +10327,10 @@ div.swal2-html-container {
     font-size: 20px;
   }
   .layout-footer .footer-top .title {
-    font-size: 34px;
+    font-size: 32px;
   }
   .layout-footer .footer-top .subtitle {
-    font-size: 24px;
+    font-size: 22px;
   }
   .event-list .date {
     font-size: 20px;
@@ -10325,12 +10339,35 @@ div.swal2-html-container {
     font-size: 16px;
   }
 }
+@media screen and (max-width: 991px) {
+  .layout-footer .contact .desc {
+    font-size: 14px;
+  }
+  .layout-footer .policy ul.item-list {
+    font-size: 14px;
+  }
+  .layout-footer .visitors {
+    font-size: 14px;
+  }
+  .layout-footer .copyright {
+    font-size: 14px;
+  }
+  .layout-footer .sitemap {
+    font-size: 14px;
+  }
+  .layout-footer .footer-middle .text-follow-us {
+    font-size: 14px;
+  }
+  .default-header .title {
+    font-size: 30px;
+  }
+}
 @media screen and (max-width: 767px) {
   .section .whead .title {
-    font-size: 32px;
+    font-size: 30px;
   }
   .section .whead .subtitle {
-    font-size: 22px;
+    font-size: 20px;
   }
   .wg-research-group .whead .title {
     font-size: 26px;
@@ -10348,18 +10385,18 @@ div.swal2-html-container {
     font-size: 18px;
   }
   .layout-footer .footer-top .title {
-    font-size: 32px;
+    font-size: 30px;
   }
   .layout-footer .footer-top .subtitle {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 @media screen and (max-width: 575px) {
   .section .whead .title {
-    font-size: 30px;
+    font-size: 28px;
   }
   .section .whead .subtitle {
-    font-size: 20px;
+    font-size: 18px;
   }
   .wg-research-group .whead .title {
     font-size: 24px;
@@ -10371,15 +10408,21 @@ div.swal2-html-container {
     font-size: 16px;
   }
   .layout-footer .footer-top .title {
-    font-size: 30px;
+    font-size: 28px;
   }
   .layout-footer .footer-top .subtitle {
-    font-size: 20px;
+    font-size: 18px;
   }
   .event-list .date {
     font-size: 18px;
   }
   .event-list .desc {
+    font-size: 14px;
+  }
+  .default-header .title {
+    font-size: 20px;
+  }
+  .breadcrumb .link {
     font-size: 14px;
   }
 }

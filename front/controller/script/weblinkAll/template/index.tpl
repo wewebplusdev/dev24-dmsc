@@ -28,7 +28,7 @@
         </h1>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner3.png" alt="obj-banner-about"
               class="lazy img-cover">
           </div>
         </div>
@@ -169,7 +169,7 @@
                                 </g>
                               </svg>
                             </span>
-                            <div class="txt text-primary fw-bold">{$languageFrontWeb->gotolink->display->$currentLangWeb}</div>
+                            <div class="txt fw-bold">{$languageFrontWeb->gotolink->display->$currentLangWeb}</div>
                           </div>
                         </a>
                       </div>

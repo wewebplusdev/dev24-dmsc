@@ -207,13 +207,11 @@
     }
 
     .action {
-      margin-top: 30px;
-
+      padding: 10px 0;
       .-read-more {
         margin-right: 40px;
       }
       .-web-link {
-        margin-top: 50px;
         &:hover {
           text-decoration: underline;
         }
@@ -286,7 +284,8 @@
         
       }
       .action {
-        padding: 10px;
+        padding: 10px ;
+        width: 150px;
         border: 1px solid var(--color-light);
         * {
           color: var(--color-light);
@@ -491,6 +490,6 @@
   .document-download-list.-layout-grid .item {width: 100%;}
   .document-download-list .thumbnail {width: 100%;}
   .document-download-list.-layout-list .row{display: block;}
-  .document-download-list.-layout-list .action {padding: 20px 10px;}
+  .document-download-list.-layout-list .action {padding: 30px 10px;}
   .document-download-list.-layout-list  .thumbnail .cover {padding-top: 80%;}
 }

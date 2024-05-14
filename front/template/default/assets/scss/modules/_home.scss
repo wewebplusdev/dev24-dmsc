@@ -333,7 +333,7 @@
       }
     }
     .graphic {
-      right: 0;
+      right: -10px;
       
     }
     .bg-obj {
@@ -866,9 +866,6 @@
   }
   .wg-research-group.-left .graphic {
     left: -20px;
-  }
-  .wg-research-group.-right .graphic {
-    right: -30px;
   }
   .wg-research-group.-left .bg-obj img,
   .wg-research-group.-right .bg-obj img {
