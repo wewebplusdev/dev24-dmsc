@@ -1379,7 +1379,7 @@ private function checkHeaderValueForMobile($headerValue, $matches)
 
 private function isMobileGradeA($isMobile)
 {
-    return $this->isIosGradeA() || 
+    return $this->isIosGradeA() ||
            $this->isAndroidGradeA() ||
            $this->isWindowsPhoneGradeA() ||
            $this->isBlackBerryGradeA() ||
@@ -1512,15 +1512,15 @@ private function isIosGradeB()
 
 private function isBlackBerryGradeB()
 {
-    return $this->is('BlackBerry') && 
-           $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) >= 5 && 
+    return $this->is('BlackBerry') &&
+           $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) >= 5 &&
            $this->version('BlackBerry', self::VERSION_TYPE_FLOAT) < 6;
 }
 
 private function isOperaMiniGradeB()
 {
-    return ($this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) >= 5.0 && 
-            $this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) <= 7.0) && 
+    return ($this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) >= 5.0 &&
+            $this->version(OPERAMINI, self::VERSION_TYPE_FLOAT) <= 7.0) &&
            ($this->version('Android', self::VERSION_TYPE_FLOAT) >= 2.3 || $this->is('iOS'));
 }
 
@@ -1541,7 +1541,7 @@ private function isBlackBerryGradeC()
 
 private function isWindowsMobileGradeC()
 {
-    return $this->match('MSIEMobile|Windows CE.*Mobile') || 
+    return $this->match('MSIEMobile|Windows CE.*Mobile') ||
            $this->version('Windows Mobile', self::VERSION_TYPE_FLOAT) <= 5.2;
 }
 
