@@ -128,5 +128,6 @@ function reload_swiper() {
         }
     });
 }
+reload_swiper();
 $('#popupModal').modal('show');
 

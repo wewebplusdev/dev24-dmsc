@@ -616,9 +616,7 @@ function getIcon($downloadFile, $type = "")
     }
 }
 
-// function loadSendEmailTo($mailTo, $mailFrom = null, $subjectMail = null, $messageMail = null, $typeMail = 1, $pdfFile = null)
-// {
-// }
+// FN loadSendEmailTo // 
 
 
 ///  FORMAT FORM NUM VALUE /////
