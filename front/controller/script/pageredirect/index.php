@@ -14,12 +14,12 @@ if (!empty($url->segment[1])) {
         
         // Set the VIEW_DETAIL cookie
         setcookie(
-            "VIEW_DETAIL_" . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2])), 
-            true, 
-            time() + 600, 
-            "/", 
-            "", 
-            $secure, 
+            "VIEW_DETAIL_" . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2])),
+            true,
+            time() + 600,
+            "/",
+            "",
+            $secure,
             true
         );
     
