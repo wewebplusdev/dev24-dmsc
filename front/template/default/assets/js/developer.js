@@ -53,3 +53,32 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
         $('#navbarSupportedContent').find(`.${menu}`).addClass('active');
     }
 })();
+
+// checkbox popup
+$('#checkbox-popup').on('change', function(){
+    let ischeck = $(this).is(':checked');
+    if (!ischeck) {
+        $.removeCookie('POPUP', { path: '/' });
+    }else{
+        var date = new Date();
+        var day = 1;
+        var hour = 24;
+        var minutes = 60;
+        (async () => {
+            date.setTime(date.getTime() + (day * (hour * minutes * 60 * 1000)));
+            $.cookie('POPUP', true, {
+                expires: date,
+                path: '/'
+            });
+        })().catch(() => { });
+    }
+});
+
+// check condition popup
+(() => {
+    if (typeof $.cookie("POPUP") === "undefined") {
+        $('#popupModal').modal('show');
+    } else {
+        $('#popupModal').modal('hide');
+    }
+})();

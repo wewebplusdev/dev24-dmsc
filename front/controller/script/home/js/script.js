@@ -130,8 +130,6 @@ function reload_swiper() {
   });
 }
 
-$("#popupModal").modal("show");
-
 $(document).ready(function () {
   // guides tour
 
