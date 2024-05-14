@@ -695,6 +695,61 @@ $yellowSecondary: #e6cf01bf;
     color: $white;
   }
 
+  .layout-logo .title-text{
+    color: $black;
+  }
+
+  .layout-logo .background-sky{
+    filter: grayscale(1);
+  }
+
+  .default-body .whead .title{
+    color: $yellowPrimary;
+  }
+
+  .layout-view.layout-grid .btn-group button:first-child{
+    background-color: $yellowPrimary;
+  }
+
+  .layout-view.layout-list .btn-group button:last-child{
+    background-color: $yellowPrimary;
+  }
+
+  .document-download-list.-layout-grid .item{
+    .box .txt{
+      color: $yellowPrimary;
+    }
+  
+    .txt{
+      color: $yellowPrimary;
+    }
+
+    .head .date{
+      color: $yellowPrimary;
+    }
+
+  
+
+    &:hover{
+      .box *{
+        color: $black;
+      }
+
+      .head .date{
+        color: $black;
+      }
+
+      .txt{
+        color: $black;
+      }
+    }
+
+  }
+
+  .default-pagination .pagination .page-item .link{
+    color: $white;
+  }
+
  
 
  

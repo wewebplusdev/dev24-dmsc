@@ -654,6 +654,43 @@
   background-color: #e6cf01;
   color: #ffffff;
 }
+[data-asw-filter=yellow-contrast] .layout-logo .title-text {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-logo .background-sky {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] .default-body .whead .title {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-view.layout-grid .btn-group button:first-child {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-view.layout-list .btn-group button:last-child {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .box .txt {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .txt {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .head .date {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item:hover .box * {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item:hover .head .date {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item:hover .txt {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .default-pagination .pagination .page-item .link {
+  color: #ffffff;
+}
 
 .readable-font span:not(.asw-wrapper *) {
   font-family: OpenDyslexic3, Comic Sans MS, Arial, Helvetica, sans-serif !important;
