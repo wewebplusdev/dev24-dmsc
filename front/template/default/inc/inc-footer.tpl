@@ -124,7 +124,7 @@
                         <div class="followus pt-md-3">
                             <div class="row no-gutters align-items-center justify-content-md-end">
                                 <div class="col-auto">
-                                  <div class="text-follow-us">Follow us:</div>
+                                    Follow us:
                                 </div>
                                 <div class="col-auto">
                                     <div class="social">

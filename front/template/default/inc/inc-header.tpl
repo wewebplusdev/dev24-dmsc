@@ -164,21 +164,6 @@
                         <span data-feather="x"></span>
                     </a>
                 </div>
-                <div class="nav-lang d-lg-none d-block">
-                  <div class="row align-items-center gutters-10">
-                      <div class="col-12">
-                          <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
-                      </div>
-                      {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
-                          <div class="col-auto">
-                              <a title="{$valueLangWeb->subject}" class="nav-lang-th{if $currentLangWeb eq $valueLangWeb->subject} active{/if}" target="_self" href="{$ul}/lang/{$valueLangWeb->short}">
-                                  <span class="visually-hidden">{$valueLangWeb->subject}</span>
-                                  <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag">
-                              </a>
-                          </div>
-                      {/foreach}
-                  </div>
-                </div>
             </div>
         </div>
     </nav>
