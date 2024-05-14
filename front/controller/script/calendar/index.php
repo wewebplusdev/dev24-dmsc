@@ -1,5 +1,5 @@
 <?php
-// Define constant for script path
+
 define('SCRIPT_PATH', '/front/controller/script/');
 
 $menuActive = "calendar";
@@ -18,8 +18,8 @@ switch ($url->segment[1]) {
         $req['gid'] = $_REQUEST['gid'];
         $smarty->assign("req", $req);
 
-        include_once _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
-        include_once _DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'; #load calendar
+        include  _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
+        include  _DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'; #load calendar
         
 
         $settingPage = array(
@@ -33,7 +33,7 @@ switch ($url->segment[1]) {
         $req['date'] = $_REQUEST['date'] ? $_REQUEST['date'] : strtotime(date('Y-m-d'));
         $smarty->assign("req", $req);
 
-        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
+        include  _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
 
         $data_group = [
             "method" => 'getCalendarGroup',
