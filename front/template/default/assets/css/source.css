@@ -1097,7 +1097,7 @@ figure.ratio .img-ratio.ratio-9x16 {
 }
 
 .select2-container--option-filter .select2-results__option--selected {
-  background-color: var(--color-border) !important;
+  background-color: var(--color-border);
 }
 .select2-container--option-filter .select2-results__option--selected:hover {
   color: var(--color-default);
@@ -1366,6 +1366,9 @@ figure.ratio .img-ratio.ratio-9x16 {
 }
 .pagination-block {
   margin-top: 45px;
+}
+.pagination-block .pagination-label span {
+  color: var(--color-primary);
 }
 
 .default-pagination .pagination-label {
@@ -7560,6 +7563,9 @@ div.swal2-html-container {
 }
 .each-year .editor-content {
   margin-top: 80px;
+}
+.each-year .title {
+  color: var(--color-secondary);
 }
 
 .history-timeline {
