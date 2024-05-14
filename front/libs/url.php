@@ -9,7 +9,7 @@ define('SCRIPT_FOLDER', '/front/controller/script/');
  * @author Pandalittle CH
  */
 
-class url
+class Url
 {
     public $url;
     public $parametter;
