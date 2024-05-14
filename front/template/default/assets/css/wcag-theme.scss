@@ -653,7 +653,8 @@ $yellowSecondary: #e6cf01bf;
     }
 
 
-  }
+  } 
+  
 
   .pagination-block .pagination-label span{
     color: $yellowPrimary;
@@ -750,10 +751,64 @@ $yellowSecondary: #e6cf01bf;
     color: $white;
   }
 
+  .default-bar .box{
+    color: $yellowPrimary;
+  }
+
+  .box path{
+    fill:$yellowPrimary;
+  }
+  
+  .default-bar .whead{
+    border-bottom:2px solid $yellowPrimary ;
+  }
+
+  .item-wrapper{
+    background-color: $black;
+    border:2px solid $yellowPrimary;
+
+    
+
+    &:hover {
+      &::after {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .item-list li{
+        color: $black;
+      }
+      
+      background-color: $yellowPrimary;
+    }
+    }
+
+  
+    
+    .detail-body .document-download-list .desc{
+      color: $yellowPrimary;
+    }
+    
+    .detail-body .document-download-list .type-file .item-list li{
+      color: $yellowPrimary;
+    }
+
+    .detail-body .whead{
+      border-bottom:2px solid $yellowPrimary ;
+    }
+
+    .detail-body .document-download-list .item-wrapper:hover .desc{
+      color: $black;
+    }
+
+   
+    
+  }
  
 
+
  
-}
+
 
 
 

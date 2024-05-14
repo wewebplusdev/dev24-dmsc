@@ -5985,7 +5985,6 @@ div.swal2-html-container {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding-top: 5%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -6507,7 +6506,6 @@ div.swal2-html-container {
 
 .head {
   margin-bottom: 20px;
-  width: 700px;
 }
 .head .title {
   font-size: var(--typo-md);

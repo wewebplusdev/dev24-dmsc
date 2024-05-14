@@ -691,6 +691,41 @@
 [data-asw-filter=yellow-contrast] .default-pagination .pagination .page-item .link {
   color: #ffffff;
 }
+[data-asw-filter=yellow-contrast] .default-bar .box {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .box path {
+  fill: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .default-bar .whead {
+  border-bottom: 2px solid #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .item-wrapper {
+  background-color: #000000;
+  border: 2px solid #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .item-wrapper:hover {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .item-wrapper:hover::after {
+  opacity: 0;
+  visibility: hidden;
+}
+[data-asw-filter=yellow-contrast] .item-wrapper:hover .item-list li {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .detail-body .document-download-list .desc {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .detail-body .document-download-list .type-file .item-list li {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .detail-body .whead {
+  border-bottom: 2px solid #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .detail-body .document-download-list .item-wrapper:hover .desc {
+  color: #000000;
+}
 
 .readable-font span:not(.asw-wrapper *) {
   font-family: OpenDyslexic3, Comic Sans MS, Arial, Helvetica, sans-serif !important;
