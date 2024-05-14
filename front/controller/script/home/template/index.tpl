@@ -56,14 +56,14 @@
             <div class="wg-services lazy" data-bg="{$template}/assets/img/background/bg-services.webp"
                 data-bg-hidpi="{$template}/assets/img/background/bg-services@2x.webp">
                 <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg">
+                    <div class="row align-items-center text-sm-left text-center">
+                        <div class="col-sm mb-sm-0 mb-3">
                             <div class="whead mb-0" data-aos="fade-right">
                                 <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->serviceen->display->$currentLangWeb}</p>
                             </div>
                         </div>
-                        <div class="col-lg-auto">
+                        <div class="col-sm-auto">
                             <div class="action" data-aos="fade-left">
                                 <a href="{$ul}/services" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                             </div>
@@ -157,11 +157,11 @@
                             {if $keyload_innovation eq 0}
                                 {$fade_action = "right"}
                                 {$fade_action_converse = "left"}
-                                {$backgroud_img = "wg-research-graphic-01.png"}
+                                {$backgroud_img = "wg-research-graphic-03.png"}
                             {else}
                                 {$fade_action = "left"}
                                 {$fade_action_converse = "right"}
-                                {$backgroud_img = "wg-research-graphic-02.png"}
+                                {$backgroud_img = "wg-research-graphic-04.png"}
                             {/if}
                             <div class="col-lg" data-aos="fade-{$fade_action}">
                                 <a href="{$valueload_innovation->url}" title="Research" class="link">
@@ -298,17 +298,20 @@
                                         </div>
                                     {/foreach}
                                 </div>
+                              </div>
                             </div>
-                        </div>
+                          </a>
+                        {/foreach}
+                      </div> *}
                     {/if}
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
                     <picture>
-                        <source srcset="{$template}/assets/img/static/wg-about-graphic.webp"
-                            data-srcset="{$template}/assets/img/static/wg-about-graphic@2x.webp"
+                        <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
+                            data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
                             type="image/webp">
-                        <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic@2x.png" alt=""
+                        <img src="{$template}/assets/img/static/wg-about-graphic01.png"
+                            data-src="{$template}/assets/img/static/wg-about-graphic01.png" alt=""
                             class="lazy">
                     </picture>
                 </div>
@@ -324,7 +327,7 @@
                     <div class="row no-gutters">
                         <div class="col-lg">
                             <div class="wg-news-nav" data-aos="fade-left" data-aos-delay="200">
-                                <div class="whead">
+                                <div class="whead text-sm-left text-center pb-sm-0 pb-5">
                                     <h2 class="title">{$languageFrontWeb->titlenewsth->display->$currentLangWeb}</h2>
                                     <p class="subtitle">{$languageFrontWeb->titlenewsen->display->$currentLangWeb}</p>
                                     <div class="line"></div>

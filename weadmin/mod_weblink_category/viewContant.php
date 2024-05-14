@@ -96,6 +96,9 @@ $valGid = $Row['gid'];
 $valSubGid = $Row['sgid'];
 
 $valTypeC = $Row['typec'] ? $Row['typec'] : 1;
+if ($valTypeC != 3) {
+   $valTypeC = 3;
+}
 $valpicType = $Row['picType'] ? $Row['picType'] : 1;
 $valpicDefault = $Row['picDefault'];
 $valUrlC = $Row['urlc'];
