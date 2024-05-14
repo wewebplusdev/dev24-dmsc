@@ -10,6 +10,7 @@ switch ($url->segment[1]) {
     case 'load-calendar':
         $req = array();
         $req['gid'] = $_REQUEST['gid'];
+        $req['keyword'] = $_REQUEST['keyword'];
         $smarty->assign("req", $req);
 
         require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
@@ -24,6 +25,7 @@ switch ($url->segment[1]) {
     case 'load-list':
         $req = array();
         $req['gid'] = $_REQUEST['gid'];
+        $req['keyword'] = $_REQUEST['keyword'];
         $smarty->assign("req", $req);
 
         require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar

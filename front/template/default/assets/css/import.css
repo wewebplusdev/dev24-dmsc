@@ -18845,4 +18845,76 @@ html.with-fancybox body.hide-scrollbar {
       -ms-user-select: none;
           user-select: none;
   pointer-events: none;
+}
+
+.guides-canvas, .guides-mask, .guides-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.guides-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99996;
+}
+
+.guides-mask {
+  z-index: 99998;
+}
+
+.guides-current-element {
+  z-index: 99997;
+  position: relative;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+.guides-fade-in {
+  -webkit-animation: fadeIn 0.25s ease; /* Safari 4+ */ /* Fx 5+ */ /* Opera 12+ */
+  animation: fadeIn 0.25s ease; /* IE 10+ */
+}
+
+.guides-guide {
+  color: #fff;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px #000;
+  position: absolute;
+  margin: 5px;
+  z-index: 99999;
+}
+.guides-guide svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.guides-guide span {
+  display: inline-block;
+  padding: 10px;
+  font-size: 2rem;
+}
+
+.guides-top svg {
+  top: auto;
+  bottom: 0;
+}
+
+.guides-left svg {
+  left: auto;
+  right: 0;
 }/*# sourceMappingURL=import.css.map */

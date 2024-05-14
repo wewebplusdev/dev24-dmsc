@@ -97,6 +97,12 @@
                         </form>
                     </div>
                     </div>
+
+                    <div class="custom-control form-control-lg custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="checkbox-popup">
+                        <label class="custom-control-label" for="checkbox-popup">ไม่แสดงในวันนี้อีก</label>
+                    </div>
+
                 </div>
             </div>
         </div>
