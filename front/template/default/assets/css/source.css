@@ -7742,7 +7742,10 @@ div.swal2-html-container {
 }
 .document-download-list .item-wrapper:hover .action {
   padding: 10px;
+}
+.document-download-list .item-wrapper:hover .action a {
   border: 1px solid var(--color-light);
+  padding: 10px;
 }
 .document-download-list .item-wrapper:hover .action * {
   color: var(--color-light);

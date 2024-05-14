@@ -287,7 +287,10 @@
       .action {
         padding: 10px ;
         // width: 160px;
-        border: 1px solid var(--color-light);
+        a{
+          border: 1px solid var(--color-light);
+          padding: 10px;
+        }
         * {
           color: var(--color-light);
           fill: var(--color-light);
