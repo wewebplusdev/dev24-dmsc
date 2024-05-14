@@ -7695,6 +7695,7 @@ div.swal2-html-container {
 }
 .document-download-list .item .txt {
   color: var(--color-primary);
+  font-size: 18px;
 }
 .document-download-list .item-wrapper {
   position: relative;
@@ -7740,8 +7741,7 @@ div.swal2-html-container {
   fill: var(--color-light);
 }
 .document-download-list .item-wrapper:hover .action {
-  padding: 10px 0;
-  width: 160px;
+  padding: 10px;
   border: 1px solid var(--color-light);
 }
 .document-download-list .item-wrapper:hover .action * {
@@ -10336,6 +10336,9 @@ div.swal2-html-container {
     font-size: 20px;
   }
   .event-list .desc {
+    font-size: 16px;
+  }
+  .document-download-list .item .txt {
     font-size: 16px;
   }
 }
