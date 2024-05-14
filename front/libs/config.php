@@ -36,8 +36,9 @@ switch ($modefunction) {
         echo "<i>## TOKEN DEL MODE ##</i>";
         $_COOKIE["token"] = "";
         unset($_COOKIE["token"]);
-        setcookie("token", null, time() - 3600, "/");
-        setcookie("token", null, time() - 3600);
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        setcookie("token", "", time() - 3600, "/", "", $secure, true);
+        setcookie("token", "", time() - 3600, "/", "", $secure, false);
         exit();
         break;
 

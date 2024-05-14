@@ -9,9 +9,22 @@ if (!empty($url->segment[1])) {
 
     /*#### Start Update View #####*/
     if (!isset($_COOKIE['VIEW_DETAIL_' . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2]))])) {
-        setcookie("VIEW_DETAIL_" . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2])), true, time() + 600, '/');
+        // Determine if the connection is secure
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        
+        // Set the VIEW_DETAIL cookie
+        setcookie(
+            "VIEW_DETAIL_" . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2])), 
+            true, 
+            time() + 600, 
+            "/", 
+            "", 
+            $secure, 
+            true
+        );
+    
         $view = 1;
-    }else{
+    } else {
         $view = 0;
     }
     /*#### End Update View #####*/

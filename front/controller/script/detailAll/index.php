@@ -11,7 +11,7 @@ switch ($url->segment[0]) {
     case 'special_case':
         // Handle special case
         break;
-        
+
     case 'another_case':
         // Handle another case
         break;
@@ -68,7 +68,20 @@ switch ($url->segment[0]) {
 
         /*#### Start Update View #####*/
         if (!isset($_COOKIE['VIEW_DETAIL_' . $loadData->item[0]->masterkey . '_' . urldecode($loadData->item[0]->id)])) {
-            setcookie("VIEW_DETAIL_" . $loadData->item[0]->masterkey . '_' . urldecode($loadData->item[0]->id), true, time() + 600, "/");
+            // Determine if the connection is secure
+            $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+
+            // Set the VIEW_DETAIL cookie
+            setcookie(
+                "VIEW_DETAIL_" . $loadData->item[0]->masterkey . '_' . urldecode($loadData->item[0]->id),
+                true,
+                time() + 600,
+                "/",
+                "",
+                $secure,
+                true
+            );
+
             $array_req = array(
                 'table' => $loadData->item[0]->tb,
                 'masterkey' => $loadData->item[0]->masterkey,
@@ -76,14 +89,16 @@ switch ($url->segment[0]) {
                 'language' => $loadData->item[0]->language,
                 'action' => 'view',
             );
+
             $load_update_view = $DetailAllPage->loadUrlRedirect($array_req);
         }
+
         /*#### End Update View #####*/
 
         // setup seo and text modules
         $language_modules = array();
         $language_modules['breadcrumb1'] = trim($loadData->item[0]->group);
-        $language_modules['list_ohter'] = $language_modules['breadcrumb1']."".$languageFrontWeb->newsrelated->display->$currentLangWeb;
+        $language_modules['list_ohter'] = $language_modules['breadcrumb1'] . "" . $languageFrontWeb->newsrelated->display->$currentLangWeb;
         $language_modules['metatitle'] = $loadData->item[0]->metatitle ? $loadData->item[0]->metatitle : $loadData->item[0]->subject;
         $language_modules['metakeyword'] = $loadData->item[0]->metakeywords;
         $language_modules['metadescription'] = $loadData->item[0]->metadescription;
