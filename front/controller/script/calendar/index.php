@@ -10,8 +10,8 @@ define('CALENDAR_INIT_PATH', SCRIPT_PATH . 'calendar/init-calendar.php');
 
 $CalendarPage = new CalendarPage;
 $limit = 100;
-require_once (_DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'); #load calendar
-require_once (_DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'); #load calendar
+require_once _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
+require_once _DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'; #load calendar
 
 switch ($url->segment[1]) {
     case 'load-calendar':
