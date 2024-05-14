@@ -151,14 +151,16 @@ private function initializeMethodMasterkey()
         }
 
         private function handleTokenAccess()
-        {
-            if (empty($this->tokenRevoke) || empty($_SESSION['settingWeb'])) {
-                $this->handleCheckAuth();
-            } else {
-                $this->tokenRevoke = 1;
-                setcookie("tokenRevoke", 1, time() + 3600, "/", false);
-            }
-        }
+{
+    if (empty($this->tokenRevoke) || empty($_SESSION['settingWeb'])) {
+        $this->handleCheckAuth();
+    } else {
+        $this->tokenRevoke = 1;
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        setcookie("tokenRevoke", 1, time() + 3600, "/", "", $secure, true);
+    }
+}
+
 
         private function handleCheckAuth()
         {
@@ -167,29 +169,33 @@ private function initializeMethodMasterkey()
                 $this->authenticateWebservice();
             } else {
                 $this->tokenRevoke = 1;
-                setcookie("tokenRevoke", 1, time() + 3600, "/", false);
+                $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+                setcookie("tokenRevoke", 1, time() + 3600, "/","",$secure, true);
             }
         }
 
         private function authenticateWebservice()
-        {
-            $authWebservice = self::authWebservice();
-            if ($authWebservice->code === 1001) {
-                setcookie("web_token", encodeStr($authWebservice->tokenid), $authWebservice->expire_at, "/", false);
-                $this->revokeToken($authWebservice);
-            }
-        }
+{
+    $authWebservice = self::authWebservice();
+    if ($authWebservice->code === 1001) {
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        setcookie("web_token", encodeStr($authWebservice->tokenid), $authWebservice->expire_at, "/", "", $secure, true);
+        $this->revokeToken($authWebservice);
+    }
+}
 
-        private function handleAuthWebservice()
-        {
-            $authWebservice = self::authWebservice();
-            if ($authWebservice->code === 1001) {
-                setcookie("web_token", encodeStr($authWebservice->tokenid), $authWebservice->expire_at, "/", false);
-                setcookie("tokenRevoke", 1, time() + 3600, "/", false);
-                $this->revokeToken($authWebservice);
-            }
+
+    private function handleAuthWebservice()
+    {
+        $authWebservice = self::authWebservice();
+        if ($authWebservice->code === 1001) {
+            $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+            setcookie("web_token", encodeStr($authWebservice->tokenid), $authWebservice->expire_at, "/", "", $secure, true);
+            setcookie("tokenRevoke", 1, time() + 3600, "/", "", $secure, true);
+            $this->revokeToken($authWebservice);
         }
-    
+    }
+
 
         public function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
         {
