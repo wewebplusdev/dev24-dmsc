@@ -1363,21 +1363,19 @@ private function checkHeaderValueForMobile($headerValue, $matches)
     public function mobileGrade()
 {
     $isMobile = $this->isMobile();
-    
+    $mobileGrade = false;
+
     if ($this->isMobileGradeA($isMobile)) {
-        return self::MOBILE_GRADE_A;
+        $mobileGrade = self::MOBILE_GRADE_A;
+    } elseif ($this->isMobileGradeB()) {
+        $mobileGrade = self::MOBILE_GRADE_B;
+    } elseif ($this->isMobileGradeC($isMobile)) {
+        $mobileGrade = self::MOBILE_GRADE_C;
     }
-    
-    if ($this->isMobileGradeB()) {
-        return self::MOBILE_GRADE_B;
-    }
-    
-    if ($this->isMobileGradeC($isMobile)) {
-        return self::MOBILE_GRADE_C;
-    }
-    
-    return false;
+
+    return $mobileGrade;
 }
+
 
 private function isMobileGradeA($isMobile)
 {
