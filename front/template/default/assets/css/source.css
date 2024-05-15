@@ -10219,6 +10219,10 @@ div.swal2-html-container {
   color: var(--color-primary);
 }
 
+.txt {
+  color: var(--color-primary);
+}
+
 @media screen and (max-width: 1600px) {
   .section .whead .title {
     font-size: 40px;

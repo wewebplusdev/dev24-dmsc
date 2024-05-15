@@ -5,7 +5,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg">
                         <div class="pagination-label">
-                            {$languageFrontWeb->all->display->$currentLangWeb} <span class="text-primary pl-2">{$pagination.total|number_format} {$languageFrontWeb->listitem->display->$currentLangWeb}</span>
+                            {$languageFrontWeb->all->display->$currentLangWeb} <span class="txt pl-2">{$pagination.total|number_format} {$languageFrontWeb->listitem->display->$currentLangWeb}</span>
                         </div>
                     </div>
                     <div class="col-lg-auto">
