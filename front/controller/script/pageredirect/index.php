@@ -3,7 +3,7 @@ $menuActive = "pageredirect";
 
 $pageredirectage = new pageredirectage;
 if (!empty($url->segment[1])) {
-    $case_slug = explode("|", urldecode($url->segment[1]));
+    $case_slug = explode("@", urldecode($url->segment[1]));
 
     /*#### Start Update View #####*/
     if (!isset($_COOKIE['VIEW_DETAIL_' . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2]))])) {
