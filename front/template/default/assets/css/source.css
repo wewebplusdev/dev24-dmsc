@@ -5178,6 +5178,9 @@ a:hover .fontContantTbManage {
   -webkit-filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.4));
           filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.4));
 }
+.top-graphic .item .link {
+  position: inherit;
+}
 .top-graphic .cover,
 .top-graphic .iframe-container,
 .top-graphic .video-container {
@@ -5191,16 +5194,6 @@ a:hover .fontContantTbManage {
 }
 .top-graphic .contain {
   padding-top: 38%;
-}
-.top-graphic .contain::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-filter: blur(8px);
-          filter: blur(8px);
 }
 .top-graphic .fill-blur {
   position: absolute;
