@@ -1,20 +1,24 @@
 <?php
+define('SCRIPT_PATH', '/front/controller/script/');
+
+
+
 $menuActive = "contact";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$contactPage = new contactPage;
+$ContactPage = new ContactPage;
 
 switch ($url->segment[1]) {
     case 'googlemap-agencies':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/googlemap-agencies.php';
+        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/googlemap-agencies.php';
         break;
 
     case 'map-google':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/map-google.php';
+        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/map-google.php';
         break;
 
     case 'map-graphic':
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/map-graphic.php';
+        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/map-graphic.php';
         break;
 
     default:
@@ -24,9 +28,9 @@ switch ($url->segment[1]) {
         
         // agency
         $data_agency = [
-            "action" => $contactPage->method_module[$menuActive]['action'],
-            "method" => $contactPage->method_module[$menuActive]['method_list'],
-            "language" => $contactPage->language,
+            "action" => $ContactPage->method_module[$menuActive]['action'],
+            "method" => $ContactPage->method_module[$menuActive]['method_list'],
+            "language" => $ContactPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => 100,
@@ -34,7 +38,7 @@ switch ($url->segment[1]) {
         ];
 
         // call list
-        $load_data_agency = $contactPage->load_data($data_agency);
+        $load_data_agency = $ContactPage->loadData($data_agency);
         $array_agency = array();
         if ($load_data_agency->_numOfRows > 0) {
             foreach ($load_data_agency->item as $keyarray_agency => $valuearray_agency) {
@@ -50,9 +54,9 @@ switch ($url->segment[1]) {
         // service
         $masterkey_service = 'csv';
         $data_service = [
-            "action" => $contactPage->method_module[$menuActive]['action'],
-            "method" => $contactPage->method_module[$menuActive]['method_list_service'],
-            "language" => $contactPage->language,
+            "action" => $ContactPage->method_module[$menuActive]['action'],
+            "method" => $ContactPage->method_module[$menuActive]['method_list_service'],
+            "language" => $ContactPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => 100,
@@ -60,16 +64,16 @@ switch ($url->segment[1]) {
         ];
 
         // call list
-        $load_data_service = $contactPage->load_data($data_service);
+        $load_data_service = $ContactPage->loadData($data_service);
         $smarty->assign("load_data_service", $load_data_service);
 
         // setup seo and text modules
         $language_modules = array();
         // active menu header
-        $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb1'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb1'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
         }
         $smarty->assign("language_modules", $language_modules);
        
@@ -78,7 +82,7 @@ switch ($url->segment[1]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $contactPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $ContactPage->searchEngine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(

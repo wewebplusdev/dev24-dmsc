@@ -19,7 +19,7 @@ $('.services-filter').on('click', async function(){
         array_gid.push($(value).data('id'));
     });
 
-    if (array_gid.length > 0 || true) {
+    if (array_gid.length > 0) {
         const settings = {
             "url": `${path}${language}/reverse_proxy`,
             "method": "POST",
@@ -29,7 +29,7 @@ $('.services-filter').on('click', async function(){
             },
             "data": JSON.stringify({
                 "case": 'dynamic',
-                "controller": action,
+                "Controller": action,
                 "method": method,
                 "tid": array_gid,
                 "order": sort,
@@ -42,7 +42,7 @@ $('.services-filter').on('click', async function(){
         if (result?.code === 1001 && result?._numOfRows > 0) {
             let strHTML = ``;
             result?.item?.map((value) => {
-                let url = (value.url != '#' && value.url != "") ? value.url : "javascript:void(0);";
+                let url = (value.url != '#' && value.url != "") ? value.url : "#";
                 let target = (value.url != '#' && value.url != "") ? value.target : "_self";
                 strHTML += `
                 <div class="item">
@@ -80,7 +80,7 @@ $('.services-filter').on('click', async function(){
             },
             "data": JSON.stringify({
                 "method": method,
-                "controller": action,
+                "Controller": action,
                 "tid": array_gid,
                 "order": sort,
                 "page": page,

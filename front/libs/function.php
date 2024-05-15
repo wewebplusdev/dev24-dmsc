@@ -1,6 +1,6 @@
 <?php
 ## print pre ##
-function print_pre($expression, $return = false, $wrap = false)
+function printPre($expression, $return = false, $wrap = false)
 {
     $css = 'border:1px dashed #06f;background:#69f;padding:1em;text-align:left;z-index:99999;font-size:12px;position:relative';
     if ($wrap) {
@@ -18,8 +18,10 @@ function print_pre($expression, $return = false, $wrap = false)
             fclose($fh);
         }
         return $str;
-    } else
-        echo $str;
+    } else {
+          echo $str;
+    }
+      
 }
 
 ## clean array ##
@@ -63,11 +65,16 @@ function configlang($lang)
     }
 }
 
+
+define('SELECT_ALL_FROM', 'SELECT * FROM');
+define('WHERE', 'WHERE');
+define('SECONDS', ' วินาที');
+define('MIN', ' นาที');
 ## sql insert ##
 function sqlinsert($array, $dbname, $key)
 {
     global $db;
-    $sql_insert = "Select * From " . $dbname . " where " . $key . " = -1";
+    $sql_insert = SELECT_ALL_FROM . " " . $dbname . WHERE . $key . " = -1";
     $result_insert = $db->Execute($sql_insert);
 
     $sql_create_insert = $db->GetInsertSQL($result_insert, $array);
@@ -96,9 +103,9 @@ function sqlupdate($array, $dbname, $key, $where = null)
     }
 
     if (!empty($where)) {
-        $sql_update = "Select * From " . $dbname . " where " . $listWhere . " = " . $where;
+        $sql_update = SELECT_ALL_FROM . " " . $dbname . WHERE . $listWhere . " = " . $where;
     } else {
-        $sql_update = "Select * From " . $dbname . " where " . $listWhere;
+        $sql_update = SELECT_ALL_FROM . " " . $dbname . WHERE . $listWhere;
     }
 
     $result_update = $db->Execute($sql_update);
@@ -117,35 +124,25 @@ function sqlupdate($array, $dbname, $key, $where = null)
 ## get ip ##
 function getip()
 {
-
     $ip = false;
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     }
     if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ips = explode(", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
-        if ($ip) {
-            array_unshift($ips, $ip);
-            $ip = false;
-        }
-        for ($i = 0; $i < count($ips); $i++) {
-            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ips[$i])) {
-                if (version_compare(phpversion(), "5.0.0", ">=")) {
-                    if (ip2long($ips[$i]) != false) {
-                        $ip = $ips[$i];
-                        break;
-                    }
-                } else {
-                    if (ip2long($ips[$i]) != -1) {
-                        $ip = $ips[$i];
-                        break;
-                    }
-                }
+        foreach ($ips as $ipCandidate) {
+            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ipCandidate) && filter_var($ipCandidate, FILTER_VALIDATE_IP) !== false) {
+                $ip = $ipCandidate;
+                break;
             }
         }
     }
-    return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+
+    // Return the determined IP or fallback to REMOTE_ADDR
+    return $ip ? $ip : $_SERVER['REMOTE_ADDR'];
 }
+
+
 
 ## encodeStr ##
 function encodeStr($variable)
@@ -159,8 +156,9 @@ function encodeStr($variable)
     for ($i = 0; $i < strlen($variable); $i++) {
         $temp .= $variable[$i] . $key[$index];
         $index++;
-        if ($index >= strlen($key))
+        if ($index >= strlen($key)){
             $index = 0;
+        }
     }
     $variable = strrev($temp);
     $variable = base64_encode($variable);
@@ -199,9 +197,9 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
     if (!empty($dbname)) {
 
         $sqlReturn = " and ((" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00')  ";
-        $sqlReturn .= " OR (" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND TO_DAYS(" . $dbname . "" . $nameend . ")>=TO_DAYS(NOW()) )";
-        $sqlReturn .= " OR (TO_DAYS(" . $dbname . "" . $namestart . ")<=TO_DAYS(NOW()) AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00' ) ";
-        $sqlReturn .= " OR (TO_DAYS(" . $dbname . "" . $namestart . ")<=TO_DAYS(NOW()) AND  TO_DAYS(" . $dbname . "" . $nameend . ")>=TO_DAYS(NOW())  )";
+        $sqlReturn .= " OR (" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND TO_dayS(" . $dbname . "" . $nameend . ")>=TO_dayS(NOW()) )";
+        $sqlReturn .= " OR (TO_dayS(" . $dbname . "" . $namestart . ")<=TO_dayS(NOW()) AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00' ) ";
+        $sqlReturn .= " OR (TO_dayS(" . $dbname . "" . $namestart . ")<=TO_dayS(NOW()) AND  TO_dayS(" . $dbname . "" . $nameend . ")>=TO_dayS(NOW())  )";
         $sqlReturn .= " OR ( " . $dbname . "." . $dbname . "_sdate Is Null and " . $dbname . "." . $dbname . "_edate Is Null )) ";
 
 
@@ -213,47 +211,37 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
 
 ##############################################
 
-function DateThai($strDate, $function = null, $lang = "th", $type = "shot")
+function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
 {
+    global $strMonthCut;
 
-    global $strMonthCut, $url;
-
-    ##############################################
     $strYear = date("Y", strtotime($strDate)) + 543;
-    $strYear2 = date("Y", strtotime($strDate));
-    $strYear_mini = substr($strYear, 2, 4);
-    $strYear_mini_en = substr($strYear2, 2, 4);
-    $strMonth = date("n", strtotime($strDate));
     $strMonth_real = date("n", strtotime($strDate));
-    $strMonth_full = date("n", strtotime($strDate));
-    $strMonth_number = date("n", strtotime($strDate));
-    $strDay = date("j", strtotime($strDate));
+    $strMonth = $strMonthCut[$type][$lang][$strMonth_real];
+    $strday = date("j", strtotime($strDate));
     $strHour = date("H", strtotime($strDate));
     $strMinute = date("i", strtotime($strDate));
     $strSeconds = date("s", strtotime($strDate));
 
-    $strMonth = $strMonthCut[$type][$lang][$strMonth];
-    $strMonth_full = $strMonthCut['full'][$lang][$strMonth_full];
     if (!empty($strDate)) {
         switch ($function) {
             case '1':
-                $day = "$strDay $strMonth $strYear";
+                $day = "$strday $strMonth $strYear";
                 break;
             case '2':
-                $day = "$strDay $strMonth $strYear2";
+                $day = "$strday $strMonth " . date("Y", strtotime($strDate));
                 break;
             case '3':
-                $day = "$strDay $strMonth $strYear_mini";
+                $day = "$strday $strMonth " . substr($strYear, 2, 4);
                 break;
             case '4':
-                $day = "$strDay $strMonth $strYear , $strHour:$strMinute ";
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute ";
                 break;
-
             case '5':
-                $day = "$strDay $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
                 break;
             case '6':
-                $day = "$strDay";
+                $day = "$strday";
                 break;
             case '7':
                 $day = "$strMonth $strYear";
@@ -268,116 +256,96 @@ function DateThai($strDate, $function = null, $lang = "th", $type = "shot")
                 $day = "$strYear";
                 break;
             case '11':
-                $day = "วันที่ $strDay $strMonth $strYear | เวลา $strHour:$strMinute น.";
+                $day = "วันที่ $strday $strMonth $strYear | เวลา $strHour:$strMinute น.";
                 break;
             case '12':
-
+                // Calculate time difference
                 $previousTimeStamp = strtotime(str_replace("-", "/", $strDate));
                 $lastTimeStamp = strtotime(str_replace("-", "/", date("Y-m-d H:i:s")));
+                $difference = $lastTimeStamp - $previousTimeStamp;
 
-                // strtotime("2013/09/17 12:34:11");
-
-                $menos = $lastTimeStamp - $previousTimeStamp;
-
-                $mins = $menos / 60;
-                if ($mins < 1) {
-                    $showing = $menos . " วินาที";
-                } else {
-                    $minsfinal = floor($mins);
-                    $secondsfinal = $menos - ($minsfinal * 60);
-                    $hours = $minsfinal / 60;
-                    if ($hours < 1) {
-                        $showing = $minsfinal . " นาที " . $secondsfinal . " วินาที";
-                    } else {
-                        $hoursfinal = floor($hours);
-                        $minssuperfinal = $minsfinal - ($hoursfinal * 60);
-                        $days = $hoursfinal / 24;
-                        if ($days < 1) {
-                            $showing = $hoursfinal . " ชั่วโมง " . $minssuperfinal . " นาที " . $secondsfinal . " วินาที";
-                        } else {
-                            $daysfinal = floor($days);
-                            $hourssuperfinal = $hoursfinal - ($daysfinal * 24);
-                            $showing = "ผ่านมาแล้ว " . $daysfinal . " วัน " . $hourssuperfinal . " ชั่วโมง " . $minssuperfinal . " นาที " . $secondsfinal . " วินาที";
-                        }
-                    }
-                }
-                $day = $showing;
+                // Format time difference
+                $day = formatTimeDifference($difference);
                 break;
-
             case '13':
-                $day = "$strDay<br/>$strMonth";
+                $day = "$strday<br/>$strMonth";
                 break;
             case '14':
-                $day = "$strDay" . "th" . " $strMonth_full $strYear2";
+                $day = "$strday" . "th" . " $strMonth " . date("Y", strtotime($strDate));
                 break;
             case '15':
-                $day = "$strMonth_full $strDay, $strYear2";
+                $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
                 break;
             case '16':
-                $day = "$strDay.$strMonth_number.$strYear_mini_en";
+                $day = "$strday.$strMonth_real.$strYear";
                 break;
             case '17':
-                $day = "$strDay.$strMonth_number.$strYear2";
+                $day = "$strday.$strMonth_real." . date("Y", strtotime($strDate));
                 break;
             case '18':
-                $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "<strong>$strDay</strong>$strMonth_number.$strYear2";
+                $strMonth_real = sprintf("%02d", $strMonth_real);
+                $day = "<strong>$strday</strong>$strMonth_real." . date("Y", strtotime($strDate));
                 break;
             case '19':
-                $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "$strDay.$strMonth_number.$strYear2";
+                $strMonth_real = sprintf("%02d", $strMonth_real);
+                $day = "$strday.$strMonth_real." . date("Y", strtotime($strDate));
                 break;
             case '20':
-                $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
-                $day = "$strMonth $strDay, $strYear2";
+                // Check if month translation exists
+                if (isset($strMonthCut['shot2']['en'][$strMonth_real])) {
+                    $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
+                    $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
+                } else {
+                    $day = "-";
+                }
                 break;
             case '21':
-                $day = "$strDay $strMonth";
+                $day = "$strday $strMonth";
                 break;
             case '22':
-                $day = "$strDay $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
+                $day = "$strday $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
                 break;
             case '23':
-                $day = "$strDay $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
+                $day = "$strday $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
                 break;
             case '24':
-                $day = "$strDay $strMonth $strYear";
+                $day = "$strday $strMonth $strYear";
                 break;
             case '25':
-                $day = $strYear . '' . sprintf("%02d", $strMonth_number);
+                $day = $strYear . '' . sprintf("%02d", $strMonth_real);
                 break;
             default:
+                $day = "-";
                 break;
         }
     } else {
         $day = "-";
     }
+
     return $day;
 }
 
+
+
 ############################################
 
-function changeQuot($Data)
+function changeQuot($daTa)
 {
     ############################################
     global $coreLanguageSQL;
 
-    $valTrim = trim($Data);
-    //    $valChangeQuot = wewebEscape($coreLanguageSQL, $valTrim);
+    $valTrim = trim($daTa);
     $valChangeQuot = $valTrim;
-    //$valChangeQuot=str_replace("'","&rsquo;",str_replace('"','&quot;',$valChangeQuot));
     $valChangeQuot = str_replace("'", "&rsquo;", str_replace('"', '&quot;', $valChangeQuot));
 
     return $valChangeQuot;
 }
 
-function rechangeQuot($Data)
+function rechangeQuot($daTa)
 {
     ############################################
-    $valChangeQuot = sanitize($Data);
-    // $valChangeQuot = htmlspecialchars(str_replace("&rsquo;", "'", str_replace('&quot;', '"', $valChangeQuot)));
+    $valChangeQuot = sanitize($daTa);
     $valChangeQuot = str_replace("&rsquo;", "'", str_replace('&quot;', '"', $valChangeQuot));
-    //$valChangeQuot = str_replace('\r\n','<br/>',$valChangeQuot);
     return $valChangeQuot;
 }
 
@@ -390,9 +358,7 @@ function sanitize($input)
     //     $input = stripslashes($input); //it is, so strip any slashes and prepare for next step;
     // }
     //if get_magic_quotes_gpc() is on, slashes were already stripped .. if it's off, mysqli_real_escape_string() will take care of the rest;
-    $output = addslashes($input);
-
-    return $output;
+    return addslashes($input);
 }
 
 ## page pagination ##
@@ -487,7 +453,7 @@ function resize($img, $w, $h, $newfilename)
     $newImg = imagecreatetruecolor($nWidth, $nHeight);
 
     /* Check if this image is PNG or GIF, then set if Transparent */
-    if (($imgInfo[2] == 1) or ($imgInfo[2] == 3)) {
+    if (($imgInfo[2] == 1) || ($imgInfo[2] == 3)) {
         imagealphablending($newImg, false);
         imagesavealpha($newImg, true);
         $transparent = imagecolorallocatealpha($newImg, 255, 255, 255, 127);
@@ -514,8 +480,8 @@ function resize($img, $w, $h, $newfilename)
     return $newfilename;
 }
 
-function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false)
-{
+function fileinclude($filename, $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false, $fileType = 'html') {
+
     global $path_upload, $path_upload_url, $path_template, $templateweb, $core_pathname_upload, $detectDivice;
 
     if ($for == 'linkthumb') {
@@ -539,17 +505,14 @@ function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $fo
         $setFoldet = $path_upload_url;
         $setimg = str_replace($path_upload, "", $checkFile);
 
-        if (!empty($crop)) {
-            if (file_exists($checkFileCrop)) {
-                $setimg = str_replace($path_upload, "", $checkFileCrop);
-            }
+        if (!empty($crop) && file_exists($checkFileCrop)) {
+            $setimg = str_replace($path_upload, "", $checkFileCrop);
         }
-
-        if (!empty($cropthumb)) {
-            if (file_exists($checkFileCropThumb)) {
-                $setimg = str_replace($path_upload, "", $checkFileCropThumb);
-            }
+        
+        if (!empty($cropthumb) && file_exists($checkFileCropThumb)) {
+            $setimg = str_replace($path_upload, "", $checkFileCropThumb);
         }
+        
     } else {
         $setFoldet = _URL . $path_template[$templateweb][0];
         $setimg = "/assets/img/static/brand.png";
@@ -590,63 +553,60 @@ function callhtml($valhtml)
 
 function txtReplaceHTML($data)
 {
-    ####################################################
-    $dataHTML = str_replace("\\", "", $data);
-    return $dataHTML;
+    return str_replace("\\", "", $data);
 }
 
 ####################################################
 
-function get_IconSize($LinkRelativePath)
+function getIconSize($linkRelativePath)
 {
     ####################################################
-    $filesize = @filesize($LinkRelativePath);
+    $filesize = @filesize($linkRelativePath);
     if ($filesize < 10485) {
         $sizeFile = number_format($filesize / 1024, 2) . " Kb";
     } else {
         $sizeFile = number_format($filesize / (1024 * 1024), 2) . " Mb";
     }
-    return ($sizeFile);
+    return $sizeFile;
 }
-
 ####################################################
 
-function get_Icon($DownloadFile, $type = "")
+function getIcon($downloadFile, $type = "")
 {
     ####################################################
 
-    $ImageType = strrchr($DownloadFile, '.');
+    $imageType = strrchr($downloadFile, '.');
 
-    if (($ImageType == ".jpg") || ($ImageType == ".png") || ($ImageType == ".gif") || ($ImageType == ".bmp")) {
+    if (($imageType == ".jpg") || ($imageType == ".png") || ($imageType == ".gif") || ($imageType == ".bmp")) {
         $tocss = "picture";
-        $TypeImgFile = "file-picture-o";
-    } elseif ($ImageType == ".pdf") {
+        $typeImgFile = "file-picture-o";
+    } elseif ($imageType == ".pdf") {
         $tocss = "pdf";
-        $TypeImgFile = "file-pdf-o";
-    } elseif ($ImageType == ".txt") {
+        $typeImgFile = "file-pdf-o";
+    } elseif ($imageType == ".txt") {
         $tocss = "txt";
-        $TypeImgFile = "file-text-o";
-    } elseif (($ImageType == ".zip") || ($ImageType == ".rar")) {
+        $typeImgFile = "file-text-o";
+    } elseif (($imageType == ".zip") || ($imageType == ".rar")) {
         $tocss = "achive";
-        $TypeImgFile = "file-zip-o";
-    } elseif ($ImageType == ".xls" || $ImageType == ".xlsx") {
+        $typeImgFile = "file-zip-o";
+    } elseif ($imageType == ".xls" || $imageType == ".xlsx") {
         $tocss = "xls";
-        $TypeImgFile = "file-excel-o";
-    } elseif ($ImageType == ".ppt" || $ImageType == ".pptx") {
+        $typeImgFile = "file-excel-o";
+    } elseif ($imageType == ".ppt" || $imageType == ".pptx") {
         $tocss = "ppt";
-        $TypeImgFile = "file-powerpoint-o";
-    } elseif ($ImageType == ".rtf" || $ImageType == ".doc" || $ImageType == ".docx") {
+        $typeImgFile = "file-powerpoint-o";
+    } elseif ($imageType == ".rtf" || $imageType == ".doc" || $imageType == ".docx") {
         $tocss = "doc";
-        $TypeImgFile = "file-word-o";
+        $typeImgFile = "file-word-o";
     } else {
         $tocss = "other";
-        $TypeImgFile = "file-o";
+        $typeImgFile = "file-o";
     }
 
 
     $fileCheck = array(
-        "icon" => $TypeImgFile,
-        "type" => $ImageType,
+        "icon" => $typeImgFile,
+        "type" => $imageType,
         "tocss" => $tocss
     );
     if (!empty($type)) {
@@ -656,113 +616,91 @@ function get_Icon($DownloadFile, $type = "")
     }
 }
 
-function loadSendEmailTo($mailTo, $mailFrom = null, $subjectMail = null, $messageMail = null, $typeMail = 1, $pdfFile = null)
-{
-}
+// FN loadSendEmailTo //
 
 
 ///  FORMAT FORM NUM VALUE /////
-function addzero($value)
+function addZero($value)
 {
-    $valuelen = strlen($value);
-    switch ($valuelen) {
-        case 1:
-            return '000000' . $value;
-            break;
-        case 2:
-            return '00000' . $value;
-            break;
-        case 3:
-            return '0000' . $value;
-            break;
-        case 4:
-            return '000' . $value;
-            break;
-        case 5:
-            return '00' . $value;
-            break;
-        case 6:
-            return '0' . $value;
-            break;
-        case 7:
-            return $value;
-            break;
-        default:
-            return $value;
-            break;
+    $valueLen = strlen($value);
+    $paddingLength = 7 - $valueLen;
+    if ($paddingLength > 0 && $paddingLength <= 6) {
+        return str_repeat('0', $paddingLength) . $value;
+    } else {
+        return $value;
     }
 }
+
 
 ############################################
 function getDateNow()
 {
-    ############################################
     $today = getdate();
-    $Day = $today['mday'];
-    $Month = $today['mon'];
-    $Year = $today['year'];
-    $DateIs = sprintf("%04d-%02d-%02d", $Year, $Month, $Day);
-    return ($DateIs);
+    $day = $today['mday'];
+    $month = $today['mon'];
+    $year = $today['year'];
+    return sprintf("%04d-%02d-%02d", $year, $month, $day);
 }
 
+
 //#################################################
-function getEndDayOfMonth($myDate)
+function getEnddayOfMonth($myDate)
 {
-    //#################################################
     $myEndOfMonth = array(0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-    $myDateArray = explode("-", $myDate);
-    $myMonth = $myDateArray[1] * 1;
-    $myYear = $myDateArray[0] * 1;
+    $mydataArray = explode("-", $myDate);
+    $myMonth = $mydataArray[1] * 1;
+    $myYear = $mydataArray[0] * 1;
+    $endDay = 0;
     if ($myMonth >= 1 && $myMonth <= 12) {
         if ($myMonth == 2) {
-            //check leap year ---
+            // Check leap year
             if (($myYear % 4) == 0) {
-                return 29;
+                $endDay = 29;
             } else {
-                return 28;
+                $endDay = 28;
             }
         } else {
-            return $myEndOfMonth[$myMonth];
+            $endDay = $myEndOfMonth[$myMonth];
         }
-    } else {
-        return 0;
     }
+    return $endDay;
 }
 
+
 //#################################################
-function DateFormatInsert($DateTime, $timeAgre = null)
+function dateFormatInsert($dateTime, $timeAgre = null)
 {
     //#################################################
     global $url;
-    if ($DateTime == "") {
-        $DateTime = "00-00-0000";
+    if ($dateTime == "") {
+        $dateTime = "00-00-0000";
     }
 
     if (!empty($timeAgre)) {
-        $Time = $timeAgre;
+        $time = $timeAgre;
     } else {
-        $Time = "00:00:00";
+        $time = "00:00:00";
     }
 
-    $DateArr = explode("/", $DateTime);
-    $dataYear = $DateArr[2];
-    if ($DateArr[1] >= 1) {
-        $dataM = $DateArr[1];
+    $dataArr = explode("/", $dateTime);
+    $dataYear = $dataArr[2];
+    if ($dataArr[1] >= 1) {
+        $dataM = $dataArr[1];
     } else {
         $dataM = "00";
     }
 
-    if ($DateArr[0] >= 1) {
-        $dataD = $DateArr[0];
+    if ($dataArr[0] >= 1) {
+        $dataD = $dataArr[0];
     } else {
         $dataD = "00";
     }
 
-    $valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $Time;
-    return $valReturn;
+    return $dataYear . "-" . $dataM . "-" . $dataD . " " . $time;
+
 }
 
-function page_redirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
+function pageRedirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
 {
     return encodeStr($table) . "@" . encodeStr($masterkey) . "@" . encodeStr($id) . "@" . encodeStr($language) . "@" . encodeStr($download);
 }
@@ -773,7 +711,7 @@ function chkSyntaxAnd($var)
     return str_replace("&", "And", $var);
 }
 
-function check_url($url){
+function checkUrl($url){
     return ($url != "" && $url != "#") ? true : false;
 }
 
@@ -790,40 +728,54 @@ function format($num,$length) {
 
 //#################################################
 function formatNum($myNumber) {
-//#################################################
+    //#################################################
     $myNumber = intval($myNumber);
-    if ($myNumber<10) return ("0".$myNumber);
-    else return ($myNumber);
+    if ($myNumber < 10) {
+        return "0" . $myNumber;
+    } else {
+        return $myNumber;
+    }
 }
 
-function header_active($link){
+
+function headerActive($link){
     global $sitemapWeb, $currentLangWeb;
     $array_page = array();
+
     if (!empty($link)) {
         foreach ($sitemapWeb->level_1->$currentLangWeb as $valueSitemapLv1) {
-            if (count((array)$valueSitemapLv1->level_2) > 0){
-                foreach ($valueSitemapLv1->level_2 as $valueLv2){
-                    if (count((array)$valueLv2->level_3) > 0){
-                        foreach ($valueLv2->level_3 as $valueLv3) {
-                            if (str_contains($valueLv3->url, $link)) {
-                                $array_page['page'][] = $valueLv3->subject;
-                                $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
-                            }
-                        }
-                    }else{
-                        if (str_contains($valueLv2->url, $link)) {
-                            $array_page['page'][] = $valueLv2->subject;
-                            $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
-                        }
-                    }
-                }
-            }else{
-                if (str_contains($valueSitemapLv1->url, $link)) {
-                    $array_page['page'][] = $valueSitemapLv1->subject;
-                    $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
-                }
+            if (isLinkInLevel($valueSitemapLv1, $link, $array_page)) {
+                break;
             }
         }
     }
+
     return $array_page;
+}
+function isLinkInLevel($level, $link, &$array_page) {
+    $found = false;
+
+    if (str_contains($level->url, $link)) {
+        $array_page['page'][] = $level->subject;
+        $array_page['header'][] = "menu-" . $level->id;
+        $found = true;
+    } elseif (count((array)$level->level_2) > 0) {
+        foreach ($level->level_2 as $valueLv2) {
+            if (isLinkInLevel($valueLv2, $link, $array_page)) {
+                $found = true;
+                break;
+            }
+        }
+    } elseif (count((array)$level->level_3) > 0) {
+        foreach ($level->level_3 as $valueLv3) {
+            if (str_contains($valueLv3->url, $link)) {
+                $array_page['page'][] = $valueLv3->subject;
+                $array_page['header'][] = "menu-" . $level->id;
+                $found = true;
+                break;
+            }
+        }
+    }
+
+    return $found;
 }

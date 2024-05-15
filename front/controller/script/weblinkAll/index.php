@@ -2,10 +2,18 @@
 $menuActive = "weblinkAll";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$weblinkAllPage = new weblinkAllPage;
+$WeblinkAllPage = new WeblinkAllPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         if (empty($masterkey)) {
             $masterkey = 'pus';
@@ -27,9 +35,9 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data_group = [
-            "action" => $weblinkAllPage->method_module[$menuActive]['action'],
-            "method" => $weblinkAllPage->method_module[$menuActive]['method_group'],
-            "language" => $weblinkAllPage->language,
+            "action" => $WeblinkAllPage->medthodModule[$menuActive]['action'],
+            "method" => $WeblinkAllPage->medthodModule[$menuActive]['method_group'],
+            "language" => $WeblinkAllPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
@@ -37,15 +45,15 @@ switch ($url->segment[0]) {
         ];
         
         // call group
-        $load_group = $weblinkAllPage->load_data($data_group);
+        $load_group = $WeblinkAllPage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
 
         $data = [
-            "action" => $weblinkAllPage->method_module[$menuActive]['action'],
-            "method" => $weblinkAllPage->method_module[$menuActive]['method_list'],
-            "language" => $weblinkAllPage->language,
+            "action" => $WeblinkAllPage->medthodModule[$menuActive]['action'],
+            "method" => $WeblinkAllPage->medthodModule[$menuActive]['method_list'],
+            "language" => $WeblinkAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -55,16 +63,16 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $weblinkAllPage->load_data($data);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $WeblinkAllPage->loadData($data);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
         // active menu header
-        $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb2'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
         }
         $smarty->assign("language_modules", $language_modules);
        
@@ -73,11 +81,11 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $weblinkAllPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $WeblinkAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

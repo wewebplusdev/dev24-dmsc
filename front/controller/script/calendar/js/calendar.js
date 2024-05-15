@@ -13,7 +13,7 @@ const month = {
 // add event listener
 $('.-click-datenow').on('click', async function(){
     // Get the current date
-    var current = moment().utc();
+    let current = moment().utc();
     // converse to datetime
     let formattedDate = current.format('YYYY-MM-DD');
     // substr last 3 digit
@@ -37,7 +37,7 @@ $('.-click-prevmonth').on('click', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    var current = moment.unix(date_calendar).utc();
+    let current = moment.unix(date_calendar).utc();
     // prev month
     current.subtract(1, 'month');
     // converse to datetime
@@ -53,7 +53,7 @@ $('.-click-nextmonth').on('click', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    var current = moment.unix(date_calendar).utc();
+    let current = moment.unix(date_calendar).utc();
     // prev month
     current.add(1, 'month');
     // converse to datetime
@@ -70,7 +70,7 @@ $('.-change-month').on('change', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    var current = moment.unix(date_calendar).utc();
+    let current = moment.unix(date_calendar).utc();
     let formattedDate = current.format('YYYY-MM-DD');
     let converse = moment(formattedDate , 'YYYY-MM-DD').utc().toDate();
     // jump month
@@ -90,7 +90,7 @@ $('.-change-year').on('change', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    var current = moment.unix(date_calendar).utc();
+    let current = moment.unix(date_calendar).utc();
     let formattedDate = current.format('YYYY-MM-DD');
     let converse = moment(formattedDate , 'YYYY-MM-DD').utc().toDate();
     // jump year
@@ -139,7 +139,7 @@ async function load_calendar(date_calendar){
     $('.-append-list').append(result_list);
 
     // change month
-    var current = moment.unix(date_calendar).utc().toDate();
+    let current = moment.unix(date_calendar).utc().toDate();
     $('.-append-month').text(month[language][current.getMonth()]);
     if (language == 'th') {
         $('.-append-year').text(current.getFullYear()+543);
@@ -161,7 +161,7 @@ async function reload_event(){
     })
     
     $('.event-group .event-item').each(function () {
-        strHTML = `
+        let strHTML = `
         <span class="tooltip" style="display:none;">${$(this).attr('title')}</span>
       `;
         $(this).append(strHTML);
