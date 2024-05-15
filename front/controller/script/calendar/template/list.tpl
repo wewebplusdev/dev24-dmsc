@@ -1,7 +1,7 @@
 {if $loadData->code eq 1001 && $loadData->_numOfRows gte 1}
     <div class="event-list">
         <div class="container">
-            <div class="title">รายการกิจกรรม</div>
+            <div class="title">{$languageFrontWeb->calendar_activity_list->display->$currentLangWeb}</div>
             {foreach $loadData->item as $keyload_data => $valueload_data}
                 {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
                 {assign var="target" value="_self"}

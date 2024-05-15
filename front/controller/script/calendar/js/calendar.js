@@ -13,7 +13,7 @@ const month = {
 // add event listener
 $('.-click-datenow').on('click', async function(){
     // Get the current date
-    let current = moment().utc();
+    var current = moment().utc();
     // converse to datetime
     let formattedDate = current.format('YYYY-MM-DD');
     // substr last 3 digit
@@ -37,7 +37,7 @@ $('.-click-prevmonth').on('click', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    let current = moment.unix(date_calendar).utc();
+    var current = moment.unix(date_calendar).utc();
     // prev month
     current.subtract(1, 'month');
     // converse to datetime
@@ -53,7 +53,7 @@ $('.-click-nextmonth').on('click', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    let current = moment.unix(date_calendar).utc();
+    var current = moment.unix(date_calendar).utc();
     // prev month
     current.add(1, 'month');
     // converse to datetime
@@ -70,7 +70,7 @@ $('.-change-month').on('change', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    let current = moment.unix(date_calendar).utc();
+    var current = moment.unix(date_calendar).utc();
     let formattedDate = current.format('YYYY-MM-DD');
     let converse = moment(formattedDate , 'YYYY-MM-DD').utc().toDate();
     // jump month
@@ -90,7 +90,7 @@ $('.-change-year').on('change', async function(){
     // get current
     let date_calendar = $('input[name="date"]').val();
     // converse to datetime
-    let current = moment.unix(date_calendar).utc();
+    var current = moment.unix(date_calendar).utc();
     let formattedDate = current.format('YYYY-MM-DD');
     let converse = moment(formattedDate , 'YYYY-MM-DD').utc().toDate();
     // jump year
@@ -108,7 +108,32 @@ $('.-change-group').on('change', async function(){
     await load_calendar(date_calendar);
 });
 
-async function load_calendar(date_calendar){
+$('.-search-text').on('keypress', async function(e){
+    $('#form-calendar').attr('onsubmit', 'return false');
+    if (e.which == 13) {
+        // get text
+        let text_calendar = $(this).val();
+        let date_calendar = $('input[name="date"]').val();
+        if (text_calendar?.length > 0) {
+            await load_calendar(date_calendar, text_calendar);
+        }else{
+            await load_calendar(date_calendar);
+        }
+    }
+});
+
+$('.-submit-text').on('click', async function(){
+    // get text
+    let text_calendar = $('.-search-text').val();
+    let date_calendar = $('input[name="date"]').val();
+    if (text_calendar?.length > 0) {
+        await load_calendar(date_calendar, text_calendar);
+    }else{
+        await load_calendar(date_calendar);
+    }
+});
+
+async function load_calendar(date_calendar, searchtxt = ""){
     let group_id = $('.-change-group :selected').val();
     // body calendar
     const settings = {
@@ -118,6 +143,7 @@ async function load_calendar(date_calendar){
         "data": {
             "date": date_calendar,
             "gid": group_id,
+            "keyword": searchtxt,
         },
     };
     const result = await $.ajax(settings);
@@ -132,6 +158,7 @@ async function load_calendar(date_calendar){
         "data": {
             "date": date_calendar,
             "gid": group_id,
+            "keyword": searchtxt,
         },
     };
     const result_list = await $.ajax(settings_list);
@@ -139,7 +166,7 @@ async function load_calendar(date_calendar){
     $('.-append-list').append(result_list);
 
     // change month
-    let current = moment.unix(date_calendar).utc().toDate();
+    var current = moment.unix(date_calendar).utc().toDate();
     $('.-append-month').text(month[language][current.getMonth()]);
     if (language == 'th') {
         $('.-append-year').text(current.getFullYear()+543);
@@ -161,7 +188,7 @@ async function reload_event(){
     })
     
     $('.event-group .event-item').each(function () {
-        let strHTML = `
+        strHTML = `
         <span class="tooltip" style="display:none;">${$(this).attr('title')}</span>
       `;
         $(this).append(strHTML);

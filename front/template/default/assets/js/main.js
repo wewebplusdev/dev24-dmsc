@@ -219,13 +219,13 @@ $(document).ready(function () {
 
 
   $("a").each(function () {
-    strHTML = `
-      <span class="fontContantTbManage" style="display:none;">${$(this).attr(
-        "title"
-      )}</span>
-    `;
-    $(this).append(strHTML);
+    if ($(this).attr("title")?.length > 0) {
+      strHTML = `
+        <span class="fontContantTbManage" style="display:none;">${$(this).attr(
+          "title"
+        )}</span>
+      `;
+      $(this).append(strHTML);
+    }
   });
-
-
 });

@@ -10,18 +10,17 @@ define('CALENDAR_INIT_PATH', SCRIPT_PATH . 'calendar/init-calendar.php');
 
 $CalendarPage = new CalendarPage;
 $limit = 100;
+$req = array();
+$req['gid'] = $_REQUEST['gid'];
+$req['keyword'] = $_REQUEST['keyword'];
+$req['date'] = $_REQUEST['date'] ? $_REQUEST['date'] : strtotime(date('Y-m-d'));
+$smarty->assign("req", $req);
 require_once _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
 require_once _DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'; #load calendar
 
 switch ($url->segment[1]) {
     case 'load-calendar':
     case 'load-list':
-        $req = array();
-        $req['gid'] = $_REQUEST['gid'];
-        $smarty->assign("req", $req);
-
-        
-
         $settingPage = array(
             "page" => $menuActive,
             "template" => ($url->segment[1] == 'load-calendar') ? "calendar.tpl" : "list.tpl",
@@ -29,11 +28,6 @@ switch ($url->segment[1]) {
         );
         break;
     default:
-        $req = array();
-        $req['date'] = $_REQUEST['date'] ? $_REQUEST['date'] : strtotime(date('Y-m-d'));
-        $smarty->assign("req", $req);
-
-
         $data_group = [
             "method" => 'getCalendarGroup',
             "language" => $CalendarPage->language,

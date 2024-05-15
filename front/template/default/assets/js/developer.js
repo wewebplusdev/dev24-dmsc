@@ -58,7 +58,6 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
 // checkbox popup
 $('#checkbox-popup').on('change', function(){
     let ischeck = $(this).is(':checked');
-    console.log(ischeck);
     if (!ischeck) {
         $.removeCookie('POPUP', { path: '/' });
     }else{
