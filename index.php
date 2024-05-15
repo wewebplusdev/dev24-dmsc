@@ -71,7 +71,7 @@ if (!empty($memberID['member_info'])) {
 }
 
 $member->saveCookie();
-$memberLogin = method_exists($member, 'login_status') ? $member->login_status() : 0;
+$memberLogin = method_exists($member, 'login_status') ? $member->loginStatus() : 0;
 
 if (!empty($memberLogin)) {
     $smarty->assign("login", true);
@@ -138,7 +138,7 @@ $smarty->assign("base", _URL);
 $smarty->assign("fullurl", _FullUrl);
 $smarty->assign("Domain", _Domain);
 $smarty->assign("path_root", $path_root);
-$smarty->assign("header_active", $header_active);
+$smarty->assign("headerActive", $headerActive);
 
 $smarty->assign("urlPagination", _URLPagination);
 

@@ -97,7 +97,7 @@ class Member {
     }
 
     public function generateExp() {
-        $timestamp = strtotime(date(self::DATE_FORMAT)) + 60 * $this->token_timeout;
+        $timestamp = strtotime(date(self::DATE_FORMAT)) + 60 * $this->tokenTimeout;
         $time = date(self::DATE_FORMAT, $timestamp);
         return $time;
     }
