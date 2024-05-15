@@ -372,8 +372,7 @@
                                     aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
                                         <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill"
-                                            data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-01"
-                                            aria-selected="true">{$valueNewsGroup->subject}</button>
+                                            data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
                                     {/foreach}
                                 </div>
                                 <div class="action">
