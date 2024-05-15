@@ -5519,6 +5519,7 @@ div.swal2-html-container {
 .wg-research-group.-left {
   text-align: right;
   color: var(--color-primary);
+  background: #F8F8F8;
 }
 .wg-research-group.-left .whead {
   padding: 40px;
