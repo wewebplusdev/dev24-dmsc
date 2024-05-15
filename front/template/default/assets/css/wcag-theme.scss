@@ -541,7 +541,7 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .document-download-list .icon path,line{
-    stroke: $yellowPrimary;
+    stroke: $black;
   }
 
   .layout-mission .title-content h5{
@@ -622,16 +622,15 @@ $yellowSecondary: #e6cf01bf;
 
   .document-download-list.-layout-grid .item{
     .content{
-      background: $black;
-      border: 1px solid $yellowPrimary;
+      background: $yellowSecondary;
     }
 
     .head .title{
-      color: $yellowPrimary;
+      color: $black;
     }
 
     .action .link{
-      color: $yellowPrimary;
+      color: $black;
     }
 
     &:hover{
@@ -662,7 +661,7 @@ $yellowSecondary: #e6cf01bf;
 
   .default-pagination .pagination .page-item .link.active{
     background: $black;
-    color: $white;
+    color: $yellowPrimary;
   }
 
   .default-pagination .pagination .page-item .link{
@@ -717,16 +716,20 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .document-download-list.-layout-grid .item{
-    .box .txt{
-      color: $yellowPrimary;
-    }
-  
-    .txt{
-      color: $yellowPrimary;
+    .box *{
+      color: $black;
     }
 
     .head .date{
-      color: $yellowPrimary;
+      color: $black;
+    }
+
+    .txt{
+      color: $black;
+    }
+
+    .head .date{
+      color: $black;
     }
 
   
@@ -748,7 +751,7 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .default-pagination .pagination .page-item .link{
-    color: $white;
+    color: $yellowPrimary;
   }
 
   .default-bar .box{
@@ -764,8 +767,8 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .item-wrapper{
-    background-color: $black;
-    border:2px solid $yellowPrimary;
+    background-color: $yellowSecondary;
+ 
 
     
 
@@ -786,11 +789,11 @@ $yellowSecondary: #e6cf01bf;
   
     
     .detail-body .document-download-list .desc{
-      color: $yellowPrimary;
+      color: $black;
     }
     
     .detail-body .document-download-list .type-file .item-list li{
-      color: $yellowPrimary;
+      color: $black;
     }
 
     .detail-body .whead{
@@ -801,8 +804,113 @@ $yellowSecondary: #e6cf01bf;
       color: $black;
     }
 
-   
-    
+    .detail-body .document-download-list .item-wrapper:hover .type-file .item-list li{
+      color: $black;
+    }
+
+    .detail-body .document-download-list .item-wrapper{
+      .icon path{
+        fill:none;
+      }
+
+      &:hover .icon path{
+        stroke: $black;
+      }
+    }
+
+    .wg-contact .content .contact-list .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }
+
+    .layout-footer .footer-top .subtitle .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }
+
+    .layout-footer .contact .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }  
+
+    .editor-content{
+      color: $yellowPrimary;
+
+      strong{
+        color: $yellowPrimary;
+      }
+    }
+
+    .layout-dcio .top-dcio .bg-cio{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text-img{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text{
+      background: $yellowPrimary;
+    }
+
+    .layout-dcio .top-dcio .name{
+      color: $black;
+    }
+    .layout-dcio .top-dcio .position-work{
+      color: $black;
+    }
+
+    .layout-dcio .contact-dcio .title-contact h3{
+      color: $yellowPrimary;
+    }
+
+    //news
+    .news-card .line{
+      color: $black;
+    }
+
+    .editor-content p{
+      color: $yellowPrimary;
+    }
+
+    .detail-body .news-area .comment .btn-facebook button{
+      color: $black;
+      background-color: $yellowSecondary;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $yellowPrimary;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-back button{
+      color: $black;
+      background-color: $yellowSecondary;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $yellowPrimary;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-facebook button img{
+      filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+      background-color: $yellowPrimary;
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet{
+      background-color: $white;
+      
+    }
+
+    .detail-body .news-area .under-line{
+      background-color: $yellowPrimary;
+    }
+
+  
+     
   }
  
 
