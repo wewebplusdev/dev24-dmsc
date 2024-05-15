@@ -7641,6 +7641,9 @@ div.swal2-html-container {
 .document-download-list.-layout-grid .item .txt {
   color: var(--color-primary);
 }
+.document-download-list.-layout-grid .item a {
+  width: 180px;
+}
 .document-download-list.-layout-grid .item-wrapper {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
@@ -7678,6 +7681,10 @@ div.swal2-html-container {
 }
 .document-download-list.-layout-grid .action {
   padding: 10px 0;
+}
+.document-download-list.-layout-grid .action a {
+  border: 1px solid var(--color-light);
+  padding: 10px;
 }
 .document-download-list.-layout-grid .action .-read-more {
   margin-right: 40px;
@@ -7980,6 +7987,9 @@ div.swal2-html-container {
   .document-download-list .box .txt {
     font-size: 14px;
   }
+  .document-download-list .thumbnail {
+    width: 200px;
+  }
 }
 @media (max-width: 575px) {
   .document-download-list.-layout-grid .item {
@@ -7996,6 +8006,9 @@ div.swal2-html-container {
   }
   .document-download-list.-layout-list .thumbnail .cover {
     padding-top: 80%;
+  }
+  .document-download-list.-layout-list .item .action a {
+    width: 180px;
   }
 }
 .event-calendar {
