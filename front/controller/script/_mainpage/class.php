@@ -35,7 +35,6 @@ abstract class Controller
         {
             if ($_CORE_ENV == 'DEV') {
                 $this->urlAPI =  'http://192.168.101.249:4040/service-api/v1';
-                $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
             } elseif ($_CORE_ENV == 'PROD') {
                 $this->urlAPI =  'http://192.168.200.146:4040/service-api/v1';
             } else {
