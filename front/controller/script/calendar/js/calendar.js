@@ -108,32 +108,7 @@ $('.-change-group').on('change', async function(){
     await load_calendar(date_calendar);
 });
 
-$('.-search-text').on('keypress', async function(e){
-    $('#form-calendar').attr('onsubmit', 'return false');
-    if (e.which == 13) {
-        // get text
-        let text_calendar = $(this).val();
-        let date_calendar = $('input[name="date"]').val();
-        if (text_calendar?.length > 0) {
-            await load_calendar(date_calendar, text_calendar);
-        }else{
-            await load_calendar(date_calendar);
-        }
-    }
-});
-
-$('.-submit-text').on('click', async function(){
-    // get text
-    let text_calendar = $('.-search-text').val();
-    let date_calendar = $('input[name="date"]').val();
-    if (text_calendar?.length > 0) {
-        await load_calendar(date_calendar, text_calendar);
-    }else{
-        await load_calendar(date_calendar);
-    }
-});
-
-async function load_calendar(date_calendar, searchtxt = ""){
+async function load_calendar(date_calendar){
     let group_id = $('.-change-group :selected').val();
     // body calendar
     const settings = {
@@ -143,7 +118,6 @@ async function load_calendar(date_calendar, searchtxt = ""){
         "data": {
             "date": date_calendar,
             "gid": group_id,
-            "keyword": searchtxt,
         },
     };
     const result = await $.ajax(settings);

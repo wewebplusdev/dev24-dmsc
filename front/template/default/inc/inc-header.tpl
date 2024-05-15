@@ -1,25 +1,23 @@
 <header class="layout-header">
-    {if $count_languageWeb gte 2}
-        <div class="top-bar" data-aos="fade-down" data-aos-delay="200">
-            <div class="container">
-                <div class="nav-lang d-lg-block d-none">
-                    <div class="row justify-content-end align-items-center gutters-10">
-                        <div class="col-auto">
-                            <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
-                        </div>
-                        {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
-                            <div class="col-auto">
-                                <a title="{$valueLangWeb->subject}" class="nav-lang-th{if $currentLangWeb eq $valueLangWeb->subject} active{/if}" target="_self" href="{$ul}/lang/{$valueLangWeb->short}">
-                                    <span class="visually-hidden">{$valueLangWeb->subject}</span>
-                                    <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag">
-                                </a>
-                            </div>
-                        {/foreach}
+    <div class="top-bar" data-aos="fade-down" data-aos-delay="200">
+        <div class="container">
+            <div class="nav-lang d-lg-block d-none">
+                <div class="row justify-content-end align-items-center gutters-10">
+                    <div class="col-auto">
+                        <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
                     </div>
+                    {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
+                        <div class="col-auto">
+                            <a title="{$valueLangWeb->subject}" class="nav-lang-th{if $currentLangWeb eq $valueLangWeb->subject} active{/if}" target="_self" href="{$ul}/lang/{$valueLangWeb->short}">
+                                <span class="visually-hidden">{$valueLangWeb->subject}</span>
+                                <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag">
+                            </a>
+                        </div>
+                    {/foreach}
                 </div>
             </div>
         </div>
-    {/if}
+    </div>
     <nav class="navbar navbar-expand-lg">
         <div class="container align-items-lg-end">
             <a class="navbar-brand" href="{$ul}/home" data-aos="fade-right">

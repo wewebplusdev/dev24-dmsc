@@ -17,8 +17,8 @@ if($data_set_show_error==0){
 $core_pathname_folderlocal = "";
 
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
-    // $_CORE_ENV = "DEV";
-    $_CORE_ENV = "UAT";
+    $_CORE_ENV = "DEV";
+    // $_CORE_ENV = "UAT";
     $core_pathname_folderlocal = "/dev24-dmsc";
 }elseif($_SERVER['HTTP_HOST'] == 'uat.wewebplus.com' || $_SERVER['HTTP_HOST'] == 'api.wewebplus.com'){
     $_CORE_ENV = "STAGING";
