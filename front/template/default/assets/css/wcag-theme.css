@@ -1498,10 +1498,6 @@
 }
 [data-asw-filter=yellow-contrast] .document-download-list .icon path {
   stroke: #000000;
-  fill: #000000;
-}
-[data-asw-filter=yellow-contrast] .layout-swiper .desc {
-  color: #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .action a {
   border: 1px solid #000000;
@@ -1538,6 +1534,12 @@
 }
 [data-asw-filter=yellow-contrast] .layout-header .lag-mobile {
   color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-swiper .desc {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .type-file .item-list {
+  color: #000000;
 }
 
 .readable-font span:not(.asw-wrapper *) {

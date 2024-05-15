@@ -1817,11 +1817,7 @@ $yellowSecondary: #e6cf01bf;
 
 .document-download-list .icon path{
   stroke: $black;
-  fill: $black;
-}
 
-.layout-swiper .desc{
-  color: $yellowPrimary;
 }
 
 .document-download-list.-layout-grid .action a{
@@ -1870,6 +1866,14 @@ $yellowSecondary: #e6cf01bf;
 
 .layout-header .lag-mobile{
   color: $yellowPrimary;
+}
+
+.layout-swiper .desc{
+  color: $black;
+}
+
+.type-file .item-list{
+  color: $black;
 }
 
 }
