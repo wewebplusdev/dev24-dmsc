@@ -15,7 +15,7 @@
           <div class="col-auto">
             <a title="English" class="nav-lang-en" target="_self" href="/">
               <span class="visually-hidden">English</span>
-              <img src="<?php echo $core_template; ?>/img/icon/lang-en.svg" alt="gb" class="flag">
+              <img src="<?php echo $core_template; ?>/img/icon/lang-en.svg" alt="en" class="flag">
             </a>
           </div>
         </div>

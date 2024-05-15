@@ -43,30 +43,30 @@
     <div class="intro-content">
         <div class="intro-content-wrapper">
             <div class="row row-0 height">
-                <div class="col-md">
-                    <div class="logo">
-                        <div class="symbol">
+            <div class="col-lg-auto  order-lg-2">
+                <div class="action">
+                    <div class=" justify-content-center">
+                        <div class="button-full">
+                            <a href="{$ul}/home" class="btn btn-primary" title="{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}">{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}</a>
+                        </div>
+                        <div class="button-res">
+                        <a href="{$ul}/home" class="btn" title="{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}">{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-lg order-lg-1">
+                    <div class="logo row justify-content-center">
+                        <div class="symbol  col-lg-auto">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/brand.webp" type="image/webp">
                                 <img src="{$template}/assets/img/static/brand.png" alt="DMSC LOGO"
                                     class="lazy">
                             </picture>
                         </div>
-                        <div class="txt">
+                        <div class="txt col-lg">
                             <strong>{$languageFrontWeb->department->display->$currentLangWeb}<br> {$languageFrontWeb->ministry->display->$currentLangWeb} </strong><br>
                             <span>{$languageFrontWeb->departmenten->display->$currentLangWeb}<br> {$languageFrontWeb->ministryen->display->$currentLangWeb}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-auto">
-                    <div class="action">
-                        <div class="row row-20">
-                            <div class="col-sm-auto col">
-                                <a {if $array_intro[0]->url neq "" && $array_intro[0]->url neq "#"}href="{$array_intro[0]->url}" target="{$array_intro[0]->target}"{/if} class="btn btn-light -intro-action" title="{$array_intro[0]->title}" {if $array_intro[0]->title eq ""}style="display:none;"{/if}>{$array_intro[0]->title}</a>
-                            </div>
-                            <div class="col-sm-auto col">
-                                <a href="{$ul}/home" class="btn btn-primary" title="{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}">{$languageFrontWeb->Enterwebsite->display->$currentLangWeb}</a>
-                            </div>
                         </div>
                     </div>
                 </div>

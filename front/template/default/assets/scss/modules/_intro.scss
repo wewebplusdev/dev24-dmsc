@@ -67,6 +67,13 @@ $intro-content-height: 130px;
   }
   .action {
     text-align: right;
+    .button-full{
+      display: block;
+    }
+
+    .button-res{
+      display: none;
+    }
     .btn {
       padding: 0 30px;
       height: 55px;
@@ -103,18 +110,42 @@ $intro-content-height: 130px;
 
 @media (max-width: 991px) {
 
-  .intro-content .height {height: 100px;}
-
-  .intro-page {
-    min-height: inherit;
-  }
-  .intro-slider {
-    position: relative;
-    bottom: inherit;
-  }
-  .intro-slider .cover {
+  .intro-content .height {
     height: auto;
-    padding-top: 56.25%;
+  }
+
+  .intro-content{ 
+    height: 40dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .action{
+      text-align: center;
+      .button-full{
+        display: none;
+      }
+      .button-res{
+        display: block;
+      
+      }
+    .btn{
+      background-color:rgb(2, 172, 124);
+      color: var(--color-light);
+      min-width: 60%;
+      border: 2px solid var(--color-light);
+      
+      &:hover{
+        background-color: var(--color-secondary);
+        
+      }
+    }
+  }
+  }
+
+
+  .intro-slider .cover {
+    height: 60dvh;
   }
   .intro-slider .video-container {
     padding-top: 56.25%;
@@ -124,11 +155,14 @@ $intro-content-height: 130px;
     // clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
   }
   .intro-content .logo .symbol {
-    width: 60px;
+    width: 150px;
+    margin: 30px 0;
+    
   }
   .intro-content .logo .txt {
     font-size: 14px;
     padding-left: 12px;
+    text-align: center;
   }
   .intro-content .logo .txt strong {
     font-size: 18px;
@@ -138,7 +172,7 @@ $intro-content-height: 130px;
   .intro-content .logo .txt strong br,
   .intro-content .logo .txt span br {display: none;}
 
-  .intro-content .action .btn {padding: 0 15px; height: 42px; line-height: 42px; font-size: 16px; }
+  .intro-content .action .btn {padding: 0 15px; height: 46px; line-height: 46px; font-size: 18px; }
   .intro-content .action > .row {margin: 0 -7.5px;}
   .intro-content .action > .row > div {padding: 0 7.5px;}
 
@@ -148,7 +182,20 @@ $intro-content-height: 130px;
 @media (max-width: 767px) {
   .intro-content .height {
     height: auto;
-    padding: 20px 0;
+  }
+
+  .intro-content {
+    height: 40dvh;
+    display: flex;
+    flex-direction: column;
+    padding-top:0 ;
+
+    justify-content: center;
+  }
+
+  .intro-content .logo .symbol {
+    width: 150px;
+    margin: 20px 0;
   }
   // .intro-content .logo {
   //   justify-content: center;
@@ -167,13 +214,16 @@ $intro-content-height: 130px;
   //   padding-top: 20px;
   // }
   .intro-content .action {
-    margin-top: 15px;
+    margin: 15px 0;
   }
   .intro-content .action .btn {
-    min-width: 100%;
+    min-width: 70%;
+   
   }
   .intro-content .logo .txt {
-    font-size: 13px;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
   }
   .intro-content .logo .txt strong {
     font-size: 16px;

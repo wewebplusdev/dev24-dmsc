@@ -28,7 +28,7 @@
         </h1>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner3.png" alt="obj-banner-about"
               class="lazy img-cover">
           </div>
         </div>
@@ -154,7 +154,7 @@
                       <div class="head">
                         <div class="title">{$valueload_data->subject}</div>
                       </div>
-                      <div class="action">
+                      <div class="action -webborder">
                         <a href="{$news_url}" class="link -web-link" target="{$target}">
                           <div class="d-flex align-items-center">
                             <span class="icon mr-2">
@@ -169,7 +169,7 @@
                                 </g>
                               </svg>
                             </span>
-                            <div class="txt text-primary fw-bold">{$languageFrontWeb->gotolink->display->$currentLangWeb}</div>
+                            <div class="txt fw-bold">{$languageFrontWeb->gotolink->display->$currentLangWeb}</div>
                           </div>
                         </a>
                       </div>

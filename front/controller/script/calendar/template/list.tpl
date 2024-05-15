@@ -19,7 +19,7 @@
                     <a href="{$news_url}" target="{$target}" class="link">
                         <div class="row no-gutters align-items-end">
                             <div class="col-auto mb-auto">
-                                <div class="dot" style="background-color:{$valueload_data->color}"></div>
+                                <div class="dot"></div>
                             </div>
                             <div class="col">
                                 <div class="date">{$valueload_data->date_display}</div>

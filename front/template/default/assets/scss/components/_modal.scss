@@ -23,6 +23,64 @@
             font-size: 48px;
         }
     }
+
+    .container-check {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        left: -20px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            &:checked {
+                & ~ .checkmark {
+                    background-color: var(--color-primary);
+                    &:after {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .checkmark {
+            &:after {
+                left: 9px;
+                top: 5px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        }
+    }
+    .checkmark {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    }
+
+
 }
 .popup-modal {
     .modal-content {
@@ -105,6 +163,9 @@
     .popup-modal .modal-dialog {
         max-width: 1024px;
     }
+
+    .modal .container-check .checkmark {width: 25px;height: 25px; &:after{width: 8px;height: 13px;}}
+    .modal .container-check {font-size: 22px;}
 }
 @media (min-width: 1200px) {
     // .popup-modal .modal-dialog {

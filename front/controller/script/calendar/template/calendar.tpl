@@ -1,9 +1,13 @@
 <!-- append -->
 <table>
     <tr>
-        {foreach $weekFullDay as $valueweekFullDay}
-            <th>{$valueweekFullDay}</th>
-        {/foreach}
+        <th>อาทิตย์</th>
+        <th>จันทร์</th>
+        <th>อังคาร</th>
+        <th>พุธ</th>
+        <th>พฤหัสบดี</th>
+        <th>ศุกร์</th>
+        <th>เสาร์</th>
     </tr>
     {if $startWeekDay > 0}
         <tr>
@@ -44,7 +48,7 @@
                                     <div class="action">
                                         <div class="link event-more">
                                             <div class="-more">
-                                                + <span>{$myCalendarEventList[$mCount]|count - 1}</span> {$languageFrontWeb->more->display->$currentLangWeb}
+                                                + <span>{$myCalendarEventList[$mCount]|count - 1}</span> เพิ่มเติม
                                             </div>
                                             <div class="event-drop-show visually-hidden">
                                                 <div class="date-current">
@@ -117,7 +121,7 @@
                                 <div class="action">
                                     <div class="link event-more">
                                         <div class="-more">
-                                            + <span>{$myCalendarEventList[$mCount]|count - 1}</span> {$languageFrontWeb->more->display->$currentLangWeb}
+                                            + <span>{$myCalendarEventList[$mCount]|count - 1}</span> เพิ่มเติม
                                         </div>
                                         <div class="event-drop-show visually-hidden">
                                             <div class="date-current">

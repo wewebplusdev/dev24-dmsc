@@ -85,6 +85,8 @@
   .policy {
     ul.item-list {
       margin: 0 -10px;
+      font-size: 16px;
+      align-self: center;
       > li {
         padding: 0 10px;
         + li {
@@ -94,7 +96,7 @@
     }
   }
   .sitemap {
-    color: var(--color-secondary);
+    color: var(--color-light);
     &:hover {
       color: var(--color-primary);
     }
@@ -218,6 +220,10 @@
   .layout-footer .footer-middle .text-follow-us {
     font-size: 18px;
   }
+
+  .layout-footer .footer-bottom .btn{
+    min-width: 170px;
+  }
 }
 @media (max-width: 1540px) {
   .layout-footer .footer-top {
@@ -269,9 +275,9 @@
   .layout-footer .footer-middle > .row {
     margin: -20px -10px;
   }
-  .layout-footer .footer-middle > .row > div {
-    padding: 20px 10px;
-  }
+  // .layout-footer .footer-middle > .row > div {
+  //   padding: 20px 10px;
+  // }
   // .layout-footer .footer-middle > .row > .w-100 {
   //   display: none;
   // }
@@ -291,7 +297,7 @@
   .layout-footer .footer-bar,
   .layout-footer .policy,
   .layout-footer .sitemap {
-    font-size: 14px;
+    font-size: 16px;
   }
   .layout-footer .followus {
     font-size: var(--typo-xs);
@@ -306,7 +312,7 @@
   .layout-footer .footer-bottom .sitemap {
     display: block;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 40px;
   }
   .layout-footer .visitors .box {
     line-height: 34px;
@@ -318,6 +324,7 @@
   }
   .layout-footer .footer-bottom {
     padding: 30px 0;
+    line-height: 1.5;
   }
   .layout-footer .policy ul.item-list {
     margin: 0;
@@ -344,6 +351,10 @@
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .layout-footer .footer-bottom .sitemap {
+    margin-top: 30px;
   }
 }
 @media (max-width: 767px) {
@@ -402,4 +413,6 @@
   .layout-footer .followus .social {
     margin-top: 15px;
   }
+
+  
 }

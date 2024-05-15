@@ -29,7 +29,7 @@
                 </h1>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+                        <img src="{$template}/assets/img/uploads/inner3.png" alt="obj-banner-about"
                             class="lazy img-cover">
                     </div>
                 </div>
@@ -44,21 +44,21 @@
             <div class="container">
                 <div class="calendar-card">
                     <div class="header">
-                        <form class="form-default" id="form-calendar">
+                        <form class="form-default">
                             <input type="hidden" name="date" value="{$req.date}">
                             <div class="top">
                               <div class="default-filter mb-sm-3 mb-2">
                                 <div class="row gutters-20 align-items-center">
                                   <div class="col-lg-auto">
-                                    <div class="title-left">{$languageFrontWeb->search->display->$currentLangWeb}</div>
+                                    <div class="title-left">ค้นหา</div>
                                   </div>
                                   <div class="col-lg">
                                     <div class="form-group form-search">
-                                      <label class="control-label visually-hidden" for="searchtxt">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                                      <label class="control-label visually-hidden" for="">พิมพ์คำค้นหา</label>
                                       <div class="block-control">
-                                        <input class="form-control -search-text" type="text" name="searchtxt" id="searchtxt" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
+                                        <input class="form-control" type="search" id="" placeholder="พิมพ์คำค้นหา">
                                         <div class="search">
-                                          <a href="javascript:void(0);" class="link -submit-text">
+                                          <a href="" class="link">
                                             <span class="icon">
                                               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33.621 33.621">
                                                 <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(1.5 1.5)">
@@ -78,16 +78,16 @@
                                   <div class="col-lg">
                                       <div class="row gutters-20 align-items-center">
                                           <div class="col-lg-auto">
-                                              <div class="title-left">{$languageFrontWeb->group->display->$currentLangWeb}</div>
+                                              <div class="title-left">กลุ่ม</div>
                                           </div>
                                           <div class="col-lg">
                                               <div class="form-group form-select form-group-calendar -group">
                                                   <label class="control-label visually-hidden"
-                                                      for="group">{$languageFrontWeb->group->display->$currentLangWeb}</label>
+                                                      for="group">กลุ่ม</label>
                                                   <div class="select-wrapper">
                                                       <select class="select-calendar -change-group" name="group" id="group"
                                                           style="width: 100%;">
-                                                          <option value="0">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</option>
+                                                          <option value="0">เลือกทั้งหมด</option>
                                                           {foreach $load_group->item as $keyload_group => $valueload_group}
                                                               <option value="{$valueload_group->id}">{$valueload_group->subject}</option>
                                                           {/foreach}
@@ -101,7 +101,7 @@
                                       <div class="row gutters-20">
                                           <div class="col-sm mb-sm-0 mb-3">
                                               <div class="form-group form-select form-group-calendar -year">
-                                                  <label class="control-label" for="year">{$languageFrontWeb->year->display->$currentLangWeb} :</label>
+                                                  <label class="control-label" for="year">ปี :</label>
                                                   <div class="select-wrapper">
                                                       <select class="select-calendar -change-year" name="year" id="year"
                                                           style="width: 100%;">
@@ -114,7 +114,7 @@
                                           </div>
                                           <div class="col-sm">
                                               <div class="form-group form-select form-group-calendar -month">
-                                                  <label class="control-label" for="month">{$languageFrontWeb->month->display->$currentLangWeb} :</label>
+                                                  <label class="control-label" for="month">เดือน :</label>
                                                   <div class="select-wrapper">
                                                       <select class="select-calendar -change-month" name="month" id="month"
                                                           style="width: 100%;">
@@ -143,7 +143,7 @@
                                             <div class="col-md col-auto pr-md-2 pr-0">
                                                 <div class="select">
                                                     <a href="javascript:void(0);" class="link active -click-datenow">
-                                                        {$languageFrontWeb->today->display->$currentLangWeb}
+                                                        วันนี้
                                                     </a>
                                                 </div>
                                             </div>
@@ -187,19 +187,19 @@
                 </div>
                 <div class="calendar-note">
                     <div class="whead">
-                        <h2 class="title">{$languageFrontWeb->note->display->$currentLangWeb}</h2>
+                        <h2 class="title">หมายเหตุ</h2>
                     </div>
                     <ul class="item-list">
                         <li>
                             <div class="note">
                                 <div class="box bg-current"></div>
-                                <div class="txt">{$languageFrontWeb->current_date->display->$currentLangWeb}</div>
+                                <div class="txt">วันที่ปัจจุบัน</div>
                             </div>
                         </li>
                         <li>
                             <div class="note">
                                 <div class="box bg-all"></div>
-                                <div class="txt">{$languageFrontWeb->all->display->$currentLangWeb}</div>
+                                <div class="txt">ทั้งหมด</div>
                             </div>
                         </li>
                         {foreach $load_group->item as $keyload_group => $valueload_group}
