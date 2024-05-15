@@ -64,6 +64,10 @@
           'class': 'guides-fade-in guides-guide  test' + this._class,
           'html': this.guide.html
       });
+      if (this.guide?.fnc) {
+        eval(this.guide.fnc)();
+      }
+
       this._position();
       return this;
   };

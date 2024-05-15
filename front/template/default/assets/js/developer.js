@@ -53,3 +53,6 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
         $('#navbarSupportedContent').find(`.${menu}`).addClass('active');
     }
 })();
+
+
+

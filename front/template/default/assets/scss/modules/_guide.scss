@@ -31,6 +31,7 @@
 
   .content {
     padding: 30px 20px;
+    text-align: left;
   }
 
   .progress-line {
@@ -116,6 +117,34 @@
   padding-top: 30px !important;
 }
 
+.guides-canvas {
+  .guide-banner {
+    padding-top: 0 !important;
+    inset: 200px 50px auto auto !important;
+    padding-left: 100px;
+  }
+  
+  .guide-wcag {
+    top: 300px !important;
+    right: 140px !important;
+    left: unset !important;
+    text-align: right !important;
+    padding-right: 100px;
+  }
+
+  .guide-ipv6 {
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    width: max-content;
+    margin: auto;
+    inset: auto 0 0 0 !important;
+    padding-bottom: 100px;
+    margin-bottom: 280px;
+  }
+}
+
+
 .guide-2 {
   margin-top: -71px;
   & ~ .guide-pointer {
@@ -137,6 +166,64 @@
   }
 }
 
+.guide-5 {
+  margin-left: -71px;
+  & ~ .guide-pointer {
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 60px;
+  }
+}
+
+.guide-6 {
+  margin-right: -71px;
+  & ~ .guide-pointer {
+    right: 0;
+    top: 60%;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.guide-7 {
+  margin-bottom: -71px;
+  & ~ .guide-pointer {
+    right: 0;
+    left: 0;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+}
+
+.guide-8 {
+  margin-bottom: -71px;
+  & ~ .guide-pointer {
+    right: 100px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+}
+
+.guide-9 {
+  margin-bottom: -71px;
+  & ~ .guide-pointer {
+    right: 100px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+}
 
 .guide-pointer {
   position: absolute;
@@ -164,4 +251,12 @@
     border-bottom-color: transparent !important;
     border-left-color: transparent !important;
   }
+}
+
+
+
+.wcag.guides-current-element {
+  & ~ div  ~ div .asw-wrapper {
+    z-index: 99997;
+  } 
 }

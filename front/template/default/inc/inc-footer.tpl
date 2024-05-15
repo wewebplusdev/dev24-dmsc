@@ -112,7 +112,7 @@
                         </div>
                     {/if}
                     <div class="w-100 p-0 d-lg-none"></div>
-                    <div class="col-sm-auto" data-aos="fade-up">
+                    <div class="col-sm-auto" data-aos="fade-up" id="ipv6">
                         <div class="ipv6">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/ipv6.webp" type="image/webp">
@@ -218,7 +218,7 @@
                         </div>
                     </div>
                     {/if}
-                    <div class="col-md-auto" data-aos="fade-right">
+                    <div class="col-md-auto guide-sitemap" data-aos="fade-right>
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
                         <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
@@ -232,7 +232,7 @@
                 <div class="col-lg">
                     <p class="copyright">{$languageFrontWeb->copyrightweb->display->$currentLangWeb}</p>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-lg-auto guide-visitors">
                     <div class="visitors">{$languageFrontWeb->logsviewWeb->display->$currentLangWeb} <div class="box">{$logsView|number_format}</div>
                     </div>
                 </div>

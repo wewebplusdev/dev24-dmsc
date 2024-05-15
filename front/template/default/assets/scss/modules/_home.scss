@@ -1,4 +1,5 @@
 .top-graphic {
+  position: relative;
   .swiper-default {
     overflow: hidden;
     .swiper-pagination-bullet {
@@ -7,7 +8,6 @@
       filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.4));
     }
   }
-
   .item .link {
     position: inherit;
   }
@@ -61,6 +61,18 @@
       font-weight: var(--fw-regular);
       line-height: 1.3em;
       color: var(--color-primary);
+    }
+  }
+}
+
+#banner {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  &.guides-current-element {
+    & ~ .top-graphic {
+      z-index: 99997;
     }
   }
 }

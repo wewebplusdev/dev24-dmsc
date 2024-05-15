@@ -1,7 +1,8 @@
 <section class="layout-body">
 
     {if $load_topgraphic->_numOfRows gte 1}
-        <div class="top-graphic" data-aos="fade-down" id="banner">
+        <div id="banner" class="text-righ w-25 ml-auto"></div>
+        <div class="top-graphic" data-aos="fade-down">
             <div class="swiper swiper-default">
                 <div class="swiper-wrapper">
                     {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
