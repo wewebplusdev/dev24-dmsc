@@ -322,9 +322,10 @@
   color: #000000;
   background: #e6cf01;
 }
-[data-asw-filter=yellow-contrast] .swiper-default .swiper-button-next,
-[data-asw-filter=yellow-contrast] .swiper-default .swiper-button-prev {
-  color: rgba(230, 207, 1, 0.7490196078);
+[data-asw-filter=yellow-contrast] .wg-news .wg-news-slide .swiper-default .swiper-button-next,
+[data-asw-filter=yellow-contrast] .wg-news .wg-news-slide .swiper-default .swiper-button-prev {
+  color: #e6cf01;
+  border: 2px solid #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .nav-default .nav-link {
   color: #e6cf01;
@@ -622,6 +623,9 @@
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item:hover .icon path {
   fill: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-view .btn-group > button {
+  border: 1px solid #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .pagination-block .pagination-label span {
   color: #e6cf01;
