@@ -49,19 +49,20 @@
   // (dx2,dy2) - curve control point 2
   // (x2,y2) - end point
   Guide.prototype._path = 'M{0},{1} C{2},{3},{4},{5},{6},{7}';
-  Guide.prototype._arrowTemplate = '<svg width="{0}" height="{1}">\
-      <defs>\
-          <marker id="arrow" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">\
-              <path d="M2,1 L2,{3} L{3},6 L2,2" style="fill:{4};"></path>\
-          </marker>\
-      </defs>\
-      <path id="line" d="{2}" style="stroke:{4}; stroke-width: 1.25px; fill: none; marker-end: url(#arrow);"></path>\
-  </svg>';
+  // Guide.prototype._arrowTemplate = '<svg width="{0}" height="{1}">\
+  //     <defs>\
+  //         <marker id="arrow" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">\
+  //             <path d="M2,1 L2,{3} L{3},6 L2,2" style="fill:{4};"></path>\
+  //         </marker>\
+  //     </defs>\
+  //     <path id="line" d="{2}" style="stroke:{4}; stroke-width: 1.25px; fill: none; marker-end: url(#arrow);"></path>\
+  // </svg>';
+  Guide.prototype._arrowTemplate = '<div class="guide-pointer"></div>'
   
   Guide.prototype.init = function() {
       this.$guide = $('<div />', {
-          'class': 'guides-fade-in guides-guide ' + this._class,
-          'html': '<span>' + this.guide.html + '</span>'
+          'class': 'guides-fade-in guides-guide  test' + this._class,
+          'html': this.guide.html
       });
       this._position();
       return this;

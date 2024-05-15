@@ -19,8 +19,8 @@
 <script src="{$template}/assets/js/libs/moment.min.js"></script>
 <script src="{$template}/assets/js/libs/validator.min.js"></script>
 <script src="{$template}/assets/js/libs/feather.js"></script>
-<script src="{$template}/assets/js/guides.js"></script>
-<script src="{$template}/assets/js/guides.min.js"></script>
+{* <script src="{$template}/assets/js/libs/guides.min.js"></script> *}
+<script src="{$template}/assets/js/libs/guides.js"></script>
 
 
 <script>
@@ -28,7 +28,7 @@
 </script>
 
 
-  {* <!-- asw js -->
+  {* <!-- asw jss -->
   <script src="{$template}/assets/js/accessibility.js"></script>  *}
 
 <!-- Module -->

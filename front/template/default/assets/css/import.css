@@ -18917,4 +18917,13 @@ html.with-fancybox body.hide-scrollbar {
 .guides-left svg {
   left: auto;
   right: 0;
+}
+
+body {
+  display: inline;
+}
+
+html, body {
+  position: relative;
+  min-height: 100%;
 }/*# sourceMappingURL=import.css.map */

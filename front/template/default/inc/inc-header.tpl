@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
            
                 {if count((array)$sitemapWeb) gte 1}
-                <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0">
+                <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0" id="mainHeader">
                     {foreach $sitemapWeb->level_1->$currentLangWeb as $keySitemapLv1 => $valueSitemapLv1}
                         {if $valueSitemapLv1->subject neq ""}
                             {assign var="checkUrl" value="{$valueSitemapLv1->url|check_url}"}
@@ -137,7 +137,7 @@
                     {/foreach}
                 </ul>
                 {/if}
-                <div class="nav-search" data-aos="fade-left">
+                <div class="nav-search" data-aos="fade-left" id="search">
                     <form class="form-default form-search" method="get" role="search" action="{$ul}/searchAll">
                         <div class="input-group">
                             <a href="javascript:void(0)" class="btn-link">

@@ -1,7 +1,7 @@
 <section class="layout-body">
 
     {if $load_topgraphic->_numOfRows gte 1}
-        <div class="top-graphic" data-aos="fade-down">
+        <div class="top-graphic" data-aos="fade-down" id="banner">
             <div class="swiper swiper-default">
                 <div class="swiper-wrapper">
                     {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
@@ -35,12 +35,20 @@
                         <div class="swiper-slide">
                             <div class="item">
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target}">
-                                    <figure class="cover">
+                                    <figure class="contain">
                                         <picture>
                                             <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
                                         </picture>
                                     </figure>
+                                    <div class="fill-blur">
+                                      <figure class="cover">
+                                          <picture>
+                                              <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
+                                          </picture>
+                                      </figure>
+                                    </div>
                                 </a>
+                                
                             </div>
                         </div>
                     {/if}

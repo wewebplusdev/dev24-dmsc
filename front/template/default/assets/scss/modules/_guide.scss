@@ -1,0 +1,167 @@
+.layout-guide {
+  width: max-content;
+  margin: auto;
+
+  * {
+    text-shadow: none;
+  }
+
+  .card {
+    position: inherit;
+    border: none;
+    max-width: 600px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5em), calc(100% - 2.5em) 100%, 0 100%);
+    
+    &.step-1 {
+      .progress-line::before {width: calc(100% / 10);}
+      .desc {padding: 0 50px;}
+      .action .btn {min-width: 200px;}
+    }
+    &.step-2 .progress-line::before {width: 11.11111111111111%;}
+    &.step-3 .progress-line::before {width: 22.22222222222222%;}
+    &.step-4 .progress-line::before {width: 33.33333333333333%;}
+    &.step-5 .progress-line::before {width: 44.44444444444444%;}
+    &.step-6 .progress-line::before {width: 55.55555555555555%;}
+    &.step-7 .progress-line::before {width: 66.66666666666666%;}
+    &.step-8 .progress-line::before {width: 77.77777777777777%;}
+    &.step-9 .progress-line::before {width: 88.88888888888888%;}
+  }
+
+
+
+  .content {
+    padding: 30px 20px;
+  }
+
+  .progress-line {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #EDEDED;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 10px;
+      background-color: var(--color-primary);
+      transition: all 400ms ease;
+    }
+  }
+
+  .head {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      margin-bottom: 0;
+    }
+    .close-guide {
+      padding: 0;
+      right: -5px;
+      position: relative;
+    }
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: var(--fw-black);
+    color: var(--color-dark);
+    margin-bottom: 15px;
+  }
+
+  .desc {
+    font-size: 18px;
+    line-height: 1.5em;
+    color: var(--color-dark);
+    & + .desc {
+      margin-top: 20px;
+      font-weight: var(--fw-medium);
+    }
+  }
+
+  .close-guide {
+    cursor: pointer;
+    width: max-content;
+    height: auto;
+    margin-left: auto;
+    padding: 15px 15px 0 15px;
+    span {
+      font-size: 36px;
+      font-weight: var(--fw-medium);
+      color: var(--color-primary);
+      transition: all 300ms ease;
+    }
+    &:hover {
+      span {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .action {
+    margin-top: 40px;
+    .btn {
+      font-size: 20px;
+      font-weight: var(--fw-bold);
+      min-width: 120px;
+    }
+  }
+}
+
+.guide-position-top {
+  padding-top: 30px !important;
+}
+
+.guide-2 {
+  margin-top: -71px;
+  & ~ .guide-pointer {
+    right: 50px;
+  }
+}
+
+.guide-3 {
+  margin-top: -71px;
+  & ~ .guide-pointer {
+    left: 100px;
+  }
+}
+
+.guide-4 {
+  margin-top: -71px;
+  & ~ .guide-pointer {
+    right: 20px;
+  }
+}
+
+
+.guide-pointer {
+  position: absolute;
+  visibility: hidden;
+  overflow: hidden;
+  pointer-events: none;
+  // width: 40px;
+  // height: 40px;
+  width: 60px;
+  height: 30px;
+  top: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    visibility: visible;
+    background-color: var(--color-light);
+    // border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 40px;
+    height: 40px;
+
+
+    // transform: translate(-50%, 25%) rotate(45deg);
+    transform: translate(20%, 25%) rotate(45deg);
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+  }
+}

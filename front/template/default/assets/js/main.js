@@ -217,7 +217,15 @@ $(document).ready(function () {
     $('.sitmap-full').removeClass('show');
   })
 
-  
+
+  $("a").each(function () {
+    strHTML = `
+      <span class="fontContantTbManage" style="display:none;">${$(this).attr(
+        "title"
+      )}</span>
+    `;
+    $(this).append(strHTML);
+  });
 
 
 });
