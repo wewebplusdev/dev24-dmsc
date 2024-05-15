@@ -10,7 +10,7 @@
                     </div>
                     {if $settingWeb.contact->tel2 neq ""}
                         <div class="col-auto col-right" data-aos="fade-right">
-                            <div class="title"><a href="tel:{$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
+                            <div class="title"><a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
                             <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
                         </div>
                     {/if}
@@ -131,7 +131,7 @@
                                         <ul class="item-list">
                                             {if $settingWeb.social->Tel->link neq "" && $settingWeb.social->Tel->link neq "#"}
                                                 <li>
-                                                    <a href="tel:{$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
+                                                    <a href="tel:{" "|str_replace:"":$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/old-typical-phone.svg"
                                                                 alt="" class="icon">
