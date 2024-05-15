@@ -34,7 +34,7 @@
                     {else}
                         <div class="swiper-slide">
                             <div class="item">
-                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target}">
+                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
                                     <figure class="contain">
                                         <picture>
                                             <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
@@ -213,7 +213,7 @@
                                         {if $keyload_innovation > 1}
                                             <div class="swiper-slide">
                                                 <div class="item">
-                                                    <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target}">
+                                                    <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target|default:'_self'}">
                                                         <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                                                             <div class="card">
                                                                 <div class="card-body">
