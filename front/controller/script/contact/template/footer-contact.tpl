@@ -118,7 +118,7 @@
                                     <ul class="item-list">
                                         {if $settingWeb.social->Tel->link neq "" && $settingWeb.social->Tel->link neq "#"}
                                             <li>
-                                                <a href="tel:{$settingWeb.social->Tel->link}" class="link tele"
+                                                <a href="tel:{" "|str_replace:"":$settingWeb.social->Tel->link}" class="link tele"
                                                     title="Telephone">
                                                     <div class="rounded-0">
                                                         <img src="{$template}/assets/img/icon/old-typical-phone.svg" alt=""
