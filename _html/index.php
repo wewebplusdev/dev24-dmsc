@@ -57,7 +57,7 @@
             <div class="row align-items-center">
               <div class="col">
                 <div class="whead mb-0" data-aos="fade-right">
-                  <h2 class="title">บริการ</h2>
+                  <h1 class="title">บริการ</h1>
                   <p class="subtitle">Services</p>
                 </div>
               </div>
