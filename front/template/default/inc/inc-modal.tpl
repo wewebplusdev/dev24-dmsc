@@ -88,7 +88,7 @@
     
                                 <div class="block-control mb-md-3 mb-2">
                                     <label class="text-white container-check">ไม่ต้องแสดงวันนี้อีก
-                                        <input type="checkbox" checked="checked">
+                                        <input type="checkbox" >
                                         <span class="checkmark"></span>
                                     </label>
     
@@ -97,7 +97,8 @@
                         </form>
                     </div>
                     </div>
-                </div>
+
+                  
             </div>
         </div>
     </div>

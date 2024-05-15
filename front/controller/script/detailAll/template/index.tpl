@@ -278,9 +278,11 @@
             <!-- ck editor -->
             <div class="editor-content">
                 <div class="container">
-                    {strip}
-                        {$load_data->item[0]->html|txtReplaceHTML}
-                    {/strip}
+                   <div class="news-detail">
+                        {strip}
+                            {$load_data->item[0]->html|txtReplaceHTML}
+                        {/strip}
+                   </div>
                 </div>
             </div>
             <!-- ck editor -->
