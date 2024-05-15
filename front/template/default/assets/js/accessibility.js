@@ -162,8 +162,6 @@
                 this.settings?.states && (this.changeControls(),
                     1 !== this.settings.states.fontSize && this.changeFont(null, this.settings.states.fontSize),
                     this.settings.states.contrast && this.changeFilter(this.settings.states.contrast))
-
-            console.log(content);
         }
 
         toggle() {
