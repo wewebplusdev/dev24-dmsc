@@ -65,7 +65,14 @@ async function insertContact(req, res) {
             let columns = Object.keys(insert).join(",");
             let values = Object.values(insert).join(",");
             let queryData = `INSERT INTO ${config_array_db['md_cus']} (${columns}) VALUES (${values})`;
+            
+            // disable check foreign key
+            await query('SET FOREIGN_KEY_CHECKS=0;');
+
             await query(queryData);
+
+            // enable check foreign key
+            await query('SET FOREIGN_KEY_CHECKS=1;');
 
         } catch (error) {
             result.code = code.error_wrong.code;
@@ -142,7 +149,14 @@ async function insertCorruption(req, res) {
             let columns = Object.keys(insert).join(",");
             let values = Object.values(insert).join(",");
             let queryData = `INSERT INTO ${config_array_db['md_cus']} (${columns}) VALUES (${values})`;
+
+            // disable check foreign key
+            await query('SET FOREIGN_KEY_CHECKS=0;');
+            
             await query(queryData);
+
+            // enable check foreign key
+            await query('SET FOREIGN_KEY_CHECKS=1;');
 
         } catch (error) {
             result.code = code.error_wrong.code;

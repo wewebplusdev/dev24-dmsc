@@ -13,7 +13,7 @@
     </ul>
 
     {* Start Popup *}
-    {if $load_popup->_numOfRows gte 1}
+    {if $loadPopup->_numOfRows gte 1}
         <h2>Popup</h2>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -29,7 +29,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                {foreach $load_popup->item as $keyPopup => $valuePopup}
+                {foreach $loadPopup->item as $keyPopup => $valuePopup}
                     {if $valuePopup->type eq 1}
                         <img src="{$valuePopup->pic->pictures}" class="card-img-top" alt="{$valuePopup->pic->pictures}">
                         <div class="card-body">
@@ -60,10 +60,10 @@
     {* End Popup *}
 
     {* Start Top Graphic *}
-    {if $load_topgraphic->_numOfRows gte 1}
+    {if $loadTopgraphic->_numOfRows gte 1}
         <h2>Top Graphic</h2>
         <div class="d-flex flex-row p-2">
-            {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
+            {foreach $loadTopgraphic->item as $keyTgp => $valueTgp}
                 <div class="card" style="width: 18rem;">
                     {if $valueTgp->type eq 1}
                         <img src="{$valueTgp->pic->pictures}" class="card-img-top" alt="{$valueTgp->pic->pictures}">
@@ -89,19 +89,19 @@
     {* End Top Graphic *}
     
     {* Start Services *}
-    {if $load_services->_numOfRows gte 1}
+    {if $loadServices->_numOfRows gte 1}
         <h2>Services</h2>
         <ul>
-            {foreach $load_services->item->group as $keyload_services_group => $load_services_group}
+            {foreach $loadServices->item->group as $keyload_services_group => $load_services_group}
                 <li><a href="javascript:void(0);" class="services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</a></li>
             {/foreach}
         </ul>
         <div class="d-flex flex-row p-2" id="service-append">
-            {foreach $load_services->item->list as $keyload_services_list => $valueload_services_list}
-                {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
+            {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
+                {assign var="checkUrl" value="{$valueload_services_list->url|checkUrl}"}
                 {assign var="target" value="_self"}
                 {if $checkUrl}
-                    {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
+                    {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|pageRedirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
                     {$target = $valueload_services_list->target}
                 {else}
                     {assign var="news_url" value="javascript:void(0);"}
@@ -120,10 +120,10 @@
     {* End Services *}
 
     {* Start Innovation *}
-    {if $load_innovation->_numOfRows gte 1}
+    {if $loadInnovation->_numOfRows gte 1}
         <h2>Innovation</h2>
         <div class="d-flex flex-row p-2" id="service-append">
-            {foreach $load_innovation->item as $keyload_innovation_list => $valueload_innovation_list}
+            {foreach $loadInnovation->item as $keyload_innovation_list => $valueload_innovation_list}
                 <div class="card" style="width: 18rem;">
                     <a href="{$valueload_innovation_list->url}" target="{$valueload_innovation_list->target}">
                         <img src="{$valueload_innovation_list->pic->pictures}" class="card-img-top" alt="{$valueload_innovation_list->pic->pictures}">
@@ -145,10 +145,10 @@
         <h2>About</h2>
         <div class="d-flex flex-row p-2" id="service-append">
         {foreach $load_about->item as $keyload_about_list => $valueload_about_list}
-            {assign var="checkUrl" value="{$valueload_about_list->url|check_url}"}
+            {assign var="checkUrl" value="{$valueload_about_list->url|checkUrl}"}
             {assign var="target" value="_self"}
             {if $checkUrl}
-                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about_list->tb|page_redirect:$valueload_about_list->masterkey:$valueload_about_list->id:$valueload_about_list->language}"}
+                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about_list->tb|pageRedirect:$valueload_about_list->masterkey:$valueload_about_list->id:$valueload_about_list->language}"}
                 {$target = $valueload_about_list->target}
             {else}
                 {assign var="news_url" value="javascript:void(0);"}
@@ -181,10 +181,10 @@
             <div class="d-flex flex-row p-2" id="service-append">
                 {foreach $array_news_list['list'] as $keyNews => $valueNews}
                     {foreach $valueNews as $keySubNews => $valueload_news_list}
-                        {assign var="checkUrl" value="{$valueload_news_list->url|check_url}"}
+                        {assign var="checkUrl" value="{$valueload_news_list->url|checkUrl}"}
                         {assign var="target" value="_self"}
                         {if $checkUrl}
-                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_news_list->tb|page_redirect:$valueload_news_list->masterkey:$valueload_news_list->id:$valueload_news_list->language}"}
+                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_news_list->tb|pageRedirect:$valueload_news_list->masterkey:$valueload_news_list->id:$valueload_news_list->language}"}
                             {$target = $valueload_news_list->target}
                         {else}
                             {assign var="news_url" value="javascript:void(0);"}

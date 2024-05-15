@@ -15,7 +15,7 @@ $('#form-contact').validator().on('submit', function (e) {
         e.preventDefault();
 
         $("#submit-form").attr("disabled", true);
-        var formData = new FormData($("#form-contact")[0]);
+        let formData = new FormData($("#form-contact")[0]);
         $.ajax({
             url: `${path}${language}/contact-form/insert-global`,
             type: "POST",
@@ -37,15 +37,13 @@ $('#form-contact').validator().on('submit', function (e) {
                         showCancelButton: false,
                         allowOutsideClick: false,
                         didOpen: () => {
-                            Swal.showLoading()
-                            timerInterval = setInterval(() => {
-                            }, 100)
+                            Swal.showLoading();
+                            setInterval(() => {}, 100);
                         },
                         willClose: () => {
-                            clearInterval(timerInterval)
+                            clearInterval();
                         },
                         timer: 3000,
-                        timerProgressBar: true,
                     });
                     load_recaptch();
                     $('#form-contact')[0].reset();

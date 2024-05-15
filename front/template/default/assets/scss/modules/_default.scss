@@ -303,7 +303,54 @@
   }
 }
 
+// tooltips
 
+a {
+    position: relative;
+}
+.fontContantTbManage {
+    // font-family: 'db_helvethaica' !important;
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.8);
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+        -ms-transform: translate(-50%,0);
+            transform: translate(-50%,0);
+    font-weight: 600;
+    opacity: 1;
+    white-space: nowrap;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 2px;
+    margin-top: 10px;
+    color: #fff !important;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.2em;
+    padding: 5px 8px;
+    overflow: visible !important;
+}
+.fontContantTbManage::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+        -ms-transform: translate(-50%,0);
+            transform: translate(-50%,0);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid rgba(0,0,0,0.8);
+}
+a:hover .fontContantTbManage  {
+    display: block !important;
+}
 
 
 @media (max-width: 1600px) {

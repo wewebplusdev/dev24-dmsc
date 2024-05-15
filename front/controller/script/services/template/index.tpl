@@ -115,7 +115,7 @@
     <div class="service-area">
       <div class="container">
         <div class="service-list" data-aos="fade-up" id="service-append">
-          {foreach $load_data->item as $keyload_data => $valueload_data}
+          {foreach $loadData->item as $keyload_data => $valueload_data}
             <div class="item">
               <a {if $valueload_data->url neq "" && $valueload_data->url neq "#"}href="{$valueload_data->url}"{if $valueload_data->target eq 2}target="_blank"{/if}{else}
                 href="javascript:void(0);"{/if} class="link">
@@ -139,7 +139,7 @@
       </div>
     </div>
     <div class="service-pagination">
-      {if $load_data->_numOfRows gte 1}
+      {if $loadData->_numOfRows gte 1}
         {include file="inc/inc-pagination.tpl" title=title}
       {/if}
     </div>

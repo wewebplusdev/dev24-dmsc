@@ -193,15 +193,15 @@
             </div>
             <div class="footer-bottom" >
                 <div class="row">
-                    {if $load_policy->_numOfRows gte 1}
+                    {if $loadPolicy->_numOfRows gte 1}
                     <div class="col-md" data-aos="fade-left">
                         <div class="policy">
                             <ul class="item-list">
-                                {foreach $load_policy->item as $keyPolicy => $valuePolicy}
-                                {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
+                                {foreach $loadPolicy->item as $keyPolicy => $valuePolicy}
+                                {assign var="checkUrl" value="{$valuePolicy->url|checkUrl}"}
                                 {assign var="target" value="_self"}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|page_redirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|pageRedirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language}"}
                                         {$target = $valuePolicy->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}

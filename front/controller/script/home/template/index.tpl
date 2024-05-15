@@ -1,10 +1,11 @@
 <section class="layout-body">
 
-    {if $load_topgraphic->_numOfRows gte 1}
+    {if $loadTopgraphic->_numOfRows gte 1}
+        <div id="banner" class="text-righ w-25 ml-auto"></div>
         <div class="top-graphic" data-aos="fade-down">
             <div class="swiper swiper-default">
                 <div class="swiper-wrapper">
-                    {foreach $load_topgraphic->item as $keyTgp => $valueTgp}
+                    {foreach $loadTopgraphic->item as $keyTgp => $valueTgp}
                     {if $valueTgp->type eq 2 && $valueTgp->video neq ""}
                         {$myUrlArray = "v="|explode:$valueTgp->video}
                         {$myUrlCut = $myUrlArray[1]}
@@ -34,13 +35,21 @@
                     {else}
                         <div class="swiper-slide">
                             <div class="item">
-                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target}">
-                                    <figure class="cover">
+                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
+                                    <figure class="contain">
                                         <picture>
                                             <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
                                         </picture>
                                     </figure>
+                                    <div class="fill-blur">
+                                      <figure class="cover">
+                                          <picture>
+                                              <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
+                                          </picture>
+                                      </figure>
+                                    </div>
                                 </a>
+                                
                             </div>
                         </div>
                     {/if}
@@ -51,7 +60,7 @@
         </div>
     {/if}
 
-    {if $load_services->_numOfRows gte 1}
+    {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
             <div class="wg-services lazy" data-bg="{$template}/assets/img/background/bg-services.webp"
                 data-bg-hidpi="{$template}/assets/img/background/bg-services@2x.webp">
@@ -73,7 +82,7 @@
                         <div class="service-category-list">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper">
-                                    {foreach $load_services->item->group as $keyload_services_group => $load_services_group}
+                                    {foreach $loadServices->item->group as $keyload_services_group => $load_services_group}
                                         <div class="swiper-slide">
                                             <div class="item">
                                                 <button type="button" class="btn services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</button>
@@ -90,11 +99,11 @@
                         <div class="service-slide">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper" id="service-append">
-                                    {foreach $load_services->item->list as $keyload_services_list => $valueload_services_list}
-                                        {assign var="checkUrl" value="{$valueload_services_list->url|check_url}"}
+                                    {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
+                                        {assign var="checkUrl" value="{$valueload_services_list->url|checkUrl}"}
                                         {assign var="target" value="_self"}
                                         {if $checkUrl}
-                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|page_redirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
+                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_services_list->tb|pageRedirect:$valueload_services_list->masterkey:$valueload_services_list->id:$valueload_services_list->language}"}
                                             {$target = $valueload_services_list->target}
                                         {else}
                                             {assign var="news_url" value="javascript:void(0);"}
@@ -131,7 +140,7 @@
         </div>
     {/if}
 
-    {if $load_innovation->_numOfRows gte 1}
+    {if $loadInnovation->_numOfRows gte 1}
         <div class="section section-ii">
             <div class="wg-research">
                 <div class="wg-research-main" data-aos="fade-up">
@@ -152,7 +161,7 @@
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    {foreach $load_innovation->item as $keyload_innovation => $valueload_innovation}
+                    {foreach $loadInnovation->item as $keyload_innovation => $valueload_innovation}
                         {if $keyload_innovation < 2}
                             {if $keyload_innovation eq 0}
                                 {$fade_action = "right"}
@@ -194,18 +203,18 @@
                         {/if}
                     {/foreach}
                 </div>
-                {if $load_innovation->item|count gte 2}
+                {if $loadInnovation->item|count gte 2}
                     <div class="wg-research-list lazy"
                         data-bg="{$template}/assets/img/background/bg-wg-research.webp"
                         data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp">
                         <div class="container">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper">
-                                    {foreach $load_innovation->item as $keyload_innovation => $valueload_innovation}
+                                    {foreach $loadInnovation->item as $keyload_innovation => $valueload_innovation}
                                         {if $keyload_innovation > 1}
                                             <div class="swiper-slide">
                                                 <div class="item">
-                                                    <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target}">
+                                                    <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target|default:'_self'}">
                                                         <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                                                             <div class="card">
                                                                 <div class="card-body">
@@ -261,15 +270,15 @@
                             </div>
                         </div>
                     </div>
-                    {if $load_about->_numOfRows gte 1}
+                    {if $loadAbout->_numOfRows gte 1}
                       <div class="col-lg-auto">
                           <div class="wg-about-group-list">
                               <div class="row no-gutters">
-                                  {foreach $load_about->item as $keyload_about => $valueload_about}
-                                      {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
+                                  {foreach $loadAbout->item as $keyload_about => $valueload_about}
+                                      {assign var="checkUrl" value="{$valueload_about->url|checkUrl}"}
                                       {assign var="target" value="_self"}
                                       {if $checkUrl}
-                                          {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|page_redirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
+                                          {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|pageRedirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
                                           {$target = $valueload_about->target}
                                       {else}
                                           {assign var="news_url" value="javascript:void(0);"}
@@ -301,11 +310,11 @@
                           </div>
                       </div>
                       {* <div class="wg-about-group-list">
-                        {foreach $load_about->item as $keyload_about => $valueload_about}
-                          {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
+                        {foreach $loadAbout->item as $keyload_about => $valueload_about}
+                          {assign var="checkUrl" value="{$valueload_about->url|checkUrl}"}
                           {assign var="target" value="_self"}
                           {if $checkUrl}
-                              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|page_redirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
+                              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|pageRedirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
                               {$target = $valueload_about->target}
                           {else}
                               {assign var="news_url" value="javascript:void(0);"}
@@ -369,8 +378,7 @@
                                     aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
                                         <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill"
-                                            data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-01"
-                                            aria-selected="true">{$valueNewsGroup->subject}</button>
+                                            data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
                                     {/foreach}
                                 </div>
                                 <div class="action action-show">
@@ -390,10 +398,10 @@
                                             <div class="swiper swiper-default">
                                                 <div class="swiper-wrapper">
                                                     {foreach $valueNewsListGroup as $keyNewsList => $valueNewsList}
-                                                        {assign var="checkUrl" value="{$valueNewsList->url|check_url}"}
+                                                        {assign var="checkUrl" value="{$valueNewsList->url|checkUrl}"}
                                                         {assign var="target" value="_self"}
                                                         {if $checkUrl}
-                                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueNewsList->tb|page_redirect:$valueNewsList->masterkey:$valueNewsList->id:$valueNewsList->language}"}
+                                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueNewsList->tb|pageRedirect:$valueNewsList->masterkey:$valueNewsList->id:$valueNewsList->language}"}
                                                             {$target = $valueNewsList->target}
                                                         {else}
                                                             {assign var="news_url" value="javascript:void(0);"}

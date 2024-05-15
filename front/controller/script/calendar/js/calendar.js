@@ -132,6 +132,7 @@ async function load_calendar(date_calendar){
         "data": {
             "date": date_calendar,
             "gid": group_id,
+            "keyword": searchtxt,
         },
     };
     const result_list = await $.ajax(settings_list);

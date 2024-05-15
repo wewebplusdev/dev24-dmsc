@@ -112,7 +112,11 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
+}
+
+html {
+  position: relative;
 }
 
 body {
@@ -122,6 +126,7 @@ body {
   word-break: break-word;
   color: var(--color-default);
   font-size: var(--typo-default);
+  display: block;
 }
 
 .container {
@@ -4986,6 +4991,53 @@ div.swal2-html-container {
   padding: 0 20px 0 60px;
 }
 
+a {
+  position: relative;
+}
+
+.fontContantTbManage {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  font-weight: 600;
+  opacity: 1;
+  white-space: nowrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 2px;
+  margin-top: 10px;
+  color: #fff !important;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.2em;
+  padding: 5px 8px;
+  overflow: visible !important;
+}
+
+.fontContantTbManage::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.8);
+}
+
+a:hover .fontContantTbManage {
+  display: block !important;
+}
+
 @media (max-width: 1600px) {
   .line {
     margin-bottom: 20px;
@@ -5209,6 +5261,9 @@ div.swal2-html-container {
     padding: 0 5px;
   }
 }
+.top-graphic {
+  position: relative;
+}
 .top-graphic .swiper-default {
   overflow: hidden;
 }
@@ -5217,6 +5272,9 @@ div.swal2-html-container {
   background: var(--color-light);
   -webkit-filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.4));
           filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.4));
+}
+.top-graphic .item .link {
+  position: inherit;
 }
 .top-graphic .cover,
 .top-graphic .iframe-container,
@@ -5229,6 +5287,19 @@ div.swal2-html-container {
   -o-object-position: center;
      object-position: center;
 }
+.top-graphic .contain {
+  padding-top: 38%;
+}
+.top-graphic .fill-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+}
 
 .section .whead .title {
   font-size: 48px;
@@ -5240,6 +5311,10 @@ div.swal2-html-container {
   font-weight: var(--fw-regular);
   line-height: 1.3em;
   color: var(--color-primary);
+}
+
+#banner.guides-current-element ~ .top-graphic {
+  z-index: 99997;
 }
 
 .wg-services {
@@ -10505,6 +10580,276 @@ div.swal2-html-container {
     font-size: 14px;
   }
 }
+.layout-guide {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: auto;
+}
+.layout-guide * {
+  text-shadow: none;
+}
+.layout-guide .card {
+  position: inherit;
+  border: none;
+  max-width: 600px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5em), calc(100% - 2.5em) 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5em), calc(100% - 2.5em) 100%, 0 100%);
+}
+.layout-guide .card.step-1 .progress-line::before {
+  width: 10%;
+}
+.layout-guide .card.step-1 .desc {
+  padding: 0 50px;
+}
+.layout-guide .card.step-1 .action .btn {
+  min-width: 200px;
+}
+.layout-guide .card.step-2 .progress-line::before {
+  width: 11.1111111111%;
+}
+.layout-guide .card.step-3 .progress-line::before {
+  width: 22.2222222222%;
+}
+.layout-guide .card.step-4 .progress-line::before {
+  width: 33.3333333333%;
+}
+.layout-guide .card.step-5 .progress-line::before {
+  width: 44.4444444444%;
+}
+.layout-guide .card.step-6 .progress-line::before {
+  width: 55.5555555556%;
+}
+.layout-guide .card.step-7 .progress-line::before {
+  width: 66.6666666667%;
+}
+.layout-guide .card.step-8 .progress-line::before {
+  width: 77.7777777778%;
+}
+.layout-guide .card.step-9 .progress-line::before {
+  width: 88.8888888889%;
+}
+.layout-guide .content {
+  padding: 30px 20px;
+  text-align: left;
+}
+.layout-guide .progress-line {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #EDEDED;
+}
+.layout-guide .progress-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  background-color: var(--color-primary);
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+.layout-guide .head {
+  padding: 15px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.layout-guide .head .title {
+  margin-bottom: 0;
+}
+.layout-guide .head .close-guide {
+  padding: 0;
+  right: -5px;
+  position: relative;
+}
+.layout-guide .title {
+  font-size: 24px;
+  font-weight: var(--fw-black);
+  color: var(--color-dark);
+  margin-bottom: 15px;
+}
+.layout-guide .desc {
+  font-size: 18px;
+  line-height: 1.5em;
+  color: var(--color-dark);
+}
+.layout-guide .desc + .desc {
+  margin-top: 20px;
+  font-weight: var(--fw-medium);
+}
+.layout-guide .close-guide {
+  cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: auto;
+  margin-left: auto;
+  padding: 15px 15px 0 15px;
+}
+.layout-guide .close-guide span {
+  font-size: 36px;
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.layout-guide .close-guide:hover span {
+  opacity: 0.8;
+}
+.layout-guide .action {
+  margin-top: 40px;
+}
+.layout-guide .action .btn {
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  min-width: 120px;
+}
+
+.guide-position-top {
+  padding-top: 30px !important;
+}
+
+.guides-canvas .guide-banner {
+  padding-top: 0 !important;
+  inset: 200px 50px auto auto !important;
+  padding-left: 100px;
+}
+.guides-canvas .guide-wcag {
+  top: 300px !important;
+  right: 140px !important;
+  left: unset !important;
+  text-align: right !important;
+  padding-right: 100px;
+}
+.guides-canvas .guide-ipv6 {
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: auto;
+  inset: auto 0 0 0 !important;
+  padding-bottom: 100px;
+  margin-bottom: 280px;
+}
+
+.guide-2 {
+  margin-top: -71px;
+}
+.guide-2 ~ .guide-pointer {
+  right: 50px;
+}
+
+.guide-3 {
+  margin-top: -71px;
+}
+.guide-3 ~ .guide-pointer {
+  left: 100px;
+}
+
+.guide-4 {
+  margin-top: -71px;
+}
+.guide-4 ~ .guide-pointer {
+  right: 20px;
+}
+
+.guide-5 {
+  margin-left: -71px;
+}
+.guide-5 ~ .guide-pointer {
+  left: 0;
+  top: 50%;
+  width: 30px;
+  height: 60px;
+}
+
+.guide-6 {
+  margin-right: -71px;
+}
+.guide-6 ~ .guide-pointer {
+  right: 0;
+  top: 60%;
+  width: 60px;
+  height: 60px;
+}
+
+.guide-7 {
+  margin-bottom: -71px;
+}
+.guide-7 ~ .guide-pointer {
+  right: 0;
+  left: 0;
+  top: unset;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+}
+
+.guide-8 {
+  margin-bottom: -71px;
+}
+.guide-8 ~ .guide-pointer {
+  right: 100px;
+  left: unset;
+  top: unset;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+}
+
+.guide-9 {
+  margin-bottom: -71px;
+}
+.guide-9 ~ .guide-pointer {
+  right: 100px;
+  left: unset;
+  top: unset;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+}
+
+.guide-pointer {
+  position: absolute;
+  visibility: hidden;
+  overflow: hidden;
+  pointer-events: none;
+  width: 60px;
+  height: 30px;
+  top: 0;
+}
+.guide-pointer::before {
+  content: "";
+  position: absolute;
+  display: block;
+  visibility: visible;
+  background-color: var(--color-light);
+  width: 40px;
+  height: 40px;
+  -webkit-transform: translate(20%, 25%) rotate(45deg);
+          transform: translate(20%, 25%) rotate(45deg);
+  border-bottom-color: transparent !important;
+  border-left-color: transparent !important;
+}
+
+.wcag.guides-current-element ~ div ~ div .asw-wrapper {
+  z-index: 99997;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;

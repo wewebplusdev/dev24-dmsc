@@ -1,4 +1,4 @@
-var downloadSwiper = new Swiper(".document-download-list .swiper", {
+let downloadSwiper = new Swiper(".document-download-list .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 2,
   // freeMode: true,
@@ -24,7 +24,7 @@ var downloadSwiper = new Swiper(".document-download-list .swiper", {
   },
 });
 
-var newsAreaSwiper = new Swiper(".news-area .swiper", {
+let newsAreaSwiper = new Swiper(".news-area .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 3,
   // freeMode: true,

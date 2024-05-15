@@ -1,57 +1,43 @@
 <?php
-$menuActive = "calendar";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/calendar.js'.$lastModify.'"></script>';
+// Define constant for script path
+define('SCRIPT_PATH', '/front/controller/script/');
 
-$calendarPage = new calendarPage;
+$menuActive = "calendar";
+$listjs[] = '<script type="text/javascript" src="' . _URL . SCRIPT_PATH . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script type="text/javascript" src="' . _URL . SCRIPT_PATH . $menuActive . '/js/calendar.js'.$lastModify.'"></script>';
+define('CALENDAR_CONFIG_PATH', SCRIPT_PATH . 'calendar/config-calendar.php');
+define('CALENDAR_INIT_PATH', SCRIPT_PATH . 'calendar/init-calendar.php');
+
+$CalendarPage = new CalendarPage;
 $limit = 100;
+$req = array();
+$req['gid'] = $_REQUEST['gid'];
+$req['keyword'] = $_REQUEST['keyword'];
+$req['date'] = $_REQUEST['date'] ? $_REQUEST['date'] : strtotime(date('Y-m-d'));
+$smarty->assign("req", $req);
+require_once _DIR . SCRIPT_PATH . $menuActive . '/service/config-calendar.php'; #load calendar
+require_once _DIR . SCRIPT_PATH . $menuActive . '/service/init-calendar.php'; #load calendar
 
 switch ($url->segment[1]) {
     case 'load-calendar':
-        $req = array();
-        $req['gid'] = $_REQUEST['gid'];
-        $smarty->assign("req", $req);
-
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/init-calendar.php'; #load calendar
-
-        $settingPage = array(
-            "page" => $menuActive,
-            "template" => "calendar.tpl",
-            "display" => "page-single"
-        );
-        break;
     case 'load-list':
-        $req = array();
-        $req['gid'] = $_REQUEST['gid'];
-        $smarty->assign("req", $req);
-
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/init-calendar.php'; #load calendar
-
         $settingPage = array(
             "page" => $menuActive,
-            "template" => "list.tpl",
+            "template" => ($url->segment[1] == 'load-calendar') ? "calendar.tpl" : "list.tpl",
             "display" => "page-single"
         );
         break;
-    default:        
-        $req = array();
-        $req['date'] = $_REQUEST['date'] ? $_REQUEST['date'] : strtotime(date('Y-m-d'));
-        $smarty->assign("req", $req);
-
-        require_once _DIR . '/front/controller/script/' . $menuActive . '/service/config-calendar.php'; #load calendar
-
+    default:
         $data_group = [
             "method" => 'getCalendarGroup',
-            "language" => $calendarPage->language,
+            "language" => $CalendarPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
         ];
 
         // call group
-        $load_group = $calendarPage->load_data($data_group);
+        $load_group = $CalendarPage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
@@ -68,7 +54,7 @@ switch ($url->segment[1]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $calendarPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $CalendarPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(
@@ -78,5 +64,7 @@ switch ($url->segment[1]) {
         );
         break;
 }
+$headerActive = headerActive('cal');
 $smarty->assign("menuActive", $menuActive);
 $smarty->assign("fileInclude", $settingPage);
+

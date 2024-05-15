@@ -1,4 +1,8 @@
 <?php
+define('DATE_FORMAT', "%04d-%02d-%02d");
+
+
+
 if (!empty($_REQUEST['date'])) {
     $myCalendarDate = date('Y-m-d', $_REQUEST['date']);
 } else {
@@ -20,22 +24,22 @@ $NextMonthArray = getdate(mktime(0, 0, 0, $myCalendarDateArray[1] + 1, 1, $myCal
 $Day = $NextMonthArray['mday'];
 $Month = $NextMonthArray['mon'];
 $Year = $NextMonthArray['year'];
-$NextMonth = strtotime(sprintf("%04d-%02d-%02d", $Year, $Month, $Day));
+$NextMonth = strtotime(sprintf(DATE_FORMAT, $Year, $Month, $Day));
 
 // Prev Month ##############################################
 $PrevMonthArray = getdate(mktime(0, 0, 0, $myCalendarDateArray[1] - 1, 1, $myCalendarDateArray[0]));
 $Day = $PrevMonthArray['mday'];
 $Month = $PrevMonthArray['mon'];
 $Year = $PrevMonthArray['year'];
-$PrevMonth = strtotime(sprintf("%04d-%02d-%02d", $Year, $Month, $Day));
+$PrevMonth = strtotime(sprintf(DATE_FORMAT, $Year, $Month, $Day));
 
 $startWeekDay = $today['wday'];
 $myCalendarDateYear = $today['year'];
 $myCalendarDateMonth = $today['mon'];
 $endDayOfMonth = getEndDayOfMonth($myCalendarDate);
 
-$myStartDateOfMonth = sprintf("%04d-%02d-%02d", $myCalendarDateArray[0], $myCalendarDateArray[1], 1);
-$myEndDateOfMonth = sprintf("%04d-%02d-%02d", $myCalendarDateArray[0], $myCalendarDateArray[1], $endDayOfMonth);
+$myStartDateOfMonth = sprintf(DATE_FORMAT, $myCalendarDateArray[0], $myCalendarDateArray[1], 1);
+$myEndDateOfMonth = sprintf(DATE_FORMAT, $myCalendarDateArray[0], $myCalendarDateArray[1], $endDayOfMonth);
 
 // Load calendar display #############################################
 $Checktoday = date('Y-m-d');

@@ -160,17 +160,17 @@
     </div>
     <div class="news-area">
       <div class="container">
-        {if $load_data->_numOfRows gte 1}
+        {if $loadData->_numOfRows gte 1}
           <div class="news-list">
-            {foreach $load_data->item as $keyload_data => $valueload_data}
-              {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
+            {foreach $loadData->item as $keyload_data => $valueload_data}
+              {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
               {assign var="target" value="_self"}
               {assign var="downloadID" value=""}
               {if $valueload_data->typec eq 2}
                 {$downloadID = $valueload_data->attachment[0]->id}
               {/if}
               {if $checkUrl}
-                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
+                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
                 {$target = $valueload_data->target}
               {else}
                 {assign var="news_url" value="javascript:void(0);"}
@@ -205,7 +205,7 @@
         {/if}
       </div>
     </div>
-    {if $load_data->_numOfRows gte 1}
+    {if $loadData->_numOfRows gte 1}
       {include file="inc/inc-pagination.tpl" title=title}
     {/if}
   </div>

@@ -1,26 +1,32 @@
 <?php
 $menuActive = "services";
-$servicePage = new servicePage;
+$ServicePage = new ServicePage;
 $limit = 15;
+define('SCRIPT_TAG', '<script type="text/javascript" src="');
+define('SCRIPT_PATH', 'front/controller/script/');
 
 $masterkey = $url->segment[1];
 switch ($url->segment[2]) {
+    case 'special_case':
+
+        break;
+
     case 'pagination':
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/pagination.js"></script>';
+        $listjs[] = SCRIPT_TAG. _URL . SCRIPT_PATH. $menuActive . '/js/pagination.js"></script>';
 
         $jsonData = file_get_contents('php://input');
         $resultData = json_decode($jsonData, true);
 
-        $resultData['action'] = $servicePage->method_masterkey[$masterkey]['action'];
-        $resultData['language'] = $servicePage->language;
+        $resultData['action'] = $ServicePage->medthodMasterkey[$masterkey]['action'];
+        $resultData['language'] = $ServicePage->language;
 
         // call list
-        $load_data = $servicePage->load_data($resultData);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $ServicePage->loadData($resultData);
+        $smarty->assign("loadData", $loadData);
 
         /*## Set up pagination #####*/
         $page['page'] = str_replace("/pagination", "", $page['page']);
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];
@@ -36,8 +42,8 @@ switch ($url->segment[2]) {
         break;
 
     default:
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
-        $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js"></script>';
+        $listjs[] = SCRIPT_TAG. _URL .SCRIPT_PATH . $menuActive . '/js/script.js"></script>';
+        $listjs[] = SCRIPT_TAG. _URL . SCRIPT_PATH . $menuActive . '/js/controller.js"></script>';
         if (empty($masterkey)) {
             $masterkey = 'sv';
             header('location:' . $linklang . "/" . $menuActive . "/" . $masterkey);
@@ -56,16 +62,16 @@ switch ($url->segment[2]) {
         $smarty->assign("req", $req);
 
         $data_group = [
-            "action" => $servicePage->method_masterkey[$masterkey]['action'],
-            "method" => $servicePage->method_masterkey[$masterkey]['loadGroup'],
-            "language" => $servicePage->language,
+            "action" => $ServicePage->medthodMasterkey[$masterkey]['action'],
+            "method" => $ServicePage->medthodMasterkey[$masterkey]['loadGroup'],
+            "language" => $ServicePage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => 100,
         ];
         
         // call group
-        $load_group = $servicePage->load_data($data_group);
+        $load_group = $ServicePage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
@@ -76,9 +82,9 @@ switch ($url->segment[2]) {
         }
 
         $data = [
-            "action" => $servicePage->method_masterkey[$masterkey]['action'],
-            "method" => $servicePage->method_masterkey[$masterkey][$menuActive],
-            "language" => $servicePage->language,
+            "action" => $ServicePage->medthodMasterkey[$masterkey]['action'],
+            "method" => $ServicePage->medthodMasterkey[$masterkey][$menuActive],
+            "language" => $ServicePage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -88,16 +94,22 @@ switch ($url->segment[2]) {
         $smarty->assign("dataOption",$data);
 
         // call list
-        $load_data = $servicePage->load_data($data);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $ServicePage->loadData($data);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
+        // active menu header
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
+        }
         if ($masterkey == 'sv') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
-        }else if ($masterkey == 'rein') {
+        }elseif ($masterkey == 'rein') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->ResearchAndInnovation->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->ResearchAndInnovation->display->$currentLangWeb;
@@ -109,11 +121,11 @@ switch ($url->segment[2]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $servicePage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $ServicePage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

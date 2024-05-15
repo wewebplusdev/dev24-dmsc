@@ -53,18 +53,19 @@
                 <div class="container">
                     <div class="topbar">
                         <div class="whead">
-                            <h2 class="title">{$load_data->item[0]->subject}</h2>
+                            <h2 class="title">{$loadData->item[0]->subject}</h2>
                         </div>
                     </div>
                     <div class="middle-bar">
                         <div class="row align-items-center">
                             <div class="col-md mb-md-0 mb-3">
                                 <div class="row align-items-center">
-                                    {if $load_data->item[0]->creby neq ""}
+                                    {if $loadData->item[0]->creby neq ""}
                                         <div class="col-sm-auto">
                                             <div class="box">
-                                                <strong> {$languageFrontWeb->creby->display->$currentLangWeb} :</strong>
+                                                {* <strong> {$languageFrontWeb->creby->display->$currentLangWeb} :</strong> *}
                                                 <span>{$load_data->item[0]->creby}</span>
+                                                <strong> {$languageFrontWeb->creby->display->$currentLangWeb} :</strong> <span>{$loadData->item[0]->creby}</span>
                                             </div>
                                         </div>
                                     {/if}
@@ -94,7 +95,7 @@
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <span>{$load_data->item[0]->view|number_format}</span>
+                                                    <span>{$loadData->item[0]->view|number_format}</span>
                                                 </div>
                                             </div>
                                             <div class="col-auto pl-sm-3 pl-0">
@@ -122,7 +123,7 @@
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <span>{$load_data->item[0]->createDate->style}</span>
+                                                    <span>{$loadData->item[0]->createDate->style}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -287,13 +288,13 @@
             </div>
             <!-- ck editor -->
 
-            {if $load_data->item[0]->video neq ""}
+            {if $loadData->item[0]->video neq ""}
                 <div class="vdo">
                     <div class="container">
-                        {if $load_data->item[0]->type eq "url"}
+                        {if $loadData->item[0]->type eq "url"}
                             <!-- youtube -->
-                            <div class="iframe-container">
-                                {$myUrlArray = "v="|explode:$load_data->item[0]->video}
+                                <div class="iframe-container">
+                                {$myUrlArray = "v="|explode:$loadData->item[0]->video}
                                 {$myUrlCut = $myUrlArray[1]}
                                 {$myUrlCutArray = "&"|explode:$myUrlCut}
                                 {$myUrlCutAnd= $myUrlCutArray.0}
@@ -305,7 +306,7 @@
                             <!-- mp4 -->
                             <div class="video-container">
                                 <video loop="" autoplay="" muted="" controlsList="nofullscreen" controls>
-                                    <source src="{$load_data->item[0]->video}" type="video/mp4">
+                                    <source src="{$loadData->item[0]->video}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -314,7 +315,7 @@
                 </div>
             {/if}
 
-            {if $load_data->item[0]->attachment|gettype eq "array" && $load_data->item[0]->attachment|count gte 1}
+            {if $loadData->item[0]->attachment|gettype eq "array" && $loadData->item[0]->attachment|count gte 1}
                 <div class="document-download-list">
                     <div class="container">
                         <div class="whead">
@@ -322,9 +323,9 @@
                         </div>
                         <div class="swiper">
                             <div class="swiper-wrapper">
-                                {foreach $load_data->item[0]->attachment as $keyattachment => $valueattachment}
-                                    {$fileinfo = $valueattachment->filename|fileinclude:'file':{$load_data->item[0]->masterkey}|get_Icon}
-                                    {assign var="download_url" value="{$ul}/pageredirect/{$load_data->item[0]->tb|page_redirect:$load_data->item[0]->masterkey:$load_data->item[0]->id:$load_data->item[0]->language:$valueattachment->id}"}
+                                {foreach $loadData->item[0]->attachment as $keyattachment => $valueattachment}
+                                    {$fileinfo = $valueattachment->filename|fileinclude:'file':{$loadData->item[0]->masterkey}|getIcon}
+                                    {assign var="download_url" value="{$ul}/pageredirect/{$loadData->item[0]->tb|pageRedirect:$loadData->item[0]->masterkey:$loadData->item[0]->id:$loadData->item[0]->language:$valueattachment->id}"}
                                     <div class="swiper-slide">
                                         <div class="item">
                                             <div class="item-wrapper">
@@ -463,14 +464,14 @@
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 {foreach $load_data_other->item as $keyload_data_other => $valueload_data_other}
-                                    {assign var="checkUrl" value="{$valueload_data_other->url|check_url}"}
+                                    {assign var="checkUrl" value="{$valueload_data_other->url|checkUrl}"}
                                     {assign var="target" value="_self"}
                                     {assign var="downloadID" value=""}
                                     {if $valueload_data_other->typec eq 2}
                                         {$downloadID = $valueload_data_other->attachment[0]->id}
                                     {/if}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|page_redirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language:$downloadID}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data_other->tb|pageRedirect:$valueload_data_other->masterkey:$valueload_data_other->id:$valueload_data_other->language:$downloadID}"}
                                         {$target = $valueload_data_other->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}
