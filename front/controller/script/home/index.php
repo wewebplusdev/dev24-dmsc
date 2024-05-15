@@ -28,8 +28,8 @@ switch ($url->segment[0]) {
         $loadInnovation = $HomePage->loadInnovation();
         $smarty->assign("loadInnovation", $loadInnovation);
         // call about
-        $load_about = $HomePage->loadAbout();
-        $smarty->assign("load_about", $load_about);
+        $loadAbout = $HomePage->loadAbout();
+        $smarty->assign("loadAbout", $loadAbout);
         // call news
         $loadNews = $HomePage->loadNews();
         $array_news_list = array();

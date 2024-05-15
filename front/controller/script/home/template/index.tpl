@@ -1,6 +1,6 @@
 <section class="layout-body">
 
-    {if $load_topgraphic->_numOfRows gte 1}
+    {if $loadTopgraphic->_numOfRows gte 1}
         <div class="top-graphic" data-aos="fade-down" id="banner">
             <div class="swiper swiper-default">
                 <div class="swiper-wrapper">
@@ -269,12 +269,12 @@
                             </div>
                         </div>
                     </div>
-                    {if $load_about->_numOfRows gte 1}
+                    {if $loadAbout->_numOfRows gte 1}
                       <div class="col-lg-auto">
                           <div class="wg-about-group-list">
                               <div class="row no-gutters">
-                                  {foreach $load_about->item as $keyload_about => $valueload_about}
-                                      {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
+                                  {foreach $loadAbout->item as $keyload_about => $valueload_about}
+                                      {assign var="checkUrl" value="{$valueload_about->url|checkUrl}"}
                                       {assign var="target" value="_self"}
                                       {if $checkUrl}
                                           {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|pageRedirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
@@ -309,8 +309,8 @@
                           </div>
                       </div>
                       {* <div class="wg-about-group-list">
-                        {foreach $load_about->item as $keyload_about => $valueload_about}
-                          {assign var="checkUrl" value="{$valueload_about->url|check_url}"}
+                        {foreach $loadAbout->item as $keyload_about => $valueload_about}
+                          {assign var="checkUrl" value="{$valueload_about->url|checkUrl}"}
                           {assign var="target" value="_self"}
                           {if $checkUrl}
                               {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|pageRedirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}

@@ -71,7 +71,7 @@ class Url
             $this->pagelang = $lang_set[$this->segment[0]];
             array_splice($this->segment, 0, 1);
         } else {
-            $this->redirectDefaultLanguage($lang_default);
+            $this->redirectDefaultLanguage($lang_default,$lang_set);
         }
     }
     
