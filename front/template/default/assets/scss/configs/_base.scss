@@ -1,6 +1,8 @@
 html,
 body {
-	height: 100%;
+	// height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
@@ -10,6 +12,7 @@ body {
 	word-break: break-word;
 	color: var(--color-default);
 	font-size: var(--typo-default);
+  display: block;
 }
 
 .container {
