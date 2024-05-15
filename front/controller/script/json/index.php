@@ -35,7 +35,9 @@ if (!empty($url->segment[1])) {
             "limit" => $req['limit'],
             "masterkey" => $masterkey,
         ];
+      
         $loadJson = $JsonPage->loadJson($data, 'news');
+      
         if ($loadJson->_numOfRows > 0) {
             echo json_encode($loadJson);
         } else {
