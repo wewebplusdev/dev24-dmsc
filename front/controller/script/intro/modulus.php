@@ -1,17 +1,17 @@
 <?php
 
-class introPage extends controller
+class IntroPage extends Controller
 {
-    public function load_intro()
+    public function loadIntro()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/setting";
+        $url = $this->urlAPI . "/setting";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getIntro",

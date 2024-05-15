@@ -1,4 +1,5 @@
 <?php
+define('LOCATION_HEADER', 'Location:');
 
 if (!empty($url->segment[1]) && !empty($url->pagelang[2])) {
     if ($url->pagelang[2] != $url->segment[1]) {
@@ -16,12 +17,12 @@ if (!empty($url->segment[1]) && !empty($url->pagelang[2])) {
                 }
             }
 
-            header("Location:" . $newUrl);
+            header(LOCATION_HEADER . $newUrl);
         } else {
-            header("Location:" . _URL . "/" . $url->segment[1]);
+            header(LOCATION_HEADER . _URL . "/" . $url->segment[1]);
         }
     } else {
 
-        header("Location:" . $_SERVER['HTTP_REFERER']);
+        header(LOCATION_HEADER . $_SERVER['HTTP_REFERER']);
     }
 }

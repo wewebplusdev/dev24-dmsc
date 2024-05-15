@@ -98,7 +98,7 @@
                     </div>
                   </div>
                   <div class="action">
-                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptcha_sitekey}">
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptchaSitekey}">
                     <button type="submit" id="submit-form" class="btn btn-primary disabled">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
                     <button type="button" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</button>
                   </div>

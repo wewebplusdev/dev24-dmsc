@@ -1,6 +1,6 @@
 <?php
 
-class errorPage extends controller
+class ErrorPage extends Controller
 {
     
 }

@@ -1,4 +1,4 @@
-var eachYearSwiper = new Swiper(".each-year .swiper", {
+let eachYearSwiper = new Swiper(".each-year .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 4,
   // freeMode: true,

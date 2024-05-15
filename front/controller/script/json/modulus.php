@@ -1,17 +1,17 @@
 <?php
 
-class jsonPage extends controller
+class JsonPage extends Controller
 {
-    public function load_json($data)
+    public function loadJson($data)
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/" . $data['action'];
+        $url = $this->urlAPI . "/" . $data['action'];
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         
         return $this->sendCURL($url, $header, 'POST', json_encode($data));

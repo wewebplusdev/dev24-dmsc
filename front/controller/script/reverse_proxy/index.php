@@ -1,57 +1,46 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 $menuActive = "pageredirect";
-$reverse_proxy = new reverse_proxy;
+$ReverseProxy = new ReverseProxy;
 
 $jsonData = file_get_contents('php://input');
 $resultData = json_decode($jsonData, true);
 
 switch ($resultData['case']) {
     case 'logs_Website':
-        $req = [
-            "method" => $resultData['method'],
-            "browser" => $resultData['browser'],
-            "uniqid" => $resultData['uniqid'],
-        ];
-        $load_fetch_api = $reverse_proxy->load_insert_logs($req);
-
-        break;
-
     case 'logs_pdpa':
-        $req = [
-            "method" => $resultData['method'],
-            "browser" => $resultData['browser'],
-            "uniqid" => $resultData['uniqid'],
-        ];
-        $load_fetch_api = $reverse_proxy->load_insert_logs($req);
-
-        break;
-
+            $req = [
+                "method" => $resultData['method'],
+                "browser" => $resultData['browser'],
+                "uniqid" => $resultData['uniqid'],
+            ];
+            $loadFetchApi = $ReverseProxy->loadInsertLogs($req);
+            break;
     case 'dynamic':
         $data = array();
         foreach ($resultData as $key => $value) {
-            if ($key == 'case' || $key == 'controller') {
+            if ($key == 'case' || $key == 'Controller') {
                 continue;
             }
             $data[$key] = $value;
         }
-        $data['language'] = $reverse_proxy->language;
-        $load_fetch_api = $reverse_proxy->load_fetch_api($data, $resultData['controller']);
+        $data['language'] = $ReverseProxy->language;
+        $loadFetchApi = $ReverseProxy->loadFetchApi($data, $resultData['Controller']);
 
         break;
 
     default:
         $data = [
             "method" => $resultData['method'],
-            "language" => $reverse_proxy->language,
+            "language" => $ReverseProxy->language,
             "gid" => $resultData['gid'],
             "order" => $resultData['order'],
             "page" => $resultData['page'],
             "limit" => $resultData['limit'],
         ];
-        $load_fetch_api = $reverse_proxy->load_fetch_api($data, $resultData['controller']);
+        $loadFetchApi = $ReverseProxy->loadFetchApi($data, $resultData['Controller']);
 
         break;
 }
 
-echo json_encode($load_fetch_api);
+echo json_encode($loadFetchApi);

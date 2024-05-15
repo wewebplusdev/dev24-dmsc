@@ -2,10 +2,18 @@
 $menuActive = "faq";
 $listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$faqPage = new faqPage;
+$FaqPage = new FaqPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         $masterkey = 'faq';
 
@@ -21,9 +29,9 @@ switch ($url->segment[0]) {
 
         $limit = 12;
         $data = [
-            "action" => $faqPage->method_masterkey[$masterkey]['action'],
-            "method" => $faqPage->method_masterkey[$masterkey][$menuActive],
-            "language" => $faqPage->language,
+            "action" => $FaqPage->medthodMasterkey[$masterkey]['action'],
+            "method" => $FaqPage->medthodMasterkey[$masterkey][$menuActive],
+            "language" => $FaqPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -31,17 +39,18 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $faqPage->load_data($data);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $FaqPage->loadData($data);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
         // active menu header
-        $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb2'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
         }
+        
         if ($masterkey == 'faq') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->faq->display->$currentLangWeb;
@@ -54,11 +63,11 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $faqPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $FaqPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];
