@@ -140,114 +140,114 @@
         </div>
     {/if}
 
-    {if $loadInnovation->_numOfRows gte 1}
-        <div class="section section-ii">
-            <div class="wg-research">
-                <div class="wg-research-main" data-aos="fade-up">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <div class="whead mb-0">
-                                    <h2 class="title">{$languageFrontWeb->researchth->display->$currentLangWeb}</h2>
-                                    <p class="subtitle">{$languageFrontWeb->researchen->display->$currentLangWeb}</p>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <div class="action">
-                                    <a href="{$ul}/services/rein" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    {foreach $loadInnovation->item as $keyload_innovation => $valueload_innovation}
-                        {if $keyload_innovation < 2}
-                            {if $keyload_innovation eq 0}
-                                {$fade_action = "right"}
-                                {$fade_action_converse = "left"}
-                                {$backgroud_img = "wg-research-graphic-01.png"}
-                            {else}
-                                {$fade_action = "left"}
-                                {$fade_action_converse = "right"}
-                                {$backgroud_img = "wg-research-graphic-02.png"}
-                            {/if}
-                            <div class="col-lg" data-aos="fade-{$fade_action}">
-                                <a href="{$valueload_innovation->url}" class="link">
-                                    <div class="wg-research-group -{$fade_action_converse}">
-                                        <div class="row no-gutters">
-                                            <div class="col">
-                                                <div class="whead">
-                                                    <h3 class="title">{$valueload_innovation->subject}</h3>
-                                                    <p class="subtitle">{$valueload_innovation->des}</p>
-                                                    <div class="total">{$valueload_innovation->number|number_format}</div>
-                                                    <div class="unit">{$valueload_innovation->suffix}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="graphic">
-                                                    <picture>
-                                                        <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}">
-                                                    </picture>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="bg-obj">
-                                            <img src="{$valueload_innovation->pic->pictures}" alt="{$valueload_innovation->subject}" class="lazy">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {else}
-                            {break}
-                        {/if}
-                    {/foreach}
-                </div>
-                {if $loadInnovation->item|count gte 2}
-                    <div class="wg-research-list lazy"
-                        data-bg="{$template}/assets/img/background/bg-wg-research.webp"
-                        data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp">
-                        <div class="container">
-                            <div class="swiper swiper-default">
-                                <div class="swiper-wrapper">
-                                    {foreach $loadInnovation->item as $keyload_innovation => $valueload_innovation}
-                                        {if $keyload_innovation > 1}
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target|default:'_self'}">
-                                                        <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <div class="whead">
-                                                                        <h3 class="title">{$valueload_innovation->subject}</h3>
-                                                                        <p class="subtitle">{$valueload_innovation->des}</p>
-                                                                        <div class="total">{$valueload_innovation->number|number_format}</div>
-                                                                        <div class="unit">
-                                                                            {$valueload_innovation->suffix}
-                                                                            <span
-                                                                                class="material-symbols-rounded">expand_circle_right</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="bg-obj">
-                                                                <img src="{$valueload_innovation->pic->pictures}" alt="{$valueload_innovation->subject}" class="lazy">
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        {/if}
-                                    {/foreach}
-                                </div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                            </div>
-                        </div>
-                    </div>
-                {/if}
-            </div>
-        </div>
+    {if $load_innovation->_numOfRows gte 1}
+      <div class="section section-ii">
+          <div class="wg-research">
+              <div class="wg-research-main" data-aos="fade-up">
+                  <div class="container">
+                      <div class="row align-items-center">
+                          <div class="col-lg">
+                              <div class="whead mb-0">
+                                  <h2 class="title">{$languageFrontWeb->researchth->display->$currentLangWeb}</h2>
+                                  <p class="subtitle">{$languageFrontWeb->researchen->display->$currentLangWeb}</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-auto">
+                              <div class="action">
+                                  <a href="{$ul}/services/rein" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row no-gutters">
+                  {foreach $load_innovation->item as $keyload_innovation => $valueload_innovation}
+                      {if $keyload_innovation < 2}
+                          {if $keyload_innovation eq 0}
+                              {$fade_action = "right"}
+                              {$fade_action_converse = "left"}
+                              {$backgroud_img = "wg-research-graphic-03.png"}
+                          {else}
+                              {$fade_action = "left"}
+                              {$fade_action_converse = "right"}
+                              {$backgroud_img = "wg-research-graphic-04.png"}
+                          {/if}
+                          <div class="col-lg" data-aos="fade-{$fade_action}">
+                              <a href="{$valueload_innovation->url}" class="link">
+                                  <div class="wg-research-group -{$fade_action_converse}">
+                                      <div class="row no-gutters">
+                                          <div class="col">
+                                              <div class="whead">
+                                                  <h3 class="title">{$valueload_innovation->subject}</h3>
+                                                  <p class="subtitle">{$valueload_innovation->des}</p>
+                                                  <div class="total">{$valueload_innovation->number|number_format}</div>
+                                                  <div class="unit">{$valueload_innovation->suffix}</div>
+                                              </div>
+                                          </div>
+                                          <div class="col-auto">
+                                              <div class="graphic">
+                                                  <picture>
+                                                      <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}">
+                                                  </picture>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="bg-obj">
+                                          <img src="{$valueload_innovation->pic->pictures}" alt="{$valueload_innovation->subject}" class="lazy">
+                                      </div>
+                                  </div>
+                              </a>
+                          </div>
+                      {else}
+                          {break}
+                      {/if}
+                  {/foreach}
+              </div>
+              {if $load_innovation->item|count gte 2}
+                  <div class="wg-research-list lazy"
+                      data-bg="{$template}/assets/img/background/bg-wg-research.webp"
+                      data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp">
+                      <div class="container">
+                          <div class="swiper swiper-default">
+                              <div class="swiper-wrapper">
+                                  {foreach $load_innovation->item as $keyload_innovation => $valueload_innovation}
+                                      {if $keyload_innovation > 1}
+                                          <div class="swiper-slide">
+                                              <div class="item">
+                                                  <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target}">
+                                                      <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
+                                                          <div class="card">
+                                                              <div class="card-body">
+                                                                  <div class="whead">
+                                                                      <h3 class="title">{$valueload_innovation->subject}</h3>
+                                                                      <p class="subtitle">{$valueload_innovation->des}</p>
+                                                                      <div class="total">{$valueload_innovation->number|number_format}</div>
+                                                                      <div class="unit">
+                                                                          {$valueload_innovation->suffix}
+                                                                          <span
+                                                                              class="material-symbols-rounded">expand_circle_right</span>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="bg-obj">
+                                                              <img src="{$valueload_innovation->pic->pictures}" alt="{$valueload_innovation->subject}" class="lazy">
+                                                          </div>
+                                                      </div>
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      {/if}
+                                  {/foreach}
+                              </div>
+                              <div class="swiper-button-next"></div>
+                              <div class="swiper-button-prev"></div>
+                          </div>
+                      </div>
+                  </div>
+              {/if}
+          </div>
+      </div>
     {/if}
 
     <div class="section section-iii" data-aos="fade-up">
