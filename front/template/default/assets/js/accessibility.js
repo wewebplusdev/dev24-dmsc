@@ -187,11 +187,16 @@
                                         <div class="asw-relative">
                                             <div class="menu-close" style="display: none;"><span class="material-icons">close</span></div>
                                             <div class="asw-widget">
-                                                <a href="javascript:void(0);" class="asw-menu-btn" title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false">
+                                                <a href="javascript:void(0);" class="asw-menu-btn" style="bottom:130px;"  title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="25.831" height="49.867"><g><path d="M12.917 9.551a4.776 4.776 0 1 0-4.776-4.776 4.775 4.775 0 0 0 4.776 4.776Z" fill="#fff"/></g><g><path d="m25.634 25.919-5.322-12.206a3.9 3.9 0 0 0-2.96-2.267c-.2-.052-8.675-.052-8.877 0a3.9 3.9 0 0 0-2.955 2.266l-5.322 12.2a2.371 2.371 0 0 0 4.346 1.895l2.006-4.6v24.068a2.587 2.587 0 0 0 5.173 0V31.047h2.382v16.235a2.586 2.586 0 0 0 5.172 0v-24.07l2.007 4.6a2.372 2.372 0 0 0 4.346-1.9Z" fill="#fff"/></g></svg>
                                                 </a>
-                                                <a href="javascript:void(0);" class="asw-menu-btn" title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25.831" height="49.867"><g><path d="M12.917 9.551a4.776 4.776 0 1 0-4.776-4.776 4.775 4.775 0 0 0 4.776 4.776Z" fill="#fff"/></g><g><path d="m25.634 25.919-5.322-12.206a3.9 3.9 0 0 0-2.96-2.267c-.2-.052-8.675-.052-8.877 0a3.9 3.9 0 0 0-2.955 2.266l-5.322 12.2a2.371 2.371 0 0 0 4.346 1.895l2.006-4.6v24.068a2.587 2.587 0 0 0 5.173 0V31.047h2.382v16.235a2.586 2.586 0 0 0 5.172 0v-24.07l2.007 4.6a2.372 2.372 0 0 0 4.346-1.9Z" fill="#fff"/></g></svg>
+                                            
+                                            </div>
+                                            <div class="asw-widget">
+                                                <a href="javascript:void(0);" class="asw-menu-btn" style="bottom:30px; background: #0084ff" title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+                                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25,2c-12.69922,0 -23,9.60156 -23,21.5c0,6.30078 2.89844,12.19922 8,16.30078v8.80078l8.60156,-4.5c2.09766,0.59766 4.19922,0.79688 6.39844,0.79688c12.69922,0 23,-9.59766 23,-21.5c0,-11.79687 -10.30078,-21.39844 -23,-21.39844zM27.30078,30.60156l-5.80078,-6.20312l-10.80078,6.10156l12,-12.69922l5.90234,5.89844l10.5,-5.89844z"></path></g></g>
+                                                </svg>
                                                 </a>
                                             
                                             </div>
