@@ -53,7 +53,7 @@ switch ($url->segment[0]) {
             $action_type = "download";
         }
 
-        $path_file = fileinclude($loadData->item[0]->attachment[0]->filename, 'file', $loadData->item[0]->masterkey, 'other');
+        $path_file = fileinclude($loadData->item[0]->attachment[0]->filename, 'file', $loadData->item[0]->masterkey);
         if ($action_type == 'download') {
             if (file_exists($path_file)) {
                 header('Content-Description: File Transfer');
@@ -75,34 +75,35 @@ switch ($url->segment[0]) {
             }
             exit();
         } else {
-            if ($file_extension == 'pdf' || $file_extension == "PDF") {
-                header('Content-type:application/pdf');
-                header('Content-disposition: inline; filename="' . $file_name . '.' . $file_extension . '"');
-                header('content-Transfer-Encoding:binary');
-                header('Accept-Ranges:bytes');
-                @readfile($path_file);
-            }
-            else {
-                if (file_exists($path_file)) {
-                    header('Content-Description: File Transfer');
-                    header('Content-Type: application/' . $file_extension);
-                    header('Content-Disposition: attachment; filename="' . $file_name . '.' . $file_extension . '"');
-                    header('Content-Transfer-Encoding: binary');
-                    header('Expires: 0');
-                    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-                    header('Pragma: public');
-                    header('Content-Length: ' . filesize($path_file));
-                    ob_clean();
-                    ob_end_flush();
-                    $handle = fopen($path_file, "rb");
-                    while (!feof($handle)) {
-                        echo fread($handle, 1000);
-                    }
-                } else {
-                    echo "no have";
+            if (file_exists($path_file)) {
+                if ($file_extension == 'pdf' || $file_extension == "PDF") {
+                    header('Content-type:application/pdf');
+                    header('Content-disposition: inline; filename="' . $file_name . '.' . $file_extension . '"');
+                    header('content-Transfer-Encoding:binary');
+                    header('Accept-Ranges:bytes');
+                    @readfile($path_file);
                 }
-                exit();
+                else {
+                        header('Content-Description: File Transfer');
+                        header('Content-Type: application/' . $file_extension);
+                        header('Content-Disposition: attachment; filename="' . $file_name . '.' . $file_extension . '"');
+                        header('Content-Transfer-Encoding: binary');
+                        header('Expires: 0');
+                        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                        header('Pragma: public');
+                        header('Content-Length: ' . filesize($path_file));
+                        ob_clean();
+                        ob_end_flush();
+                        $handle = fopen($path_file, "rb");
+                        while (!feof($handle)) {
+                            echo fread($handle, 1000);
+                        }
+                    }
+                }
+            else {
+                echo "no have";
             }
+            exit();
         }
 
         break;

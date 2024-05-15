@@ -480,7 +480,7 @@ function resize($img, $w, $h, $newfilename)
     return $newfilename;
 }
 
-function fileinclude($filename, $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false, $fileType = 'html') {
+function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false) {
 
     global $path_upload, $path_upload_url, $path_template, $templateweb, $core_pathname_upload, $detectDivice;
 
