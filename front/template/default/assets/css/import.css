@@ -18919,10 +18919,6 @@ html.with-fancybox body.hide-scrollbar {
   right: 0;
 }
 
-body {
-  display: inline;
-}
-
 html, body {
   position: relative;
   min-height: 100%;

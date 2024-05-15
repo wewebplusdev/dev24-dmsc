@@ -35,7 +35,12 @@
                         <div class="swiper-slide">
                             <div class="item">
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target}">
-                                    <figure class="contain">
+                                    {* <figure class="contain">
+                                        <picture>
+                                            <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
+                                        </picture>
+                                    </figure> *}
+                                    <figure class="cover">
                                         <picture>
                                             <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
                                         </picture>
