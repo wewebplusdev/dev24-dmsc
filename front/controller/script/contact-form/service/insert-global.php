@@ -5,7 +5,6 @@ $requestParams = [
     'secret' => $recaptchaSecretkey,
     'response' => $_POST['g-recaptcha-response']
 ];
-
 $requestQuery = http_build_query($requestParams);
 
 $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
@@ -13,7 +12,6 @@ $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
 $verifyResponse = file_get_contents($verifyUrl);
 
 $responseData = json_decode($verifyResponse);
-
 
 if ($responseData->success || true) {
     $arrData = array();
@@ -27,15 +25,11 @@ if ($responseData->success || true) {
   
     // insert
     $insert_data = $ContactPage->loadData($arrData); 
-    print_r($insert_data);
-    print_r($arrData);
-    die;
     if ($insert_data->code == 1001) {
         $arrJson = array(
             'code' => 1001,
             'msg' => 'success',
         );
-      
     }else{
         $arrJson = array(
             'code' => 400,
