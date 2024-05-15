@@ -166,11 +166,11 @@
                             {if $keyload_innovation eq 0}
                                 {$fade_action = "right"}
                                 {$fade_action_converse = "left"}
-                                {$backgroud_img = "wg-research-graphic-01.png"}
+                                {$backgroud_img = "wg-research-graphic-03.png"}
                             {else}
                                 {$fade_action = "left"}
                                 {$fade_action_converse = "right"}
-                                {$backgroud_img = "wg-research-graphic-02.png"}
+                                {$backgroud_img = "wg-research-graphic-04.png"}
                             {/if}
                             <div class="col-lg" data-aos="fade-{$fade_action}">
                                 <a href="{$valueload_innovation->url}" class="link">
@@ -344,11 +344,11 @@
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
                     <picture>
-                        <source srcset="{$template}/assets/img/static/wg-about-graphic.webp"
-                            data-srcset="{$template}/assets/img/static/wg-about-graphic@2x.webp"
+                        <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
+                            data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
                             type="image/webp">
                         <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic@2x.png" alt=""
+                            data-src="{$template}/assets/img/static/wg-about-graphic01.webp" alt=""
                             class="lazy">
                     </picture>
                 </div>
