@@ -764,7 +764,7 @@ function DateFormatInsert($DateTime, $timeAgre = null)
 
 function page_redirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
 {
-    return encodeStr($table) . "|" . encodeStr($masterkey) . "|" . encodeStr($id) . "|" . encodeStr($language) . "|" . encodeStr($download);
+    return encodeStr($table) . "@" . encodeStr($masterkey) . "@" . encodeStr($id) . "@" . encodeStr($language) . "@" . encodeStr($download);
 }
 
 
