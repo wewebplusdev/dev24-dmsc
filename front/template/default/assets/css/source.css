@@ -5522,7 +5522,7 @@ a:hover .fontContantTbManage {
           flex-direction: row-reverse;
 }
 .wg-research-group.-left .graphic {
-  left: 0;
+  left: -50px;
 }
 .wg-research-group.-left .bg-obj {
   bottom: 0;
@@ -5551,7 +5551,7 @@ a:hover .fontContantTbManage {
   color: var(--color-secondary-light);
 }
 .wg-research-group.-right .graphic {
-  right: 10px;
+  right: -40px;
 }
 .wg-research-group.-right .bg-obj {
   bottom: 0;
@@ -5668,9 +5668,9 @@ a:hover .fontContantTbManage {
 }
 .wg-about .graphic {
   position: absolute;
-  bottom: -167px;
+  bottom: -160px;
   left: 50%;
-  margin-left: -550px;
+  margin-left: -420px;
   width: 1020px;
   pointer-events: none;
 }
