@@ -169,7 +169,7 @@
                                 </g>
                               </svg>
                             </span>
-                            <div class="txt text-primary fw-bold">{$languageFrontWeb->gotolink->display->$currentLangWeb}</div>
+                            <div class="txt fw-bold">{$languageFrontWeb->gotolink->display->$currentLangWeb}</div>
                           </div>
                         </a>
                       </div>

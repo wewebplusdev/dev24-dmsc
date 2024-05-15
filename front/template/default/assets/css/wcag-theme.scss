@@ -323,6 +323,8 @@ $yellowSecondary: #e6cf01bf;
   .show > .btn-primary.dropdown-toggle {
     color: $black;
     background: $yellowPrimary;
+
+ 
   }
   .card {
     color: $black;
@@ -909,12 +911,193 @@ $yellowSecondary: #e6cf01bf;
       background-color: $yellowPrimary;
     }
 
-  
+    .editor-content span{
+      color: $yellowPrimary !important;
+    }
+
+    .editor-content a{
+      color: $yellowSecondary !important;
+
+      &:hover{
+        color: $yellowPrimary !important;
+      }
+    }
+
+    .manual-list .content-wrapper{
+      background-color: $yellowPrimary;
+      opacity: 1;
+
+      &:hover{
+        background-color: $yellowSecondary;
+      }
+    }
+
+    .manual-list .content-wrapper .title{
+      color: $black;
+    }
+
+    .manual-list .file-type .item-list li{
+      color: $black;
+    }
+
+    .manual-list .read-more{
+      color: $black;
+    }
+
+    .manual-list path{
+      stroke: $black;
+    }
+
+    .manual-list .content-wrapper::before{
+      background: $yellowPrimary;
+    }
+
+    .contact-section .contact-bg{
+      filter: grayscale(1);
+    }
+
+    .contact-center .contact-card .head{
+      color: $black;
+      background: $yellowPrimary;
+    }
+
+    .contact-center  .whead .title{
+      color: $black;
+      
+    }
+
+    .contact-center .desc{
+      color: $black;
      
   }
- 
 
+  .contact-center .contact-card .body .action .text{
+    color: $black;
+  }
 
+  .contact-center .contact-card .body .action .icon{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%)
+  }
+
+  .contact-center .contact-card .body{
+    background-color: $yellowPrimary;
+  }
+
+  .contact-center .contact-card::before{
+    filter: grayscale(1);
+  }
+
+  .contact-map .nav .link.active{
+    color: $yellowPrimary;
+    border-color: $yellowPrimary;
+   }
+
+   .contact-map .nav .link:hover{
+    color: $yellowPrimary;
+   }
+
+   .contact-service .whead .title{
+    border-bottom: 1px solid $yellowPrimary;
+   }
+
+   .contact-service .contact-service-list .item{
+    background: $yellowPrimary;
+   }
+
+   .contact-service .contact-service-list .item .title{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item .tel{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item > .row::before{
+    background-color: $black;
+   }
+
+   .contact-service img{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+   }
+
+   .form-contact .form-head{
+    background: $yellowPrimary;
+   }
+
+   .form-contact .form-head .title{
+    color: $black;
+   }
+
+   .form-contact .form-body{
+    background: $yellowPrimary;
+   }
+
+   .form-default .form-control{
+    background-color: $yellowSecondary;
+    color: $black;
+   }
+
+   .form-contact .form-group .form-control{
+    border-color:$black;
+   }
+
+   .form-contact .form-group .control-label{
+    color: $black;
+   }
+
+   .form-contact .form-group .control-label span{
+    color: $black;
+   }
+
+   .form-contact .action .btn{
+    background:$black ;
+    color: $white;
+    opacity: 1;
+
+    &:hover{
+      background: $white;
+      color: $black;
+    }
+   }
+
+   .layout-form-progress .form-progress-step .nav .item.active .circle{
+    background: $yellowPrimary;
+   }
+   .layout-form-progress .form-progress-step .nav .item.active .circle .icon path{
+    fill: $black;
+   }
+
+   .layout-form-progress .form-progress-step .nav .item .text-step{
+    color: $yellowPrimary;
+   }
+
+   .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+    background-color: $yellowPrimary;
+   }
+
+   .layout-header .main-menu .dropdown.show .nav-link{
+    background: $yellowPrimary;
+    color: $black;
+   }
+
+   .breadcrumb .link{
+    color: $black;
+   }
+
+   .breadcrumb li + li::before{
+    color: $black;
+   }
+
+   .default-header .title{
+    color: $black;
+   }
+
+   .layout-footer .btn{
+    color: $black;
+   }
+
+   
+}
  
 
 
