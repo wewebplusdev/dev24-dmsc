@@ -4,11 +4,11 @@ define('SCRIPT_PATH', 'front/controller/script/');
 define('FULL_SCRIPT_PATH', '/front/controller/script/');
 $menuActive = "contact-form";
 $listjs[] = JS_SCRIPT_START . _URL . SCRIPT_PATH . $menuActive . '/js/script.js"></script>';
-$listjs[] = JS_SCRIPT_START . 'https://www.google.com/recaptcha/api.js?render='. $recaptcha_sitekey .'"></script>';
+$listjs[] = JS_SCRIPT_START . 'https://www.google.com/recaptcha/api.js?render='. $recaptchaSitekey .'"></script>';
 
 $menuActiveApi = "contact";
 
-$contactPage = new contactPage;
+$ContactPage = new ContactPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[1]) {
@@ -17,6 +17,8 @@ switch ($url->segment[1]) {
         break;
 
     case 'insert-global':
+        // print_r(_DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-global.php');
+        // die;
         require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-global.php'; #load service
         break;
 
@@ -40,7 +42,7 @@ switch ($url->segment[1]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $contactPage->searchEngine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $ContactPage->searchEngine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
 
         $settingPage = array(
