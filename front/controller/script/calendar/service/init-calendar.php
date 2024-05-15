@@ -2,7 +2,7 @@
 // Load calendar list #############################################
 $data = [
     "method" => 'getCalendar',
-    "language" => $calendarPage->language,
+    "language" => $CalendarPage->language,
     "order" => 'desc',
     "page" => $page['on'],
     "limit" => $limit,
@@ -12,14 +12,14 @@ $data = [
 ];
 
 // call list
-$load_data = $calendarPage->load_data($data);
+$loadData = $CalendarPage->loadData($data);
 $myCalendarEventCounter = array();
 $myCalendarEventCounter[0] = 0;
 $myCalendarEventList = array();
-if ($load_data->code == 1001 && $load_data->_numOfRows > 0) {
-    $smarty->assign("load_data", $load_data);
+if ($loadData->code == 1001 && $loadData->_numOfRows > 0) {
+    $smarty->assign("loadData", $loadData);
     $EventMonth = array();
-    foreach ($load_data->item as $keyload_data => $valueload_data) {
+    foreach ($loadData->item as $keyload_data => $valueload_data) {
         if (!empty($valueload_data->sdate->full)) {
             $sdate = date('Y-m-d', strtotime($valueload_data->sdate->full));
             $EventMonth['sdate'] = $sdate;

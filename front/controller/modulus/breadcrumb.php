@@ -6,15 +6,15 @@
  * and open the template in the editor.
  */
 
-class breadcrumb {
+class Breadcrumb {
 
     public $page;
     public $list;
 
-    function add($array) {
+    public function add($array) {
         $this->list[] = $array;
     }
-    function respon(){
+    public function respon(){
          return $this->list;
     }
 

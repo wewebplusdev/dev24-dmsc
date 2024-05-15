@@ -1,11 +1,16 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
+$requestParams = [
+    'secret' => $recaptchaSecretkey,
+    'response' => $_POST['g-recaptcha-response']
+];
 
-
-$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $recaptcha_secretkey . '&response=' . $_POST['g-recaptcha-response']);
+$requestQuery = http_build_query($requestParams);
+$verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
+$verifyResponse = file_get_contents($verifyUrl);
 $responseData = json_decode($verifyResponse);
 
-if ($responseData->success || true) {
+if ($responseData->success) {
     $arrData = array();
     foreach ($_POST as $key_form => $value_form) {
         $arrData[$key_form] = $value_form;
@@ -13,23 +18,22 @@ if ($responseData->success || true) {
     $arrData['ip'] = getip();
     $arrData['action'] = 'contact';
     $arrData['method'] = 'insertCorruption';
-    $arrData['language'] = $contactPage->language;
-    
+    $arrData['language'] = $ContactPage->language;
     // insert
-    $insert_data = $contactPage->load_data($arrData);
+    $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
         $arrJson = array(
             'code' => 1001,
             'msg' => 'success',
         );
-    }else{
+    } else {
         $arrJson = array(
             'code' => 400,
             'msg' => 'unsuccess',
             'icon' => 'error',
             'title' => $languageFrontWeb->errorReturn->display->$currentLangWeb,
             'text' => $languageFrontWeb->tryAgainReturn->display->$currentLangWeb,
-        );   
+        );
     }
     echo json_encode($arrJson);
 }else{

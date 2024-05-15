@@ -269,7 +269,7 @@
                                 </div>
                             </div>
                             <div class="action">
-                                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptcha_sitekey}">
+                                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptchaSitekey}">
                                 <button type="submit" class="btn btn-primary disabled" id="submit-form">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
                                 <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</a>
                             </div>

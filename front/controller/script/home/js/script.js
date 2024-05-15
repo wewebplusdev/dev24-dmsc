@@ -1,4 +1,4 @@
-var tpgSwiper = new Swiper(".top-graphic .swiper", {
+let tpgSwiper = new Swiper(".top-graphic .swiper", {
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -6,7 +6,7 @@ var tpgSwiper = new Swiper(".top-graphic .swiper", {
     // on: {
     //   slideChange: function() {
     //     $('.swiper-slide').each(function() {
-    //       var youtubePlayer = $(this).find('iframe').get(0);
+    //       let youtubePlayer = $(this).find('iframe').get(0);
     //       if (youtubePlayer) {
     //         youtubePlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
     //       }
@@ -15,7 +15,7 @@ var tpgSwiper = new Swiper(".top-graphic .swiper", {
     // }
 });
 
-var scSwiper = new Swiper(".service-category-list .swiper", {
+let scSwiper = new Swiper(".service-category-list .swiper", {
     slidesPerView: 5,
     watchSlidesProgress: true,
     navigation: {
@@ -38,9 +38,9 @@ var scSwiper = new Swiper(".service-category-list .swiper", {
     }
 });
 
-var serviceSwiper = reload_swiper();
 
-var researchSwiper = new Swiper(".wg-research-list .swiper", {
+
+let researchSwiper = new Swiper(".wg-research-list .swiper", {
     slidesPerView: 3,
     watchSlidesProgress: true,
     navigation: {
@@ -60,7 +60,7 @@ var researchSwiper = new Swiper(".wg-research-list .swiper", {
     }
 });
 
-var newsSwiper = new Swiper(".wg-news-slide .swiper", {
+let newsSwiper = new Swiper(".wg-news-slide .swiper", {
     // slidesPerView: "auto",
     slidesPerView: 2,
     // freeMode: true,
@@ -82,10 +82,10 @@ var newsSwiper = new Swiper(".wg-news-slide .swiper", {
     }
 });
 
-// $('#popupModal').modal('show');
 
+let serviceSwiper;
 function reload_swiper() {
-    if (typeof serviceSwiper != 'undefined') {
+    if (typeof serviceSwiper !== 'undefined') {
         serviceSwiper.destroy();
     }
 
@@ -94,7 +94,6 @@ function reload_swiper() {
         watchSlidesProgress: true,
         grid: {
             rows: 3,
-            // fill: "row"
         },
         navigation: {
             nextEl: ".swiper-button-next",
@@ -129,6 +128,8 @@ function reload_swiper() {
         }
     });
 }
+reload_swiper();
+$('#popupModal').modal('show');
 
 $('body').guides({
   guides: [{

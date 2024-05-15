@@ -1,209 +1,249 @@
 <?php
-abstract class controller
+abstract class Controller
 {
-    const _APP_TOKEN = 'website-token-api';
-    const _APP_USER = 'dmsc-website-api';
-    const _APP_SERCRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
+    const APP_TOKEN = 'website-token-api';
+    const APP_API = 'dmsc-website-api';
+    const APP_SECRET = 'M0y0HTyOrPOjMJ10q2yZp21vM2I0I2xtrRAjH21Aq0EZG20WewEb2SM2k0pzy1rPMjnJ1jq2SZYJ1yM3E0nJymrTWjMJ13ql1ZL21mM210MTyCrQ9jrJ1yq2gZqT1yM3W0L2yyrUZWewEb3Q';
 
-    public $recaptcha_sitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
-    public $recaptcha_secretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
-    public $token_access;
+    const CONTENT_TYPE_JSON = 'Content-Type: application/json';
+    const AUTHORIZATION_HEADER = 'Authorization: Bearer ';
+
+
+    
+    public $recaptchaSitekey = "6LfqEYMpAAAAAIOLmCvCSh8rgF915x9GUHxOnYF6";
+    public $recaptchaSecretkey = "6LfqEYMpAAAAAGw5Uoe0QEB84FWSHU1Qa89ewGlT";
+    public $tokenAccess;
     public $language;
-    public $token_revoke;
-    public $URL_API;
-    public $method_masterkey;
-    public $method_module;
+    public $tokenRevoke;
+    public $urlAPI;
+    public $medthodMasterkey;
+    public $medthodModule;
 
     public function __construct()
     {
         global $url, $_CORE_ENV;
 
-        if ($_CORE_ENV == 'DEV') {
-            // $this->URL_API =  'http://192.168.1.112:4040/service-api/v1';
-            $this->URL_API =  'http://api.wewebplus.com:4040/service-api/v1';
-            // $this->URL_API =  'http://192.168.101.39:4040/service-api/v1';
-        }else if($_CORE_ENV == 'PROD'){
-            $this->URL_API =  'http://192.168.200.146:4040/service-api/v1';
-        }else{
-            $this->URL_API =  'http://api.wewebplus.com:4040/service-api/v1';
-        }
+        $this->setApiUrl($_CORE_ENV);
 
-        $this->method_module = array(
-            'detailAll' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'downloadAll' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'download' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'listAll' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'weblinkAll' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'rss' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'json' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'downloadBook' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'mobile-application' => array(
-                'action' => 'news',
-                'method_detail' => 'getNewsDetail',
-                'method_group' => 'getNewsGroup',
-                'method_list' => 'getNews',
-            ),
-            'searchAll' => array(
-                'action' => 'search',
-                'method_list' => 'getSearch',
-            ),
-            'contact' => array(
-                'action' => 'agency',
-                'method_list' => 'getAgency',
-                'method_list_service' => 'getService',
-            ),
-        );
+        $this->initializeMethodModule();
 
-        $this->method_masterkey = array(
-            'sv' => array(
-                'action' => 'service',
-                'services' => 'getService',
-                'loadGroup' => 'getServiceGroup',
-            ),
-            'rein' => array(
-                'action' => 'innovation',
-                'services' => 'getInnovation',
-                'loadGroup' => 'getInnovationGroup',
-            ),
-            'faq' => array(
-                'action' => 'faq',
-                'faq' => 'getFaq',
-                'loadGroup' => 'getFaq',
-            ),
-        );
+        $this->initializeMethodMasterkey();
 
-
-        try {
-            $this->token_access = $_COOKIE['web_token'] ? decodeStr($_COOKIE['web_token']) : '';
-            $this->language = $url->pagelang[4];
-            $this->token_revoke = $_COOKIE['token_revoke'] ? $_COOKIE['token_revoke'] : '';
-            if (!empty($this->token_access)) {
-                // revoke token
-                if (empty($this->token_revoke) || empty($_SESSION['settingWeb'])) {
-                    $load_check_auth = self::load_check_auth();
-                    if ($load_check_auth->code === 1007) {
-                        // authentication token
-                        $auth_webservice = self::auth_webservice();
-                        if ($auth_webservice->code === 1001) {
-                            setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
-                            setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
-                            self::revoke_token($auth_webservice);
-                        }
-                    }else{
-                        setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
-                        $this->token_revoke = 1;
-                    }
-                }
-            }else{
-                // authentication token
-                $auth_webservice = self::auth_webservice();
-                if ($auth_webservice->code === 1001) {
-                    setcookie("web_token", encodeStr($auth_webservice->tokenid), ($auth_webservice->expire_at), "/", false);
-                    setcookie("token_revoke", 1, time() + (3600), "/", false); // life time 1 hour
-                    self::revoke_token($auth_webservice);
-
-                }
-            }
-        } catch (Exception $e) {
-            echo 'Caught exception: ',  $e->getMessage(), "\n";
-        }
+        $this->processTokenAccess($url);
     }
+    private function setApiUrl($_CORE_ENV)
+        {
+            if ($_CORE_ENV == 'DEV') {
+                // $this->urlAPI =  'http://192.168.101.249:4040/service-api/v1';
+                $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
+            } elseif ($_CORE_ENV == 'PROD') {
+                $this->urlAPI =  'http://192.168.200.146:4040/service-api/v1';
+            } else {
+                $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
+            }
+        }
 
-    function search_engine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
+        private function initializeMethodModule()
+{
+    $this->medthodModule = [
+        'detailAll' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'downloadAll' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'download' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'listAll' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'weblinkAll' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'rss' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'json' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'downloadBook' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'mobile-application' =>[
+            'action' => 'news',
+            'method_detail' => 'getNewsDetail',
+            'method_group' => 'getNewsGroup',
+            'method_list' => 'getNews',
+        ],
+        'searchAll' =>[
+            'action' => 'search',
+            'method_list' => 'getSearch',
+        ],
+        'contact' =>[
+            'action' => 'agency',
+            'method_list' => 'getAgency',
+            'method_list_service' => 'getService',
+        ],
+    ];
+}
+       
+private function initializeMethodMasterkey()
+{
+    $this->medthodMasterkey = [
+        'sv' => [
+            'action' => 'service',
+            'services' => 'getService',
+            'loadGroup' => 'getServiceGroup',
+        ],
+        'rein' => [
+            'action' => 'innovation',
+            'services' => 'getInnovation',
+            'loadGroup' => 'getInnovationGroup',
+        ],
+        'faq' => [
+            'action' => 'faq',
+            'faq' => 'getFaq',
+            'loadGroup' => 'getFaq',
+        ],
+    ];
+}
+
+
+        private function processTokenAccess($url)
+        {
+            try {
+                $this->tokenAccess = isset($_COOKIE['web_token']) ? decodeStr($_COOKIE['web_token']) : '';
+                $this->language = isset($url->pagelang[4]) ? $url->pagelang[4] : '';
+                $this->tokenRevoke = isset($_COOKIE['tokenRevoke']) ? $_COOKIE['tokenRevoke'] : '';
+
+                if (!empty($this->tokenAccess)) {
+                    $this->handleTokenAccess();
+                } else {
+                    $this->handleAuthWebservice();
+                }
+            } catch (Exception $e) {
+                echo 'Caught exception: ',  $e->getMessage(), "\n";
+            }
+        }
+
+        private function handleTokenAccess()
+{
+    if (empty($this->tokenRevoke) || empty($_SESSION['settingWeb'])) {
+        $this->handleCheckAuth();
+    } else {
+        $this->tokenRevoke = 1;
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        setcookie("tokenRevoke", 1, time() + 3600, "/", "", $secure, true);
+    }
+}
+
+
+        private function handleCheckAuth()
+        {
+            $loadCheckAuth = self::loadCheckAuth();
+            if ($loadCheckAuth->code === 1007) {
+                $this->authenticateWebservice();
+            } else {
+                $this->tokenRevoke = 1;
+                $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+                setcookie("tokenRevoke", 1, time() + 3600, "/","",$secure, true);
+            }
+        }
+
+        private function authenticateWebservice()
+{
+    $authWebservice = self::authWebservice();
+    if ($authWebservice->code === 1001) {
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        setcookie("web_token", encodeStr($authWebservice->tokenid), $authWebservice->expire_at, "/", "", $secure, true);
+        $this->revokeToken($authWebservice);
+    }
+}
+
+
+    private function handleAuthWebservice()
     {
-        global $smarty;
-
-        $list = array();
-        if (!empty($title)) {
-            if (!empty($infoSetting->metatitle)) {
-                $list_last = $infoSetting->metatitle;
-            } elseif (!empty($infoSetting->subject)) {
-                $list_last = $infoSetting->subject;
-            } else {
-                $list_last = 'Template Website';
-            }
-
-            $list['title'] = trim($title) . " - " . $list_last;
-        } else {
-            if (!empty($infoSetting->metatitle)) {
-                $list['title'] = $infoSetting->metatitle;
-            } elseif (!empty($infoSetting->subject)) {
-                $list['title'] = $infoSetting->subject;
-            } else {
-                $list['title'] = 'Template Website';
-            }
+        $authWebservice = self::authWebservice();
+        if ($authWebservice->code === 1001) {
+            $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+            setcookie("web_token", encodeStr($authWebservice->tokenid), $authWebservice->expire_at, "/", "", $secure, true);
+            setcookie("tokenRevoke", 1, time() + 3600, "/", "", $secure, true);
+            $this->revokeToken($authWebservice);
         }
-
-        if (!empty($desc)) {
-            $list['desc'] = trim($desc);
-        } else {
-            $list['desc'] = $infoSetting->description;
-        }
-
-        if (!empty($keyword)) {
-            $list['keyword'] = trim($keyword);
-        } else {
-            $list['keyword'] = $infoSetting->keywords;
-        }
-
-        if (!empty($pic)) {
-            $list['pic'] = $pic;
-        } else {
-            $list['pic'] = "";
-        }
-        $smarty->assign("seo", $list);
     }
+
+
+        public function searchEngine($infoSetting, $title = '', $desc = '', $keyword = '', $pic = '')
+        {
+            global $smarty;
+        
+            $list = array();
+            $list['title'] = $this->generateTitle($infoSetting, $title);
+            $list['desc'] = $this->generateDescription($infoSetting, $desc);
+            $list['keyword'] = $this->generateKeywords($infoSetting, $keyword);
+            $list['pic'] = $pic ?: '';
+        
+            $smarty->assign("seo", $list);
+        }
+        
+        private function generateTitle($infoSetting, $title)
+            {
+                $list_last = !empty($infoSetting->metatitle) ? $infoSetting->metatitle : $infoSetting->subject;
+                $list_last = !empty($list_last) ? $list_last : 'Template Website';
+
+                $titlePrefix = !empty($title) ? trim($title) . " - " : '';
+
+                return $titlePrefix . $list_last;
+            }
+
+
+        
+        private function generateDescription($infoSetting, $desc)
+        {
+            return !empty($desc) ? trim($desc) : $infoSetting->description;
+        }
+        
+        private function generateKeywords($infoSetting, $keyword)
+        {
+            return !empty($keyword) ? trim($keyword) : $infoSetting->keywords;
+        }
+        
     
-    public function load_url_redirect($req)
+    public function loadUrlRedirect($req)
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/api";
+        $url = $this->urlAPI . "/api";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "loadRedirect",
@@ -216,33 +256,33 @@ abstract class controller
             "view" => $req['view'],
             "urlc2" => $req['urlc2'],
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+
     }
 
-    private function revoke_token($auth_webservice){
+    private function revokeToken($authWebservice){
         global $url;
-        $this->token_access = $auth_webservice->tokenid;
+        $this->tokenAccess = $authWebservice->tokenid;
         $this->language = $url->pagelang[4];
-        $this->token_revoke = 1;
+        $this->tokenRevoke = 1;
     }
 
-    private function auth_webservice(){
-        $url = $this->URL_API . "/gettoken";
+    private function authWebservice(){
+        $url = $this->urlAPI . "/gettoken";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
-            "apptoken" => self::_APP_TOKEN,
-            "user" => self::_APP_USER,
-            "secretkey" => self::_APP_SERCRET,
+            "apptoken" => self::APP_TOKEN,
+            "user" => self::APP_API,
+            "secretkey" => self::APP_SECRET,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+        
     }
 
-    public function content_website($content, $language){
+    public function contentWebsite($content, $language){
         if (gettype($content) == 'object' && count((array)$content) > 0) {
             $array_content = array();
             foreach ($content as $keycontent => $valuecontent) {
@@ -254,64 +294,62 @@ abstract class controller
                 }
             }
 
-            if (count($array_content) > 0) {
+            if (!empty($array_content)) {
                 file_put_contents('./webservice_json/content_language_web.json', json_encode($array_content));
             }
+            
         }
     }
 
-    function load_insert_logs($req){
-        $url = $this->URL_API . "/setting";
+    private function loadInsertLogs($req){
+        $url = $this->urlAPI . "/setting";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
-            "user" => self::_APP_USER,
-            "secretkey" => self::_APP_SERCRET,
+            "user" => self::APP_API,
+            "secretkey" => self::APP_SECRET,
             "method" => $req['method'],
             "browser" => $req['browser'],
             "uniqid" => $req['uniqid'],
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
-
-    private function load_check_auth()
+    
+    private function loadCheckAuth()
     {
-        $url = $this->URL_API . "/getuser";
+        $url = $this->urlAPI . "/getuser";
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', '');
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', '');
+       
     }
 
-    protected static function sendCURL($url, $header, $type, $data = NULL)
+    protected static function sendCURL($url, $header, $type, $data = null)
     {
         $request = curl_init();
-
-        if ($header != NULL) {
+    
+        if ($header != null) {
             curl_setopt($request, CURLOPT_HTTPHEADER, $header);
         }
-
+    
         curl_setopt($request, CURLOPT_URL, $url);
-        curl_setopt($request, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
-
+        curl_setopt($request, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($request, CURLOPT_SSL_VERIFYPEER, 2);
+    
         if (strtoupper($type) === 'POST') {
-            curl_setopt($request, CURLOPT_POST, TRUE);
+            curl_setopt($request, CURLOPT_POST, true);
             curl_setopt($request, CURLOPT_POSTFIELDS, $data);
         }
-
+    
         curl_setopt($request, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
         
         $response = curl_exec($request);
-        if (!empty($response)) {
-            $response = json_decode($response);
-        }
-        return $response;
+        return !empty($response) ? json_decode($response) : $response;
     }
+    
 }
