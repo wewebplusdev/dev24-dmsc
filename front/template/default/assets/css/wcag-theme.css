@@ -510,12 +510,6 @@
   -webkit-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7477%) hue-rotate(17deg) brightness(98%) contrast(107%);
           filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7477%) hue-rotate(17deg) brightness(98%) contrast(107%);
 }
-[data-asw-filter=dark-contrast] .editor-content {
-  color: #000000;
-}
-[data-asw-filter=dark-contrast] .editor-content strong {
-  color: #ffffff;
-}
 [data-asw-filter=dark-contrast] .layout-dcio .top-dcio .bg-cio {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
@@ -1337,10 +1331,10 @@
   color: #e6cf01 !important;
 }
 [data-asw-filter=yellow-contrast] .editor-content a {
-  color: rgba(230, 207, 1, 0.7490196078) !important;
+  color: rgba(230, 207, 1, 0.7490196078);
 }
 [data-asw-filter=yellow-contrast] .editor-content a:hover {
-  color: #e6cf01 !important;
+  color: #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .manual-list .content-wrapper {
   background-color: #e6cf01;
@@ -1501,6 +1495,49 @@
 [data-asw-filter=yellow-contrast] .asw-wrapper.active .asw-menu {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] .document-download-list .icon path {
+  stroke: #000000;
+  fill: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-swiper .desc {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .action a {
+  border: 1px solid #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list .item .txt {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list .item-wrapper:hover {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .document-download-list .item-wrapper:hover .box * {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list .item-wrapper:hover .action a {
+  border: 1px solid #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list .item-wrapper:hover .head * {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .our-history-info .content .desc {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .document-download-list .box .item-list li + li {
+  border-left: 1px solid #000000;
+}
+[data-asw-filter=yellow-contrast] .hamburger .bar {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-header .navbar-collapse {
+  background: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-header .navbar-nav .nav-link {
+  background: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-header .lag-mobile {
+  color: #e6cf01;
 }
 
 .readable-font span:not(.asw-wrapper *) {

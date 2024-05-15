@@ -474,7 +474,7 @@
 @media only screen and (max-width: 1540px) {
   .asw-menu-btn,
   .asw-menu-btn-mobile {
-    top: 75%;
+    /* top: 75%; */
   }
   .asw-menu {
     width: 400px;
@@ -484,6 +484,12 @@
     height: 60px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, .75em 100%, 0 calc(100% - .75em));
     left: -75px;
+  }
+
+  .asw-wrapper .asw-widget {
+    .asw-btn{
+      bottom: 100px;
+    }
   }
   .asw-menu-btn svg {
     transform: scale(.7);

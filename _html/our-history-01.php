@@ -80,7 +80,7 @@
           </div>
           <div class="nav-default each-year">
             <div class="container">
-              <div class="title typo-md fw-bold text-secondary mb-3">ความเป็นมา</div>
+              <div class="title typo-md fw-bold mb-3">ความเป็นมา</div>
               <div class="swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
