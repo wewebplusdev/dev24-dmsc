@@ -13,7 +13,7 @@ $verifyResponse = file_get_contents($verifyUrl);
 
 $responseData = json_decode($verifyResponse);
 
-if ($responseData->success || true) {
+if ($responseData->success) {
     $arrData = array();
     foreach ($_POST as $key_form => $value_form) {
         $arrData[$key_form] = $value_form;
@@ -24,7 +24,7 @@ if ($responseData->success || true) {
     $arrData['language'] = $ContactPage->language;
   
     // insert
-    $insert_data = $ContactPage->loadData($arrData); 
+    $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
         $arrJson = array(
             'code' => 1001,

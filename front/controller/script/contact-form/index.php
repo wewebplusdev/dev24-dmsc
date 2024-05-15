@@ -17,8 +17,7 @@ switch ($url->segment[1]) {
         break;
 
     case 'insert-global':
-        // print_r(_DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-global.php');
-        // die;
+  
         require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-global.php'; #load service
         break;
 
