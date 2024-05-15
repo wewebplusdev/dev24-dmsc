@@ -7641,8 +7641,11 @@ div.swal2-html-container {
 .document-download-list.-layout-grid .item .txt {
   color: var(--color-primary);
 }
+.document-download-list.-layout-grid .item .title {
+  line-height: 1.5em;
+}
 .document-download-list.-layout-grid .item a {
-  width: 180px;
+  margin-right: 10px;
 }
 .document-download-list.-layout-grid .item-wrapper {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);

@@ -157,8 +157,11 @@
       .txt{
         color: var(--color-primary);
       }
+      .title{
+        line-height: 1.5em;
+      }
       a {
-        width: 180px;
+        margin-right: 10px;
       }
     }
 

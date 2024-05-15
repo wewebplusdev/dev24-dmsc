@@ -182,7 +182,7 @@
                            </div>
                           </a>
                           <a href="{$news_url2}" class="link -web-link" target="{$target2}">
-                            <div class="d-flex align-items-center" style="padding-left: 50px;">
+                            <div class="d-flex align-items-center">
                               <span class="icon mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                   <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
