@@ -5210,8 +5210,8 @@ a:hover .fontContantTbManage {
   width: 100%;
   height: 100%;
   z-index: -1;
-  -webkit-filter: blur(8px);
-          filter: blur(8px);
+  -webkit-filter: blur(50px);
+          filter: blur(50px);
 }
 
 .section .whead .title {
