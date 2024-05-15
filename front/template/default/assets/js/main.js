@@ -218,14 +218,14 @@ $(document).ready(function () {
   })
 
 
-  // $("a").each(function () {
-  //   strHTML = `
-  //     <span class="fontContantTbManage" style="display:none;">${$(this).attr(
-  //       "title"
-  //     )}</span>
-  //   `;
-  //   $(this).append(strHTML);
-  // });
+  $("a").each(function () {
+    strHTML = `
+      <span class="fontContantTbManage" style="display:none;">${$(this).attr(
+        "title"
+      )}</span>
+    `;
+    $(this).append(strHTML);
+  });
 
 
 });
