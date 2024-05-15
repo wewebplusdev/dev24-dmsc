@@ -46,7 +46,7 @@
   <div class="default-body">
     <div class="default-filter">
       <div class="container">
-        <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default" id="filter-form">
+        <form action="{$ul}/{$menuActive}" method="GET" class="form-default" id="filter-form">
           <div class="head">
             <div class="row">
               <div class="col-md">

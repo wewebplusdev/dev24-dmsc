@@ -69,7 +69,7 @@ switch ($url->segment[0]) {
         // setup seo and text modules
         $language_modules = array();
         // active menu header
-        $headerActive = headerActive($url->url);
+        $headerActive = headerActive($masterkey);
         if (is_array($headerActive) && !empty($headerActive)) {
             $language_modules['breadcrumb2'] = $headerActive['page'][0];
             $language_modules['metatitle'] = $headerActive['page'][0];

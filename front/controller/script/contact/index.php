@@ -28,8 +28,8 @@ switch ($url->segment[1]) {
         
         // agency
         $data_agency = [
-            "action" => $ContactPage->method_module[$menuActive]['action'],
-            "method" => $ContactPage->method_module[$menuActive]['method_list'],
+            "action" => $ContactPage->medthodModule[$menuActive]['action'],
+            "method" => $ContactPage->medthodModule[$menuActive]['method_list'],
             "language" => $ContactPage->language,
             "order" => 'desc',
             "page" => $page['on'],
@@ -54,8 +54,8 @@ switch ($url->segment[1]) {
         // service
         $masterkey_service = 'csv';
         $data_service = [
-            "action" => $ContactPage->method_module[$menuActive]['action'],
-            "method" => $ContactPage->method_module[$menuActive]['method_list_service'],
+            "action" => $ContactPage->medthodModule[$menuActive]['action'],
+            "method" => $ContactPage->medthodModule[$menuActive]['method_list_service'],
             "language" => $ContactPage->language,
             "order" => 'desc',
             "page" => $page['on'],

@@ -50,12 +50,9 @@ switch ($url->segment[0]) {
             $language_modules['breadcrumb2'] = $headerActive['page'][0];
             $language_modules['metatitle'] = $headerActive['page'][0];
         }
-        
-        if ($masterkey == 'faq') {
-            $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->faq->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->faq->display->$currentLangWeb;
-        }
+        // printPre(str_replace("?".$url->parametter, "", $url->url));
+        // printPre($url);
+       
         $smarty->assign("language_modules", $language_modules);
        
         /*## Start SEO #####*/

@@ -127,5 +127,7 @@ switch ($url->segment[0]) {
         );
         break;
 }
+
+$headerActive = headerActive($masterkey);
 $smarty->assign("menuActive", $menuActive);
 $smarty->assign("fileInclude", $settingPage);

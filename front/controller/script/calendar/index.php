@@ -70,7 +70,7 @@ switch ($url->segment[1]) {
         );
         break;
 }
-
+$headerActive = headerActive('cal');
 $smarty->assign("menuActive", $menuActive);
 $smarty->assign("fileInclude", $settingPage);
 

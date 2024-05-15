@@ -5,11 +5,6 @@ $limit = 15;
 define('SCRIPT_TAG', '<script type="text/javascript" src="');
 define('SCRIPT_PATH', 'front/controller/script/');
 
-
-
-
-
-
 $masterkey = $url->segment[1];
 switch ($url->segment[2]) {
     case 'special_case':
@@ -104,10 +99,16 @@ switch ($url->segment[2]) {
 
         // setup seo and text modules
         $language_modules = array();
+        // active menu header
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
+        }
         if ($masterkey == 'sv') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
-            $language_modules['breadcrumb2'] = $languageFrontWeb->ServicePage->display->$currentLangWeb;
-            $language_modules['metatitle'] = $languageFrontWeb->ServicePage->display->$currentLangWeb;
+            $language_modules['breadcrumb2'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
+            $language_modules['metatitle'] = $languageFrontWeb->servicepage->display->$currentLangWeb;
         }elseif ($masterkey == 'rein') {
             $language_modules['breadcrumb1'] = $languageFrontWeb->newstitle->display->$currentLangWeb;
             $language_modules['breadcrumb2'] = $languageFrontWeb->ResearchAndInnovation->display->$currentLangWeb;

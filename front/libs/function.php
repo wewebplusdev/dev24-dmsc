@@ -739,19 +739,40 @@ function formatNum($myNumber) {
 
 
 function headerActive($link){
-    global $sitemapWeb, $currentLangWeb;
+    global $sitemapWeb, $currentLangWeb, $url;
     $array_page = array();
 
+    $link = str_replace("?".$url->parametter, "", $link);
     if (!empty($link)) {
         foreach ($sitemapWeb->level_1->$currentLangWeb as $valueSitemapLv1) {
-            if (isLinkInLevel($valueSitemapLv1, $link, $array_page)) {
-                break;
+            if (count((array)$valueSitemapLv1->level_2) > 0){
+                foreach ($valueSitemapLv1->level_2 as $valueLv2){
+                    if (count((array)$valueLv2->level_3) > 0){
+                        foreach ($valueLv2->level_3 as $valueLv3) {
+                            if (str_contains($valueLv3->url, $link)) {
+                                $array_page['page'][] = $valueLv3->subject;
+                                $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
+                            }
+                        }
+                    }else{
+                        if (str_contains($valueLv2->url, $link)) {
+                            $array_page['page'][] = $valueLv2->subject;
+                            $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
+                        }
+                    }
+                }
+            }else{
+                if (str_contains($valueSitemapLv1->url, $link)) {
+                    $array_page['page'][] = $valueSitemapLv1->subject;
+                    $array_page['header'][] = "menu-" . $valueSitemapLv1->id;
+                }
             }
         }
     }
 
     return $array_page;
 }
+
 function isLinkInLevel($level, $link, &$array_page) {
     $found = false;
 
@@ -776,6 +797,6 @@ function isLinkInLevel($level, $link, &$array_page) {
             }
         }
     }
-
+    
     return $found;
 }

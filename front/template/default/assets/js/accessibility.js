@@ -130,7 +130,6 @@
             key: "readable-guide",
             icon: "local_library"
         }];
-        console.log(t);
     class n {
         constructor(e, content) {
             this.config = {
@@ -142,7 +141,6 @@
                     lang: "en",
                     ...e?.settings
                 };
-                console.log();
             let i = document.documentElement.lang || "en";
             this.locale = t.en,
                 t[i] && (this.settings.lang = i,
