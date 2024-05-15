@@ -88,7 +88,7 @@
     
                                 <div class="block-control mb-md-3 mb-2">
                                     <label class="text-white container-check">ไม่ต้องแสดงวันนี้อีก
-                                        <input type="checkbox" checked="checked">
+                                        <input type="checkbox" >
                                         <span class="checkmark"></span>
                                     </label>
     
@@ -98,12 +98,7 @@
                     </div>
                     </div>
 
-                    <div class="custom-control form-control-lg custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="checkbox-popup">
-                        <label class="custom-control-label" for="checkbox-popup">ไม่แสดงในวันนี้อีก</label>
-                    </div>
-
-                </div>
+                  
             </div>
         </div>
     </div>

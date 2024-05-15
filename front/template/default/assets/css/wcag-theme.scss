@@ -244,9 +244,673 @@ $yellowSecondary: #e6cf01bf;
     color: $black;
     background: linear-gradient(to left, $white, #d4d4d4);
   }
+
+  .our-history-info .content .title{
+    color: $white ;
+  }
+  .our-history-info .content .subtitle{
+    color: $white;
+  }
+  .history-timeline .h-bigger{
+    color: $white;
+  }
+
+  .each-year .title{
+    color: $white;
+  }
+
+  .history-timeline .timeline-list li p{
+    color: $white;
+  }
+
+  .history-timeline .timeline-list li{
+    color: $white;
+  }
+
+  .history-timeline > .row .timeline-dot::before{
+    outline: 6px solid  $white;
+    background-color: $black;
+  }
+
+  .history-timeline::before{
+    background-color: $white;
+  }
+
+  .each-year .nav-link:hover{
+  
+      background: $white;
+      color: $black;
+    
+  }
+
+  .layout-vision .bg-city{
+    filter: grayscale(1);
+  }
+
+  .layout-vision .text-content{
+    color: $black;
+  }
+
+  .layout-swiper .whead .title{
+    color: $white;
+    border-bottom: 2px solid $white;
+  }
+
+  a{
+    color: $white;
+  }
+
+  .layout-swiper .swiper-pagination-bullet-active{
+    background: $white;
+  }
+
+  .document-download-list .icon path,line{
+    stroke: $white;
+  }
+
+  .layout-mission .title-content h5{
+    color: $white;
+  }
+  
+  .layout-mission .text p{
+    color: $white;
+  }
+
+  .layout-mission .number{
+    background: $white;
+    color: $black;
+  }
+
+  .default-filter .head{
+    background: $white;
+  }
+
+  .icon path{
+    stroke: $white;
+    fill:$black;
+  }
+
+  .default-filter .form-select .select2-container .select2-selection--single{
+    background: $black;
+  }
+
+  .default-filter .form-select.-select-group .select2-container .select2-selection--single .select2-selection__rendered{
+    color: $white;
+  }
+  .select2-results__options{
+    background: $black;
+  }
+
+  .select2-container--option-filter .select2-results__option--selected{
+    background-color: $white;
+    color: $black;
+  }
+
+  .default-filter .form-search .form-control{
+    background-color: $black;
+    color: $white;
+
+    &::placeholder{
+      color: $white;
+    }
+    
+  }
+  
+  .default-filter .form-search .search{
+    background-color: $black;
+  }
+
+  
+
+  .form-control::placeholder{
+    color: $white;
+  }
+
+  .default-filter .form-select .control-label{
+    color: $white;
+  }
+  
+  .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered{
+    color: $white;
+  }
+
+  .default-filter .form-select .select2-container .select2-selection--single{
+    border: 1px solid $white;
+  }
+
+  .select2-container--option-filter .select2-dropdown{
+    border: 1px solid $white;
+  }
+
+  
+
+  .document-download-list.-layout-grid .item{
+    .content{
+      background: $white;
+    }
+
+    .head .title{
+      color: $black;
+    }
+
+    .action .link{
+      color: $black;
+    }
+
+    &:hover{
+      .content{
+        background: $white;
+        
+      }
+
+      .head .title{
+        color: $black;
+      }
+      .action .link{
+        color: $black;
+      }
+      .icon path{
+        fill:$black;
+      }
+    
+    }
+
+
+  } 
+  
+
+  .pagination-block .pagination-label span{
+    color: $white;
+  }
+
+  .default-pagination .pagination .page-item .link.active{
+    background: $black;
+    color: $white;
+  }
+
+  .default-pagination .pagination .page-item .link{
+    border: 1px solid $white;
+  }
+
+  .default-pagination .pagination li.jump-page .select2-container .select2-selection--single{
+    background: $white;
+  
+  }
+
+  .form-select .select2-container .select2-selection--single .select2-selection__rendered{
+    color: $black;
+  }
+
+  .default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__arrow::before{
+    color: $black;
+  }
+
+  .select2-container--option-pagination .select2-dropdown{
+    background-color: $black;
+  }
+
+  .select2-container--option-pagination .select2-results__option:hover{
+    background-color: $white;
+    color: $black;
+  }
+
+  .select2-container--option-filter .select2-results__option:hover{
+    background-color: $white;
+    color: $white;
+  }
+
+  .layout-logo .title-text{
+    color: $black;
+  }
+
+  .layout-logo .background-sky{
+    filter: grayscale(1);
+  }
+
+  .default-body .whead .title{
+    color: $white;
+  }
+
+  .layout-view.layout-grid .btn-group button:first-child{
+    background-color: $white;
+  }
+
+  .layout-view.layout-list .btn-group button:last-child{
+    background-color: $white;
+  }
+
+  .document-download-list.-layout-grid .item{
+    .box *{
+      color: $black;
+    }
+
+    .head .date{
+      color: $black;
+    }
+
+    .txt{
+      color: $black;
+    }
+
+    .head .date{
+      color: $black;
+    }
+
+  
+
+    &:hover{
+      .box *{
+        color: $black;
+      }
+
+      .head .date{
+        color: $black;
+      }
+
+      .txt{
+        color: $black;
+      }
+    }
+
+  }
+
+  .default-pagination .pagination .page-item .link{
+    color: $white;
+  }
+
+  .default-bar .box{
+    color: $white;
+  }
+
+  .box path{
+    fill:$white;
+  }
+  
+  .default-bar .whead{
+    border-bottom:2px solid $white ;
+  }
+
+  .item-wrapper{
+    background-color: $white;
+ 
+
+    
+
+    &:hover {
+      &::after {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .item-list li{
+        color: $black;
+      }
+      
+      background-color: $white;
+    }
+    }
+
+  
+    
+    .detail-body .document-download-list .desc{
+      color: $black;
+    }
+    
+    .detail-body .document-download-list .type-file .item-list li{
+      color: $black;
+    }
+
+    .detail-body .whead{
+      border-bottom:2px solid $white ;
+    }
+
+    .detail-body .document-download-list .item-wrapper:hover .desc{
+      color: $black;
+    }
+
+    .detail-body .document-download-list .item-wrapper:hover .type-file .item-list li{
+      color: $black;
+    }
+
+    .detail-body .document-download-list .item-wrapper{
+      .icon path{
+        fill:$black;
+      }
+
+    }
+
+    .wg-contact .content .contact-list .icon{
+      filter:brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7477%) hue-rotate(17deg) brightness(98%) contrast(107%);
+    }
+
+    .layout-footer .footer-top .subtitle .icon{
+      filter:brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7477%) hue-rotate(17deg) brightness(98%) contrast(107%);
+    }
+
+    .layout-footer .contact .icon{
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7477%) hue-rotate(17deg) brightness(98%) contrast(107%);
+    }  
+
+    .editor-content{
+      color: $black;
+
+      strong{
+        color: $white;
+      }
+    }
+
+    .layout-dcio .top-dcio .bg-cio{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text-img{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text{
+      background: $white;
+    }
+
+    .layout-dcio .top-dcio .name{
+      color: $black;
+    }
+    .layout-dcio .top-dcio .position-work{
+      color: $black;
+    }
+
+    .layout-dcio .contact-dcio .title-contact h3{
+      color: $white;
+    }
+
+    //news
+    .news-card .line{
+      color: $black;
+    }
+
+    .editor-content p{
+      color: $black;
+    }
+
+    .layout-dcio .contact-dcio .d-contact p{
+      color: $white;
+    }
+
+    .detail-body .news-area .comment .btn-facebook button{
+      color: $black;
+      background-color: $white;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $white;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-back button{
+      color: $black;
+      background-color: $white;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $white;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-facebook button img{
+      filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+      background-color: $white;
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet{
+      background-color: $white;
+      
+    }
+
+    .detail-body .news-area .under-line{
+      background-color: $white;
+    }
+
+    .editor-content span{
+      color: $white !important;
+    }
+
+    .editor-content a{
+      color: $white !important;
+
+      &:hover{
+        color: $white !important;
+      }
+    }
+
+    .manual-list .content-wrapper{
+      background-color: $white;
+      opacity: 1;
+
+      &:hover{
+        background-color: $white;
+      }
+    }
+
+    .manual-list .content-wrapper .title{
+      color: $black;
+    }
+
+    .manual-list .file-type .item-list li{
+      color: $black;
+    }
+
+    .manual-list .read-more{
+      color: $black;
+    }
+
+    .manual-list path{
+      stroke: $black;
+    }
+
+    .manual-list .content-wrapper::before{
+      background: $white;
+    }
+
+    .contact-section .contact-bg{
+      filter: grayscale(1);
+    }
+
+    .contact-center .contact-card .head{
+      color: $black;
+      background: $white;
+    }
+
+    .contact-center  .whead .title{
+      color: $black;
+      
+    }
+
+    .contact-center .desc{
+      color: $black;
+     
+  }
+
+  .contact-center .contact-card .body .action .text{
+    color: $black;
+  }
+
+  .contact-center .contact-card .body .action .icon{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%)
+  }
+
+  .contact-center .contact-card .body{
+    background-color: $white;
+  }
+
+  .contact-center .contact-card::before{
+    filter: grayscale(1);
+  }
+
+  .contact-map .nav .link.active{
+    color: $white;
+    border-color: $white;
+   }
+
+   .contact-map .nav .link:hover{
+    color: $white;
+   }
+
+   .contact-service .whead .title{
+    border-bottom: 1px solid $white;
+   }
+
+   .contact-service .contact-service-list .item{
+    background: $white;
+   }
+
+   .contact-service .contact-service-list .item .title{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item .tel{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item > .row::before{
+    background-color: $black;
+   }
+
+   .contact-service img{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+   }
+
+   .form-contact .form-head{
+    background: $white;
+   }
+
+   .form-contact .form-head .title{
+    color: $black;
+   }
+
+   .form-contact .form-body{
+    background: $white;
+   }
+
+   .form-default .form-control{
+    background-color: $white;
+    color: $black;
+   }
+
+   .form-contact .form-group .form-control{
+    border-color:$black;
+   }
+
+   .form-contact .form-group .control-label{
+    color: $black;
+   }
+
+   .form-contact .form-group .control-label span{
+    color: $black;
+   }
+
+   .form-contact .action .btn{
+    background:$black ;
+    color: $white;
+    opacity: 1;
+
+  
+   }
+
+   .layout-form-progress .form-progress-step .nav .item.active .circle{
+    background: $white;
+   }
+   .layout-form-progress .form-progress-step .nav .item.active .circle .icon path{
+    fill: $black;
+   }
+
+   .layout-form-progress .form-progress-step .nav .item .text-step{
+    color: $white;
+   }
+
+   .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+    background-color: $white;
+   }
+
+   .layout-header .main-menu .dropdown.show .nav-link{
+    background: $white;
+    color: $black;
+   }
+
+   .breadcrumb .icon path{
+    fill: $black;
+    stroke: $black;
+   }
+
+   .breadcrumb .link{
+    color: $black;
+   }
+
+   .breadcrumb .icon path{
+    fill: $black;
+    stroke: $black;
+   }
+
+   .breadcrumb li + li::before{
+    color: $black;
+    
+   }
+
+   .default-header .title{
+    color: $black;
+   }
+
+   .layout-footer .btn{
+    color: $black;
+   }
+
+   .layout-form-progress .form-progress-step .nav .item .circle{
+    background: $black;
+   }
+
+   .fb-comments{
+    background: $white;
+
+   }
+
+   .modal .container-check input:checked ~ .checkmark{
+    background-color: $black;
+    
+   }
+
+   .asw-wrapper .asw-widget {
+    .message-btn{
+      filter: grayscale(1);
+    }
+  }
+
+    .asw-wrapper .asw-widget {
+      .asw-btn{
+        filter: grayscale(1);
+      }
+}
+
+.asw-wrapper.active .asw-menu{
+  filter: grayscale(1);
+}
+
+.layout-view.layout-grid .btn-group button:first-child span *{
+  fill : $black;
+}
+
+.layout-view.layout-list .btn-group button:last-child span *{
+  fill: $black;
+}
+
+
+
 }
 
 [data-asw-filter="yellow-contrast"] {
+
   body {
     color: $yellowPrimary;
     background: $black;
@@ -483,6 +1147,8 @@ $yellowSecondary: #e6cf01bf;
     color: $black;
     background: linear-gradient(to left, $yellowPrimary, #a39300);
   }
+
+
   .our-history-info .content .title{
     color: $yellowPrimary ;
   }
@@ -543,7 +1209,7 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .document-download-list .icon path,line{
-    stroke: $black;
+    stroke: $yellowPrimary;
   }
 
   .layout-mission .title-content h5{
@@ -812,12 +1478,10 @@ $yellowSecondary: #e6cf01bf;
 
     .detail-body .document-download-list .item-wrapper{
       .icon path{
-        fill:none;
+        fill:$black;
       }
 
-      &:hover .icon path{
-        stroke: $black;
-      }
+    
     }
 
     .wg-contact .content .contact-list .icon{
@@ -832,7 +1496,17 @@ $yellowSecondary: #e6cf01bf;
       filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
     }  
 
+   
+
     .editor-content{
+      color: $black;
+
+      strong{
+        color: $black;
+      }
+    }
+
+    .news-detail{
       color: $yellowPrimary;
 
       strong{
@@ -868,9 +1542,15 @@ $yellowSecondary: #e6cf01bf;
       color: $black;
     }
 
+  
     .editor-content p{
+      color: $black;
+    }
+
+    .contact-dcio  p{
       color: $yellowPrimary;
     }
+
 
     .detail-body .news-area .comment .btn-facebook button{
       color: $black;
@@ -1084,6 +1764,11 @@ $yellowSecondary: #e6cf01bf;
     color: $black;
    }
 
+   .breadcrumb .icon path{
+    fill: $black;
+    stroke: $black;
+   }
+
    .breadcrumb li + li::before{
     color: $black;
    }
@@ -1096,10 +1781,37 @@ $yellowSecondary: #e6cf01bf;
     color: $black;
    }
 
-   
+   .wg-news .wg-news-slide .swiper-default .swiper-button-next, .wg-news .wg-news-slide .swiper-default .swiper-button-prev{
+    border:2px solid $yellowPrimary ;
+   }
+
+   .fb-comments{
+    background: $white;
+
+   }
+
+   .modal .container-check input:checked ~ .checkmark{
+    background-color: $yellowSecondary;
+    
+   }
+
+   .asw-wrapper .asw-widget {
+    .message-btn{
+      filter: grayscale(1);
+    }
+  }
+
+    .asw-wrapper .asw-widget {
+      .asw-btn{
+        filter: grayscale(1);
+      }
 }
  
+.asw-wrapper.active .asw-menu{
+  filter: grayscale(1);
+}
 
+}
 
 
 
