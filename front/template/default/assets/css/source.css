@@ -4577,9 +4577,6 @@ div.swal2-html-container {
   .layout-footer .footer-middle > .row {
     margin: -20px -10px;
   }
-  .layout-footer .footer-middle > .row > div {
-    padding: 20px 10px;
-  }
   .layout-footer .contact .desc {
     font-size: 16px;
   }
@@ -7695,6 +7692,9 @@ div.swal2-html-container {
 .document-download-list.-layout-grid .action .-web-link:hover {
   text-decoration: underline;
 }
+.document-download-list.-layout-grid .-webborder a {
+  width: 180px;
+}
 .document-download-list .item {
   -webkit-filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
           filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
@@ -10269,6 +10269,9 @@ div.swal2-html-container {
   .layout-footer .footer-middle .text-follow-us {
     font-size: 16px;
   }
+  .layout-footer .footer-middle .followus {
+    font-size: 16px;
+  }
   .event-list .date {
     font-size: 24px;
   }
@@ -10280,6 +10283,9 @@ div.swal2-html-container {
   }
   .default-header .title {
     font-size: 34px;
+  }
+  .contact-map .nav .link {
+    font-size: 22px;
   }
 }
 @media screen and (max-width: 1540px) {
@@ -10316,10 +10322,34 @@ div.swal2-html-container {
   .event-list .desc {
     font-size: 18px;
   }
+  .form-contact .form-head .title {
+    font-size: 28px;
+  }
+  .layout-form-progress .whead .title {
+    font-size: 32px;
+  }
 }
 @media screen and (max-width: 1440px) {
   .default-header .title {
     font-size: 32px;
+  }
+  .contact-map .nav .link {
+    font-size: 20px;
+  }
+  .contact-center .whead .title {
+    font-size: 32px;
+  }
+  .contact-center .contact-card .head {
+    font-size: 18px;
+  }
+  .contact-center .contact-card .body .desc {
+    font-size: 16px;
+  }
+  .contact-service .whead .title {
+    font-size: 32px;
+  }
+  .contact-service .contact-service-list .item .title {
+    font-size: 18px;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -10359,28 +10389,37 @@ div.swal2-html-container {
   .document-download-list .item .txt {
     font-size: 16px;
   }
+  .form-contact .form-head .title {
+    font-size: 28px;
+  }
 }
 @media screen and (max-width: 991px) {
-  .layout-footer .contact .desc {
-    font-size: 14px;
-  }
-  .layout-footer .policy ul.item-list {
-    font-size: 14px;
-  }
-  .layout-footer .visitors {
-    font-size: 14px;
-  }
-  .layout-footer .copyright {
-    font-size: 14px;
-  }
-  .layout-footer .sitemap {
-    font-size: 14px;
-  }
-  .layout-footer .footer-middle .text-follow-us {
-    font-size: 14px;
-  }
   .default-header .title {
     font-size: 30px;
+  }
+  .contact-center .whead .title {
+    font-size: 24px;
+  }
+  .contact-center .contact-card .head {
+    font-size: 16px;
+  }
+  .contact-center .contact-card .body .desc {
+    font-size: 14px;
+  }
+  .contact-service .whead .title {
+    font-size: 24px;
+  }
+  .contact-service .contact-service-list .item .title {
+    font-size: 16px;
+  }
+  .contact-map .nav .link {
+    font-size: 16px;
+  }
+  .form-contact .form-head .title {
+    font-size: 22px;
+  }
+  .layout-form-progress .whead .title {
+    font-size: 26px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -10427,6 +10466,27 @@ div.swal2-html-container {
   }
   .wg-about-group .title {
     font-size: 16px;
+  }
+  .layout-footer .contact .desc {
+    font-size: 14px;
+  }
+  .layout-footer .policy ul.item-list {
+    font-size: 14px;
+  }
+  .layout-footer .visitors {
+    font-size: 14px;
+  }
+  .layout-footer .copyright {
+    font-size: 14px;
+  }
+  .layout-footer .sitemap {
+    font-size: 14px;
+  }
+  .layout-footer .footer-middle .text-follow-us {
+    font-size: 14px;
+  }
+  .layout-footer .footer-middle .followus {
+    font-size: 14px;
   }
   .layout-footer .footer-top .title {
     font-size: 28px;
