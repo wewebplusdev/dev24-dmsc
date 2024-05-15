@@ -8,6 +8,10 @@
     }
   }
 
+  .item .link {
+    position: inherit;
+  }
+
   .cover,
   .iframe-container,
   .video-container {
@@ -21,16 +25,16 @@
   }
   .contain {
     padding-top: 38%;
-    &::before {
-      content: '';
-      position: absolute;
+    // &::before {
+    //   content: '';
+    //   position: absolute;
       
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      filter: blur(8px);
-    }
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   filter: blur(8px);
+    // }
   }
 
   .fill-blur {
