@@ -249,7 +249,7 @@
                     <div class="col-lg" data-aos="fade-right">
                         <div class="content">
                             <div class="whead">
-                                <h2 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h2>
+                                <h1 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h1>
                                 <p class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</p>
                                 <div class="line"></div>
                                 <p class="desc">
@@ -339,7 +339,7 @@
                             data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
                             type="image/webp">
                         <img src="{$template}/assets/img/static/wg-about-graphic01.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic01.png" alt=""
+                            data-src="{$template}/assets/img/static/wg-about-graphic01.png" alt="image-microscope"
                             class="lazy">
                     </picture>
                 </div>
@@ -448,10 +448,10 @@
                     <div class="wg-lab">
                         <div class="content" data-aos="fade-right">
                             <div class="whead">
-                                <h2 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h2>
+                                <h1 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h1>
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
-                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt=""
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="background-lab"
                                         class="lazy">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
@@ -462,11 +462,11 @@
                         </div>
                         <div class="bg" data-aos="fade-right">
                             <picture>
-                                <source srcset="{$template}/assets/img/background/bg-wg-lab.webp"
-                                    data-srcset="{$template}/assets/img/background/bg-wg-lab@2x.webp"
+                                <source srcset="{$template}/assets/img/background/bg-lab-2.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-lab-2.webp"
                                     type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-lab.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-lab@2x.png" alt=""
+                                <img src="{$template}/assets/img/background/bg-lab-2.png"
+                                    data-src="{$template}/assets/img/background/bg-lab-2.png" alt="background-lab"
                                     class="lazy">
                             </picture>
                         </div>
@@ -476,14 +476,14 @@
                     <div class="wg-contact">
                         <div class="content" data-aos="fade-left">
                             <div class="whead">
-                                <h2 class="title">{$languageFrontWeb->contacttitle->display->$currentLangWeb}</h2>
+                                <h1 class="title">{$languageFrontWeb->contacttitle->display->$currentLangWeb}</h1>
                                 <p class="subtitle">{$languageFrontWeb->contacttext->display->$currentLangWeb}</p>
                             </div>
                             <div class="contact-list">
                                 {if $settingWeb.contact->email2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -498,7 +498,7 @@
                                 {if $settingWeb.contact->email3 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -513,7 +513,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-auto">
                                         <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
-                                            alt="" class="icon">
+                                            alt="icon-telephone" class="icon">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -526,7 +526,7 @@
                                 </div>
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -545,7 +545,7 @@
                                     data-srcset="{$template}/assets/img/background/bg-wg-contact@2x.webp"
                                     type="image/webp">
                                 <img src="{$template}/assets/img/background/bg-wg-contact.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt=""
+                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt="background-contact"
                                     class="lazy">
                             </picture>
                         </div>
