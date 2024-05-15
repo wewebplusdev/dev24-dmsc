@@ -4413,7 +4413,7 @@ div.swal2-html-container {
   border-left: 1px solid var(--color-default);
 }
 .layout-footer .sitemap {
-  color: var(--color-secondary);
+  color: var(--color-light);
 }
 .layout-footer .sitemap:hover {
   color: var(--color-primary);

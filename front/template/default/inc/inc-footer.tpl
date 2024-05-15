@@ -220,7 +220,7 @@
                     {/if}
                     <div class="col-md-auto" data-aos="fade-up">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
-                        <a href="javascript:void(0);" class="link sitemap btn btn-primary text-white">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
+                        <a href="javascript:void(0);" class="link sitemap btn btn-primary">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
                 </div>
             </div>

@@ -521,7 +521,7 @@
   background: #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .document-download-list .icon path, [data-asw-filter=yellow-contrast] line {
-  stroke: #e6cf01;
+  stroke: #000000;
 }
 [data-asw-filter=yellow-contrast] .layout-mission .title-content h5 {
   color: #e6cf01;
@@ -603,14 +603,13 @@
   border: 1px solid #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .content {
-  background: #000000;
-  border: 1px solid #e6cf01;
+  background: rgba(230, 207, 1, 0.7490196078);
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .head .title {
-  color: #e6cf01;
+  color: #000000;
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .action .link {
-  color: #e6cf01;
+  color: #000000;
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item:hover .content {
   background: #e6cf01;
@@ -629,7 +628,7 @@
 }
 [data-asw-filter=yellow-contrast] .default-pagination .pagination .page-item .link.active {
   background: #000000;
-  color: #ffffff;
+  color: #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .default-pagination .pagination .page-item .link {
   border: 1px solid #e6cf01;
@@ -670,14 +669,17 @@
 [data-asw-filter=yellow-contrast] .layout-view.layout-list .btn-group button:last-child {
   background-color: #e6cf01;
 }
-[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .box .txt {
-  color: #e6cf01;
-}
-[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .txt {
-  color: #e6cf01;
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .box * {
+  color: #000000;
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .head .date {
-  color: #e6cf01;
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .txt {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item .head .date {
+  color: #000000;
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .item:hover .box * {
   color: #000000;
@@ -689,7 +691,7 @@
   color: #000000;
 }
 [data-asw-filter=yellow-contrast] .default-pagination .pagination .page-item .link {
-  color: #ffffff;
+  color: #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .default-bar .box {
   color: #e6cf01;
@@ -701,8 +703,7 @@
   border-bottom: 2px solid #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .item-wrapper {
-  background-color: #000000;
-  border: 2px solid #e6cf01;
+  background-color: rgba(230, 207, 1, 0.7490196078);
 }
 [data-asw-filter=yellow-contrast] .item-wrapper:hover {
   background-color: #e6cf01;
@@ -715,15 +716,243 @@
   color: #000000;
 }
 [data-asw-filter=yellow-contrast] .detail-body .document-download-list .desc {
-  color: #e6cf01;
+  color: #000000;
 }
 [data-asw-filter=yellow-contrast] .detail-body .document-download-list .type-file .item-list li {
-  color: #e6cf01;
+  color: #000000;
 }
 [data-asw-filter=yellow-contrast] .detail-body .whead {
   border-bottom: 2px solid #e6cf01;
 }
 [data-asw-filter=yellow-contrast] .detail-body .document-download-list .item-wrapper:hover .desc {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .detail-body .document-download-list .item-wrapper:hover .type-file .item-list li {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .detail-body .document-download-list .item-wrapper .icon path {
+  fill: none;
+}
+[data-asw-filter=yellow-contrast] .detail-body .document-download-list .item-wrapper:hover .icon path {
+  stroke: #000000;
+}
+[data-asw-filter=yellow-contrast] .wg-contact .content .contact-list .icon {
+  -webkit-filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+          filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+}
+[data-asw-filter=yellow-contrast] .layout-footer .footer-top .subtitle .icon {
+  -webkit-filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+          filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+}
+[data-asw-filter=yellow-contrast] .layout-footer .contact .icon {
+  -webkit-filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+          filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+}
+[data-asw-filter=yellow-contrast] .editor-content {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .editor-content strong {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-dcio .top-dcio .bg-cio {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] .layout-dcio .top-dcio .bg-text-img {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] .layout-dcio .top-dcio .bg-text {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-dcio .top-dcio .name {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-dcio .top-dcio .position-work {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-dcio .contact-dcio .title-contact h3 {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .news-card .line {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .editor-content p {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .detail-body .news-area .comment .btn-facebook button {
+  color: #000000;
+  background-color: rgba(230, 207, 1, 0.7490196078);
+  border: none;
+}
+[data-asw-filter=yellow-contrast] .detail-body .news-area .comment .btn-facebook button:hover {
+  color: #000000;
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .detail-body .news-area .comment .btn-back button {
+  color: #000000;
+  background-color: rgba(230, 207, 1, 0.7490196078);
+  border: none;
+}
+[data-asw-filter=yellow-contrast] .detail-body .news-area .comment .btn-back button:hover {
+  color: #000000;
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .detail-body .news-area .comment .btn-facebook button img {
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+          filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+}
+[data-asw-filter=yellow-contrast] .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet {
+  background-color: #ffffff;
+}
+[data-asw-filter=yellow-contrast] .detail-body .news-area .under-line {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .editor-content span {
+  color: #e6cf01 !important;
+}
+[data-asw-filter=yellow-contrast] .editor-content a {
+  color: rgba(230, 207, 1, 0.7490196078) !important;
+}
+[data-asw-filter=yellow-contrast] .editor-content a:hover {
+  color: #e6cf01 !important;
+}
+[data-asw-filter=yellow-contrast] .manual-list .content-wrapper {
+  background-color: #e6cf01;
+  opacity: 1;
+}
+[data-asw-filter=yellow-contrast] .manual-list .content-wrapper:hover {
+  background-color: rgba(230, 207, 1, 0.7490196078);
+}
+[data-asw-filter=yellow-contrast] .manual-list .content-wrapper .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .manual-list .file-type .item-list li {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .manual-list .read-more {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .manual-list path {
+  stroke: #000000;
+}
+[data-asw-filter=yellow-contrast] .manual-list .content-wrapper::before {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .contact-section .contact-bg {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] .contact-center .contact-card .head {
+  color: #000000;
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .contact-center .whead .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .contact-center .desc {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .contact-center .contact-card .body .action .text {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .contact-center .contact-card .body .action .icon {
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+          filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+}
+[data-asw-filter=yellow-contrast] .contact-center .contact-card .body {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .contact-center .contact-card::before {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+[data-asw-filter=yellow-contrast] .contact-map .nav .link.active {
+  color: #e6cf01;
+  border-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .contact-map .nav .link:hover {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .contact-service .whead .title {
+  border-bottom: 1px solid #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .contact-service .contact-service-list .item {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .contact-service .contact-service-list .item .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .contact-service .contact-service-list .item .tel {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .contact-service .contact-service-list .item > .row::before {
+  background-color: #000000;
+}
+[data-asw-filter=yellow-contrast] .contact-service img {
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+          filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+}
+[data-asw-filter=yellow-contrast] .form-contact .form-head {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .form-contact .form-head .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .form-contact .form-body {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .form-default .form-control {
+  background-color: rgba(230, 207, 1, 0.7490196078);
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .form-contact .form-group .form-control {
+  border-color: #000000;
+}
+[data-asw-filter=yellow-contrast] .form-contact .form-group .control-label {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .form-contact .form-group .control-label span {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .form-contact .action .btn {
+  background: #000000;
+  color: #ffffff;
+  opacity: 1;
+}
+[data-asw-filter=yellow-contrast] .form-contact .action .btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-form-progress .form-progress-step .nav .item.active .circle {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-form-progress .form-progress-step .nav .item.active .circle .icon path {
+  fill: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-form-progress .form-progress-step .nav .item .text-step {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, [data-asw-filter=yellow-contrast] .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar, [data-asw-filter=yellow-contrast] .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, [data-asw-filter=yellow-contrast] .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .layout-header .main-menu .dropdown.show .nav-link {
+  background: #e6cf01;
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .breadcrumb .link {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .breadcrumb li + li::before {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .default-header .title {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-footer .btn {
   color: #000000;
 }
 

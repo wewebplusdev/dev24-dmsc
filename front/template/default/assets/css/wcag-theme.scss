@@ -323,6 +323,8 @@ $yellowSecondary: #e6cf01bf;
   .show > .btn-primary.dropdown-toggle {
     color: $black;
     background: $yellowPrimary;
+
+ 
   }
   .card {
     color: $black;
@@ -541,7 +543,7 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .document-download-list .icon path,line{
-    stroke: $yellowPrimary;
+    stroke: $black;
   }
 
   .layout-mission .title-content h5{
@@ -622,16 +624,15 @@ $yellowSecondary: #e6cf01bf;
 
   .document-download-list.-layout-grid .item{
     .content{
-      background: $black;
-      border: 1px solid $yellowPrimary;
+      background: $yellowSecondary;
     }
 
     .head .title{
-      color: $yellowPrimary;
+      color: $black;
     }
 
     .action .link{
-      color: $yellowPrimary;
+      color: $black;
     }
 
     &:hover{
@@ -662,7 +663,7 @@ $yellowSecondary: #e6cf01bf;
 
   .default-pagination .pagination .page-item .link.active{
     background: $black;
-    color: $white;
+    color: $yellowPrimary;
   }
 
   .default-pagination .pagination .page-item .link{
@@ -717,16 +718,20 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .document-download-list.-layout-grid .item{
-    .box .txt{
-      color: $yellowPrimary;
-    }
-  
-    .txt{
-      color: $yellowPrimary;
+    .box *{
+      color: $black;
     }
 
     .head .date{
-      color: $yellowPrimary;
+      color: $black;
+    }
+
+    .txt{
+      color: $black;
+    }
+
+    .head .date{
+      color: $black;
     }
 
   
@@ -748,7 +753,7 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .default-pagination .pagination .page-item .link{
-    color: $white;
+    color: $yellowPrimary;
   }
 
   .default-bar .box{
@@ -764,8 +769,8 @@ $yellowSecondary: #e6cf01bf;
   }
 
   .item-wrapper{
-    background-color: $black;
-    border:2px solid $yellowPrimary;
+    background-color: $yellowSecondary;
+ 
 
     
 
@@ -786,11 +791,11 @@ $yellowSecondary: #e6cf01bf;
   
     
     .detail-body .document-download-list .desc{
-      color: $yellowPrimary;
+      color: $black;
     }
     
     .detail-body .document-download-list .type-file .item-list li{
-      color: $yellowPrimary;
+      color: $black;
     }
 
     .detail-body .whead{
@@ -801,12 +806,298 @@ $yellowSecondary: #e6cf01bf;
       color: $black;
     }
 
-   
-    
+    .detail-body .document-download-list .item-wrapper:hover .type-file .item-list li{
+      color: $black;
+    }
+
+    .detail-body .document-download-list .item-wrapper{
+      .icon path{
+        fill:none;
+      }
+
+      &:hover .icon path{
+        stroke: $black;
+      }
+    }
+
+    .wg-contact .content .contact-list .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }
+
+    .layout-footer .footer-top .subtitle .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }
+
+    .layout-footer .contact .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }  
+
+    .editor-content{
+      color: $yellowPrimary;
+
+      strong{
+        color: $yellowPrimary;
+      }
+    }
+
+    .layout-dcio .top-dcio .bg-cio{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text-img{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text{
+      background: $yellowPrimary;
+    }
+
+    .layout-dcio .top-dcio .name{
+      color: $black;
+    }
+    .layout-dcio .top-dcio .position-work{
+      color: $black;
+    }
+
+    .layout-dcio .contact-dcio .title-contact h3{
+      color: $yellowPrimary;
+    }
+
+    //news
+    .news-card .line{
+      color: $black;
+    }
+
+    .editor-content p{
+      color: $yellowPrimary;
+    }
+
+    .detail-body .news-area .comment .btn-facebook button{
+      color: $black;
+      background-color: $yellowSecondary;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $yellowPrimary;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-back button{
+      color: $black;
+      background-color: $yellowSecondary;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $yellowPrimary;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-facebook button img{
+      filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+      background-color: $yellowPrimary;
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet{
+      background-color: $white;
+      
+    }
+
+    .detail-body .news-area .under-line{
+      background-color: $yellowPrimary;
+    }
+
+    .editor-content span{
+      color: $yellowPrimary !important;
+    }
+
+    .editor-content a{
+      color: $yellowSecondary !important;
+
+      &:hover{
+        color: $yellowPrimary !important;
+      }
+    }
+
+    .manual-list .content-wrapper{
+      background-color: $yellowPrimary;
+      opacity: 1;
+
+      &:hover{
+        background-color: $yellowSecondary;
+      }
+    }
+
+    .manual-list .content-wrapper .title{
+      color: $black;
+    }
+
+    .manual-list .file-type .item-list li{
+      color: $black;
+    }
+
+    .manual-list .read-more{
+      color: $black;
+    }
+
+    .manual-list path{
+      stroke: $black;
+    }
+
+    .manual-list .content-wrapper::before{
+      background: $yellowPrimary;
+    }
+
+    .contact-section .contact-bg{
+      filter: grayscale(1);
+    }
+
+    .contact-center .contact-card .head{
+      color: $black;
+      background: $yellowPrimary;
+    }
+
+    .contact-center  .whead .title{
+      color: $black;
+      
+    }
+
+    .contact-center .desc{
+      color: $black;
+     
   }
- 
 
+  .contact-center .contact-card .body .action .text{
+    color: $black;
+  }
 
+  .contact-center .contact-card .body .action .icon{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%)
+  }
+
+  .contact-center .contact-card .body{
+    background-color: $yellowPrimary;
+  }
+
+  .contact-center .contact-card::before{
+    filter: grayscale(1);
+  }
+
+  .contact-map .nav .link.active{
+    color: $yellowPrimary;
+    border-color: $yellowPrimary;
+   }
+
+   .contact-map .nav .link:hover{
+    color: $yellowPrimary;
+   }
+
+   .contact-service .whead .title{
+    border-bottom: 1px solid $yellowPrimary;
+   }
+
+   .contact-service .contact-service-list .item{
+    background: $yellowPrimary;
+   }
+
+   .contact-service .contact-service-list .item .title{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item .tel{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item > .row::before{
+    background-color: $black;
+   }
+
+   .contact-service img{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+   }
+
+   .form-contact .form-head{
+    background: $yellowPrimary;
+   }
+
+   .form-contact .form-head .title{
+    color: $black;
+   }
+
+   .form-contact .form-body{
+    background: $yellowPrimary;
+   }
+
+   .form-default .form-control{
+    background-color: $yellowSecondary;
+    color: $black;
+   }
+
+   .form-contact .form-group .form-control{
+    border-color:$black;
+   }
+
+   .form-contact .form-group .control-label{
+    color: $black;
+   }
+
+   .form-contact .form-group .control-label span{
+    color: $black;
+   }
+
+   .form-contact .action .btn{
+    background:$black ;
+    color: $white;
+    opacity: 1;
+
+    &:hover{
+      background: $white;
+      color: $black;
+    }
+   }
+
+   .layout-form-progress .form-progress-step .nav .item.active .circle{
+    background: $yellowPrimary;
+   }
+   .layout-form-progress .form-progress-step .nav .item.active .circle .icon path{
+    fill: $black;
+   }
+
+   .layout-form-progress .form-progress-step .nav .item .text-step{
+    color: $yellowPrimary;
+   }
+
+   .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+    background-color: $yellowPrimary;
+   }
+
+   .layout-header .main-menu .dropdown.show .nav-link{
+    background: $yellowPrimary;
+    color: $black;
+   }
+
+   .breadcrumb .link{
+    color: $black;
+   }
+
+   .breadcrumb li + li::before{
+    color: $black;
+   }
+
+   .default-header .title{
+    color: $black;
+   }
+
+   .layout-footer .btn{
+    color: $black;
+   }
+
+   
+}
  
 
 
