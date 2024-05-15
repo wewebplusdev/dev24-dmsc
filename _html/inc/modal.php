@@ -31,7 +31,7 @@
         <div class="popup-slide">
           <div class="swiper swiper-default">
             <div class="swiper-wrapper">
-              <?php for ($i = 1; $i <= 6; $i++) { ?>
+             
                 <div class="swiper-slide">
                   <figure class="cover">
                     <picture>
@@ -40,7 +40,6 @@
                     </picture>
                   </figure>
                 </div>
-              <?php } ?>
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -280,5 +279,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

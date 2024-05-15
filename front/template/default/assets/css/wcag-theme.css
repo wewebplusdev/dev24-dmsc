@@ -475,6 +475,66 @@
   background: linear-gradient(to left, #e6cf01, #a39300);
 }
 
+.document-download-list .icon path {
+  stroke: #000000;
+}
+
+.document-download-list.-layout-grid .action a {
+  border: 1px solid #000000;
+}
+
+.document-download-list .item .txt {
+  color: #000000;
+}
+
+.document-download-list .item-wrapper:hover {
+  background: #e6cf01;
+}
+
+.document-download-list .item-wrapper:hover .box * {
+  color: #000000;
+}
+
+.document-download-list .item-wrapper:hover .action a {
+  border: 1px solid #000000;
+}
+
+.document-download-list .item-wrapper:hover .head * {
+  color: #000000;
+}
+
+.our-history-info .content .desc {
+  color: #e6cf01;
+}
+
+.document-download-list .box .item-list li + li {
+  border-left: 1px solid #000000;
+}
+
+.hamburger .bar {
+  background-color: #e6cf01;
+}
+
+.layout-header .navbar-collapse {
+  background: #000000;
+}
+
+.layout-header .navbar-nav .nav-link {
+  background: #000000;
+}
+
+.layout-header .lag-mobile {
+  color: #e6cf01;
+}
+
+.layout-swiper .desc {
+  color: #000000;
+}
+
+.type-file .item-list {
+  color: #000000;
+}
+
 .readable-font span:not(.asw-wrapper *) {
   font-family: OpenDyslexic3, Comic Sans MS, Arial, Helvetica, sans-serif !important;
 }

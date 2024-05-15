@@ -483,6 +483,68 @@ $yellowSecondary: #e6cf01bf;
   }
 }
 
+.document-download-list .icon path{
+  stroke: $black;
+
+}
+
+.document-download-list.-layout-grid .action a{
+  border: 1px solid $black;
+}
+
+.document-download-list .item .txt{
+  color: $black;
+}
+
+.document-download-list .item-wrapper:hover{
+  background: $yellowPrimary;
+}
+
+.document-download-list .item-wrapper:hover .box *{
+  color: $black;
+}
+
+.document-download-list .item-wrapper:hover .action a{
+  border: 1px solid $black;
+}
+
+.document-download-list .item-wrapper:hover .head *{
+  color: $black;
+}
+
+.our-history-info .content .desc{
+  color: $yellowPrimary;
+}
+
+.document-download-list .box .item-list li + li{
+  border-left: 1px solid $black;
+}
+
+.hamburger .bar{
+  background-color: $yellowPrimary;
+}
+
+.layout-header .navbar-collapse{
+  background: $black;
+}
+
+.layout-header .navbar-nav .nav-link{
+  background: $black;
+}
+
+.layout-header .lag-mobile{
+  color: $yellowPrimary;
+}
+
+.layout-swiper .desc{
+  color: $black;
+}
+
+.type-file .item-list{
+  color: $black;
+}
+
+
 .readable-font {
   span:not(.asw-wrapper *) {
     font-family:
