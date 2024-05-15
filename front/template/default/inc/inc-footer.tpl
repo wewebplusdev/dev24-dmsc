@@ -10,7 +10,7 @@
                     </div>
                     {if $settingWeb.contact->tel2 neq ""}
                         <div class="col-auto col-right" data-aos="fade-right">
-                            <div class="title"><a href="tel:{$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
+                            <div class="title"><a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
                             <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
                         </div>
                     {/if}
@@ -131,7 +131,7 @@
                                         <ul class="item-list">
                                             {if $settingWeb.social->Tel->link neq "" && $settingWeb.social->Tel->link neq "#"}
                                                 <li>
-                                                    <a href="tel:{$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
+                                                    <a href="tel:{" "|str_replace:"":$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/old-typical-phone.svg"
                                                                 alt="" class="icon">
@@ -193,19 +193,19 @@
             </div>
             <div class="footer-bottom">
                 <div class="row">
-                    {if $load_policy->_numOfRows gte 1}
+                    {if $loadPolicy->_numOfRows gte 1}
                     <div class="col-md" data-aos="fade-left">
                         <div class="policy">
                             <ul class="item-list">
-                                {foreach $load_policy->item as $keyPolicy => $valuePolicy}
-                                    {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
+                                {foreach $loadPolicy->item as $keyPolicy => $valuePolicy}
+                                    {assign var="checkUrl" value="{$valuePolicy->url|checkUrl}"}
                                     {assign var="target" value="_self"}
                                     {$downloadID = 0}
                                     {if $valuePolicy->typec eq 2}
                                         {$downloadID = $valuePolicy->attachment[0]->id}
                                     {/if}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|page_redirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language:$downloadID}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|pageRedirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language:$downloadID}"}
                                         {$target = $valuePolicy->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}
@@ -260,10 +260,10 @@
         
         {foreach $sitemapWeb->level_1->$currentLangWeb as $keySitemapLv1 => $valueSitemapLv1}
             {if $valueSitemapLv1->subject neq ""}
-                {assign var="checkUrl" value="{$valueSitemapLv1->url|check_url}"}
+                {assign var="checkUrl" value="{$valueSitemapLv1->url|checkUrl}"}
                 {assign var="target" value="_self"}
                 {if $checkUrl}
-                    {assign var="news_url" value="{$ul}/pageredirect/{$valueSitemapLv1->tb|page_redirect:$valueSitemapLv1->masterkey:$valueSitemapLv1->id:$currentLangWeb}"}
+                    {assign var="news_url" value="{$ul}/pageredirect/{$valueSitemapLv1->tb|pageRedirect:$valueSitemapLv1->masterkey:$valueSitemapLv1->id:$currentLangWeb}"}
                     {$target = $valueSitemapLv1->target}
                 {else}
                     {assign var="news_url" value="javascript:void(0);"}
@@ -278,10 +278,10 @@
                     <ul class="list-group">
                     {foreach $valueSitemapLv1->level_2 as $keyLv2 => $valueLv2}
                     {if $valueLv2->subject neq ""}
-                        {assign var="checkUrl" value="{$valueLv2->url|check_url}"}
+                        {assign var="checkUrl" value="{$valueLv2->url|checkUrl}"}
                         {assign var="target" value="_self"}
                         {if $checkUrl}
-                            {assign var="news_url" value="{$ul}/pageredirect/{$valueLv2->tb|page_redirect:$valueLv2->masterkey:$valueLv2->id:$currentLangWeb}"}
+                            {assign var="news_url" value="{$ul}/pageredirect/{$valueLv2->tb|pageRedirect:$valueLv2->masterkey:$valueLv2->id:$currentLangWeb}"}
                             {$target = $valueLv2->target}
                         {else}
                             {assign var="news_url" value="javascript:void(0);"}
@@ -295,10 +295,10 @@
                                 <ul class="list-sub-group">
                                 {foreach $valueLv2->level_3 as $keyLv3 => $valueLv3}
                                   {if $valueLv3->subject neq ""}
-                                      {assign var="checkUrl" value="{$valueLv3->url|check_url}"}
+                                      {assign var="checkUrl" value="{$valueLv3->url|checkUrl}"}
                                       {assign var="target" value="_self"}
                                       {if $checkUrl}
-                                          {assign var="news_url" value="{$ul}/pageredirect/{$valueLv3->tb|page_redirect:$valueLv3->masterkey:$valueLv3->id:$currentLangWeb}"}
+                                          {assign var="news_url" value="{$ul}/pageredirect/{$valueLv3->tb|pageRedirect:$valueLv3->masterkey:$valueLv3->id:$currentLangWeb}"}
                                           {$target = $valueLv3->target}
                                       {else}
                                           {assign var="news_url" value="javascript:void(0);"}

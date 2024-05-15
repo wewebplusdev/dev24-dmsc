@@ -403,9 +403,9 @@
   
   Guides.prototype._onDocKeyUp = function (e) {
       switch (e.which) {
-      case 27: //esc
-          this.end();
-          break;
+    //   case 27: //esc
+    //       this.end();
+    //       break;
       case 39: //right arrow
       case 32: //space
           this.next();

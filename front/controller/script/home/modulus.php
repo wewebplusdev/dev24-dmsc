@@ -1,17 +1,21 @@
 <?php
 
-class homePage extends controller
+class HomePage extends Controller
 {
-    public function load_topgraphic()
+    const HOME_PATH = "/home";
+    const CONTENT_TYPE_JSON = 'Content-Type: application/json';
+    const AUTHORIZATION_HEADER = 'Authorization: Bearer ';
+    
+    public function loadTopgraphic()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
+        $url = $this->urlAPI . self::HOME_PATH;
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getTopgraphic",
@@ -23,16 +27,16 @@ class homePage extends controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
     
-    public function load_services()
+    public function loadServices()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getService",
@@ -44,16 +48,16 @@ class homePage extends controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_popup()
+    public function loadPopup()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getPopup",
@@ -65,16 +69,16 @@ class homePage extends controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_innovation()
+    public function loadInnovation()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getInnovationGroup",
@@ -86,16 +90,16 @@ class homePage extends controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_about()
+    public function loadAbout()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getAbout",
@@ -107,16 +111,16 @@ class homePage extends controller
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 
-    public function load_news()
+    public function loadNews()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/home";
-        $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getNews",

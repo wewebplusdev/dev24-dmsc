@@ -26,7 +26,7 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
             },
             "data": JSON.stringify({
                 "case": 'logs_Website',
-                "controller": 'setting',
+                "Controller": 'setting',
                 "method": 'LogsViewWebsite',
                 "browser": sitename,
                 "uniqid": uniq_id,
@@ -55,4 +55,31 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
 })();
 
 
+// checkbox popup
+$('#checkbox-popup').on('change', function(){
+    let ischeck = $(this).is(':checked');
+    if (!ischeck) {
+        $.removeCookie('POPUP', { path: '/' });
+    }else{
+        var date = new Date();
+        var day = 1;
+        var hour = 24;
+        var minutes = 60;
+        (async () => {
+            date.setTime(date.getTime() + (day * (hour * minutes * 60 * 1000)));
+            $.cookie('POPUP', true, {
+                expires: date,
+                path: '/'
+            });
+        })().catch(() => { });
+    }
+});
 
+// check condition popup
+(() => {
+    if (typeof $.cookie("POPUP") === "undefined") {
+        $('#popupModal').modal('show');
+    } else {
+        $('#popupModal').modal('hide');
+    }
+});

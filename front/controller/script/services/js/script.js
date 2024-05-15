@@ -1,7 +1,7 @@
-var serviceSwiper = reload_swiper();
+let serviceSwiper = reload_swiper();
 
 function reload_swiper() {
-    var scSwiper = new Swiper(".service-category-list .swiper", {
+    return new Swiper(".service-category-list .swiper", {
         slidesPerView: 5,
         watchSlidesProgress: true,
         navigation: {

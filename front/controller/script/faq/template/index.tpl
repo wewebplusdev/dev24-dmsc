@@ -46,7 +46,7 @@
   <div class="default-body">
     <div class="default-filter">
       <div class="container">
-        <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default" id="filter-form">
+        <form action="{$ul}/{$menuActive}" method="GET" class="form-default" id="filter-form">
           <div class="head">
             <div class="row">
               <div class="col-md">
@@ -120,9 +120,9 @@
       </div>
     </div>
     <div class="container">
-      {if $load_data->_numOfRows gte 1}
+      {if $loadData->_numOfRows gte 1}
         <div class="layout-faq" id="accordion">
-          {foreach $load_data->item as $keyload_data => $valueload_data}
+          {foreach $loadData->item as $keyload_data => $valueload_data}
             <div class="card">
               <div class="card-header" id="heading{$keyload_data}">
                 <a href="" class="link {if $keyload_data gte 1}collapsed{/if}" data-toggle="collapse" data-target="#collapse{$keyload_data}" aria-expanded="true"
@@ -192,7 +192,7 @@
                     <div class="col">
                       <div class="desc">
                         {strip}
-                            {$load_data->item[0]->html|txtReplaceHTML}
+                            {$loadData->item[0]->html|txtReplaceHTML}
                         {/strip}
                         {* <p>
                           กรมวิทยาศาสตร์การแพทย์
@@ -218,7 +218,7 @@
         </div>
       {/if}
     </div>
-    {if $load_data->_numOfRows gte 1}
+    {if $loadData->_numOfRows gte 1}
       {include file="inc/inc-pagination.tpl" title=title}
     {/if}
   </div>

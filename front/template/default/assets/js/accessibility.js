@@ -3,16 +3,8 @@
 (async () => {
     "use strict";
 
-    // let content_web;
-    // await $.getJSON("./webservice_json/content_language_web.json", function (data) {
-    //     content_web = data;
-    // }).fail(function () {
-    //     console.log("An error has occurred. get json fail.");
-    // });
-    // console.log(language);
-    // console.log(content_web);
     const t = {
-        en: {
+        th: {
             "Accessibility Menu": "เมนูสำหรับผู้พิการ",
             "Reset settings": "คืนค่าการตั้งค่า",
             Close: "ปิด",
@@ -40,34 +32,34 @@
             "Line Height": "เพิ่มความสูงตัวอักษร",
             "Font Weight": "ความเข้มตัวอักษร"
         },
-        // language: {
-        //     "Accessibility Menu": content_web?.wcag_title?.display[language] ? content_web?.wcag_title?.display[language] : "เมนูสำหรับผู้พิการ",
-        //     "Reset settings": content_web?.wcag_reset_settings?.display[language] ? content_web?.wcag_reset_settings?.display[language] : "คืนค่าการตั้งค่า",
-        //     Close: content_web?.wcag_close?.display[language] ? content_web?.wcag_close?.display[language] : "ปิด",
-        //     "Content Adjustments": content_web?.wcag_detail?.display[language] ? content_web?.wcag_detail?.display[language] : "การปรับแต่งเนื้อหา",
-        //     "Adjust Font Size": content_web?.wcag_font?.display[language] ? content_web?.wcag_font?.display[language] : "ปรับขนาดตัวอักษร",
-        //     Default: content_web?.wcag_default?.display[language] ? content_web?.wcag_default?.display[language] : "ปกติ",
-        //     "Highlight Title": content_web?.wcag_highlight_title?.display[language] ? content_web?.wcag_highlight_title?.display[language] : "เน้นชื่อเรื่อง",
-        //     "Highlight Links": content_web?.wcag_highlight_links?.display[language] ? content_web?.wcag_highlight_links?.display[language] : "เน้นลิงค์",
-        //     "Readable Font": "Readable Font",
-        //     "Color Adjustments": content_web?.wcag_color?.display[language] ? content_web?.wcag_color?.display[language] : "การปรับแต่งสี",
-        //     "Dark Contrast": content_web?.wcag_dark_contrast?.display[language] ? content_web?.wcag_dark_contrast?.display[language] : "มืด",
-        //     "Yellow Contrast": content_web?.wcag_yellow_contrast?.display[language] ? content_web?.wcag_yellow_contrast?.display[language] : "เหลือง",
-        //     "Light Contrast": content_web?.wcag_light_contrast?.display[language] ? content_web?.wcag_light_contrast?.display[language] : "สว่าง",
-        //     "High Contrast": content_web?.wcag_high_contrast?.display[language] ? content_web?.wcag_high_contrast?.display[language] : "ความคมชัดสูง",
-        //     "High Saturation": content_web?.wcag_high_saturation?.display[language] ? content_web?.wcag_high_saturation?.display[language] : "ความอิ่มตัวสูง",
-        //     "Low Saturation": content_web?.wcag_low_saturation?.display[language] ? content_web?.wcag_low_saturation?.display[language] : "ความอิ่มตัวต่ำ",
-        //     Monochrome: content_web?.wcag_monochrome?.display[language] ? content_web?.wcag_monochrome?.display[language] : "ขาว-ดำ",
-        //     Tools: content_web?.wcag_tools?.display[language] ? content_web?.wcag_tools?.display[language] : "เครื่องมือ",
-        //     "Reading Guide": content_web?.wcag_reading_guide?.display[language] ? content_web?.wcag_reading_guide?.display[language] : "ช่วยการอ่าน",
-        //     "Stop Animations": content_web?.wcag_stop_animations?.display[language] ? content_web?.wcag_stop_animations?.display[language] : "หยุดภาพเคลื่อนไหว",
-        //     "Big Cursor": content_web?.wcag_big_cursor?.display[language] ? content_web?.wcag_big_cursor?.display[language] : "เคอร์เซอร์ใหญ่",
-        //     "Increase Font Size": content_web?.wcag_Increase_font_size?.display[language] ? content_web?.wcag_Increase_font_size?.display[language] : "เพิ่มขนาดอักษร",
-        //     "Decrease Font Size": content_web?.wcag_decrease_font_size?.display[language] ? content_web?.wcag_decrease_font_size?.display[language] : "ลดขนาดอักษร",
-        //     "Letter Spacing": content_web?.wcag_letter_spacing?.display[language] ? content_web?.wcag_letter_spacing?.display[language] : "ขยายระยะห่างตัวอักษร",
-        //     "Line Height": content_web?.wcag_line_height?.display[language] ? content_web?.wcag_line_height?.display[language] : "เพิ่มความสูงตัวอักษร",
-        //     "Font Weight": content_web?.wcag_font_weight?.display[language] ? content_web?.wcag_font_weight?.display[language] : "ความเข้มตัวอักษร"
-        // },
+        en: {
+            "Accessibility Menu": "Accessibility menu ",
+            "Reset settings": "Reset settings",
+            Close: "Close",
+            "Content Adjustments": "Content Adjustments",
+            "Adjust Font Size": "Adjust Font Size",
+            Default: "Default",
+            "Highlight Title": "Highlight Title",
+            "Highlight Links": "Highlight Links",
+            "Readable Font": "Readable Font",
+            "Color Adjustments": "Color Adjustments",
+            "Dark Contrast": "Dark Contrast",
+            "Yellow Contrast": "Yellow Contrast",
+            "Light Contrast": "Light Contrast",
+            "High Contrast": "High Contrast",
+            "High Saturation": "High Saturation",
+            "Low Saturation": "Low Saturation",
+            Monochrome: "Monochrome",
+            Tools: "Tools",
+            "Reading Guide": "Reading Guide",
+            "Stop Animations": "Stop Animations",
+            "Big Cursor": "Big Cursor",
+            "Increase Font Size": "Increase Font Size",
+            "Decrease Font Size": "Decrease Font Size",
+            "Letter Spacing": "Letter Spacing",
+            "Line Height": "Line Height",
+            "Font Weight": "Font Weight"
+        },
     }
         , e = [{
             label: "Monochrome",
@@ -146,24 +138,16 @@
                 this.rendered = !1,
                 this.settings = {
                     states: {},
-                    lang: document.documentElement.lang,
+                    lang: "en",
                     ...e?.settings
                 };
-            let i = document.documentElement.lang ? document.documentElement.lang : "en";
-            // check isset lang property
-            try {
-                t[i];
-            } catch (error) {
-                i = 'en';
-            }
+            let i = document.documentElement.lang || "en";
             this.locale = t.en,
                 t[i] && (this.settings.lang = i,
                     this.locale = t[i]),
                 this.settings?.states && (this.changeControls(),
                     1 !== this.settings.states.fontSize && this.changeFont(null, this.settings.states.fontSize),
                     this.settings.states.contrast && this.changeFilter(this.settings.states.contrast))
-
-            console.log(content);
         }
 
         toggle() {
@@ -266,15 +250,6 @@
                     this.reset()
                 }
                 )),
-                // this.menu.querySelector("select").value = this.settings.lang,
-                // this.menu.querySelector("select").addEventListener("change", (e=>{
-                //     this.settings.lang = e.target.value,
-                //     this.locale = t[this.settings.lang] || t.en,
-                //     this.saveSettings(),
-                //     this.translate()
-                // }
-                // )),
-                // this.menu.querySelector(".asw-footer a").setAttribute("href", n),
                 this.translate(),
                 this.config.container.appendChild(this.menu),
                 this.rendered = !0,
@@ -283,7 +258,6 @@
         reset() {
             this.settings.states = {},
                 this.changeFilter(),
-                // this.changeFilterYellow(),
                 this.changeControls(),
                 this.changeFont(void 0, 1),
                 this.saveSettings(),
@@ -331,31 +305,11 @@
         }
 
         close() {
-            // this.menu.style.display = "block"
             this.menu.querySelectorAll("div > .asw-wrapper").forEach((t => {
                 t.classList.remove("active")
             }
             ))
         }
-
-        // clickItemYellow(t) {
-        //     let e = t.dataset.key;
-        //     t.classList.contains("asw-filter") ? (document.querySelectorAll(".asw-filter").forEach((function(t) {
-        //         t.classList.remove("asw-selected")
-        //     }
-        //     )),
-        //     this.settings.states.contrast = this.settings.states.contrast !== e && e,
-        //     this.settings.states.contrast && t.classList.add("asw-selected"),
-        //     this.changeFilterYellow(this.settings.states.contrast)) : (this.settings.states[e] = !this.settings.states[e],
-        //     t.classList.toggle("asw-selected", this.settings.states[e]),
-
-
-        //     this.changeControls()),
-        //     this.saveSettings()
-
-        //     console.log(e)
-        // }
-
         changeControls() {
             let t = [{
                 id: "highlight-title",
@@ -453,12 +407,7 @@
             let e = "";
             if (t) {
                 let s = "";
-                // "dark-contrast" == t ? s = "color: #fff !important;fill: #FFF !important;background-color: #000 !important;" : 
-
-                // "yellow-contrast" == t ? s = "color: #ff0 !important;fill:; background-color: #000 !important;" : 
-
                 "light-contrast" == t ? s = " color: #000 !important;fill: #000 !important;background-color: #FFF !important;" :
-                    // "high-contrast" == t ? s += this.getFilterCSS("contrast(125%)") : 
                     "high-contrast" == t ? s = " filter: contrast(125%);" :
                         "high-saturation" == t ? s += this.getFilterCSS("saturate(200%)") :
                             "low-saturation" == t ? s += this.getFilterCSS("saturate(50%)") :
@@ -468,49 +417,6 @@
                 "high-contrast" != t && "light-contrast" != t || (n = [
                     "body",
                 ]);
-                // "dark-contrast" != t && "light-contrast" != t || (n = 
-                //     [
-                //         "body", 
-                //         "h1", 
-                //         "h2", 
-                //         "h3", 
-                //         "h4", 
-                //         "h5", 
-                //         "h6", 
-                //         "img", 
-                //         "p", 
-                //         "i", 
-                //         "svg", 
-                //         "a", 
-                //         "button", 
-                //         "label", 
-                //         "li", 
-                //         "ol",
-                //         ".text-gradient-primary"
-                //     ]
-                // );
-                // "yellow-contrast" != t && "light-contrast" != t || (n = 
-                //     [
-                //         ".layout-header .navbar", 
-                //         "body", 
-                //         "h1", 
-                //         "h2", 
-                //         "h3", 
-                //         "h4", 
-                //         "h5", 
-                //         "h6", 
-                //         "img", 
-                //         "p", 
-                //         "i", 
-                //         "svg", 
-                //         "a", 
-                //         "button", 
-                //         "label", 
-                //         "li", 
-                //         "ol",
-                //         ".text-gradient-primary"
-                //     ]
-                // );
                 for (var i = n.length; i--;)
                     e += '[data-asw-filter="' + t + '"] ' + n[i] + "{" + s + "}"
             }
@@ -531,7 +437,6 @@
     }
 
     document.addEventListener("DOMContentLoaded", (() => {
-        // alert("Hello! I am an alert box!!"); 
         let t, e = document.createElement("div");
         e.innerHTML = '<div id="wcag" clas="wcag"></div> <div class="asw-widget -mb"> <a href="javascript:void(0);" class="asw-menu-btn-mobile" title="เมนูสำหรับผู้พิการ" role="button" aria-expanded="false"> <svg xmlns="http://www.w3.org/2000/svg" style="fill:#fff" viewBox="0 0 24 24" width="30px" height="30px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg> </a> </div>';
         let i = function (t) {
@@ -560,9 +465,6 @@
             container: e
         }).render()
         document.body.appendChild(e)
-
-    }
-    ));
-}
-)();
+    }));
+})();
 

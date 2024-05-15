@@ -1,4 +1,10 @@
 <?php
+  define('VERSION_TAG', 'Version/[VER]');
+  define('OPERAMINI_TAG', 'Opera Mini/[VER]');
+  define('OPERAMOBI_TAG', 'Opera Mobi');
+  define('AMAZON_TAG', 'Amazon CloudFront');
+  define('OPERAMOBI', 'Opera Mobi');
+  define('OPERAMINI', 'Opera Mini');
 
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'localhost') {
     $path_root = "/dev24-dmsc"; #ถ้า root ไม่ได้อยู่ public
@@ -43,7 +49,7 @@ require_once _DIR . '/front/libs/url.php'; #load url
 require_once _DIR . '/front/libs/Mobile_Detect.php'; #load url
 
 ##check divice ##
-$detectDivice = new Mobile_Detect;
+$detectDivice = new MobileDetect;
 
 ## load modulus ##
 require_once _DIR . '/front/controller/modulus/member.php'; #load member status
@@ -65,7 +71,7 @@ if (!empty($memberID['member_info'])) {
 }
 
 $member->saveCookie();
-$memberLogin = method_exists($member, 'login_status') ? $member->login_status() : 0;
+$memberLogin = method_exists($member, 'login_status') ? $member->loginStatus() : 0;
 
 if (!empty($memberLogin)) {
     $smarty->assign("login", true);
@@ -132,7 +138,7 @@ $smarty->assign("base", _URL);
 $smarty->assign("fullurl", _FullUrl);
 $smarty->assign("Domain", _Domain);
 $smarty->assign("path_root", $path_root);
-$smarty->assign("header_active", $header_active);
+$smarty->assign("headerActive", $headerActive);
 
 $smarty->assign("urlPagination", _URLPagination);
 
