@@ -138,7 +138,6 @@
             key: "readable-guide",
             icon: "local_library"
         }];
-
     class n {
         constructor(e, content) {
             this.config = {
@@ -147,10 +146,16 @@
                 this.rendered = !1,
                 this.settings = {
                     states: {},
-                    lang: "en",
+                    lang: document.documentElement.lang,
                     ...e?.settings
                 };
-            let i = document.documentElement.lang || "en";
+            let i = document.documentElement.lang ? document.documentElement.lang : "en";
+            // check isset lang property
+            try {
+                t[i];
+            } catch (error) {
+                i = 'en';
+            }
             this.locale = t.en,
                 t[i] && (this.settings.lang = i,
                     this.locale = t[i]),

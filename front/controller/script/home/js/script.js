@@ -130,9 +130,6 @@ function reload_swiper() {
     });
 }
 
-$('#popupModal').modal('show');
-
-
 $('body').guides({
   guides: [{
     // welcome
