@@ -4,7 +4,7 @@
     "use strict";
 
     const t = {
-        en: {
+        th: {
             "Accessibility Menu": "เมนูสำหรับผู้พิการ",
             "Reset settings": "คืนค่าการตั้งค่า",
             Close: "ปิด",
@@ -32,63 +32,33 @@
             "Line Height": "เพิ่มความสูงตัวอักษร",
             "Font Weight": "ความเข้มตัวอักษร"
         },
-        language: {
-            th: {
-                "Accessibility Menu": "เมนูสำหรับผู้พิการ",
-                "Reset settings": "คืนค่าการตั้งค่า",
-                Close: "ปิด",
-                "Content Adjustments": "การปรับแต่งเนื้อหา",
-                "Adjust Font Size": "ปรับขนาดตัวอักษร",
-                Default: "ปกติ",
-                "Highlight Title": "เน้นชื่อเรื่อง",
-                "Highlight Links": "เน้นลิงค์",
-                "Readable Font": "Readable Font",
-                "Color Adjustments": "การปรับแต่งสี",
-                "Dark Contrast": "มืด",
-                "Yellow Contrast": "เหลือง",
-                "Light Contrast": "สว่าง",
-                "High Contrast": "ความคมชัดสูง",
-                "High Saturation": "ความอิ่มตัวสูง",
-                "Low Saturation": "ความอิ่มตัวต่ำ",
-                Monochrome: "ขาว-ดำ",
-                Tools: "เครื่องมือ",
-                "Reading Guide": "ช่วยการอ่าน",
-                "Stop Animations": content_web?.wcag_stop_animations?.display[language] ? content_web?.wcag_stop_animations?.display[language] : "หยุดภาพเคลื่อนไหว",
-                "Big Cursor": content_web?.wcag_big_cursor?.display[language] ? content_web?.wcag_big_cursor?.display[language] : "เคอร์เซอร์ใหญ่",
-                "Increase Font Size": content_web?.wcag_Increase_font_size?.display[language] ? content_web?.wcag_Increase_font_size?.display[language] : "เพิ่มขนาดอักษร",
-                "Decrease Font Size": content_web?.wcag_decrease_font_size?.display[language] ? content_web?.wcag_decrease_font_size?.display[language] : "ลดขนาดอักษร",
-                "Letter Spacing": content_web?.wcag_letter_spacing?.display[language] ? content_web?.wcag_letter_spacing?.display[language] : "ขยายระยะห่างตัวอักษร",
-                "Line Height": content_web?.wcag_line_height?.display[language] ? content_web?.wcag_line_height?.display[language] : "เพิ่มความสูงตัวอักษร",
-                "Font Weight": content_web?.wcag_font_weight?.display[language] ? content_web?.wcag_font_weight?.display[language] : "ความเข้มตัวอักษร"
-            },
-            en: {
-                "Accessibility Menu": content_web?.wcag_title?.display[language] ? content_web?.wcag_title?.display[language] : "เมนูสำหรับผู้พิการ",
-                "Reset settings": content_web?.wcag_reset_settings?.display[language] ? content_web?.wcag_reset_settings?.display[language] : "คืนค่าการตั้งค่า",
-                Close: content_web?.wcag_close?.display[language] ? content_web?.wcag_close?.display[language] : "ปิด",
-                "Content Adjustments": content_web?.wcag_detail?.display[language] ? content_web?.wcag_detail?.display[language] : "การปรับแต่งเนื้อหา",
-                "Adjust Font Size": content_web?.wcag_font?.display[language] ? content_web?.wcag_font?.display[language] : "ปรับขนาดตัวอักษร",
-                Default: content_web?.wcag_default?.display[language] ? content_web?.wcag_default?.display[language] : "ปกติ",
-                "Highlight Title": content_web?.wcag_highlight_title?.display[language] ? content_web?.wcag_highlight_title?.display[language] : "เน้นชื่อเรื่อง",
-                "Highlight Links": content_web?.wcag_highlight_links?.display[language] ? content_web?.wcag_highlight_links?.display[language] : "เน้นลิงค์",
-                "Readable Font": "Readable Font",
-                "Color Adjustments": content_web?.wcag_color?.display[language] ? content_web?.wcag_color?.display[language] : "การปรับแต่งสี",
-                "Dark Contrast": content_web?.wcag_dark_contrast?.display[language] ? content_web?.wcag_dark_contrast?.display[language] : "มืด",
-                "Yellow Contrast": content_web?.wcag_yellow_contrast?.display[language] ? content_web?.wcag_yellow_contrast?.display[language] : "เหลือง",
-                "Light Contrast": content_web?.wcag_light_contrast?.display[language] ? content_web?.wcag_light_contrast?.display[language] : "สว่าง",
-                "High Contrast": content_web?.wcag_high_contrast?.display[language] ? content_web?.wcag_high_contrast?.display[language] : "ความคมชัดสูง",
-                "High Saturation": content_web?.wcag_high_saturation?.display[language] ? content_web?.wcag_high_saturation?.display[language] : "ความอิ่มตัวสูง",
-                "Low Saturation": content_web?.wcag_low_saturation?.display[language] ? content_web?.wcag_low_saturation?.display[language] : "ความอิ่มตัวต่ำ",
-                Monochrome: content_web?.wcag_monochrome?.display[language] ? content_web?.wcag_monochrome?.display[language] : "ขาว-ดำ",
-                Tools: content_web?.wcag_tools?.display[language] ? content_web?.wcag_tools?.display[language] : "เครื่องมือ",
-                "Reading Guide": content_web?.wcag_reading_guide?.display[language] ? content_web?.wcag_reading_guide?.display[language] : "ช่วยการอ่าน",
-                "Stop Animations": content_web?.wcag_stop_animations?.display[language] ? content_web?.wcag_stop_animations?.display[language] : "หยุดภาพเคลื่อนไหว",
-                "Big Cursor": content_web?.wcag_big_cursor?.display[language] ? content_web?.wcag_big_cursor?.display[language] : "เคอร์เซอร์ใหญ่",
-                "Increase Font Size": content_web?.wcag_Increase_font_size?.display[language] ? content_web?.wcag_Increase_font_size?.display[language] : "เพิ่มขนาดอักษร",
-                "Decrease Font Size": content_web?.wcag_decrease_font_size?.display[language] ? content_web?.wcag_decrease_font_size?.display[language] : "ลดขนาดอักษร",
-                "Letter Spacing": content_web?.wcag_letter_spacing?.display[language] ? content_web?.wcag_letter_spacing?.display[language] : "ขยายระยะห่างตัวอักษร",
-                "Line Height": content_web?.wcag_line_height?.display[language] ? content_web?.wcag_line_height?.display[language] : "เพิ่มความสูงตัวอักษร",
-                "Font Weight": content_web?.wcag_font_weight?.display[language] ? content_web?.wcag_font_weight?.display[language] : "ความเข้มตัวอักษร"
-            },
+        en: {
+            "Accessibility Menu": "Accessibility menu ",
+            "Reset settings": "Reset settings",
+            Close: "Close",
+            "Content Adjustments": "Content Adjustments",
+            "Adjust Font Size": "Adjust Font Size",
+            Default: "Default",
+            "Highlight Title": "Highlight Title",
+            "Highlight Links": "Highlight Links",
+            "Readable Font": "Readable Font",
+            "Color Adjustments": "Color Adjustments",
+            "Dark Contrast": "Dark Contrast",
+            "Yellow Contrast": "Yellow Contrast",
+            "Light Contrast": "Light Contrast",
+            "High Contrast": "High Contrast",
+            "High Saturation": "High Saturation",
+            "Low Saturation": "Low Saturation",
+            Monochrome: "Monochrome",
+            Tools: "Tools",
+            "Reading Guide": "Reading Guide",
+            "Stop Animations": "Stop Animations",
+            "Big Cursor": "Big Cursor",
+            "Increase Font Size": "Increase Font Size",
+            "Decrease Font Size": "Decrease Font Size",
+            "Letter Spacing": "Letter Spacing",
+            "Line Height": "Line Height",
+            "Font Weight": "Font Weight"
         },
     }
         , e = [{
@@ -172,6 +142,7 @@
                     lang: "en",
                     ...e?.settings
                 };
+                console.log();
             let i = document.documentElement.lang || "en";
             this.locale = t.en,
                 t[i] && (this.settings.lang = i,
