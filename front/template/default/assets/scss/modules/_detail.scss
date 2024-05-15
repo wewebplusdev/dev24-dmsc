@@ -28,61 +28,19 @@
     }
   }
 
- 
-
-
-    .swiper-button-next{
-      right: -80px;
-      width: 54px;
-      height: 54px;
-      border: 2px solid var(--color-primary);
-      color: var(--color-primary);
-      
-      &:hover {
-        background-color: var(--color-primary);
-        color: var(--color-light);
-        border: 2px solid var(--color-light);
-      }
-
-      &::after {
-        font-size: 25px;
-      }
-    }
-
-    .swiper-button-prev{
-      left: -80px;
-      width: 54px;
-      height: 54px;
-      border: 2px solid var(--color-primary);
-      color: var(--color-primary);
-
-      &:hover {
-        background-color: var(--color-primary);
-        color: var(--color-light);
-        border: 2px solid var(--color-light);
-      }
-
-      &::after {
-        font-size: 25px;
-      }
-    }
-
-
   .swiper {
     &:not(.gallery-slide .swiper) {
-     
+      overflow: visible;
 
       .swiper-slide {
-    
+        opacity: 0;
         transition: all 0.4s ease-in-out;
-       
       }
 
       .swiper-slide-active,
       .swiper-slide-next {
         opacity: 1;
       }
-
 
       .swiper-pagination {
         position: relative;
@@ -175,64 +133,6 @@
     .swiper {
       .swiper-slide-fully-visible {
         opacity: 1;
-      }
-    }
-
-    
-
-    .under-line{
-      width: 100%;
-      height: 1px;
-      background-color: #E5E5E5;
-      margin: 30px 0 ;
-    }
-
-    .comment{
-      .btn-facebook{
-        button{
-          color: var(--color-primary);
-          background-color: var(--color-light); 
-          border:1px solid var(--color-primary); 
-          padding: 15px 18px;
-          display: flex;
-         
-
-          &:hover{
-            background-color: var(--color-primary);
-            color: var(--color-light);
-            border:1px solid var(--color-light); 
-            .comment-light{
-              display: block;
-            }
-
-            .comment-green{
-              display: none;
-            }
-           
-          }
-
-          .comment-light{
-            display: none;
-          }
-
-          img{
-            margin-right: 12px;
-          }
-        }
-      }
-      .btn-back{
-        button{
-        color: #AAAAAA;
-        background-color: var(--color-light);
-        border: 1px solid #AAAAAA;
-        padding: 15px 28px;
-
-        &:hover{
-          background-color: #AAAAAA;
-          color: var(--color-light);
-          border:1px solid var(--color-light); 
-        }
-      }
       }
     }
 
@@ -410,12 +310,7 @@
 
   .vdo {margin: 0 0 40px 0;}
 
-  .detail-body .news-area .comment .btn-facebook button {font-size:16px ;}
-  .detail-body .news-area .comment .btn-back button {font-size:16px ;}
-
-  
 }
-
 
 @media (max-width: 991px) {
   .default-bar {margin-bottom: 20px;}
@@ -459,6 +354,4 @@
   .default-bar .whead .title {font-size: 20px;}
   .default-bar .box,
   .default-bar .box strong{font-size: 15px;}
-
- 
 }

@@ -349,7 +349,6 @@
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
-              
             </div>
           </div>
         </div>
@@ -389,7 +388,7 @@
       // slidesPerView: "auto",
       slidesPerView: 3,
       // freeMode: true,
-      spaceBetween: 40,
+      spaceBetween: 30,
       watchSlidesProgress: true,
       pagination: {
         el: ".swiper-pagination",

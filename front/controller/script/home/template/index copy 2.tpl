@@ -10,7 +10,7 @@
                             <div class="item">
                                 <figure class="cover">
                                     <picture>
-                                        <img src="{$valueTgp->pic->pictures}" alt="image-topgraphic" class="lazy">
+                                        <img src="{$valueTgp->pic->pictures}" alt="" class="lazy">
                                     </picture>
                                 </figure>
                             </div>
@@ -155,13 +155,13 @@
                                                         type="image/webp">
                                                     <img src="{$template}/assets/img/static/wg-research-graphic-01.png"
                                                         data-src="{$template}/assets/img/static/wg-research-graphic-01@2x.png"
-                                                        alt="image-research" class="lazy">
+                                                        alt="" class="lazy">
                                                 </picture>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="bg-obj">
-                                        <img src="{$template}/assets/img/background/bg-test-tube.svg" alt="bg-obj"
+                                        <img src="{$template}/assets/img/background/bg-test-tube.svg" alt=""
                                             class="lazy">
                                     </div>
                                 </div>
@@ -231,7 +231,7 @@
                                             </div>
                                             <div class="bg-obj">
                                                 <img src="{$template}/assets/img/background/bg-math.svg"
-                                                    alt="background-math" class="lazy">
+                                                    alt="" class="lazy">
                                             </div>
                                         </div>
                                     </a>
@@ -257,7 +257,7 @@
                                             </div>
                                             <div class="bg-obj">
                                                 <img src="{$template}/assets/img/background/bg-science.svg"
-                                                    alt="background-science" class="lazy">
+                                                    alt="" class="lazy">
                                             </div>
                                         </div>
                                     </a>
@@ -283,7 +283,7 @@
                                             </div>
                                             <div class="bg-obj">
                                                 <img src="{$template}/assets/img/background/bg-experiment.svg"
-                                                    alt="background-experiment" class="lazy">
+                                                    alt="" class="lazy">
                                             </div>
                                         </div>
                                     </a>
@@ -309,7 +309,7 @@
                                             </div>
                                             <div class="bg-obj">
                                                 <img src="{$template}/assets/img/background/bg-experiment.svg"
-                                                    alt="background-experiment" class="lazy">
+                                                    alt="" class="lazy">
                                             </div>
                                         </div>
                                     </a>
@@ -360,7 +360,7 @@
                                                     <div class="grphic-obj">
                                                         <div class="contain">
                                                             <img src="{$template}/assets/img/static/wg-about-feather-pen.svg"
-                                                                alt="iamge-pen" class="img-contain lazy">
+                                                                alt="" class="img-contain lazy">
                                                         </div>
                                                     </div>
                                                     <div class="action">
@@ -382,7 +382,7 @@
                                                     <div class="grphic-obj">
                                                         <div class="contain">
                                                             <img src="{$template}/assets/img/static/wg-about-flag.svg"
-                                                                alt="image-flag" class="img-contain lazy">
+                                                                alt="" class="img-contain lazy">
                                                         </div>
                                                     </div>
                                                     <div class="action">
@@ -404,7 +404,7 @@
                                                     <div class="grphic-obj">
                                                         <div class="contain">
                                                             <img src="{$template}/assets/img/static/wg-about-flow.svg"
-                                                                alt="image-flow" class="img-contain lazy">
+                                                                alt="" class="img-contain lazy">
                                                         </div>
                                                     </div>
                                                     <div class="action">
@@ -427,7 +427,7 @@
                             data-srcset="{$template}/assets/img/static/wg-about-graphic@2x.webp"
                             type="image/webp">
                         <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic@2x.png" alt="image-graphic"
+                            data-src="{$template}/assets/img/static/wg-about-graphic@2x.png" alt=""
                             class="lazy">
                     </picture>
                 </div>
@@ -483,7 +483,7 @@
                                                                 <div class="thumbnail">
                                                                     <figure class="cover">
                                                                         <img src="{$template}/assets/img/uploads/news-thumb.jpg"
-                                                                            alt="image-new">
+                                                                            alt="">
                                                                     </figure>
                                                                 </div>
                                                                 <div class="card-body">
@@ -527,7 +527,7 @@
                                                                 <div class="thumbnail">
                                                                     <figure class="cover">
                                                                         <img src="https://picsum.photos/id/684/600/400"
-                                                                            alt="background">
+                                                                            alt="">
                                                                     </figure>
                                                                 </div>
                                                                 <div class="card-body">
@@ -585,7 +585,7 @@
                                 <h2 class="title">บริการตรวจวิเคราะห์<br>ทางห้องปฏิบัติการ</h2>
                                 <p class="subtitle">Lab</p>
                                 <div class="bg-obj">
-                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="background-lab"
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt=""
                                         class="lazy">
                                 </div>
                                 <p class="subtitle">ตรวจสอบ<br>หน่วยบริการใกล้คุณ</p>
@@ -600,7 +600,7 @@
                                     data-srcset="{$template}/assets/img/background/bg-wg-lab@2x.webp"
                                     type="image/webp">
                                 <img src="{$template}/assets/img/background/bg-wg-lab.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-lab@2x.png" alt="background-lab"
+                                    data-src="{$template}/assets/img/background/bg-wg-lab@2x.png" alt=""
                                     class="lazy">
                             </picture>
                         </div>
@@ -617,7 +617,7 @@
                                 {if $settingWeb.contact->email2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -632,7 +632,7 @@
                                 {if $settingWeb.contact->email3 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -648,7 +648,7 @@
                                     <div class="row no-gutters">
                                         <div class="col-auto">
                                             <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
-                                                alt="icon-telephone" class="icon">
+                                                alt="" class="icon">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
@@ -665,7 +665,7 @@
                                 {if $settingWeb.contact->email4 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -685,7 +685,7 @@
                                     data-srcset="{$template}/assets/img/background/bg-wg-contact@2x.webp"
                                     type="image/webp">
                                 <img src="{$template}/assets/img/background/bg-wg-contact.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt="background-contact"
+                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt=""
                                     class="lazy">
                             </picture>
                         </div>

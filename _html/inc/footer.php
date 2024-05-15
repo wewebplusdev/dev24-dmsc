@@ -9,7 +9,7 @@
           </div>
           <div class="col-auto col-right" data-aos="fade-right">
             <div class="title"><a href="tel:098 915 6809" class="link">098 915 6809</a></div>
-            <div class="subtitle"><img src="<?php echo $core_template; ?>/img/icon/contact-icon-call.svg" alt="icon-call" class="icon"> Call Center</div>
+            <div class="subtitle"><img src="<?php echo $core_template; ?>/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
-                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-address.svg" alt="icon-address" class="icon">
+                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-address.svg" alt="" class="icon">
                 </div>
                 <div class="col">
                   <p class="desc">
@@ -35,7 +35,7 @@
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
-                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-telephone.svg" alt="icon-telephone" class="icon">
+                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-telephone.svg" alt="" class="icon">
                 </div>
                 <div class="col">
                   <p class="desc">
@@ -50,7 +50,7 @@
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
-                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-fax.svg" alt="icon-fax" class="icon">
+                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-fax.svg" alt="" class="icon">
                 </div>
                 <div class="col">
                   <p class="desc">
@@ -65,7 +65,7 @@
             <div class="contact">
               <div class="row no-gutters">
                 <div class="col-auto">
-                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-email.svg" alt="icon-email" class="icon">
+                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-email.svg" alt="" class="icon">
                 </div>
                 <div class="col">
                   <p class="desc">
@@ -83,7 +83,7 @@
             <div class="contact pt-md-3">
               <div class="row no-gutters">
                 <div class="col-auto">
-                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-fax.svg" alt="icon-fax" class="icon">
+                  <img src="<?php echo $core_template; ?>/img/icon/contact-icon-fax.svg" alt="" class="icon">
                 </div>
                 <div class="col">
                   <p class="desc">
@@ -99,7 +99,7 @@
             <div class="ipv6">
               <picture>
                 <source srcset="<?php echo $core_template; ?>/img/static/ipv6.webp" type="image/webp">
-                <img src="<?php echo $core_template; ?>/img/static/ipv6.png" alt="image-ipv6" class="icon">
+                <img src="<?php echo $core_template; ?>/img/static/ipv6.png" alt="" class="icon">
               </picture>
             </div>
           </div>
@@ -115,35 +115,35 @@
                       <li>
                         <a href="" class="link tele" title="Telephone">
                           <div class="rounded-0">
-                            <img src="<?php echo $core_template; ?>/img/icon/old-typical-phone.svg" alt="icon-phone" class="icon">
+                            <img src="<?php echo $core_template; ?>/img/icon/old-typical-phone.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
                         <a href="https://www.facebook.com/DMScNews/" class="link fb" title="Facebook" target="_blank">
                           <div class="rounded-0">
-                            <img src="<?php echo $core_template; ?>/img/icon/facebook.svg" alt="icon-facebook" class="icon">
+                            <img src="<?php echo $core_template; ?>/img/icon/facebook.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
                         <a href="https://twitter.com/DMScNew" class="link tw" title="X" target="_blank">
                           <div class="rounded-0">
-                            <img src="<?php echo $core_template; ?>/img/icon/twitter.svg" alt="icon-twitter" class="icon">
+                            <img src="<?php echo $core_template; ?>/img/icon/twitter.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
                         <a href="https://www.youtube.com/user/DMSCLive" class="link yt" title="YouTube" target="_blank">
                           <div class="rounded-0">
-                            <img src="<?php echo $core_template; ?>/img/icon/youtube.svg" alt="icon-youtube" class="icon">
+                            <img src="<?php echo $core_template; ?>/img/icon/youtube.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
                       <li>
                         <a href="https://line.me/R/ti/p/%40009xhxof" class="link line" title="Line" target="_blank">
                           <div class="rounded-0">
-                            <img src="<?php echo $core_template; ?>/img/icon/line.svg" alt="icon-line" class="icon">
+                            <img src="<?php echo $core_template; ?>/img/icon/line.svg" alt="" class="icon">
                           </div>
                         </a>
                       </li>
@@ -155,12 +155,12 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom" >
+      <div class="footer-bottom">
         <div class="row">
           <div class="col-md" data-aos="fade-left">
             <div class="policy">
               <ul class="item-list">
-                <li><a  href="#exampleModal" class="link" data-toggle="modal" role="button">นโยบายและแนวปฏิบัติในการรักษาความมั่นคงปลอดภัยด้านสารสนเทศ</a></li>
+                <li><a href="#exampleModal" class="link" data-toggle="modal" role="button">นโยบายและแนวปฏิบัติในการรักษาความมั่นคงปลอดภัยด้านสารสนเทศ</a></li>
                 <li><a href="" class="link">นโยบายเว็บไซต์</a></li>
                 <li><a href="" class="link">นโยบายการคุ้มครองข้อมูลส่วนบุคคล กรมวิทยาศาสตร์การแพทย์</a></li>
               </ul>

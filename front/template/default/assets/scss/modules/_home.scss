@@ -84,7 +84,7 @@
   min-height: 600px;
 }
 .service-category {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
   .service-category-list {
     position: relative;
@@ -171,11 +171,6 @@
 }
 .service-list {
   margin: -20px;
-  .service-slide {
-    .swiper-wrapper{
-      height: auto;
-    }
-  }
   .item {
     padding: 20px;
     .card {
@@ -344,8 +339,7 @@
       flex-direction: row-reverse;
     }
     .graphic {
-      left: -30px;
-      
+      left: 0;
     }
     .bg-obj {
       bottom: 0;
@@ -373,8 +367,7 @@
       }
     }
     .graphic {
-      right: -10px;
-      
+      right: 10px;
     }
     .bg-obj {
       bottom: 0;
@@ -508,17 +501,15 @@
     .action {
       margin-top: 50px;
     }
-
-   
   }
   .wg-about-group-list {
     width: 620px;
   }
   .graphic {
     position: absolute;
-    bottom: -160px;
+    bottom: -167px;
     left: 50%;
-    margin-left: -420px;
+    margin-left: -550px;
     width: 1020px;
     pointer-events: none;
   }
@@ -611,10 +602,6 @@
     padding-right: 40px;
     .action {
       margin-top: 40px;
-    }
-
-    .action-not-show {
-      display: none;
     }
   }
   .wg-news-tab {
@@ -815,9 +802,9 @@
     padding: 50px;
   }
   .wg-about .graphic {
-    bottom: -110px;
-    margin-left: -300px;
-    width: 650px;
+    bottom: -140px;
+    margin-left: -480px;
+    width: 850px;
   }
   .wg-news .wg-news-tab {
     width: 880px;
@@ -906,6 +893,9 @@
   }
   .wg-research-group.-left .graphic {
     left: -20px;
+  }
+  .wg-research-group.-right .graphic {
+    right: -30px;
   }
   .wg-research-group.-left .bg-obj img,
   .wg-research-group.-right .bg-obj img {
@@ -1187,8 +1177,8 @@
   }
   .wg-about .graphic {
     bottom: -108px;
-    margin-left: -280px;
-    width: 580px;
+    margin-left: -380px;
+    width: 660px;
   }
   .wg-about .wg-about-group-list {
     width: 525px;
@@ -1237,21 +1227,6 @@
   }
   .wg-services {
     padding: 50px 0 110px;
-
-    .whead{
-      text-align: center;
-     
-    }
-
-    .action{
-      text-align: center;
-      margin-top: 20px;
-     
-    }
-  }
-
-  .wg-about .wg-about-group-list{
-    width: auto;
   }
   .service-category .service-category-list {
     margin: -10px;
@@ -1270,15 +1245,6 @@
   }
   .wg-research .wg-research-main {
     padding: 50px 0;
-
-    .whead{
-      text-align: center;
-    }
-
-    .action{
-      margin-top: 20px;
-      text-align: center;
-    }
   }
   .wg-research-group .graphic {
     width: 240px;
@@ -1329,19 +1295,6 @@
   }
   .wg-about .content {
     padding: 50px 0 30px 0;
-
-    .whead{
-      text-align: center;
-    }
-
-    .line{
-      display: none;
-    }
-
-    .action{
-      margin-top: 20px;
-      text-align: center;
-    }
   }
   .wg-about .content .whead .subtitle,
   .wg-about .content .whead .title {
@@ -1363,7 +1316,7 @@
     margin-left: auto;
   }
   .wg-about .graphic {
-    margin-left: -500px;
+    margin-left: -530px;
   }
   .wg-news {
     padding: 100px 0 50px;
@@ -1383,31 +1336,10 @@
     white-space: nowrap;
   }
   .wg-news .wg-news-nav .action {
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
     margin-top: 15px;
-  }
-
-  .wg-news .wg-news-nav {
-
-    .whead{
-      text-align: center;
-    }
-
-    .line{
-      display: none;
-    }
-
-    .action-show{
-      display: none;
-    }
-    
-    .action-not-show{
-      display: block;
-      margin-bottom: 20px;
-      text-align: center;
-    }
   }
   .wg-news .wg-news-tab {
     padding-right: 0;
@@ -1451,8 +1383,6 @@
   }
   .wg-research .wg-research-main {
     padding: 40px 0;
-
-    
   }
   .wg-research-list {
     padding-bottom: 40px;
@@ -1506,9 +1436,9 @@
     width: auto;
   }
   .wg-about .graphic {
-    width: 510px;
-    margin-left: -415px;
-    bottom: -80px;
+    width: 540px;
+    margin-left: -450px;
+    bottom: -88px;
   }
 }
 @media (max-width: 575px) {
@@ -1603,8 +1533,8 @@
   }
   .wg-about .graphic {
     bottom: -72px;
-    margin-left: -318px;
-    width: 400px;
+    margin-left: -344px;
+    width: 440px;
   }
   .wg-about .content {
     text-align: center;
@@ -1632,6 +1562,7 @@
   }
 
   .wg-news .wg-news-nav .action {
+    margin-top: 100px;
     left: 0;
     text-align: center;
   }

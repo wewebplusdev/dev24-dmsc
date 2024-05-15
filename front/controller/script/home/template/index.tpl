@@ -146,13 +146,13 @@
                 <div class="wg-research-main" data-aos="fade-up">
                     <div class="container">
                         <div class="row align-items-center">
-                            <div class="col-lg">
+                            <div class="col">
                                 <div class="whead mb-0">
                                     <h2 class="title">{$languageFrontWeb->researchth->display->$currentLangWeb}</h2>
                                     <p class="subtitle">{$languageFrontWeb->researchen->display->$currentLangWeb}</p>
                                 </div>
                             </div>
-                            <div class="col-lg-auto">
+                            <div class="col-auto">
                                 <div class="action">
                                     <a href="{$ul}/services/rein" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                                 </div>
@@ -166,11 +166,11 @@
                             {if $keyload_innovation eq 0}
                                 {$fade_action = "right"}
                                 {$fade_action_converse = "left"}
-                                {$backgroud_img = "wg-research-graphic-03.png"}
+                                {$backgroud_img = "wg-research-graphic-01.png"}
                             {else}
                                 {$fade_action = "left"}
                                 {$fade_action_converse = "right"}
-                                {$backgroud_img = "wg-research-graphic-04.png"}
+                                {$backgroud_img = "wg-research-graphic-02.png"}
                             {/if}
                             <div class="col-lg" data-aos="fade-{$fade_action}">
                                 <a href="{$valueload_innovation->url}" class="link">
@@ -258,7 +258,7 @@
                     <div class="col-lg" data-aos="fade-right">
                         <div class="content">
                             <div class="whead">
-                                <h1 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h1>
+                                <h2 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</p>
                                 <div class="line"></div>
                                 <p class="desc">
@@ -344,11 +344,11 @@
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
                     <picture>
-                        <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
-                            data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
+                        <source srcset="{$template}/assets/img/static/wg-about-graphic.webp"
+                            data-srcset="{$template}/assets/img/static/wg-about-graphic@2x.webp"
                             type="image/webp">
-                        <img src="{$template}/assets/img/static/wg-about-graphic01.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic01.png" alt="image-microscope"
+                        <img src="{$template}/assets/img/static/wg-about-graphic.png"
+                            data-src="{$template}/assets/img/static/wg-about-graphic@2x.png" alt=""
                             class="lazy">
                     </picture>
                 </div>
@@ -368,12 +368,7 @@
                                     <h2 class="title">{$languageFrontWeb->titlenewsth->display->$currentLangWeb}</h2>
                                     <p class="subtitle">{$languageFrontWeb->titlenewsen->display->$currentLangWeb}</p>
                                     <div class="line"></div>
-                                  
                                 </div>
-                                <div class="action action-not-show">
-                                <a href="{$ul}/listAll/{$valueNewsGroup->masterkey}" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
-                            </div>
-                                
                                 <div class="nav nav-default flex-column" id="news-tab" role="tablist"
                                     aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
@@ -381,10 +376,9 @@
                                             data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
                                     {/foreach}
                                 </div>
-                                <div class="action action-show">
+                                <div class="action">
                                     <a href="{$ul}/listAll/{$valueNewsGroup->masterkey}" class="btn btn-primary">{$languageFrontWeb->read_all->display->$currentLangWeb}</a>
                                 </div>
-                              
                             </div>
                         </div>
                         <div class="col-lg-auto">
@@ -456,10 +450,10 @@
                     <div class="wg-lab">
                         <div class="content" data-aos="fade-right">
                             <div class="whead">
-                                <h1 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h1>
+                                <h2 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
-                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="background-lab"
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt=""
                                         class="lazy">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
@@ -470,11 +464,11 @@
                         </div>
                         <div class="bg" data-aos="fade-right">
                             <picture>
-                                <source srcset="{$template}/assets/img/background/bg-lab-2.webp"
-                                    data-srcset="{$template}/assets/img/background/bg-lab-2.webp"
+                                <source srcset="{$template}/assets/img/background/bg-wg-lab.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-wg-lab@2x.webp"
                                     type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-lab-2.png"
-                                    data-src="{$template}/assets/img/background/bg-lab-2.png" alt="background-lab"
+                                <img src="{$template}/assets/img/background/bg-wg-lab.png"
+                                    data-src="{$template}/assets/img/background/bg-wg-lab@2x.png" alt=""
                                     class="lazy">
                             </picture>
                         </div>
@@ -484,14 +478,14 @@
                     <div class="wg-contact">
                         <div class="content" data-aos="fade-left">
                             <div class="whead">
-                                <h1 class="title">{$languageFrontWeb->contacttitle->display->$currentLangWeb}</h1>
+                                <h2 class="title">{$languageFrontWeb->contacttitle->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->contacttext->display->$currentLangWeb}</p>
                             </div>
                             <div class="contact-list">
                                 {if $settingWeb.contact->email2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -506,7 +500,7 @@
                                 {if $settingWeb.contact->email3 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -521,7 +515,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-auto">
                                         <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
-                                            alt="icon-telephone" class="icon">
+                                            alt="" class="icon">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -534,7 +528,7 @@
                                 </div>
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -553,7 +547,7 @@
                                     data-srcset="{$template}/assets/img/background/bg-wg-contact@2x.webp"
                                     type="image/webp">
                                 <img src="{$template}/assets/img/background/bg-wg-contact.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt="background-contact"
+                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt=""
                                     class="lazy">
                             </picture>
                         </div>

@@ -33,6 +33,7 @@
 
 <!-- Module -->
 <script type="module" src="{$template}/assets/js/controller.js{$lastModify}"></script>
+
 <!-- Main -->
 <script src="{$template}/assets/js/main.js{$lastModify}"></script>
 <!-- Dev -->

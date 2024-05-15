@@ -325,31 +325,20 @@
 }
 
 .asw-wrapper .asw-widget {
-    -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-    .message-btn{
-        bottom: 30px;
-        background: #0084ff;
-    }
-
-    .asw-btn{
-        bottom: 130px;
-        border: none;
-    }
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .asw-wrapper.active .asw-widget .asw-menu-btn {
-    -webkit-transition: all 1000ms ease;
-    -o-transition: all 1000ms ease;
-    transition: all 1000ms ease;
-    -webkit-transform: translate(100%);
-    -ms-transform: translate(100%);
-    transform: translate(100%);
-    z-index: -1;
-    opacity: 0.5;
-    left: -48px;
-    
+  -webkit-transition: all 1000ms ease;
+  -o-transition: all 1000ms ease;
+  transition: all 1000ms ease;
+  -webkit-transform: translate(100%);
+  -ms-transform: translate(100%);
+  transform: translate(100%);
+  z-index: -1;
+  opacity: 0.5;
+  left: -48px;
 }
 
 .asw-widget a.asw-menu-btn:focus {
@@ -420,7 +409,7 @@
   justify-content: center;
 
   position: absolute;
- 
+  top: 80%;
   left: -125px;
 
   width: 85px;
@@ -474,7 +463,7 @@
 @media only screen and (max-width: 1540px) {
   .asw-menu-btn,
   .asw-menu-btn-mobile {
-    /* top: 75%; */
+    top: 75%;
   }
   .asw-menu {
     width: 400px;
@@ -484,12 +473,6 @@
     height: 60px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, .75em 100%, 0 calc(100% - .75em));
     left: -75px;
-  }
-
-  .asw-wrapper .asw-widget {
-    .asw-btn{
-      bottom: 100px;
-    }
   }
   .asw-menu-btn svg {
     transform: scale(.7);
@@ -598,10 +581,9 @@
     transition: 0.2s;
   }
 
-    /* position: absolute;
-    /* top: 50%; */
-    /* left: -125px; */ 
-  
+  .asw-wrapper .menu-close::before {
+    display: none !important;
+  }
 
   /* .asw-menu-header {
     font-size: 20px;
@@ -679,140 +661,4 @@
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
   }
-}
-
-.asw-menu-btn svg,
-.asw-menu-btn-mobile svg {
-    height: 48px;
-    background: 0 0 !important
-}
-
-@media only screen and (max-width:1440px) {
-    .asw-wrapper {
-        top: 0;
-        margin-top: 40px;
-        margin-bottom: 15px;
-    }
-
-    .asw-menu-btn {
-        top: unset;
-        bottom: 50px;
-    }
-
-    .asw-menu-content {
-        height: calc(100vh - 110px);
-    }
-}
-
-
-@media only screen and (max-width:575px) {
-
-    .bg-asw-popup {
-        position: fixed;
-        z-index: 1050;
-        height: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #0000004d;
-        -webkit-transition: .2s;
-        -o-transition: .2s;
-        transition: .2s;
-    }
-
-    .asw-wrapper .menu-close::before {
-        display: none !important;
-    }
-
-    .asw-menu-header {
-        font-size: 20px;
-    }
-
-    .asw-menu {
-        width: 100%;
-        border-radius: 4px;
-        border-top-right-radius: 4px;
-    }
-
-    .asw-wrapper {
-        top: 100px;
-        left: 0;
-        -webkit-transform: translateY(-125%);
-        -ms-transform: translateY(-125%);
-        transform: translateY(-125%);
-        -webkit-transition: .5s;
-        -o-transition: .5s;
-        transition: .5s;
-        margin: 0 10px;
-    }
-
-    .asw-wrapper.active {
-        top: 50%;
-        left: 0;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-
-    .asw-menu-content {
-        height: calc(100vh - 150px);
-    }
-
-    .asw-btn .asw-translate,
-    .asw-adjust-font>div {
-        font-size: 16px !important;
-        ;
-    }
-
-    .asw-card-title {
-        font-size: 22px !important;
-        ;
-    }
-
-    .asw-btn .material-icons {
-        margin-bottom: 6px;
-    }
-
-    .asw-footer>div {
-        font-size: 18px !important;
-    }
-
-    .asw-menu-btn-mobile {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        top: 80%;
-        left: unset;
-        right: 0;
-        z-index: 10;
-        width: 45px;
-        height: 80px;
-    }
-
-    .message{
-
-    }
-
-    .asw-menu-btn-mobile svg {
-        height: 24px;
-    }
-
-    .asw-menu-btn {
-        display: none;
-    }
-
-    .asw-footer {
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
 }

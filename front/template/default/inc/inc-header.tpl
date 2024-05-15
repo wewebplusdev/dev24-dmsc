@@ -135,25 +135,12 @@
                             {/if}
                         {/if}
                     {/foreach}
-                    </ul>
-                    <div class="row gutters-10 lag-mobile">
-                    <div class="col-auto">
-                        <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
-                    </div>
-                    {foreach $languageWeb as $keyLangWeb => $valueLangWeb}
-                        <div class="col-auto">
-                            <a title="{$valueLangWeb->subject}" class="nav-lang-th{if $currentLangWeb eq $valueLangWeb->subject} active{/if}" target="_self" href="{$ul}/lang/{$valueLangWeb->short}">
-                                <span class="visually-hidden">{$valueLangWeb->subject}</span>
-                                <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag">
-                            </a>
-                        </div>
-                    {/foreach}
-                </div>
+                </ul>
                 {/if}
                 <div class="nav-search" data-aos="fade-left" id="search">
                     <form class="form-default form-search" method="get" role="search" action="{$ul}/searchAll">
                         <div class="input-group">
-                            <a href="javascript:void(0)" title="Search" class="btn-link">
+                            <a href="javascript:void(0)" class="btn-link">
                                 <span class="visually-hidden">Search</span>
                                 <span data-feather="search"></span>
                             </a>

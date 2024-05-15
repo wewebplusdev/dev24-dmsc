@@ -18,11 +18,11 @@
                             </a>
                         </li>
                         {if $data_display_breadcrumb == "0"}
-                            <li>
-                                <a href="{$ul}/{$menuActive}/{$masterkey}" class="link">
-                                    {$language_modules.breadcrumb1}
-                                </a>
-                            </li>
+                        <li>
+                            <a href="{$ul}/{$menuActive}/{$masterkey}" class="link">
+                                {$language_modules.breadcrumb1}
+                            </a>
+                        </li>
                         {/if}
                         <li>
                             <a href="{$ul}/{$menuActive}/{$loadData->item[0]->id}/{$loadData->item[0]->masterkey}/{$loadData->item[0]->gid}" class="link">
@@ -36,7 +36,7 @@
                 </h1>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/inner2.png" alt="obj-banner-about.png"
+                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about.png"
                             class="lazy img-cover">
                     </div>
                 </div>
@@ -62,8 +62,7 @@
                                     {if $loadData->item[0]->creby neq ""}
                                         <div class="col-sm-auto">
                                             <div class="box">
-                                                <strong> {$languageFrontWeb->creby->display->$currentLangWeb} :</strong>
-                                                <span>{$load_data->item[0]->creby}</span>
+                                                <strong> {$languageFrontWeb->creby->display->$currentLangWeb} :</strong> <span>{$loadData->item[0]->creby}</span>
                                             </div>
                                         </div>
                                     {/if}
@@ -134,8 +133,7 @@
                                         <strong>Share : </strong>
                                         <ul class="item-list">
                                             <li>
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u={$fullurl}"
-                                                    class="link" title="facebook" target="_blank">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={$fullurl}" class="link" title="facebook" target="_blank">
                                                     <span class="icon">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="11.352"
                                                             height="20" viewBox="0 0 11.352 20">
@@ -147,8 +145,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://twitter.com/intent/tweet?url={$fullurl}" class="link"
-                                                    title="x" target="_blank">
+                                                <a href="https://twitter.com/intent/tweet?url={$fullurl}" class="link" title="x" target="_blank">
                                                     <span class="icon">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="19.57"
                                                             height="20" viewBox="0 0 19.57 20">
@@ -260,43 +257,23 @@
                                     <img src="{$valueAlbun->link}" alt="{$valueAlbun->link}" class="img-cover">
                                 </figure>
                                 </div>
-                                </div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            <div class="gallery-slider-nav">
-                                <div thumbsSlider="" class="swiper gallery-swiper-">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <figure class="cover">
-                                                <img src="{$load_data->item[0]->pic->real}" alt="" class="img-cover">
-                                            </figure>
-                                        </div>
-                                        {if $load_data->item[0]->album|gettype eq "array" && $load_data->item[0]->album|count gte 1}
-                                            {foreach $load_data->item[0]->album as $keyAlbun => $valueAlbun}
-                                                <div class="swiper-slide">
-                                                    <figure class="cover">
-                                                        <img src="{$valueAlbun->link}" alt="{$valueAlbun->link}" class="img-cover">
-                                                    </figure>
-                                                </div>
-                                            {/foreach}
-                                        {/if}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            {/foreach}
+                        {/if}
+                      </div>
                     </div>
+                  </div>
                 </div>
-
+              </div>
+            </div>
+            
             {/if}
 
             <!-- ck editor -->
             <div class="editor-content">
                 <div class="container">
-                   <div class="news-detail">
-                        {strip}
-                            {$load_data->item[0]->html|txtReplaceHTML}
-                        {/strip}
-                   </div>
+                    {strip}
+                        {$loadData->item[0]->html|txtReplaceHTML}
+                    {/strip}
                 </div>
             </div>
             <!-- ck editor -->
@@ -306,14 +283,12 @@
                     <div class="container">
                         {if $loadData->item[0]->type eq "url"}
                             <!-- youtube -->
-                            <div class="iframe-container">
-                                {$myUrlArray = "v="|explode:$load_data->item[0]->video}
+                                <div class="iframe-container">
+                                {$myUrlArray = "v="|explode:$loadData->item[0]->video}
                                 {$myUrlCut = $myUrlArray[1]}
                                 {$myUrlCutArray = "&"|explode:$myUrlCut}
                                 {$myUrlCutAnd= $myUrlCutArray.0}
-                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" title="Inside Of Saturn&#39;s Rings"
-                                    style="border: none; pointer-events: none;"
-                                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                             </div>
                         {else}
                             <!-- mp4 -->
@@ -342,122 +317,116 @@
                                     <div class="swiper-slide">
                                         <div class="item">
                                             <div class="item-wrapper">
-                                                <a href="{$download_url}" target="_blank" class="link">
-                                                    <div class="row gutters-20 aling-items-start">
-                                                        <div class="col-auto">
-                                                            <span class="icon">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="57.688"
-                                                                    height="48.202" viewBox="0 0 57.688 48.202">
-                                                                    <g id="download-3" transform="translate(-6.5 -48.832)">
-                                                                        <path id="Path_451708" data-name="Path 451708"
-                                                                            d="M10.726,125.151A3.225,3.225,0,0,1,7.5,121.925v-32.1a2.017,2.017,0,0,1,2.017-2.017H16.9"
-                                                                            transform="translate(0 -33.724)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <line id="Line_8910" data-name="Line 8910" x1="21.759"
-                                                                            transform="translate(19.836 91.427)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <path id="Path_451709" data-name="Path 451709"
-                                                                            d="M41.478,189.617H36.29a3.26,3.26,0,0,0,3.217-3.275V162.429a2.017,2.017,0,0,1,2.017-2.017H79.637a2.017,2.017,0,0,1,2.017,2.017v8.682"
-                                                                            transform="translate(-25.564 -98.19)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <path id="Path_451710" data-name="Path 451710"
-                                                                            d="M111.291,344.116H101.207a1.12,1.12,0,0,1-1.12-1.12v-3.051a1.12,1.12,0,0,1,1.12-1.121h10.084a1.12,1.12,0,0,1,1.12,1.121V343A1.12,1.12,0,0,1,111.291,344.116Z"
-                                                                            transform="translate(-82.213 -256.611)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <line id="Line_8911" data-name="Line 8911" x2="5.897"
-                                                                            transform="translate(17.874 66.215)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <line id="Line_8912" data-name="Line 8912" x2="8.874"
-                                                                            transform="translate(17.874 70.137)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <path id="Path_451711" data-name="Path 451711"
-                                                                            d="M91.37,62.222V51.849a2.017,2.017,0,0,1,2.017-2.017h25.329"
-                                                                            transform="translate(-74.472)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <path id="Path_451712" data-name="Path 451712"
-                                                                            d="M370.42,49.832h2.954a2.017,2.017,0,0,1,2.017,2.017V62.222"
-                                                                            transform="translate(-322.255)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <line id="Line_8913" data-name="Line 8913" x2="26.044"
-                                                                            transform="translate(21.994 54.066)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <line id="Line_8914" data-name="Line 8914" x2="26.044"
-                                                                            transform="translate(21.994 57.988)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <path id="Path_451713" data-name="Path 451713"
-                                                                            d="M288.607,258.371a12.1,12.1,0,1,1,12.1,12.1A12.1,12.1,0,0,1,288.607,258.371Z"
-                                                                            transform="translate(-249.609 -174.433)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <path id="Path_451714" data-name="Path 451714"
-                                                                            d="M362.7,375.1v2.091a.9.9,0,0,1-.9.9H353.82a.9.9,0,0,1-.9-.9V375.1"
-                                                                            transform="translate(-306.719 -288.822)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <line id="Line_8915" data-name="Line 8915" y2="6.161"
-                                                                            transform="translate(51.093 78.612)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                        <path id="Path_451715" data-name="Path 451715"
-                                                                            d="M374.3,343.128l2.195,1.963a.448.448,0,0,0,.6,0l2.195-1.963"
-                                                                            transform="translate(-325.699 -260.432)" fill="none"
-                                                                            stroke="#29b171" stroke-linecap="round"
-                                                                            stroke-linejoin="round" stroke-miterlimit="10"
-                                                                            stroke-width="2" />
-                                                                    </g>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="desc">
-                                                                {$valueattachment->name}
-                                                            </div>
-                                                            <div class="type-file">
-                                                                <ul class="item-list">
-                                                                    <li>
-                                                                        <strong>{$languageFrontWeb->filetype->display->$currentLangWeb}
-                                                                            :</strong> <span>{$fileinfo.type}</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <strong>{$languageFrontWeb->file_size->display->$currentLangWeb}
-                                                                            :</strong>
-                                                                        <span>{$valueattachment->filename|fileinclude:'file':{$load_data->item[0]->masterkey}|get_IconSize}</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <strong>{$languageFrontWeb->docdownload->display->$currentLangWeb}
-                                                                            :</strong>
-                                                                        <span>{$valueattachment->download|number_format}
-                                                                            {$languageFrontWeb->view2->display->$currentLangWeb}</span>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                              <a href="{$download_url}" target="_blank" class="link">
+                                                  <div class="row gutters-20 aling-items-start">
+                                                      <div class="col-auto">
+                                                          <span class="icon">
+                                                              <svg xmlns="http://www.w3.org/2000/svg" width="57.688"
+                                                                  height="48.202" viewBox="0 0 57.688 48.202">
+                                                                  <g id="download-3" transform="translate(-6.5 -48.832)">
+                                                                      <path id="Path_451708" data-name="Path 451708"
+                                                                          d="M10.726,125.151A3.225,3.225,0,0,1,7.5,121.925v-32.1a2.017,2.017,0,0,1,2.017-2.017H16.9"
+                                                                          transform="translate(0 -33.724)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <line id="Line_8910" data-name="Line 8910" x1="21.759"
+                                                                          transform="translate(19.836 91.427)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <path id="Path_451709" data-name="Path 451709"
+                                                                          d="M41.478,189.617H36.29a3.26,3.26,0,0,0,3.217-3.275V162.429a2.017,2.017,0,0,1,2.017-2.017H79.637a2.017,2.017,0,0,1,2.017,2.017v8.682"
+                                                                          transform="translate(-25.564 -98.19)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <path id="Path_451710" data-name="Path 451710"
+                                                                          d="M111.291,344.116H101.207a1.12,1.12,0,0,1-1.12-1.12v-3.051a1.12,1.12,0,0,1,1.12-1.121h10.084a1.12,1.12,0,0,1,1.12,1.121V343A1.12,1.12,0,0,1,111.291,344.116Z"
+                                                                          transform="translate(-82.213 -256.611)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <line id="Line_8911" data-name="Line 8911" x2="5.897"
+                                                                          transform="translate(17.874 66.215)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <line id="Line_8912" data-name="Line 8912" x2="8.874"
+                                                                          transform="translate(17.874 70.137)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <path id="Path_451711" data-name="Path 451711"
+                                                                          d="M91.37,62.222V51.849a2.017,2.017,0,0,1,2.017-2.017h25.329"
+                                                                          transform="translate(-74.472)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <path id="Path_451712" data-name="Path 451712"
+                                                                          d="M370.42,49.832h2.954a2.017,2.017,0,0,1,2.017,2.017V62.222"
+                                                                          transform="translate(-322.255)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <line id="Line_8913" data-name="Line 8913" x2="26.044"
+                                                                          transform="translate(21.994 54.066)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <line id="Line_8914" data-name="Line 8914" x2="26.044"
+                                                                          transform="translate(21.994 57.988)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <path id="Path_451713" data-name="Path 451713"
+                                                                          d="M288.607,258.371a12.1,12.1,0,1,1,12.1,12.1A12.1,12.1,0,0,1,288.607,258.371Z"
+                                                                          transform="translate(-249.609 -174.433)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <path id="Path_451714" data-name="Path 451714"
+                                                                          d="M362.7,375.1v2.091a.9.9,0,0,1-.9.9H353.82a.9.9,0,0,1-.9-.9V375.1"
+                                                                          transform="translate(-306.719 -288.822)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <line id="Line_8915" data-name="Line 8915" y2="6.161"
+                                                                          transform="translate(51.093 78.612)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                      <path id="Path_451715" data-name="Path 451715"
+                                                                          d="M374.3,343.128l2.195,1.963a.448.448,0,0,0,.6,0l2.195-1.963"
+                                                                          transform="translate(-325.699 -260.432)" fill="none"
+                                                                          stroke="#29b171" stroke-linecap="round"
+                                                                          stroke-linejoin="round" stroke-miterlimit="10"
+                                                                          stroke-width="2" />
+                                                                  </g>
+                                                              </svg>
+                                                          </span>
+                                                      </div>
+                                                      <div class="col">
+                                                          <div class="desc">
+                                                              {$valueattachment->name}
+                                                          </div>
+                                                          <div class="type-file">
+                                                              <ul class="item-list">
+                                                                  <li>
+                                                                      <strong>{$languageFrontWeb->filetype->display->$currentLangWeb} :</strong> <span>{$fileinfo.type}</span>
+                                                                  </li>
+                                                                  <li>
+                                                                      <strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> <span>{$valueattachment->filename|fileinclude:'file':{$loadData->item[0]->masterkey}|getIconSize}</span>
+                                                                  </li>
+                                                                  <li>
+                                                                      <strong>{$languageFrontWeb->docdownload->display->$currentLangWeb} :</strong> <span>{$valueattachment->download|number_format} {$languageFrontWeb->view2->display->$currentLangWeb}</span>
+                                                                  </li>
+                                                              </ul>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </a>
+                                          </div>
                                         </div>
                                     </div>
                                 {/foreach}
@@ -516,35 +485,6 @@
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
-                        <div class="under-line"></div>
-                        <div class="row comment">
-                            <div class="col btn-facebook">
-                                <button data-toggle="collapse" data-target="#fb-comments">
-                                    <div class="comment-green">
-                                        <img src="{$template}/assets/img/uploads/comment.png" alt="">
-                                    </div>
-                                    <div class="comment-light">
-                                        <img src="{$template}/assets/img/uploads/comment-light.png" alt="">
-                                    </div>
-                                    <div>แสดงความคิดเห็น</div>
-                                </button>
-                            </div>
-                            <div class="col-auto btn-back" style="text-align: end;"><button>ย้อนกลับ</button></div>
-                        </div>
-                        <div class="under-line"></div>
-
-                        <div id="fb-root"></div>
-                        <script async defer crossorigin="anonymous"
-                            src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0&appId=427021281892903&autoLogAppEvents=1"
-                            nonce="IFt1dfew"></script>
-
-                        <!-- fb comment show here  -->
-                     
-                        <div id="fb-comments"  class="fb-comments collapse"
-                            data-href="https://www.dmcr.go.th/detailAll/70880/nws/11" data-width="100%" data-numposts="5" data-mobile="true"  >
-                          </div>
-
-                        <!-- fb comment show end  -->
                     </div>
                 </div>
             {/if}

@@ -7,7 +7,6 @@ let downloadSwiper = new Swiper(".document-download-list .swiper", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
-    
   },
   breakpoints: {
     0: {
