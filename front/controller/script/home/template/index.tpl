@@ -289,7 +289,7 @@
                                             {/if}
                                             <div class="col-6">
                                                 <a href="{$news_url}" class="link" target="{$target}">
-                                                    <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
+                                                    <div class="wg-about-group" data-aos="fade-down" data-aos-delay="200">
                                                         <div class="card">
                                                             <div class="card-body">
                                                                 <h3 class="title">{$valueload_about->subject}</h3>
