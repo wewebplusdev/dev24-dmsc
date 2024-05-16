@@ -40,7 +40,7 @@
 
 /* footer */
 .layout-footer .sitemap {
-    color: var(--color-light);
+    color: var(--color-secondary);
     &:hover {
       color: var(--color-primary);
     }
@@ -161,6 +161,9 @@
     .wg-about .graphic {bottom: -65px; margin-left: -485px; width: 650px;}
 
     .layout-view{display: none;}
+
+    .layout-footer .footer-bottom .sitemap {clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));background:linear-gradient(to left, #2ab170 0%, #01377d 50%, #2ab170 100%)#2ab170; padding: 10px 0; color: var(--color-light);background-size:200%;}
+    
 }
 
 @media screen and (max-width: 767px) {
@@ -178,9 +181,7 @@
     .layout-footer .footer-top .title {font-size: 30px;}
     .layout-footer .footer-top .subtitle {font-size: 20px;}
     /* .document-download-list .item .txt{font-size: 14px;} */
-
     
-
 }
 
 @media (max-width: 575px) {

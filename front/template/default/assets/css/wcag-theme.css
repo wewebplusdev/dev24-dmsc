@@ -1605,6 +1605,9 @@
   color: #000000;
   background-color: #000000;
 }
+[data-asw-filter=yellow-contrast] .event-calendar .document-download-list .item .action .link {
+  border: 1px solid #000000;
+}
 
 .readable-font span:not(.asw-wrapper *) {
   font-family: OpenDyslexic3, Comic Sans MS, Arial, Helvetica, sans-serif !important;
