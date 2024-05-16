@@ -922,6 +922,10 @@ $yellowSecondary: #e6cf01bf;
 .document-download-list .item:hover .txt{
   color: $white;
 }
+
+.layout-footer .social .link .icon{
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+}
 }
 
 [data-asw-filter="yellow-contrast"] {
@@ -1895,6 +1899,59 @@ $yellowSecondary: #e6cf01bf;
 
 .type-file .item-list{
   color: $black;
+}
+
+.layout-footer .social .link .icon{
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+}
+
+.event-calendar .header .top{
+  background: $yellowPrimary;
+}
+
+.event-calendar .header .top .title-left{
+  color: $black;
+}
+
+.event-calendar .form-group-calendar .select2-container .select2-selection--single{
+  background: $black;
+}
+
+.event-calendar .form-select .select2-container .select2-selection--single .select2-selection__rendered{
+  color: $yellowPrimary;
+}
+
+.select2-container--option-calendar .select2-results__option--selected{
+  color: $black;
+}
+
+.event-calendar .select .link:hover, .event-calendar .select .link.active{
+  color: $black;
+  border-color: $black;
+}
+
+
+
+.event-calendar{
+  .form-select .select2-container .select2-selection--single .select2-selection__arrow{
+    filter:brightness(0) saturate(100%) invert(74%) sepia(67%) saturate(752%) hue-rotate(6deg) brightness(99%) contrast(99%) ;
+  }
+
+  .form-group-calendar .control-label{
+    color: $yellowPrimary;
+  }
+
+ .header .middle{
+  background-color: $yellowPrimary;
+ }
+
+.select .link:hover, .event-calendar .select .link.active{
+  color: $black;
+  background-color: $black;
+}
+
+ 
+
 }
 
 

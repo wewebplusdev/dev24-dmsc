@@ -763,6 +763,10 @@
 [data-asw-filter=dark-contrast] .document-download-list .item:hover .txt {
   color: #ffffff;
 }
+[data-asw-filter=dark-contrast] .layout-footer .social .link .icon {
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+          filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+}
 
 [data-asw-filter=yellow-contrast] body {
   color: #e6cf01;
@@ -1558,6 +1562,43 @@
 }
 [data-asw-filter=yellow-contrast] .type-file .item-list {
   color: #000000;
+}
+[data-asw-filter=yellow-contrast] .layout-footer .social .link .icon {
+  -webkit-filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+          filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+}
+[data-asw-filter=yellow-contrast] .event-calendar .header .top {
+  background: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .event-calendar .header .top .title-left {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .event-calendar .form-group-calendar .select2-container .select2-selection--single {
+  background: #000000;
+}
+[data-asw-filter=yellow-contrast] .event-calendar .form-select .select2-container .select2-selection--single .select2-selection__rendered {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .select2-container--option-calendar .select2-results__option--selected {
+  color: #000000;
+}
+[data-asw-filter=yellow-contrast] .event-calendar .select .link:hover, [data-asw-filter=yellow-contrast] .event-calendar .select .link.active {
+  color: #000000;
+  border-color: #000000;
+}
+[data-asw-filter=yellow-contrast] .event-calendar .form-select .select2-container .select2-selection--single .select2-selection__arrow {
+  -webkit-filter: brightness(0) saturate(100%) invert(74%) sepia(67%) saturate(752%) hue-rotate(6deg) brightness(99%) contrast(99%);
+          filter: brightness(0) saturate(100%) invert(74%) sepia(67%) saturate(752%) hue-rotate(6deg) brightness(99%) contrast(99%);
+}
+[data-asw-filter=yellow-contrast] .event-calendar .form-group-calendar .control-label {
+  color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .event-calendar .header .middle {
+  background-color: #e6cf01;
+}
+[data-asw-filter=yellow-contrast] .event-calendar .select .link:hover, [data-asw-filter=yellow-contrast] .event-calendar .event-calendar .select .link.active {
+  color: #000000;
+  background-color: #000000;
 }
 
 .readable-font span:not(.asw-wrapper *) {
