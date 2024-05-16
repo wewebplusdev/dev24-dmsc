@@ -899,8 +899,29 @@ $yellowSecondary: #e6cf01bf;
   fill: $black;
 } 
 
+.document-download-list .item-wrapper:hover{
+  background: $black;
+}
 
+.document-download-list .item .txt{
+  color: $black;
+}
 
+.document-download-list .icon path{
+  stroke: $black;
+}
+
+.document-download-list .item-wrapper:hover .box *{
+  stroke: $white;
+}
+
+.document-download-list .item .txt{
+  color: $black;
+}
+
+.document-download-list .item:hover .txt{
+  color: $white;
+}
 }
 
 [data-asw-filter="yellow-contrast"] {
@@ -1875,6 +1896,8 @@ $yellowSecondary: #e6cf01bf;
 .type-file .item-list{
   color: $black;
 }
+
+
 
 }
 .readable-font {

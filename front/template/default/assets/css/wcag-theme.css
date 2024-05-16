@@ -745,6 +745,24 @@
 [data-asw-filter=dark-contrast] .layout-view.layout-list .btn-group button:last-child span * {
   fill: #000000;
 }
+[data-asw-filter=dark-contrast] .document-download-list .item-wrapper:hover {
+  background: #000000;
+}
+[data-asw-filter=dark-contrast] .document-download-list .item .txt {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .document-download-list .icon path {
+  stroke: #000000;
+}
+[data-asw-filter=dark-contrast] .document-download-list .item-wrapper:hover .box * {
+  stroke: #ffffff;
+}
+[data-asw-filter=dark-contrast] .document-download-list .item .txt {
+  color: #000000;
+}
+[data-asw-filter=dark-contrast] .document-download-list .item:hover .txt {
+  color: #ffffff;
+}
 
 [data-asw-filter=yellow-contrast] body {
   color: #e6cf01;
