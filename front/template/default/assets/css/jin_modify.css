@@ -1,0 +1,208 @@
+/* allpage text primary */
+
+.txt {
+    color: var(--color-primary);
+}
+
+/* dowanloadALl page*/
+.document-download-list .item .action .link {
+    padding: 10px;
+    border: 1px solid var(--color-primary);
+}
+
+.document-download-list .item:hover .action .link {
+    border: 1px solid var(--color-light);
+    color: var(--color-light);
+}
+
+.document-download-list .item:hover .action .link * {
+    fill: var(--color-light);
+    color: var(--color-light);
+}
+
+
+/* breadcrumb */
+.breadcrumb li:nth-child(3) .link{
+    max-width: 500px;
+}
+
+/* inner image */
+.default-header .graphic > div{
+    margin-right: -690px;
+    padding-top: 0;
+}
+
+/* mobile app*/
+.document-download-list .item .action .link{
+   margin-right: 10px;
+}
+
+
+/* footer */
+.layout-footer .sitemap {
+    color: var(--color-light);
+    &:hover {
+      color: var(--color-primary);
+    }
+}
+
+.footer-bar {
+    font-size: var(--typo-xs);
+    font-weight: var(--fw-regular);
+    color: var(--color-light);
+    background: linear-gradient(to right, #01377d 0%, #2ab170 100%);
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 1600px) {
+    .section .whead .title {font-size: 40px; line-height: 1.5em;}
+    .section .whead .subtitle {font-size: 28px;}
+
+    .wg-research-group .whead .title {font-size: 32px;}
+    .wg-research-group .whead .subtitle {font-size: 24px;}
+    .wg-research-group .whead .total {font-size: 60px;}
+    .wg-research-group .whead .unit {font-size: 24px;}
+    .wg-about-group .title {font-size: 24px;}
+
+    .layout-footer .footer-top .title {font-size: 40px; line-height: 1.5em;}
+    .layout-footer .footer-top .subtitle {font-size: 28px;}
+    .layout-footer .contact .desc {font-size: 16px;}
+    .layout-footer .policy ul.item-list{font-size: 16px;}
+    .layout-footer .visitors {font-size: 16px;}
+    .layout-footer .copyright {font-size: 16px;}
+    .layout-footer .sitemap {font-size: 16px;}
+    .layout-footer .footer-middle .text-follow-us{font-size: 16px;}
+    .layout-footer .footer-middle .followus{font-size: 16px;}
+
+    .event-list .date{font-size: 24px;}
+    .event-list .desc{font-size: 20px;}
+    .breadcrumb .link{font-size: 16px;}
+
+    .default-header .title{font-size: 34px;}
+    
+    .contact-map .nav .link{font-size: 22px;}
+}
+
+
+@media screen and (max-width: 1540px) {
+    .section .whead .title {font-size: 36px;}
+    .section .whead .subtitle {font-size: 26px;}
+
+    
+    .wg-research-group .whead .title {font-size: 30px;}
+    .wg-research-group .whead .subtitle {font-size: 22px;}
+    .wg-research-group .whead .total {font-size: 55px;}
+    .wg-research-group .whead .unit {font-size: 22px;}
+    .wg-about-group .title {font-size: 22px;}
+
+    .layout-footer .footer-top .title {font-size: 36px;}
+    .layout-footer .footer-top .subtitle {font-size: 26px;}
+
+    .event-list .date{font-size: 22px;}
+    .event-list .desc{font-size: 18px;}
+
+    .form-contact .form-head .title {font-size: 28px;}
+    .layout-form-progress .whead .title {font-size: 32px;}
+}
+
+@media screen and (max-width: 1440px) {
+    .default-header .title{font-size: 32px;}
+    .contact-map .nav .link{font-size: 20px;}
+
+    .contact-center .whead .title{font-size: 32px;}
+    .contact-center .contact-card .head{font-size: 18px;}
+    .contact-center .contact-card .body .desc{font-size: 16px;}
+    .contact-service .whead .title{font-size: 32px;}
+    .contact-service .contact-service-list .item .title{font-size: 18px;}
+}
+
+@media screen and (max-width: 1199px) {
+    .section .whead .title {font-size: 32px;}
+    .section .whead .subtitle {font-size: 22px;}
+
+    
+    .wg-research-group .whead .title {font-size: 28px;}
+    .wg-research-group .whead .subtitle {font-size: 20px;}
+    .wg-research-group .whead .total {font-size: 50px;}
+    .wg-research-group .whead .unit {font-size: 20px;}
+    .wg-about-group .title {font-size: 20px;}
+
+    .layout-footer .footer-top .title {font-size: 32px;}
+    .layout-footer .footer-top .subtitle {font-size: 22px;}
+
+    .event-list .date{font-size: 20px;}
+    .event-list .desc{font-size: 16px;}
+
+    .document-download-list .item .txt{font-size: 16px;}
+
+    .form-contact .form-head .title {font-size: 28px;}
+}
+
+@media screen and (max-width: 991px) {
+    .default-header .title{font-size: 30px;}
+
+    .contact-center .whead .title{font-size: 24px;}
+    .contact-center .contact-card .head{font-size: 16px;}
+    .contact-center .contact-card .body .desc{font-size: 14px;}
+    .contact-service .whead .title{font-size: 24px;}
+    .contact-service .contact-service-list .item .title{font-size: 16px;}
+    .contact-map .nav .link{font-size: 16px;}
+
+    .form-contact .form-head .title {font-size: 22px;}
+    .layout-form-progress .whead .title {font-size: 26px;}
+}
+
+@media screen and (max-width: 767px) {
+    .section .whead .title {font-size: 30px;}
+    .section .whead .subtitle {font-size: 20px;}
+
+    
+    .wg-research-group .whead .title {font-size: 26px;}
+    .wg-research-group .whead .subtitle {font-size: 18px;}
+    .wg-research-group .whead .total {font-size: 40px;}
+    .wg-research-group .whead .unit {font-size: 18px;}
+    .wg-about-group .title {font-size: 18px;}
+
+    .layout-footer .footer-top .title {font-size: 30px;}
+    .layout-footer .footer-top .subtitle {font-size: 20px;}
+    /* .document-download-list .item .txt{font-size: 14px;} */
+
+    
+
+}
+
+@media (max-width: 575px) {
+    .document-download-list.-layout-grid .item {width: 100%;}
+    .document-download-list .thumbnail {width: 100%;}
+    .document-download-list.-layout-list .row{display: block;}
+    .document-download-list.-layout-list .action {padding: 30px 10px;}
+    .document-download-list.-layout-list  .thumbnail .cover {padding-top: 80%;}
+    .document-download-list.-layout-list .item .action a {width: 180px;}
+
+    .section .whead .title {font-size: 28px;}
+    .section .whead .subtitle {font-size: 18px;}
+
+    
+    .wg-research-group .whead .title {font-size: 24px;}
+    .wg-research-group .whead .unit {font-size: 16px;}
+    .wg-about-group .title {font-size: 16px;}
+
+    .layout-footer .contact .desc {font-size: 14px;}
+    .layout-footer .policy ul.item-list{font-size: 14px;}
+    .layout-footer .visitors {font-size: 14px;}
+    .layout-footer .copyright {font-size: 14px;}
+    .layout-footer .sitemap {font-size: 14px;}
+    .layout-footer .footer-middle .text-follow-us{font-size: 14px;}
+    .layout-footer .footer-middle .followus{font-size: 14px;}
+    .layout-footer .footer-top .title {font-size: 28px;}
+    .layout-footer .footer-top .subtitle {font-size: 18px;}
+
+    .event-list .date{font-size: 18px;}
+    .event-list .desc{font-size: 14px;}
+
+    .default-header .title{font-size: 20px;}
+
+    .breadcrumb .link{font-size: 14px;}
+    .breadcrumb li:nth-child(3) .link{max-width: 200px;}
+    
+}

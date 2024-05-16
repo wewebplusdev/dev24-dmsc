@@ -472,11 +472,11 @@
                         </div>
                         <div class="bg" data-aos="fade-right">
                             <picture>
-                                <source srcset="{$template}/assets/img/background/bg-wg-lab.webp"
-                                    data-srcset="{$template}/assets/img/background/bg-wg-lab@2x.webp"
+                                <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp"
                                     type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-lab.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-lab@2x.png" alt=""
+                                <img src="{$template}/assets/img/background/bg-wg-lab2.png"
+                                    data-src="{$template}/assets/img/background/bg-wg-lab2.png" alt=""
                                     class="lazy">
                             </picture>
                         </div>
