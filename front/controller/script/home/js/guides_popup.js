@@ -37,12 +37,12 @@ function onComplete() {
 }
 
 (async () => {
-    try {      
+    try {
         let content_web;
         content_web = await $.getJSON("./webservice_json/content_language_web.json");
 
         let guid_data = {
-            init:{
+            init: {
                 html: `
                 <div class="layout-guide guide-1">
                     <div class="card step-1 text-center">
@@ -66,7 +66,7 @@ function onComplete() {
                 </div>
                 `
             },
-            navlang:{
+            navlang: {
                 element: '.guide-nav-lang',
                 html: `
                 <div class="layout-guide guide-2">
@@ -89,9 +89,10 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            mainHeader:{
+            mainHeader: {
                 element: $('.guide-main-header'),
                 html: `
                 <div class="layout-guide guide-3">
@@ -111,9 +112,10 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            search:{
+            search: {
                 element: $('.guide-search'),
                 html: `
                 <div class="layout-guide guide-4">
@@ -131,9 +133,10 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            banner:{
+            banner: {
                 element: $('#banner'),
                 html: `
                 <div class="layout-guide guide-5">
@@ -150,9 +153,10 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            wcag:{
+            wcag: {
                 element: $('.wcag'),
                 html: `
                 <div class="layout-guide guide-6">
@@ -173,9 +177,10 @@ function onComplete() {
                     </div>
                 </div>
                 <div class="guide-pointer"></div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            ipv6:{
+            ipv6: {
                 element: $('.guide-ipv6'),
                 html: `
                 <div class="layout-guide guide-7">
@@ -195,9 +200,10 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            sitemap:{
+            sitemap: {
                 element: $('.guide-sitemap'),
                 html: `
                 <div class="layout-guide guide-8">
@@ -215,9 +221,10 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            visitors:{
+            visitors: {
                 element: $('.guide-visitors'),
                 html: `
                 <div class="layout-guide guide-9">
@@ -236,7 +243,8 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
         };
 
@@ -258,16 +266,16 @@ function onComplete() {
         const result = await $.ajax(settings);
         if (result?.code == 1001) {
             let data_set = [];
-            result?.item.map((value)=>{
+            result?.item.map((value) => {
                 if (value.section in guid_data) {
                     data_set.push(guid_data[value.section]);
                 }
             });
 
             const init_guides = (data) => {
-                $('.top-graphic').guides({guides:data});
+                $('.top-graphic').guides({ guides: data });
             }
-        
+
             if (typeof $.cookie("TOUR_WEBSITE") === "undefined") {
                 init_guides(data_set);
                 $('.top-graphic').click();
@@ -275,12 +283,31 @@ function onComplete() {
             // save session
             guid_session();
         }
-        
+
 
     } catch (error) {
         console.error("error tour website.", error);
     }
 })();
+
+function guid_addon(res) {
+    $('.layout-header .top-bar').removeClass('guides-current-element');
+
+    if (!!res?.element) {
+        switch (res?.element) {
+            case '.guide-nav-lang':
+                $('.layout-header .top-bar').addClass('guides-current-element');
+                break;
+        
+            default:
+                break;
+        }
+    }
+}
+
+function reset_addon(){
+    // $('.layout-header .top-bar').removeClass('top-bar');
+}
 
 function guid_session() {
     // 365 days
