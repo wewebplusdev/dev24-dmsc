@@ -239,6 +239,7 @@
             </div>
         </div>
     </div>
+    <div class="guides-overlay-custom"></div>
 </footer>
 
 {if count((array)$sitemapWeb) gte 1}

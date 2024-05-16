@@ -66,7 +66,7 @@ function onComplete() {
                     </div>
                     `
                 }, {
-                    element: $('.nav-lang'),
+                    element: $('.guide-nav-lang'),
                     html: `
                     <div class="layout-guide guide-2">
                         <div class="card step-2">
@@ -90,7 +90,7 @@ function onComplete() {
                     </div>
                     `
                 }, {
-                    element: $('#mainHeader'),
+                    element: $('.guide-main-header'),
                     html: `
                     <div class="layout-guide guide-3">
                         <div class="card step-3">
@@ -111,7 +111,7 @@ function onComplete() {
                     </div>
                     `
                 }, {
-                    element: $('#search'),
+                    element: $('.guide-search'),
                     html: `
                     <div class="layout-guide guide-4">
                         <div class="card step-4">
@@ -170,10 +170,11 @@ function onComplete() {
                             </div>
                         </div>
                     </div>
+                    <div class="guide-pointer"></div>
                     `
                 },
                 {
-                    element: $('.ipv6'),
+                    element: $('.guide-ipv6'),
                     html: `
                     <div class="layout-guide guide-7">
                         <div class="card step-7">
@@ -195,7 +196,7 @@ function onComplete() {
                     `
                 },
                 {
-                    element: $('.sitemap'),
+                    element: $('.guide-sitemap'),
                     html: `
                     <div class="layout-guide guide-8">
                         <div class="card step-8">
@@ -215,7 +216,7 @@ function onComplete() {
                     `
                 },
                 {
-                    element: $('.visitors'),
+                    element: $('.guide-visitors'),
                     html: `
                     <div class="layout-guide guide-9">
                         <div class="card step-9">
@@ -265,3 +266,17 @@ function guid_session() {
         // });
     })().catch(() => { });
 }
+
+
+
+// $('.layout-header').addClass('guides-overlay-custom');
+// $('.layout-body').addClass('guides-overlay-custom');
+// $('.guide-nav-lang.guides-current-element').togleClass('test');
+
+
+$( document ).ready(function() {
+  $('.layout-guide.guide-1 .btn').click(function(){
+    $('.layout-header .top-bar').addClass('guides-current-element');
+    console.log( $('.layout-guide.guide-1 .btn'));
+  })
+});
