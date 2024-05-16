@@ -5,6 +5,25 @@
     opacity: 1;
 }
 
+.event-list .item:not(:last-child){
+    border: none;
+}
+
+.event-list .read-more{
+    color: var(--color-primary);
+}
+
+.event-list .link{
+    background: white;
+   
+}
+
+.event-list .item{
+    filter: drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.1));
+    -webkit-filter:drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.1));
+    margin-bottom: 20px;
+}
+
 /******/
 
 
@@ -211,7 +230,7 @@
 }
 
 .custom-control-label{
-    color: white;
+    color: black;
 }
 
 
