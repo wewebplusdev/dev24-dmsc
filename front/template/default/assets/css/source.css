@@ -2966,10 +2966,6 @@ div.swal2-html-container {
   .document-download-list.-layout-grid .item {
     width: 100%;
   }
-  .layout-view .btn-group .btn-list {
-    pointer-events: none;
-    opacity: 0.5;
-  }
   .history-timeline .h-bigger {
     font-size: 32px;
     text-align: center;
@@ -7719,10 +7715,6 @@ a:hover .fontContantTbManage {
 @media (max-width: 575px) {
   .document-download-list.-layout-grid .item {
     width: 100%;
-  }
-  .layout-view .btn-group .btn-list {
-    pointer-events: none;
-    opacity: 0.5;
   }
 }
 .event-calendar {

@@ -34,7 +34,7 @@
         </h1>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png"
+            <img src="{$template}/assets/img/uploads/inner5.png"
               alt="obj-banner-about" class="lazy img-cover">
           </div>
         </div>

@@ -28,8 +28,7 @@
         </h1>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
-              class="lazy img-cover">
+            <img src="{$template}/assets/img/uploads/inner3.png" alt="obj-banner-about" class="lazy img-cover">
           </div>
         </div>
       </div>
@@ -165,34 +164,38 @@
                       <div class="action">
                         <div class="d-flex align-items-center">
                           <a href="{$news_url}" class="link -web-link" target="{$target}">
-                            <span class="icon mr-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                                <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
-                                  <path id="Path_452117" data-name="Path 452117"
-                                    d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
-                                    fill="#2ab170"></path>
-                                  <path id="Path_452118" data-name="Path 452118"
-                                    d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
-                                    fill="#2ab170"></path>
-                                </g>
-                              </svg>
-                            </span>
-                            <div class="txt text-primary fw-bold">{$languageFrontWeb->linkandroid->display->$currentLangWeb}</div>
+                            <div class="d-flex align-items-center">
+                              <span class="icon mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                  <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
+                                    <path id="Path_452117" data-name="Path 452117"
+                                      d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
+                                      fill="#2ab170"></path>
+                                    <path id="Path_452118" data-name="Path 452118"
+                                      d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
+                                      fill="#2ab170"></path>
+                                  </g>
+                                </svg>
+                              </span>
+                              <div class="txt fw-bold">{$languageFrontWeb->linkandroid->display->$currentLangWeb}</div>
+                            </div>
                           </a>
                           <a href="{$news_url2}" class="link -web-link" target="{$target2}">
-                            <span class="icon mr-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                                <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
-                                  <path id="Path_452117" data-name="Path 452117"
-                                    d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
-                                    fill="#2ab170"></path>
-                                  <path id="Path_452118" data-name="Path 452118"
-                                    d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
-                                    fill="#2ab170"></path>
-                                </g>
-                              </svg>
-                            </span>
-                            <div class="txt text-primary fw-bold">{$languageFrontWeb->linkios->display->$currentLangWeb}</div>
+                            <div class="d-flex align-items-center">
+                              <span class="icon mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                  <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
+                                    <path id="Path_452117" data-name="Path 452117"
+                                      d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
+                                      fill="#2ab170"></path>
+                                    <path id="Path_452118" data-name="Path 452118"
+                                      d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
+                                      fill="#2ab170"></path>
+                                  </g>
+                                </svg>
+                              </span>
+                              <div class="txt fw-bold">{$languageFrontWeb->linkios->display->$currentLangWeb}</div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -205,7 +208,7 @@
         </div>
       {/if}
     </div>
-    {if $loadData->_numOfRows gte 1}
+    {if $load_data->_numOfRows gte 1}
       {include file="inc/inc-pagination.tpl" title=title}
     {/if}
   </div>
