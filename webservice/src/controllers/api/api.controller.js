@@ -107,7 +107,7 @@ async function loadRedirect(req, res) {
                                         await query(sql_update); 
 
                                         // const getUrlWeb = await modulus.getUrlWebsite(select_list[0].masterkey, 'download', short_language);
-                                        const getUrlWeb = await modulus.getUrlWebsiteCmsg(select_list[0].typec, short_language);
+                                        const getUrlWeb = await modulus.getUrlWebsiteCmsg(2, short_language);
                                         arr_data.url = `${getUrlWeb}/${select_list[0].id}/${select_list[0].masterkey}/${select_file[0].id}`;
                                     }else{
                                         arr_data.url = ``;

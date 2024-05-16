@@ -17,7 +17,7 @@ switch ($url->segment[1]) {
         break;
 
     case 'insert-global':
-  
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
         require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-global.php'; #load service
         break;
 

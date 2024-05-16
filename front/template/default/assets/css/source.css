@@ -4938,9 +4938,9 @@ div.swal2-html-container {
   padding: 0 20px 0 60px;
 }
 
-a {
+/* a {
   position: relative;
-}
+} */
 
 .fontContantTbManage {
   display: none;
@@ -4993,10 +4993,10 @@ a:hover .fontContantTbManage {
   .default-body .whead .title {
     font-size: 34px;
   }
-  .default-header .graphic > div {
+  /* .default-header .graphic > div {
     margin-right: 0;
     right: 0;
-  }
+  } */
   .default-header .title {
     font-size: 34px;
   }

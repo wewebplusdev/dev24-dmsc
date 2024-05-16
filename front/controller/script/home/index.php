@@ -34,11 +34,13 @@ switch ($url->segment[0]) {
         // call news
         $loadNews = $HomePage->loadNews();
         $array_news_list = array();
+        // check group data return
         if (gettype($loadNews->item->group) == 'array' && count($loadNews->item->group) > 0) {
             foreach ($loadNews->item->group as $keyNewsGroup => $valueNewsGroup) {
                 $array_news_list['group'][] = $valueNewsGroup;
             }
         }
+        // check data return
         if (gettype($loadNews->item->list) == 'array' && count($loadNews->item->list) > 0) {
             foreach ($loadNews->item->list as $keyNewsList => $valueNewsList) {
                 $array_news_list['list'][$valueNewsList->gid][] = $valueNewsList;

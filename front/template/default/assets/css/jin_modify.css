@@ -40,19 +40,20 @@
 
 /* footer */
 .layout-footer .sitemap {
-    color: var(--color-light);
+    color: var(--color-secondary);
     &:hover {
       color: var(--color-primary);
     }
 }
 
-.footer-bar {
-    font-size: var(--typo-xs);
-    font-weight: var(--fw-regular);
-    color: var(--color-light);
-    background: linear-gradient(to right, #01377d 0%, #2ab170 100%);
-    padding: 10px 0;
+/* documentlist weblink title*/
+.document-download-list .item-wrapper .head .title{
+    line-height: 1.5em;
 }
+.document-download-list .item .-webborder .link{
+    width: 150px;
+}
+
 
 @media screen and (max-width: 1600px) {
     .section .whead .title {font-size: 40px; line-height: 1.5em;}
@@ -63,6 +64,7 @@
     .wg-research-group .whead .total {font-size: 60px;}
     .wg-research-group .whead .unit {font-size: 24px;}
     .wg-about-group .title {font-size: 24px;}
+    .wg-about .graphic {bottom: -120px; margin-left: -330px; width: 650px;}
 
     .layout-footer .footer-top .title {font-size: 40px; line-height: 1.5em;}
     .layout-footer .footer-top .subtitle {font-size: 28px;}
@@ -81,6 +83,9 @@
     .default-header .title{font-size: 34px;}
     
     .contact-map .nav .link{font-size: 22px;}
+
+
+    
 }
 
 
@@ -136,6 +141,8 @@
     .document-download-list .item .txt{font-size: 16px;}
 
     .form-contact .form-head .title {font-size: 28px;}
+
+    .default-header .graphic > div {margin-right: -600px;}
 }
 
 @media screen and (max-width: 991px) {
@@ -150,6 +157,13 @@
 
     .form-contact .form-head .title {font-size: 22px;}
     .layout-form-progress .whead .title {font-size: 26px;}
+
+    .wg-about .graphic {bottom: -65px; margin-left: -485px; width: 650px;}
+
+    .layout-view{display: none;}
+
+    .layout-footer .footer-bottom .sitemap {clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));background:linear-gradient(to left, #2ab170 0%, #01377d 50%, #2ab170 100%)#2ab170; padding: 10px 0; color: var(--color-light);background-size:200%;}
+    
 }
 
 @media screen and (max-width: 767px) {
@@ -162,22 +176,21 @@
     .wg-research-group .whead .total {font-size: 40px;}
     .wg-research-group .whead .unit {font-size: 18px;}
     .wg-about-group .title {font-size: 18px;}
+    .wg-about .graphic {bottom: -65px; margin-left: -420px; width: 500px;}
 
     .layout-footer .footer-top .title {font-size: 30px;}
     .layout-footer .footer-top .subtitle {font-size: 20px;}
     /* .document-download-list .item .txt{font-size: 14px;} */
-
     
-
 }
 
 @media (max-width: 575px) {
     .document-download-list.-layout-grid .item {width: 100%;}
     .document-download-list .thumbnail {width: 100%;}
-    .document-download-list.-layout-list .row{display: block;}
+    /* .document-download-list.-layout-list .row{display: block;}
     .document-download-list.-layout-list .action {padding: 30px 10px;}
     .document-download-list.-layout-list  .thumbnail .cover {padding-top: 80%;}
-    .document-download-list.-layout-list .item .action a {width: 180px;}
+    .document-download-list.-layout-list .item .action a {width: 180px;} */
 
     .section .whead .title {font-size: 28px;}
     .section .whead .subtitle {font-size: 18px;}
@@ -186,6 +199,7 @@
     .wg-research-group .whead .title {font-size: 24px;}
     .wg-research-group .whead .unit {font-size: 16px;}
     .wg-about-group .title {font-size: 16px;}
+    .wg-about .graphic {bottom: -50px; margin-left: -330px; width: 400px;}
 
     .layout-footer .contact .desc {font-size: 14px;}
     .layout-footer .policy ul.item-list{font-size: 14px;}
@@ -204,5 +218,11 @@
 
     .breadcrumb .link{font-size: 14px;}
     .breadcrumb li:nth-child(3) .link{max-width: 200px;}
+
+   
     
+}
+
+@media (max-width: 400px){
+    .wg-about .graphic{display: none;}
 }
