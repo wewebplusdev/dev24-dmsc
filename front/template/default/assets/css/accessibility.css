@@ -409,7 +409,7 @@
   justify-content: center;
 
   position: absolute;
-  top: 80%;
+  top: 65%;
   left: -125px;
 
   width: 85px;
@@ -463,7 +463,7 @@
 @media only screen and (max-width: 1540px) {
   .asw-menu-btn,
   .asw-menu-btn-mobile {
-    top: 75%;
+    top: 62%;
   }
   .asw-menu {
     width: 400px;
@@ -533,7 +533,11 @@
 
 
 
-
+  .fix-msg .link {
+    width: 60px;
+    height: 60px;
+    right: 15px;
+  }
 
 
 

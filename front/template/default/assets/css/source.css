@@ -4422,6 +4422,27 @@ div.swal2-html-container {
   padding: 10px 0;
 }
 
+.fix-msg .link {
+  position: fixed;
+  right: 40px;
+  top: 80%;
+  width: 85px;
+  height: 85px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
+  background: -webkit-gradient(linear, left top, left bottom, from(#006aff), to(#00b2ff));
+  background: linear-gradient(#006aff 0%, #00b2ff 100%);
+}
+
 @media (max-width: 1600px) {
   .layout-footer .footer-top .title {
     font-size: 38px;
@@ -4476,6 +4497,16 @@ div.swal2-html-container {
   }
   .layout-footer .footer-middle {
     padding: 50px 0;
+  }
+  .fix-msg .link {
+    width: 60px;
+    height: 60px;
+    right: 15px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
+  }
+  .fix-msg .link svg {
+    width: 25px;
   }
 }
 @media (max-width: 1199px) {
