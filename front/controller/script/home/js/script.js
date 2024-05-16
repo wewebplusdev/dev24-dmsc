@@ -132,8 +132,6 @@ function reload_swiper() {
     });
 }
 
-$('#popupModal').modal('show');
-
 var swiper = new Swiper(".wg-about-swiper .swiper", {
     navigation: {
       nextEl: ".swiper-button-next",
