@@ -218,7 +218,7 @@
                         </div>
                     </div>
                     {/if}
-                    <div class="col-md-auto guide-sitemap" data-aos="fade-right>
+                    <div class="col-md-auto guide-sitemap" data-aos="fade-right">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
                         <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
@@ -339,18 +339,19 @@
   </div>
 {/if}
 
-
-<div class="fix-msg">
-  <a href="" class="link" target="_blank" title="msg">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
-      <defs>
-        <clipPath id="clip-path">
-          <rect id="Rectangle_17517" data-name="Rectangle 17517" width="40" height="40" transform="translate(-19714 -22838)" fill="#fff"/>
-        </clipPath>
-      </defs>
-      <g id="Mask_Group_470" data-name="Mask Group 470" transform="translate(19714 22838)" clip-path="url(#clip-path)">
-        <path id="facebook-messenger" d="M26.365,6.365c-10.917,0-19.794,8.6-19.794,19.176a18.924,18.924,0,0,0,7,14.634l.36.3L13.7,46.365l5.551-2.915.381.134a20.356,20.356,0,0,0,6.725,1.133c10.917,0,19.794-8.6,19.794-19.176S37.281,6.365,26.365,6.365ZM36.251,20.35,29.156,30.5l-5.675-4.243-7,5.149,7.1-10.154L29.258,25.5Z" transform="translate(-19720.359 -22844.365)" fill="#fff"/>
-      </g>
-    </svg>
-  </a>
-</div>
+{if $settingWeb.social->ChatFacebook->link neq "" && $settingWeb.social->ChatFacebook->link neq "#"}
+    <div class="fix-msg">
+      <a href="{$settingWeb.social->ChatFacebook->link}" class="link" target="_blank" title="msg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+          <defs>
+            <clipPath id="clip-path">
+              <rect id="Rectangle_17517" data-name="Rectangle 17517" width="40" height="40" transform="translate(-19714 -22838)" fill="#fff"/>
+            </clipPath>
+          </defs>
+          <g id="Mask_Group_470" data-name="Mask Group 470" transform="translate(19714 22838)" clip-path="url(#clip-path)">
+            <path id="facebook-messenger" d="M26.365,6.365c-10.917,0-19.794,8.6-19.794,19.176a18.924,18.924,0,0,0,7,14.634l.36.3L13.7,46.365l5.551-2.915.381.134a20.356,20.356,0,0,0,6.725,1.133c10.917,0,19.794-8.6,19.794-19.176S37.281,6.365,26.365,6.365ZM36.251,20.35,29.156,30.5l-5.675-4.243-7,5.149,7.1-10.154L29.258,25.5Z" transform="translate(-19720.359 -22844.365)" fill="#fff"/>
+          </g>
+        </svg>
+      </a>
+    </div>
+{/if}

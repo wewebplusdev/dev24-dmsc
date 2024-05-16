@@ -415,7 +415,7 @@
                 let n = [""];
 
                 "high-contrast" != t && "light-contrast" != t || (n = [
-                    "body",
+                    "html",
                 ]);
                 for (var i = n.length; i--;)
                     e += '[data-asw-filter="' + t + '"] ' + n[i] + "{" + s + "}"

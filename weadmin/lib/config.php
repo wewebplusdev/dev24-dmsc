@@ -94,7 +94,7 @@ $_ENV = array(
         "hostname" => "45.136.253.128:9906",
         "username" => "root",
         "password" => "@69lk!logmLi20041:;",
-        "name" => "2024_dmsc_dev",
+        "name" => "2024_dmsc",
     ),
     "STAGING" => array(
         "hostname" => "DB",

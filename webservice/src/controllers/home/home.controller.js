@@ -17,6 +17,7 @@ exports.init = function (req, res) {
         "getService": "getService",
         "getInnovationGroup": "getInnovationGroup",
         "getAbout": "getAbout",
+        "getGuidWebsite": "getGuidWebsite",
     });
 }
 
@@ -1029,6 +1030,114 @@ async function getAbout(req, res) {
                                 'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
                             }
                         }
+                        arr_data[i].createDate = {
+                            full: new Date(select[i].credate),
+                            style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
+                        };
+                    }
+                    result._currentPage = parseInt(module_pageshow);
+                    result._currentLimit = parseInt(module_pagesize);
+                    result._numOfRows = select.length;
+                    result._maxRecordCount = select_list.length;
+                    let currentReMain = parseInt(select_list.length) - (parseInt(module_pagesize) * parseInt(module_pageshow));
+                    result._currentRemain = (currentReMain > 0) ? currentReMain : 0;
+                    result._maxPage = numberofpage;
+                    result.item = arr_data;
+                } else {
+                    result.code = code.missing_data.code;
+                    result.msg = code.missing_data.msg;
+                }
+            } else {
+                result.code = code.missing_data.code;
+                result.msg = code.missing_data.msg;
+            }
+        } catch (error) {
+            result.code = code.error_wrong.code;
+            result.msg = code.error_wrong.msg;
+        }
+        conn.destroy();
+    }
+    res.json(result);
+}
+
+
+async function getGuidWebsite(req, res) {
+    const method = req.body.method;
+    const order = req.body.order;
+    const page = req.body.page;
+    const limit = req.body.limit;
+    const result = general.checkParam([method, order, page, limit]);
+    const code = config.returncode;
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_js'] = config.fieldDB.main.md_js
+    config_array_db['md_jsl'] = config.fieldDB.main.md_jsl
+    // db masterkey
+    let config_array_masterkey = new Array();
+    config_array_masterkey['gw'] = config.fieldDB.masterkey.gw
+
+    if (result.code == code.success.code) {
+        let conn = config.configDB.connectDB();
+        const query = util.promisify(conn.query).bind(conn);
+        try {
+            let sql_list = `SELECT 
+            ${config_array_db['md_js']}_id as id 
+            ,${config_array_db['md_js']}_masterkey as masterkey 
+            ,${config_array_db['md_js']}_credate as credate 
+            ,${config_array_db['md_jsl']}_subject as subject 
+            ,${config_array_db['md_jsl']}_title as title 
+            ,${config_array_db['md_jsl']}_section as section 
+            FROM ${config_array_db['md_js']} 
+            INNER JOIN ${config_array_db['md_jsl']} ON ${config_array_db['md_jsl']}_cid = ${config_array_db['md_js']}_id
+            WHERE ${config_array_db['md_js']}_masterkey = '${config_array_masterkey['gw']}' 
+            AND ${config_array_db['md_js']}_status != 'Disable' 
+            AND ${config_array_db['md_jsl']}_language = 'Thai' 
+            AND ${config_array_db['md_jsl']}_subject != '' 
+            `;
+            sql_list = sql_list + `ORDER BY ${config_array_db['md_js']}_order ${order} 
+            `;
+            // console.log(sql_list);
+            const select_list = await query(sql_list);
+            if (select_list.length > 0) {
+                let count_totalrecord;
+                let module_pagesize = limit;
+                // Find total data
+                if (select_list.length >= 1) {
+                    total_data = select_list.length;
+                    count_totalrecord = total_data;
+                }
+                // Find max page size
+                let numberofpage;
+                if (count_totalrecord > limit) {
+                    numberofpage = Math.ceil(count_totalrecord / limit);
+                } else {
+                    numberofpage = 1;
+                }
+                // Recover page show into range
+                let module_pageshow = page;
+                if (module_pageshow > numberofpage) {
+                    module_pageshow = numberofpage;
+                } else {
+                    module_pageshow = page;
+                }
+                // Select only paging range
+                let recordstart = (module_pageshow - 1) * module_pagesize;
+                limit_order = recordstart + "," + module_pagesize;
+                sql_list += `LIMIT ${limit_order}`
+                const select = await query(sql_list);
+                if (select.length > 0) {
+                    let arr_data = [];
+                    result.code = code.success.code;
+                    result.msg = code.success.msg;
+                    const short_language = await modulus.getCoreLanguage('Thai');
+                    for (let i = 0; i < select.length; i++) {
+                        arr_data[i] = {};
+                        arr_data[i].id = select[i].id;
+                        arr_data[i].masterkey = select[i].masterkey;
+                        arr_data[i].language = 'Thai';
+                        arr_data[i].subject = select[i].subject;
+                        arr_data[i].title = select[i].title;
+                        arr_data[i].section = select[i].section;
                         arr_data[i].createDate = {
                             full: new Date(select[i].credate),
                             style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
