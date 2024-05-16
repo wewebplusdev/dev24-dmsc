@@ -448,6 +448,12 @@ $myRand = time() . rand(111, 999);
                         <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
                     </td>
                 </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["social:cfb"] ?> <?php echo  $langMod['social:link']; ?><span class="fontContantAlert"></span></td>
+                    <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo   $langMod["social:cfb2"] ?>][link]" id="socialLi" type="text" class="formInputContantTb" value="<?php echo  $ValSocial[$langMod["social:cfb2"]]['link'] ?>" /><br />
+                        <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
+                    </td>
+                </tr>
             </table>
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
