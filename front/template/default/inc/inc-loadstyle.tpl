@@ -13,6 +13,8 @@
 <!-- Custom -->
 <link rel="stylesheet" type="text/css" href="{$template}/assets/css/import.css{$lastModify}">
 <link rel="stylesheet" type="text/css" href="{$template}/assets/css/source.css{$lastModify}">
+<link rel="stylesheet" type="text/css" href="{$template}/assets/css/jin_modify.css{$lastModify}">
+<link rel="stylesheet" type="text/css" href="{$template}/assets/css/plug_modify.css{$lastModify}">
 
 <!-- asw css -->
 <link type="text/css" rel="stylesheet" href="{$template}/assets/css/accessibility.css">
