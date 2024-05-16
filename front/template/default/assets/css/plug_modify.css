@@ -143,8 +143,8 @@
       .btn{
         background-color:rgb(2, 172, 124);
         color: var(--color-light);
-        min-width: 60%;
-        border: 2px solid var(--color-light);
+        min-width: 36%;
+  
   
         &:hover{
           background-color: var(--color-secondary);
@@ -194,7 +194,7 @@
       }
 
       .intro-content .action .btn {
-        min-width: 70%;
+        min-width: 40%;
       }
 
       .intro-content .logo .txt{
@@ -202,6 +202,13 @@
         margin-top: 15px;
       }
 
+}
+
+@media (max-width: 575px) {
+    
+    .intro-content .action .btn {
+        min-width: 70%;
+      }
 }
 
 /*******/

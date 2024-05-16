@@ -273,9 +273,11 @@
             <!-- ck editor -->
             <div class="editor-content">
                 <div class="container">
+                <div class="news-detail">
                     {strip}
                         {$loadData->item[0]->html|txtReplaceHTML}
                     {/strip}
+                    </div>
                 </div>
             </div>
             <!-- ck editor -->
