@@ -304,9 +304,9 @@ function guid_session() {
 // $('.guide-nav-lang.guides-current-element').togleClass('test');
 
 
-// $( document ).ready(function() {
-//   $('.layout-guide.guide-1 .btn').click(function(){
-//     $('.layout-header .top-bar').addClass('guides-current-element');
-//     console.log( $('.layout-guide.guide-1 .btn'));
-//   })
-// });
+$( document ).ready(function() {
+  $('.layout-guide.guide-1 .btn').click(function(){
+    $('.layout-header .top-bar').addClass('guides-current-element');
+    console.log( $('.layout-guide.guide-1 .btn'));
+  })
+});

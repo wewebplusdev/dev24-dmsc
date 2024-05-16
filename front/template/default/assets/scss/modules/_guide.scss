@@ -257,18 +257,18 @@
   }
 }
 
-// .guides-mask, 
-// .guides-overlay {display: none;}
+.guides-mask, 
+.guides-overlay {display: none;}
 
-// .guides-overlay-custom {
-//   background: rgba(0, 0, 0, 0.6);
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-//   z-index: 1002;
-// }
+.guides-overlay-custom {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1002;
+}
 
 .top-bar {
   &.guides-current-element {
