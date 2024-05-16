@@ -218,9 +218,9 @@
                         </div>
                     </div>
                     {/if}
-                    <div class="col-md-auto guide-sitemap" data-aos="fade-up>
+                    <div class="col-md-auto guide-sitemap" data-aos="fade-right">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
-                        <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
+                        <a href="javascript:void(0);" class="link sitemap ">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
                 </div>
             </div>
@@ -239,6 +239,7 @@
             </div>
         </div>
     </div>
+    <div class="guides-overlay-custom"></div>
 </footer>
 
 {if count((array)$sitemapWeb) gte 1}
@@ -339,11 +340,19 @@
   </div>
 {/if}
 
-
-<div class="fix-msg">
-  <a href="" class="link" target="_blank" title="msg">
-  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0,0,256,256">
-<g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25,2c-12.69922,0 -23,9.60156 -23,21.5c0,6.30078 2.89844,12.19922 8,16.30078v8.80078l8.60156,-4.5c2.09766,0.59766 4.19922,0.79688 6.39844,0.79688c12.69922,0 23,-9.59766 23,-21.5c0,-11.79687 -10.30078,-21.39844 -23,-21.39844zM27.30078,30.60156l-5.80078,-6.20312l-10.80078,6.10156l12,-12.69922l5.90234,5.89844l10.5,-5.89844z"></path></g></g>
-</svg>
-  </a>
-</div>
+{if $settingWeb.social->ChatFacebook->link neq "" && $settingWeb.social->ChatFacebook->link neq "#"}
+    <div class="fix-msg">
+      <a href="{$settingWeb.social->ChatFacebook->link}" class="link" target="_blank" title="msg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+          <defs>
+            <clipPath id="clip-path">
+              <rect id="Rectangle_17517" data-name="Rectangle 17517" width="40" height="40" transform="translate(-19714 -22838)" fill="#fff"/>
+            </clipPath>
+          </defs>
+          <g id="Mask_Group_470" data-name="Mask Group 470" transform="translate(19714 22838)" clip-path="url(#clip-path)">
+            <path id="facebook-messenger" d="M26.365,6.365c-10.917,0-19.794,8.6-19.794,19.176a18.924,18.924,0,0,0,7,14.634l.36.3L13.7,46.365l5.551-2.915.381.134a20.356,20.356,0,0,0,6.725,1.133c10.917,0,19.794-8.6,19.794-19.176S37.281,6.365,26.365,6.365ZM36.251,20.35,29.156,30.5l-5.675-4.243-7,5.149,7.1-10.154L29.258,25.5Z" transform="translate(-19720.359 -22844.365)" fill="#fff"/>
+          </g>
+        </svg>
+      </a>
+    </div>
+{/if}

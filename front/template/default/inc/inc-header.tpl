@@ -1,7 +1,7 @@
 <header class="layout-header">
     <div class="top-bar" data-aos="fade-down" data-aos-delay="200">
         <div class="container">
-            <div class="nav-lang d-lg-block d-none">
+            <div class="nav-lang d-lg-block d-none guide-nav-lang">
                 <div class="row justify-content-end align-items-center gutters-10">
                     <div class="col-auto">
                         <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
            
                 {if count((array)$sitemapWeb) gte 1}
-                <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0" id="mainHeader">
+                <ul class="main-menu navbar-nav ml-auto mb-2 mb-lg-0 guide-main-header">
                     {foreach $sitemapWeb->level_1->$currentLangWeb as $keySitemapLv1 => $valueSitemapLv1}
                         {if $valueSitemapLv1->subject neq ""}
                             {assign var="checkUrl" value="{$valueSitemapLv1->url|checkUrl}"}
@@ -137,7 +137,8 @@
                     {/foreach}
                 </ul>
                 {/if}
-                <div class="nav-search" data-aos="fade-left" id="search">
+
+                <div class="nav-search guide-search" data-aos="fade-left">
                     <form class="form-default form-search" method="get" role="search" action="{$ul}/searchAll">
                         <div class="input-group">
                             <a href="javascript:void(0)" class="btn-link">
@@ -169,4 +170,5 @@
             </div>
         </div>
     </nav>
+    <div class="guides-overlay-custom"></div>
 </header>

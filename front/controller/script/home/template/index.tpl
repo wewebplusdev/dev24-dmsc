@@ -564,5 +564,5 @@
             </div>
         </div>
     </div>
-
+                                <div class="guides-overlay-custom"></div>
 </section>
