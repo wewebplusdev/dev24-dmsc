@@ -41,4 +41,3 @@ $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
 $smarty->assign("recaptchaSitekey", $recaptchaSitekey);
 
-
