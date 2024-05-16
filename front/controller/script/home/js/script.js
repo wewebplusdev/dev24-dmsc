@@ -38,9 +38,9 @@ let scSwiper = new Swiper(".service-category-list .swiper", {
     }
 });
 
-var serviceSwiper = reload_swiper();
 
-var researchSwiper = new Swiper(".wg-research-list .swiper", {
+
+let researchSwiper = new Swiper(".wg-research-list .swiper", {
     slidesPerView: 3,
     watchSlidesProgress: true,
     navigation: {
@@ -60,7 +60,7 @@ var researchSwiper = new Swiper(".wg-research-list .swiper", {
     }
 });
 
-var newsSwiper = new Swiper(".wg-news-slide .swiper", {
+let newsSwiper = new Swiper(".wg-news-slide .swiper", {
     // slidesPerView: "auto",
     slidesPerView: 2,
     // freeMode: true,
@@ -82,22 +82,19 @@ var newsSwiper = new Swiper(".wg-news-slide .swiper", {
     }
 });
 
-// $('#popupModal').modal('show');
 
+let serviceSwiper;
 function reload_swiper() {
-    if (typeof serviceSwiper != 'undefined') {
+    if (typeof serviceSwiper !== 'undefined') {
         serviceSwiper.destroy();
     }
 
     serviceSwiper = new Swiper(".service-slide .swiper", {
         slidesPerView: 5,
         watchSlidesProgress: true,
-        
         grid: {
             rows: 3,
-            fill: "row"
         },
-
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -132,21 +129,7 @@ function reload_swiper() {
     });
 }
 
-var swiper = new Swiper(".wg-about-swiper .swiper", {
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-});
-
-var swiper = new Swiper(".wg-about-group-list .swiper", {
-  // navigation: {
-  //   nextEl: ".swiper-button-next",
-  //   prevEl: ".swiper-button-prev",
-  // },
-});
-
-  // $('body').guides({
+// $('body').guides({
 //   guides: [{
 //     // welcome
 //     html: '<div class="layout-guide guide-1"> <div class="card step-1 text-center"> <div class="progress-line"></div> <div class="close-guide"> <span class="material-symbols-outlined"> close </span> </div> <div class="content"> <div class="title">สวัสดี</div> <div class="desc"> this is Bei from the Usetiful sales team. It’s great to see that you are interested in learning more about Usetiful. Our <b>interactive product tours</b> allow you to: </div> <div class="desc text-primary"> Improve user retention & activation Guide with tailored onboarding experience Reduce support tickets Measure engagement & collect feedback </div> <div class="action"> <a href="#" class="btn btn-primary">Discover more</a> </div> </div> </div> </div>'
