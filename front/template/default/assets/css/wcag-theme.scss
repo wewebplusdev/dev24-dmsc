@@ -902,8 +902,33 @@ $yellowSecondary: #e6cf01bf;
   fill: $black;
 } 
 
+.document-download-list .item-wrapper:hover{
+  background: $black;
+}
 
+.document-download-list .item .txt{
+  color: $black;
+}
 
+.document-download-list .icon path{
+  stroke: $black;
+}
+
+.document-download-list .item-wrapper:hover .box *{
+  stroke: $white;
+}
+
+.document-download-list .item .txt{
+  color: $black;
+}
+
+.document-download-list .item:hover .txt{
+  color: $white;
+}
+
+.layout-footer .social .link .icon{
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+}
 }
 
 [data-asw-filter="yellow-contrast"] {
@@ -1151,6 +1176,790 @@ $yellowSecondary: #e6cf01bf;
     background: linear-gradient(to left, $yellowPrimary, #a39300);
   }
 
+
+  .our-history-info .content .title{
+    color: $yellowPrimary ;
+  }
+  .our-history-info .content .subtitle{
+    color: $yellowPrimary;
+  }
+  .history-timeline .h-bigger{
+    color: $yellowPrimary;
+  }
+
+  .each-year .title{
+    color: $yellowPrimary;
+  }
+
+  .history-timeline .timeline-list li p{
+    color: $yellowPrimary;
+  }
+
+  .history-timeline .timeline-list li{
+    color: $yellowPrimary;
+  }
+
+  .history-timeline > .row .timeline-dot::before{
+    outline: 6px solid  $yellowPrimary;
+    background-color: $black;
+  }
+
+  .history-timeline::before{
+    background-color: $yellowPrimary;
+  }
+
+  .each-year .nav-link:hover{
+  
+      background: $yellowPrimary;
+      color: $black;
+    
+  }
+
+  .layout-vision .bg-city{
+    filter: grayscale(1);
+  }
+
+  .layout-vision .text-content{
+    color: $black;
+  }
+
+  .layout-swiper .whead .title{
+    color: $yellowPrimary;
+    border-bottom: 2px solid $yellowPrimary;
+  }
+
+  a{
+    color: $yellowPrimary;
+  }
+
+  .layout-swiper .swiper-pagination-bullet-active{
+    background: $yellowPrimary;
+  }
+
+  .document-download-list .icon path,line{
+    stroke: $yellowPrimary;
+  }
+
+  .layout-mission .title-content h5{
+    color: $yellowPrimary;
+  }
+  
+  .layout-mission .text p{
+    color: $yellowPrimary;
+  }
+
+  .layout-mission .number{
+    background: $yellowPrimary;
+    color: $black;
+  }
+
+  .default-filter .head{
+    background: $yellowPrimary;
+  }
+
+  .icon path{
+    stroke: $yellowPrimary;
+    fill:$black;
+  }
+
+  .default-filter .form-select .select2-container .select2-selection--single{
+    background: $black;
+  }
+
+  .default-filter .form-select.-select-group .select2-container .select2-selection--single .select2-selection__rendered{
+    color: $yellowPrimary;
+  }
+  .select2-results__options{
+    background: $black;
+  }
+
+  .select2-container--option-filter .select2-results__option--selected{
+    background-color: $yellowPrimary;
+    color: $black;
+  }
+
+  .default-filter .form-search .form-control{
+    background-color: $black;
+    color: $yellowPrimary;
+
+    &::placeholder{
+      color: $yellowPrimary;
+    }
+    
+  }
+  
+  .default-filter .form-search .search{
+    background-color: $black;
+  }
+
+  
+
+  .form-control::placeholder{
+    color: $yellowPrimary;
+  }
+
+  .default-filter .form-select .control-label{
+    color: $yellowPrimary;
+  }
+  
+  .default-filter .form-select .select2-container .select2-selection--single .select2-selection__rendered{
+    color: $yellowPrimary;
+  }
+
+  .default-filter .form-select .select2-container .select2-selection--single{
+    border: 1px solid $yellowPrimary;
+  }
+
+  .select2-container--option-filter .select2-dropdown{
+    border: 1px solid $yellowPrimary;
+  }
+
+  
+
+  .document-download-list.-layout-grid .item{
+    .content{
+      background: $yellowSecondary;
+    }
+
+    .head .title{
+      color: $black;
+    }
+
+    .action .link{
+      color: $black;
+    }
+
+    &:hover{
+      .content{
+        background: $yellowPrimary;
+        
+      }
+
+      .head .title{
+        color: $black;
+      }
+      .action .link{
+        color: $black;
+      }
+      .icon path{
+        fill:$black;
+      }
+    
+    }
+
+
+  } 
+
+  .layout-view .btn-group > button{
+    border: 1px solid $yellowPrimary;
+  }
+  
+
+  .pagination-block .pagination-label span{
+    color: $yellowPrimary;
+  }
+
+  .default-pagination .pagination .page-item .link.active{
+    background: $black;
+    color: $yellowPrimary;
+  }
+
+  .default-pagination .pagination .page-item .link{
+    border: 1px solid $yellowPrimary;
+  }
+
+  .default-pagination .pagination li.jump-page .select2-container .select2-selection--single{
+    background: $yellowPrimary;
+  
+  }
+
+  .form-select .select2-container .select2-selection--single .select2-selection__rendered{
+    color: $black;
+  }
+
+  .default-pagination .pagination li.jump-page .select2-container .select2-selection--single .select2-selection__arrow::before{
+    color: $black;
+  }
+
+  .select2-container--option-pagination .select2-dropdown{
+    background-color: $black;
+  }
+
+  .select2-container--option-pagination .select2-results__option:hover{
+    background-color: $yellowPrimary;
+    color: $black;
+  }
+
+  .select2-container--option-filter .select2-results__option:hover{
+    background-color: $yellowPrimary;
+    color: $white;
+  }
+
+  .layout-logo .title-text{
+    color: $black;
+  }
+
+  .layout-logo .background-sky{
+    filter: grayscale(1);
+  }
+
+  .default-body .whead .title{
+    color: $yellowPrimary;
+  }
+
+  .layout-view.layout-grid .btn-group button:first-child{
+    background-color: $yellowPrimary;
+  }
+
+  .layout-view.layout-list .btn-group button:last-child{
+    background-color: $yellowPrimary;
+  }
+
+  .document-download-list.-layout-grid .item{
+    .box *{
+      color: $black;
+    }
+
+    .head .date{
+      color: $black;
+    }
+
+    .txt{
+      color: $black;
+    }
+
+    .head .date{
+      color: $black;
+    }
+
+  
+
+    &:hover{
+      .box *{
+        color: $black;
+      }
+
+      .head .date{
+        color: $black;
+      }
+
+      .txt{
+        color: $black;
+      }
+    }
+
+  }
+
+  .default-pagination .pagination .page-item .link{
+    color: $yellowPrimary;
+  }
+
+  .default-bar .box{
+    color: $yellowPrimary;
+  }
+
+  .box path{
+    fill:$yellowPrimary;
+  }
+  
+  .default-bar .whead{
+    border-bottom:2px solid $yellowPrimary ;
+  }
+
+  .item-wrapper{
+    background-color: $yellowSecondary;
+ 
+
+    
+
+    &:hover {
+      &::after {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .item-list li{
+        color: $black;
+      }
+      
+      background-color: $yellowPrimary;
+    }
+    }
+
+  
+    
+    .detail-body .document-download-list .desc{
+      color: $black;
+    }
+    
+    .detail-body .document-download-list .type-file .item-list li{
+      color: $black;
+    }
+
+    .detail-body .whead{
+      border-bottom:2px solid $yellowPrimary ;
+    }
+
+    .detail-body .document-download-list .item-wrapper:hover .desc{
+      color: $black;
+    }
+
+    .detail-body .document-download-list .item-wrapper:hover .type-file .item-list li{
+      color: $black;
+    }
+
+    .detail-body .document-download-list .item-wrapper{
+      .icon path{
+        fill:$black;
+      }
+
+    
+    }
+
+    .wg-contact .content .contact-list .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }
+
+    .layout-footer .footer-top .subtitle .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }
+
+    .layout-footer .contact .icon{
+      filter: brightness(0) saturate(100%) invert(66%) sepia(78%) saturate(941%) hue-rotate(12deg) brightness(107%) contrast(99%);
+    }  
+
+   
+
+    .editor-content{
+      color: $black;
+
+      strong{
+        color: $black;
+      }
+    }
+
+    .news-detail{
+      color: $yellowPrimary;
+
+      strong{
+        color: $yellowPrimary;
+      }
+    }
+
+    .layout-dcio .top-dcio .bg-cio{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text-img{
+      filter: grayscale(1);
+    }
+
+    .layout-dcio .top-dcio .bg-text{
+      background: $yellowPrimary;
+    }
+
+    .layout-dcio .top-dcio .name{
+      color: $black;
+    }
+    .layout-dcio .top-dcio .position-work{
+      color: $black;
+    }
+
+    .layout-dcio .contact-dcio .title-contact h3{
+      color: $yellowPrimary;
+    }
+
+    //news
+    .news-card .line{
+      color: $black;
+    }
+
+  
+    .editor-content p{
+      color: $black;
+    }
+
+    .contact-dcio  p{
+      color: $yellowPrimary;
+    }
+
+
+    .detail-body .news-area .comment .btn-facebook button{
+      color: $black;
+      background-color: $yellowSecondary;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $yellowPrimary;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-back button{
+      color: $black;
+      background-color: $yellowSecondary;
+      border: none;
+
+      &:hover{
+        color: $black;
+        background-color: $yellowPrimary;
+      }
+    }
+
+    .detail-body .news-area .comment .btn-facebook button img{
+      filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+      background-color: $yellowPrimary;
+    }
+
+    .detail-body .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet{
+      background-color: $white;
+      
+    }
+
+    .detail-body .news-area .under-line{
+      background-color: $yellowPrimary;
+    }
+
+    .editor-content span{
+      color: $yellowPrimary !important;
+    }
+
+    .editor-content a{
+      color: $yellowSecondary ;
+
+      &:hover{
+        color: $yellowPrimary;
+      }
+    }
+
+    .manual-list .content-wrapper{
+      background-color: $yellowPrimary;
+      opacity: 1;
+
+      &:hover{
+        background-color: $yellowSecondary;
+      }
+    }
+
+    .manual-list .content-wrapper .title{
+      color: $black;
+    }
+
+    .manual-list .file-type .item-list li{
+      color: $black;
+    }
+
+    .manual-list .read-more{
+      color: $black;
+    }
+
+    .manual-list path{
+      stroke: $black;
+    }
+
+    .manual-list .content-wrapper::before{
+      background: $yellowPrimary;
+    }
+
+    .contact-section .contact-bg{
+      filter: grayscale(1);
+    }
+
+    .contact-center .contact-card .head{
+      color: $black;
+      background: $yellowPrimary;
+    }
+
+    .contact-center  .whead .title{
+      color: $black;
+      
+    }
+
+    .contact-center .desc{
+      color: $black;
+     
+  }
+
+  .contact-center .contact-card .body .action .text{
+    color: $black;
+  }
+
+  .contact-center .contact-card .body .action .icon{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%)
+  }
+
+  .contact-center .contact-card .body{
+    background-color: $yellowPrimary;
+  }
+
+  .contact-center .contact-card::before{
+    filter: grayscale(1);
+  }
+
+  .contact-map .nav .link.active{
+    color: $yellowPrimary;
+    border-color: $yellowPrimary;
+   }
+
+   .contact-map .nav .link:hover{
+    color: $yellowPrimary;
+   }
+
+   .contact-service .whead .title{
+    border-bottom: 1px solid $yellowPrimary;
+   }
+
+   .contact-service .contact-service-list .item{
+    background: $yellowPrimary;
+   }
+
+   .contact-service .contact-service-list .item .title{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item .tel{
+    color: $black;
+   }
+
+   .contact-service .contact-service-list .item > .row::before{
+    background-color: $black;
+   }
+
+   .contact-service img{
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(183deg) brightness(102%) contrast(101%);
+   }
+
+   .form-contact .form-head{
+    background: $yellowPrimary;
+   }
+
+   .form-contact .form-head .title{
+    color: $black;
+   }
+
+   .form-contact .form-body{
+    background: $yellowPrimary;
+   }
+
+   .form-default .form-control{
+    background-color: $yellowSecondary;
+    color: $black;
+   }
+
+   .form-contact .form-group .form-control{
+    border-color:$black;
+   }
+
+   .form-contact .form-group .control-label{
+    color: $black;
+   }
+
+   .form-contact .form-group .control-label span{
+    color: $black;
+   }
+
+   .form-contact .action .btn{
+    background:$black ;
+    color: $white;
+    opacity: 1;
+
+    &:hover{
+      background: $white;
+      color: $black;
+    }
+   }
+
+   .layout-form-progress .form-progress-step .nav .item.active .circle{
+    background: $yellowPrimary;
+   }
+   .layout-form-progress .form-progress-step .nav .item.active .circle .icon path{
+    fill: $black;
+   }
+
+   .layout-form-progress .form-progress-step .nav .item .text-step{
+    color: $yellowPrimary;
+   }
+
+   .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCustomScrollbar .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+    background-color: $yellowPrimary;
+   }
+
+   .layout-header .main-menu .dropdown.show .nav-link{
+    background: $yellowPrimary;
+    color: $black;
+   }
+
+   .breadcrumb .link{
+    color: $black;
+   }
+
+   .breadcrumb .icon path{
+    fill: $black;
+    stroke: $black;
+   }
+
+   .breadcrumb li + li::before{
+    color: $black;
+   }
+
+   .default-header .title{
+    color: $black;
+   }
+
+   .layout-footer .btn{
+    color: $black;
+   }
+
+   .wg-news .wg-news-slide .swiper-default .swiper-button-next, .wg-news .wg-news-slide .swiper-default .swiper-button-prev{
+    border:2px solid $yellowPrimary ;
+   }
+
+   .fb-comments{
+    background: $white;
+
+   }
+
+   .modal .container-check input:checked ~ .checkmark{
+    background-color: $yellowSecondary;
+    
+   }
+
+   .asw-wrapper .asw-widget {
+    .message-btn{
+      filter: grayscale(1);
+    }
+  }
+
+    .asw-wrapper .asw-widget {
+      .asw-btn{
+        filter: grayscale(1);
+      }
+}
+ 
+.asw-wrapper.active .asw-menu{
+  filter: grayscale(1);
+}
+
+.document-download-list .icon path{
+  stroke: $black;
+
+}
+
+.document-download-list.-layout-grid .action a{
+  border: 1px solid $black;
+}
+
+.document-download-list .item .txt{
+  color: $black;
+}
+
+.document-download-list .item-wrapper:hover{
+  background: $yellowPrimary;
+}
+
+.document-download-list .item-wrapper:hover .box *{
+  color: $black;
+}
+
+.document-download-list .item-wrapper:hover .action a{
+  border: 1px solid $black;
+}
+
+.document-download-list .item-wrapper:hover .head *{
+  color: $black;
+}
+
+.our-history-info .content .desc{
+  color: $yellowPrimary;
+}
+
+.document-download-list .box .item-list li + li{
+  border-left: 1px solid $black;
+}
+
+.hamburger .bar{
+  background-color: $yellowPrimary;
+}
+
+.layout-header .navbar-collapse{
+  background: $black;
+}
+
+.layout-header .navbar-nav .nav-link{
+  background: $black;
+}
+
+.layout-header .lag-mobile{
+  color: $yellowPrimary;
+}
+
+.layout-swiper .desc{
+  color: $black;
+}
+
+.type-file .item-list{
+  color: $black;
+}
+
+.layout-footer .social .link .icon{
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(226deg) brightness(99%) contrast(101%);
+}
+
+.event-calendar .header .top{
+  background: $yellowPrimary;
+}
+
+.event-calendar .header .top .title-left{
+  color: $black;
+}
+
+.event-calendar .form-group-calendar .select2-container .select2-selection--single{
+  background: $black;
+}
+
+.event-calendar .form-select .select2-container .select2-selection--single .select2-selection__rendered{
+  color: $yellowPrimary;
+}
+
+.select2-container--option-calendar .select2-results__option--selected{
+  color: $black;
+}
+
+.event-calendar .select .link:hover, .event-calendar .select .link.active{
+  color: $black;
+  border-color: $black;
+}
+
+
+
+.event-calendar{
+  .form-select .select2-container .select2-selection--single .select2-selection__arrow{
+    filter:brightness(0) saturate(100%) invert(74%) sepia(67%) saturate(752%) hue-rotate(6deg) brightness(99%) contrast(99%) ;
+  }
+
+  .form-group-calendar .control-label{
+    color: $yellowPrimary;
+  }
+
+ .header .middle{
+  background-color: $yellowPrimary;
+ }
+
+.select .link:hover, .event-calendar .select .link.active{
+  color: $black;
+  background-color: $black;
+}
+
+ 
+
+}
+
+
+
+}
 .readable-font {
   span:not(.asw-wrapper *) {
     font-family:
@@ -1163,5 +1972,4 @@ $yellowSecondary: #e6cf01bf;
   .asw-wrapper .material-icons {
     font-family: "Material Icons" !important;
   }
-}
 }
