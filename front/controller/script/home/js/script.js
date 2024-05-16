@@ -94,6 +94,7 @@ function reload_swiper() {
         watchSlidesProgress: true,
         grid: {
             rows: 3,
+            fill:"row"
         },
         navigation: {
             nextEl: ".swiper-button-next",

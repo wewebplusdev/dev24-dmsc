@@ -4,12 +4,12 @@
         <div class="container">
             <div class="footer-top">
                 <div class="row">
-                    <div class="col-md col-left" data-aos="fade-left">
+                    <div class="col-md col-left" data-aos="fade-up">
                         <div class="title">{$languageFrontWeb->department->display->$currentLangWeb}</div>
                         <div class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</div>
                     </div>
                     {if $settingWeb.contact->tel2 neq ""}
-                        <div class="col-auto col-right" data-aos="fade-right">
+                        <div class="col-auto col-right" data-aos="fade-up">
                             <div class="title"><a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
                             <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
                         </div>
@@ -220,7 +220,7 @@
                     {/if}
                     <div class="col-md-auto guide-sitemap" data-aos="fade-right">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
-                        <a href="javascript:void(0);" class="link sitemap btn btn-primary text-white">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
+                        <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
                 </div>
             </div>
@@ -239,6 +239,7 @@
             </div>
         </div>
     </div>
+    <div class="guides-overlay-custom"></div>
 </footer>
 
 {if count((array)$sitemapWeb) gte 1}

@@ -71,6 +71,7 @@ const masterkey = {
     "cum": "cum",
     "rec": "rec",
     "jsw": "jsw",
+    "gw": "gw",
 }
 
 // cmsg module page
