@@ -67,7 +67,7 @@ function onComplete() {
                 `
             },
             navlang:{
-                element: '.nav-lang',
+                element: '.guide-nav-lang',
                 html: `
                 <div class="layout-guide guide-2">
                     <div class="card step-2">
@@ -92,7 +92,7 @@ function onComplete() {
                 `
             },
             mainHeader:{
-                element: $('#mainHeader'),
+                element: $('.guide-main-header'),
                 html: `
                 <div class="layout-guide guide-3">
                     <div class="card step-3">
@@ -114,7 +114,7 @@ function onComplete() {
                 `
             },
             search:{
-                element: $('#search'),
+                element: $('.guide-search'),
                 html: `
                 <div class="layout-guide guide-4">
                     <div class="card step-4">
@@ -138,7 +138,6 @@ function onComplete() {
                 html: `
                 <div class="layout-guide guide-5">
                     <div class="card step-5">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step6_banner?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -173,10 +172,11 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
+                <div class="guide-pointer"></div>
                 `
             },
             ipv6:{
-                element: $('.ipv6'),
+                element: $('.guide-ipv6'),
                 html: `
                 <div class="layout-guide guide-7">
                     <div class="card step-7">
@@ -198,7 +198,7 @@ function onComplete() {
                 `
             },
             sitemap:{
-                element: $('.sitemap'),
+                element: $('.guide-sitemap'),
                 html: `
                 <div class="layout-guide guide-8">
                     <div class="card step-8">
@@ -218,7 +218,7 @@ function onComplete() {
                 `
             },
             visitors:{
-                element: $('.visitors'),
+                element: $('.guide-visitors'),
                 html: `
                 <div class="layout-guide guide-9">
                     <div class="card step-9">
@@ -304,9 +304,9 @@ function guid_session() {
 // $('.guide-nav-lang.guides-current-element').togleClass('test');
 
 
-$( document ).ready(function() {
-  $('.layout-guide.guide-1 .btn').click(function(){
-    $('.layout-header .top-bar').addClass('guides-current-element');
-    console.log( $('.layout-guide.guide-1 .btn'));
-  })
-});
+// $( document ).ready(function() {
+//   $('.layout-guide.guide-1 .btn').click(function(){
+//     $('.layout-header .top-bar').addClass('guides-current-element');
+//     console.log( $('.layout-guide.guide-1 .btn'));
+//   })
+// });
