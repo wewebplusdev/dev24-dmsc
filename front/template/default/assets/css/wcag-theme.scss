@@ -3,6 +3,9 @@ $black: #000000;
 $yellowPrimary: #e6cf01;
 $yellowSecondary: #e6cf01bf;
 
+
+[data-asw-filter="high-contrast"] {filter: contrast(125%);}
+
 [data-asw-filter="dark-contrast"] {
   body {
     color: $white;
@@ -1160,4 +1163,5 @@ $yellowSecondary: #e6cf01bf;
   .asw-wrapper .material-icons {
     font-family: "Material Icons" !important;
   }
+}
 }

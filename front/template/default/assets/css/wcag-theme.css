@@ -1,3 +1,8 @@
+[data-asw-filter=high-contrast] {
+  -webkit-filter: contrast(125%);
+          filter: contrast(125%);
+}
+
 [data-asw-filter=dark-contrast] body {
   color: #ffffff;
   background: #000000;
@@ -981,10 +986,9 @@
   background: -webkit-gradient(linear, right top, left top, from(#e6cf01), to(#a39300));
   background: linear-gradient(to left, #e6cf01, #a39300);
 }
-
-.readable-font span:not(.asw-wrapper *) {
+[data-asw-filter=yellow-contrast] .readable-font span:not(.asw-wrapper *) {
   font-family: OpenDyslexic3, Comic Sans MS, Arial, Helvetica, sans-serif !important;
 }
-.readable-font .asw-wrapper .material-icons {
+[data-asw-filter=yellow-contrast] .readable-font .asw-wrapper .material-icons {
   font-family: "Material Icons" !important;
 }/*# sourceMappingURL=wcag-theme.css.map */
