@@ -13,7 +13,7 @@
             Default: "ปกติ",
             "Highlight Title": "เน้นชื่อเรื่อง",
             "Highlight Links": "เน้นลิงค์",
-            "Readable Font": "เน้นตัวอักษร",
+            "Readable Font": "Readable Font",
             "Color Adjustments": "การปรับแต่งสี",
             "Dark Contrast": "มืด",
             "Yellow Contrast": "เหลือง",
@@ -105,7 +105,7 @@
             key: "letter-spacing",
             icon: "space_bar"
         }, {
-            label: "Readable Font",
+            label: "ดีสเล็กซี่ฟ้อนท์",
             key: "readable-font",
             icon: "spellcheck"
         }, {

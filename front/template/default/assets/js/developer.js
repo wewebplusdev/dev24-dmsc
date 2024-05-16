@@ -43,7 +43,7 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
                 path: '/'
             });
         }
-    })().catch(() => { });
+    })().catch(() => {});
 }
 
 // add active menu header
