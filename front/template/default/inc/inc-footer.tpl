@@ -112,7 +112,7 @@
                         </div>
                     {/if}
                     <div class="w-100 p-0 d-lg-none"></div>
-                    <div class="col-sm-auto" data-aos="fade-up" id="ipv6">
+                    <div class="col-sm-auto guide-ipv6" data-aos="fade-up">
                         <div class="ipv6">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/ipv6.webp" type="image/webp">

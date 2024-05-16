@@ -50,7 +50,7 @@ function onComplete() {
                             <div class="close-guide" onclick="close_guides();">
                             <span class="material-symbols-outlined"> close </span>
                             </div>
-                            <div class="content">
+                            <div class="content text-center">
                             <div class="title">${content_web?.tour_step1_welcome?.display[language]}</div>
                             <div class="desc">
                                 ${content_web?.tour_step1_title?.display[language]}
@@ -151,7 +151,7 @@ function onComplete() {
                     `
                 },
                 {
-                    element: $('.asw-menu-btn'),
+                    element: $('.wcag'),
                     html: `
                     <div class="layout-guide guide-6">
                         <div class="card step-6">
@@ -197,8 +197,8 @@ function onComplete() {
                 {
                     element: $('.sitemap'),
                     html: `
-                    <div class="layout-guide guide-7">
-                        <div class="card step-7">
+                    <div class="layout-guide guide-8">
+                        <div class="card step-8">
                             <div class="guide-pointer"></div>
                             <div class="head">
                                 <div class="title">${content_web?.tour_step9_sitemap?.display[language]}</div>
@@ -217,8 +217,8 @@ function onComplete() {
                 {
                     element: $('.visitors'),
                     html: `
-                    <div class="layout-guide guide-7">
-                        <div class="card step-7">
+                    <div class="layout-guide guide-9">
+                        <div class="card step-9">
                             <div class="guide-pointer"></div>
                             <div class="head">
                                 <div class="title">${content_web?.tour_step10_stat?.display[language]}</div>

@@ -206,7 +206,7 @@ function onComplete() {
                     `
                 },
                 {
-                    element: $('.asw-menu-btn'),
+                    element: $('.wcag'),
                     html: `
                     <div class="layout-guide guide-6">
                         <div class="card step-6">
@@ -225,10 +225,11 @@ function onComplete() {
                             </div>
                         </div>
                     </div>
+                    <div class="guide-pointer"></div>
                     `
                 },
                 {
-                    element: $('.ipv6'),
+                    element: $('.guide-ipv6'),
                     html: `
                     <div class="layout-guide guide-7">
                         <div class="card step-7">
@@ -250,10 +251,10 @@ function onComplete() {
                     `
                 },
                 {
-                    element: $('.sitemap'),
+                    element: $('.guide-sitemap'),
                     html: `
-                    <div class="layout-guide guide-7">
-                        <div class="card step-7">
+                    <div class="layout-guide guide-8">
+                        <div class="card step-8">
                             <div class="guide-pointer"></div>
                             <div class="head">
                                 <div class="title">${content_web?.tour_step9_sitemap?.display[language]}</div>
@@ -270,10 +271,10 @@ function onComplete() {
                     `
                 },
                 {
-                    element: $('.visitors'),
+                    element: $('.guide-visitors'),
                     html: `
-                    <div class="layout-guide guide-7">
-                        <div class="card step-7">
+                    <div class="layout-guide guide-9">
+                        <div class="card step-9">
                             <div class="guide-pointer"></div>
                             <div class="head">
                                 <div class="title">${content_web?.tour_step10_stat?.display[language]}</div>

@@ -13,9 +13,13 @@
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5em), calc(100% - 2.5em) 100%, 0 100%);
     
     &.step-1 {
+      .title {text-align: center;}
       .progress-line::before {width: calc(100% / 10);}
       .desc {padding: 0 50px;}
-      .action .btn {min-width: 200px;}
+      .action {
+        text-align: center;
+        .btn {min-width: 200px;}
+      }
     }
     &.step-2 .progress-line::before {width: 11.11111111111111%;}
     &.step-3 .progress-line::before {width: 22.22222222222222%;}
@@ -255,8 +259,15 @@
 
 
 
-.wcag.guides-current-element {
-  & ~ div  ~ div .asw-wrapper {
+.wcag-fix-z {
+  & ~ div .asw-wrapper {
     z-index: 99997;
   } 
+}
+
+.nav-lang.guides-current-element {
+  * {
+    position: relative;
+    z-index: 100000;
+  }
 }
