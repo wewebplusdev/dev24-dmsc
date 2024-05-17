@@ -29,19 +29,19 @@
                         </li> *}
                     </ol>
                 </div>
-                <h1 class="title">
+                <h2 class="title">
                     {$language_modules.breadcrumb2}
-                </h1>
+                </h2>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/inner6.png" alt="obj-banner-about"
+                        <img src="{$template}/assets/img/uploads/inner6.png" alt="image-inner"
                             class="lazy img-cover">
                     </div>
                 </div>
             </div>
         </div>
         <figure class="cover">
-            <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+            <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
         </figure>
     </div>
     <div class="default-body">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-group form-search mb-0">
-                                    <label class="control-label visually-hidden" for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                                    <label class="control-label visually-hidden" for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                                     <div class="block-control">
                                         <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
@@ -106,6 +106,7 @@
                                     <div class="col-md col-12">
                                         <div class="form-group form-select mb-0">
                                             <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                                            <input type="text" name="selectFilter" id="selectFilter" class="d-none" >
                                             <div class="select-wrapper">
                                                 <select class="select-filter" name="sort" id="sort"
                                                     style="width: 100%;" onchange="submit();">
@@ -128,7 +129,7 @@
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="30"
                                                             height="30" viewBox="0 0 30 30">
                                                             <defs>
-                                                                <clipPath id="clip-path">
+                                                                <clipPath id="clip-path2">
                                                                     <rect id="Rectangle_17247"
                                                                         data-name="Rectangle 17247" width="30"
                                                                         height="30" transform="translate(1500 722)"
@@ -137,7 +138,7 @@
                                                             </defs>
                                                             <g id="Mask_Group_395" data-name="Mask Group 395"
                                                                 transform="translate(-1500 -722)"
-                                                                clip-path="url(#clip-path)">
+                                                                clip-path="url(#clip-path1)">
                                                                 <g id="grid" transform="translate(1500.217 722)">
                                                                     <g id="Group_90690" data-name="Group 90690"
                                                                         transform="translate(0)">
@@ -258,23 +259,7 @@
                                                                 <li>
                                                                     <div class="d-flex align-items-center">
                                                                         <span class="icon">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="15.234"
-                                                                                height="20" viewBox="0 0 15.234 20">
-                                                                                <g id="document-3" transform="translate(-2.383)">
-                                                                                    <path id="Path_452390" data-name="Path 452390"
-                                                                                        d="M16.945,4.151,13.179.588A2.14,2.14,0,0,0,11.7,0H4.531A2.151,2.151,0,0,0,2.383,2.148v15.7A2.151,2.151,0,0,0,4.531,20H15.469a2.151,2.151,0,0,0,2.148-2.148V5.712A2.157,2.157,0,0,0,16.945,4.151Zm-1.138.536H12.891a.2.2,0,0,1-.2-.2V1.744Zm-.338,14.141H4.531a.978.978,0,0,1-.977-.977V2.148a.978.978,0,0,1,.977-.977h6.992v3.32a1.369,1.369,0,0,0,1.367,1.367h3.555V17.852A.978.978,0,0,1,15.469,18.828Z"
-                                                                                        fill="#2ab170" />
-                                                                                    <path id="Path_452391" data-name="Path 452391"
-                                                                                        d="M14.18,7.813H5.586a.586.586,0,0,0,0,1.172H14.18a.586.586,0,0,0,0-1.172Z"
-                                                                                        fill="#2ab170" />
-                                                                                    <path id="Path_452392" data-name="Path 452392"
-                                                                                        d="M14.18,10.938H5.586a.586.586,0,0,0,0,1.172H14.18a.586.586,0,0,0,0-1.172Z"
-                                                                                        fill="#2ab170" />
-                                                                                    <path id="Path_452393" data-name="Path 452393"
-                                                                                        d="M8.427,14.063H5.586a.586.586,0,0,0,0,1.172H8.427a.586.586,0,0,0,0-1.172Z"
-                                                                                        fill="#2ab170" />
-                                                                                </g>
-                                                                            </svg>
+                                                                            <img src="{$template}/assets/img/static/doccument.png" alt="image-doccument">
                                                                         </span>
                                                                         <div class="txt"><strong>{$languageFrontWeb->filetype->display->$currentLangWeb} :</strong> {$fileinfo.type}</div>
                                                                     </div>
@@ -282,13 +267,7 @@
                                                                 <li>
                                                                     <div class="d-flex align-items-center">
                                                                         <span class="icon">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                                                                height="16.727" viewBox="0 0 20 16.727">
-                                                                                <path id="folder"
-                                                                                    d="M19.777,7.342a1.323,1.323,0,0,0-1.1-.53H16.91V4.895a1.341,1.341,0,0,0-1.34-1.34H9.391a1.253,1.253,0,0,1-.828-.42L8.1,2.5a2.307,2.307,0,0,0-1.705-.866H4.253A1.74,1.74,0,0,0,2.679,2.75l-.147.417a.674.674,0,0,1-.55.389H1.34A1.341,1.341,0,0,0,0,4.895v12.1a.54.54,0,0,0,.032.182,1.223,1.223,0,0,0,.221.656,1.323,1.323,0,0,0,1.1.53H15.009a2.191,2.191,0,0,0,1.958-1.389L19.913,8.56A1.323,1.323,0,0,0,19.777,7.342ZM1.34,4.641h.642A1.74,1.74,0,0,0,3.556,3.528L3.7,3.112a.675.675,0,0,1,.55-.389H6.395a1.253,1.253,0,0,1,.828.42l.462.633a2.306,2.306,0,0,0,1.705.866H15.57a.257.257,0,0,1,.253.253V6.812H5.022A2.191,2.191,0,0,0,3.064,8.2L1.086,13.849V4.895A.257.257,0,0,1,1.34,4.641ZM18.887,8.2l-2.946,8.415a1.106,1.106,0,0,1-.933.662H1.358a.273.273,0,0,1-.219-.072.273.273,0,0,1,0-.23L4.089,8.56A1.106,1.106,0,0,1,5.022,7.9H18.673a.274.274,0,0,1,.219.072A.274.274,0,0,1,18.887,8.2Z"
-                                                                                    transform="translate(0 -1.636)"
-                                                                                    fill="#2ab170" />
-                                                                            </svg>
+                                                                            <img src="{$template}/assets/img/static/floder.png" alt="image-folder">
                                                                         </span>
                                                                         <div class="txt"><strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> {$valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|getIconSize}</div>
                                                                     </div>
@@ -296,13 +275,7 @@
                                                                 <li>
                                                                     <div class="d-flex align-items-center">
                                                                         <span class="icon">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                                                                height="18.75" viewBox="0 0 20 18.75">
-                                                                                <path id="Download"
-                                                                                    d="M20,10.156a4.38,4.38,0,0,1-4.375,4.375H12.5a.625.625,0,0,1,0-1.25h3.125a3.125,3.125,0,0,0,0-6.25H15a.625.625,0,0,1-.625-.625,4.375,4.375,0,0,0-8.75,0A.625.625,0,0,1,5,7.031H4.375a3.125,3.125,0,0,0,0,6.25H7.5a.625.625,0,0,1,0,1.25H4.375a4.375,4.375,0,0,1,0-8.75H4.41a5.625,5.625,0,0,1,11.18,0h.035A4.38,4.38,0,0,1,20,10.156Zm-7.942,5.808L10.625,17.4V9.531a.625.625,0,0,0-1.25,0V17.4L7.942,15.964a.625.625,0,1,0-.884.884l2.5,2.5a.625.625,0,0,0,.884,0l2.5-2.5a.625.625,0,1,0-.884-.884Z"
-                                                                                    transform="translate(0 -0.781)"
-                                                                                    fill="#2ab170" />
-                                                                            </svg>
+                                                                        <img src="{$template}/assets/img/static/cloud.png" alt="image-cloud">
                                                                         </span>
                                                                         <div class="txt"><strong>{$languageFrontWeb->docdownload->display->$currentLangWeb} :</strong> {$valueload_data->attachment[0]->download|number_format} {$languageFrontWeb->view2->display->$currentLangWeb}
                                                                         </div>
@@ -318,25 +291,7 @@
                                                         <a href="{$news_url}" target="{$target}" class="link">
                                                             <div class="d-flex align-items-center">
                                                                 <span class="icon mr-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        width="18.947" height="20"
-                                                                        viewBox="0 0 18.947 20">
-                                                                        <g id="download-2"
-                                                                            transform="translate(-3.828 -3.158)">
-                                                                            <path id="Path_452394"
-                                                                                data-name="Path 452394"
-                                                                                d="M4.881,16.842a1.053,1.053,0,0,1,1.053,1.053V20a1.053,1.053,0,0,0,.308.744h0a1.053,1.053,0,0,0,.744.308H19.618A1.053,1.053,0,0,0,20.67,20V17.895a1.053,1.053,0,0,1,2.105,0V20a3.158,3.158,0,0,1-3.158,3.158H6.986A3.158,3.158,0,0,1,3.828,20V17.895a1.053,1.053,0,0,1,1.053-1.053Z"
-                                                                                fill="#2ab170" fill-rule="evenodd" />
-                                                                            <path id="Path_452395"
-                                                                                data-name="Path 452395"
-                                                                                d="M7.294,10.835a1.053,1.053,0,0,1,1.489,0L13.3,15.353l4.519-4.519a1.053,1.053,0,0,1,1.489,1.489l-5.263,5.263a1.053,1.053,0,0,1-1.489,0L7.294,12.323A1.053,1.053,0,0,1,7.294,10.835Z"
-                                                                                fill="#2ab170" fill-rule="evenodd" />
-                                                                            <path id="Path_452396"
-                                                                                data-name="Path 452396"
-                                                                                d="M13.3,3.158a1.053,1.053,0,0,1,1.053,1.053V16.842a1.053,1.053,0,0,1-2.105,0V4.211A1.053,1.053,0,0,1,13.3,3.158Z"
-                                                                                fill="#2ab170" fill-rule="evenodd" />
-                                                                        </g>
-                                                                    </svg>
+                                                                <img src="{$template}/assets/img/static/download.png" alt="image-download">
                                                                 </span>
                                                                 <div class="txt  fw-bold">{$languageFrontWeb->downloads->display->$currentLangWeb}</div>
                                                             </div>

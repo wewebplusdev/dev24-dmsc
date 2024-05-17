@@ -23,9 +23,9 @@
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb1}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
             <img src="{$template}/assets/img/uploads/inner2.png" alt="obj-banner-about"
@@ -35,7 +35,7 @@
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-bannner" class="lazy img-cover">
     </figure>
   </div>
 

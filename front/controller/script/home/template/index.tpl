@@ -35,7 +35,7 @@
                     {else}
                         <div class="swiper-slide">
                             <div class="item">
-                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
+                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}" title="link" title="link from image" >
                                     <figure class="contain">
                                         <picture>
                                             <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
@@ -68,7 +68,7 @@
                     <div class="row align-items-center text-sm-left text-center">
                         <div class="col-sm mb-sm-0 mb-3">
                             <div class="whead mb-0" data-aos="fade-right">
-                                <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
+                                <h5 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h5>
                                 <p class="subtitle">{$languageFrontWeb->serviceen->display->$currentLangWeb}</p>
                             </div>
                         </div>
@@ -258,7 +258,7 @@
                     <div class="col-lg" data-aos="fade-right">
                         <div class="content">
                             <div class="whead">
-                                <h2 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h2>
+                                <h3 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h3>
                                 <p class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</p>
                                 <div class="line"></div>
                                 <p class="desc">
@@ -292,7 +292,7 @@
                                                     <div class="wg-about-group" data-aos="fade-down" data-aos-delay="200">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h3 class="title">{$valueload_about->subject}</h3>
+                                                                <h4 class="title">{$valueload_about->subject}</h4>
                                                                 <div class="grphic-obj">
                                                                     <div class="contain">
                                                                         <img src="{$valueload_about->pic->pictures}"
@@ -373,7 +373,7 @@
                         <div class="col-lg">
                             <div class="wg-news-nav" data-aos="fade-left" data-aos-delay="200">
                                 <div class="whead text-sm-left text-center pb-sm-0 pb-5">
-                                    <h2 class="title">{$languageFrontWeb->titlenewsth->display->$currentLangWeb}</h2>
+                                    <h5 class="title">{$languageFrontWeb->titlenewsth->display->$currentLangWeb}</h5>
                                     <p class="subtitle">{$languageFrontWeb->titlenewsen->display->$currentLangWeb}</p>
                                     <div class="line"></div>
                                 </div>

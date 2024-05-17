@@ -23,9 +23,9 @@
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb1}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
             <img src="{$template}/assets/img/uploads/inner2.png" alt="obj-banner-about"
@@ -35,7 +35,7 @@
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
     </figure>
   </div>
 
@@ -61,10 +61,10 @@
               <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                   <g id="full-screen" transform="translate(-0.323 -0.323)">
-                    <path id="Path_452891" data-name="Path 452891" d="M19.677.323H14.194a.645.645,0,1,0,0,1.29h3.874L12.135,7.275a.645.645,0,1,0,.891.934l6.006-5.733V6.452a.645.645,0,0,0,1.29,0V.968a.645.645,0,0,0-.645-.645Z" fill="#2ab170"/>
-                    <path id="Path_452892" data-name="Path 452892" d="M19.677,13.548a.645.645,0,0,0-.645.645V18.12l-6-6a.645.645,0,1,0-.912.912l6,6H14.194a.645.645,0,1,0,0,1.29h5.484a.645.645,0,0,0,.645-.645V14.194A.645.645,0,0,0,19.677,13.548Z" fill="#2ab170"/>
-                    <path id="Path_452893" data-name="Path 452893" d="M7.286,12.447,1.613,18.12V14.194a.645.645,0,0,0-1.29,0v5.484a.645.645,0,0,0,.645.645H6.452a.645.645,0,1,0,0-1.29H2.525L8.2,13.359a.645.645,0,1,0-.912-.912Z" fill="#2ab170"/>
-                    <path id="Path_452894" data-name="Path 452894" d="M2.525,1.613H6.452a.645.645,0,1,0,0-1.29H.968A.645.645,0,0,0,.323.968V6.452a.645.645,0,1,0,1.29,0V2.525L7.286,8.2A.645.645,0,1,0,8.2,7.286Z" fill="#2ab170"/>
+                    <path id="Path_4528911" data-name="Path 452891" d="M19.677.323H14.194a.645.645,0,1,0,0,1.29h3.874L12.135,7.275a.645.645,0,1,0,.891.934l6.006-5.733V6.452a.645.645,0,0,0,1.29,0V.968a.645.645,0,0,0-.645-.645Z" fill="#2ab170"/>
+                    <path id="Path_4528922" data-name="Path 452892" d="M19.677,13.548a.645.645,0,0,0-.645.645V18.12l-6-6a.645.645,0,1,0-.912.912l6,6H14.194a.645.645,0,1,0,0,1.29h5.484a.645.645,0,0,0,.645-.645V14.194A.645.645,0,0,0,19.677,13.548Z" fill="#2ab170"/>
+                    <path id="Path_4528933" data-name="Path 452893" d="M7.286,12.447,1.613,18.12V14.194a.645.645,0,0,0-1.29,0v5.484a.645.645,0,0,0,.645.645H6.452a.645.645,0,1,0,0-1.29H2.525L8.2,13.359a.645.645,0,1,0-.912-.912Z" fill="#2ab170"/>
+                    <path id="Path_4528944" data-name="Path 452894" d="M2.525,1.613H6.452a.645.645,0,1,0,0-1.29H.968A.645.645,0,0,0,.323.968V6.452a.645.645,0,1,0,1.29,0V2.525L7.286,8.2A.645.645,0,1,0,8.2,7.286Z" fill="#2ab170"/>
                   </g>
                 </svg>  
               </span>
@@ -78,7 +78,7 @@
             <a href="{$ul}/{$menuActive}/map-graphic" class="link btn-full-screen" target="_blank">
               <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                  <g id="full-screen" transform="translate(-0.323 -0.323)">
+                  <g id="full-screen1" transform="translate(-0.323 -0.323)">
                     <path id="Path_452891" data-name="Path 452891" d="M19.677.323H14.194a.645.645,0,1,0,0,1.29h3.874L12.135,7.275a.645.645,0,1,0,.891.934l6.006-5.733V6.452a.645.645,0,0,0,1.29,0V.968a.645.645,0,0,0-.645-.645Z" fill="#2ab170"/>
                     <path id="Path_452892" data-name="Path 452892" d="M19.677,13.548a.645.645,0,0,0-.645.645V18.12l-6-6a.645.645,0,1,0-.912.912l6,6H14.194a.645.645,0,1,0,0,1.29h5.484a.645.645,0,0,0,.645-.645V14.194A.645.645,0,0,0,19.677,13.548Z" fill="#2ab170"/>
                     <path id="Path_452893" data-name="Path 452893" d="M7.286,12.447,1.613,18.12V14.194a.645.645,0,0,0-1.29,0v5.484a.645.645,0,0,0,.645.645H6.452a.645.645,0,1,0,0-1.29H2.525L8.2,13.359a.645.645,0,1,0-.912-.912Z" fill="#2ab170"/>
@@ -120,21 +120,10 @@
                               {/if}
                             </div>
                             <div class="action">
-                              <a href="{$ul}/{$menuActive}/googlemap-agencies/{$valueList->id}" target="_blank" class="link">
+                              <a href="{$ul}/{$menuActive}/googlemap-agencies/{$valueList->id}" target="_blank" class="link d-flex align-items-center">
                                 <span class="text">Google map</span>
                                 <span class="icon">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
-                                    viewBox="0 0 14.25 14.25">
-                                    <g id="Icon_ionic-ios-arrow-dropright" data-name="Icon ionic-ios-arrow-dropright"
-                                      transform="translate(-3.375 -3.375)">
-                                      <path id="Path_25" data-name="Path 25"
-                                        d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
-                                        transform="translate(-5.661 -3.389)" fill="#2ab170" />
-                                      <path id="Path_26" data-name="Path 26"
-                                        d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
-                                        fill="#2ab170" />
-                                    </g>
-                                  </svg>
+                                  <img src="{$template}/assets/img/static/Icon-ionic-ios-arrow-dropright.png" alt="image-arrow-right">
                                 </span>
                               </a>
                             </div>

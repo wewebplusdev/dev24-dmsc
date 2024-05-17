@@ -23,19 +23,19 @@
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb2}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/inner3.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner3.png" alt="image-inner"
               class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
     </figure>
   </div>
   <div class="default-body">
@@ -44,7 +44,7 @@
         <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default" id="filter-form">
           <div class="head">
             <div class="form-group form-search mb-0">
-              <label class="control-label visually-hidden" for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+              <label class="control-label visually-hidden" for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
               <div class="block-control">
                 <input class="form-control" type="search" name="keyword"
                 id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
@@ -79,6 +79,7 @@
               <div class="col-md-auto">
                 <div class="form-group form-select mb-0">
                   <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                  <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                   <div class="select-wrapper">
                     <select class="select-filter" name="sort" id="sort"
                       style="width: 100%;" onchange="submit();">

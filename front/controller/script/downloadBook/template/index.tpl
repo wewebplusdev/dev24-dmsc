@@ -24,9 +24,9 @@
                         </li>
                     </ol>
                 </div>
-                <h1 class="title">
+                <h2 class="title">
                     {$language_modules.breadcrumb2}
-                </h1>
+                </h2>
                 <div class="graphic">
                     <div class="obj">
                         <img src="{$template}/assets/img/uploads/inner1.png" alt="obj-banner-about"
@@ -36,7 +36,7 @@
             </div>
         </div>
         <figure class="cover">
-            <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+            <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
         </figure>
     </div>
     <div class="default-body">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-group form-search mb-0">
-                                    <label class="control-label visually-hidden" for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                                    <label class="control-label visually-hidden" for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                                     <div class="block-control">
                                         <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
@@ -101,6 +101,7 @@
                                     <div class="col-md col-12">
                                         <div class="form-group form-select mb-0">
                                             <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                                            <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                                             <div class="select-wrapper">
                                                 <select class="select-filter" name="sort" id="sort"
                                                     style="width: 100%;" onchange="submit();">
@@ -164,22 +165,10 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="read-more">
+                                    <div class="read-more d-flex align-items-center mr-2">
                                         {$languageFrontWeb->readmore2->display->$currentLangWeb}
-                                        <span class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
-                                                viewBox="0 0 14.25 14.25">
-                                                <g id="Icon_ionic-ios-arrow-dropright"
-                                                    data-name="Icon ionic-ios-arrow-dropright"
-                                                    transform="translate(-3.375 -3.375)">
-                                                    <path id="Path_25" data-name="Path 25"
-                                                        d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
-                                                        transform="translate(-5.661 -3.389)" fill="#2ab170" />
-                                                    <path id="Path_26" data-name="Path 26"
-                                                        d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
-                                                        fill="#2ab170" />
-                                                </g>
-                                            </svg>
+                                        <span class="icon ml-2">
+                                           <img src="{$template}/assets/img/static/Icon-ionic-ios-arrow-dropright.png" alt="image-arrow-right">
                                         </span>
                                     </div>
                                 </div>

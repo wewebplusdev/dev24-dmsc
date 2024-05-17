@@ -145,11 +145,12 @@
                                 <span class="visually-hidden">Search</span>
                                 <span data-feather="search"></span>
                             </a>
-                            <input class="form-control" name="keyword" type="text" placeholder="{$languageFrontWeb->search->display->$currentLangWeb}" aria-label="Search">
+                            <label for="keyword" class="visually-hidden">ค้นหา</label>
+                            <input class="form-control" name="keyword" id="keyword" type="text" placeholder="{$languageFrontWeb->search->display->$currentLangWeb}" aria-label="Search">
                         </div>
                     </form>
-                    <a href="javascript:void(0)" class="close-search">
-                        <span data-feather="x"></span>
+                    <a href="javascript:void(0)" class="close-search" title="close search">
+                        <span data-feather="x" title="X"></span>
                     </a>
                 </div>
                 <div class="nav-lang d-lg-none d-block guides-current-element">
