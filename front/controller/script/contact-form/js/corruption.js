@@ -124,12 +124,12 @@ $('#form-contact').validator().on('submit', function (e) {
                     $('.-form-step2').hide();
                     $('.-form-step3').hide();
                 }
+                $("#submit-form").attr("disabled", false);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
             }
         });
     }
-    $("#submit-form").attr("disabled", false);
     return false;
 });
