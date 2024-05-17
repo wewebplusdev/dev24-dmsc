@@ -18,7 +18,7 @@ $message = '
                                           <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                                               <tr>
                                                   <td>
-                                                      <div style="font-size: 16px; font-weight: bold; color: #037ee5; line-height: 1em;">ข้อมูลติดต่อเรา</div>
+                                                      <div style="font-size: 16px; font-weight: bold; color: #037ee5; line-height: 1em;">แจ้งเบาะแสการทุจริตประพฤติมิชอบ</div>
                                                   </td>
                                               </tr>
                                               <tr>
@@ -33,6 +33,13 @@ $message = '
                                                     ที่อยู่ : ' . $_POST["inputAddress"] . '<br/><br/>
                                                     เบอร์โทรศัพท์ : ' . $_POST["inputTel"] . '<br/><br/>
                                                     อีเมล์ : ' . $_POST["inputEmail"] . '<br/><br/>
+
+                                                    ชื่อ-นามสกุล ของผู้ถูกร้อง : ' . $_POST["inputComplaintName"] . '<br/><br/>
+                                                    ช่วงเวลาที่กระทำความผิด : ' . $_POST["inputComplaintTime"] . '<br/><br/>
+                                                    ข้อเท็จจริง : ' . $array_text_fac[$_POST["inputComplaintFac"]] . '<br/><br/>
+                                                    กรณีการกระทำทุจริตต่อหน้าที่ : ' . $_POST["inputComplaintDesc1"] . '<br/><br/>
+                                                    กรณีการกล่าวหาว่าร่ำรวยผิดปกติ : ' . $_POST["inputComplaintDesc2"] . '<br/><br/>
+                                                    ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวเป็นเรื่องจริง : ' . $array_text_confirm[$_POST["inputComplaintConfirm"]] . '<br/><br/>
                                                     <br/> กรมวิทยาศาสตร์การแพทย์ ได้รับข้อมูลของท่านเรียบร้อยแล้ว 
                                                     <br/>
                                                     <br/> ติดต่อสอบถามข้อมูลเพิ่มเติมได้ที่โทร '.$settingWeb['contact']->tel.'
@@ -133,3 +140,4 @@ $message = '
       </tbody>
   </table>
 ';
+// print_r($message);die;

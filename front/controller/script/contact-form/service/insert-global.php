@@ -26,6 +26,10 @@ if ($responseData->success) {
     // insert
     $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
+
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+        loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+
         $arrJson = array(
             'code' => 1001,
             'msg' => 'success',
