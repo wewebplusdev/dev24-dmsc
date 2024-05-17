@@ -113,7 +113,7 @@ function onComplete() {
                     </div>
                 </div>
                 `,
-                func_addon: 'guid_addon'
+                
             },
             search: {
                 element: $('.guide-search'),
@@ -134,7 +134,7 @@ function onComplete() {
                     </div>
                 </div>
                 `,
-                func_addon: 'guid_addon'
+                
             },
             banner: {
                 element: $('#banner'),
@@ -292,17 +292,37 @@ function onComplete() {
 
 function guid_addon(res) {
     $('.layout-header .top-bar').removeClass('guides-current-element');
+    // $('.layout-header .guide-main-header').removeClass('guides-current-element');
+    $('.navbar-collapse').removeClass('show');
+    $('.navbar-toggler').addClass('collapsed');
+   
 
+    
     if (!!res?.element) {
         switch (res?.element) {
+
+            
             case '.guide-nav-lang':
                 $('.layout-header .top-bar').addClass('guides-current-element');
+                // $('.layout-header .guide-main-header').addClass('guides-current-element');
+                $('.navbar-collapse').addClass('show');
+                $('.navbar-toggler').removeClass('collapsed');
+                console.log("1")
                 break;
+                
+            // case '.guide-main-header':
+            //     console.log('banner');
+            //     $('.layout-header .top-bar').addClass('guides-current-element');
+            //     $('.navbar-toggler').addClass('collapsed');
+            //     $('.navbar-collapse').removeClass('show');
+            //     break;
         
             default:
                 break;
         }
     }
+
+  
 }
 
 function reset_addon(){
