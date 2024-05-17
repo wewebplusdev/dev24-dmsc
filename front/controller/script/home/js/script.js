@@ -176,9 +176,9 @@ $('body').click(function(){
   $('.layout-guide.guide-5').closest('.guides-fade-in').toggleClass('guide-banner');
   $('.layout-guide.guide-6').closest('.guides-fade-in').toggleClass('guide-wcag');
   $('.layout-guide.guide-7').closest('.guides-fade-in').toggleClass('guide-ipv6');
-  $('.layout-guide.guide-7').closest('.guides-canvas').removeClass('wcag-fix-z');
+  $('.layout-guide.guide-7').closest('body').removeClass('wcag-fix-z');
   $('.layout-guide.guide-8').closest('.guides-fade-in').toggleClass('guide-visitors');
-  $('.guide-wcag').closest('.guides-canvas').toggleClass('wcag-fix-z');
+  $('.guide-wcag').closest('body').toggleClass('wcag-fix-z');
 })
 
 $('.layout-guide.guide-4 .btn').click(function(){

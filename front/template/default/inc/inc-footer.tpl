@@ -225,6 +225,7 @@
                 </div>
             </div>
         </div>
+        <div class="guides-overlay-custom"></div>
     </div>
     <div class="footer-bar" data-aos="fade-up">
         <div class="container">
@@ -238,8 +239,9 @@
                 </div>
             </div>
         </div>
+        <div class="guides-overlay-custom"></div>
     </div>
-    <div class="guides-overlay-custom"></div>
+
 </footer>
 
 {if count((array)$sitemapWeb) gte 1}

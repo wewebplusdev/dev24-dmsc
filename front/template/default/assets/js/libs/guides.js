@@ -62,7 +62,7 @@
 
         Guide.prototype.init = function () {
             this.$guide = $('<div />', {
-                'class': 'guides-fade-in guides-guide  test' + this._class,
+                'class': 'guides-fade-in guides-guide' + this._class,
                 'html': this.guide.html
             });
 

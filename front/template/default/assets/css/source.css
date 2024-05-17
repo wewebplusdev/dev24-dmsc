@@ -4362,6 +4362,7 @@ div.swal2-html-container {
   padding: 0 10px;
 }
 .layout-footer .footer-content {
+  position: relative;
   background-color: var(--color-light);
   background-image: url("../img/background/bg-footer.png");
   background-repeat: no-repeat;
@@ -4938,9 +4939,9 @@ div.swal2-html-container {
   padding: 0 20px 0 60px;
 }
 
-/* a {
+a {
   position: relative;
-} */
+}
 
 .fontContantTbManage {
   display: none;
@@ -4993,10 +4994,10 @@ a:hover .fontContantTbManage {
   .default-body .whead .title {
     font-size: 34px;
   }
-  /* .default-header .graphic > div {
+  .default-header .graphic > div {
     margin-right: 0;
     right: 0;
-  } */
+  }
   .default-header .title {
     font-size: 34px;
   }
@@ -10136,7 +10137,7 @@ a:hover .fontContantTbManage {
   margin-bottom: -71px;
 }
 .guide-8 ~ .guide-pointer {
-  right: 100px;
+  right: 80px;
   left: unset;
   top: unset;
   bottom: 0;
@@ -10149,7 +10150,7 @@ a:hover .fontContantTbManage {
   margin-bottom: -71px;
 }
 .guide-9 ~ .guide-pointer {
-  right: 100px;
+  right: 80px;
   left: unset;
   top: unset;
   bottom: 0;
@@ -10194,6 +10195,14 @@ a:hover .fontContantTbManage {
   bottom: 0;
   right: 0;
   z-index: 1002;
+}
+
+.guides-guide {
+  margin: 20px 0;
+}
+
+.guides-current-element {
+  pointer-events: none;
 }
 
 .top-bar.guides-current-element {
@@ -10248,7 +10257,46 @@ a:hover .fontContantTbManage {
   z-index: 1003;
 }
 
-.wcag-fix-z ~ div .asw-wrapper {
+.guide-ipv6.guides-current-element::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-light);
+  width: 90px;
+  height: 90px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.guide-sitemap.guides-current-element::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-light);
+  width: 130px;
+  height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.guide-visitors.guides-current-element::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.1803921569);
+  width: 160px;
+  height: 35px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.wcag-fix-z .asw-wrapper {
   z-index: 1003;
 }
 

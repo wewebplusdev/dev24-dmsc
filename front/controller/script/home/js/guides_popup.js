@@ -244,7 +244,7 @@ function onComplete() {
                     </div>
                 </div>
                 `,
-                func_addon: 'guid_addon'
+                func_addon: 'guid_addon',
             },
         };
 
@@ -307,6 +307,7 @@ function guid_addon(res) {
 
 function reset_addon(){
     // $('.layout-header .top-bar').removeClass('top-bar');
+    $('.guides-overlay-custom').addClass('d-none');
 }
 
 function guid_session() {
@@ -331,9 +332,9 @@ function guid_session() {
 // $('.guide-nav-lang.guides-current-element').togleClass('test');
 
 
-$( document ).ready(function() {
-  $('.layout-guide.guide-1 .btn').click(function(){
-    $('.layout-header .top-bar').addClass('guides-current-element');
-    console.log( $('.layout-guide.guide-1 .btn'));
-  })
-});
+// $( document ).ready(function() {
+//   $('.layout-guide.guide-1 .btn').click(function(){
+//     $('.layout-header .top-bar').addClass('guides-current-element');
+//     console.log( $('.layout-guide.guide-1 .btn'));
+//   })
+// });

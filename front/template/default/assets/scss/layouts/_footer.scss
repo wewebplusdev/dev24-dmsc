@@ -117,6 +117,7 @@
     }
   }
   .footer-content {
+    position: relative;
     background-color: var(--color-light);
     background-image: url("../img/background/bg-footer.png");
     @include bg;
