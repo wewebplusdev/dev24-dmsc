@@ -207,6 +207,9 @@
   .gallery-swiper-2 {
     .cover {
       padding-top: 600px;
+      a {
+        position: unset;
+      }
     }
   }
   .gallery-slider-nav {

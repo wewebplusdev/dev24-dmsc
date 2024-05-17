@@ -184,3 +184,6 @@ $('body').click(function(){
 $('.layout-guide.guide-4 .btn').click(function(){
   $('.layout-guide.guide-5').closest('.guides-fade-in').toggleClass('guide-banner');
 });
+
+
+$('.layout-body-home').closest('.global-container').addClass('global-container-home');

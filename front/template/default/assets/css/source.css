@@ -6785,6 +6785,9 @@ a:hover .fontContantTbManage {
 .gallery-slide .gallery-swiper-2 .cover {
   padding-top: 600px;
 }
+.gallery-slide .gallery-swiper-2 .cover a {
+  position: unset;
+}
 .gallery-slide .gallery-slider-nav {
   margin-top: -150px;
   margin-left: 100px;
@@ -10187,7 +10190,7 @@ a:hover .fontContantTbManage {
   display: none;
 }
 
-.guides-overlay-custom {
+.global-container-home .guides-overlay-custom {
   background: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
