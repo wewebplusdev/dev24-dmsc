@@ -255,7 +255,7 @@
       </svg>
     </div>
     <h1 class="h-title">แผนผังเว็บไซต์</h1>
-    <!-- Start Sitemap --------->
+    <!-- Start Sitemap -->
     {if count((array)$sitemapWeb) gte 1}
     <div class="sitmap-menu">
     
@@ -338,7 +338,7 @@
       </div>
     </div>
     {/if}
-    <!-- End Sitemap --------->
+    <!-- End Sitemap -->
   </div>
 {/if}
 
