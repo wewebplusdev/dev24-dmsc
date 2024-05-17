@@ -244,7 +244,7 @@ function onComplete() {
                     </div>
                 </div>
                 `,
-                func_addon: 'guid_addon'
+                func_addon: 'guid_addon',
             },
         };
 
@@ -307,6 +307,7 @@ function guid_addon(res) {
 
 function reset_addon(){
     // $('.layout-header .top-bar').removeClass('top-bar');
+    $('.guides-overlay-custom').addClass('d-none');
 }
 
 function guid_session() {

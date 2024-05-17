@@ -152,7 +152,7 @@
                         <span data-feather="x"></span>
                     </a>
                 </div>
-                <div class="nav-lang d-lg-none d-block">
+                <div class="nav-lang d-lg-none d-block guides-current-element">
                   <div class="row align-items-center gutters-10">
                       <div class="col-12">
                           <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>

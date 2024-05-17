@@ -1,4 +1,4 @@
-<section class="layout-body">
+<section class="layout-body layout-body-home">
 
     {if $loadTopgraphic->_numOfRows gte 1}
         <div id="banner" class="text-righ w-25 ml-auto"></div>
@@ -356,7 +356,7 @@
                             data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
                             type="image/webp">
                         <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic01.webp" alt=""
+                            data-src="{$template}/assets/img/static/wg-about-graphic01.webp" alt="image-graphic"
                             class="lazy">
                     </picture>
                 </div>
@@ -461,7 +461,7 @@
                                 <h2 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
-                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt=""
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj"
                                         class="lazy">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
@@ -476,7 +476,7 @@
                                     data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp"
                                     type="image/webp">
                                 <img src="{$template}/assets/img/background/bg-wg-lab2.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-lab2.png" alt=""
+                                    data-src="{$template}/assets/img/background/bg-wg-lab2.png" alt="background-lab"
                                     class="lazy">
                             </picture>
                         </div>
@@ -493,7 +493,7 @@
                                 {if $settingWeb.contact->email2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -508,7 +508,7 @@
                                 {if $settingWeb.contact->email3 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -536,7 +536,7 @@
                                 </div>
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -555,7 +555,7 @@
                                     data-srcset="{$template}/assets/img/background/bg-wg-contact@2x.webp"
                                     type="image/webp">
                                 <img src="{$template}/assets/img/background/bg-wg-contact.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt=""
+                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt="background-contact"
                                     class="lazy">
                             </picture>
                         </div>

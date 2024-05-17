@@ -1,8 +1,8 @@
 <?php
 $menuActive = "home";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js'.$lastModify.'"></script>';
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js'.$lastModify.'"></script>';
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/guides_popup.js'.$lastModify.'"></script>';
+$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js'.$lastModify.'"></script>';
+$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js'.$lastModify.'"></script>';
+$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/guides_popup.js'.$lastModify.'"></script>';
 
 $HomePage = new HomePage;
 

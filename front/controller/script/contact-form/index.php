@@ -1,5 +1,5 @@
 <?php
-define('JS_SCRIPT_START', '<script type="text/javascript" src="');
+define('JS_SCRIPT_START', '<script src="');
 define('SCRIPT_PATH', 'front/controller/script/');
 define('FULL_SCRIPT_PATH', '/front/controller/script/');
 $menuActive = "contact-form";
