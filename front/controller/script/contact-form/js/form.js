@@ -13,7 +13,6 @@ $('#form-contact').validator().on('submit', function (e) {
         $('#form-contact').validator('validate');
     } else {
         e.preventDefault();
-
         $("#submit-form").attr("disabled", true);
         let formData = new FormData($("#form-contact")[0]);
         $.ajax({
@@ -50,12 +49,12 @@ $('#form-contact').validator().on('submit', function (e) {
                     $('.-form-contact').show();
                     $('.-form-success').hide();
                 }
+                $("#submit-form").attr("disabled", false);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
             }
         });
     }
-    $("#submit-form").attr("disabled", false);
     return false;
 });

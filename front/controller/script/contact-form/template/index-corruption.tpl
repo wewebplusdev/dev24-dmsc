@@ -173,14 +173,14 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="inputTel" class="control-label">{$languageFrontWeb->contact_tel->display->$currentLangWeb}<span>*</span></label>
-                                        <input type="text" id="inputTel" value="" name="inputTel" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
+                                        <input type="text" id="inputTel" minlength="10" maxlength="10" value="" name="inputTel" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
                                             class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="inputEmail" class="control-label">{$languageFrontWeb->contact_email->display->$currentLangWeb}<span>*</span></label>
-                                        <input type="text" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
+                                        <input type="email" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
                                             class="form-control" required>
                                     </div>
                                 </div>
