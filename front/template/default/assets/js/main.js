@@ -228,4 +228,10 @@ $(document).ready(function () {
       $(this).append(strHTML);
     }
   });
+
+  $('.layout-guide.guide-1 .btn').click(function(){
+    $('.layout-header .top-bar').addClass('guides-current-element');
+    console.log( $('.layout-guide.guide-1 .btn'));
+  })
+
 });

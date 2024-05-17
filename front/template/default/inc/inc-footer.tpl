@@ -4,14 +4,14 @@
         <div class="container">
             <div class="footer-top">
                 <div class="row">
-                    <div class="col-md col-left" data-aos="fade-left">
+                    <div class="col-md col-left" data-aos="fade-up">
                         <div class="title">{$languageFrontWeb->department->display->$currentLangWeb}</div>
                         <div class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</div>
                     </div>
                     {if $settingWeb.contact->tel2 neq ""}
-                        <div class="col-auto col-right" data-aos="fade-right">
+                        <div class="col-auto col-right" data-aos="fade-up">
                             <div class="title"><a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
-                            <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
+                            <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="icon-call" class="icon"> Call Center</div>
                         </div>
                     {/if}
                 </div>
@@ -22,7 +22,7 @@
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt=""
+                                    <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt="icon-address"
                                         class="icon">
                                 </div>
                                 <div class="col">
@@ -38,7 +38,7 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt=""
+                                        <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="icon-telephone"
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -56,7 +56,7 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt=""
+                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -74,7 +74,7 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -97,7 +97,7 @@
                             <div class="contact pt-md-3">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt=""
+                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -116,7 +116,7 @@
                         <div class="ipv6">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/ipv6.webp" type="image/webp">
-                                <img src="{$template}/assets/img/static/ipv6.png" alt="" class="icon">
+                                <img src="{$template}/assets/img/static/ipv6.png" alt="image-ipv6" class="icon">
                             </picture>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                                                     <a href="tel:{" "|str_replace:"":$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/old-typical-phone.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-phone" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -145,7 +145,7 @@
                                                         title="Facebook" target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/facebook.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-facebook" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -156,7 +156,7 @@
                                                         target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/twitter.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-twitter" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -167,7 +167,7 @@
                                                         title="YouTube" target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/youtube.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-youtube" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -178,7 +178,7 @@
                                                         title="Line" target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/line.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-line" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -194,7 +194,7 @@
             <div class="footer-bottom">
                 <div class="row">
                     {if $loadPolicy->_numOfRows gte 1}
-                    <div class="col-md" data-aos="fade-left">
+                    <div class="col-md align-self-center" data-aos="fade-left">
                         <div class="policy">
                             <ul class="item-list">
                                 {foreach $loadPolicy->item as $keyPolicy => $valuePolicy}
@@ -225,6 +225,7 @@
                 </div>
             </div>
         </div>
+        <div class="guides-overlay-custom"></div>
     </div>
     <div class="footer-bar" data-aos="fade-up">
         <div class="container">
@@ -238,7 +239,9 @@
                 </div>
             </div>
         </div>
+        <div class="guides-overlay-custom"></div>
     </div>
+
 </footer>
 
 {if count((array)$sitemapWeb) gte 1}

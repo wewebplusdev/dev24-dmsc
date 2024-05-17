@@ -289,7 +289,7 @@
                                             {/if}
                                             <div class="col-6">
                                                 <a href="{$news_url}" class="link" target="{$target}">
-                                                    <div class="wg-about-group" data-aos="fade-down-left" data-aos-delay="200">
+                                                    <div class="wg-about-group" data-aos="fade-down" data-aos-delay="200">
                                                         <div class="card">
                                                             <div class="card-body">
                                                                 <h3 class="title">{$valueload_about->subject}</h3>
@@ -356,7 +356,7 @@
                             data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
                             type="image/webp">
                         <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic01.webp" alt=""
+                            data-src="{$template}/assets/img/static/wg-about-graphic01.webp" alt="image-graphic"
                             class="lazy">
                     </picture>
                 </div>
@@ -461,7 +461,7 @@
                                 <h2 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
-                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt=""
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj"
                                         class="lazy">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
@@ -472,11 +472,11 @@
                         </div>
                         <div class="bg" data-aos="fade-right">
                             <picture>
-                                <source srcset="{$template}/assets/img/background/bg-wg-lab.webp"
-                                    data-srcset="{$template}/assets/img/background/bg-wg-lab@2x.webp"
+                                <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp"
                                     type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-lab.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-lab@2x.png" alt=""
+                                <img src="{$template}/assets/img/background/bg-wg-lab2.png"
+                                    data-src="{$template}/assets/img/background/bg-wg-lab2.png" alt="background-lab"
                                     class="lazy">
                             </picture>
                         </div>
@@ -493,7 +493,7 @@
                                 {if $settingWeb.contact->email2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -508,7 +508,7 @@
                                 {if $settingWeb.contact->email3 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                                 class="icon">
                                         </div>
                                         <div class="col">
@@ -536,7 +536,7 @@
                                 </div>
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
+                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
                                             class="icon">
                                     </div>
                                     <div class="col">
@@ -555,7 +555,7 @@
                                     data-srcset="{$template}/assets/img/background/bg-wg-contact@2x.webp"
                                     type="image/webp">
                                 <img src="{$template}/assets/img/background/bg-wg-contact.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt=""
+                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt="background-contact"
                                     class="lazy">
                             </picture>
                         </div>
@@ -564,5 +564,5 @@
             </div>
         </div>
     </div>
-
+                                <div class="guides-overlay-custom"></div>
 </section>

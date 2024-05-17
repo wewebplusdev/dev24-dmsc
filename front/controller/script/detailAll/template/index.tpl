@@ -36,7 +36,7 @@
                 </h1>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about.png"
+                        <img src="{$template}/assets/img/uploads/inner1.png" alt="obj-banner-about.png"
                             class="lazy img-cover">
                     </div>
                 </div>
@@ -242,6 +242,8 @@
                       
                     </div>
                   </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
                   <div class="gallery-slider-nav">
                     <div thumbsSlider="" class="swiper gallery-swiper-">
                       <div class="swiper-wrapper">
@@ -271,9 +273,11 @@
             <!-- ck editor -->
             <div class="editor-content">
                 <div class="container">
+                <div class="news-detail">
                     {strip}
                         {$loadData->item[0]->html|txtReplaceHTML}
                     {/strip}
+                    </div>
                 </div>
             </div>
             <!-- ck editor -->
@@ -485,6 +489,35 @@
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
+                        <div class="under-line"></div>
+                        <div class="row comment">
+                            <div class="col btn-facebook">
+                                <button data-toggle="collapse" data-target="#fb-comments">
+                                    <div class="comment-green">
+                                        <img src="{$template}/assets/img/uploads/comment.png" alt="">
+                                    </div>
+                                    <div class="comment-light">
+                                        <img src="{$template}/assets/img/uploads/comment-light.png" alt="">
+                                    </div>
+                                    <div>แสดงความคิดเห็น</div>
+                                </button>
+                            </div>
+                            <div class="col-auto btn-back" style="text-align: end;"><button>ย้อนกลับ</button></div>
+                        </div>
+                        <div class="under-line"></div>
+    
+                        <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous"
+                            src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0&appId=427021281892903&autoLogAppEvents=1"
+                            nonce="IFt1dfew"></script>
+    
+                        <!-- fb comment show here  -->
+    
+                        <div id="fb-comments"  class="fb-comments collapse"
+                            data-href="https://www.dmcr.go.th/detailAll/70880/nws/11" data-width="100%" data-numposts="5"  >
+                          </div>
+    
+                        <!-- fb comment show end  -->
                     </div>
                 </div>
             {/if}

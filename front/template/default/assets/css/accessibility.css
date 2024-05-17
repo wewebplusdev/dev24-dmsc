@@ -298,7 +298,7 @@
   position: fixed;
   right: 0;
   top: 155px;
-  z-index: 5000;
+  z-index: 1000;
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);

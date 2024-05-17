@@ -38,30 +38,11 @@ function onComplete() {
 
 (async () => {
     try {
-
-        const settings = {
-            "url": `${path}${language}/reverse_proxy`,
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": `application/json`,
-            },
-            "data": JSON.stringify({
-                "Controller": 'home',
-                "method": 'getGuidWebsite',
-                "order": 'DESC',
-                "page": 1,
-                "limit": 15,
-            }),
-        };
-        const result = await $.ajax(settings);
-        console.log(result);
-        
         let content_web;
         content_web = await $.getJSON("./webservice_json/content_language_web.json");
 
         let guid_data = {
-            init:{
+            init: {
                 html: `
                 <div class="layout-guide guide-1">
                     <div class="card step-1 text-center">
@@ -85,8 +66,8 @@ function onComplete() {
                 </div>
                 `
             },
-            navlang:{
-                element: '.nav-lang',
+            navlang: {
+                element: '.guide-nav-lang',
                 html: `
                 <div class="layout-guide guide-2">
                     <div class="card step-2">
@@ -108,10 +89,11 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            mainHeader:{
-                element: $('#mainHeader'),
+            mainHeader: {
+                element: $('.guide-main-header'),
                 html: `
                 <div class="layout-guide guide-3">
                     <div class="card step-3">
@@ -130,10 +112,11 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            search:{
-                element: $('#search'),
+            search: {
+                element: $('.guide-search'),
                 html: `
                 <div class="layout-guide guide-4">
                     <div class="card step-4">
@@ -150,14 +133,14 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            banner:{
+            banner: {
                 element: $('#banner'),
                 html: `
                 <div class="layout-guide guide-5">
                     <div class="card step-5">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step6_banner?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -170,9 +153,10 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            wcag:{
+            wcag: {
                 element: $('.wcag'),
                 html: `
                 <div class="layout-guide guide-6">
@@ -192,10 +176,12 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                <div class="guide-pointer"></div>
+                `,
+                func_addon: 'guid_addon'
             },
-            ipv6:{
-                element: $('.ipv6'),
+            ipv6: {
+                element: $('.guide-ipv6'),
                 html: `
                 <div class="layout-guide guide-7">
                     <div class="card step-7">
@@ -214,10 +200,11 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            sitemap:{
-                element: $('.sitemap'),
+            sitemap: {
+                element: $('.guide-sitemap'),
                 html: `
                 <div class="layout-guide guide-8">
                     <div class="card step-8">
@@ -234,10 +221,11 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon'
             },
-            visitors:{
-                element: $('.visitors'),
+            visitors: {
+                element: $('.guide-visitors'),
                 html: `
                 <div class="layout-guide guide-9">
                     <div class="card step-9">
@@ -255,229 +243,72 @@ function onComplete() {
                         </div>
                     </div>
                 </div>
-                `
+                `,
+                func_addon: 'guid_addon',
             },
         };
-        
-        const init_guides = () => {
+
+        const settings = {
+            "url": `${path}${language}/reverse_proxy`,
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": `application/json`,
+            },
+            "data": JSON.stringify({
+                "Controller": 'home',
+                "method": 'getGuidWebsite',
+                "order": 'DESC',
+                "page": 1,
+                "limit": 15,
+            }),
+        };
+        const result = await $.ajax(settings);
+        if (result?.code == 1001) {
             let data_set = [];
-            let index = 0;
-            console.log(guid_data);
-            for (const [key, value] of Object.entries(guid_data)) {
-                data_set.push(value);
-                index++;
+            result?.item.map((value) => {
+                if (value.section in guid_data) {
+                    data_set.push(guid_data[value.section]);
+                }
+            });
+
+            const init_guides = (data) => {
+                $('.top-graphic').guides({ guides: data });
             }
-            $('.top-graphic').guides({guides:data_set});
-            
-            // $('.top-graphic').guides({
-            //     guides: [{
-            //         html: `
-            //         <div class="layout-guide guide-1">
-            //             <div class="card step-1 text-center">
-            //                 <div class="progress-line"></div>
-            //                 <div class="close-guide" onclick="close_guides();">
-            //                 <span class="material-symbols-outlined"> close </span>
-            //                 </div>
-            //                 <div class="content text-center">
-            //                 <div class="title">${content_web?.tour_step1_welcome?.display[language]}</div>
-            //                 <div class="desc">
-            //                     ${content_web?.tour_step1_title?.display[language]}
-            //                 </div>
-            //                 <div class="desc text-primary">
-            //                     ${content_web?.tour_step1_desc?.display[language]}
-            //                 </div>
-            //                 <div class="action">
-            //                     <a href="javascript:void(0);" class="btn btn-primary">${content_web?.tour_step1_btn?.display[language]}</a>
-            //                 </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     }, {
-            //         element: $('.nav-lang'),
-            //         html: `
-            //         <div class="layout-guide guide-2">
-            //             <div class="card step-2">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                 <div class="title">${content_web?.tour_step2_language?.display[language]}</div>
-            //                 <div class="close-guide" onclick="close_guides();">
-            //                     <span class="material-symbols-outlined"> close </span>
-            //                 </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                 <div class="desc">
-            //                     ${content_web?.tour_step2_desc?.display[language]}
-            //                 </div>
-            //                 <div class="action">
-            //                     <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a>
-            //                 </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     }, {
-            //         element: $('#mainHeader'),
-            //         html: `
-            //         <div class="layout-guide guide-3">
-            //             <div class="card step-3">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                     <div class="title">${content_web?.tour_step3_menu?.display[language]}</div>
-            //                     <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
-            //                     </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                     <div class="desc">
-            //                         ${content_web?.tour_step3_desc?.display[language]}
-            //                     </div>
-            //                     <div class="action"> <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a> </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     }, {
-            //         element: $('#search'),
-            //         html: `
-            //         <div class="layout-guide guide-4">
-            //             <div class="card step-4">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                     <div class="title">${content_web?.tour_step4_search?.display[language]}</div>
-            //                     <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
-            //                     </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                     <div class="desc">${content_web?.tour_step5_desc?.display[language]}</div>
-            //                     <div class="action"> <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a> </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     },
-            //     {
-            //         element: $('#banner'),
-            //         html: `
-            //         <div class="layout-guide guide-5">
-            //             <div class="card step-5">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                     <div class="title">${content_web?.tour_step6_banner?.display[language]}</div>
-            //                     <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
-            //                     </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                     <div class="desc">${content_web?.tour_step6_desc?.display[language]}</div>
-            //                     <div class="action"> <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a> </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     },
-            //     {
-            //         element: $('.wcag'),
-            //         html: `
-            //         <div class="layout-guide guide-6">
-            //             <div class="card step-6">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                     <div class="title">${content_web?.tour_step7_wcag?.display[language]}</div>
-            //                     <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
-            //                     </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                     <div class="desc">
-            //                         ${content_web?.tour_step7_desc?.display[language]}
-            //                     </div>
-            //                     <div class="action"> <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a> </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     },
-            //     {
-            //         element: $('.ipv6'),
-            //         html: `
-            //         <div class="layout-guide guide-7">
-            //             <div class="card step-7">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                     <div class="title">${content_web?.tour_step8_ipv6?.display[language]}</div>
-            //                     <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
-            //                     </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                     <div class="desc">
-            //                         ${content_web?.tour_step8_desc?.display[language]}
-            //                     </div>
-            //                     <div class="action"> <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a> </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     },
-            //     {
-            //         element: $('.sitemap'),
-            //         html: `
-            //         <div class="layout-guide guide-8">
-            //             <div class="card step-8">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                     <div class="title">${content_web?.tour_step9_sitemap?.display[language]}</div>
-            //                     <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
-            //                     </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                     <div class="desc">${content_web?.tour_step9_desc?.display[language]}</div>
-            //                     <div class="action"> <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a> </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     },
-            //     {
-            //         element: $('.visitors'),
-            //         html: `
-            //         <div class="layout-guide guide-9">
-            //             <div class="card step-9">
-            //                 <div class="guide-pointer"></div>
-            //                 <div class="head">
-            //                     <div class="title">${content_web?.tour_step10_stat?.display[language]}</div>
-            //                     <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
-            //                     </div>
-            //                 </div>
-            //                 <div class="progress-line"></div>
-            //                 <div class="content">
-            //                     <div class="desc">${content_web?.tour_step10_desc?.display[language]}</div>
-            //                     <div class="action"> <a href="javascript:void(0);" onclick="onComplete();" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a>
-            //                     </div>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         `
-            //     },
-            //     ]
-            // });
+
+            if (typeof $.cookie("TOUR_WEBSITE") === "undefined") {
+                init_guides(data_set);
+                $('.top-graphic').click();
+            }
+            // save session
+            guid_session();
         }
-    
-        if (typeof $.cookie("TOUR_WEBSITE") === "undefined") {
-            init_guides();
-            $('.top-graphic').click();
-        }
-        // save session
-        guid_session();
+
 
     } catch (error) {
         console.error("error tour website.", error);
     }
 })();
+
+function guid_addon(res) {
+    $('.layout-header .top-bar').removeClass('guides-current-element');
+
+    if (!!res?.element) {
+        switch (res?.element) {
+            case '.guide-nav-lang':
+                $('.layout-header .top-bar').addClass('guides-current-element');
+                break;
+        
+            default:
+                break;
+        }
+    }
+}
+
+function reset_addon(){
+    // $('.layout-header .top-bar').removeClass('top-bar');
+    $('.guides-overlay-custom').addClass('d-none');
+}
 
 function guid_session() {
     // 365 days
@@ -493,3 +324,17 @@ function guid_session() {
         // });
     })().catch(() => { });
 }
+
+
+
+// $('.layout-header').addClass('guides-overlay-custom');
+// $('.layout-body').addClass('guides-overlay-custom');
+// $('.guide-nav-lang.guides-current-element').togleClass('test');
+
+
+// $( document ).ready(function() {
+//   $('.layout-guide.guide-1 .btn').click(function(){
+//     $('.layout-header .top-bar').addClass('guides-current-element');
+//     console.log( $('.layout-guide.guide-1 .btn'));
+//   })
+// });

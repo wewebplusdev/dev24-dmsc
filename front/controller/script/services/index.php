@@ -2,7 +2,7 @@
 $menuActive = "services";
 $ServicePage = new ServicePage;
 $limit = 15;
-define('SCRIPT_TAG', '<script type="text/javascript" src="');
+define('SCRIPT_TAG', '<script src="');
 define('SCRIPT_PATH', 'front/controller/script/');
 
 $masterkey = $url->segment[1];

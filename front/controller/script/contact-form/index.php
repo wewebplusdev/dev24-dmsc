@@ -1,5 +1,5 @@
 <?php
-define('JS_SCRIPT_START', '<script type="text/javascript" src="');
+define('JS_SCRIPT_START', '<script src="');
 define('SCRIPT_PATH', 'front/controller/script/');
 define('FULL_SCRIPT_PATH', '/front/controller/script/');
 $menuActive = "contact-form";
@@ -17,7 +17,7 @@ switch ($url->segment[1]) {
         break;
 
     case 'insert-global':
-  
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
         require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/insert-global.php'; #load service
         break;
 

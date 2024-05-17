@@ -28,7 +28,7 @@
         </h1>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner2.png" alt="obj-banner-about"
               class="lazy img-cover">
           </div>
         </div>
@@ -87,13 +87,13 @@
                     <div class="col-md">
                       <div class="form-group">
                         <label for="inputTel" class="control-label">{$languageFrontWeb->contact_tel->display->$currentLangWeb}<span>*</span></label>
-                        <input type="text" id="inputTel" value="" name="inputTel" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control" required>
+                        <input type="text" minlength="10" maxlength="10" id="inputTel" value="" name="inputTel" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control" required>
                       </div>
                     </div>
                     <div class="col-md">
                       <div class="form-group">
                         <label for="inputEmail" class="control-label">{$languageFrontWeb->contact_email->display->$currentLangWeb}<span>*</span></label>
-                        <input type="text" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control" required>
+                        <input type="email" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control" required>
                       </div>
                     </div>
                   </div>

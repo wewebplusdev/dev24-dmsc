@@ -39,7 +39,7 @@
 <!-- Dev -->
 <script src="{$template}/assets/js/developer.js{$lastModify}"></script>
 
-<script type="text/javascript">var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;</script>
+<script>var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;</script>
 
 {strip}
     {if {$assignjs|default:null}}

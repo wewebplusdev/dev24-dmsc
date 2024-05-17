@@ -206,7 +206,7 @@
 .guide-8 {
   margin-bottom: -71px;
   & ~ .guide-pointer {
-    right: 100px;
+    right: 80px;
     left: unset;
     top: unset;
     bottom: 0;
@@ -219,7 +219,7 @@
 .guide-9 {
   margin-bottom: -71px;
   & ~ .guide-pointer {
-    right: 100px;
+    right: 80px;
     left: unset;
     top: unset;
     bottom: 0;
@@ -257,11 +257,144 @@
   }
 }
 
+.guides-mask, 
+.guides-overlay {display: none;}
+
+.guides-overlay-custom {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1002;
+}
+.guides-guide {margin: 20px 0;}
+
+.guides-current-element {
+  pointer-events: none;
+}
+
+.top-bar {
+  &.guides-current-element {
+    z-index: 1003;
+  }
+}
+
+.guide-nav-lang {
+  &.guides-current-element {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-light);
+      width: 180px;
+      height: 50px;
+      display: flex;
+      top: -10px;
+      left: -8px;
+    }
+    & ~ div {
+      z-index: 1003;
+    }
+  }
+}
+
+.guide-main-header {
+  &.guides-current-element {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-light);
+      width: calc(100% + 10px);
+      height: 50px;
+      display: flex;
+      top: -6px;
+      left: -11px;
+    }
+    * {
+      z-index: 1003;
+    }
+  }
+}
+
+.guide-search {
+  &.guides-current-element {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-light);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      top: -5px;
+      left: -10px;
+    }
+    & ~ div {
+      z-index: 1003;
+    }
+  }
+}
+
+.guide-ipv6 {
+  &.guides-current-element {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-light);
+      width: 90px;
+      height: 90px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+}
+
+.guide-sitemap {
+  &.guides-current-element {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-light);
+      width: 130px;
+      height: 30px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+}
+
+.guide-visitors  {
+  &.guides-current-element {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: #ffffff2e;
+      width: 160px;
+      height: 35px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    // & * {
+    //   z-index: 1003;
+    // }
+  }
+}
+
+
 
 
 .wcag-fix-z {
-  & ~ div .asw-wrapper {
-    z-index: 99997;
+ .asw-wrapper {
+    z-index: 1003;
   } 
 }
 

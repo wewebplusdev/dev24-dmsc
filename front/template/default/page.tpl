@@ -6,8 +6,8 @@
     
     {if $path_root eq ""}
         <!-- Cookie Consent by https://www.cookiewow.com -->
-        <script type="text/javascript" src="https://cookiecdn.com/cwc.js"></script>
-        <script id="cookieWow" type="text/javascript" src="https://cookiecdn.com/configs/XxwWvCXDwKtsHUWb2c4Fm8RH" data-cwcid="XxwWvCXDwKtsHUWb2c4Fm8RH"></script>
+        <script src="https://cookiecdn.com/cwc.js"></script>
+        <script id="cookieWow" src="https://cookiecdn.com/configs/XxwWvCXDwKtsHUWb2c4Fm8RH" data-cwcid="XxwWvCXDwKtsHUWb2c4Fm8RH"></script>
     {/if}
 
     {include file="{$incfile.loadstyle}" title=title}
