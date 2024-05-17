@@ -29,14 +29,14 @@
                 </h1>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+                        <img src="{$template}/assets/img/uploads/inner6.png" alt="image-inner"
                             class="lazy img-cover">
                     </div>
                 </div>
             </div>
         </div>
         <figure class="cover">
-            <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+            <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
         </figure>
     </div>
 
@@ -194,7 +194,6 @@
 
                         {* Start Step 2 *}
                         <div class="-form-step2" style="display: none;">
-                            <div class="row gutters-40">
                                 <div class="col-md">
                                     <div class="form-group">
                                     <label for="inputComplaintName" class="control-label">{$languageFrontWeb->recommend_name->display->$currentLangWeb}<span>*</span> <span class="text-placeholder">{$languageFrontWeb->recommend_name_note->display->$currentLangWeb}</span></label>
@@ -207,27 +206,26 @@
                                     <input type="text" id="inputComplaintTime" value="" name="inputComplaintTime" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}" class="form-control" required>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-group">
+                            <div class="form-group">
                                 <label for="" class="control-label mb-md-3 mb-2">
                                 {$languageFrontWeb->recommend_fac->display->$currentLangWeb} <span>*</span>
                                 </label>
-                                <div class="block-control mb-md-3 mb-2">
+                            <div class="block-control mb-md-3 mb-2">
                                     <div class="radio-control">
                                     <input type="radio" id="inputComplaintFac1" value="1" name="inputComplaintFac" class="form-control" checked>
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_fac_etc1->display->$currentLangWeb}</div>
                                     </div>
-                                </div>
-                                <div class="block-control">
+                            </div>
+                            <div class="block-control">
                                     <div class="radio-control">
                                     <input type="radio" id="inputComplaintFac2" value="2" name="inputComplaintFac" class="form-control">
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_fac_etc2->display->$currentLangWeb}</div>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputComplaintDesc1" class="control-label mb-md-3 mb-2">
                                     {$languageFrontWeb->recommend_currup->display->$currentLangWeb} <span>*</span>
                                 </label>
@@ -237,8 +235,8 @@
                                     <li>{$languageFrontWeb->recommend_currup_note3->display->$currentLangWeb}</li>
                                 </ol>
                                 <input type="text" id="inputComplaintDesc1" value="" name="inputComplaintDesc1" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}" class="form-control" required>
-                                </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="detail2" class="control-label mb-md-3 mb-2">
                                     {$languageFrontWeb->recommend_rich->display->$currentLangWeb} <span>*</span>
                                 </label>
@@ -248,8 +246,8 @@
                                     <li>{$languageFrontWeb->recommend_rich_note3->display->$currentLangWeb}</li>
                                 </ol>
                                 <input type="text" id="inputComplaintDesc2" value="" name="inputComplaintDesc2" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}" class="form-control" required>
-                                </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="" class="control-label mb-md-3 mb-2">
                                     {$languageFrontWeb->recommend_confirm->display->$currentLangWeb} <span>*</span>
                                 </label>
