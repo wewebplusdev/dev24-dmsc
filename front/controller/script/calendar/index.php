@@ -3,8 +3,8 @@
 define('SCRIPT_PATH', '/front/controller/script/');
 
 $menuActive = "calendar";
-$listjs[] = '<script type="text/javascript" src="' . _URL . SCRIPT_PATH . $menuActive . '/js/script.js"></script>';
-$listjs[] = '<script type="text/javascript" src="' . _URL . SCRIPT_PATH . $menuActive . '/js/calendar.js'.$lastModify.'"></script>';
+$listjs[] = '<script src="' . _URL . SCRIPT_PATH . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script src="' . _URL . SCRIPT_PATH . $menuActive . '/js/calendar.js'.$lastModify.'"></script>';
 define('CALENDAR_CONFIG_PATH', SCRIPT_PATH . 'calendar/config-calendar.php');
 define('CALENDAR_INIT_PATH', SCRIPT_PATH . 'calendar/init-calendar.php');
 
