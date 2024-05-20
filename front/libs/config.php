@@ -236,3 +236,11 @@ $dateThai = array(
 );
 /* =Time&Date Config
 -------------------------------------------------------------- */
+
+#########Setting Email##########
+$array_mailer = array();
+$array_mailer['from'] = "bonzqbet.p@gmail.com";
+$array_mailer['username'] = "bonzqbet.p@gmail.com";
+$array_mailer['password'] = "heqtxtdojffssyad";
+$array_mailer['host'] = "smtp.gmail.com";
+$array_mailer['port'] = 587;

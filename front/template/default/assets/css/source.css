@@ -10114,11 +10114,12 @@ a:hover .fontContantTbManage {
 }
 
 .guide-6 {
-  margin-right: -71px;
+  margin-right: -69px;
+  margin-top: 238px;
 }
 .guide-6 ~ .guide-pointer {
   right: 0;
-  top: 60%;
+  top: 63%;
   width: 60px;
   height: 60px;
 }
@@ -10308,6 +10309,373 @@ a:hover .fontContantTbManage {
   z-index: 100000;
 }
 
+@media screen and (max-width: 1198px) {
+  .guide-2 {
+    margin-top: -71px;
+    margin-right: -45px;
+  }
+  .guide-2 ~ .guide-pointer {
+    right: 7px;
+  }
+  .guide-3 {
+    margin-top: -71px;
+  }
+  .guide-3 ~ .guide-pointer {
+    left: 100px;
+  }
+  .guide-4 {
+    margin-top: -71px;
+    margin-right: -65px;
+  }
+  .guide-4 ~ .guide-pointer {
+    right: -24px;
+  }
+  .guide-5 {
+    margin-left: -71px;
+    margin-bottom: -276px;
+  }
+  .guide-5 ~ .guide-pointer {
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 60px;
+  }
+  .guide-6 {
+    margin-right: -110px;
+    margin-top: 232px;
+  }
+  .guide-6 ~ .guide-pointer {
+    right: 0;
+    top: 60%;
+    width: 60px;
+    height: 60px;
+    left: 571px;
+    margin-top: 41px;
+  }
+  .guide-7 {
+    margin-bottom: -12px;
+    margin-left: 259px;
+  }
+  .guide-7 ~ .guide-pointer {
+    right: 36px;
+    left: 300px;
+    bottom: 57px;
+    top: unset;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-8 {
+    margin-bottom: -71px;
+  }
+  .guide-8 ~ .guide-pointer {
+    right: 80px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-9 {
+    margin-bottom: -71px;
+  }
+  .guide-9 ~ .guide-pointer {
+    right: 80px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 991px) {
+  .guide-2 {
+    margin-left: 20px;
+    margin-top: 423px;
+    margin-right: -45px;
+  }
+  .guide-2 ~ .guide-pointer {
+    right: 478px;
+    top: 495px;
+  }
+  .guide-3 {
+    margin-left: 20px;
+    margin-top: -77px;
+  }
+  .guide-3 ~ .guide-pointer {
+    left: 27px;
+    top: -6px;
+  }
+  .guide-4 {
+    margin-left: 20px;
+    margin-top: -71px;
+    margin-right: -65px;
+  }
+  .guide-4 ~ .guide-pointer {
+    right: -24px;
+  }
+  .guide-5 {
+    margin-left: -71px;
+    margin-bottom: -276px;
+  }
+  .guide-5 ~ .guide-pointer {
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 60px;
+  }
+  .guide-6 {
+    margin-right: -219px;
+    margin-top: 232px;
+  }
+  .guide-6 ~ .guide-pointer {
+    right: 0;
+    top: 60%;
+    width: 60px;
+    height: 60px;
+    left: 571px;
+    margin-top: 41px;
+  }
+  .guide-7 {
+    margin-bottom: -200px;
+    margin-left: -21px;
+  }
+  .guide-7 ~ .guide-pointer {
+    right: 36px;
+    left: -583px;
+    bottom: 102px;
+    top: unset;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-8 {
+    margin-bottom: -71px;
+  }
+  .guide-8 ~ .guide-pointer {
+    right: 80px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-9 {
+    margin-bottom: -71px;
+  }
+  .guide-9 ~ .guide-pointer {
+    right: 80px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .layout-guide .card {
+    max-width: 450px;
+  }
+  .layout-guide .title {
+    font-size: 20px;
+  }
+  .layout-guide .desc {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+  .guide-2 {
+    margin-top: 405px;
+    margin-right: -45px;
+    margin-left: 20px;
+  }
+  .guide-2 ~ .guide-pointer {
+    right: 321px;
+    top: 478px;
+  }
+  .guide-3 {
+    margin-top: -77px;
+    margin-left: 20px;
+  }
+  .guide-3 ~ .guide-pointer {
+    left: 27px;
+    top: -6px;
+  }
+  .guide-4 {
+    margin-top: -71px;
+    margin-right: -65px;
+    margin-left: 20px;
+  }
+  .guide-4 ~ .guide-pointer {
+    right: -24px;
+  }
+  .guide-5 {
+    margin-left: -71px;
+    margin-bottom: -276px;
+    margin-top: 183px;
+  }
+  .guide-5 ~ .guide-pointer {
+    left: 212px;
+    top: 33%;
+    width: 30px;
+    height: 60px;
+    rotate: 90deg;
+  }
+  .guide-6 {
+    margin-right: -219px;
+    margin-top: 132px;
+  }
+  .guide-6 ~ .guide-pointer {
+    right: 0;
+    top: 60%;
+    width: 60px;
+    height: 60px;
+    left: 421px;
+    margin-top: 41px;
+  }
+  .guide-7 {
+    margin-bottom: -200px;
+    margin-left: 17px;
+  }
+  .guide-7 ~ .guide-pointer {
+    right: 36px;
+    left: -394px;
+    bottom: 102px;
+    top: unset;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-8 {
+    margin-bottom: -71px;
+  }
+  .guide-8 ~ .guide-pointer {
+    right: 80px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-9 {
+    margin-bottom: -71px;
+  }
+  .guide-9 ~ .guide-pointer {
+    right: 80px;
+    left: unset;
+    top: unset;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 575px) {
+  .layout-guide .card {
+    max-width: 336px;
+  }
+  .layout-guide .title {
+    padding: 0;
+  }
+  .layout-guide .desc {
+    padding: 0;
+  }
+  .layout-guide .card.step-1 .desc {
+    padding: 0;
+  }
+  .guide-2 {
+    margin-top: 405px;
+    margin-right: -45px;
+    margin-left: 20px;
+  }
+  .guide-2 ~ .guide-pointer {
+    right: 216px;
+    top: 480px;
+  }
+  .guide-3 {
+    margin-top: 226px;
+    margin-left: 20px;
+  }
+  .guide-3 ~ .guide-pointer {
+    left: 149px;
+    top: 301px;
+  }
+  .guide-4 {
+    margin-top: -71px;
+    margin-right: -65px;
+    margin-left: 20px;
+  }
+  .guide-4 ~ .guide-pointer {
+    right: 79px;
+  }
+  .guide-5 {
+    margin-bottom: -396px;
+    margin-top: 25px;
+    margin-right: -31px;
+  }
+  .guide-5 ~ .guide-pointer {
+    left: 144px;
+    top: -8%;
+    width: 30px;
+    height: 60px;
+    rotate: 90deg;
+  }
+  .guide-6 {
+    margin-right: -224px;
+    margin-top: -252px;
+  }
+  .guide-6 ~ .guide-pointer {
+    right: 0;
+    top: 79%;
+    width: 60px;
+    height: 60px;
+    left: 180px;
+    margin-top: 41px;
+  }
+  .guide-7 {
+    margin-bottom: 235px;
+    margin-left: 17px;
+  }
+  .guide-7 ~ .guide-pointer {
+    right: 36px;
+    left: 50px;
+    bottom: 303px;
+    top: unset;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-8 {
+    margin-bottom: -71px;
+    margin-left: 38px;
+  }
+  .guide-8 ~ .guide-pointer {
+    right: 135px;
+    left: unset;
+    top: unset;
+    bottom: 2px;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+  .guide-9 {
+    margin-bottom: -101px;
+    margin-left: 61px;
+  }
+  .guide-9 ~ .guide-pointer {
+    right: 131px;
+    left: unset;
+    top: unset;
+    bottom: -31px;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+  }
+}
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;

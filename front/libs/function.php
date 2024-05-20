@@ -617,6 +617,42 @@ function getIcon($downloadFile, $type = "")
 }
 
 // FN loadSendEmailTo //
+function loadSendEmailTo($mailTo, $subjectMail = null, $messageMail = null)
+{
+    global $array_mailer;
+    require_once './front/libs/PHPMailer/src/Exception.php';
+    require_once './front/libs/PHPMailer/src/PHPMailer.php';
+    require_once './front/libs/PHPMailer/src/SMTP.php';
+
+    $mailTo = trim($mailTo);
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    $mail->CharSet = "utf-8";
+    // $mail->SMTPDebug = 2; // Enable verbose debug output
+    $mail->IsSMTP(); // Set mailer to use SMTP
+    $mail->SMTPOptions = array('ssl' => array('verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true));
+    // die('test');
+    $mail->IsHTML(true);
+    $mail->SMTPAuth = true; // enable SMTP authentication
+    $mail->SMTPSecure = "tls"; // sets the prefix to the servier
+    $mail->Host = $array_mailer['host']; // sets GMAIL as the SMTP server
+    $mail->Port = $array_mailer['post']; // set the SMTP port for the GMAIL server
+    $mail->Username = $array_mailer['username']; // GMAIL username
+    $mail->Password = $array_mailer['password']; // GMAIL password
+    $mail->From = $array_mailer['from']; // "name@yourdomain.com";
+    $mail->FromName = "กรมวิทยาศาสตร์การแพทย์";  // set from Name
+    $mail->Subject = $subjectMail;
+    $mail->Body = $messageMail;
+
+    $mail->AddAddress($mailTo); // to Address
+    if (!$mail->Send()) {
+        $valSendMailStatus = 0;
+    } else {
+        $valSendMailStatus = 1;
+    }
+
+    return $valSendMailStatus;
+}
 
 
 ///  FORMAT FORM NUM VALUE /////

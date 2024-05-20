@@ -29,19 +29,19 @@
                         </li> *}
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb2}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
             <img src="{$template}/assets/img/uploads/inner5.png"
-              alt="obj-banner-about" class="lazy img-cover">
+              alt="image-inner" class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt=""
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner"
         class="lazy img-cover">
     </figure>
   </div>
@@ -69,7 +69,7 @@
               <div class="col-md">
                 <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden"
-                    for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                    for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
                     <input class="form-control" type="search" name="keyword"
                       id="keyword" value="{$req.keyword}"

@@ -567,13 +567,8 @@ $yellowSecondary: #e6cf01bf;
       border-bottom:2px solid $white ;
     }
 
-    .detail-body .document-download-list .item-wrapper:hover .desc{
-      color: $black;
-    }
-
-    .detail-body .document-download-list .item-wrapper:hover .type-file .item-list li{
-      color: $black;
-    }
+   
+  
 
     .detail-body .document-download-list .item-wrapper{
       .icon path{
@@ -1844,7 +1839,7 @@ $yellowSecondary: #e6cf01bf;
 }
 
 .document-download-list .icon path{
-  stroke: $black;
+  stroke: none;
 
 }
 
@@ -1953,13 +1948,18 @@ $yellowSecondary: #e6cf01bf;
   background-color: $black;
 }
 
+
+}
+
 .document-download-list .item .action .link{
   border: 1px solid $black ;
 }
 
- 
-
+.document-download-list .item:hover .action .link *{
+  fill: none;
+  color: $black;
 }
+
 
 
 

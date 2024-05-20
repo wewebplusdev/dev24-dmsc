@@ -23,19 +23,19 @@
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb2}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/inner6.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner6.png" alt="image-inner"
               class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
     </figure>
   </div>
   <div class="default-body">
@@ -69,7 +69,7 @@
               <div class="block-control">
                 <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                 <div class="search">
-                  <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" class="link">
+                  <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
                     <span class="icon">
                       <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                         viewBox="0 0 33.621 33.621">
@@ -99,6 +99,7 @@
               <div class="col-md-auto">
                 <div class="form-group form-select mb-0">
                   <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                  <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                   <div class="select-wrapper">
                     <select class="select-filter" name="sort" id="sort" style="width: 100%;" onchange="submit();">
                       <option value="1" {if $req.sort == '1'} selected {/if}>{$languageFrontWeb->sort_desc->display->$currentLangWeb}</option>

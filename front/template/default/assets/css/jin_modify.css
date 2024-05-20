@@ -19,6 +19,9 @@
     fill: var(--color-light);
     color: var(--color-light);
 }
+.document-download-list .item:hover .icon > img {
+    filter: brightness(0) invert(1);
+}
 
 
 /* breadcrumb */

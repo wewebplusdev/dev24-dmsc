@@ -494,12 +494,6 @@
 [data-asw-filter=dark-contrast] .detail-body .whead {
   border-bottom: 2px solid #ffffff;
 }
-[data-asw-filter=dark-contrast] .detail-body .document-download-list .item-wrapper:hover .desc {
-  color: #000000;
-}
-[data-asw-filter=dark-contrast] .detail-body .document-download-list .item-wrapper:hover .type-file .item-list li {
-  color: #000000;
-}
 [data-asw-filter=dark-contrast] .detail-body .document-download-list .item-wrapper .icon path {
   fill: #000000;
 }
@@ -1524,7 +1518,7 @@
           filter: grayscale(1);
 }
 [data-asw-filter=yellow-contrast] .document-download-list .icon path {
-  stroke: #000000;
+  stroke: none;
 }
 [data-asw-filter=yellow-contrast] .document-download-list.-layout-grid .action a {
   border: 1px solid #000000;
@@ -1605,8 +1599,12 @@
   color: #000000;
   background-color: #000000;
 }
-[data-asw-filter=yellow-contrast] .event-calendar .document-download-list .item .action .link {
+[data-asw-filter=yellow-contrast] .document-download-list .item .action .link {
   border: 1px solid #000000;
+}
+[data-asw-filter=yellow-contrast] .document-download-list .item:hover .action .link * {
+  fill: none;
+  color: #000000;
 }
 
 .readable-font span:not(.asw-wrapper *) {

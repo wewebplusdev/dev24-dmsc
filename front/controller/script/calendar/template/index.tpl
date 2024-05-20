@@ -24,19 +24,18 @@
                         </li>
                     </ol>
                 </div>
-                <h1 class="title">
+                <h2 class="title">
                     {$language_modules.breadcrumb2}
-                </h1>
+                </h2>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/inner5.png" alt="obj-banner-about"
-                            class="lazy img-cover">
+                        <img src="{$template}/assets/img/uploads/inner5.png" alt="เป็นภาพลูกเต๋า 4 ลุก ที่มีตัวอักษร 4 ตัว เป็น N E W S รวมกันเป็นNEWS" class="lazy img-cover">
                     </div>
                 </div>
             </div>
         </div>
         <figure class="cover">
-            <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+            <img src="{$template}/assets/img/static/banner.jpg" alt="Abstract background with blue and green gradient colors" class="lazy img-cover">
         </figure>
     </div>
     <div class="default-body">
@@ -58,7 +57,7 @@
                                       <div class="block-control">
                                         <input class="form-control -search-text" type="text" name="searchtxt" id="searchtxt" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
-                                          <a href="javascript:void(0);" class="link -submit-text">
+                                          <a href="javascript:void(0);" class="link -submit-text" title="icon search">
                                             <span class="icon">
                                               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33.621 33.621">
                                                 <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(1.5 1.5)">
@@ -149,11 +148,11 @@
                                             </div>
                                             <div class="col">
                                                 <div class="calendar-nav">
-                                                    <a href="javascript:void(0);" class="link -click-prevmonth">
+                                                    <a href="javascript:void(0);" class="link -click-prevmonth" title="arrow went to the previous month">
                                                         <span class="icon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.503"
                                                                 height="23.616" viewBox="0 0 13.503 23.616">
-                                                                <path id="Icon_ionic-ios-arrow-forward"
+                                                                <path id="Icon_ionic-ios-arrow-forward1"
                                                                     data-name="Icon ionic-ios-arrow-forward"
                                                                     d="M15.317,18l8.937-8.93a1.681,1.681,0,0,0,0-2.384,1.7,1.7,0,0,0-2.391,0L11.738,16.8a1.685,1.685,0,0,0-.049,2.327L21.856,29.32a1.688,1.688,0,0,0,2.391-2.384Z"
                                                                     transform="translate(-11.246 -6.196)"
@@ -161,11 +160,11 @@
                                                             </svg>
                                                         </span>
                                                     </a>
-                                                    <a href="javascript:void(0);" class="link -click-nextmonth">
+                                                    <a href="javascript:void(0);" class="link -click-nextmonth" title="arrow go next month">
                                                         <span class="icon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="13.503"
                                                                 height="23.616" viewBox="0 0 13.503 23.616">
-                                                                <path id="Icon_ionic-ios-arrow-forward"
+                                                                <path id="Icon_ionic-ios-arrow-forward2"
                                                                     data-name="Icon ionic-ios-arrow-forward"
                                                                     d="M20.679,18,11.742,9.07a1.681,1.681,0,0,1,0-2.384,1.7,1.7,0,0,1,2.391,0L24.258,16.8a1.685,1.685,0,0,1,.049,2.327L14.14,29.32a1.688,1.688,0,0,1-2.391-2.384Z"
                                                                     transform="translate(-11.246 -6.196)"

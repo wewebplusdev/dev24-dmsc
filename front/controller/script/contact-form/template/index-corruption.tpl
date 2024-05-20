@@ -24,19 +24,19 @@
                         </li>
                     </ol>
                 </div>
-                <h1 class="title">
+                <h2 class="title">
                     {$language_modules.breadcrumb1}
-                </h1>
+                </h2>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+                        <img src="{$template}/assets/img/uploads/inner6.png" alt="image-inner"
                             class="lazy img-cover">
                     </div>
                 </div>
             </div>
         </div>
         <figure class="cover">
-            <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+            <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
         </figure>
     </div>
 
@@ -58,7 +58,7 @@
                                     <div class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="31.309" height="35"
                                             viewBox="0 0 31.309 35">
-                                            <path id="form"
+                                            <path id="form-2"
                                                 d="M9.98,33.633A1.367,1.367,0,0,1,8.613,35H5.469A5.475,5.475,0,0,1,0,29.531V5.469A5.475,5.475,0,0,1,5.469,0H22.278a5.475,5.475,0,0,1,5.469,5.469V13.6a1.367,1.367,0,0,1-2.734,0V5.469a2.738,2.738,0,0,0-2.734-2.734H5.469A2.738,2.738,0,0,0,2.734,5.469V29.531a2.738,2.738,0,0,0,2.734,2.734H8.613A1.367,1.367,0,0,1,9.98,33.633ZM22.277,9.57A1.367,1.367,0,0,0,20.91,8.2H6.828a1.367,1.367,0,0,0,0,2.734H20.91A1.367,1.367,0,0,0,22.277,9.57Zm-5.461,5.469a1.367,1.367,0,0,0-1.367-1.367H6.828a1.367,1.367,0,0,0,0,2.734h8.621A1.367,1.367,0,0,0,16.816,15.039Zm-9.988,4.1a1.367,1.367,0,0,0,0,2.734H12.51a1.367,1.367,0,0,0,0-2.734ZM30.68,33.983A2.737,2.737,0,0,1,28.55,35H15.2a2.763,2.763,0,0,1-2.7-3.332,9.587,9.587,0,0,1,5.373-6.756,5.332,5.332,0,1,1,8,0,9.527,9.527,0,0,1,2.08,1.3,9.635,9.635,0,0,1,3.266,5.324c.011.036.02.072.028.109A2.786,2.786,0,0,1,30.68,33.983Zm-11.4-12.589a2.6,2.6,0,1,0,2.6-2.6A2.6,2.6,0,0,0,19.277,21.394Zm9.3,10.833v0a6.839,6.839,0,0,0-13.4,0,.035.035,0,0,0,.015.041H28.55A.065.065,0,0,0,28.573,32.227Zm0,0"
                                                 fill="#c9c9c9" />
                                         </svg>
@@ -122,14 +122,14 @@
                 </div>
             </div>
             <div class="layout-form">
-                <form action="" class="form-default form-contact" id="form-contact">
+                <form  class="form-default form-contact" id="form-contact">
                     <div class="form-head">
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
                                 <div class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="31.309" height="35"
                                         viewBox="0 0 31.309 35">
-                                        <path id="form"
+                                        <path id="form-1"
                                             d="M9.98,33.633A1.367,1.367,0,0,1,8.613,35H5.469A5.475,5.475,0,0,1,0,29.531V5.469A5.475,5.475,0,0,1,5.469,0H22.278a5.475,5.475,0,0,1,5.469,5.469V13.6a1.367,1.367,0,0,1-2.734,0V5.469a2.738,2.738,0,0,0-2.734-2.734H5.469A2.738,2.738,0,0,0,2.734,5.469V29.531a2.738,2.738,0,0,0,2.734,2.734H8.613A1.367,1.367,0,0,1,9.98,33.633ZM22.277,9.57A1.367,1.367,0,0,0,20.91,8.2H6.828a1.367,1.367,0,0,0,0,2.734H20.91A1.367,1.367,0,0,0,22.277,9.57Zm-5.461,5.469a1.367,1.367,0,0,0-1.367-1.367H6.828a1.367,1.367,0,0,0,0,2.734h8.621A1.367,1.367,0,0,0,16.816,15.039Zm-9.988,4.1a1.367,1.367,0,0,0,0,2.734H12.51a1.367,1.367,0,0,0,0-2.734ZM30.68,33.983A2.737,2.737,0,0,1,28.55,35H15.2a2.763,2.763,0,0,1-2.7-3.332,9.587,9.587,0,0,1,5.373-6.756,5.332,5.332,0,1,1,8,0,9.527,9.527,0,0,1,2.08,1.3,9.635,9.635,0,0,1,3.266,5.324c.011.036.02.072.028.109A2.786,2.786,0,0,1,30.68,33.983Zm-11.4-12.589a2.6,2.6,0,1,0,2.6-2.6A2.6,2.6,0,0,0,19.277,21.394Zm9.3,10.833v0a6.839,6.839,0,0,0-13.4,0,.035.035,0,0,0,.015.041H28.55A.065.065,0,0,0,28.573,32.227Zm0,0"
                                             fill="#fff" />
                                     </svg>
@@ -173,14 +173,14 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="inputTel" class="control-label">{$languageFrontWeb->contact_tel->display->$currentLangWeb}<span>*</span></label>
-                                        <input type="text" id="inputTel" value="" name="inputTel" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
+                                        <input type="text" id="inputTel" minlength="10" maxlength="10" value="" name="inputTel" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
                                             class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="inputEmail" class="control-label">{$languageFrontWeb->contact_email->display->$currentLangWeb}<span>*</span></label>
-                                        <input type="text" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
+                                        <input type="email" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}"
                                             class="form-control" required>
                                     </div>
                                 </div>
@@ -194,7 +194,6 @@
 
                         {* Start Step 2 *}
                         <div class="-form-step2" style="display: none;">
-                            <div class="row gutters-40">
                                 <div class="col-md">
                                     <div class="form-group">
                                     <label for="inputComplaintName" class="control-label">{$languageFrontWeb->recommend_name->display->$currentLangWeb}<span>*</span> <span class="text-placeholder">{$languageFrontWeb->recommend_name_note->display->$currentLangWeb}</span></label>
@@ -207,27 +206,27 @@
                                     <input type="text" id="inputComplaintTime" value="" name="inputComplaintTime" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}" class="form-control" required>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-group">
-                                <label for="" class="control-label mb-md-3 mb-2">
+                            <div class="form-group">
+                                <label for="inputComplaintFac" class="control-label mb-md-3 mb-2">
+                                <input type="text" id="inputComplaintFac" value="" name="inputComplaintFac" class="d-none">
                                 {$languageFrontWeb->recommend_fac->display->$currentLangWeb} <span>*</span>
                                 </label>
-                                <div class="block-control mb-md-3 mb-2">
+                            <div class="block-control mb-md-3 mb-2">
                                     <div class="radio-control">
                                     <input type="radio" id="inputComplaintFac1" value="1" name="inputComplaintFac" class="form-control" checked>
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_fac_etc1->display->$currentLangWeb}</div>
                                     </div>
-                                </div>
-                                <div class="block-control">
+                            </div>
+                            <div class="block-control">
                                     <div class="radio-control">
                                     <input type="radio" id="inputComplaintFac2" value="2" name="inputComplaintFac" class="form-control">
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_fac_etc2->display->$currentLangWeb}</div>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputComplaintDesc1" class="control-label mb-md-3 mb-2">
                                     {$languageFrontWeb->recommend_currup->display->$currentLangWeb} <span>*</span>
                                 </label>
@@ -237,9 +236,10 @@
                                     <li>{$languageFrontWeb->recommend_currup_note3->display->$currentLangWeb}</li>
                                 </ol>
                                 <input type="text" id="inputComplaintDesc1" value="" name="inputComplaintDesc1" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}" class="form-control" required>
-                                </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="detail2" class="control-label mb-md-3 mb-2">
+                                <input type="text" id="detail2" value="" name="detail2" class="d-none">
                                     {$languageFrontWeb->recommend_rich->display->$currentLangWeb} <span>*</span>
                                 </label>
                                 <ol>
@@ -248,9 +248,10 @@
                                     <li>{$languageFrontWeb->recommend_rich_note3->display->$currentLangWeb}</li>
                                 </ol>
                                 <input type="text" id="inputComplaintDesc2" value="" name="inputComplaintDesc2" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                <label for="" class="control-label mb-md-3 mb-2">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputComplaintConfirm" class="control-label mb-md-3 mb-2">
+                                <input type="text" id="inputComplaintConfirm" value="" name="inputComplaintConfirm" class="d-none">
                                     {$languageFrontWeb->recommend_confirm->display->$currentLangWeb} <span>*</span>
                                 </label>
                                 <div class="block-control mb-md-3 mb-2">
@@ -262,7 +263,7 @@
                                 </div>
                                 <div class="block-control">
                                     <div class="radio-control">
-                                    <input type="radio" id="inputComplaintConfirm1" value="2" name="inputComplaintConfirm" class="form-control">
+                                    <input type="radio" id="inputComplaintConfirm2" value="2" name="inputComplaintConfirm" class="form-control">
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_confirm_note2->display->$currentLangWeb}</div>
                                     </div>
