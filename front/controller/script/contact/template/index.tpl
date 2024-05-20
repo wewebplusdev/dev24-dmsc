@@ -73,7 +73,7 @@
           </div>
           <div class="tab-pane fade" id="nav-02">
             <figure class="cover">
-              <img src="{$settingWeb['addresspic']}" alt="{$settingWeb['addresspic']}" class="img-cover">
+              <img src="{$settingWeb['addresspic']}" alt="graphic map cover" class="img-cover">
             </figure>
             <a href="{$ul}/{$menuActive}/map-graphic" class="link btn-full-screen" target="_blank">
               <span class="icon">
@@ -154,7 +154,7 @@
                 <div class="row no-gutters align-items-start mb-3">
                   <div class="col-auto">
                     <div class="icon">
-                      <img src="{$valueload_data_service->pic->real}" alt="{$valueload_data_service->pic->real}">
+                      <img src="{$valueload_data_service->pic->real}" alt="contact icon">
                     </div>
                   </div>
                   <div class="col">
