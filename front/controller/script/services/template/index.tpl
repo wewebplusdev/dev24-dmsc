@@ -65,9 +65,9 @@
         <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default" id="filter-form">
           <div class="head">
             <div class="form-group form-search mb-0">
-              <label class="control-label visually-hidden" for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+              <label class="control-label visually-hidden" for="keywordService">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
               <div class="block-control">
-                <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
+                <input class="form-control" type="search" name="keywordService" id="keywordService" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                 <div class="search">
                   <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
                     <span class="icon">
