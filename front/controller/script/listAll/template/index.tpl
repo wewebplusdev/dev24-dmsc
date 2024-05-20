@@ -75,7 +75,7 @@
                       id="keywordLisAll" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
-                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" aria-label="link">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="33.621"
                             height="33.621" viewBox="0 0 33.621 33.621">
@@ -113,7 +113,7 @@
                     <div class="col-auto">
                       <div class="row no-gutters">
                         <div class="col-auto">
-                          <a href="{$ul}/rss/{$masterkey}Feed{$req['gid']}.xml" class="link -rss" target="_blank">
+                          <a href="{$ul}/rss/{$masterkey}Feed{$req['gid']}.xml" class="link -rss" target="_blank" aria-label="link">
                             <span class="icon">
                               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24.998" viewBox="0 0 25 24.998">
                                 <g id="Group_90676" data-name="Group 90676" transform="translate(0 -0.001)">
@@ -181,12 +181,12 @@
                     <div class="thumbnail">
                       <figure class="cover">
                         <img src="{$valueload_data->pic->pictures}"
-                          alt="{$valueload_data->pic->pictures}">
+                          alt="thumbnail list all">
                       </figure>
                     </div>
                     <div class="card-body">
-                      <h5 class="title">{$valueload_data->subject}
-                      </h5>
+                      <h3 class="title">{$valueload_data->subject}
+                      </h3>
                       <div class="line"></div>
                       <p class="desc">
                         {$valueload_data->title}
