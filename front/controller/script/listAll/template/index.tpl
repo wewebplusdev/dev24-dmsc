@@ -69,10 +69,10 @@
               <div class="col-md">
                 <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden"
-                    for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                    for="keywordLisAll">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
-                    <input class="form-control" type="search" name="keyword"
-                      id="keyword" value="{$req.keyword}"
+                    <input class="form-control" type="search" name="keywordLisAll"
+                      id="keywordLisAll" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
                       <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
