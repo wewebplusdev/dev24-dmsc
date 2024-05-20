@@ -58,7 +58,7 @@
                       id="keywordFaq" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
-                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" aria-label="link">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="33.621"
                             height="33.621" viewBox="0 0 33.621 33.621">
@@ -126,7 +126,7 @@
             <div class="card">
               <div class="card-header" id="heading{$keyload_data}">
                 <a href="" class="link {if $keyload_data gte 1}collapsed{/if}" data-toggle="collapse" data-target="#collapse{$keyload_data}" aria-expanded="true"
-                  aria-controls="collapse{$keyload_data}">
+                  aria-controls="collapse{$keyload_data}" aria-label="link">
                   <div class="row gutters-10 align-items-center">
                     <div class="col-auto">
                       {* <div class="icon">

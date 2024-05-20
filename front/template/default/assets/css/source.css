@@ -7385,6 +7385,10 @@ a:hover .fontContantTbManage {
   width: 100%;
   margin-bottom: 60px;
 }
+.document-download-list::before {
+  content: "";
+  display: table;
+}
 .document-download-list.-layout-grid {
   display: table;
   margin: 0 -20px;

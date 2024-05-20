@@ -123,6 +123,8 @@
             </div>
             <div class="layout-form">
                 <form  class="form-default form-contact" id="form-contact">
+                <fieldset class="p-0">
+                  <legend class="visually-hidden">Donut Type</legend>
                     <div class="form-head">
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
@@ -213,14 +215,16 @@
                                 </label>
                             <div class="block-control mb-md-3 mb-2">
                                     <div class="radio-control">
-                                    <input type="radio" id="inputComplaintFac1" value="1" name="inputComplaintFac" class="form-control" checked>
+                                    <label for="inputComplaintFac1" class="visually-hidden">radio</label>
+                                    <input type="radio" id="inputComplaintFac1" value="1" name="inputComplaintFac1" class="form-control" checked>
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_fac_etc1->display->$currentLangWeb}</div>
                                     </div>
                             </div>
                             <div class="block-control">
                                     <div class="radio-control">
-                                    <input type="radio" id="inputComplaintFac2" value="2" name="inputComplaintFac" class="form-control">
+                                    <label for="inputComplaintFac2" class="visually-hidden">radio</label>
+                                    <input type="radio" id="inputComplaintFac2" value="2" name="inputComplaintFac2" class="form-control">
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_fac_etc2->display->$currentLangWeb}</div>
                                     </div>
@@ -247,23 +251,27 @@
                                     <li>{$languageFrontWeb->recommend_rich_note2->display->$currentLangWeb}</li>
                                     <li>{$languageFrontWeb->recommend_rich_note3->display->$currentLangWeb}</li>
                                 </ol>
+                                <label for="inputComplaintDesc2" class="visually-hidden">input</label>
                                 <input type="text" id="inputComplaintDesc2" value="" name="inputComplaintDesc2" placeholder="{$languageFrontWeb->contant_answer->display->$currentLangWeb}" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="inputComplaintConfirm" class="control-label mb-md-3 mb-2">
+                               
                                 <input type="text" id="inputComplaintConfirm" value="" name="inputComplaintConfirm" class="d-none">
                                     {$languageFrontWeb->recommend_confirm->display->$currentLangWeb} <span>*</span>
                                 </label>
                                 <div class="block-control mb-md-3 mb-2">
                                     <div class="radio-control">
-                                    <input type="radio" id="inputComplaintConfirm1" value="1" name="inputComplaintConfirm" class="form-control" checked>
+                                    <label for="inputComplaintConfirm1" class="visually-hidden">radio</label>
+                                    <input type="radio" id="inputComplaintConfirm1" value="1" name="inputComplaintConfirm1" class="form-control" checked>
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_confirm_note1->display->$currentLangWeb}</div>
                                     </div>
                                 </div>
                                 <div class="block-control">
                                     <div class="radio-control">
-                                    <input type="radio" id="inputComplaintConfirm2" value="2" name="inputComplaintConfirm" class="form-control">
+                                    <label for="inputComplaintConfirm2" class="visually-hidden">radio</label>
+                                    <input type="radio" id="inputComplaintConfirm2" value="2" name="inputComplaintConfirm2" class="form-control">
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_confirm_note2->display->$currentLangWeb}</div>
                                     </div>
@@ -295,6 +303,7 @@
                         {* End Step 3 *}
 
                     </div>
+                </fieldset>
                 </form>
             </div>
         </div>

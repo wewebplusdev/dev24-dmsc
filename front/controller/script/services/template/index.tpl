@@ -69,7 +69,7 @@
               <div class="block-control">
                 <input class="form-control" type="search" name="keywordService" id="keywordService" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                 <div class="search">
-                  <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                  <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" aria-label="link">
                     <span class="icon">
                       <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                         viewBox="0 0 33.621 33.621">
@@ -92,9 +92,9 @@
           <div class="body">
             <div class="row align-items-center">
               <div class="col-md mb-md-0 mb-3">
-                <div class="whead my-0">
+                <h3 class="whead my-0">
                   <div class="title">{$language_modules.breadcrumb2}</div>
-                </div>
+                </h3>
               </div>
               <div class="col-md-auto">
                 <div class="form-group form-select mb-0">
@@ -124,9 +124,9 @@
                   <div class="card-body">
                     <div class="thumbnail">
                       <figure class="contain">
-                        <img src="{$valueload_data->pic->pictures}" alt="{$valueload_data->pic->pictures}"
+                        <img src="{$valueload_data->pic->pictures}" alt="thumbnail services sv"
                           class="thumb-img lazy">
-                        <img src="{$valueload_data->pic2->pictures}" alt="{$valueload_data->pic2->pictures}"
+                        <img src="{$valueload_data->pic2->pictures}" alt="thumbnail services sv"
                           class="thumb-hover lazy">
                       </figure>
                     </div>
