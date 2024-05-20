@@ -74,8 +74,8 @@
                     </figure>
                   </div>
                   <div class="card-body">
-                    <h5 class="title">{$valueload_data['title']}
-                    </h5>
+                    <h3 class="title">{$valueload_data['title']}
+                    </h3>
                     <div class="line"></div>
                     <p class="desc">
                       {$valueload_data['description']}

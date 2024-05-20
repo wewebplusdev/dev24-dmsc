@@ -52,10 +52,10 @@
               <div class="col-md">
                 <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden"
-                    for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                    for="keywordFaq">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
-                    <input class="form-control" type="search" name="keyword"
-                      id="keyword" value="{$req.keyword}"
+                    <input class="form-control" type="search" name="keywordFaq"
+                      id="keywordFaq" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
                       <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
@@ -129,7 +129,7 @@
                   aria-controls="collapse{$keyload_data}">
                   <div class="row gutters-10 align-items-center">
                     <div class="col-auto">
-                      <div class="icon">
+                      {* <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31.229"
                           height="31.229" viewBox="0 0 31.229 31.229">
                           <defs>
@@ -159,6 +159,9 @@
                             </g>
                           </g>
                         </svg>
+                      </div> *}
+                      <div class="icon">
+                        <img src="{$template}/assets/img/static/icon-faq-q.svg" alt="icon-faq-q">
                       </div>
                     </div>
                     <div class="col">
@@ -171,7 +174,7 @@
                 <div class="card-body">
                   <div class="row gutters-10 align-items-start">
                     <div class="col-auto">
-                      <div class="icon">
+                      {* <div class="icon">
                         <svg id="Group_90476" data-name="Group 90476" xmlns="http://www.w3.org/2000/svg" width="30.002"
                           height="30.002" viewBox="0 0 30.002 30.002">
                           <path id="Path_452373" data-name="Path 452373"
@@ -187,6 +190,9 @@
                             d="M99.044,206H86.652a.652.652,0,0,0,0,1.3H99.044a.652.652,0,1,0,0-1.3Z"
                             transform="translate(-82.087 -194.26)" fill="#ccc" />
                         </svg>
+                      </div> *}
+                      <div class="icon">
+                        <img src="{$template}/assets/img/static/icon-faq-a.svg" alt="icon-faq-a">
                       </div>
                     </div>
                     <div class="col">
@@ -194,20 +200,6 @@
                         {strip}
                             {$loadData->item[0]->html|txtReplaceHTML}
                         {/strip}
-                        {* <p>
-                          กรมวิทยาศาสตร์การแพทย์
-                          <br>
-                          กระทรวงสาธารณสุข 88/7 บำราศนราดูร
-                          <br>
-                          ถ.ติวานนท์ ต.ตลาดขวัญ อ.เมือง จ.นนทบุรี 11000
-                        </p>
-                        <p>
-                          ติดต่อสอบถามข้อมูล : 02 589 9850 ถึง 8
-                          <br>
-                          โทรสาร : 02 591 5974
-                          <br>
-                          อีเมล์ : prdmsc@dmsc.mail.go.th , info@dmsc.mail.go.th
-                        </p> *}
                       </div>
                     </div>
                   </div>

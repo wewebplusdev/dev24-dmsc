@@ -65,9 +65,9 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-group form-search mb-0">
-                                    <label class="control-label visually-hidden" for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                                    <label class="control-label visually-hidden" for="keywordDownloadAll">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                                     <div class="block-control">
-                                        <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
+                                        <input class="form-control" type="search" name="keywordDownloadAll" id="keywordDownloadAll" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
                                             <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
                                                 <span class="icon">
@@ -305,7 +305,7 @@
                                                                 <div class="col-auto">
                                                                     <a href="{$news_url}" target="{$target}" class="link -read-more">
                                                                         <div class="d-flex align-items-center">
-                                                                            <span class="icon mr-2">
+                                                                            {* <span class="icon mr-2">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20"
                                                                                     height="20" viewBox="0 0 20 20">
                                                                                     <g id="ARROW_48" data-name="ARROW 48"
@@ -320,7 +320,11 @@
                                                                                             fill="#2ab170" />
                                                                                     </g>
                                                                                 </svg>
+                                                                            </span> *}
+                                                                            <span class="icon mr-2">
+                                                                              <img src="{$template}/assets/img/static/icon-chevron-box.svg" alt="icon-chevron-box">
                                                                             </span>
+                                                                            
                                                                             <div class="txt fw-bold">{$languageFrontWeb->readmore->display->$currentLangWeb}</div>
                                                                         </div>
                                                                     </a>
