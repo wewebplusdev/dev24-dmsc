@@ -69,7 +69,7 @@
                                     <div class="block-control">
                                         <input class="form-control" type="search" name="keywordDownloadAll" id="keywordDownloadAll" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
-                                            <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                                            <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" aria-label="link">
                                                 <span class="icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                                                         viewBox="0 0 33.621 33.621">
@@ -241,7 +241,7 @@
                                         <div class="thumbnail">
                                             <figure class="cover">
                                                 <img src="{$valueload_data->pic->pictures}"
-                                                    alt="{$valueload_data->pic->pictures}" class="img-cover">
+                                                    alt="thumbnail" class="img-cover">
                                             </figure>
                                         </div>
                                     </div>
