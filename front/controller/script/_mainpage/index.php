@@ -40,3 +40,4 @@ $smarty->assign("sitemapWeb", $sitemapWeb);
 $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
 $smarty->assign("recaptchaSitekey", $recaptchaSitekey);
+// printPre($MainPage->settingWeb->sitemap);

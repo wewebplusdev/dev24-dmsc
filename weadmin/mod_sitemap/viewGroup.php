@@ -26,7 +26,8 @@ $sql .= "
 			" . $mod_tb_group_lang . "_target,
 			" . $mod_tb_group_lang . "_pic ,
 			" . $mod_tb_group_lang . "_url,
-			" . $mod_tb_group . "_view as view 
+			" . $mod_tb_group . "_view as view ,
+			" . $mod_tb_group_lang . "_layout as layout
 			";
 $sql .= "  FROM  " . $mod_tb_group . "";
 $sql .= "  INNER JOIN " . $mod_tb_group_lang . "  ";
@@ -68,6 +69,7 @@ if (!is_file($valPic)) {
 //print_pre($valPic);
 $valUrl = rechangeQuot($Row[11]);
 $valView = number_format($Row['view']);
+$valLayout = $Row['layout'];
 
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 
@@ -160,6 +162,12 @@ logs_access('3', 'View Group');
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:typevdo"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                   <div class="formDivView"><?php echo $modTxtTarget[$valTarget] ?></div>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:layout"] ?>:<span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView"><?php echo $modLayout[$valLayout] ?></div>
                </td>
             </tr>
          </table>
