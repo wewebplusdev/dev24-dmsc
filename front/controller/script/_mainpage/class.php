@@ -36,11 +36,13 @@ abstract class Controller
             if ($_CORE_ENV == 'DEV') {
                 // $this->urlAPI =  'http://192.168.101.39:4040/service-api/v1';
                 // $this->urlAPI =  'http://192.168.1.110:4040/service-api/v1';
-                $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
+                // $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
+                $this->urlAPI =  'http://45.136.253.128:4040/service-api/v1';
             } elseif ($_CORE_ENV == 'PROD') {
                 $this->urlAPI =  'http://192.168.200.146:4040/service-api/v1';
             } else {
-                $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
+                // $this->urlAPI =  'http://api.wewebplus.com:4040/service-api/v1';
+                $this->urlAPI =  'http://45.136.253.128:4040/service-api/v1';
             }
         }
 
