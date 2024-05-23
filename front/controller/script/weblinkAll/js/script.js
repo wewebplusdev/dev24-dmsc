@@ -49,12 +49,14 @@ function toggleLayout(isGrid) {
 }
 
 // Event listener for layout view buttons
+
 $(".layout-view button").click(function () {
   toggleLayout($(this).hasClass("btn-grid"));
 });
 $(".filter-form").on("click", async function () {
   $("#filter-form").submit();
 });
+
 $(".select-filter").on("change", async function () {
   $("#filter-form").submit();
 });
