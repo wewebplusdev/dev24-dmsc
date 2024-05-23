@@ -102,7 +102,7 @@
                     for="sort">{$languageFrontWeb->sort->display->$currentLangWeb}
                     :</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="sort" id="sort"
+                    <select class="select-filter" title="select filter" name="sort" id="sort"
                       style="width: 100%;" >
                       <option value="1" {if $req.sort == '1'} selected {/if}>
                         {$languageFrontWeb->sort_desc->display->$currentLangWeb}
