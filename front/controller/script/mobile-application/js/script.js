@@ -69,14 +69,14 @@ $(".layout-view button").click(function () {
   }
 });
 $(".select-filter").on("change", async function () {
-  submit();
+  $("#filter-form").submit();
 });
-
 $(".btnSearch").on("click", async function () {
   $("#filter-form").submit();
 });
+
 $(".select-filter").on("change", async function () {
-  submit();
+  $("#filter-form").submit();
 });
 
 $(".btnSearch").on("click", async function () {

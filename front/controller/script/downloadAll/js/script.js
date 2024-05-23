@@ -46,6 +46,7 @@ $(".layout-view button").click(function () {
 $(".filter-form").on("click", async function () {
   $("#filter-form").submit();
 });
+
 $(".select-filter").on("change", async function () {
-  submit();
+  $("#filter-form").submit();
 });
