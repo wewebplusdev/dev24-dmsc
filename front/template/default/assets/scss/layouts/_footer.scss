@@ -184,7 +184,7 @@
   .link {
     position: fixed;
     right: 40px;
-    top: 80%;
+    bottom: 90px;
     width: 85px;
     height: 85px;
     display: flex;
@@ -282,6 +282,10 @@
 //     padding: 50px 0;
 //   }
 // }
+
+@media (max-width: 1440px) {
+  .fix-msg .link {bottom: 40px;}
+}
 
 @media (max-width: 1199px) {
   .layout-footer .footer-top {
@@ -416,6 +420,7 @@
   .layout-footer .footer-bar .copyright {
     line-height: 1.4em;
   }
+  .layout-footer .footer-bottom .policy .link {line-height: 1.5em;}
 }
 @media (max-width: 575px) {
   .layout-footer .ipv6 {
@@ -432,4 +437,6 @@
   .layout-footer .followus .social {
     margin-top: 15px;
   }
+
+  .fix-msg .link svg {width: 20px;}
 }

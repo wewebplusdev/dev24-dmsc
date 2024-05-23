@@ -229,6 +229,17 @@ $(document).ready(function () {
     }
   });
 
+  // $("img").each(function () {
+  //   if ($(this).attr("alt")?.length > 0) {
+  //     strHTML = `
+  //       <figcaption class="visually-hidden">${$(this).attr(
+  //         "alt"
+  //       )}</figcaption>
+  //     `;
+  //     $(this).append(strHTML);
+  //   }
+  // });
+
   $('.layout-guide.guide-1 .btn').click(function(){
     $('.layout-header .top-bar').addClass('guides-current-element');
     console.log( $('.layout-guide.guide-1 .btn'));
