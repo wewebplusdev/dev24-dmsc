@@ -49,7 +49,7 @@
                   <label class="control-label visually-hidden"
                     for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" title="select filter" name="gid" id="gid" style="width: 100%;" >
+                    <select class="select-filter" aria-label="select filter" name="gid" id="gid" style="width: 100%;" >
                       <option value="">
                         {$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}
                       </option>
@@ -106,7 +106,7 @@
                         for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
                         <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                       <div class="select-wrapper">
-                        <select class="select-filter" title="select filter" name="sort" id="sort" style="width: 100%;" >
+                        <select class="select-filter" aria-label="select filter" name="sort" id="sort" style="width: 100%;" >
                           <option value="1" {if $req.sort == '1'} selected {/if}>
                             {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                           </option>

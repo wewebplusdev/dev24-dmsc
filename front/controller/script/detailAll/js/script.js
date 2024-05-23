@@ -51,3 +51,36 @@ let newsAreaSwiper = new Swiper(".news-area .swiper", {
     },
   },
 });
+
+//history
+var eachYearSwiper = new Swiper(".each-year .swiper", {
+  // slidesPerView: "auto",
+  slidesPerView: 4,
+  // freeMode: true,
+  spaceBetween: 45,
+  watchSlidesProgress: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1200: {
+      slidesPerView: 4,
+    }
+  }
+});
+
+
+//organization
+Fancybox.bind("[data-fancybox]", {});
