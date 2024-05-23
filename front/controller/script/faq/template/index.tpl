@@ -198,7 +198,7 @@
                     <div class="col">
                       <div class="desc">
                         {strip}
-                            {$loadData->item[0]->html|txtReplaceHTML}
+                            {$valueload_data->html|txtReplaceHTML}
                         {/strip}
                       </div>
                     </div>
