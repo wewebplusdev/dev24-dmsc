@@ -9,4 +9,5 @@ package.json
 package-lock.json
 /webservice_json
 weadmin_bk
-_migration/*
+_migration/ckeditor
+_migration/upload
