@@ -48,7 +48,7 @@
                   <label class="control-label visually-hidden"
                     for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="gid" title="select filter" id="gid" style="width: 100%;">
+                    <select class="select-filter" name="gid" id="gid" title="select filter" style="width: 100%;">
                       <option value="">
                         {$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}
                       </option>
