@@ -56,7 +56,7 @@
                   <div class="form-group form-select -select-group mb-0">
                     <label class="control-label visually-hidden" for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                     <div class="select-wrapper">
-                      <select class="select-filter" name="gid" id="gid" style="width: 100%;" >
+                      <select class="select-filter" title="select filter" name="gid" id="gid" style="width: 100%;" >
                         <option value="">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</option>
                         {foreach $load_group->item as $keyload_group => $valueload_group}
                           <option value="{$valueload_group->id}" {if $req.gid eq $valueload_group->id}selected{/if}>{$valueload_group->subject}</option>
@@ -141,7 +141,7 @@
                     for="sort">{$languageFrontWeb->sort->display->$currentLangWeb}
                     :</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="sort" id="sort"
+                    <select class="select-filter" title="select filter" name="sort" id="sort"
                       style="width: 100%;" >
                       <option value="1" {if $req.sort == '1'} selected {/if}>
                         {$languageFrontWeb->sort_desc->display->$currentLangWeb}
