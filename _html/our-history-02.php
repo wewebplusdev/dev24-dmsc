@@ -44,13 +44,13 @@
             </h1>
             <div class="graphic">
               <div class="obj">
-                <img src="<?php echo $core_template; ?>/img/uploads/inner6.png" alt="obj-banner-about" class="lazy img-cover">
+                <img src="front/template/default/assets/img/uploads/inner6.png" alt="obj-banner-about" class="lazy img-cover">
               </div>
             </div>
           </div>
         </div>
         <figure class="cover">
-          <img src="<?php echo $core_template; ?>/img/static/banner.jpg" alt="" class="lazy img-cover">
+          <img src="front/template/default/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
         </figure>
       </div>
       <div class="default-body">
@@ -61,7 +61,7 @@
               <div class="row align-items-end">
                 <div class="col-xl-6">
                   <div class="thumbnails">
-                    <img src="<?php echo $core_template; ?>/img/static/graphic-the-story.png" alt="graphic-the-story">
+                    <img src="front/template/default/assets/img/static/graphic-the-story.png" alt="graphic-the-story">
                   </div>
                 </div>
                 <div class="col-xl-6">
@@ -126,7 +126,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="thumbnails ml-auto">
-                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-03.jpg" alt="">
+                        <img src="front/template/default/assets/img/uploads/img-history-03.jpg" alt="">
                       </div>
                     </div>
                   </div>
@@ -162,7 +162,7 @@
                     <div class="col-lg-6 order-lg-1 timeline-dot">
                       <div class="timeline-layout">
                         <div class="thumbnails">
-                          <img src="<?php echo $core_template; ?>/img/uploads/img-history-04.jpg" alt="">
+                          <img src="front/template/default/assets/img/uploads/img-history-04.jpg" alt="">
                         </div>
                       </div>
                     </div>
@@ -198,7 +198,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="thumbnails ml-auto">
-                        <img src="<?php echo $core_template; ?>/img/uploads/img-history-05.jpg" alt="">
+                        <img src="front/template/default/assets/img/uploads/img-history-05.jpg" alt="">
                       </div>
                     </div>
                   </div>
@@ -221,16 +221,16 @@
                     <div class="col-lg-6 order-lg-1 timeline-dot">
                       <div class="timeline-layout">
                         <div class="thumbnails">
-                          <img src="<?php echo $core_template; ?>/img/uploads/img-history-06.jpg" alt="">
+                          <img src="front/template/default/assets/img/uploads/img-history-06.jpg" alt="">
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- ck editor -->
             </div>
           </div>
+          <!-- ck editor -->
 
         </div>
     </section>

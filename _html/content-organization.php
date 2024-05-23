@@ -74,9 +74,7 @@
   <?php include('inc/loadscript.php'); ?>
 
   <script>
-   Fancybox.bind("[data-fancybox]", {
-
-});
+   Fancybox.bind("[data-fancybox]", {});
 </script>
 </body>
 
