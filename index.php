@@ -16,7 +16,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'local
     $path_root = ""; #ถ้า root อยู่ public
     $http_protocal = "https";
     $http_status = true;
-}elseif($_SERVER['HTTP_HOST'] == 'uat.wewebplus.com' || $_SERVER['HTTP_HOST'] == 'api.wewebplus.com'){
+}elseif($_SERVER['HTTP_HOST'] == 'uat.wewebplus.com' || $_SERVER['HTTP_HOST'] == 'api.wewebplus.com' || $_SERVER['HTTP_HOST'] == 'dmsc.bbonzpp.com'){
     $_CORE_ENV = "STAGING";
     $path_root = ""; #ถ้า root อยู่ public
     $http_protocal = "https";
@@ -29,7 +29,17 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'local
 }
 
 define("_http", $http_protocal);
-if (_http == "http" && $http_status) {
+function IsSSL(){
+    if(!empty( $_SERVER['https'] ))
+        return true;
+
+    if( !empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' )
+        return true;
+
+    return false;
+}
+$get_secure_protocal = IsSSL();
+if ($http_status && !$get_secure_protocal) {
     $redirect= _http."://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     header("Location:$redirect");
     exit();
@@ -65,6 +75,7 @@ if (isset($_SESSION[_URL]['token'])) {
         $member->tokenCreate();
     }
 }
+
 $memberID = $member->tokenGetUser();
 if (!empty($memberID['member_info'])) {
     $smarty->assign("userinfo", $memberID);

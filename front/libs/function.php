@@ -21,7 +21,6 @@ function printPre($expression, $return = false, $wrap = false)
     } else {
           echo $str;
     }
-      
 }
 
 ## clean array ##

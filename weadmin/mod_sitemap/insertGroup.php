@@ -39,6 +39,7 @@ if ($_REQUEST['execute'] == "insert") {
          $insertLang[$mod_tb_group_lang . "_url"] = "'" . changeQuot($_REQUEST['inputurl']) . "'";
          $insertLang[$mod_tb_group_lang . "_target"] = "'" . changeQuot($_REQUEST['inputmenutarget']) . "'";
          $insertLang[$mod_tb_group_lang . "_pic"] = "'" . changeQuot($_REQUEST['picname']) . "'";
+         $insertLang[$mod_tb_group_lang . "_layout"] = "'" . changeQuot($_REQUEST['inputmenulayout']) . "'";
          $insertLang[$mod_tb_group_lang . "_lastbyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
          $insertLang[$mod_tb_group_lang . "_lastby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
          $insertLang[$mod_tb_group_lang . "_lastdate"] = "NOW()";

@@ -17,7 +17,7 @@
               </a>
             </li>
             <li>
-              <a href="{$ul}/{$menuActive}/{$masterkey}" class="link">
+              <a href="{$ul}/{$menuActive}/{$masterkey}" class="link" alt="link">
                 {$language_modules.breadcrumb2}
               </a>
             </li>
@@ -65,7 +65,7 @@
                   <label class="control-label visually-hidden"
                     for="keywordMobileApp">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
-                    <input class="form-control" type="search" name="keywordMobileApp" id="keywordMobileApp" value="{$req.keyword}"
+                    <input class="form-control" type="search" class="btnSearch" name="keywordMobileApp" id="keywordMobileApp" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
                       <a href="javascript:void(0);" class="link btnSearch"  aria-label="link">
@@ -104,7 +104,7 @@
                       <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
                       <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                       <div class="select-wrapper">
-                        <select class="select-filter" name="sort" id="sort" style="width: 100%;" onchange="submit();">
+                        <select class="select-filter" name="sort" id="sort" style="width: 100%;" >
                           <option value="1" {if $req.sort == '1'} selected {/if}>
                             {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                           </option>

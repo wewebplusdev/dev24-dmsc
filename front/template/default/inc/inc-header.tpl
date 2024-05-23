@@ -65,7 +65,7 @@
                                             data-aos="fade-left">{$valueSitemapLv1->subject}</a>
                                         <div class="dropdown-menu full-dropdown-menu">
                                             <div class="container-dropdown-menu">
-                                                <div class="submenu-row">
+                                                <div class="submenu-row{if $valueSitemapLv1->layout eq 1} submenu-grid{/if}">
                                                     <div class="submenu-col"></div>
                                                     <div class="submenu-col sub1menu">
                                                         <div class=" mCustomScrollbar">

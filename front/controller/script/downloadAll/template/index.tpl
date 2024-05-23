@@ -54,7 +54,7 @@
                                 <div class="form-group form-select -select-group mb-0">
                                 <label class="control-label visually-hidden" for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                                 <div class="select-wrapper">
-                                    <select class="select-filter" name="gid" id="gid" style="width: 100%;" onchange="submit();">
+                                    <select class="select-filter" name="gid" id="gid" style="width: 100%;" >
                                     <option value="">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</option>
                                     {foreach $load_group->item as $keyload_group => $valueload_group}
                                         <option value="{$valueload_group->id}" {if $req.gid eq $valueload_group->id}selected{/if}>{$valueload_group->subject}</option>
@@ -69,7 +69,7 @@
                                     <div class="block-control">
                                         <input class="form-control" type="search" name="keywordDownloadAll" id="keywordDownloadAll" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
-                                            <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" aria-label="link">
+                                            <a href="javascript:void(0);" class="link filter-form"  aria-label="link">
                                                 <span class="icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                                                         viewBox="0 0 33.621 33.621">
@@ -109,7 +109,7 @@
                                             <input type="text" name="selectFilter" id="selectFilter" class="d-none" >
                                             <div class="select-wrapper">
                                                 <select class="select-filter" name="sort" id="sort"
-                                                    style="width: 100%;" onchange="submit();">
+                                                    style="width: 100%;" >
                                                     <option value="1" {if $req.sort == '1'} selected {/if}>
                                                     {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                                                     </option>
