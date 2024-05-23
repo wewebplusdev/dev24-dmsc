@@ -44,3 +44,10 @@ $('.layout-view button').click(function () {
         toggleLayout('.layout-view', 'layout-grid', 'layout-list', '#download-list', '-layout-grid', '.col-thumb', '.col-head');
     }
 });
+$(".select-filter").on("change", async function () {
+  submit();
+});
+
+$(".btnSearch").on("click", async function () {
+  $("#filter-form").submit();
+});
