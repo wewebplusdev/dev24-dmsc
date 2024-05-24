@@ -297,7 +297,8 @@
 .asw-wrapper {
   position: fixed;
   right: 0;
-  top: 155px;
+  /* top: 155px; */
+  bottom: 70px;
   z-index: 1000;
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
@@ -409,7 +410,8 @@
   justify-content: center;
 
   position: absolute;
-  top: 75%;
+  /* top: 75%; */
+  bottom: 120px;
   left: -125px;
 
   width: 85px;
@@ -463,7 +465,7 @@
 @media only screen and (max-width: 1540px) {
   .asw-menu-btn,
   .asw-menu-btn-mobile {
-    top: 79%;
+    bottom: 90px;
   }
   .asw-menu {
     width: 400px;
@@ -553,7 +555,7 @@
 
   .asw-menu-btn {
     top: unset;
-    bottom: 205px;
+    /* bottom: 205px; */
   }
 
   .asw-menu-content {
@@ -644,7 +646,8 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    top: 80%;
+    /* top: 80%; */
+    bottom: 115px;
     left: unset;
     right: 0;
     z-index: 10;

@@ -130,6 +130,31 @@ function reload_swiper() {
     });
 }
 
+
+
+let aboutGroupListSwiper = new Swiper(".wg-about-group-list .swiper", {
+  // slidesPerView: "auto",
+  slidesPerView: 1,
+  // freeMode: true,
+  // watchSlidesProgress: true,
+  // navigation: {
+  //     nextEl: ".swiper-button-next",
+  //     prevEl: ".swiper-button-prev",
+  // },
+  // breakpoints: {
+  //     0: {
+  //         slidesPerView: 2,
+  //     },
+  //     768: {
+  //         slidesPerView: 3,
+  //     },
+  //     992: {
+  //         slidesPerView: 2,
+  //     }
+  // }
+});
+
+
 // $('body').guides({
 //   guides: [{
 //     // welcome

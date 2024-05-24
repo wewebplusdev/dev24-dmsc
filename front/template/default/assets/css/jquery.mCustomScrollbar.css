@@ -332,36 +332,32 @@ yx-axis
 	
 	/* default theme ("light") */
 
-	.mCSB_scrollTools{ opacity: 0.75; filter: "alpha(opacity=75)"; -ms-filter: "alpha(opacity=75)"; }
+	.mCSB_scrollTools{ opacity: 0.75;}
 	
 	.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools,
-	.mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 0; filter: "alpha(opacity=0)"; -ms-filter: "alpha(opacity=0)"; }
+	.mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 0;}
 	
 	.mCustomScrollbar > .mCustomScrollBox > .mCSB_scrollTools.mCSB_scrollTools_onDrag,
 	.mCustomScrollbar > .mCustomScrollBox ~ .mCSB_scrollTools.mCSB_scrollTools_onDrag,
 	.mCustomScrollBox:hover > .mCSB_scrollTools,
 	.mCustomScrollBox:hover ~ .mCSB_scrollTools,
 	.mCS-autoHide:hover > .mCustomScrollBox > .mCSB_scrollTools,
-	.mCS-autoHide:hover > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 1; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)"; }
+	.mCS-autoHide:hover > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 1;  }
 
 	.mCSB_scrollTools .mCSB_draggerRail{
 		background-color: #000; background-color: rgba(0,0,0,0.4);
-		filter: "alpha(opacity=40)"; -ms-filter: "alpha(opacity=40)"; 
 	}
 
 	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
 		background-color: #fff; background-color: rgba(255,255,255,0.75);
-		filter: "alpha(opacity=75)"; -ms-filter: "alpha(opacity=75)"; 
 	}
 
 	.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
 		background-color: #fff; background-color: rgba(255,255,255,0.85);
-		filter: "alpha(opacity=85)"; -ms-filter: "alpha(opacity=85)"; 
 	}
 	.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 	.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
-		background-color: #fff; background-color: rgba(255,255,255,0.9);
-		filter: "alpha(opacity=90)"; -ms-filter: "alpha(opacity=90)"; 
+		background-color: #fff; background-color: rgba(255,255,255,0.9)
 	}
 
 	.mCSB_scrollTools .mCSB_buttonUp,
@@ -370,7 +366,7 @@ yx-axis
 	.mCSB_scrollTools .mCSB_buttonRight{
 		background-image: url(mCSB_buttons.png); /* css sprites */
 		background-repeat: no-repeat;
-		opacity: 0.4; filter: "alpha(opacity=40)"; -ms-filter: "alpha(opacity=40)"; 
+		opacity: 0.4;
 	}
 
 	.mCSB_scrollTools .mCSB_buttonUp{
@@ -412,12 +408,12 @@ yx-axis
 	.mCSB_scrollTools .mCSB_buttonUp:hover,
 	.mCSB_scrollTools .mCSB_buttonDown:hover,
 	.mCSB_scrollTools .mCSB_buttonLeft:hover,
-	.mCSB_scrollTools .mCSB_buttonRight:hover{ opacity: 0.75; filter: "alpha(opacity=75)"; -ms-filter: "alpha(opacity=75)"; }
+	.mCSB_scrollTools .mCSB_buttonRight:hover{ opacity: 0.75;}
 
 	.mCSB_scrollTools .mCSB_buttonUp:active,
 	.mCSB_scrollTools .mCSB_buttonDown:active,
 	.mCSB_scrollTools .mCSB_buttonLeft:active,
-	.mCSB_scrollTools .mCSB_buttonRight:active{ opacity: 0.9; filter: "alpha(opacity=90)"; -ms-filter: "alpha(opacity=90)"; }
+	.mCSB_scrollTools .mCSB_buttonRight:active{ opacity: 0.9;}
 	
 
 	/* theme: "dark" */
@@ -737,7 +733,6 @@ yx-axis
 		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAANElEQVQYV2NkIAAYiVbw//9/Y6DiM1ANJoyMjGdBbLgJQAX/kU0DKgDLkaQAvxW4HEvQFwCRcxIJK1XznAAAAABJRU5ErkJggg==");
 		background-repeat: repeat-y;
 		opacity: 0.3;
-		filter: "alpha(opacity=30)"; -ms-filter: "alpha(opacity=30)"; 
 	}
 	
 	.mCS-rounded-dots.mCSB_scrollTools_horizontal .mCSB_draggerRail, 
@@ -814,7 +809,6 @@ yx-axis
 	.mCS-3d.mCSB_scrollTools, 
 	.mCS-3d-dark.mCSB_scrollTools{
 		opacity: 1;
-		filter: "alpha(opacity=30)"; -ms-filter: "alpha(opacity=30)"; 
 	}
 	
 	.mCS-3d.mCSB_scrollTools .mCSB_draggerRail, 
@@ -891,7 +885,6 @@ yx-axis
 	.mCS-3d-thick.mCSB_scrollTools, 
 	.mCS-3d-thick-dark.mCSB_scrollTools{
 		opacity: 1;
-		filter: "alpha(opacity=30)"; -ms-filter: "alpha(opacity=30)"; 
 	}
 	
 	.mCS-3d-thick.mCSB_scrollTools, 
@@ -1025,13 +1018,11 @@ yx-axis
 	
 	.mCS-minimal.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
 		background-color: #fff; background-color: rgba(255,255,255,0.2);
-		filter: "alpha(opacity=20)"; -ms-filter: "alpha(opacity=20)"; 
 	}
 	
 	.mCS-minimal.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 	.mCS-minimal.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
 		background-color: #fff; background-color: rgba(255,255,255,0.5);
-		filter: "alpha(opacity=50)"; -ms-filter: "alpha(opacity=50)"; 
 	}
 	
 	
@@ -1039,13 +1030,11 @@ yx-axis
 	
 	.mCS-minimal-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
 		background-color: #000; background-color: rgba(0,0,0,0.2);
-		filter: "alpha(opacity=20)"; -ms-filter: "alpha(opacity=20)"; 
 	}
 	
 	.mCS-minimal-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 	.mCS-minimal-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
 		background-color: #000; background-color: rgba(0,0,0,0.5);
-		filter: "alpha(opacity=50)"; -ms-filter: "alpha(opacity=50)"; 
 	}
 	
 	/* ---------------------------------------- */

@@ -188,6 +188,9 @@
 
       &.tody {
         background-color: #cccccc30;
+        .num {
+          opacity: 1;
+        }
       }
 
       .num {
@@ -199,10 +202,11 @@
         color: var(--color-secondary);
         cursor: pointer;
         transition: all 200ms ease-in-out;
+        opacity: 0.5;
 
-        &:hover {
-          opacity: 0.8;
-        }
+        // &:hover {
+        //   opacity: 0.8;
+        // }
       }
     }
 

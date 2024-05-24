@@ -273,7 +273,7 @@
                     {if $loadAbout->_numOfRows gte 1}
                       <div class="col-lg-auto">
                           <div class="wg-about-group-list">
-                              <div class="swiper">
+                              <div class="swiper swiper-default">
                                 <div class="swiper-wrapper">
                                 {for $foo=1 to 3}
                                   <div class="swiper-slide">

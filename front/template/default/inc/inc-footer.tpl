@@ -344,7 +344,7 @@
 
 {if $settingWeb.social->ChatFacebook->link neq "" && $settingWeb.social->ChatFacebook->link neq "#"}
     <div class="fix-msg">
-      <a href="{$settingWeb.social->ChatFacebook->link}" class="link" target="_blank" title="msg">
+      <a href="{$settingWeb.social->ChatFacebook->link}" class="link" target="_blank" title="Messenger">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
           <defs>
             <clipPath id="clip-path">
