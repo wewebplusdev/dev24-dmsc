@@ -70,7 +70,7 @@
                                         <div class="row gutters-20 align-items-center">
                                             <div class="col-auto">
                                                 <div class="box">
-                                                    <span class="pr-lg1">
+                                                    <span class="pr-lg-1">
                                                         <svg id="view-2" xmlns="http://www.w3.org/2000/svg" width="25"
                                                             height="15.934" viewBox="0 0 25 15.934">
                                                             <g id="Group_90612" data-name="Group 90612">
@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="col-auto pl-sm-3 pl-0">
                                                 <div class="box">
-                                                    <span class="pr-lg1">
+                                                    <span class="pr-lg-1">
                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="20"
                                                             height="20" viewBox="0 0 20 20">
