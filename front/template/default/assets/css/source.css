@@ -7901,6 +7901,9 @@ a:hover .fontContantTbManage {
 .event-calendar table .box.tody {
   background-color: rgba(204, 204, 204, 0.1882352941);
 }
+.event-calendar table .box.tody .num {
+  opacity: 1;
+}
 .event-calendar table .box .num {
   position: relative;
   z-index: 1;
@@ -7913,9 +7916,7 @@ a:hover .fontContantTbManage {
   cursor: pointer;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
-}
-.event-calendar table .box .num:hover {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 .event-calendar table .event-group {
   margin: 10px 0;
