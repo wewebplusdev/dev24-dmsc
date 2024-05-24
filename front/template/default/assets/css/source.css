@@ -8318,7 +8318,7 @@ a:hover .fontContantTbManage {
     padding: 15px;
   }
   .event-calendar .form-group-calendar.-group .select2-container .select2-selection--single {
-    pad: 0 15px;
+    padding: 0 15px;
   }
   .event-calendar .default-filter .form-search .form-control {
     font-size: 16px;
@@ -8781,7 +8781,7 @@ a:hover .fontContantTbManage {
           justify-content: center;
   background-color: var(--color-light);
   border: 1px solid var(--color-primary);
-  font-size: var(--fw-bold);
+  font-weight: var(--fw-bold);
   color: var(--color-primary);
 }
 .contact-map .tab-content .btn-full-screen .icon {
