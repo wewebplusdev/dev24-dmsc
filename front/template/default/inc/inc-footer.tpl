@@ -120,6 +120,20 @@
                             </picture>
                         </div>
                     </div>
+                    <div class="col-sm-auto text-sm-left text-center pl-0">
+                      <div class="row row-valid-checker h-100 no-gutters align-items-center">
+                        <div class="col-12 mb-sm-0 mb-2">
+                          <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                            <img src="https://jigsaw.w3.org/css-validator/images/vcss"alt="Valid CSS!" />
+                          </a>
+                        </div>
+                        <div class="col-12">
+                          <a href="https://achecks.org/checker/index.php?uri=referer&gid=WCAG2-AA">
+                            <img src="https://achecks.org/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                     <div class="col-lg col-sm-auto" data-aos="fade-up">
                         <div class="followus pt-md-3">
                             <div class="row no-gutters align-items-center justify-content-md-end">
