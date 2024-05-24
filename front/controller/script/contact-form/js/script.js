@@ -20,18 +20,27 @@ let contactMap = new Swiper(".contact-center .swiper", {
     //   slidesPerView: 2,
     //   spaceBetween: 15,
     // }
-  }
+  },
 });
-
 
 function load_recaptch() {
   grecaptcha.ready(function () {
     // do request for recaptcha token
     // response is promise with passed token
-    grecaptcha.execute($('#g-recaptcha-response').data('secret'), { action: 'validate_captcha' })
+    grecaptcha
+      .execute($("#g-recaptcha-response").data("secret"), {
+        action: "validate_captcha",
+      })
       .then(function (token) {
         // add token value to form
-        document.getElementById('g-recaptcha-response').value = token;
+        document.getElementById("g-recaptcha-response").value = token;
       });
   });
 }
+
+$(".btn-reload-form").on("click", async function () {
+  reload_form();
+});
+$(".btn-validate-step").on("click", async function () {
+  validate_step("step1");
+});

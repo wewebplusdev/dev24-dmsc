@@ -188,8 +188,8 @@
                                 </div>
                             </div>
                             <div class="action">
-                                <a href="javascript:void(0);" class="btn btn-primary" onclick="validate_step('step1');">{$languageFrontWeb->contact_next->display->$currentLangWeb}</a>
-                                <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</a>
+                                <a href="javascript:void(0);" class="btn btn-primary btn-validate-step">{$languageFrontWeb->contact_next->display->$currentLangWeb}</a>
+                                <a href="javascript:void(0);"  class="btn btn-primary btn-cancel btn-reload-form">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</a>
                             </div>
                         </div>
                         {* End Step 1 *}
@@ -280,7 +280,7 @@
                             <div class="action">
                                 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptchaSitekey}">
                                 <button type="submit" class="btn btn-primary disabled" id="submit-form">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
-                                <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</a>
+                                <a href="javascript:void(0);"  class="btn btn-primary btn-cancel btn-reload-form">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</a>
                             </div>
                         </div>
                         {* End Step 2 *}
@@ -297,7 +297,7 @@
                                 <h3 class="title">{$languageFrontWeb->contact_success->display->$currentLangWeb}</h3>
                             </div>
                             <div class="action">
-                                <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
+                                <a href="javascript:void(0);"  class="btn btn-primary btn-reload-form">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
                             </div>
                         </div>
                         {* End Step 3 *}

@@ -17,28 +17,36 @@ let eachYearSwiper = new Swiper(".each-year .swiper", {
     },
     1200: {
       slidesPerView: 4,
-    }
+    },
+  },
+});
+
+$(".layout-view button").click(function () {
+  if ($(this).hasClass("btn-grid")) {
+    $(".layout-view").removeClass("layout-list");
+    $(".layout-view").addClass("layout-grid");
+
+    $("#download-list").removeClass("-layout-list");
+    $("#download-list").addClass("-layout-grid");
+
+    $(".col-thumb").removeClass("col-auto").addClass("col-12");
+    $(".col-head").removeClass("col").addClass("col-12");
+  } else {
+    $(".layout-view").removeClass("layout-grid");
+    $(".layout-view").addClass("layout-list");
+
+    $("#download-list").removeClass("-layout-grid");
+    $("#download-list").addClass("-layout-list");
+
+    $(".col-thumb").removeClass("col-12").addClass("col-auto");
+    $(".col-head").removeClass("col-12").addClass("col");
   }
 });
 
-$('.layout-view button').click(function() {
-  if ($(this).hasClass('btn-grid')) {
-    $('.layout-view').removeClass('layout-list');
-    $('.layout-view').addClass('layout-grid');
+$(".filter-form").on("click", async function () {
+  $("#filter-form").submit();
+});
 
-    $('#download-list').removeClass('-layout-list');
-    $('#download-list').addClass('-layout-grid');
-
-    $('.col-thumb').removeClass('col-auto').addClass('col-12');
-    $('.col-head').removeClass('col').addClass('col-12');
-  } else {
-    $('.layout-view').removeClass('layout-grid');
-    $('.layout-view').addClass('layout-list');
-
-    $('#download-list').removeClass('-layout-grid');
-    $('#download-list').addClass('-layout-list');
-
-    $('.col-thumb').removeClass('col-12').addClass('col-auto');
-    $('.col-head').removeClass('col-12').addClass('col');
-  }
+$(".select-filter").on("change", async function () {
+  $("#filter-form").submit();
 });

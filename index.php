@@ -30,7 +30,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'local
 
 define("_http", $http_protocal);
 function IsSSL(){
-    if(!empty( $_SERVER['https'] ))
+    if(!empty( $_SERVER['HTTPS'] ))
         return true;
 
     if( !empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' )

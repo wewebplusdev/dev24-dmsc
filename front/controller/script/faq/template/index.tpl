@@ -58,7 +58,7 @@
                       id="keywordFaq" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
-                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" aria-label="link">
+                      <a href="javascript:void(0);" class="link filter-form"  aria-label="link">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="33.621"
                             height="33.621" viewBox="0 0 33.621 33.621">
@@ -102,8 +102,8 @@
                     for="sort">{$languageFrontWeb->sort->display->$currentLangWeb}
                     :</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="sort" id="sort"
-                      style="width: 100%;" onchange="submit();">
+                    <select class="select-filter" aria-label="select filter" name="sort" id="sort"
+                      style="width: 100%;" >
                       <option value="1" {if $req.sort == '1'} selected {/if}>
                         {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                       </option>
@@ -198,7 +198,7 @@
                     <div class="col">
                       <div class="desc">
                         {strip}
-                            {$loadData->item[0]->html|txtReplaceHTML}
+                            {$valueload_data->html|txtReplaceHTML}
                         {/strip}
                       </div>
                     </div>

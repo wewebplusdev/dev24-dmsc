@@ -115,7 +115,7 @@
                     <h3 class="title">{$languageFrontWeb->contact_success->display->$currentLangWeb}</h3>
                   </div>
                   <div class="action">
-                    <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
+                    <a href="javascript:void(0);"  class="btn btn-primary btn-reload-form">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
                   </div>
                 </div>
               </div>

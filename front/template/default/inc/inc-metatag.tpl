@@ -2,8 +2,8 @@
 <title>{$seo.title|default:$settingWeb.metatitle}</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-{* <meta name="<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">keywords" content="{$seo.keyword|default:$settingWeb.keywords}"> *}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="keywords" content="{$seo.keyword|default:$settingWeb.keywords}">
 <meta name="description" content="{$seo.desc|default:$settingWeb.description}">
 <meta name="author" content="">
 <meta name="HandheldFriendly" content="true">

@@ -22,7 +22,7 @@
                     {assign var=strOption value=""}
                 {/if}
                 <td>
-                    <div class="box {$strOption}" onclick="">
+                    <div class="box {$strOption}" >
                         <div class="num">{$mCount}</div>
                         {if $myCalendarEventList[$mCount]|gettype eq 'array' && $myCalendarEventList[$mCount]|count > 0}
                             {$keys = array_keys($myCalendarEventList[$mCount])}
@@ -95,7 +95,7 @@
                 {assign var=strOption value=""}
             {/if}
             <td>
-                <div class="box {$strOption}" onclick="">
+                <div class="box {$strOption}" >
                     <div class="num">{$mCount}</div>
                     {if $myCalendarEventList[$mCount]|gettype eq 'array' && $myCalendarEventList[$mCount]|count > 0}
                         {$keys = array_keys($myCalendarEventList[$mCount])}
