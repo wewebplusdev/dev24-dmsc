@@ -5773,6 +5773,14 @@ a:hover .fontContantTbManage {
           transform: translateX(5px);
 }
 
+.wg-about-group-list .swiper .swiper-wrapper .swiper-slide {
+  opacity: 0;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+.wg-about-group-list .swiper .swiper-wrapper .swiper-slide.swiper-slide-active {
+  opacity: 1;
+}
 .wg-about-group-list .swiper .swiper-wrapper .swiper-slide > .row > div {
   margin-left: auto;
 }
