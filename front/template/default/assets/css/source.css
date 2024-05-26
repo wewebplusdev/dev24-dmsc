@@ -1287,10 +1287,6 @@ figure.ratio .img-ratio.ratio-9x16 {
   height: 20px;
 }
 
-.modal-backdrop {
-  z-index: -1;
-}
-
 @media (min-width: 376px) {
   .popup-modal .btn-close {
     padding: 0;
@@ -4445,6 +4441,7 @@ div.swal2-html-container {
           clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
   background: -webkit-gradient(linear, left top, left bottom, from(#006aff), to(#00b2ff));
   background: linear-gradient(#006aff 0%, #00b2ff 100%);
+  z-index: 10;
 }
 
 @media (max-width: 1600px) {
@@ -10037,6 +10034,9 @@ a:hover .fontContantTbManage {
   padding: 0;
   right: -5px;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .layout-guide .title {
   font-size: 24px;
@@ -10054,6 +10054,9 @@ a:hover .fontContantTbManage {
   font-weight: var(--fw-medium);
 }
 .layout-guide .close-guide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   cursor: pointer;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -10091,23 +10094,21 @@ a:hover .fontContantTbManage {
   padding-left: 100px;
 }
 .guides-canvas .guide-wcag {
-  top: 300px !important;
+  top: 120px !important;
   right: 140px !important;
   left: unset !important;
   text-align: right !important;
   padding-right: 100px;
 }
 .guides-canvas .guide-ipv6 {
-  left: 0px;
-  right: 0px;
   text-align: center;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin: auto;
   inset: auto 0 0 0 !important;
-  padding-bottom: 100px;
   margin-bottom: 280px;
+  right: 190px !important;
 }
 
 .guide-2 {
@@ -10143,7 +10144,7 @@ a:hover .fontContantTbManage {
 
 .guide-6 {
   margin-right: -69px;
-  margin-top: 238px;
+  margin-top: 200px;
 }
 .guide-6 ~ .guide-pointer {
   right: 0;
@@ -10337,14 +10338,32 @@ a:hover .fontContantTbManage {
   z-index: 100000;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1600px) {
+  .guide-2,
+  .guide-3,
+  .guide-4 {
+    margin-top: -78px;
+  }
+  .guide-5 ~ .guide-pointer {
+    left: 5px;
+  }
+  .guide-pointer::before {
+    width: 35px;
+    height: 35px;
+  }
+  .guides-canvas .guide-wcag {
+    right: 75px !important;
+  }
+  .guide-sitemap.guides-current-element::before {
+    width: 100%;
+  }
   .layout-guide .card.step-1 .desc {
     padding: 0 30px;
   }
   .layout-guide .card {
-    max-width: 500px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.75em), calc(100% - 1.75em) 100%, 0 100%);
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.75em), calc(100% - 1.75em) 100%, 0 100%);
+    max-width: 470px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5em), calc(100% - 1.5em) 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5em), calc(100% - 1.5em) 100%, 0 100%);
   }
   .layout-guide .progress-line {
     height: 5px;
@@ -10368,8 +10387,11 @@ a:hover .fontContantTbManage {
   .layout-guide .desc + .desc {
     margin-top: 10px;
   }
+  .layout-guide .content {
+    padding: 25px 20px;
+  }
   .layout-guide .action {
-    margin-top: 30px;
+    margin-top: 25px;
   }
   .layout-guide .card.step-1 .action .btn {
     min-width: 130px;
@@ -10383,7 +10405,7 @@ a:hover .fontContantTbManage {
     line-height: 44px;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .layout-guide .head {
     padding: 10px 15px;
   }
@@ -10397,17 +10419,113 @@ a:hover .fontContantTbManage {
     width: 100%;
     padding: 0 15px;
   }
+  .layout-guide .card {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1em), calc(100% - 1em) 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1em), calc(100% - 1em) 100%, 0 100%);
+  }
   .layout-guide .card.step-1 .desc {
     padding: 0;
   }
   .layout-guide .action {
     margin-top: 25px;
   }
+  .guide-pointer::before {
+    width: 30px;
+    height: 30px;
+    -webkit-transform: translate(20%, 30%) rotate(45deg);
+            transform: translate(20%, 30%) rotate(45deg);
+  }
+  .guides-canvas .guide-welcome {
+    top: 120px !important;
+  }
+  .guides-canvas .guide-welcome .guide-1 .card {
+    margin: auto;
+  }
+  .guides-canvas .guide-lang {
+    padding-top: 15px !important;
+    margin-top: 0;
+  }
+  .guides-canvas .guide-lang .layout-guide {
+    margin: 0;
+  }
+  .guides-canvas .guide-lang .guide-2 ~ .guide-pointer {
+    top: unset;
+    bottom: -30px;
+    right: unset;
+    left: 30px;
+    height: 60px;
+  }
+  .guides-canvas .guide-3 ~ .guide-pointer,
+  .guides-canvas .guide-4 ~ .guide-pointer {
+    top: 5px;
+  }
+  .guides-canvas .guide-banner {
+    inset: 200px 0 auto auto !important;
+    padding-left: 0;
+    margin: 0;
+  }
+  .guides-canvas .guide-banner .layout-guide {
+    margin: 0;
+  }
+  .guides-canvas .guide-banner .guide-5 ~ .guide-pointer {
+    left: 0;
+    right: 0;
+    top: -20px;
+    margin: auto;
+    width: 60px;
+  }
+  .guides-canvas .guide-wcag {
+    right: 0 !important;
+    padding: 0;
+  }
+  .guides-canvas .guide-wcag .layout-guide {
+    margin: 0;
+  }
+  .guides-canvas .guide-wcag .guide-6 ~ .guide-pointer {
+    top: unset;
+    bottom: -26px;
+    right: 40px;
+  }
+  .guides-canvas .guide-ipv6 {
+    right: unset !important;
+    width: auto;
+    inset: auto auto 705.438px 15px !important;
+    margin-bottom: 0;
+  }
+  .guides-canvas .guide-view {
+    margin-bottom: 0;
+  }
+  .nav-lang.guides-current-element::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2196078431);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  .guide-sitemap.guides-current-element::before {
+    height: 50px;
+  }
+  .guide-visitors.guides-current-element::before {
+    height: 60px;
+    top: 22px;
+  }
+  .global-container-home .guides-overlay-custom.d-block-custom {
+    z-index: -1;
+  }
+  .wcag-fix-z .asw-wrapper {
+    z-index: -1;
+  }
+  .layout-header .main-menu {
+    z-index: auto;
+  }
 }
 @media (min-width: 1200px) {
   .container {
     max-width: inherit;
-    width: 1210px;
+    width: 1260px;
   }
 }
 @media (min-width: 1441px) {
@@ -10419,14 +10537,10 @@ a:hover .fontContantTbManage {
 @media (max-width: 1600px) {
   .container {
     max-width: inherit;
-    width: 1210px;
+    width: 1260px;
   }
 }
 @media (max-width: 1540px) {
-  .container {
-    max-width: inherit;
-    width: 1210px;
-  }
   .btn {
     height: 50px;
     line-height: 50px;

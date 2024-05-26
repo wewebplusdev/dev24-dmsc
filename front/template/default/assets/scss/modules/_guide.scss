@@ -68,6 +68,7 @@
       padding: 0;
       right: -5px;
       position: relative;
+      display: flex;
     }
   }
 
@@ -89,6 +90,7 @@
   }
 
   .close-guide {
+    display: flex;
     cursor: pointer;
     width: max-content;
     height: auto;
@@ -129,7 +131,7 @@
   }
   
   .guide-wcag {
-    top: 300px !important;
+    top: 120px !important;
     right: 140px !important;
     left: unset !important;
     text-align: right !important;
@@ -137,16 +139,39 @@
   }
 
   .guide-ipv6 {
-    left: 0px;
-    right: 0px;
     text-align: center;
     width: max-content;
     margin: auto;
     inset: auto 0 0 0 !important;
-    padding-bottom: 100px;
+    // padding-bottom: 100px;
     margin-bottom: 280px;
+    right: 190px !important;
   }
 }
+
+// .guide-banner {
+//   padding-top: 0 !important;
+//   inset: 200px 50px auto auto !important;
+//   padding-left: 100px;
+// }
+
+// .guide-wcag {
+//   top: 120px !important;
+//   right: 140px !important;
+//   left: unset !important;
+//   text-align: right !important;
+//   padding-right: 100px;
+// }
+
+// .guide-ipv6 {
+//   text-align: center;
+//   width: max-content;
+//   margin: auto;
+//   inset: auto 0 0 0 !important;
+//   // padding-bottom: 100px;
+//   margin-bottom: 280px;
+//   right: 190px !important;
+// }
 
 
 .guide-2 {
@@ -182,7 +207,7 @@
 
 .guide-6 {
   margin-right: -69px;
-  margin-top: 238px;
+  margin-top: 200px;
   & ~ .guide-pointer {
     right: 0;
     top: 63%;
@@ -387,9 +412,6 @@
       bottom: 0;
       margin: auto;
     }
-    // & * {
-    //   z-index: 1003;
-    // }
   }
 }
 
@@ -409,424 +431,22 @@
   }
 }
 
-// @media screen and (max-width: 1198px) {
-//   .guide-2 {
-//     margin-top: -71px;
-//     margin-right: -45px;
-//     & ~ .guide-pointer {
-//       right: 7px;
-//     }
-//   }
-  
-//   .guide-3 {
-//     margin-top: -71px;
-//     & ~ .guide-pointer {
-//       left: 100px;
-//     }
-//   }
-  
-//   .guide-4 {
-//     margin-top: -71px;
-//     margin-right: -65px;
-//     & ~ .guide-pointer {
-//       right: -24px;
-//     }
-//   }
-  
-//   .guide-5 {
-//     margin-left: -71px;
-//     margin-bottom: -276px;
-//     & ~ .guide-pointer {
-//       left: 0;
-//       top: 50%;
-//       width: 30px;
-//       height: 60px;
-//     }
-//   }
-  
-//   .guide-6 {
-//     margin-right: -110px;
-//     margin-top: 232px;
-//     & ~ .guide-pointer {
-//       right: 0;
-//       top: 60%;
-//       width: 60px;
-//       height: 60px;
-//       left: 571px;
-//       margin-top: 41px;
-//     }
-//   }
-  
-//   .guide-7 {
-//     margin-bottom: -12px;
-//     margin-left: 259px;
-//     & ~ .guide-pointer {
-//       right: 36px;
-//       left:300px ;
-//       bottom:57px ;
-//       top: unset;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
 
-//     }
-//   }
-  
-//   .guide-8 {
-//     margin-bottom: -71px;
-//     & ~ .guide-pointer {
-//       right: 80px;
-//       left: unset;
-//       top: unset;
-//       bottom: 0;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-  
-//   .guide-9 {
-//     margin-bottom: -71px;
-//     & ~ .guide-pointer {
-//       right: 80px;
-//       left: unset;
-//       top: unset;
-//       bottom: 0;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-// }
+@media screen and (max-width: 1600px) {
+  .guide-2,
+  .guide-3,
+  .guide-4 {margin-top: -78px;}
 
-// @media screen and (max-width: 991px) {
-//   .guide-2 {
-//     margin-left: 20px;
-//     margin-top: 423px;
-//     margin-right: -45px;
-//     & ~ .guide-pointer {
-//       right: 478px;
-//       top: 495px;
-//     }
-//   }
-  
-//   .guide-3 {
-//     margin-left: 20px;
-//     margin-top: -77px;
-//     & ~ .guide-pointer {
-//       left: 27px;
-//       top: -6px;
-//     }
-//   }
-  
-//   .guide-4 {
-//     margin-left: 20px;
-//     margin-top: -71px;
-//     margin-right: -65px;
-//     & ~ .guide-pointer {
-//       right: -24px;
-//     }
-//   }
-  
-//   .guide-5 {
-//     margin-left: -71px;
-//     margin-bottom: -276px;
-//     & ~ .guide-pointer {
-//       left: 0;
-//       top: 50%;
-//       width: 30px;
-//       height: 60px;
-//     }
-//   }
-  
-//   .guide-6 {
-//     margin-right: -219px;
-//     margin-top: 232px;
-//     & ~ .guide-pointer {
-//       right: 0;
-//       top: 60%;
-//       width: 60px;
-//       height: 60px;
-//       left: 571px;
-//       margin-top: 41px;
-//     }
-//   }
-  
-//   .guide-7 {
-//     margin-bottom: -200px;
-//     margin-left: -21px;
-//     & ~ .guide-pointer {
-//       right: 36px;
-//       left:-583px ;
-//       bottom:102px ;
-//       top: unset;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
+  .guide-5 ~ .guide-pointer {left: 5px;}
 
-//     }
-//   }
-  
-//   .guide-8 {
-//     margin-bottom: -71px;
-//     & ~ .guide-pointer {
-//       right: 80px;
-//       left: unset;
-//       top: unset;
-//       bottom: 0;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-  
-//   .guide-9 {
-//     margin-bottom: -71px;
-//     & ~ .guide-pointer {
-//       right: 80px;
-//       left: unset;
-//       top: unset;
-//       bottom: 0;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-  
-// }
-// @media screen and (max-width: 767px) {
-//   .layout-guide{
-//     .card{
-//     max-width: 450px;
-//     }
-//     .title{
-//       font-size: 20px;
-//     }
-//     .desc{
-//       font-size: 16px;
-//       padding: 0 20px;
-//     }
+  .guide-pointer::before {width: 35px;height: 35px;}
 
-//   }
-//   .guide-2 {
-//     margin-top: 405px;
-//     margin-right: -45px;
-//     margin-left: 20px;
-//     & ~ .guide-pointer {
-//       right: 321px;
-//       top: 478px;
-//     }
-//   }
-  
-//   .guide-3 {
-//     margin-top: -77px;
-//     margin-left: 20px;
-//     & ~ .guide-pointer {
-//       left: 27px;
-//       top: -6px;
-//     }
-//   }
-  
-//   .guide-4 {
-//     margin-top: -71px;
-//     margin-right: -65px;
-//     margin-left: 20px;
-//     & ~ .guide-pointer {
-//       right: -24px;
-//     }
-//   }
-  
-//   .guide-5 {
-//     margin-left: -71px;
-//     margin-bottom: -276px;
-//     margin-top: 183px;
-//     & ~ .guide-pointer {
-//       left: 212px;
-//       top: 33%;
-//       width: 30px;
-//       height: 60px;
-//       rotate: 90deg;
-//     }
-//   }
-  
-//   .guide-6 {
-//     margin-right: -219px;
-//     margin-top: 132px;
-//     & ~ .guide-pointer {
-//       right: 0;
-//       top: 60%;
-//       width: 60px;
-//       height: 60px;
-//       left: 421px;
-//       margin-top: 41px;
-//     }
-//   }
-  
-//   .guide-7 {
-//     margin-bottom: -200px;
-//     margin-left: 17px;
-//     & ~ .guide-pointer {
-//       right: 36px;
-//       left:-394px ;
-//       bottom:102px ;
-//       top: unset;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
+  .guides-canvas .guide-wcag {right: 75px !important;}
 
-//     }
-//   }
-  
-//   .guide-8 {
-//     margin-bottom: -71px;
-//     & ~ .guide-pointer {
-//       right: 80px;
-//       left: unset;
-//       top: unset;
-//       bottom: 0;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-  
-//   .guide-9 {
-//     margin-bottom: -71px;
-//     & ~ .guide-pointer {
-//       right: 80px;
-//       left: unset;
-//       top: unset;
-//       bottom: 0;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-  
-// }
+  .guide-sitemap.guides-current-element::before {width: 100%;}
 
-// @media screen and (max-width: 575px) {
-
-//   .layout-guide {
-//     .card{
-//       max-width: 336px;
-//     }
-
-//     .title{
-//       padding: 0;
-//     }
-
-//     .desc{
-//       padding: 0;
-//     }
-
-//     .card.step-1 .desc{
-//       padding: 0;
-//     }
-//     }
-//   .guide-2 {
-//     margin-top: 405px;
-//     margin-right: -45px;
-//     margin-left: 20px;
-//     & ~ .guide-pointer {
-//       right: 216px;
-//       top: 480px;
-//     }
-//   }
-  
-//   .guide-3 {
-//     margin-top: 226px;
-//     margin-left: 20px;
-//     & ~ .guide-pointer {
-//       left: 149px;
-//       top: 301px;
-//     }
-//   }
-  
-//   .guide-4 {
-//     margin-top: -71px;
-//     margin-right: -65px;
-//     margin-left: 20px;
-//     & ~ .guide-pointer {
-//       right: 79px;
-//     }
-//   }
-  
-//   .guide-5 {
-//     // margin-left: -110px;
-//     margin-bottom: -396px;
-//     margin-top: 25px;
-//     margin-right:-31px ;
-//     & ~ .guide-pointer {
-//       left: 144px;
-//       top: -8%;
-//       width: 30px;
-//       height: 60px;
-//       rotate: 90deg;
-//     }
-//   }
-  
-//   .guide-6 {
-//     margin-right: -224px;
-//     margin-top: -252px;
-//     & ~ .guide-pointer {
-//       right: 0;
-//       top: 79%;
-//       width: 60px;
-//       height: 60px;
-//       left: 180px;
-//       margin-top: 41px;
-//     }
-//   }
-  
-//   .guide-7 {
-//     margin-bottom: 235px;
-//     margin-left: 17px;
-//     & ~ .guide-pointer {
-//       right: 36px;
-//       left:50px ;
-//       bottom:303px ;
-//       top: unset;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-
-//     }
-//   }
-  
-//   .guide-8 {
-//     margin-bottom: -71px;
-//     margin-left: 38px;
-//     & ~ .guide-pointer {
-//       right: 135px;
-//       left: unset;
-//       top: unset;
-//       bottom: 2px;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-  
-//   .guide-9 {
-//     margin-bottom: -101px;
-//     margin-left: 61px;
-//     & ~ .guide-pointer {
-//       right: 131px;
-//       left: unset;
-//       top: unset;
-//       bottom: -31px;
-//       width: 60px;
-//       height: 60px;
-//       margin: auto;
-//     }
-//   }
-  
-// }
-
-@media screen and (max-width: 991px) {
   .layout-guide .card.step-1 .desc {padding: 0 30px;}
-  .layout-guide .card {max-width: 500px;clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.75em), calc(100% - 1.75em) 100%, 0 100%);}
+  .layout-guide .card {max-width: 470px;clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5em), calc(100% - 1.5em) 100%, 0 100%);}
   .layout-guide .progress-line {height: 5px;}
   .layout-guide .progress-line::before {height: 5px;}
   .layout-guide .close-guide {padding: 10px 10px 0 10px;}
@@ -834,16 +454,134 @@
   .layout-guide .title {font-size: 20px;}
   .layout-guide .desc {font-size: 14px;}
   .layout-guide .desc + .desc {margin-top: 10px;}
-  .layout-guide .action {margin-top: 30px;}
+  .layout-guide .content {padding: 25px 20px;}
+  .layout-guide .action {margin-top: 25px;}
   .layout-guide .card.step-1 .action .btn {min-width: 130px; font-size: 16px; height: 44px; line-height: 44px;}
   .layout-guide .action .btn {font-size: 16px; height: 44px; line-height: 44px;}
+
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .layout-guide .head {padding: 10px 15px;}
   .layout-guide .title {font-size: 18px;}
   .layout-guide .content {padding: 20px 15px;}
   .layout-guide {width: 100%;padding: 0 15px;}
+  .layout-guide .card {clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1em), calc(100% - 1em) 100%, 0 100%);}
   .layout-guide .card.step-1 .desc {padding: 0;}
   .layout-guide .action {margin-top: 25px;}
+
+  .guide-pointer::before {width: 30px; height: 30px;transform: translate(20%, 30%) rotate(45deg);}
+  
+  .guides-canvas {
+    .guide-welcome {
+      top: 120px !important;
+      .guide-1 .card {margin: auto;}
+    }
+  
+    .guide-lang {
+      padding-top: 15px !important;
+      margin-top: 0;
+      .layout-guide {
+        margin: 0;
+      }
+      .guide-2 ~ .guide-pointer {
+        top: unset;
+        bottom: -30px;
+        right: unset;
+        left: 30px;
+        height: 60px;
+      }
+    }
+  
+    .guide-3 ~ .guide-pointer,
+    .guide-4 ~ .guide-pointer {
+      top: 5px;
+    }
+  
+    .guide-banner {
+      inset: 200px 0 auto auto !important;
+      padding-left: 0;
+      margin: 0;
+      .layout-guide {
+        margin: 0;
+      }
+      .guide-5 ~ .guide-pointer {
+        left: 0;
+        right: 0;
+        top: -20px;
+        margin: auto;
+        width: 60px;
+      }
+    }
+
+    .guide-wcag {
+      // top: 0 !important;
+      right: 0 !important;
+      padding: 0;
+      .layout-guide {
+        margin: 0;
+      }
+      .guide-6 ~ .guide-pointer {
+        top: unset;
+        bottom: -26px;
+        right: 40px;
+      }
+    }
+
+    .guide-ipv6 {
+      right: unset !important;
+      width: auto;
+      inset: auto auto 705.438px 15px !important;
+      margin-bottom: 0;
+    }
+
+    // .guide-visitors {
+    //   margin-bottom: 0;
+    // }
+
+    .guide-view {
+      margin-bottom: 0;
+    }
+
+    
+  }
+
+  .nav-lang {
+    &.guides-current-element {
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: #ffffff38;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+      }
+      // & ~ div {
+      //   z-index: 1003;
+      // }
+    }
+  }
+
+  .guide-sitemap {
+    &.guides-current-element::before {
+      height: 50px;
+    }
+  }
+
+  .guide-visitors {
+    &.guides-current-element::before {
+      height: 60px;
+      top: 22px;
+    }
+  }
+
+  .global-container-home  .guides-overlay-custom.d-block-custom { z-index: -1; }
+
+  .wcag-fix-z .asw-wrapper {z-index: -1;}
+  
+  .layout-header .main-menu {z-index: auto;}
+
+  // .layout-body-home .guides-overlay-custom {display: none;}
 }

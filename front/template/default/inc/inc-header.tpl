@@ -168,6 +168,7 @@
                       {/foreach}
                   </div>
                 </div>
+                <div class="guides-overlay-custom d-lg-none d-block"></div>
             </div>
         </div>
     </nav>

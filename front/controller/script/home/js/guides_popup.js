@@ -1,4 +1,5 @@
 
+
 // checkbox popup
 $('#checkbox-popup').on('change', function () {
     let ischeck = $(this).is(':checked');
@@ -33,8 +34,11 @@ function onComplete() {
         $('#popupModal').modal('show');
     } else {
         $('#popupModal').modal('hide');
+
     }
 }
+
+
 
 (async () => {
     try {
@@ -71,7 +75,6 @@ function onComplete() {
                 html: `
                 <div class="layout-guide guide-2">
                     <div class="card step-2">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                         <div class="title">${content_web?.tour_step2_language?.display[language]}</div>
                         <div class="close-guide" onclick="close_guides();">
@@ -90,14 +93,14 @@ function onComplete() {
                     </div>
                 </div>
                 `,
-                func_addon: 'guid_addon'
+                func_addon: 'guid_addon',
+                // func_addon: 'guid_addon_test'
             },
             mainHeader: {
                 element: $('.guide-main-header'),
                 html: `
                 <div class="layout-guide guide-3">
                     <div class="card step-3">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step3_menu?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -113,6 +116,8 @@ function onComplete() {
                     </div>
                 </div>
                 `,
+                // func_addon: 'guid_addon'
+                // func_addon: 'guid_addon_test'
                 
             },
             search: {
@@ -120,7 +125,6 @@ function onComplete() {
                 html: `
                 <div class="layout-guide guide-4">
                     <div class="card step-4">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step4_search?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -161,7 +165,6 @@ function onComplete() {
                 html: `
                 <div class="layout-guide guide-6">
                     <div class="card step-6">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step7_wcag?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -175,8 +178,9 @@ function onComplete() {
                             <div class="action"> <a href="javascript:void(0);" class="btn btn-primary">${content_web?.contact_next?.display[language]}</a> </div>
                         </div>
                     </div>
-                </div>
-                <div class="guide-pointer"></div>
+                  </div>
+                  <div class="guide-pointer"></div>
+                
                 `,
                 func_addon: 'guid_addon'
             },
@@ -185,7 +189,6 @@ function onComplete() {
                 html: `
                 <div class="layout-guide guide-7">
                     <div class="card step-7">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step8_ipv6?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -208,7 +211,6 @@ function onComplete() {
                 html: `
                 <div class="layout-guide guide-8">
                     <div class="card step-8">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step9_sitemap?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -229,7 +231,6 @@ function onComplete() {
                 html: `
                 <div class="layout-guide guide-9">
                     <div class="card step-9">
-                        <div class="guide-pointer"></div>
                         <div class="head">
                             <div class="title">${content_web?.tour_step10_stat?.display[language]}</div>
                             <div class="close-guide" onclick="close_guides();"> <span class="material-symbols-outlined"> close </span>
@@ -290,40 +291,96 @@ function onComplete() {
     }
 })();
 
-function guid_addon(res) {
-    $('.layout-header .top-bar').removeClass('guides-current-element');
-    // $('.layout-header .guide-main-header').removeClass('guides-current-element');
-    $('.navbar-collapse').removeClass('show');
-    $('.navbar-toggler').addClass('collapsed');
+// function guid_addon(res) {
+//     $('.layout-header .top-bar').removeClass('guides-current-element');
+//     // $('.layout-header .guide-main-header').removeClass('guides-current-element');
+//     $('.navbar-collapse').removeClass('show');
+//     $('.navbar-toggler').addClass('collapsed');
    
 
     
-    if (!!res?.element) {
-        switch (res?.element) {
+//     if (!!res?.element) {
+//         switch (res?.element) {
 
             
-            case '.guide-nav-lang':
-                $('.layout-header .top-bar').addClass('guides-current-element');
-                // $('.layout-header .guide-main-header').addClass('guides-current-element');
-                $('.navbar-collapse').addClass('show');
-                $('.navbar-toggler').removeClass('collapsed');
-                console.log("1")
-                break;
+//             case '.guide-nav-lang':
+//                 $('.layout-header .top-bar').addClass('guides-current-element');
+//                 // $('.layout-header .guide-main-header').addClass('guides-current-element');
+//                 $('.navbar-collapse').addClass('show');
+//                 $('.navbar-toggler').removeClass('collapsed');
+//                 // console.log("1")
+//                 break;
                 
-            // case '.guide-main-header':
-            //     console.log('banner');
-            //     $('.layout-header .top-bar').addClass('guides-current-element');
-            //     $('.navbar-toggler').addClass('collapsed');
-            //     $('.navbar-collapse').removeClass('show');
-            //     break;
+//             // case '.guide-main-header':
+//             //     console.log('banner');
+//             //     $('.layout-header .top-bar').addClass('guides-current-element');
+//             //     $('.navbar-toggler').addClass('collapsed');
+//             //     $('.navbar-collapse').removeClass('show');
+//             //     break;
         
-            default:
-                break;
-        }
-    }
+//             default:
+//                 break;
+//         }
+//     }
+// }
 
+// function guid_addon_open_menu (menuMobile) {
+
+// }
+
+
+
+
+
+function guid_addon(res) {
+  $('.layout-header .top-bar').removeClass('guides-current-element');
+  $('.layout-body-home .guides-overlay-custom').removeClass('d-block-custom');
+  $('.navbar-collapse').removeClass('show');
+  $('.navbar-toggler').addClass('collapsed');
+  $('.wcag .asw-widget.-mb').removeClass('guides-current-element');
   
+  if (!!res?.element) {
+    switch (res?.element) {
+      case '.guide-nav-lang':
+          $('.layout-header .top-bar').addClass('guides-current-element');
+          $('.layout-body-home .guides-overlay-custom').addClass('d-block-custom');
+          $('.navbar-collapse').addClass('show');
+          $('.navbar-toggler').removeClass('collapsed');
+          // console.log("1")
+          break;
+          
+      case '.guide-main-header':
+          $('.layout-header .top-bar').removeClass('guides-current-element');
+          $('.layout-body-home .guides-overlay-custom').removeClass('d-block-custom');
+          break;
+
+      case '.guide-search':
+        $('.layout-body-home .guides-overlay-custom').removeClass('d-block-custom');
+          break;
+
+      case '.wcag':
+        $('.wcag .asw-widget.-mb').addClass('guides-current-element');
+          break;
+  
+      default:
+          break;
+    }
+  }
 }
+
+// function guid_addon_test(res) {
+//   $('.layout-header .top-bar').removeClass('guides-current-element');
+  
+//   if (!!res?.element) {
+//     switch (res?.element) {
+//       case '.guide-nav-lang':
+//           $('.layout-header .top-bar').addClass('guides-current-element');
+//           break;
+//       default:
+//           break;
+//     }
+//   }
+// }
 
 function reset_addon(){
     // $('.layout-header .top-bar').removeClass('top-bar');

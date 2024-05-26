@@ -1,7 +1,7 @@
 @media (min-width: 1200px) {
 	.container {
 		max-width: inherit;
-		width: 1210px;
+		width: 1260px;
 	}
 }
 
@@ -15,15 +15,15 @@
 @media (max-width: 1600px) {
 	.container {
 		max-width: inherit;
-		width: 1210px;
+		width: 1260px;
 	}
 }
 
 @media (max-width: 1540px) {
-	.container {
-		max-width: inherit;
-		width: 1210px;
-	}
+	// .container {
+	// 	max-width: inherit;
+	// 	width: 1210px;
+	// }
 
 	.btn {
 		height: 50px;

@@ -2,12 +2,20 @@
 const path = $("base").attr("href");
 const language = $("html").attr("lang");
 
+
+
+
 $(function () {
   AOS.init({
+    // disable: true,  
     duration: 1000,
     once: true,
     // offset: 0,
     // anchorPlacement: 'top-bottom',
+    disable: function() {
+      var maxWidth = 1024;
+      return window.innerWidth < maxWidth;
+    }
   });
 });
 
