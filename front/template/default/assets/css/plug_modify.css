@@ -98,11 +98,11 @@
     display: flex;
     justify-content: center;
  }
-  .action .btn {
+  /* .action .btn {
     background-color: #02ac7c;
     color: var(--color-light);
     min-width: 36%;
- }
+ } */
   .action .btn:hover {
     background-color: var(--color-secondary);
  }
@@ -170,7 +170,7 @@
   position: absolute;
 }
 .custom-control-label {
-  color: #585858;
+  color: #fff;
 }
 /**********/
 /* open swiper slider */
