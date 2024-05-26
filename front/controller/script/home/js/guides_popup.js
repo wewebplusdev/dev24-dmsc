@@ -356,6 +356,7 @@ function guid_addon(res) {
 
       case '.guide-search':
         $('.layout-body-home .guides-overlay-custom').removeClass('d-block-custom');
+        $('.layout-header .navbar-collapse .guides-overlay-custom').removeClass('d-block')
           break;
 
       case '.wcag':
@@ -385,6 +386,7 @@ function guid_addon(res) {
 function reset_addon(){
     // $('.layout-header .top-bar').removeClass('top-bar');
     $('.guides-overlay-custom').addClass('d-none');
+    $('.layout-header .navbar-collapse .guides-overlay-custom').removeClass('d-block')
 }
 
 function guid_session() {
