@@ -79,7 +79,7 @@
 
 .wg-services {
   padding: 80px 0 140px 0;
-  background-image: url("../img/background/bg-services.png");
+  background-image: url("../img/background/bg-services.webp");
   @include bg($position: top center);
   min-height: 600px;
 }
@@ -398,7 +398,7 @@
 }
 .wg-research-list {
   padding-bottom: 80px;
-  background: url("../img/background/bg-wg-research.png");
+  background: url("../img/background/bg-wg-research.webp");
   background-repeat: no-repeat;
   background-position: top center;
   .wg-research-group {
@@ -476,7 +476,7 @@
   position: relative;
   color: var(--color-light);
   background: var(--color-primary);
-  background-image: url("../img/background/bg-wg-about.png");
+  background-image: url("../img/background/bg-wg-about.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -602,7 +602,7 @@
 .wg-news {
   padding: 160px 0 80px 0;
   background-color: #ffffff;
-  background-image: url("../img/background/bg-wg-news.png");
+  background-image: url("../img/background/bg-wg-news.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

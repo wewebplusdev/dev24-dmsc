@@ -46,31 +46,31 @@
                         </h1>
                         <div class="graphic">
                             <div class="obj">
-                                <img src="<?php echo $core_template; ?>/img/uploads/obj-banner-about.png" alt="obj-banner-about" class="lazy img-cover">
+                                <img src="front/template/default/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about" class="lazy img-cover">
                             </div>
                         </div>
                     </div>
                 </div>
                 <figure class="cover">
-                    <img src="<?php echo $core_template; ?>/img/static/banner.jpg" alt="" class="lazy img-cover">
+                    <img src="front/template/default/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
                 </figure>
             </div>
             <div class="default-body">
                 <!-- ck editor -->
                 <div class="editor-content">
                     <div class="container">
-                        <div class="layout-structure ">
+                        <div class="layout-structure "> 
                             <div title="ทำเนียบผู้บริหาร" class="title fw-bold ">ทำเนียบผู้บริหาร</div>
                             <div class="row ">
                                 <div class="item col-xl-6 no-gutters ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity text-back"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity text-back"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure1.png" alt="นายแพทย์ยงยศ ธรรมวุฒิ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure1.png" alt="นายแพทย์ยงยศ ธรรมวุฒิ">
                                             </div>
                                             <div class=" image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 card-bottom position-relative">
@@ -83,12 +83,13 @@
                                                     <div class="text-nowrap">Email :</div>
                                                     <div class="">-</div>
                                                 </div>
-                                                <a href="tel:0-2589-9862">
+                                         
                                                     <div class="d-flex align-items-center">
                                                         <div class="text-nowrap">ติดต่อ :</div>
-                                                        <div class="">0-2589-9862, 0-2951-0000</div>
+                                                        <a href="tel:025899862"><div class="">0-2589-9862,</div></a>
+                                                        <a href="tel:029510000"><div class="">0-2951-0000</div></a>
                                                     </div>
-                                                </a>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -96,13 +97,13 @@
 
                                 <div class="item col-xl-6 no-gutters ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure2.png" alt="นายแพทย์พิเชฐ บัญญัติ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure2.png" alt="นายแพทย์พิเชฐ บัญญัติ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 card-bottom  position-relative ">
@@ -117,10 +118,12 @@
                                                         <div class="">phichet.b@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2591-5453 ต่อ 99008</div>
-                                                </div>
+                                              <a href="tel:025915453">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2591-5453 ต่อ 99008</div>
+                                                    </div>
+                                              </a>
                                             </div>
                                         </div>
                                     </div>
@@ -128,13 +131,13 @@
 
                                 <div class="item col-xl-6 no-gutters ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure3.png" alt="นายแพทย์บัลลังก์ อุปพงษ์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure3.png" alt="นายแพทย์บัลลังก์ อุปพงษ์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 card-bottom  position-relative ">
@@ -149,10 +152,12 @@
                                                         <div class="">ballang.u@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2591-5942 ต่อ 99004</div>
-                                                </div>
+                                               <a href="tel:025915942">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2591-5942 ต่อ 99004</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
@@ -160,13 +165,13 @@
 
                                 <div class="item col-xl-6 no-gutters ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure4.png" alt="นายแพทย์ปิยะ ศิริลักษณ์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure4.png" alt="นายแพทย์ปิยะ ศิริลักษณ์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom card-bottom">
@@ -181,10 +186,12 @@
                                                         <div class="">piya.s@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2591-5231 ต่อ 99005</div>
-                                                </div>
+                                                <a href="tel:025915231">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2591-5231 ต่อ 99005</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -194,13 +201,13 @@
                             <div class="row  ">
                                 <div class="item col-xl-6 no-gutters">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure5.png" alt="นายแพทย์ยงยศ ธรรมวุฒิ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure5.png" alt="นายแพทย์ยงยศ ธรรมวุฒิ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom card-bottom">
@@ -215,23 +222,25 @@
                                                         <div class="">chanyut.s@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">02-951-0000 ต่อ 98458</div>
-                                                </div>
+                                               <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">02-951-0000 ต่อ 98458</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure6.png" alt="นางสุวรรณา เจริญสวรรค์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure6.png" alt="นางสุวรรณา เจริญสวรรค์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom card-bottom">
@@ -246,23 +255,25 @@
                                                         <div class="">suwanna.c@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2591-0000 ต่อ 98449</div>
-                                                </div>
+                                               <a href="tel:025910000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2591-0000 ต่อ 98449</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure7.png" alt="นายแพทย์พิเชฐ บัญญัติ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure7.png" alt="นายแพทย์พิเชฐ บัญญัติ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom card-bottom">
@@ -277,23 +288,25 @@
                                                         <div class="">phichet.b@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2591-5453 ต่อ 99008</div>
-                                                </div>
+                                               <a href="tel:025915453">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2591-5453 ต่อ 99008</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure8.png" alt="นางสุกัญญา กำแพงแก้ว">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure8.png" alt="นางสุกัญญา กำแพงแก้ว">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -308,23 +321,25 @@
                                                         <div class="">sugunya.g@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2591-5235 ต่อ 99007</div>
-                                                </div>
+                                                <a href="tel:025915235">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2591-5235 ต่อ 99007</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure9.png" alt="นางสาวนันทวรรณ เมฆา">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure9.png" alt="นางสาวนันทวรรณ เมฆา">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -339,23 +354,25 @@
                                                         <div class="">nanthawan.m@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 99014</div>
-                                                </div>
+                                                <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 99014</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure10.png" alt="นางสุภาพร ภูมิอมร">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure10.png" alt="นางสุภาพร ภูมิอมร">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -370,23 +387,25 @@
                                                         <div class="">supaporn.p@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 98363</div>
-                                                </div>
+                                               <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 98363</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure11.png" alt="นายอาชวินทร์  โรจนวิวัฒน์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure11.png" alt="นายอาชวินทร์  โรจนวิวัฒน์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -402,23 +421,25 @@
                                                         <div class="">archawin.r@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 99354</div>
-                                                </div>
+                                               <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 99354</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure12.png" alt="นางศิริวรรณ ชัยสมบูรณ์พันธ์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure12.png" alt="นางศิริวรรณ ชัยสมบูรณ์พันธ์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -433,23 +454,25 @@
                                                         <div class="">siriwan.c@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-000 ต่อ 99274</div>
-                                                </div>
+                                                <a href="tel:02951000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-000 ต่อ 99274</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure13.png" alt="นางวิชาดา จงมีวาสนา">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure13.png" alt="นางวิชาดา จงมีวาสนา">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -465,23 +488,25 @@
                                                         <div class="">wischada.j@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-000 ต่อ 99518</div>
-                                                </div>
+                                                <a href="tel:02951000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-000 ต่อ 99518</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure14.png" alt="นางสาวจรรยา มีศรี">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure14.png" alt="นางสาวจรรยา มีศรี">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -497,23 +522,25 @@
                                                         <div class="">junya.m@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-000 ต่อ 99726</div>
-                                                </div>
+                                                <a href="tel:02951000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-000 ต่อ 99726</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure15.png" alt="นายธรรมรัตน์ บุญสูง">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure15.png" alt="นายธรรมรัตน์ บุญสูง">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -538,13 +565,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure16.png" alt="นายสุรศักดิ์ หมื่นพล">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure16.png" alt="นายสุรศักดิ์ หมื่นพล">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -560,23 +587,25 @@
                                                         <div class="">surasak.m@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 99086</div>
-                                                </div>
+                                               <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 99086</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure17.png" alt="นายสมศักดิ์ สุนทรพาณิชย์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure17.png" alt="นายสมศักดิ์ สุนทรพาณิชย์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -591,23 +620,25 @@
                                                         <div class="">somsak.s@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 99113</div>
-                                                </div>
+                                                <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 99113</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure18.png" alt="นายปนิสภ์ วณิชชานนท์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure18.png" alt="นายปนิสภ์ วณิชชานนท์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -622,23 +653,25 @@
                                                         <div class="">panist.v@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 99362</div>
-                                                </div>
+                                                <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 99362</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure19.png" alt="นางศิริวรรณ ชัยสมบูรณ์พันธ์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure19.png" alt="นางศิริวรรณ ชัยสมบูรณ์พันธ์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -654,10 +687,12 @@
                                                         <div class="">panadda.d@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 98019</div>
-                                                </div>
+                                               <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 98019</div>
+                                                    </div>
+                                               </a>
                                             </div>
 
                                         </div>
@@ -665,13 +700,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure20.png" alt="ดร.ประไพ  วงศ์สินคงมั่น">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure20.png" alt="ดร.ประไพ  วงศ์สินคงมั่น">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -686,23 +721,25 @@
                                                         <div class="">prapai.w@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 99359</div>
-                                                </div>
+                                                <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 99359</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure21.png" alt="ดร.ฐิติวัสส์ สุวคนธ์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure21.png" alt="ดร.ฐิติวัสส์ สุวคนธ์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -717,23 +754,25 @@
                                                         <div class="">dhitiwass.s@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-0000 ต่อ 99086</div>
-                                                </div>
+                                                <a href="tel:029510000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-0000 ต่อ 99086</div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure22.png" alt="นางสาวสุจิตรา คุ้มโภคา">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure22.png" alt="นางสาวสุจิตรา คุ้มโภคา">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -748,23 +787,25 @@
                                                         <div class="">sujitra.k@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-2951-000 ต่อ 99063</div>
-                                                </div>
+                                               <a href="tel:02951000">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-2951-000 ต่อ 99063</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure23.png" alt="นายอธิวัฒน์ ปริมสิริคุณาวุฒิ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure23.png" alt="นายอธิวัฒน์ ปริมสิริคุณาวุฒิ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -794,13 +835,13 @@
                             <div class="row  ">
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure24.png" alt="นางสาวนิตยา เพียรทรัพย์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure24.png" alt="นางสาวนิตยา เพียรทรัพย์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -816,7 +857,7 @@
                                                         <div class="">nittaya.p@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <a href="mailto:0-5311-2188">
+                                                <a href="tel:053112188">
                                                     <div class="d-flex align-items-center ">
                                                         <div class=" text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-5311-2188</div>
@@ -828,13 +869,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure25.png" alt="นางสาวอัมรา โยวัง">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure25.png" alt="นางสาวอัมรา โยวัง">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -850,7 +891,7 @@
                                                         <div class="">amara.y@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <a href="tel:0-5317-6224-6">
+                                                <a href="tel:0531762246">
                                                     <div class="d-flex align-items-center ">
                                                         <div class=" text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-5317-6224-6</div>
@@ -862,13 +903,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure26.png" alt="นางสาวอมรรัตน์  ทัศนกิจ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure26.png" alt="นางสาวอมรรัตน์  ทัศนกิจ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -884,23 +925,25 @@
                                                         <div class="">amornrat.t@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">055322824-6 ต่อ 128</div>
-                                                </div>
+                                               <a href="tel:0553228246">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">055322824-6 ต่อ 128</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure27.png" alt="นายอัศวชัย ช่วยพรหม">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure27.png" alt="นายอัศวชัย ช่วยพรหม">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -914,7 +957,7 @@
                                                     <div class=" text-nowrap ">Email :</div>
                                                     <div class="">-</div>
                                                 </div>
-                                                <a href="tel:0-5624-5618">
+                                                <a href="tel:056245618">
                                                     <div class="d-flex align-items-center ">
                                                         <div class=" text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-5624-5618</div>
@@ -926,13 +969,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure28.png" alt="นางทรรศนีย์ มาศจำรัส">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure28.png" alt="นางทรรศนีย์ มาศจำรัส">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -948,7 +991,7 @@
                                                         <div class="">thatsanee.m@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <a href="tel:0-7660-0119">
+                                                <a href="tel:076600119">
                                                     <div class="d-flex align-items-center ">
                                                         <div class=" text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-7660-0119</div>
@@ -960,13 +1003,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure29.png" alt="นางปานทิพย์  ศิริโชติ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure29.png" alt="นางปานทิพย์  ศิริโชติ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -982,23 +1025,25 @@
                                                         <div class="">pantip.s@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-3471-1945-48 ต่อ 124</div>
-                                                </div>
+                                               <a href="tel:03471194548">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-3471-1945-48 ต่อ 124</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure30.png" alt="นางเกตุ สินเทศ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure30.png" alt="นางเกตุ สินเทศ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -1015,23 +1060,25 @@
                                                         <div class="">ket.s@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-3878-4006-7 ต่อ 306</div>
-                                                </div>
+                                               <a href="tel:0387840067">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-3878-4006-7 ต่อ 306</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure31.png" alt="นางสาวพรทิพย์ ลัภนะกุล">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure31.png" alt="นางสาวพรทิพย์ ลัภนะกุล">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -1048,23 +1095,25 @@
                                                         <div class="">porntip.l@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <div class="d-flex align-items-center ">
-                                                    <div class=" text-nowrap">ติดต่อ :</div>
-                                                    <div class="">0-4324-0800 ต่อ 444</div>
-                                                </div>
+                                               <a href="tel:043240800">
+                                                    <div class="d-flex align-items-center ">
+                                                        <div class=" text-nowrap">ติดต่อ :</div>
+                                                        <div class="">0-4324-0800 ต่อ 444</div>
+                                                    </div>
+                                               </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure32.png" alt="นางสาวอรทัย สุพรรณ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure32.png" alt="นางสาวอรทัย สุพรรณ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -1081,7 +1130,7 @@
                                                         <div class="">orathai.s@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <a href="tel:042273647">
+                                                <a href="tel:042207364">
                                                     <div class="d-flex align-items-center ">
                                                         <div class=" text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-4220-7364</div>
@@ -1093,13 +1142,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure33.png" alt="นายสันตกิจ นิลอุดมศักดิ์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure33.png" alt="นายสันตกิจ นิลอุดมศักดิ์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -1128,13 +1177,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure34.png" alt="นางมธุรส ทาทอง">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure34.png" alt="นางมธุรส ทาทอง">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -1163,13 +1212,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure35.png" alt="นางสาวจิราภรณ์ เพชรรักษ์ ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure35.png" alt="นางสาวจิราภรณ์ เพชรรักษ์ ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -1197,13 +1246,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure36.png" alt="นางสุภาภรณ์ นิยมแก้ว">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure36.png" alt="นางสุภาภรณ์ นิยมแก้ว">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom">
@@ -1229,13 +1278,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters  ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure37.png" alt="ดร.วราพร ชลอำไพ">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure37.png" alt="ดร.วราพร ชลอำไพ">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom ">
@@ -1251,7 +1300,7 @@
                                                         <div class="">varaporn.c@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <a href="tel:0-7433-0200">
+                                                <a href="tel:074330200">
                                                     <div class="d-flex align-items-center ">
                                                         <div class=" text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-7433-0200</div>
@@ -1263,13 +1312,13 @@
                                 </div>
                                 <div class="item col-xl-6 no-gutters ">
                                     <div class="item-wrapper row no-gutters">
-                                        <div class="position-absolute opacity"><img src="<?php echo $core_template; ?>/img/uploads/structure/background-2.png" alt=""></div>
+                                        <div class="position-absolute opacity"><img src="front/template/default/assets/img/uploads/structure/background-2.png" alt=""></div>
                                         <div class="position-relative card-top col-auto">
                                             <div class="image-cover position-absolute ">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/structure38.png" alt="นายคทายุทธ นิกาพฤกษ์">
+                                                <img src="front/template/default/assets/img/uploads/structure/structure38.png" alt="นายคทายุทธ นิกาพฤกษ์">
                                             </div>
                                             <div class="position image-cover">
-                                                <img src="<?php echo $core_template; ?>/img/uploads/structure/user-back.png" alt="">
+                                                <img src="front/template/default/assets/img/uploads/structure/user-back.png" alt="">
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-9 col-md-8 col-sm-7 position-relative card-bottom card-bottom">
@@ -1285,7 +1334,7 @@
                                                         <div class="">khatayut.n@dmsc.mail.go.th</div>
                                                     </div>
                                                 </a>
-                                                <a href="tel:0-7550-1050-3">
+                                                <a href="tel:0755010503">
                                                     <div class="d-flex align-items-center ">
                                                         <div class=" text-nowrap">ติดต่อ :</div>
                                                         <div class="">0-7550-1050-3</div>

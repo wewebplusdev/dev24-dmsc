@@ -85,9 +85,7 @@
       line-height: 1.5;
     }
   }
-  .editor-content {
-    margin: 0;
-  }
+  
   
   @media screen and (max-width: 1400px) {
   
@@ -297,9 +295,7 @@
       line-height: 1.5;
     }
   }
-  .editor-content {
-    margin: 0;
-  }
+
   @media screen and (max-width: 1400px) {
   
   }
@@ -537,6 +533,8 @@
   .each-year {
     .swiper {
       padding-bottom: 50px;
+
+    
     }
   
     .swiper-pagination-bullet {
@@ -1148,3 +1146,14 @@
   }
   
   // CK Content Policy Privacy
+
+
+  // CK Organization Structure
+
+.organize-layout{
+  .organize-content{
+    text-align: center;
+  
+
+  }
+}
