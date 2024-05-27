@@ -129,7 +129,7 @@
                         </div>
                         <div class="col-12">
                           <a href="https://achecks.org/checker/index.php?uri=referer&gid=WCAG2-AA">
-                            <img src="https://achecks.org/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" width="102" height="32">
+                            <img src="https://achecks.org/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" class="lazy" width="102" height="32">
                           </a>
                         </div>
                       </div>
