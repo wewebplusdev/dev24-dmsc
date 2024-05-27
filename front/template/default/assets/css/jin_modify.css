@@ -1,5 +1,5 @@
 /* allpage text primary */
-.txt {
+.pagination-block .default-pagination .txt {
   color: var(--color-primary);
 }
 /* dowanloadALl page*/
@@ -18,13 +18,39 @@
 .document-download-list .item:hover .icon > img {
   filter: brightness(0) invert(1);
 }
+.document-download-list .swiper {
+  overflow: visible;
+}
+.document-download-list .swiper-wrapper {
+  pointer-events: none;
+}
+.document-download-list .swiper-slide .item {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+/* .document-download-list .swiper-slide.swiper-slide-visible .swiper-slide-fully-visible .item {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+} */
+.document-download-list .swiper-slide.swiper-slide-visible .item {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.document-download-list .swiper-slide.swiper-slide-visible .swiper-slide .swiper-slide-next .item {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 /* breadcrumb */
 .breadcrumb li:nth-child(3) .link {
   max-width: 500px;
 }
 /* inner image */
-.default-header .graphic > div {
-  margin-right: -690px;
+.default-header .wrapper .graphic .obj img  {
+  margin-right: 80px;
   padding-top: 0;
 }
 /* mobile app*/
@@ -45,6 +71,30 @@
 .document-download-list .item .-webborder .link {
   width: 150px;
 }
+/* news area */
+.news-area .swiper {
+  overflow: visible;
+}
+.news-area .swiper-wrapper {
+  pointer-events: none;
+}
+.news-area .swiper-slide .news-link {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.news-area .swiper-slide.swiper-slide-visible.swiper-slide-fully-visible .news-link {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.news-area .swiper-slide.swiper-slide-visible .news-link {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
 @media screen and (max-width: 1600px) {
   .section .whead .title {
     font-size: 40px;
@@ -221,8 +271,8 @@
   .form-contact .form-head .title {
     font-size: 28px;
  }
-  .default-header .graphic > div {
-    margin-right: -600px;
+  .default-header .wrapper .graphic .obj img {
+    margin-right: 40px;
  }
 }
 @media screen and (max-width: 991px) {
