@@ -11,8 +11,8 @@
 
 <!-- Custom -->
 <?php $modify="?v=".date('Ymd').time(); ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $core_template; ?>/css/import.css<?=$modify?>">
-<link rel="stylesheet" type="text/css" href="<?php echo $core_template; ?>/css/source.css<?=$modify?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $core_template; ?>/css/import.min.css<?=$modify?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $core_template; ?>/css/source.min.css<?=$modify?>">
 
 <!-- asw css -->
 <link type="text/css" rel="stylesheet" href="<?php echo $core_template; ?>/css/accessibility.css">
