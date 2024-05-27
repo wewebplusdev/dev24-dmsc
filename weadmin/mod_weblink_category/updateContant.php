@@ -39,6 +39,9 @@ include("config.php");
          fclose($fp);
       }
 
+      $sql_check = "SET FOREIGN_KEY_CHECKS = 0";
+      $Query = wewebQueryDB($coreLanguageSQL, $sql_check);
+
       $update = array();
       $update[] = $mod_tb_root . "_gid='" . $_POST["inputGroupID"] . "'";
       $update[] = $mod_tb_root . "_sgid='" . $_POST["inputSubGroupID"] . "'";
@@ -186,6 +189,8 @@ include("config.php");
          $sqlSch = "INSERT " . $core_tb_search . " (" . implode(",", array_keys($insertSch)) . ") VALUES (" . implode(",", array_values($insertSch)) . ")";
          $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
       }
+      $sql_check = "SET FOREIGN_KEY_CHECKS = 1";
+      $Query = wewebQueryDB($coreLanguageSQL, $sql_check);
    ?>
    <?php } ?>
    <?php include("../lib/disconnect.php"); ?>

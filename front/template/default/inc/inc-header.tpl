@@ -22,7 +22,7 @@
         <div class="container align-items-lg-end">
             <a class="navbar-brand" href="{$ul}/home" data-aos="fade-right">
                 <div class="brand-logo">
-                    <img src="{$template}/assets/img/static/brand-header.png" alt="DMSC LOGO">
+                    <img src="{$template}/assets/img-webp/static/brand-header.webp" alt="DMSC LOGO">
                 </div>
                 <div class="brand-txt">
                     <div class="title">
