@@ -20,7 +20,7 @@
 <script src="{$template}/assets/js/libs/validator.min.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/feather.js{$LastVersionCache}"></script>
 {* <script src="{$template}/assets/js/libs/guides.min.js{$LastVersionCache}"></script> *}
-<script src="{$template}/assets/js/libs/guides.j{$LastVersionCache}s"></script>
+<script src="{$template}/assets/js/libs/guides.js{$LastVersionCache}s"></script>
 
 
 <script>
