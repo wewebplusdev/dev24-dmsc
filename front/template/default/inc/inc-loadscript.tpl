@@ -1,7 +1,7 @@
 
 <!-- Core -->
 <script src="{$template}/assets/js/libs/jquery-3.6.0.js"></script>
-<script src="{$template}/assets/js/libs/jquery-ui.min.js"></script>
+{* <script src="{$template}/assets/js/libs/jquery-ui.min.js"></script> *}
 <script src="{$template}/assets/js/libs/jquery.easing.min.js"></script>
 <script src="{$template}/assets/js/libs/jquery.mCustomScrollbar.js"></script>
 <script src="{$template}/assets/js/libs/modernizr.min.js"></script>
