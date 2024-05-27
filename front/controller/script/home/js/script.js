@@ -163,6 +163,7 @@ reload_swiper();
 $('body').click(function(){
   $('.layout-guide.guide-1').closest('.guides-fade-in').toggleClass('guide-welcome');
   $('.layout-guide.guide-2').closest('.guides-fade-in').toggleClass('guide-lang');
+  $('.layout-guide.guide-3').closest('.guides-fade-in').toggleClass('guide-main-header');
   $('.layout-guide.guide-5').closest('.guides-fade-in').toggleClass('guide-banner');
   $('.layout-guide.guide-6').closest('.guides-fade-in').toggleClass('guide-wcag');
   $('.layout-guide.guide-7').closest('.guides-fade-in').toggleClass('guide-ipv6');
