@@ -10455,6 +10455,9 @@ a:hover .fontContantTbManage {
     left: 30px;
     height: 60px;
   }
+  .guides-canvas .guide-main-header {
+    margin-top: 310px;
+  }
   .guides-canvas .guide-3 ~ .guide-pointer,
   .guides-canvas .guide-4 ~ .guide-pointer {
     top: 5px;
