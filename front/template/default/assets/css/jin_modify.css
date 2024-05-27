@@ -49,8 +49,8 @@
   max-width: 500px;
 }
 /* inner image */
-.default-header .graphic > div {
-  margin-right: -690px;
+.default-header .wrapper .graphic .obj img  {
+  margin-right: 80px;
   padding-top: 0;
 }
 /* mobile app*/
@@ -271,8 +271,8 @@
   .form-contact .form-head .title {
     font-size: 28px;
  }
-  .default-header .graphic > div {
-    margin-right: -600px;
+  .default-header .wrapper .graphic .obj img {
+    margin-right: 40px;
  }
 }
 @media screen and (max-width: 991px) {
