@@ -193,7 +193,7 @@
                                             </div>
                                         </div>
                                         <div class="bg-obj">
-                                            <img src="{$valueload_innovation->pic->webp}" alt="{$valueload_innovation->subject}" class="lazy">
+                                            <img src="{$valueload_innovation->pic->webp}" alt="{$valueload_innovation->subject}" class="lazy" width="240" height="240">
                                         </div>
                                     </div>
                                 </a>
@@ -231,7 +231,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="bg-obj">
-                                                                <img src="{$valueload_innovation->pic->pictures}" alt="{$valueload_innovation->subject}" class="lazy">
+                                                                <img src="{$valueload_innovation->pic->pictures}" alt="{$valueload_innovation->subject}" class="lazy" width="200" height="200">
                                                             </div>
                                                         </div>
                                                     </a>
@@ -352,12 +352,12 @@
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
                     <picture>
-                        {* <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
+                        <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
                             data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp"
-                            type="image/webp"> *}
+                            type="image/webp">
                         <img src="{$template}/assets/img/static/wg-about-graphic.png"
                             data-src="{$template}/assets/img/static/wg-about-graphic01.webp" alt="image-graphic"
-                            class="lazy">
+                            class="lazy" width="866" height="500">
                     </picture>
                 </div>
             </div>
