@@ -11,7 +11,7 @@
                     {if $settingWeb.contact->tel2 neq ""}
                         <div class="col-auto col-right" data-aos="fade-up">
                             <div class="title"><a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
-                            <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="icon-call" class="icon"> Call Center</div>
+                            <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="icon-call" class="icon" width="43" height="43"> Call Center</div>
                         </div>
                     {/if}
                 </div>
