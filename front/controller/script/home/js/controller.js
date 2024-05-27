@@ -45,9 +45,9 @@ $('.services-filter').on('click', async function(){
                                     <div class="thumbnail">
                                         <figure class="contain">
                                             <img src="${value.pic.pictures}"
-                                                alt="${value.pic.subject}" class="thumb-img lazy">
+                                                alt="${value.pic.subject}" class="thumb-img lazy" width="100" height="100">
                                             <img src="${value.pic2.pictures}"
-                                                alt="${value.pic2.subject}" class="thumb-hover lazy">
+                                                alt="${value.pic2.subject}" class="thumb-hover lazy" width="100" height="100">
                                         </figure>
                                     </div>
                                     <h5 class="title">${value.subject}</h5>
