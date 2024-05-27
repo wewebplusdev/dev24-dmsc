@@ -38,13 +38,13 @@
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
                                     <figure class="contain">
                                         <picture>
-                                            <img src="{$valueTgp->pic->webp}" alt="{$valueTgp->pic->webp}" class="lazy">
+                                            <img src="{$valueTgp->pic->webp}" alt="{$valueTgp->pic->webp}" class="lazy" width="1900" height="720">
                                         </picture>
                                     </figure>
                                     <div class="fill-blur">
                                       <figure class="cover">
                                           <picture>
-                                              <img src="{$valueTgp->pic->webp}" alt="{$valueTgp->pic->webp}" class="lazy">
+                                              <img src="{$valueTgp->pic->webp}" alt="{$valueTgp->pic->webp}" class="lazy" width="1900" height="720">
                                           </picture>
                                       </figure>
                                     </div>
@@ -187,7 +187,7 @@
                                             <div class="col-auto">
                                                 <div class="graphic">
                                                     <picture>
-                                                        <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}">
+                                                        <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}" width="400" height="380">
                                                     </picture>
                                                 </div>
                                             </div>
