@@ -137,6 +137,7 @@ include("config.php");
 					$webp = imagecreatetruecolor($w, $h);
 					imagecopy($webp, $img, 0, 0, 0, 0, $w, $h);
 					imagewebp($webp, $newfilenameWebp, 80);
+					imagedestroy($img);
 					break;
 				case "png":
 					$img = imagecreatefrompng($newfilename);
@@ -145,11 +146,11 @@ include("config.php");
 					$webp = imagecreatetruecolor($w, $h);
 					imagecopy($webp, $img, 0, 0, 0, 0, $w, $h);
 					imagewebp($webp, $newfilenameWebp, 80);
+					imagedestroy($img);
 					break;
 				default:
 					break;
 			}
-			imagedestroy($img);
 
 			$msg .= "<img src=\"" . $mod_path_pictures . "/" . $picname . "\"  style=\"float:left;border:#c8c7cc solid 1px;max-width:600px;\"   />";
 			$msg .= "<div style=\"width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;\" onclick=\"delPicUpload2(\'deletePicInsert2.php\')\"  title=\"Delete file\" ><img src=\"../img/btn/delete.png\" width=\"22\" height=\"22\"  border=\"0\"/></div>";
