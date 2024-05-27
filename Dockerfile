@@ -33,9 +33,10 @@ RUN apt-get install -y  libjpeg62-turbo-dev
 RUN apt-get install -y  libfreetype6-dev
 RUN apt-get install -y  libmcrypt-dev
 RUN apt-get install -y  zlib1g-dev
+RUN apt-get install -y  libwebp-dev
 
 # configure gd for other type (jpeg, jpg)
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
 RUN docker-php-ext-install -j $(nproc) gd
 
 # php.ini:

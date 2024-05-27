@@ -18,6 +18,10 @@ if (file_exists($mod_path_real . "/" . $_REQUEST['picname'])) {
 	@unlink($mod_path_real . "/" . $_REQUEST['picname']);
 }
 
+if(file_exists($mod_path_webp."/".$_REQUEST['picname'] . '.webp')) {
+	@unlink($mod_path_webp."/".$_REQUEST['picname'] . '.webp');
+}
+
 $update = array();
 $update[] = $mod_tb_root_lang . "_pic  	=''";
 $sql = "UPDATE " . $mod_tb_root_lang . " SET " . implode(",", $update) . " WHERE " . $mod_tb_root_lang . "_id='" . $_REQUEST["valCid"] . "'  ";
