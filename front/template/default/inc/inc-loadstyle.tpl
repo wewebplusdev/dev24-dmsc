@@ -11,14 +11,14 @@
 <link rel="stylesheet" type="text/css" href="{$template}/assets/css/jquery.mCustomScrollbar.css">
 
 <!-- Custom -->
-<link rel="stylesheet" type="text/css" href="{$template}/assets/css/import.css{$lastModify}">
-<link rel="stylesheet" type="text/css" href="{$template}/assets/css/source.css{$lastModify}">
+<link rel="stylesheet" type="text/css" href="{$template}/assets/css/import.min.css{$lastModify}">
+<link rel="stylesheet" type="text/css" href="{$template}/assets/css/source.min.css{$lastModify}">
 <link rel="stylesheet" type="text/css" href="{$template}/assets/css/jin_modify.css{$lastModify}">
 <link rel="stylesheet" type="text/css" href="{$template}/assets/css/plug_modify.css{$lastModify}">
 
 <!-- asw css -->
 <link type="text/css" rel="stylesheet" href="{$template}/assets/css/accessibility.css">
-<link type="text/css" rel="stylesheet" href="{$template}/assets/css/wcag-theme.css">
+<link type="text/css" rel="stylesheet" href="{$template}/assets/css/wcag-theme.min.css">
 
 <!-- guide css -->
 {* <link type="text/css" rel="stylesheet" href="{$template}/assets/css/guides.css"> *}
