@@ -41,6 +41,9 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
             if (file_exists($mod_path_real . "/" . $deletepic)) {
                @unlink($mod_path_real . "/" . $deletepic);
             }
+            if(file_exists($mod_path_webp."/".$deletepic . '.webp')) {
+               @unlink($mod_path_webp."/".$deletepic . '.webp');
+            }
             ######################### Delete  In Folder Video ###############################
             if (file_exists($mod_path_vdo . "/" . $deletevideo)) {
                @unlink($mod_path_vdo . "/" . $deletevideo);

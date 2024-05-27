@@ -36,7 +36,7 @@
                                         <div class="swiper-slide">
                                             <figure class="cover">
                                                 <picture>
-                                                    <img src="{$valueloadPopup->pic->pictures}" alt="{$valueloadPopup->pic->pictures}">
+                                                    <img src="{$valueloadPopup->pic->webp}" alt="{$valueloadPopup->pic->webp}">
                                                 </picture>
                                             </figure>
                                         </div>

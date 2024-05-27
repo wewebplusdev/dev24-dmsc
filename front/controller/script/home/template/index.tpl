@@ -38,13 +38,13 @@
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
                                     <figure class="contain">
                                         <picture>
-                                            <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
+                                            <img src="{$valueTgp->pic->webp}" alt="{$valueTgp->pic->webp}" class="lazy">
                                         </picture>
                                     </figure>
                                     <div class="fill-blur">
                                       <figure class="cover">
                                           <picture>
-                                              <img src="{$valueTgp->pic->pictures}" alt="{$valueTgp->pic->pictures}" class="lazy">
+                                              <img src="{$valueTgp->pic->webp}" alt="{$valueTgp->pic->webp}" class="lazy">
                                           </picture>
                                       </figure>
                                     </div>
@@ -115,10 +115,10 @@
                                                         <div class="card-body">
                                                             <div class="thumbnail">
                                                                 <figure class="contain">
-                                                                    <img src="{$valueload_services_list->pic->pictures}"
-                                                                        alt="{$valueload_services_list->pic->pictures}" class="thumb-img lazy">
-                                                                    <img src="{$valueload_services_list->pic2->pictures}"
-                                                                        alt="{$valueload_services_list->pic2->pictures}" class="thumb-hover lazy">
+                                                                    <img src="{$valueload_services_list->pic->webp}"
+                                                                        alt="{$valueload_services_list->pic->webp}" class="thumb-img lazy">
+                                                                    <img src="{$valueload_services_list->pic2->webp}"
+                                                                        alt="{$valueload_services_list->pic2->webp}" class="thumb-hover lazy">
                                                                 </figure>
                                                             </div>
                                                             <h5 class="title">{$valueload_services_list->subject}</h5>
@@ -414,7 +414,7 @@
                                                                     <div class="news-card card">
                                                                         <div class="thumbnail">
                                                                             <figure class="cover">
-                                                                                <img src="{$valueNewsList->pic->pictures}" alt="{$valueNewsList->subject}">
+                                                                                <img src="{$valueNewsList->pic->webp}" alt="{$valueNewsList->subject}">
                                                                             </figure>
                                                                         </div>
                                                                         <div class="card-body">
