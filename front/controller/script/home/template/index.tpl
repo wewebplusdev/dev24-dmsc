@@ -560,11 +560,11 @@
                         </div>
                         <div class="bg" data-aos="fade-left">
                             <picture>
-                                <source srcset="{$template}/assets/img/background/bg-wg-contact.webp"
-                                    data-srcset="{$template}/assets/img/background/bg-wg-contact.webp"
+                                <source srcset="{$template}/assets/img/background/bg-wg-contact2.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp"
                                     type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-contact.webp"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact.webp" alt="background-contact"
+                                <img src="{$template}/assets/img/background/bg-wg-contact2.webp"
+                                    data-src="{$template}/assets/img/background/bg-wg-contact2.webp" alt="background-contact"
                                     class="lazy">
                             </picture>
                         </div>
