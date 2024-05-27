@@ -876,6 +876,7 @@ async function getInnovationGroup(req, res) {
                             'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                             'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                             'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                            'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
                         }
                         // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
                         const getUrlWeb = await modulus.getUrlWebsiteCmsg('service', short_language);

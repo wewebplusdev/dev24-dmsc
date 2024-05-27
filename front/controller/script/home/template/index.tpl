@@ -193,7 +193,7 @@
                                             </div>
                                         </div>
                                         <div class="bg-obj">
-                                            <img src="{$valueload_innovation->pic->pictures}" alt="{$valueload_innovation->subject}" class="lazy">
+                                            <img src="{$valueload_innovation->pic->webp}" alt="{$valueload_innovation->subject}" class="lazy">
                                         </div>
                                     </div>
                                 </a>
@@ -475,8 +475,8 @@
                                 <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp"
                                     data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp"
                                     type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-lab2.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-lab2.png" alt="background-lab"
+                                <img src="{$template}/assets/img/background/bg-wg-lab2.webp"
+                                    data-src="{$template}/assets/img/background/bg-wg-lab2.webp" alt="background-lab"
                                     class="lazy">
                             </picture>
                         </div>
@@ -552,10 +552,10 @@
                         <div class="bg" data-aos="fade-left">
                             <picture>
                                 <source srcset="{$template}/assets/img/background/bg-wg-contact.webp"
-                                    data-srcset="{$template}/assets/img/background/bg-wg-contact@2x.webp"
+                                    data-srcset="{$template}/assets/img/background/bg-wg-contact.webp"
                                     type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-contact.png"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact@2x.png" alt="background-contact"
+                                <img src="{$template}/assets/img/background/bg-wg-contact.webp"
+                                    data-src="{$template}/assets/img/background/bg-wg-contact.webp" alt="background-contact"
                                     class="lazy">
                             </picture>
                         </div>
