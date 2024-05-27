@@ -114,6 +114,7 @@ async function getPopup(req, res) {
                                 'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                                 'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                 'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
                             }
                         }else if(select[i].type == 2){
                             arr_data[i].video = select[i].urlc;
@@ -245,6 +246,7 @@ async function getTopgraphic(req, res) {
                                 'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                                 'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                 'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
                             }
                         }else if(select[i].type == 2){
                             arr_data[i].video = select[i].urlc;
@@ -442,6 +444,7 @@ async function getNews(req, res) {
                                     'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                                     'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                     'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
                                 }
                             }
                             arr_data[i].createDate = {
@@ -743,11 +746,13 @@ async function getService(req, res) {
                                     'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                                     'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                     'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
                                 }
                                 arr_data[i].pic2 = {
                                     'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic2),
                                     'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic2),
                                     'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic2),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic2}.webp`),
                                 }
                             }
                             arr_data[i].createDate = {
@@ -871,6 +876,7 @@ async function getInnovationGroup(req, res) {
                             'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                             'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                             'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                            'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
                         }
                         // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
                         const getUrlWeb = await modulus.getUrlWebsiteCmsg('service', short_language);
@@ -1028,6 +1034,7 @@ async function getAbout(req, res) {
                                 'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
                                 'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
                                 'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
                             }
                         }
                         arr_data[i].createDate = {

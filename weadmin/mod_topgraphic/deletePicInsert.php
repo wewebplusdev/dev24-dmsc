@@ -18,6 +18,10 @@ include("config.php");
 	if(file_exists($mod_path_real."/".$_REQUEST['picname'])) {
 		@unlink($mod_path_real."/".$_REQUEST['picname']);
 	}	
+
+	if(file_exists($mod_path_webp."/".$_REQUEST['picname'] . '.webp')) {
+		@unlink($mod_path_webp."/".$_REQUEST['picname'] . '.webp');
+	}
 			
 include("../lib/disconnect.php");
 ?>
