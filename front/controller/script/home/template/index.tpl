@@ -166,11 +166,11 @@
                             {if $keyload_innovation eq 0}
                                 {$fade_action = "right"}
                                 {$fade_action_converse = "left"}
-                                {$backgroud_img = "wg-research-graphic-03.png"}
+                                {$backgroud_img = "wg-research-graphic-03.webp"}
                             {else}
                                 {$fade_action = "left"}
                                 {$fade_action_converse = "right"}
-                                {$backgroud_img = "wg-research-graphic-04.png"}
+                                {$backgroud_img = "wg-research-graphic-04.webp"}
                             {/if}
                             <div class="col-lg" data-aos="fade-{$fade_action}">
                                 <a href="{$valueload_innovation->url}" class="link">
@@ -520,33 +520,42 @@
                                         </div>
                                     </div>
                                 {/if}
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
-                                            alt="" class="icon">
+                                {if $settingWeb.contact->tel neq "" && $settingWeb.contact->tel2 neq ""}
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
+                                                alt="" class="icon">
+                                        </div>
+                                        <div class="col">
+                                            <p class="desc">
+                                                {if $settingWeb.contact->tel neq ""}
+                                                <span class="d-block">{$languageFrontWeb->contact_tel->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}"
+                                                        class="link">{$settingWeb.contact->tel}</a></span>
+                                                {/if}
+                                                {if $settingWeb.contact->tel2 neq ""}
+                                                <span class="d-block">{$languageFrontWeb->contact_mobile->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}"
+                                                        class="link">{$settingWeb.contact->tel2}</a></span>
+
+                                                {/if}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <p class="desc">
-                                            <span class="d-block">โทรศัพท์. <a href="tel:0-2589-9850"
-                                                    class="link">0-2589-9850</a> ถึง 8 ต่อ 99968</span>
-                                            <span class="d-block">มือถือ. <a href="tel:098-915-6809"
-                                                    class="link">098-915-6809</a></span>
-                                        </p>
+                                {/if}
+                                {if $settingWeb.contact->email4 neq ""}
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                                class="icon">
+                                        </div>
+                                        <div class="col">
+                                            <p class="desc">
+                                                <span class="d-block">{$languageFrontWeb->contact_desc->display->$currentLangWeb}</span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email4}"
+                                                        class="link">{$settingWeb.contact->email4}</a></span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                            class="icon">
-                                    </div>
-                                    <div class="col">
-                                        <p class="desc">
-                                            <span class="d-block">รับ-ส่งหนังสือราชการ</span>
-                                            <span class="d-block">E-mail : <a href="saraban@dmsc.mail.go.th"
-                                                    class="link">saraban@dmsc.mail.go.th</a></span>
-                                        </p>
-                                    </div>
-                                </div>
+                                {/if}
                             </div>
                         </div>
                         <div class="bg" data-aos="fade-left">
