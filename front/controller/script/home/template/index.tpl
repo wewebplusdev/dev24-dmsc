@@ -60,9 +60,10 @@
         </div>
     {/if}
 
-    {if $loadServices->_numOfRows gte 1}
+    {* {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
-            <div class="wg-services lazy">
+            <div class="wg-services lazy" data-bg="{$template}/assets/img/background/bg-services.webp"
+                data-bg-hidpi="{$template}/assets/img/background/bg-services@2x.webp">
                 <div class="container">
                     <div class="row align-items-center text-sm-left text-center">
                         <div class="col-sm mb-sm-0 mb-3">
@@ -137,7 +138,7 @@
                 </div>
             </div>
         </div>
-    {/if}
+    {/if} *}
 
     {if $loadInnovation->_numOfRows gte 1}
         <div class="section section-ii">
