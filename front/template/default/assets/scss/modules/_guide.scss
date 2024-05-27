@@ -422,6 +422,10 @@
  .asw-wrapper {
     z-index: 1003;
   } 
+  .asw-widget.-mb {
+    position: relative;
+    z-index: 1003;
+  }
 }
 
 .nav-lang.guides-current-element {
@@ -519,7 +523,9 @@
     }
 
     .guide-wcag {
-      // top: 0 !important;
+      position: fixed;
+      top: unset !important;
+      bottom: 175px;
       right: 0 !important;
       padding: 0;
       .layout-guide {
