@@ -110,11 +110,21 @@ async function getPopup(req, res) {
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].type = select[i].type;
                         if (select[i].type == 1) {
-                            arr_data[i].pic = {
-                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                            let type_file = select[i]?.pic?.split(".");
+                            if (type_file[type_file?.length-1] == 'svg') {
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                                }
+                            }else{
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                }
                             }
                         }else if(select[i].type == 2){
                             arr_data[i].video = select[i].urlc;
@@ -242,11 +252,21 @@ async function getTopgraphic(req, res) {
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].type = select[i].type;
                         if (select[i].type == 1) {
-                            arr_data[i].pic = {
-                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                            let type_file = select[i]?.pic?.split(".");
+                            if (type_file[type_file?.length-1] == 'svg') {
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                                }
+                            }else{
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                }
                             }
                         }else if(select[i].type == 2){
                             arr_data[i].video = select[i].urlc;
@@ -440,11 +460,21 @@ async function getNews(req, res) {
                                     'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
                                 }
                             } else {
-                                arr_data[i].pic = {
-                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                let type_file = select[i]?.pic?.split(".");
+                                if (type_file[type_file?.length-1] == 'svg') {
+                                    arr_data[i].pic = {
+                                        'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                        'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                        'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                        'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                                    }
+                                }else{
+                                    arr_data[i].pic = {
+                                        'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                        'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                        'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                        'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                    }
                                 }
                             }
                             arr_data[i].createDate = {
@@ -742,17 +772,38 @@ async function getService(req, res) {
                                     'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
                                 }
                             } else {
-                                arr_data[i].pic = {
-                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                let type_file = select[i]?.pic?.split(".");
+                                if (type_file[type_file?.length-1] == 'svg') {
+                                    arr_data[i].pic = {
+                                        'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                        'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                        'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                        'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                                    }
+                                }else{
+                                    arr_data[i].pic = {
+                                        'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                        'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                        'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                        'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                    }
                                 }
-                                arr_data[i].pic2 = {
-                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic2),
-                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic2),
-                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic2),
-                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic2}.webp`),
+
+                                let type_file2 = select[i]?.pic2?.split(".");
+                                if (type_file2[type_file2?.length-1] == 'svg') {
+                                    arr_data[i].pic2 = {
+                                        'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic2),
+                                        'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic2),
+                                        'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic2),
+                                        'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic2}`),
+                                    }
+                                }else{
+                                    arr_data[i].pic2 = {
+                                        'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic2),
+                                        'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic2),
+                                        'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic2),
+                                        'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic2}.webp`),
+                                    }
                                 }
                             }
                             arr_data[i].createDate = {
@@ -872,11 +923,21 @@ async function getInnovationGroup(req, res) {
                         arr_data[i].des = select[i].des;
                         arr_data[i].number = select[i].number;
                         arr_data[i].suffix = select[i].suffix;
-                        arr_data[i].pic = {
-                            'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                            'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                            'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                            'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                        let type_file = select[i]?.pic?.split(".");
+                        if (type_file[type_file?.length-1] == 'svg') {
+                            arr_data[i].pic = {
+                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                            }
+                        }else{
+                            arr_data[i].pic = {
+                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                            }
                         }
                         // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
                         const getUrlWeb = await modulus.getUrlWebsiteCmsg('service', short_language);
@@ -1030,11 +1091,21 @@ async function getAbout(req, res) {
                                 'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
                             }
                         } else {
-                            arr_data[i].pic = {
-                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                            let type_file = select[i]?.pic?.split(".");
+                            if (type_file[type_file?.length-1] == 'svg') {
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                                }
+                            }else{
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                }
                             }
                         }
                         arr_data[i].createDate = {

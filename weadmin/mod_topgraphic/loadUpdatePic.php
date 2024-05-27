@@ -137,6 +137,7 @@ include("config.php");
 					$webp = imagecreatetruecolor($w, $h);
 					imagecopy($webp, $img, 0, 0, 0, 0, $w, $h);
 					imagewebp($webp, $newfilenameWebp, 80);
+					imagedestroy($img);
 					break;
 				case "png":
 					$img = imagecreatefrompng($newfilename);
@@ -145,11 +146,11 @@ include("config.php");
 					$webp = imagecreatetruecolor($w, $h);
 					imagecopy($webp, $img, 0, 0, 0, 0, $w, $h);
 					imagewebp($webp, $newfilenameWebp, 80);
+					imagedestroy($img);
 					break;
 				default:
 					break;
 			}
-			imagedestroy($img);
 
 			$update = array();
 			$update[] = $mod_tb_root_lang . "_pic  	='" . $picname . "'";
