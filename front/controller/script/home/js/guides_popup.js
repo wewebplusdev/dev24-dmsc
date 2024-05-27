@@ -45,7 +45,6 @@ function onComplete() {
         try {
             let content_web;
             content_web = await $.getJSON("./webservice_json/content_language_web.json");
-    
             let guid_data = {
                 init: {
                     html: `
@@ -284,6 +283,8 @@ function onComplete() {
                 }
                 // save session
                 guid_session();
+            }else{
+                $('.guides-overlay-custom').hide();
             }
     
     
