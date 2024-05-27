@@ -116,9 +116,9 @@
                                                             <div class="thumbnail">
                                                                 <figure class="contain">
                                                                     <img src="{$valueload_services_list->pic->webp}{$LastVersionCache}"
-                                                                        alt="{$valueload_services_list->pic->webp}" class="thumb-img lazy">
+                                                                        alt="{$valueload_services_list->pic->webp}" class="thumb-img lazy" width="100" height="100">
                                                                     <img src="{$valueload_services_list->pic2->webp}{$LastVersionCache}"
-                                                                        alt="{$valueload_services_list->pic2->webp}" class="thumb-hover lazy">
+                                                                        alt="{$valueload_services_list->pic2->webp}" class="thumb-hover lazy" width="100" height="100">
                                                                 </figure>
                                                             </div>
                                                             <h5 class="title">{$valueload_services_list->subject}</h5>
