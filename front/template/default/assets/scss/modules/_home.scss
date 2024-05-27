@@ -532,7 +532,7 @@
     width: 1020px;
     pointer-events: none;
     img {
-      width: 100%;
+      width: max-content;
       height: 100%;
     }
   }
@@ -738,6 +738,10 @@
   .bg-obj {
     margin: 20px 0;
     width: 135px;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   .action {
     margin-top: 25px;

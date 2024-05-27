@@ -23,7 +23,7 @@
                             <div class="row no-gutters">
                                 <div class="col-auto">
                                     <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt="icon-address"
-                                        class="icon">
+                                        class="icon" width="37" height="43">
                                 </div>
                                 <div class="col">
                                     <p class="desc">
@@ -39,7 +39,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-auto">
                                         <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="icon-telephone"
-                                            class="icon">
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -57,7 +57,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-auto">
                                         <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
-                                            class="icon">
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -75,7 +75,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-auto">
                                         <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                            class="icon">
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -98,7 +98,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-auto">
                                         <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
-                                            class="icon">
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -116,7 +116,7 @@
                         <div class="ipv6">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/ipv6.webp" type="image/webp">
-                                <img src="{$template}/assets/img/static/ipv6.png" alt="image-ipv6" class="icon">
+                                <img src="{$template}/assets/img/static/ipv6.png" alt="image-ipv6" class="icon" width="90" height="90">
                             </picture>
                         </div>
                     </div>
@@ -124,12 +124,12 @@
                       <div class="row row-valid-checker h-100 no-gutters align-items-center">
                         <div class="col-12 mb-sm-0 mb-2">
                           <a href="https://jigsaw.w3.org/css-validator/check/referer">
-                            <img src="https://jigsaw.w3.org/css-validator/images/vcss"alt="Valid CSS!" />
+                            <img src="https://jigsaw.w3.org/css-validator/images/vcss"alt="Valid CSS!" width="88" height="31">
                           </a>
                         </div>
                         <div class="col-12">
                           <a href="https://achecks.org/checker/index.php?uri=referer&gid=WCAG2-AA">
-                            <img src="https://achecks.org/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" />
+                            <img src="https://achecks.org/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" width="102" height="32">
                           </a>
                         </div>
                       </div>

@@ -462,7 +462,7 @@
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
                                     <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj"
-                                        class="lazy">
+                                        class="lazy" width="135" height="135">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
                             </div>
