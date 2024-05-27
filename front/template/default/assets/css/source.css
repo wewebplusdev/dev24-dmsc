@@ -10332,6 +10332,10 @@ a:hover .fontContantTbManage {
 .wcag-fix-z .asw-wrapper {
   z-index: 1003;
 }
+.wcag-fix-z .asw-widget.-mb {
+  position: relative;
+  z-index: 1003;
+}
 
 .nav-lang.guides-current-element * {
   position: relative;
@@ -10478,6 +10482,9 @@ a:hover .fontContantTbManage {
     width: 60px;
   }
   .guides-canvas .guide-wcag {
+    position: fixed;
+    top: unset !important;
+    bottom: 175px;
     right: 0 !important;
     padding: 0;
   }
