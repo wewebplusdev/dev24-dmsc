@@ -13,11 +13,20 @@ $modTxtType = array("ประเภทข้อมูล", "รูปภาพ"
 $modStatus = array("Enable", "Disable");
 
 ## Size Pic ###################################
-$sizeWidthReal = "1920";
-$sizeHeightReal = "310";
+if ($_REQUEST['masterkey'] == 'popup') {
+    $sizeWidthReal = "1024";
+    $sizeHeightReal = "600";
 
-$sizeWidthPic = "800";
-$sizeHeightPic = "800";
+    $sizeWidthPic = "1024";
+    $sizeHeightPic = "600";
+}else{
+    $sizeWidthReal = "1920";
+    $sizeHeightReal = "800";
+
+    $sizeWidthPic = "1920";
+    $sizeHeightPic = "800";
+}
+
 
 $sizeWidthOff = "50";
 $sizeHeightOff = "50";
@@ -34,6 +43,9 @@ $mod_path_real_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/real";
 
 $mod_path_pictures = $core_pathname_upload . "/" . $masterkey . "/pictures";
 $mod_path_pictures_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/pictures";
+
+$mod_path_webp = $core_pathname_upload . "/" . $masterkey . "/webp";
+$mod_path_webp_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/webp";
 
 $mod_path_vdo        = $core_pathname_upload."/".$masterkey."/vdo";
 $mod_path_vdo_fornt  = $core_pathname_upload_fornt."/".$masterkey."/vdo";

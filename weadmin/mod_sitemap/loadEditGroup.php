@@ -24,7 +24,8 @@ $sql .= "
 			" . $mod_tb_group_lang . "_target,
 			" . $mod_tb_group_lang . "_pic ,
 			" . $mod_tb_group_lang . "_url,
-			" . $mod_tb_group_lang . "_id
+			" . $mod_tb_group_lang . "_id,
+			" . $mod_tb_group_lang . "_layout as layout 
 			";
 $sql .= "  FROM  " . $mod_tb_group . "";
 $sql .= "  INNER JOIN " . $mod_tb_group_lang . "  ";
@@ -49,6 +50,7 @@ $valPicName = $Row[8];
 $valPic = $mod_path_pictures . "/" . $Row[8];
 $valUrl = $Row[9];
 $valSGid = $Row[10];
+$valLayout = $Row['layout'];
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -199,6 +201,21 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   </label>
                </td>
             </tr>
+            <tr>
+                  <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:layout"] ?><span class="fontContantAlert">*</span></td>
+                  <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                     <label>
+                        <div class="formDivRadioL"><input name="inputmenulayout" id="inputmenulayout" type="radio" class="formRadioContantTb" value="1" <?php if ($valLayout != 2) { ?> checked="checked" <?php } ?> /></div>
+                        <div class="formDivRadioR"><?php echo $modLayout[1] ?></div>
+                     </label>
+
+                     <label>
+                        <div class="formDivRadioL"><input name="inputmenulayout" id="inputmenulayout" type="radio" class="formRadioContantTb" value="2" <?php if ($valLayout == 2) { ?> checked="checked" <?php } ?>/></div>
+                        <div class="formDivRadioR"><?php echo $modLayout[2] ?></div>
+                     </label>
+                     </label>
+                  </td>
+               </tr>
          </table>
          <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">

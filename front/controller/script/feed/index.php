@@ -1,39 +1,48 @@
 <?php
 $menuActive = "feed";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$feedPage = new feedPage;
+$FeedPage = new FeedPage;
+define('HOME_PATH', '/home');
+define('LOCATION_PREFIX', 'location:');
 
 $contentID = $url->segment[1];
 
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         if (empty($contentID)) {
-            header('location:' . $linklang . "/home");
+            header(LOCATION_PREFIX . $linklang . HOME_PATH);
         }
         $smarty->assign("contentID", $contentID);
 
         $data = [
             "action" => 'feed',
             "method" => 'getFeed',
-            "language" => $feedPage->language,
+            "language" => $FeedPage->language,
             "contentid" => $contentID,
         ];
 
         // call list
-        $load_data = $feedPage->load_data($data);
-        if ($load_data->code != 1001) {
-            header('location:' . $linklang . "/home");
+        $loadData = $FeedPage->loadData($data);
+        if ($loadData->code != 1001) {
+            header(LOCATION_PREFIX . $linklang . HOME_PATH);
         }
-        // print_pre($load_data);
 
         $context = stream_context_create(array('ssl'=>array(
-            'verify_peer' => false, 
+            'verify_peer' => false,
             "verify_peer_name"=>false
         )));
         
         libxml_set_streams_context($context);
-        $sxml = simplexml_load_file($load_data->item[0]->api);
+        $sxml = simplexml_load_file($loadData->item[0]->api);
         
         // Check if the XML was loaded successfully
         if ($sxml !== false) {
@@ -50,26 +59,26 @@ switch ($url->segment[0]) {
                     $array_data[$keyRss]['enclosure'] = (string) $item->enclosure->attributes()->url;
                     $keyRss++;
                 }
-                // print_pre($array_data);
 
                 $smarty->assign("array_data", $array_data);
             } else {
-                header('location:' . $linklang . "/home");
+                header(LOCATION_PREFIX . $linklang . HOME_PATH);
             }
         } else {
-            header('location:' . $linklang . "/home");
+            header(LOCATION_PREFIX . $linklang . HOME_PATH);
         }
 
         // setup seo and text modules
         $language_modules = array();
-        $language_modules['breadcrumb2'] = $load_data->item[0]->subject;
-        $language_modules['metatitle'] = $load_data->item[0]->subject;
+        $language_modules['breadcrumb2'] = $loadData->item[0]->subject;
+        $language_modules['metatitle'] = $loadData->item[0]->subject;
         // active menu header
-        $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb2'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
         }
+        
         $smarty->assign("language_modules", $language_modules);
        
         /*## Start SEO #####*/
@@ -77,7 +86,7 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $feedPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $FeedPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         $settingPage = array(

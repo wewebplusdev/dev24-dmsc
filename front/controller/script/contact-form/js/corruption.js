@@ -3,6 +3,13 @@ const validate_step = (action) => {
     let status = true;
 
     switch (action) {
+        case 'case1':
+            //case 1
+            break;
+        
+        case 'case2':
+            // case 2
+            break;
         default:
             data_array.push($('#inputTopic').val());
             data_array.push($('#inputDesc').val());
@@ -15,6 +22,7 @@ const validate_step = (action) => {
                 if (!v.trim()) {
                     status = false;
                 }
+                return v;
             });
 
             if (!status) {
@@ -28,7 +36,9 @@ const validate_step = (action) => {
             }
             break;
     }
+    return status;
 }
+
 
 (() => {
     load_recaptch();
@@ -72,7 +82,7 @@ $('#form-contact').validator().on('submit', function (e) {
         e.preventDefault();
 
         $("#submit-form").attr("disabled", true);
-        var formData = new FormData($("#form-contact")[0]);
+        let formData = new FormData($("#form-contact")[0]);
         $.ajax({
             url: `${path}${language}/contact-form/insert-corruption`,
             type: "POST",
@@ -97,15 +107,13 @@ $('#form-contact').validator().on('submit', function (e) {
                         showCancelButton: false,
                         allowOutsideClick: false,
                         didOpen: () => {
-                            Swal.showLoading()
-                            timerInterval = setInterval(() => {
-                            }, 100)
+                            Swal.showLoading();
+                            setInterval(() => {}, 100);
                         },
                         willClose: () => {
-                            clearInterval(timerInterval)
+                            clearInterval();
                         },
                         timer: 3000,
-                        timerProgressBar: true,
                     });
                     load_recaptch();
                     $('#form-contact')[0].reset();
@@ -116,12 +124,12 @@ $('#form-contact').validator().on('submit', function (e) {
                     $('.-form-step2').hide();
                     $('.-form-step3').hide();
                 }
+                $("#submit-form").attr("disabled", false);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
             }
         });
     }
-    $("#submit-form").attr("disabled", false);
     return false;
 });

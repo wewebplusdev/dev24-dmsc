@@ -17,25 +17,24 @@
               </a>
             </li>
             <li>
-              <a href="{$ul}/{$menuActive}/{$masterkey}" class="link">
+              <a href="{$ul}/{$menuActive}/{$masterkey}" class="link" alt="link">
                 {$language_modules.breadcrumb2}
               </a>
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb2}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
-              class="lazy img-cover">
+            <img src="{$template}/assets/img/uploads/inner3.png" alt="image-inner" class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
     </figure>
   </div>
   <div class="default-body">
@@ -49,7 +48,7 @@
                   <label class="control-label visually-hidden"
                     for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="gid" id="gid" style="width: 100%;" onchange="submit();">
+                    <select class="select-filter" aria-label="select filter" name="gid" id="gid" aria-label="select filter" style="width: 100%;">
                       <option value="">
                         {$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}
                       </option>
@@ -64,12 +63,12 @@
               <div class="col-md">
                 <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden"
-                    for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                    for="keywordMobileApp">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
-                    <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}"
+                    <input class="form-control" type="search" class="btnSearch" name="keywordMobileApp" id="keywordMobileApp" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
-                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                      <a href="javascript:void(0);" class="link btnSearch"  aria-label="link">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                             viewBox="0 0 33.621 33.621">
@@ -102,10 +101,10 @@
                 <div class="row gutters-20">
                   <div class="col-md col-12">
                     <div class="form-group form-select mb-0">
-                      <label class="control-label"
-                        for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                      <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                      <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                       <div class="select-wrapper">
-                        <select class="select-filter" name="sort" id="sort" style="width: 100%;" onchange="submit();">
+                        <select class="select-filter" aria-label="select filter" name="sort" id="sort" style="width: 100%;" >
                           <option value="1" {if $req.sort == '1'} selected {/if}>
                             {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                           </option>
@@ -124,11 +123,11 @@
       </div>
     </div>
     <div class="container">
-      {if $load_data->_numOfRows gte 1}
+      {if $loadData->_numOfRows gte 1}
         <div class="document-download-list -layout-grid" id="download-list">
-          {foreach $load_data->item as $keyload_data => $valueload_data}
-            {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
-            {assign var="checkUrl2" value="{$valueload_data->url2|check_url}"}
+          {foreach $loadData->item as $keyload_data => $valueload_data}
+            {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
+            {assign var="checkUrl2" value="{$valueload_data->url2|checkUrl}"}
             {assign var="target" value="_self"}
             {assign var="target2" value="_self"}
             {assign var="downloadID" value=""}
@@ -136,13 +135,13 @@
               {$downloadID = $valueload_data->attachment[0]->id}
             {/if}
             {if $checkUrl}
-              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
+              {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
               {$target = $valueload_data->target}
             {else}
               {assign var="news_url" value="javascript:void(0);"}
             {/if}
             {if $checkUrl2}
-              {assign var="news_url2" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}|{'urlc2'|encodeStr}"}
+              {assign var="news_url2" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}|{'urlc2'|encodeStr}"}
               {$target2 = $valueload_data->target}
             {else}
               {assign var="news_url2" value="javascript:void(0);"}
@@ -165,34 +164,20 @@
                       <div class="action">
                         <div class="d-flex align-items-center">
                           <a href="{$news_url}" class="link -web-link" target="{$target}">
-                            <span class="icon mr-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                                <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
-                                  <path id="Path_452117" data-name="Path 452117"
-                                    d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
-                                    fill="#2ab170"></path>
-                                  <path id="Path_452118" data-name="Path 452118"
-                                    d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
-                                    fill="#2ab170"></path>
-                                </g>
-                              </svg>
-                            </span>
-                            <div class="txt text-primary fw-bold">{$languageFrontWeb->linkandroid->display->$currentLangWeb}</div>
+                            <div class="d-flex align-items-center">
+                              <span class="icon mr-2">
+                              <img src="{$template}/assets/img/static/readmore.png" alt="image-readmore-link">
+                              </span>
+                              <div class="txt fw-bold">{$languageFrontWeb->linkandroid->display->$currentLangWeb}</div>
+                            </div>
                           </a>
                           <a href="{$news_url2}" class="link -web-link" target="{$target2}">
-                            <span class="icon mr-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                                <g id="ARROW_48" data-name="ARROW 48" transform="translate(-0.006)">
-                                  <path id="Path_452117" data-name="Path 452117"
-                                    d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
-                                    fill="#2ab170"></path>
-                                  <path id="Path_452118" data-name="Path 452118"
-                                    d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
-                                    fill="#2ab170"></path>
-                                </g>
-                              </svg>
-                            </span>
-                            <div class="txt text-primary fw-bold">{$languageFrontWeb->linkios->display->$currentLangWeb}</div>
+                            <div class="d-flex align-items-center">
+                              <span class="icon mr-2">
+                              <img src="{$template}/assets/img/static/readmore.png" alt="image-readmore-link">
+                              </span>
+                              <div class="txt fw-bold">{$languageFrontWeb->linkios->display->$currentLangWeb}</div>
+                            </div>
                           </a>
                         </div>
                       </div>

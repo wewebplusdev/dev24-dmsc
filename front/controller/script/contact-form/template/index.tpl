@@ -23,19 +23,19 @@
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb1}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner2.png" alt="obj-banner-about"
               class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-bannner" class="lazy img-cover">
     </figure>
   </div>
 
@@ -87,18 +87,18 @@
                     <div class="col-md">
                       <div class="form-group">
                         <label for="inputTel" class="control-label">{$languageFrontWeb->contact_tel->display->$currentLangWeb}<span>*</span></label>
-                        <input type="text" id="inputTel" value="" name="inputTel" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control" required>
+                        <input type="text" minlength="10" maxlength="10" id="inputTel" value="" name="inputTel" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control" required>
                       </div>
                     </div>
                     <div class="col-md">
                       <div class="form-group">
                         <label for="inputEmail" class="control-label">{$languageFrontWeb->contact_email->display->$currentLangWeb}<span>*</span></label>
-                        <input type="text" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control" required>
+                        <input type="email" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control" required>
                       </div>
                     </div>
                   </div>
                   <div class="action">
-                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptcha_sitekey}">
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptchaSitekey}">
                     <button type="submit" id="submit-form" class="btn btn-primary disabled">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
                     <button type="button" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</button>
                   </div>
@@ -115,7 +115,7 @@
                     <h3 class="title">{$languageFrontWeb->contact_success->display->$currentLangWeb}</h3>
                   </div>
                   <div class="action">
-                    <a href="javascript:void(0);" onclick="reload_form();" class="btn btn-primary">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
+                    <a href="javascript:void(0);"  class="btn btn-primary btn-reload-form">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
                   </div>
                 </div>
               </div>

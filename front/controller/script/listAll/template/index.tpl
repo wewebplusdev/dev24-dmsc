@@ -29,19 +29,19 @@
                         </li> *}
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb2}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png"
-              alt="obj-banner-about" class="lazy img-cover">
+            <img src="{$template}/assets/img/uploads/inner5.png"
+              alt="image-inner" class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt=""
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner"
         class="lazy img-cover">
     </figure>
   </div>
@@ -56,7 +56,7 @@
                   <div class="form-group form-select -select-group mb-0">
                     <label class="control-label visually-hidden" for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                     <div class="select-wrapper">
-                      <select class="select-filter" name="gid" id="gid" style="width: 100%;" onchange="submit();">
+                      <select class="select-filter" aria-label="select filter" name="gid" id="gid" style="width: 100%;" >
                         <option value="">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</option>
                         {foreach $load_group->item as $keyload_group => $valueload_group}
                           <option value="{$valueload_group->id}" {if $req.gid eq $valueload_group->id}selected{/if}>{$valueload_group->subject}</option>
@@ -69,13 +69,13 @@
               <div class="col-md">
                 <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden"
-                    for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                    for="keywordLisAll">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
-                    <input class="form-control" type="search" name="keyword"
-                      id="keyword" value="{$req.keyword}"
+                    <input class="form-control" type="search" name="keywordLisAll"
+                      id="keywordLisAll" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
-                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                      <a href="javascript:void(0);" class="link filter-form"  aria-label="link">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="33.621"
                             height="33.621" viewBox="0 0 33.621 33.621">
@@ -113,7 +113,7 @@
                     <div class="col-auto">
                       <div class="row no-gutters">
                         <div class="col-auto">
-                          <a href="{$ul}/rss/{$masterkey}Feed{$req['gid']}.xml" class="link -rss" target="_blank">
+                          <a href="{$ul}/rss/{$masterkey}Feed{$req['gid']}.xml" class="link -rss" target="_blank" aria-label="link">
                             <span class="icon">
                               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24.998" viewBox="0 0 25 24.998">
                                 <g id="Group_90676" data-name="Group 90676" transform="translate(0 -0.001)">
@@ -141,8 +141,8 @@
                     for="sort">{$languageFrontWeb->sort->display->$currentLangWeb}
                     :</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="sort" id="sort"
-                      style="width: 100%;" onchange="submit();">
+                    <select class="select-filter" aria-label="select filter" name="sort" id="sort"
+                      style="width: 100%;" >
                       <option value="1" {if $req.sort == '1'} selected {/if}>
                         {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                       </option>
@@ -160,17 +160,17 @@
     </div>
     <div class="news-area">
       <div class="container">
-        {if $load_data->_numOfRows gte 1}
+        {if $loadData->_numOfRows gte 1}
           <div class="news-list">
-            {foreach $load_data->item as $keyload_data => $valueload_data}
-              {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
+            {foreach $loadData->item as $keyload_data => $valueload_data}
+              {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
               {assign var="target" value="_self"}
               {assign var="downloadID" value=""}
               {if $valueload_data->typec eq 2}
                 {$downloadID = $valueload_data->attachment[0]->id}
               {/if}
               {if $checkUrl}
-                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
+                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
                 {$target = $valueload_data->target}
               {else}
                 {assign var="news_url" value="javascript:void(0);"}
@@ -181,12 +181,12 @@
                     <div class="thumbnail">
                       <figure class="cover">
                         <img src="{$valueload_data->pic->pictures}"
-                          alt="{$valueload_data->pic->pictures}">
+                          alt="thumbnail list all">
                       </figure>
                     </div>
                     <div class="card-body">
-                      <h5 class="title">{$valueload_data->subject}
-                      </h5>
+                      <h3 class="title">{$valueload_data->subject}
+                      </h3>
                       <div class="line"></div>
                       <p class="desc">
                         {$valueload_data->title}
@@ -205,7 +205,7 @@
         {/if}
       </div>
     </div>
-    {if $load_data->_numOfRows gte 1}
+    {if $loadData->_numOfRows gte 1}
       {include file="inc/inc-pagination.tpl" title=title}
     {/if}
   </div>

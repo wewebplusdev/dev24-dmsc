@@ -30,10 +30,10 @@
 
   .swiper {
     &:not(.gallery-slide .swiper) {
-      overflow: visible;
+      // overflow: visible;
 
       .swiper-slide {
-        opacity: 0;
+        // opacity: 0;
         transition: all 0.4s ease-in-out;
       }
 
@@ -207,6 +207,9 @@
   .gallery-swiper-2 {
     .cover {
       padding-top: 600px;
+      a {
+        position: unset;
+      }
     }
   }
   .gallery-slider-nav {

@@ -285,6 +285,12 @@ logs_access('3', 'View');
                         <div class="formDivView"><a href="<?php echo $ValSocial[$langMod["social:li"]]['link'] ?>" target="_blank"><?php echo $ValSocial[$langMod["social:li"]]['link'] ?></a></div>
                     </td>
                 </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["social:cfb"] ?> :<span class="fontContantAlert"></span></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="formDivView"><a href="<?php echo $ValSocial[$langMod["social:cfb2"]]['link'] ?>" target="_blank"><?php echo $ValSocial[$langMod["social:cfb2"]]['link'] ?></a></div>
+                    </td>
+                </tr>
             </table>
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">

@@ -24,19 +24,19 @@
                         </li>
                     </ol>
                 </div>
-                <h1 class="title">
+                <h2 class="title">
                     {$language_modules.breadcrumb2}
-                </h1>
+                </h2>
                 <div class="graphic">
                     <div class="obj">
-                        <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+                        <img src="{$template}/assets/img/uploads/inner1.png" alt="obj-banner-about"
                             class="lazy img-cover">
                     </div>
                 </div>
             </div>
         </div>
         <figure class="cover">
-            <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+            <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
         </figure>
     </div>
     <div class="default-body">
@@ -49,7 +49,7 @@
                                 <div class="form-group form-select -select-group mb-0">
                                 <label class="control-label visually-hidden" for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                                 <div class="select-wrapper">
-                                    <select class="select-filter" name="gid" id="gid" style="width: 100%;" onchange="submit();">
+                                    <select class="select-filter" aria-label="select filter" name="gid" id="gid" style="width: 100%;" >
                                     <option value="">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</option>
                                     {foreach $load_group->item as $keyload_group => $valueload_group}
                                         <option value="{$valueload_group->id}" {if $req.gid eq $valueload_group->id}selected{/if}>{$valueload_group->subject}</option>
@@ -60,11 +60,11 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-group form-search mb-0">
-                                    <label class="control-label visually-hidden" for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                                    <label class="control-label visually-hidden" for="keywordDownloadBook">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                                     <div class="block-control">
-                                        <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
+                                        <input class="form-control" type="search" name="keywordDownloadBook" id="keywordDownloadBook" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
-                                            <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                                            <a href="javascript:void(0);" class="link filter-form" aria-label="link">
                                                 <span class="icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                                                         viewBox="0 0 33.621 33.621">
@@ -101,9 +101,10 @@
                                     <div class="col-md col-12">
                                         <div class="form-group form-select mb-0">
                                             <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                                            <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                                             <div class="select-wrapper">
-                                                <select class="select-filter" name="sort" id="sort"
-                                                    style="width: 100%;" onchange="submit();">
+                                                <select class="select-filter" aria-label="select filter" name="sort" id="sort"
+                                                    style="width: 100%;" >
                                                     <option value="1" {if $req.sort == '1'} selected {/if}>
                                                     {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                                                     </option>
@@ -122,18 +123,18 @@
             </div>
         </div>
         <div class="container">
-            {if $load_data->_numOfRows gte 1}
+            {if $loadData->_numOfRows gte 1}
                 <div class="manual-list">
-                {foreach $load_data->item as $keyload_data => $valueload_data}
-                    {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
+                {foreach $loadData->item as $keyload_data => $valueload_data}
+                    {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
                     {assign var="target" value="_self"}
                     {assign var="downloadID" value=""}
                     {if $valueload_data->typec eq 2}
                         {$downloadID = $valueload_data->attachment[0]->id}
-                        {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|get_Icon}
+                        {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|getIcon}
                     {/if}
                     {if $checkUrl}
-                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
+                        {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
                         {$target = $valueload_data->target}
                     {else}
                         {assign var="news_url" value="javascript:void(0);"}
@@ -142,7 +143,7 @@
                         <a href="{$news_url}" class="link" target="{$target}">
                             <div class="thumbnail">
                                 <figure class="cover">
-                                    <img src="{$valueload_data->pic->pictures}" alt="{$valueload_data->pic->pictures}"
+                                    <img src="{$valueload_data->pic->pictures}" alt="thumbnail list all"
                                         class="img-cover">
                                 </figure>
                             </div>
@@ -164,22 +165,10 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="read-more">
+                                    <div class="read-more d-flex align-items-center mr-2">
                                         {$languageFrontWeb->readmore2->display->$currentLangWeb}
-                                        <span class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14.25" height="14.25"
-                                                viewBox="0 0 14.25 14.25">
-                                                <g id="Icon_ionic-ios-arrow-dropright"
-                                                    data-name="Icon ionic-ios-arrow-dropright"
-                                                    transform="translate(-3.375 -3.375)">
-                                                    <path id="Path_25" data-name="Path 25"
-                                                        d="M14.609,10.175a.664.664,0,0,1,.935,0l3.268,3.278a.66.66,0,0,1,.021.911l-3.22,3.23a.66.66,0,1,1-.935-.932l2.737-2.778-2.805-2.778A.653.653,0,0,1,14.609,10.175Z"
-                                                        transform="translate(-5.661 -3.389)" fill="#2ab170" />
-                                                    <path id="Path_26" data-name="Path 26"
-                                                        d="M3.375,10.5A7.125,7.125,0,1,0,10.5,3.375,7.124,7.124,0,0,0,3.375,10.5Zm1.1,0a6.035,6.035,0,1,1,1.768,4.261A5.977,5.977,0,0,1,4.471,10.5Z"
-                                                        fill="#2ab170" />
-                                                </g>
-                                            </svg>
+                                        <span class="icon ml-2">
+                                           <img src="{$template}/assets/img/static/Icon-ionic-ios-arrow-dropright.png" alt="image-arrow-right">
                                         </span>
                                     </div>
                                 </div>
@@ -190,7 +179,7 @@
                 </div>
             {/if}
         </div>
-        {if $load_data->_numOfRows gte 1}
+        {if $loadData->_numOfRows gte 1}
             {include file="inc/inc-pagination.tpl" title=title}
         {/if}
     </div>

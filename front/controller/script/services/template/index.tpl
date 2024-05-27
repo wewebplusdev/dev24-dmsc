@@ -23,19 +23,19 @@
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb2}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner6.png" alt="image-inner"
               class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-banner" class="lazy img-cover">
     </figure>
   </div>
   <div class="default-body">
@@ -65,11 +65,11 @@
         <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default" id="filter-form">
           <div class="head">
             <div class="form-group form-search mb-0">
-              <label class="control-label visually-hidden" for="keyword">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+              <label class="control-label visually-hidden" for="keywordService">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
               <div class="block-control">
-                <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
+                <input class="form-control" type="search" name="keywordService" id="keywordService" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                 <div class="search">
-                  <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();" class="link">
+                  <a href="javascript:void(0);" class="link filter-form"  aria-label="link">
                     <span class="icon">
                       <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                         viewBox="0 0 33.621 33.621">
@@ -92,15 +92,16 @@
           <div class="body">
             <div class="row align-items-center">
               <div class="col-md mb-md-0 mb-3">
-                <div class="whead my-0">
+                <h3 class="whead my-0">
                   <div class="title">{$language_modules.breadcrumb2}</div>
-                </div>
+                </h3>
               </div>
               <div class="col-md-auto">
                 <div class="form-group form-select mb-0">
                   <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
+                  <input type="text" name="selectFilter" id="selectFilter" class="d-none">
                   <div class="select-wrapper">
-                    <select class="select-filter" name="sort" id="sort" style="width: 100%;" onchange="submit();">
+                    <select class="select-filter" aria-label="select filter" name="sort" id="sort" style="width: 100%;" >
                       <option value="1" {if $req.sort == '1'} selected {/if}>{$languageFrontWeb->sort_desc->display->$currentLangWeb}</option>
                       <option value="2" {if $req.sort == '2'} selected {/if}>{$languageFrontWeb->sort_asc->display->$currentLangWeb}</option>
                     </select>
@@ -115,7 +116,7 @@
     <div class="service-area">
       <div class="container">
         <div class="service-list" data-aos="fade-up" id="service-append">
-          {foreach $load_data->item as $keyload_data => $valueload_data}
+          {foreach $loadData->item as $keyload_data => $valueload_data}
             <div class="item">
               <a {if $valueload_data->url neq "" && $valueload_data->url neq "#"}href="{$valueload_data->url}"{if $valueload_data->target eq 2}target="_blank"{/if}{else}
                 href="javascript:void(0);"{/if} class="link">
@@ -123,9 +124,9 @@
                   <div class="card-body">
                     <div class="thumbnail">
                       <figure class="contain">
-                        <img src="{$valueload_data->pic->pictures}" alt="{$valueload_data->pic->pictures}"
+                        <img src="{$valueload_data->pic->pictures}" alt="thumbnail services sv"
                           class="thumb-img lazy">
-                        <img src="{$valueload_data->pic2->pictures}" alt="{$valueload_data->pic2->pictures}"
+                        <img src="{$valueload_data->pic2->pictures}" alt="thumbnail services sv"
                           class="thumb-hover lazy">
                       </figure>
                     </div>
@@ -139,7 +140,7 @@
       </div>
     </div>
     <div class="service-pagination">
-      {if $load_data->_numOfRows gte 1}
+      {if $loadData->_numOfRows gte 1}
         {include file="inc/inc-pagination.tpl" title=title}
       {/if}
     </div>

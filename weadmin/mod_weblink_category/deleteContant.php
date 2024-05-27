@@ -42,6 +42,9 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
             if (file_exists($mod_path_real . "/" . $deletepic)) {
                @unlink($mod_path_real . "/" . $deletepic);
             }
+            if(file_exists($mod_path_webp."/".$deletepic . '.webp')) {
+               @unlink($mod_path_webp."/".$deletepic . '.webp');
+            }
             ######################### Delete  In Folder Video ###############################
             if (file_exists($mod_path_vdo . "/" . $deletevideo)) {
                @unlink($mod_path_vdo . "/" . $deletevideo);
@@ -56,7 +59,9 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
             if (file_exists($mod_path_real . "/" . $deletepic2)) {
                @unlink($mod_path_real . "/" . $deletepic2);
             }
-
+            if(file_exists($mod_path_webp."/".$deletepic2 . '.webp')) {
+               @unlink($mod_path_webp."/".$deletepic2 . '.webp');
+            }
             ######################### Delete  In Folder File ###############################
             $sql="SELECT ".$mod_tb_file."_id,".$mod_tb_file."_filename FROM ".$mod_tb_file." WHERE ".$mod_tb_file."_contantid ='".$valid."'";
             $query_file=wewebQueryDB($coreLanguageSQL, $sql);

@@ -49,7 +49,7 @@
                                 <div class="form-group form-select -select-group mb-0">
                                 <label class="control-label visually-hidden" for="gid">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</label>
                                 <div class="select-wrapper">
-                                    <select class="select-filter" name="gid" id="gid" style="width: 100%;" onchange="submit();">
+                                    <select class="select-filter" aria-label="select filter" name="gid" id="gid" style="width: 100%;">
                                     <option value="">{$languageFrontWeb->selectgroup->display->$currentLangWeb}{$language_modules.breadcrumb2}</option>
                                     {foreach $load_group->item as $keyload_group => $valueload_group}
                                         <option value="{$valueload_group->id}" {if $req.gid eq $valueload_group->id}selected{/if}>{$valueload_group->subject}</option>
@@ -64,7 +64,7 @@
                                     <div class="block-control">
                                         <input class="form-control" type="search" name="keyword" id="keyword" value="{$req.keyword}" placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                                         <div class="search">
-                                            <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                                            <a href="javascript:void(0);" class="link filter-form">
                                                 <span class="icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621"
                                                         viewBox="0 0 33.621 33.621">
@@ -102,8 +102,8 @@
                                         <div class="form-group form-select mb-0">
                                             <label class="control-label" for="selectFilter">{$languageFrontWeb->sort->display->$currentLangWeb} :</label>
                                             <div class="select-wrapper">
-                                                <select class="select-filter" name="sort" id="sort"
-                                                    style="width: 100%;" onchange="submit();">
+                                                <select class="select-filter" aria-label="select filter" name="sort" id="sort"
+                                                    style="width: 100%;" >
                                                     <option value="1" {if $req.sort == '1'} selected {/if}>
                                                     {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                                                     </option>
@@ -210,18 +210,18 @@
             </div>
         </div>
         <div class="container">
-            {if $load_data->_numOfRows gte 1}
+            {if $loadData->_numOfRows gte 1}
                 <div class="document-download-list -layout-grid" id="download-list">
-                    {foreach $load_data->item as $keyload_data => $valueload_data}
-                        {assign var="checkUrl" value="{$valueload_data->url|check_url}"}
+                    {foreach $loadData->item as $keyload_data => $valueload_data}
+                        {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
                         {assign var="target" value="_self"}
                         {assign var="downloadID" value=""}
                         {if $valueload_data->typec eq 2}
                             {$downloadID = $valueload_data->attachment[0]->id}
-                            {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|get_Icon}
+                            {$fileinfo = $valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|getIcon}
                         {/if}
                         {if $checkUrl}
-                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|page_redirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
+                            {assign var="news_url" value="{$ul}/pageredirect/{$valueload_data->tb|pageRedirect:$valueload_data->masterkey:$valueload_data->id:$valueload_data->language:$downloadID}"}
                             {$target = $valueload_data->target}
                         {else}
                             {assign var="news_url" value="javascript:void(0);"}
@@ -283,7 +283,7 @@
                                                                                     fill="#2ab170" />
                                                                             </svg>
                                                                         </span>
-                                                                        <div class="txt"><strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> {$valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|get_IconSize}</div>
+                                                                        <div class="txt"><strong>{$languageFrontWeb->file_size->display->$currentLangWeb} :</strong> {$valueload_data->attachment[0]->filename|fileinclude:'file':{$valueload_data->masterkey}|getIconSize}</div>
                                                                     </div>
                                                                 </li>
                                                                 <li>
@@ -375,7 +375,7 @@
                 </div>
             {/if}
         </div>
-        {if $load_data->_numOfRows gte 1}
+        {if $loadData->_numOfRows gte 1}
             {include file="inc/inc-pagination.tpl" title=title}
         {/if}
     </div>

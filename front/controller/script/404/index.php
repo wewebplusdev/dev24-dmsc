@@ -1,16 +1,16 @@
 <?php
 
 $menuActive = "404";
-$listjs[] = '<script type="text/javascript" src="'._URL.'front/controller/script/'.$menuActive.'/js/script.js'.$lastModify.'"></script>';
+$listjs[] = '<script src="'._URL.'front/controller/script/'.$menuActive.'/js/script.js'.$lastModify.'"></script>';
 
-$errorPage = new errorPage;
+$errorPage = new ErrorPage;
 
 /*## Start SEO #####*/
 $seo_desc = "";
 $seo_title = $languageFrontWeb->pageerror->display->$currentLangWeb;
 $seo_keyword = "";
 $seo_pic = "";
-$errorPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+$errorPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
 /*## End SEO #####*/
 
 $settingPage = array(

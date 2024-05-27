@@ -1,12 +1,20 @@
 <?php
 $menuActive = "listAll";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$listAllPage = new listAllPage;
+$ListAllPage = new ListAllPage;
 
 $masterkey = $url->segment[1];
 
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         if (empty($masterkey)) {
             $masterkey = 'nw';
@@ -28,9 +36,9 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data_group = [
-            "action" => $listAllPage->method_module[$menuActive]['action'],
-            "method" => $listAllPage->method_module[$menuActive]['method_group'],
-            "language" => $listAllPage->language,
+            "action" => $ListAllPage->medthodModule[$menuActive]['action'],
+            "method" => $ListAllPage->medthodModule[$menuActive]['method_group'],
+            "language" => $ListAllPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
@@ -38,15 +46,15 @@ switch ($url->segment[0]) {
         ];
         
         // call group
-        $load_group = $listAllPage->load_data($data_group);
+        $load_group = $ListAllPage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
 
         $data = [
-            "action" => $listAllPage->method_module[$menuActive]['action'],
-            "method" => $listAllPage->method_module[$menuActive]['method_list'],
-            "language" => $listAllPage->language,
+            "action" => $ListAllPage->medthodModule[$menuActive]['action'],
+            "method" => $ListAllPage->medthodModule[$menuActive]['method_list'],
+            "language" => $ListAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -56,37 +64,37 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $listAllPage->load_data($data);
-        $smarty->assign("load_data", $load_data);
+        $loadData = $ListAllPage->loadData($data);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
         // active menu header
-        $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb2'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
         }
 
         if ($masterkey == 'nw') {
             $language_modules['breadcrumb2'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->pressrelease->display->$currentLangWeb;
-        }else if($masterkey == 'nwa'){
+        }elseif($masterkey == 'nwa'){
             $language_modules['breadcrumb2'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->news_nwa->display->$currentLangWeb;
-        }else if($masterkey == 'km'){
+        }elseif($masterkey == 'km'){
             $language_modules['breadcrumb2'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->kmpage->display->$currentLangWeb;
-        }else if($masterkey == 'god'){
+        }elseif($masterkey == 'god'){
             $language_modules['breadcrumb2'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->governmentopendata->display->$currentLangWeb;
-        }else if($masterkey == 'nwp'){
+        }elseif($masterkey == 'nwp'){
             $language_modules['breadcrumb2'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->newspeople->display->$currentLangWeb;
-        }else if($masterkey == 'abs'){
+        }elseif($masterkey == 'abs'){
             $language_modules['breadcrumb2'] = $languageFrontWeb->aboutus->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->aboutus->display->$currentLangWeb;
-        }else if($masterkey == 'dcio'){
+        }elseif($masterkey == 'dcio'){
             $language_modules['breadcrumb2'] = $languageFrontWeb->dcio->display->$currentLangWeb;
             $language_modules['metatitle'] = $languageFrontWeb->dcio->display->$currentLangWeb;
         }
@@ -97,11 +105,11 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $listAllPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $ListAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

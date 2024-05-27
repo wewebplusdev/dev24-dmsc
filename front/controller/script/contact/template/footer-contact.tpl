@@ -9,7 +9,7 @@
                 <div class="col-auto col-right" data-aos="fade-right">
                     <div class="title"><a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}"
                             class="link">{$settingWeb.contact->tel2}</a></div>
-                    <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt=""
+                    <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="icon-call"
                             class="icon"> Call Center</div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                     <div class="contact">
                         <div class="row no-gutters">
                             <div class="col-auto">
-                                <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt="" class="icon">
+                                <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt="icon-call" class="icon">
                             </div>
                             <div class="col">
                                 <p class="desc">
@@ -35,7 +35,7 @@
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="" class="icon">
+                                    <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="icon-telephone" class="icon">
                                 </div>
                                 <div class="col">
                                     <p class="desc">
@@ -54,7 +54,7 @@
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="" class="icon">
+                                    <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax" class="icon">
                                 </div>
                                 <div class="col">
                                     <p class="desc">
@@ -71,7 +71,7 @@
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="" class="icon">
+                                    <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon">
                                 </div>
                                 <div class="col">
                                     <p class="desc">
@@ -93,7 +93,7 @@
                         <div class="contact pt-md-3">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="" class="icon">
+                                    <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax" class="icon">
                                 </div>
                                 <div class="col">
                                     <p class="desc">
@@ -118,10 +118,10 @@
                                     <ul class="item-list">
                                         {if $settingWeb.social->Tel->link neq "" && $settingWeb.social->Tel->link neq "#"}
                                             <li>
-                                                <a href="tel:{$settingWeb.social->Tel->link}" class="link tele"
+                                                <a href="tel:{" "|str_replace:"":$settingWeb.social->Tel->link}" class="link tele"
                                                     title="Telephone">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/old-typical-phone.svg" alt=""
+                                                        <img src="{$template}/assets/img/icon/old-typical-phone.svg" alt="icon-phone"
                                                             class="icon">
                                                     </div>
                                                 </a>
@@ -132,7 +132,7 @@
                                                 <a href="{$settingWeb.social->Facebook->link}" class="link fb"
                                                     title="Facebook" target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/facebook.svg" alt=""
+                                                        <img src="{$template}/assets/img/icon/facebook.svg" alt="icon-facebook"
                                                             class="icon">
                                                     </div>
                                                 </a>
@@ -143,7 +143,7 @@
                                                 <a href="{$settingWeb.social->Twitter->link}" class="link tw" title="X"
                                                     target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/twitter.svg" alt=""
+                                                        <img src="{$template}/assets/img/icon/twitter.svg" alt="icon-twitter"
                                                             class="icon">
                                                     </div>
                                                 </a>
@@ -154,7 +154,7 @@
                                                 <a href="{$settingWeb.social->Youtube->link}" class="link yt"
                                                     title="YouTube" target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/youtube.svg" alt=""
+                                                        <img src="{$template}/assets/img/icon/youtube.svg" alt="icon-youtube"
                                                             class="icon">
                                                     </div>
                                                 </a>
@@ -165,7 +165,7 @@
                                                 <a href="{$settingWeb.social->Line->link}" class="link line" title="Line"
                                                     target="_blank">
                                                     <div class="rounded-0">
-                                                        <img src="{$template}/assets/img/icon/line.svg" alt="" class="icon">
+                                                        <img src="{$template}/assets/img/icon/line.svg" alt="icon-line" class="icon">
                                                     </div>
                                                 </a>
                                             </li>
@@ -179,5 +179,5 @@
             </div>
         </div>
     </div>
-    </div>
+
 </footer>

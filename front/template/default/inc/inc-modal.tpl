@@ -18,7 +18,7 @@
 </div>
 
 <!-- Popup -->
-{if $load_popup->_numOfRows gte 1}
+{if $loadPopup->_numOfRows gte 1}
     <div class="modal popup-modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -31,17 +31,17 @@
                     <div class="popup-slide">
                         <div class="swiper swiper-default">
                             <div class="swiper-wrapper">
-                                {foreach $load_popup->item as $keyload_popup => $valueload_popup}
-                                    {if $valueload_popup->type eq 1}
+                                {foreach $loadPopup->item as $keyloadPopup => $valueloadPopup}
+                                    {if $valueloadPopup->type eq 1}
                                         <div class="swiper-slide">
                                             <figure class="cover">
                                                 <picture>
-                                                    <img src="{$valueload_popup->pic->pictures}" alt="{$valueload_popup->pic->pictures}">
+                                                    <img src="{$valueloadPopup->pic->webp}" alt="{$valueloadPopup->pic->webp}">
                                                 </picture>
                                             </figure>
                                         </div>
-                                    {elseif $valueload_popup->type eq 2}
-                                        {$myUrlArray = "v="|explode:$valueload_popup->video}
+                                    {elseif $valueloadPopup->type eq 2}
+                                        {$myUrlArray = "v="|explode:$valueloadPopup->video}
                                         {$myUrlCut = $myUrlArray[1]}
                                         {$myUrlCutArray = "&"|explode:$myUrlCut}
                                         {$myUrlCutAnd= $myUrlCutArray.0}
@@ -62,7 +62,7 @@
                                                 Your browser does not support the video tag.
                                                 </video> *}
                                                 <video loop="" autoplay="" muted="" controls>
-                                                <source src="{$valueload_popup->video}" type="video/mp4">
+                                                <source src="{$valueloadPopup->video}" type="video/mp4">
                                                 Your browser does not support the video tag.
                                                 </video>
                                             </div>
@@ -81,6 +81,11 @@
                         <div class="swiper-default">
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
+                        </div>
+
+                        <div class="custom-control form-control-lg custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-popup">
+                            <label class="custom-control-label" for="checkbox-popup">ไม่แสดงในวันนี้อีก</label>
                         </div>
                     </div>
                 </div>

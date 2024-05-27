@@ -68,6 +68,9 @@ include("config.php");
 		if (!is_dir($mod_path_real)) {
 			mkdir($mod_path_real, 0777);
 		}
+		if (!is_dir($mod_path_webp)) {
+			mkdir($mod_path_webp, 0777);
+		}
 
 		if (file_exists($mod_path_office . "/" . $_REQUEST['delpicname'])) {
 			@unlink($mod_path_office . "/" . $_REQUEST['delpicname']);
@@ -118,6 +121,34 @@ include("config.php");
 			$w = $sizeWidthOff;
 			$h = $sizeHeightOff;
 			$thumbnail = resize($imgReal, $w, $h, $newfilename);
+
+			##  Webp ################################################################################
+			$newfilename = $mod_path_pictures . "/" . $picname; // New file name for thumb
+			$newfilenameWebp = $mod_path_webp . "/" . $picname . ".webp"; // New file name for thumb
+			$w = $sizeWidthPic;
+			$h = $sizeHeightPic;
+			switch (strtolower($ext)) {
+				case "jpg":
+					$img = imagecreatefromjpeg($newfilename);
+					$w = imagesx($img);
+					$h = imagesy($img);
+					$webp = imagecreatetruecolor($w, $h);
+					imagecopy($webp, $img, 0, 0, 0, 0, $w, $h);
+					imagewebp($webp, $newfilenameWebp, 80);
+					imagedestroy($img);
+					break;
+				case "png":
+					$img = imagecreatefrompng($newfilename);
+					$w = imagesx($img);
+					$h = imagesy($img);
+					$webp = imagecreatetruecolor($w, $h);
+					imagecopy($webp, $img, 0, 0, 0, 0, $w, $h);
+					imagewebp($webp, $newfilenameWebp, 80);
+					imagedestroy($img);
+					break;
+				default:
+					break;
+			}
 
 			$update = array();
 			$update[] = $mod_tb_root_lang . "_pic  	='" . $picname . "'";

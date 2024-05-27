@@ -1,4 +1,4 @@
-var downloadSwiper = new Swiper(".document-download-list .swiper", {
+let downloadSwiper = new Swiper(".document-download-list .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 2,
   // freeMode: true,
@@ -17,11 +17,11 @@ var downloadSwiper = new Swiper(".document-download-list .swiper", {
     },
     1200: {
       slidesPerView: 2,
-    }
-  }
+    },
+  },
 });
 
-var newsAreaSwiper = new Swiper(".news-area .swiper", {
+let newsAreaSwiper = new Swiper(".news-area .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 3,
   // freeMode: true,
@@ -40,7 +40,13 @@ var newsAreaSwiper = new Swiper(".news-area .swiper", {
     },
     1200: {
       slidesPerView: 3,
-    }
-  }
+    },
+  },
+});
+$(".filter-form").on("click", async function () {
+  $("#filter-form").submit();
+});
 
+$(".select-filter").on("change", async function () {
+  $("#filter-form").submit();
 });

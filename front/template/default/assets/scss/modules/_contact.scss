@@ -56,7 +56,7 @@
       justify-content: center;
       background-color: var(--color-light);
       border: 1px solid var(--color-primary);
-      font-size: var(--fw-bold);
+      font-weight: var(--fw-bold);
       color: var(--color-primary);
       .icon {
         margin-right: 10px;
@@ -137,7 +137,7 @@
       content: '';
       position: absolute;
       right: 0;
-      background-image: url('../img/static/bg-cs.png');
+      background-image: url('../img/static/bg-cs.webp');
       background-repeat: no-repeat;
       background-position: bottom right;
       width: 170px;
@@ -244,7 +244,7 @@
 
 .form-contact {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0.75em 100%, 0 calc(100% - 0.75em));
-  background-image: url('../img/static/bg-form-contact.png');
+  background-image: url('../img/static/bg-form-contact.webp');
   background-repeat: no-repeat;
   background-size: cover;
   // background-position: bottom center;
