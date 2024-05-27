@@ -56,12 +56,27 @@
       <div class="default-body">
         <!-- ck editor -->
         <div class="editor-content">
-          <div class="organize-layout">
+          <!-- <div class="organize-layout">
             <div class="container">
               <a href="<?php echo $core_template; ?>/img/uploads/organization.png" data-fancybox data-caption="โครงสร้างหน่วยงาน">
               <img src="<?php echo $core_template; ?>/img/uploads/organization.png" alt="">
               </a>
             </div>
+          </div> -->
+
+          <div class="organize-layout">
+              <div class="container">
+                <div class="organize-content">
+                  <img src="<?php echo $core_template; ?>/img/uploads/image-logo.png" alt="">
+                  <div class="chart-box-I">
+                    <ul>
+                      <li>
+                        <p>อธิบดีกรมวิทยาศาสตร์การแพทย์</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
         <!-- ck editor -->
@@ -73,9 +88,9 @@
 
   <?php include('inc/loadscript.php'); ?>
 
-  <script>
+  <!-- <script>
    Fancybox.bind("[data-fancybox]", {});
-</script>
+</script> -->
 </body>
 
 </html>
