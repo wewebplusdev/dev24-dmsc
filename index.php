@@ -140,6 +140,7 @@ if (empty($menuActive)) {
 }
 $smarty->assign("navactive", $menuActive);
 $smarty->assign("lastModify", $lastModify);
+$smarty->assign("LastVersionCache", $LastVersionCache);
 $smarty->assign("home", $url_show_default);
 $smarty->assign("lang", $lang);
 $smarty->assign("assigncss", $listcss);
