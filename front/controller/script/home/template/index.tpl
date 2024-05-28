@@ -185,9 +185,9 @@
                                             </div>
                                             <div class="col-auto">
                                                 <div class="graphic">
-                                                    <picture>
-                                                        <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}" width="400" height="380">
-                                                    </picture>
+                                                    <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}" width="400" height="380">
+                                                    {* <picture>
+                                                    </picture> *}
                                                 </div>
                                             </div>
                                         </div>
@@ -350,14 +350,14 @@
                     {/if}
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
-                    <picture>
-                        <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
-                            data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
-                            type="image/webp">
-                        <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                            data-src="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" alt="image-graphic"
-                            class="lazy" width="866" height="500">
-                    </picture>
+                    <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
+                        data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
+                        type="image/webp">
+                    <img src="{$template}/assets/img/static/wg-about-graphic.png"
+                        data-src="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" alt="image-graphic"
+                        class="lazy" width="866" height="500">
+                    {* <picture>
+                    </picture> *}
                 </div>
             </div>
         </div>
@@ -470,14 +470,14 @@
                             </div>
                         </div>
                         <div class="bg" data-aos="fade-right">
-                            <picture>
-                                <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                    data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                    type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                    data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" alt="background-lab"
-                                    class="lazy">
-                            </picture>
+                            <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
+                                data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
+                                type="image/webp">
+                            <img src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
+                                data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" alt="background-lab"
+                                class="lazy">
+                            {* <picture>
+                            </picture> *}
                         </div>
                     </div>
                 </div>
@@ -558,14 +558,14 @@
                             </div>
                         </div>
                         <div class="bg" data-aos="fade-left">
-                            <picture>
-                                <source srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                    data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                    type="image/webp">
-                                <img src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                    data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" alt="background-contact"
-                                    class="lazy">
-                            </picture>
+                            <source srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
+                                data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
+                                type="image/webp">
+                            <img src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
+                                data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" alt="background-contact"
+                                class="lazy">
+                            {* <picture>
+                            </picture> *}
                         </div>
                     </div>
                 </div>
