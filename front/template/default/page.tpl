@@ -6,7 +6,8 @@
     
     {if $path_root eq ""}
         <!-- Cookie Consent by https://www.cookiewow.com -->
-        <script src="https://cookiecdn.com/cwc.js"></script>
+        {* <script src="https://cookiecdn.com/cwc.js"></script> *}
+        <script src="{$template}/assets/js/libs/cwc.js{$LastVersionCache}"></script>
         <script id="cookieWow" src="https://cookiecdn.com/configs/XxwWvCXDwKtsHUWb2c4Fm8RH" data-cwcid="XxwWvCXDwKtsHUWb2c4Fm8RH"></script>
     {/if}
 
