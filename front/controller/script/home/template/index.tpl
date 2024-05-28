@@ -413,7 +413,7 @@
                                                                     <div class="news-card card">
                                                                         <div class="thumbnail">
                                                                             <figure class="cover">
-                                                                                <img src="{$valueNewsList->pic->webp}{$LastVersionCache}" alt="{$valueNewsList->subject}">
+                                                                                <img src="{$valueNewsList->pic->webp}{$LastVersionCache}" alt="{$valueNewsList->pic->webp}">
                                                                             </figure>
                                                                         </div>
                                                                         <div class="card-body">
