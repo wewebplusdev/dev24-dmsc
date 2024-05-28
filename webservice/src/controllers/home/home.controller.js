@@ -693,7 +693,7 @@ async function getService(req, res) {
                     sql_list = sql_list + ` AND (${modifiedText}) `;
 
                 }
-                sql_list = sql_list + `ORDER BY ${config_array_db['md_cms']}_order ${order} 
+                sql_list = sql_list + `ORDER BY ${config_array_db['md_cms']}_order ${order} LIMIT 1
                 `;
                 const select_list = await query(sql_list);
                 if (select_list.length > 0) {
