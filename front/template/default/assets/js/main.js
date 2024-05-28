@@ -13,7 +13,7 @@ $(function () {
     // offset: 0,
     // anchorPlacement: 'top-bottom',
     disable: function() {
-      var maxWidth = 2000;
+      var maxWidth = 1024;
       return window.innerWidth < maxWidth;
     }
   });
