@@ -12,10 +12,10 @@ if ($_REQUEST['execute'] == "insert") {
    $randomNumber = randomNameUpdate(3);
 
    if (!is_dir($core_pathname_upload . "/" . $masterkey)) {
-      mkdir($core_pathname_upload . "/" . $masterkey, 0777);
+      mkdir($core_pathname_upload . "/" . $masterkey, 0775);
    }
    if (!is_dir($mod_path_html)) {
-      mkdir($mod_path_html, 0777);
+      mkdir($mod_path_html, 0775);
    }
 
    if (@file_exists($mod_path_html . "/" . $htmlfiledelete)) {
@@ -26,7 +26,7 @@ if ($_REQUEST['execute'] == "insert") {
       $filename = $_POST["valEditID"] . "-" . $_SESSION[$valSiteManage . 'core_session_language'] . "-" . $randomNumber . ".html";
       $HTMLToolContent = str_replace("\\\"", "\"", rechangeText($_POST['inputHtml']));
       $fp = fopen($mod_path_html . "/" . $filename, "w");
-      chmod($mod_path_html . "/" . $filename, 0777);
+      // chmod($mod_path_html . "/" . $filename, 0775);
       fwrite($fp, $HTMLToolContent);
       fclose($fp);
    }

@@ -20,10 +20,10 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080' || $_SERVER['HTTP_HOST'] == 'local
     // $_CORE_ENV = "DEV";
     $_CORE_ENV = "UAT";
     $core_pathname_folderlocal = "/dev24-dmsc";
-}elseif($_SERVER['HTTP_HOST'] == 'dmsc.moph.go.th'){
-    $_CORE_ENV = "PROD";
-}else{
+}elseif($_SERVER['HTTP_HOST'] == 'uat.wewebplus.com' || $_SERVER['HTTP_HOST'] == 'api.wewebplus.com'){
     $_CORE_ENV = "STAGING";
+}else{
+    $_CORE_ENV = "PROD";
 }
 
 ## Core Login session  ######################################################
@@ -44,7 +44,8 @@ $core_variable_charset = "UTF-8";
 $core_relativepath_rss = "../../rss";
 
 ## Core Path Name  ##################################################
-$core_full_path = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http' . "://" . $_SERVER["HTTP_HOST"] . "" . $core_pathname_folderlocal;
+$core_full_path = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
+$core_full_path = $core_full_path . "://" . $_SERVER["HTTP_HOST"] . "" . $core_pathname_folderlocal;
 
 ## Core Path SQL Language ##################################################
 $coreLanguageSQL = "mysqli";
@@ -83,17 +84,17 @@ $core_icon_librarypath = "../img/iconmenu";
 
 ## Database Connect #################################################
 $_ENV = array(
-    // "PROD" => array(
-    //     "hostname" => "localhost",
-    //     "username" => "mommycle_web",
-    //     "password" => "webp@ss",
-    //     "name" => "mommycle_web",
-    // ),
+    "PROD" => array(
+        "hostname" => "192.168.200.171",
+        "username" => "wewebadmin",
+        "password" => "!root!Wewebp@ss9!",
+        "name" => "2024_dmsc_uat",
+    ),
     "UAT" => array(
         "hostname" => "45.136.253.128:9906",
         "username" => "root",
         "password" => "@69lk!logmLi20041:;",
-        "name" => "2024_dmsc_dev",
+        "name" => "2024_dmsc",
     ),
     "STAGING" => array(
         "hostname" => "DB",

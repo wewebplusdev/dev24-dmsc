@@ -158,6 +158,21 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                      </label>
                   </td>
                </tr>
+               <tr>
+                  <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:layout"] ?><span class="fontContantAlert">*</span></td>
+                  <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                     <label>
+                        <div class="formDivRadioL"><input name="inputmenulayout" id="inputmenulayout" type="radio" class="formRadioContantTb" value="1" checked="checked" /></div>
+                        <div class="formDivRadioR"><?php echo $modLayout[1] ?></div>
+                     </label>
+
+                     <label>
+                        <div class="formDivRadioL"><input name="inputmenulayout" id="inputmenulayout" type="radio" class="formRadioContantTb" value="2" /></div>
+                        <div class="formDivRadioR"><?php echo $modLayout[2] ?></div>
+                     </label>
+                     </label>
+                  </td>
+               </tr>
             </table>
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">

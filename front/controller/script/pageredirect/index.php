@@ -1,15 +1,30 @@
 <?php
 $menuActive = "pageredirect";
 
-$pageredirectage = new pageredirectage;
+define('LOCATION_HEADER', 'Location:');
+
+$Pageredirectage = new Pageredirectage;
 if (!empty($url->segment[1])) {
-    $case_slug = explode("|", urldecode($url->segment[1]));
+    $case_slug = explode("@", urldecode($url->segment[1]));
 
     /*#### Start Update View #####*/
     if (!isset($_COOKIE['VIEW_DETAIL_' . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2]))])) {
-        setcookie("VIEW_DETAIL_" . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2])), true, time() + 600, '/');
+        // Determine if the connection is secure
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        
+        // Set the VIEW_DETAIL cookie
+        setcookie(
+            "VIEW_DETAIL_" . decodeStr($case_slug[1]) . '_' . urldecode(decodeStr($case_slug[2])),
+            true,
+            time() + 600,
+            "/",
+            "",
+            $secure,
+            true
+        );
+    
         $view = 1;
-    }else{
+    } else {
         $view = 0;
     }
     /*#### End Update View #####*/
@@ -25,18 +40,15 @@ if (!empty($url->segment[1])) {
         'urlc2' => decodeStr($case_slug[5]),
         'view' => $view,
     );
-    print_pre($array_req);
     
-    // call redirect 
-    $load_url_redirect = $pageredirectage->load_url_redirect($array_req);
-    print_pre($load_url_redirect);die;
-    if ($load_url_redirect->code === 1001 && !empty($load_url_redirect->item->url)) {
-        header('location:' . $load_url_redirect->item->url);
+    $loadUrlRedirect = $Pageredirectage->loadUrlRedirect($array_req);
+    if ($loadUrlRedirect->code === 1001 && !empty($loadUrlRedirect->item->url)) {
+        header(LOCATION_HEADER . $loadUrlRedirect->item->url);
     }else{
-        header('location:' . $linklang . "/home");
+        header(LOCATION_HEADER . $linklang . "/home");
     }
 }else{
-    header('location:' . $linklang . "/home");
+    header(LOCATION_HEADER . $linklang . "/home");
 }
 
 exit(0);

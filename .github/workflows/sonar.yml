@@ -1,9 +1,9 @@
 name: SonarCloud
 on:
   push:
-    branches: [ analysis ]
+    branches: [ analysis,analysis-b2 ]
   # pull_request:
-  #   branches: [ analysis ]
+  #   branches: [ main ]
 jobs:
   sonarcloud:
     name: SonarCloud
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 1  # 1 = depth, 0 = shallow
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

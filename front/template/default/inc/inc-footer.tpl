@@ -4,14 +4,14 @@
         <div class="container">
             <div class="footer-top">
                 <div class="row">
-                    <div class="col-md col-left" data-aos="fade-left">
+                    <div class="col-md col-left" data-aos="fade-up">
                         <div class="title">{$languageFrontWeb->department->display->$currentLangWeb}</div>
                         <div class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</div>
                     </div>
                     {if $settingWeb.contact->tel2 neq ""}
-                        <div class="col-auto col-right" data-aos="fade-right">
-                            <div class="title"><a href="tel:{$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
-                            <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="" class="icon"> Call Center</div>
+                        <div class="col-auto col-right" data-aos="fade-up">
+                            <div class="title"><a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></div>
+                            <div class="subtitle"><img src="{$template}/assets/img/icon/contact-icon-call.svg" alt="icon-call" class="icon" width="43" height="43"> Call Center</div>
                         </div>
                     {/if}
                 </div>
@@ -22,8 +22,8 @@
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt=""
-                                        class="icon">
+                                    <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt="icon-address"
+                                        class="icon" width="37" height="43">
                                 </div>
                                 <div class="col">
                                     <p class="desc">
@@ -38,8 +38,8 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt=""
-                                            class="icon">
+                                        <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="icon-telephone"
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -56,8 +56,8 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt=""
-                                            class="icon">
+                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -74,8 +74,8 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt=""
-                                            class="icon">
+                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -97,8 +97,8 @@
                             <div class="contact pt-md-3">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt=""
-                                            class="icon">
+                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
+                                            class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -112,29 +112,43 @@
                         </div>
                     {/if}
                     <div class="w-100 p-0 d-lg-none"></div>
-                    <div class="col-sm-auto" data-aos="fade-up">
+                    <div class="col-sm-auto guide-ipv6" data-aos="fade-up">
                         <div class="ipv6">
                             <picture>
                                 <source srcset="{$template}/assets/img/static/ipv6.webp" type="image/webp">
-                                <img src="{$template}/assets/img/static/ipv6.png" alt="" class="icon">
+                                <img src="{$template}/assets/img/static/ipv6.png" alt="image-ipv6" class="icon" width="90" height="90">
                             </picture>
                         </div>
+                    </div>
+                    <div class="col-sm-auto text-sm-left text-center pl-0">
+                      <div class="row row-valid-checker h-100 no-gutters align-items-center">
+                        <div class="col-12 mb-sm-0 mb-2">
+                          <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                            <img src="https://jigsaw.w3.org/css-validator/images/vcss"alt="Valid CSS!" width="88" height="31">
+                          </a>
+                        </div>
+                        <div class="col-12">
+                          <a href="https://achecks.org/checker/index.php?uri=referer&gid=WCAG2-AA">
+                            <img src="https://achecks.org/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" class="lazy" width="102" height="32">
+                          </a>
+                        </div>
+                      </div>
                     </div>
                     <div class="col-lg col-sm-auto" data-aos="fade-up">
                         <div class="followus pt-md-3">
                             <div class="row no-gutters align-items-center justify-content-md-end">
                                 <div class="col-auto">
-                                    Follow us:
+                                  <div class="text-follow-us">Follow us:</div>
                                 </div>
                                 <div class="col-auto">
                                     <div class="social">
                                         <ul class="item-list">
                                             {if $settingWeb.social->Tel->link neq "" && $settingWeb.social->Tel->link neq "#"}
                                                 <li>
-                                                    <a href="tel:{$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
+                                                    <a href="tel:{" "|str_replace:"":$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/old-typical-phone.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-phone" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -145,7 +159,7 @@
                                                         title="Facebook" target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/facebook.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-facebook" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -156,7 +170,7 @@
                                                         target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/twitter.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-twitter" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -167,7 +181,7 @@
                                                         title="YouTube" target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/youtube.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-youtube" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -178,7 +192,7 @@
                                                         title="Line" target="_blank">
                                                         <div class="rounded-0">
                                                             <img src="{$template}/assets/img/icon/line.svg"
-                                                                alt="" class="icon">
+                                                                alt="icon-line" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -193,15 +207,19 @@
             </div>
             <div class="footer-bottom">
                 <div class="row">
-                    {if $load_policy->_numOfRows gte 1}
-                    <div class="col-md" data-aos="fade-left">
+                    {if $loadPolicy->_numOfRows gte 1}
+                    <div class="col-md align-self-center" data-aos="fade-left">
                         <div class="policy">
                             <ul class="item-list">
-                                {foreach $load_policy->item as $keyPolicy => $valuePolicy}
-                                {assign var="checkUrl" value="{$valuePolicy->url|check_url}"}
-                                {assign var="target" value="_self"}
+                                {foreach $loadPolicy->item as $keyPolicy => $valuePolicy}
+                                    {assign var="checkUrl" value="{$valuePolicy->url|checkUrl}"}
+                                    {assign var="target" value="_self"}
+                                    {$downloadID = 0}
+                                    {if $valuePolicy->typec eq 2}
+                                        {$downloadID = $valuePolicy->attachment[0]->id}
+                                    {/if}
                                     {if $checkUrl}
-                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|page_redirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language}"}
+                                        {assign var="news_url" value="{$ul}/pageredirect/{$valuePolicy->tb|pageRedirect:$valuePolicy->masterkey:$valuePolicy->id:$valuePolicy->language:$downloadID}"}
                                         {$target = $valuePolicy->target}
                                     {else}
                                         {assign var="news_url" value="javascript:void(0);"}
@@ -214,13 +232,14 @@
                         </div>
                     </div>
                     {/if}
-                    <div class="col-md-auto" data-aos="fade-right">
+                    <div class="col-md-auto guide-sitemap" data-aos="fade-right">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
-                        <a href="javascript:void(0);" class="link sitemap">แผนผังเว็บไซต์</a>
+                        <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="guides-overlay-custom"></div>
     </div>
     <div class="footer-bar" data-aos="fade-up">
         <div class="container">
@@ -228,13 +247,15 @@
                 <div class="col-lg">
                     <p class="copyright">{$languageFrontWeb->copyrightweb->display->$currentLangWeb}</p>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-lg-auto guide-visitors">
                     <div class="visitors">{$languageFrontWeb->logsviewWeb->display->$currentLangWeb} <div class="box">{$logsView|number_format}</div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="guides-overlay-custom"></div>
     </div>
+
 </footer>
 
 {if count((array)$sitemapWeb) gte 1}
@@ -248,381 +269,106 @@
       </svg>
     </div>
     <h1 class="h-title">แผนผังเว็บไซต์</h1>
+    <!-- Start Sitemap -->
+    {if count((array)$sitemapWeb) gte 1}
     <div class="sitmap-menu">
+    
       <div class="row gutters-40">
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="title">
-            <a href="" class="link">หน้าหลัก</a>
-          </div>
-        </div>
-        <div class="col-lg-9 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">เกี่ยวกับหน่วยงาน</a>
-            </div>
-            <div class="row">
-              <div class="col-xl-4">
-                <div class="submenu">
-                  <div class="subtitle">
-                    <a href="" class="link">เกี่ยวกับเรา</a>
+        
+        {foreach $sitemapWeb->level_1->$currentLangWeb as $keySitemapLv1 => $valueSitemapLv1}
+            {if $valueSitemapLv1->subject neq ""}
+                {assign var="checkUrl" value="{$valueSitemapLv1->url|checkUrl}"}
+                {assign var="target" value="_self"}
+                {if $checkUrl}
+                    {assign var="news_url" value="{$ul}/pageredirect/{$valueSitemapLv1->tb|pageRedirect:$valueSitemapLv1->masterkey:$valueSitemapLv1->id:$currentLangWeb}"}
+                    {$target = $valueSitemapLv1->target}
+                {else}
+                    {assign var="news_url" value="javascript:void(0);"}
+                {/if}
+                <div class="col-xl-3 col-md-6">
+                  <div class="submenu">
+                  {if count((array)$valueSitemapLv1->level_2) gte 1}
+                    <div class="title">
+                      <a href="javascript:void;" title="{$valueSitemapLv1->subject}" class="link">{$valueSitemapLv1->subject}</a>
+                    </div>
+                 
+                    <ul class="list-group">
+                    {foreach $valueSitemapLv1->level_2 as $keyLv2 => $valueLv2}
+                    {if $valueLv2->subject neq ""}
+                        {assign var="checkUrl" value="{$valueLv2->url|checkUrl}"}
+                        {assign var="target" value="_self"}
+                        {if $checkUrl}
+                            {assign var="news_url" value="{$ul}/pageredirect/{$valueLv2->tb|pageRedirect:$valueLv2->masterkey:$valueLv2->id:$currentLangWeb}"}
+                            {$target = $valueLv2->target}
+                        {else}
+                            {assign var="news_url" value="javascript:void(0);"}
+                        {/if}
+                        {if count((array)$valueLv2->level_3) gte 1}
+                          <li class="item">
+                            <a  href="javascript:void(0)" title="{$valueLv2->subject}" class="link">{$valueLv2->subject}</a>
+                          </li>
+                           {if count((array)$valueLv2->level_3) gte 1}
+                              <li class="item-sub">
+                                <ul class="list-sub-group">
+                                {foreach $valueLv2->level_3 as $keyLv3 => $valueLv3}
+                                  {if $valueLv3->subject neq ""}
+                                      {assign var="checkUrl" value="{$valueLv3->url|checkUrl}"}
+                                      {assign var="target" value="_self"}
+                                      {if $checkUrl}
+                                          {assign var="news_url" value="{$ul}/pageredirect/{$valueLv3->tb|pageRedirect:$valueLv3->masterkey:$valueLv3->id:$currentLangWeb}"}
+                                          {$target = $valueLv3->target}
+                                      {else}
+                                          {assign var="news_url" value="javascript:void(0);"}
+                                      {/if}
+                                      <li>
+                                        <a href="{$news_url}" target="{$target}"  title="{$valueLv3->subject}" class="link">{$valueLv3->subject}</a>
+                                      </li>
+                                      {/if}
+                                  {/foreach}
+                                </ul>
+                              </li>
+                               {/if}
+                           {else}
+                           <li class="item">
+                            <a href="{$news_url}" target="{$target}" title="{$valueLv2->subject}" class="link">{$valueLv2->subject}</a>
+                          </li>
+                          {/if}
+                        {/if}
+                    {/foreach}
+                      
+                      
+              
+                    </ul>
+                
+                    {else}
+                    <div class="title">
+                      <a href="{$news_url}" target="{$target}"  title="{$valueSitemapLv1->subject}"   class="link">{$valueSitemapLv1->subject}</a>
+                    </div>
+                    {/if}
                   </div>
-                  <ul class="list-group">
-                    <li class="item">
-                      <a href="" class="link">
-                        วิสัยทัศน์ & พันธกิจ &
-
-                        ยุทธศาสตร์
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        ภารกิจ และหน้าที่รับ
-
-                        ผิดชอบของหน่วยงาน
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        อัตราค่าบำรุงการ
-
-                        ตรวจวิเคราะห์และให้บริการ
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        PDPA
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        Mobile Application
-
-                        กรมวิทยาศาสตร์การแพทย์
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        แผนกลยุทธ์
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        ตราสัญลักษณ์
-                      </a>
-                    </li>
-                  </ul>
                 </div>
-              </div>
-              <div class="col-xl-4">
-                <div class="submenu">
-                  <div class="subtitle">
-                    <a href="" class="link">เว็บไซต์ส่วนกลางและส่วนภูมิภาค</a>
-                  </div>
-                  <ul class="list-group">
-                    <li class="item">
-                      <a href="" class="link">
-                        ส่วนกลาง
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        ส่วนภูมิภาค
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-xl-4">
-                <div class="submenu">
-                  <div class="subtitle">
-                    <a href="" class="link">โครงสร้างองค์กร</a>
-                  </div>
-                  <ul class="list-group">
-                    <li class="item">
-                      <a href="" class="link">
-                        โครงสร้างหน่วยงาน
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        ทำเนียบผู้บริการ
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        ทำเนียบผู้ทรงคุณวุฒิ
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="submenu">
-                  <div class="subtitle">
-                    <a href="" class="link">เอกสารเผยแพร่</a>
-                  </div>
-                  <ul class="list-group">
-                    <li class="item">
-                      <a href="" class="link">
-                        แผนการปฏิบัติราชการและ
-
-                        แผนการใช้จ่ายงบประมาณ
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        รายงานประจำปี
-                      </a>
-                    </li>
-                    <li class="item">
-                      <a href="" class="link">
-                        กฏหมาย ระเบียบ
-
-                        และข้อบังคับที่เกี่ยวข้อง
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">ซีไอโอ</a>
-            </div>
-            <ul class="list-group">
-              <li class="item">
-                <a href="" class="link">
-                  รายละเอียด
-
-                  เกี่ยวกับซีไอโอ
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  วิสัยทัศน์
-
-                  และนโยบายต่างๆ
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  ‌การบริหารงาน
-
-                  ด้าน ICT
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  ผู้บริหารเทคโนโลยี
-
-                  สารสนเทศระดับกอง
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  เจ้าหน้าที่ประสานงาน
-
-                  คุ้มครองข้อมูลส่วนบุคคล
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">ข่าว</a>
-            </div>
-            <ul class="list-group">
-              <li class="item">
-                <a href="" class="link">
-                  ข่าวประชาสัมพันธ์
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  ข่าวประกาศ
-                  br
-                  ของหน่วยงาน
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">คลังความรู้</a>
-            </div>
-            <ul class="list-group">
-              <li class="item">
-                <a href="" class="link">
-                  ข้อมูลนวัตกรรม
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  ระบบจัดการ
-
-                  องค์ความรู้
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  สืบค้นข้อมูล
-
-                  Green Book
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  คู่มือ
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  e-Learning
-
-                  ทักษะดิจิทัล
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">บริการ</a>
-            </div>
-            <ul class="list-group">
-              <li class="item">
-                <a href="" class="link">
-                  อัตราค่าบำรุงการตรวจ
-
-                  วิเคราะห์และให้บริการ
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  งานบริการ
-                </a>
-                <ul class="list-sub-group">
-                  <li>
-                    <a href="" class="link">
-                      อัตราค่าบำรุงการตรวจ
-
-                      วิเคราะห์และให้บริการ
-                    </a>
-                  </li>
-                  <li>
-                    <a href="" class="link">
-                      ข้อมูลสถิติการให้บริการ
-                    </a>
-                  </li>
-                  <li>
-                    <a href="" class="link">
-                      คู่มือการตรวจทางห้องปฏิบัติการ
-
-                      กลุ่มอาการดาวน์ในหญิงตั้งครรภ์
-                    </a>
-                  </li>
-                  <li>
-                    <a href="" class="link">
-                      การให้บริการของสำนักคุณภาพและ
-
-                      ความปลอดภัยอาหาร
-                    </a>
-                  </li>
-                  <li>
-                    <a href="" class="link">
-                      ขั้นตอนการสั่งซื้อชุดทดสอบและ
-
-                      ผลิตภัณฑ์สำหรับบุคคลทั่วไป
-                    </a>
-                  </li>
-                  <li>
-                    <a href="" class="link">
-                      ตรวจบริการศูนย์
-
-                      การแพทย์จีโนมิกส์
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">ติดต่อ</a>
-            </div>
-            <ul class="list-group">
-              <li class="item">
-                <a href="" class="link">
-                  ข้อมูลการติดต่อ
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  ช่องทางรับข้อเสนอแนะ
-
-                  /ข้อร้องเรียน
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">ระบบสารสนเทศ</a>
-            </div>
-            <ul class="list-group">
-              <li class="item">
-                <a href="" class="link">
-                  บริการประชาชน
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  สำหรับผู้บริหาร
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  สำหรับเจ้าหน้าที่
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="submenu">
-            <div class="title">
-              <a href="" class="link">Big Data</a>
-            </div>
-            <ul class="list-group">
-              <li class="item">
-                <a href="" class="link">
-                  DMSc Data Center
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  Open Data
-                </a>
-              </li>
-              <li class="item">
-                <a href="" class="link">
-                  Data Catalog
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+            {/if}
+        {/foreach}        
       </div>
     </div>
+    {/if}
+    <!-- End Sitemap -->
   </div>
+{/if}
+
+{if $settingWeb.social->ChatFacebook->link neq "" && $settingWeb.social->ChatFacebook->link neq "#"}
+    <div class="fix-msg">
+      <a href="{$settingWeb.social->ChatFacebook->link}" class="link" target="_blank" title="Messenger">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+          <defs>
+            <clipPath id="clip-path">
+              <rect id="Rectangle_17517" data-name="Rectangle 17517" width="40" height="40" transform="translate(-19714 -22838)" fill="#fff"/>
+            </clipPath>
+          </defs>
+          <g id="Mask_Group_470" data-name="Mask Group 470" transform="translate(19714 22838)" clip-path="url(#clip-path)">
+            <path id="facebook-messenger" d="M26.365,6.365c-10.917,0-19.794,8.6-19.794,19.176a18.924,18.924,0,0,0,7,14.634l.36.3L13.7,46.365l5.551-2.915.381.134a20.356,20.356,0,0,0,6.725,1.133c10.917,0,19.794-8.6,19.794-19.176S37.281,6.365,26.365,6.365ZM36.251,20.35,29.156,30.5l-5.675-4.243-7,5.149,7.1-10.154L29.258,25.5Z" transform="translate(-19720.359 -22844.365)" fill="#fff"/>
+          </g>
+        </svg>
+      </a>
+    </div>
 {/if}

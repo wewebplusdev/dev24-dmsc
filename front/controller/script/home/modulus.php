@@ -1,18 +1,21 @@
 <?php
 
-class homePage extends controller
+class HomePage extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    const HOME_PATH = "/home";
+    const CONTENT_TYPE_JSON = 'Content-Type: application/json';
+    const AUTHORIZATION_HEADER = 'Authorization: Bearer ';
     
-    public function load_topgraphic()
+    public function loadTopgraphic()
     {
-        $url = self::_URL_API . "/home";
+        if (empty($this->tokenAccess)) {
+            return false;
+        }
+        
+        $url = $this->urlAPI . self::HOME_PATH;
         $header = [
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
         ];
         $data = [
             "method" => "getTopgraphic",
@@ -21,7 +24,111 @@ class homePage extends controller
             "page" => 1,
             "limit" => 15,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+    }
+    
+    public function loadServices()
+    {
+        if (empty($this->tokenAccess)) {
+            return false;
+        }
+        
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
+        ];
+        $data = [
+            "method" => "getService",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+    }
+
+    public function loadPopup()
+    {
+        if (empty($this->tokenAccess)) {
+            return false;
+        }
+        
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
+        ];
+        $data = [
+            "method" => "getPopup",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+    }
+
+    public function loadInnovation()
+    {
+        if (empty($this->tokenAccess)) {
+            return false;
+        }
+        
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
+        ];
+        $data = [
+            "method" => "getInnovationGroup",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+    }
+
+    public function loadAbout()
+    {
+        if (empty($this->tokenAccess)) {
+            return false;
+        }
+        
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
+        ];
+        $data = [
+            "method" => "getAbout",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+    }
+
+    public function loadNews()
+    {
+        if (empty($this->tokenAccess)) {
+            return false;
+        }
+        
+        $url = $this->urlAPI . self::HOME_PATH;
+       $header = [
+            self::CONTENT_TYPE_JSON,
+            self::AUTHORIZATION_HEADER . $this->tokenAccess,
+        ];
+        $data = [
+            "method" => "getNews",
+            "language" => $this->language,
+            "order" => 'DESC',
+            "page" => 1,
+            "limit" => 15,
+        ];
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 }

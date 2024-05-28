@@ -1,44 +1,58 @@
 <?php
 
-class mainPage extends controller
+class MainPage extends Controller
 {
     public $settingWeb;
     
     public function __construct()
     {
+        // super class init
         parent::__construct();
-
-        $settingWeb = self::load_setting_web();
-        if ($settingWeb->code === 1001) {
-            $this->settingWeb = $settingWeb->item;
+        try {
+            if ($this->tokenRevoke) {
+                $settingWeb = self::loadSettingWeb();
+                if ($settingWeb->code === 1001) {
+                    $_SESSION['settingWeb'] = $settingWeb->item;
+                    $this->settingWeb = $_SESSION['settingWeb'];
+                }
+            }
+            // generate content_language_Web
+            self::contentWebsite($this->settingWeb->language_front, $this->settingWeb->language);
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
+
     }
-    
-    private function load_setting_web()
+
+    private function loadSettingWeb()
     {
-        $url = self::_URL_API . "/setting";
+        if (empty($this->tokenAccess)) {
+            return false;
+        }
+        
+        $url = $this->urlAPI . "/setting";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getWebSetting",
             "language" => $this->language,
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+       
     }
 
-    function load_policy()
+    public function loadPolicy()
     {
-        if (empty($this->token_access)) {
+        if (empty($this->tokenAccess)) {
             return false;
         }
         
-        $url = $this->URL_API . "/setting";
+        $url = $this->urlAPI . "/setting";
         $header = [
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->token_access,
+            'Authorization: Bearer ' . $this->tokenAccess,
         ];
         $data = [
             "method" => "getPolicy",
@@ -47,7 +61,7 @@ class mainPage extends controller
             "page" => 1,
             "limit" => 15
         ];
-        $response = $this->sendCURL($url, $header, 'POST', json_encode($data));
-        return $response;
+        return $this->sendCURL($url, $header, 'POST', json_encode($data));
+      
     }
 }

@@ -11,6 +11,8 @@ $--nav-lang-container: 30px;
         transition: all 200ms ease;
         .flag {
             transition: all 200ms ease;
+            width: 100%;
+            height: auto;
         }
         &.active {
             // color: var(--color-white);

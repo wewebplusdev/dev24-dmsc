@@ -34,10 +34,13 @@ include("config.php");
          $filename = $_POST["valEditID"] . "-" . $randomNumber . ".html";
          $HTMLToolContent = str_replace("\\\"", "\"", rechangeText($_POST['inputHtml']));
          $fp = fopen($mod_path_html . "/" . $filename, "w");
-         chmod($mod_path_html . "/" . $filename, 0777);
+         // chmod($mod_path_html . "/" . $filename, 0777);
          fwrite($fp, $HTMLToolContent);
          fclose($fp);
       }
+
+      $sql_check = "SET FOREIGN_KEY_CHECKS = 0";
+      $Query = wewebQueryDB($coreLanguageSQL, $sql_check);
 
       $update = array();
       $update[] = $mod_tb_root . "_gid='" . $_POST["inputGroupID"] . "'";
@@ -186,6 +189,8 @@ include("config.php");
          $sqlSch = "INSERT " . $core_tb_search . " (" . implode(",", array_keys($insertSch)) . ") VALUES (" . implode(",", array_values($insertSch)) . ")";
          $querySch = wewebQueryDB($coreLanguageSQL, $sqlSch);
       }
+      $sql_check = "SET FOREIGN_KEY_CHECKS = 1";
+      $Query = wewebQueryDB($coreLanguageSQL, $sql_check);
    ?>
    <?php } ?>
    <?php include("../lib/disconnect.php"); ?>

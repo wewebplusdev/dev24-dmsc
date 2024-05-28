@@ -12,7 +12,11 @@
       padding: 15px 30px;
       &:not(.collapsed) {
         background: linear-gradient(#2ab170 30%, #01377d 100%);
-        .icon * {fill: var(--color-light);}
+        .icon {fill: var(--color-light);
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
         .title {
           color: var(--color-light);
         }

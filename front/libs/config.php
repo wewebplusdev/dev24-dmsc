@@ -1,5 +1,4 @@
 <?php
-
 session_cache_expire(1280);
 $cache_expire = session_cache_expire();
 @session_start();
@@ -16,6 +15,9 @@ if (!empty($_REQUEST['mode'])) {
 } else {
     $modefunction = null;
 }
+
+
+define('UPLOAD_DIR', '/upload');
 
 switch ($modefunction) {
     case 'debug':
@@ -34,8 +36,9 @@ switch ($modefunction) {
         echo "<i>## TOKEN DEL MODE ##</i>";
         $_COOKIE["token"] = "";
         unset($_COOKIE["token"]);
-        setcookie("token", null, time() - 3600, "/");
-        setcookie("token", null, time() - 3600);
+        $secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        setcookie("token", "", time() - 3600, "/", "", $secure, true);
+        setcookie("token", "", time() - 3600, "/", "", $secure, false);
         exit();
         break;
 
@@ -50,8 +53,8 @@ $limitpage['showperPage'] = 8;
 $limitpage['showperPageSeller'] = 11;
 
 ## config token ##
-$token_timeout = 240; // หน่วยเป็นนาที
-$token_cookie_timeout = "8"; // หน่วยเป็นชม
+$tokenTimeout = 240; // หน่วยเป็นนาที
+$tokenCookieTimeout = "8"; // หน่วยเป็นชม
 $token_action = "10"; // การเข้าที่หน้าสงสัยจำนวนครั้ง จะบล๊อคไม่ให้เข้าสู่ระบบตามจำนวน $token_cookie_timeout
 $lang_set = array(
     "th" => array("", "Thai", "th", "", "Thai"),
@@ -70,6 +73,8 @@ $path_template = array(
 );
 
 $lastModify = "?u=" . date("YdmHis");
+// $LastVersionCache = "?v=".date("YdmHis");
+$LastVersionCache = "?v=15";
 
 ##  Config inc-file
 $incfile['header'] = "inc/inc-header.tpl";
@@ -98,9 +103,8 @@ $path_compile = _DIR . '/front/temp/template';
 $path_cache = _DIR . '/front/temp/cache';
 
 ## config path upload ##
-$path_upload = _DIR . '/upload';
-// $path_upload = '/upload';
-$path_upload_url = _URL . '/upload';
+$path_upload = _DIR .UPLOAD_DIR;
+$path_upload_url = _URL .UPLOAD_DIR;
 
 
 $core_pathname_upload = "/upload";
@@ -135,6 +139,8 @@ $strMonthCut['shot2']['en'] = array("", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'
 $strMonthCut['full']['th'] = array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 $strMonthCut['full']['en'] = array('', 'January', 'February', 'March', 'April', 'May', 'June', 'July ', 'August', 'September', 'October', 'November', 'December',);
 
+$weekFullDay['th'] = array('อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์');
+$weekFullDay['en'] = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 
 $weekDay['th'] = array('อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส');
 $weekDay['en'] = array('Su', 'M', 'T', 'W', 'Th', 'F', 'Sa');
@@ -180,7 +186,7 @@ $SuffixTime = array(
     )
 );
 
-$DateThai = array(
+$dateThai = array(
     // Day
     "l" => array( // Full day
         "Monday" => "วันจันทร์",
@@ -232,3 +238,11 @@ $DateThai = array(
 );
 /* =Time&Date Config
 -------------------------------------------------------------- */
+
+#########Setting Email##########
+$array_mailer = array();
+$array_mailer['from'] = "bonzqbet.p@gmail.com";
+$array_mailer['username'] = "bonzqbet.p@gmail.com";
+$array_mailer['password'] = "heqtxtdojffssyad";
+$array_mailer['host'] = "smtp.gmail.com";
+$array_mailer['port'] = 587;

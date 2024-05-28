@@ -1,44 +1,84 @@
-var eachYearSwiper = new Swiper(".each-year .swiper", {
-    // slidesPerView: "auto",
-    slidesPerView: 4,
-    // freeMode: true,
-    spaceBetween: 45,
-    watchSlidesProgress: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+// Function to initialize Swiper
+function initializeSwiper(selector, config) {
+  return new Swiper(selector, config);
+}
+
+// Swiper configuration
+const swiperConfig = {
+  slidesPerView: 4,
+  spaceBetween: 45,
+  watchSlidesProgress: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 2,
     },
-    breakpoints: {
-        0: {
-            slidesPerView: 2,
-        },
-        768: {
-            slidesPerView: 3,
-        },
-        1200: {
-            slidesPerView: 4,
-        }
-    }
+    768: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    },
+  },
+};
+
+// Initialize Swiper
+let eachYearSwiper = initializeSwiper(".each-year .swiper", swiperConfig);
+
+// Function to toggle layout classes
+function toggleLayout(
+  viewClass,
+  listClass,
+  gridClass,
+  listId,
+  gridId,
+  thumbClass,
+  headClass
+) {
+  $(viewClass).toggleClass(listClass).toggleClass(gridClass);
+  $(listId).toggleClass(listClass).toggleClass(gridClass);
+  $(thumbClass).toggleClass("col-auto col-12");
+  $(headClass).toggleClass("col col-12");
+}
+
+// Event listener for layout view buttons
+$(".layout-view button").click(function () {
+  if ($(this).hasClass("btn-grid")) {
+    toggleLayout(
+      ".layout-view",
+      "layout-list",
+      "layout-grid",
+      "#download-list",
+      "-layout-list",
+      ".col-thumb",
+      ".col-head"
+    );
+  } else {
+    toggleLayout(
+      ".layout-view",
+      "layout-grid",
+      "layout-list",
+      "#download-list",
+      "-layout-grid",
+      ".col-thumb",
+      ".col-head"
+    );
+  }
+});
+$(".select-filter").on("change", async function () {
+  $("#filter-form").submit();
+});
+$(".btnSearch").on("click", async function () {
+  $("#filter-form").submit();
 });
 
-$('.layout-view button').click(function () {
-    if ($(this).hasClass('btn-grid')) {
-        $('.layout-view').removeClass('layout-list');
-        $('.layout-view').addClass('layout-grid');
+$(".select-filter").on("change", async function () {
+  $("#filter-form").submit();
+});
 
-        $('#download-list').removeClass('-layout-list');
-        $('#download-list').addClass('-layout-grid');
-
-        $('.col-thumb').removeClass('col-auto').addClass('col-12');
-        $('.col-head').removeClass('col').addClass('col-12');
-    } else {
-        $('.layout-view').removeClass('layout-grid');
-        $('.layout-view').addClass('layout-list');
-
-        $('#download-list').removeClass('-layout-grid');
-        $('#download-list').addClass('-layout-list');
-
-        $('.col-thumb').removeClass('col-12').addClass('col-auto');
-        $('.col-head').removeClass('col-12').addClass('col');
-    }
+$(".btnSearch").on("click", async function () {
+  $("#filter-form").submit();
 });

@@ -27,7 +27,7 @@ function logs_access($action, $actionType)
             $fp = @fopen($logsfile, 'w+');
             fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
             fclose($fp);
-            chmod($logsfile, 0666);
+            // chmod($logsfile, 0666);
         } else {
             $fp = @fopen($logsfile, 'a');
             fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
@@ -60,7 +60,7 @@ function logs_access($action, $actionType)
                 $fp = @fopen($logsfile, 'w+');
                 fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . _getURL() . "|:|" . $masterkey . "|:|" . $menukeyid . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
                 fclose($fp);
-                chmod($logsfile, 0666);
+                // chmod($logsfile, 0666);
             } else {
                 $fp = @fopen($logsfile, 'a');
                 fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . _getURL() . "|:|" . $masterkey . "|:|" . $menukeyid . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
@@ -99,7 +99,7 @@ function logs_access($action, $actionType)
                 $fp = @fopen($logsfile, 'w+');
                 fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . _getURL() . "|:|" . $masterkey . "|:|" . $menukeyid . "|:|" . $execute . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
                 fclose($fp);
-                chmod($logsfile, 0666);
+                // chmod($logsfile, 0666);
             } else {
                 $fp = @fopen($logsfile, 'a');
                 fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . _getURL() . "|:|" . $masterkey . "|:|" . $menukeyid . "|:|" . $execute . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
@@ -137,7 +137,7 @@ function logs_access($action, $actionType)
                 $fp = @fopen($logsfile, 'w+');
                 fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . _getURL() . "|:|" . $masterkey . "|:|" . $menukeyid . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
                 fclose($fp);
-                chmod($logsfile, 0666);
+                // chmod($logsfile, 0666);
             } else {
                 $fp = @fopen($logsfile, 'a');
                 fwrite($fp, $actionType . "|:|" . session_id() . "|:|" . $action . "|:|" . _getURL() . "|:|" . $masterkey . "|:|" . $menukeyid . "|:|" . $_SESSION[$valSiteManage . "core_session_id"] . "|:|" . $_SESSION[$valSiteManage . "core_session_name"] . "|:|" . get_real_ip() . "|:|" . $myDateNow . " " . $myTimeNow . "\n");

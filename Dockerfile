@@ -1,4 +1,4 @@
-FROM php:8.2.4-apache
+FROM php:8.3.6-apache
 
 # mysqli
 RUN docker-php-ext-install mysqli
@@ -8,9 +8,11 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
+# Enable Apache mod_header
+RUN a2enmod headers
 
-# update apt
-RUN apt-get update -y
+# update apt && apache2
+RUN apt-get update && apt-get install apache2 -y
 
 # update ping
 RUN apt-get install -y iputils-ping
@@ -33,9 +35,10 @@ RUN apt-get install -y  libjpeg62-turbo-dev
 RUN apt-get install -y  libfreetype6-dev
 RUN apt-get install -y  libmcrypt-dev
 RUN apt-get install -y  zlib1g-dev
+RUN apt-get install -y  libwebp-dev
 
 # configure gd for other type (jpeg, jpg)
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
 RUN docker-php-ext-install -j $(nproc) gd
 
 # php.ini:
@@ -54,7 +57,7 @@ post_max_size=128M\n' > /usr/local/etc/php/php.ini
 
 # SSL
 RUN mkdir -p /etc/apache2/ssl
-COPY ./_apache/cert-ssl/*.pem /etc/apache2/ssl/
+COPY ./_apache/cert-ssl/* /etc/apache2/ssl/
 COPY ./_apache/apache-config/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod ssl
 

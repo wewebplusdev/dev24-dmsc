@@ -148,7 +148,7 @@ async function getFaq(req, res) {
                             style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
                         };
                         arr_data[i].htmllink = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename);
-                        let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 1);
+                        let html_url = modulus.getUploadPath(select[i].masterkey, 'html', select[i].htmlfilename, 2);
                         let contentHTML = await modulus.getContentFromUrl(html_url);
                         contentHTML = await modulus.getTextReplace(contentHTML);
                         arr_data[i].html = contentHTML;

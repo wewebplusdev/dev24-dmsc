@@ -51,7 +51,7 @@ include("../lib/function.php");
 			
 
 
-		if(!is_dir($core_pathname_crupload)) { mkdir($core_pathname_crupload,0777); }
+		if(!is_dir($core_pathname_crupload)) { mkdir($core_pathname_crupload,0775); }
 
 	
 			if(file_exists($core_pathname_crupload."/".$_REQUEST['delpicname'])) {
@@ -74,9 +74,7 @@ include("../lib/function.php");
 			$picname=$filename.".".$ext;
 			
 			##  Real ################################################################################
-			if(copy($inputGallery,$core_pathname_crupload."/".$picname)){
-				@chmod($core_pathname_crupload."/".$picname,0777);
-			}
+			copy($inputGallery,$core_pathname_crupload."/".$picname);
 			
 		$update = array();
 		$update[]=$core_tb_setting."_pic  	='".$picname."'";

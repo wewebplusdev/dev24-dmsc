@@ -1,12 +1,20 @@
 <?php
 $menuActive = "searchAll";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$searchAllPage = new searchAllPage;
+$SearchAllPage = new SearchAllPage;
 
 $masterkey = $url->segment[1];
 
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         $req = array();
         $req['keyword'] = $_GET['keyword'];
@@ -22,9 +30,9 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data = [
-            "action" => $searchAllPage->method_module[$menuActive]['action'],
-            "method" => $searchAllPage->method_module[$menuActive]['method_list'],
-            "language" => $searchAllPage->language,
+            "action" => $SearchAllPage->medthodModule[$menuActive]['action'],
+            "method" => $SearchAllPage->medthodModule[$menuActive]['method_list'],
+            "language" => $SearchAllPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -32,18 +40,16 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $searchAllPage->load_data($data);
-        // print_pre($data);
-        // print_pre($load_data);die;
-        $smarty->assign("load_data", $load_data);
+        $loadData = $SearchAllPage->loadData($data);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
         // active menu header
-        $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb2'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
         }
 
         $language_modules['breadcrumb2'] = $languageFrontWeb->search->display->$currentLangWeb;
@@ -55,11 +61,11 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $searchAllPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $SearchAllPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

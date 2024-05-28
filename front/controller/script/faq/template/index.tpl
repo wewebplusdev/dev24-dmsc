@@ -33,7 +33,7 @@
         </h1>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner2.png" alt="obj-banner-about"
               class="lazy img-cover">
           </div>
         </div>
@@ -46,19 +46,19 @@
   <div class="default-body">
     <div class="default-filter">
       <div class="container">
-        <form action="{$ul}/{$menuActive}/{$masterkey}" method="GET" class="form-default" id="filter-form">
+        <form action="{$ul}/{$menuActive}" method="GET" class="form-default" id="filter-form">
           <div class="head">
             <div class="row">
               <div class="col-md">
                 <div class="form-group form-search mb-0">
                   <label class="control-label visually-hidden"
-                    for="">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
+                    for="keywordFaq">{$languageFrontWeb->typesearch->display->$currentLangWeb}</label>
                   <div class="block-control">
-                    <input class="form-control" type="search" name="keyword"
-                      id="keyword" value="{$req.keyword}"
+                    <input class="form-control" type="search" name="keywordFaq"
+                      id="keywordFaq" value="{$req.keyword}"
                       placeholder="{$languageFrontWeb->typesearch->display->$currentLangWeb}">
                     <div class="search">
-                      <a href="javascript:void(0);" class="link" onclick="$('#filter-form').submit();">
+                      <a href="javascript:void(0);" class="link filter-form"  aria-label="link">
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="33.621"
                             height="33.621" viewBox="0 0 33.621 33.621">
@@ -102,8 +102,8 @@
                     for="sort">{$languageFrontWeb->sort->display->$currentLangWeb}
                     :</label>
                   <div class="select-wrapper">
-                    <select class="select-filter" name="sort" id="sort"
-                      style="width: 100%;" onchange="submit();">
+                    <select class="select-filter" aria-label="select filter" name="sort" id="sort"
+                      style="width: 100%;" >
                       <option value="1" {if $req.sort == '1'} selected {/if}>
                         {$languageFrontWeb->sort_desc->display->$currentLangWeb}
                       </option>
@@ -120,16 +120,16 @@
       </div>
     </div>
     <div class="container">
-      {if $load_data->_numOfRows gte 1}
+      {if $loadData->_numOfRows gte 1}
         <div class="layout-faq" id="accordion">
-          {foreach $load_data->item as $keyload_data => $valueload_data}
+          {foreach $loadData->item as $keyload_data => $valueload_data}
             <div class="card">
               <div class="card-header" id="heading{$keyload_data}">
                 <a href="" class="link {if $keyload_data gte 1}collapsed{/if}" data-toggle="collapse" data-target="#collapse{$keyload_data}" aria-expanded="true"
-                  aria-controls="collapse{$keyload_data}">
+                  aria-controls="collapse{$keyload_data}" aria-label="link">
                   <div class="row gutters-10 align-items-center">
                     <div class="col-auto">
-                      <div class="icon">
+                      {* <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31.229"
                           height="31.229" viewBox="0 0 31.229 31.229">
                           <defs>
@@ -159,6 +159,9 @@
                             </g>
                           </g>
                         </svg>
+                      </div> *}
+                      <div class="icon">
+                        <img src="{$template}/assets/img/static/icon-faq-q.svg" alt="icon-faq-q">
                       </div>
                     </div>
                     <div class="col">
@@ -171,7 +174,7 @@
                 <div class="card-body">
                   <div class="row gutters-10 align-items-start">
                     <div class="col-auto">
-                      <div class="icon">
+                      {* <div class="icon">
                         <svg id="Group_90476" data-name="Group 90476" xmlns="http://www.w3.org/2000/svg" width="30.002"
                           height="30.002" viewBox="0 0 30.002 30.002">
                           <path id="Path_452373" data-name="Path 452373"
@@ -187,27 +190,16 @@
                             d="M99.044,206H86.652a.652.652,0,0,0,0,1.3H99.044a.652.652,0,1,0,0-1.3Z"
                             transform="translate(-82.087 -194.26)" fill="#ccc" />
                         </svg>
+                      </div> *}
+                      <div class="icon">
+                        <img src="{$template}/assets/img/static/icon-faq-a.svg" alt="icon-faq-a">
                       </div>
                     </div>
                     <div class="col">
                       <div class="desc">
                         {strip}
-                            {$load_data->item[0]->html|txtReplaceHTML}
+                            {$valueload_data->html|txtReplaceHTML}
                         {/strip}
-                        {* <p>
-                          กรมวิทยาศาสตร์การแพทย์
-                          <br>
-                          กระทรวงสาธารณสุข 88/7 บำราศนราดูร
-                          <br>
-                          ถ.ติวานนท์ ต.ตลาดขวัญ อ.เมือง จ.นนทบุรี 11000
-                        </p>
-                        <p>
-                          ติดต่อสอบถามข้อมูล : 02 589 9850 ถึง 8
-                          <br>
-                          โทรสาร : 02 591 5974
-                          <br>
-                          อีเมล์ : prdmsc@dmsc.mail.go.th , info@dmsc.mail.go.th
-                        </p> *}
                       </div>
                     </div>
                   </div>
@@ -218,7 +210,7 @@
         </div>
       {/if}
     </div>
-    {if $load_data->_numOfRows gte 1}
+    {if $loadData->_numOfRows gte 1}
       {include file="inc/inc-pagination.tpl" title=title}
     {/if}
   </div>

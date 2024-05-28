@@ -37,6 +37,8 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["social:ig"] = "Instagram";
   $langMod["social:lk"] = "Linkedin";
   $langMod["social:tel"] = "Tel";
+  $langMod["social:cfb"] = "Chat Facebook";
+  $langMod["social:cfb2"] = "ChatFacebook";
 
 
   $langMod["social:note"] = "Note: Please enter the URL name, prefixed with \" http: // \". For example: http://www.google.com. Etc. " . " <br> "
@@ -150,7 +152,8 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["social:ig"] = "Instagram";
   $langMod["social:lk"] = "Linkedin";
   $langMod["social:tel"] = "Tel";
-
+  $langMod["social:cfb"] = "Chat Facebook";
+  $langMod["social:cfb2"] = "ChatFacebook";
 
   $langMod["social:note"] = "หมายเหตุ : กรุณากรอกชื่อ URL นำหน้าด้วย \"http://\" เช่น http://www.google.com เป็นต้น" . "<br>" . "กรณีไม่มีชื่อ URL ให้ใส่เครื่องหมาย #";
 

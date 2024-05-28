@@ -1,8 +1,6 @@
 <?php
-
 ## print pre ##
-
-function print_pre($expression, $return = false, $wrap = false)
+function printPre($expression, $return = false, $wrap = false)
 {
     $css = 'border:1px dashed #06f;background:#69f;padding:1em;text-align:left;z-index:99999;font-size:12px;position:relative';
     if ($wrap) {
@@ -20,12 +18,12 @@ function print_pre($expression, $return = false, $wrap = false)
             fclose($fh);
         }
         return $str;
-    } else
-        echo $str;
+    } else {
+          echo $str;
+    }
 }
 
 ## clean array ##
-
 function cleanArray($arr)
 {
     $size = sizeof($arr);
@@ -66,48 +64,16 @@ function configlang($lang)
     }
 }
 
-## loop number ##
 
-function loopnum($min, $max, $sort = "asc")
-{
-    $list = array();
-    while ($min <= $max) {
-        $list[$min] = $min;
-        $min++;
-    }
-    switch ($sort) {
-        case 'desc':
-            krsort($list);
-            break;
-
-        case 'asc':
-            ksort($list);
-            break;
-    }
-
-    return $list;
-}
-
-## show month ##
-
-function showmonth($month, $lang, $type = "shot")
-{
-    global $strMonthCut;
-    return $strMonthCut[$type][$lang][$month];
-}
-
+define('SELECT_ALL_FROM', 'SELECT * FROM');
+define('WHERE', 'WHERE');
+define('SECONDS', ' วินาที');
+define('MIN', ' นาที');
 ## sql insert ##
-
 function sqlinsert($array, $dbname, $key)
 {
     global $db;
-
-
-    // print_pre($db);
-    $sql_insert = "Select * From " . $dbname . " where " . $key . " = -1";
-
-    // print_pre($sql_insert);
-    // print_pre($key);
+    $sql_insert = SELECT_ALL_FROM . " " . $dbname . WHERE . $key . " = -1";
     $result_insert = $db->Execute($sql_insert);
 
     $sql_create_insert = $db->GetInsertSQL($result_insert, $array);
@@ -125,7 +91,6 @@ function sqlinsert($array, $dbname, $key)
 function sqlupdate($array, $dbname, $key, $where = null)
 {
     global $db;
-    // print_pre($where);
     $listWhere = "";
 
     if (is_array($key)) {
@@ -136,12 +101,12 @@ function sqlupdate($array, $dbname, $key, $where = null)
         $listWhere = $key;
     }
 
-    // print_pre($listWhere);
     if (!empty($where)) {
-        $sql_update = "Select * From " . $dbname . " where " . $listWhere . " = " . $where;
+        $sql_update = SELECT_ALL_FROM . " " . $dbname . WHERE . $listWhere . " = " . $where;
     } else {
-        $sql_update = "Select * From " . $dbname . " where " . $listWhere;
+        $sql_update = SELECT_ALL_FROM . " " . $dbname . WHERE . $listWhere;
     }
+
     $result_update = $db->Execute($sql_update);
 
     $updateSQL = $db->GetUpdateSQL($result_update, $array);
@@ -155,49 +120,30 @@ function sqlupdate($array, $dbname, $key, $where = null)
     return $return;
 }
 
-## sql delete ##
-
-function sqldelete($db, $key)
-{
-    global $db;
-}
-
 ## get ip ##
-
 function getip()
 {
-
     $ip = false;
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     }
     if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ips = explode(", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
-        if ($ip) {
-            array_unshift($ips, $ip);
-            $ip = false;
-        }
-        for ($i = 0; $i < count($ips); $i++) {
-            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ips[$i])) {
-                if (version_compare(phpversion(), "5.0.0", ">=")) {
-                    if (ip2long($ips[$i]) != false) {
-                        $ip = $ips[$i];
-                        break;
-                    }
-                } else {
-                    if (ip2long($ips[$i]) != -1) {
-                        $ip = $ips[$i];
-                        break;
-                    }
-                }
+        foreach ($ips as $ipCandidate) {
+            if (!preg_match("/^(10|172\.16|192\.168)\./i", $ipCandidate) && filter_var($ipCandidate, FILTER_VALIDATE_IP) !== false) {
+                $ip = $ipCandidate;
+                break;
             }
         }
     }
-    return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+
+    // Return the determined IP or fallback to REMOTE_ADDR
+    return $ip ? $ip : $_SERVER['REMOTE_ADDR'];
 }
 
-## encodeStr ##
 
+
+## encodeStr ##
 function encodeStr($variable)
 {
 
@@ -209,8 +155,9 @@ function encodeStr($variable)
     for ($i = 0; $i < strlen($variable); $i++) {
         $temp .= $variable[$i] . $key[$index];
         $index++;
-        if ($index >= strlen($key))
+        if ($index >= strlen($key)){
             $index = 0;
+        }
     }
     $variable = strrev($temp);
     $variable = base64_encode($variable);
@@ -222,7 +169,6 @@ function encodeStr($variable)
 }
 
 ## decodeStr ##
-
 function decodeStr($enVariable)
 {
     $enVariable = str_replace("WewEb", "%", $enVariable);
@@ -244,339 +190,15 @@ function decodeStr($enVariable)
     return $temp;
 }
 
-## call member profile ##
-
-function callprofile($id)
-{
-    global $db, $config;
-    $sql = "Select
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_id As id,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_fname As fname,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_email As email,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_credate As createdate,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_logindate As logindate,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_status As status,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_pic As pic,
-  Group_Concat(" . $config['member']['db_group'] . "." . $config['member']['db_group'] . "_id) As g_id,
-  Group_Concat(" . $config['member']['db_group'] . "." . $config['member']['db_group'] . "_subject) As g_subject,
-  " . $config['member']['db_user_group'] . "." . $config['member']['db_user_group'] . "_status As g_status,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_masterkey as masterkey,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_cover As cover
-From
-  " . $config['member']['db'] . " Left Join
-  " . $config['member']['db_user_group'] . " On " . $config['member']['db_user_group'] . "." . $config['member']['db_user_group'] . "_mid = " . $config['member']['db'] . "." . $config['member']['db'] . "_id And " . $config['member']['db'] . "." . $config['member']['db'] . "_masterkey =
-    " . $config['member']['db_user_group'] . "." . $config['member']['db_user_group'] . "_masterkey Inner Join
-  " . $config['member']['db_group'] . " On " . $config['member']['db_user_group'] . "." . $config['member']['db_user_group'] . "_gid = " . $config['member']['db_group'] . "." . $config['member']['db_group'] . "_id And " . $config['member']['db'] . "." . $config['member']['db'] . "_masterkey =
-    " . $config['member']['db_group'] . "." . $config['member']['db_group'] . "_masterkey
-Where
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_id = $id And
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_status = 'Enable' And
-  " . $config['member']['db_user_group'] . "." . $config['member']['db_user_group'] . "_status = 'Enable' And
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_masterkey = '" . $config['member']['masterkey'] . "'
-Group By
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_id, " . $config['member']['db'] . "." . $config['member']['db'] . "_fname, " . $config['member']['db'] . "." . $config['member']['db'] . "_credate,
-  " . $config['member']['db'] . "." . $config['member']['db'] . "_logindate, " . $config['member']['db'] . "." . $config['member']['db'] . "_status, " . $config['member']['db'] . "." . $config['member']['db'] . "_pic,
-  " . $config['member']['db_user_group'] . "." . $config['member']['db_user_group'] . "_status, " . $config['member']['db'] . "." . $config['member']['db'] . "_masterkey";
-    //  print_pre($sql);
-    $result = $db->execute($sql);
-    // print_pre($result);
-    return $result;
-}
-
-## call member address ##
-
-function calladdress($id)
-{
-    global $db, $config;
-    $sql = "Select
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_id as id,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_mid as mid,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_name as name,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_email as email,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_tel as tel,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_address as address,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_country,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_district,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_subdistrict,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_zipcode as zipcode,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_pin as pin,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_status as status,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_create,
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_update,
-  " . $config['main']['db_country_province'] . "." . $config['main']['db_country_province'] . "_name as province,
-  " . $config['main']['db_country_amphur'] . "." . $config['main']['db_country_amphur'] . "_name as amphur,
-  " . $config['main']['db_country_district'] . "." . $config['main']['db_country_district'] . "_name as district
-From
-  " . $config['member']['db_user_address'] . " Inner Join
-  " . $config['main']['db_country_province'] . " On " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_country = " . $config['main']['db_country_province'] . "." . $config['main']['db_country_province'] . "_id
-  Inner Join
-  " . $config['main']['db_country_amphur'] . " On " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_district = " . $config['main']['db_country_amphur'] . "." . $config['main']['db_country_amphur'] . "_id
-  Inner Join
-  " . $config['main']['db_country_district'] . " On " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_subdistrict = " . $config['main']['db_country_district'] . "." . $config['main']['db_country_district'] . "_id";
-
-    $sql .= " Where
-  (" . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_mid = '" . $id . "') And (
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_status != 'Disable' Or
-  " . $config['member']['db_user_address'] . "." . $config['member']['db_user_address'] . "_status Is Null)";
-
-    $result = $db->execute($sql);
-    // print_pre($result);
-    return $result;
-}
-
-## alert popup ##
-
-function alertpopup($idform, $msg, $status = false, $return = false, $html = null, $redirect = true, $type)
-{
-    global $url_show_lang, $lang_set, $lang_default;
-    unset($_SESSION['alert']);
-    $_SESSION['alert']['id'] = $idform;
-    $_SESSION['alert']['msg'] = $msg;
-    $_SESSION['alert']['status'] = $status;
-    $_SESSION['alert']['return'] = $return;
-    $_SESSION['alert']['type'] = $type;
-    if (!empty($html)) {
-        $_SESSION['alert']['html'] = $html;
-    }
-
-    if (!empty($url_show_lang)) {
-        $langInLink = $lang_set[$lang_default][2] . "/";
-    } else {
-        $langInLink = "";
-    }
-
-    if (!empty($redirect)) {
-        if (!empty($return)) {
-
-            switch ($return) {
-                case 'history':
-                    header('Location: ' . $_SERVER['HTTP_REFERER']);
-                    exit();
-                    break;
-
-                default:
-                    header('Location: ' . _URL . $langInLink . $return);
-                    exit();
-                    break;
-            }
-        } else {
-            header("Location:" . $_SERVER['REQUEST_URI']);
-            exit();
-        }
-    }
-}
-## ALERT SUBMIT SUCCESS
-
-function alertsubmit($idform, $title, $msg, $status = false, $return = false, $html = null, $redirect = true, $type)
-{
-    global $url_show_lang, $lang_set, $lang_default;
-    unset($_SESSION['alertsubmit']);
-    $_SESSION['alertsubmit']['id'] = $idform;
-    $_SESSION['alertsubmit']['title'] = $title;
-    $_SESSION['alertsubmit']['msg'] = $msg;
-    $_SESSION['alertsubmit']['status'] = $status;
-    $_SESSION['alertsubmit']['return'] = $return;
-    $_SESSION['alertsubmit']['type'] = $type;
-    if (!empty($html)) {
-        $_SESSION['alertsubmit']['html'] = $html;
-    }
-
-    if (!empty($url_show_lang)) {
-        $langInLink = $lang_set[$lang_default][2] . "/";
-    } else {
-        $langInLink = "";
-    }
-
-    if (!empty($redirect)) {
-        if (!empty($return)) {
-
-            switch ($return) {
-                case 'history':
-                    header('Location: ' . $_SERVER['HTTP_REFERER']);
-                    exit();
-                    break;
-
-                default:
-                    header('Location: ' . _URL . $langInLink . $return);
-                    exit();
-                    break;
-            }
-        } else {
-            header("Location:" . $_SERVER['REQUEST_URI']);
-            exit();
-        }
-    }
-}
-
-## callproviance ##
-
-function callproviance($id, $type, $export = false)
-{
-    global $db, $config;
-    if ($type == 'proviance') {
-        $query = "SELECT " . $config['main']['db_country_province'] . "." . $config['main']['db_country_province'] . "_id as id, "
-            . "" . $config['main']['db_country_province'] . "." . $config['main']['db_country_province'] . "_nameen as name FROM " . $config['main']['db_country_province'] . " ORDER BY " . $config['main']['db_country_province'] . "." . $config['main']['db_country_province'] . "_nameen ASC ";
-    } else if ($type == 'district') {
-        $query = "SELECT "
-            . "" . $config['main']['db_country_amphur'] . "." . $config['main']['db_country_amphur'] . "_id as id, "
-            . "" . $config['main']['db_country_amphur'] . "." . $config['main']['db_country_amphur'] . "_nameen as name "
-            . "FROM "
-            . "" . $config['main']['db_country_amphur'] . " WHERE "
-            . "" . $config['main']['db_country_amphur'] . "." . $config['main']['db_country_amphur'] . "_province_id "
-            . "='" . $id . "'";
-    } else if ($type == 'subdistrict') {
-        $query = "SELECT "
-            . "" . $config['main']['db_country_district'] . "." . $config['main']['db_country_district'] . "_id as id, "
-            . "" . $config['main']['db_country_district'] . "." . $config['main']['db_country_district'] . "_nameen as name "
-            . "FROM " . $config['main']['db_country_district'] . " "
-            . "WHERE " . $config['main']['db_country_district'] . "_amphure_id"
-            . "='" . $id . "'";
-    } else if ($type == 'postcode') {
-
-        $query = "SELECT " . $config['main']['db_country_district'] . "_zip_code as id , "
-            . $config['main']['db_country_district'] . "_zip_code as name "
-            . " FROM " . $config['main']['db_country_district'] . ""
-            . " WHERE " . $config['main']['db_country_district'] . "_id='" . $id . "'";
-    }
-    // print_pre($query);
-    if (!empty($query)) {
-        $result = $db->execute($query);
-
-        if (!empty($export)) {
-            return $result;
-        } else {
-            $listShow = array();
-            foreach ($result as $showResult) {
-                $listShow[$showResult["id"]] = $showResult["name"];
-            }
-            echo json_encode($listShow);
-        }
-    }
-}
-
-## call favorite ##
-
-function callfavorite($id)
-{
-    global $db, $config;
-    $sql = "SELECT
-  Count(" . $config['member']['db_user_favorite'] . "." . $config['member']['db_user_favorite'] . "_sid) AS csid,
-  Count(" . $config['member']['db_user_favorite'] . "." . $config['member']['db_user_favorite'] . "_pid) AS cpid,
-  " . $config['member']['db_user_favorite'] . "." . $config['member']['db_user_favorite'] . "_mid AS id
-FROM
-  " . $config['member']['db_user_favorite'] . "
-WHERE
-  " . $config['member']['db_user_favorite'] . "." . $config['member']['db_user_favorite'] . "_mid = $id AND
-  " . $config['member']['db_user_favorite'] . "." . $config['member']['db_user_favorite'] . "_status = 'Enable'
-GROUP BY
-  " . $config['member']['db_user_favorite'] . "." . $config['member']['db_user_favorite'] . "_mid";
-    //print_pre($sql);
-    $result = $db->execute($sql);
-    return $result;
-}
-
-## call counter product ##
-
-function callproductcounter($id, $type = false)
-{
-    //    global $db, $config;
-    //
-    //    if(!empty($type)){
-    //        $sqlCampaign = "SELECT
-    //  Sum(".$config['member']['db_store_packet'].".".$config['member']['db_store_packet']."_limit) AS limitstore
-    //FROM
-    //  ".$config['member']['db_store_packet']."
-    //WHERE
-    //  ".$config['member']['db_store_packet'].".".$config['member']['db_store_packet']."_mid = 10 AND
-    //  ".$config['member']['db_store_packet'].".".$config['member']['db_store_packet']."_status = 'Enable' AND
-    //  ((".$config['member']['db_store_packet'].".".$config['member']['db_store_packet']."_datestart <= Now() AND
-    //      ".$config['member']['db_store_packet'].".".$config['member']['db_store_packet']."_dateexpire >= Now()) OR
-    //    (".$config['member']['db_store_packet'].".".$config['member']['db_store_packet']."_datestart IS NULL AND
-    //      ".$config['member']['db_store_packet'].".".$config['member']['db_store_packet']."_dateexpire IS NULL))";
-    //    print_pre($sqlCampaign);
-    //    }
-    //
-    //
-    //    $sql = "SELECT
-    //  Count(" . $config['member']['db_seller_product'] . "." . $config['member']['db_seller_product'] . "_id) AS totalproduct
-    //FROM
-    //  " . $config['member']['db_seller_product'] . "
-    //  INNER JOIN " . $config['member']['db_store'] . " ON " . $config['member']['db_seller_product'] . "." . $config['member']['db_seller_product'] . "_store_id = " . $config['member']['db_store'] . "." . $config['member']['db_store'] . "_id
-    //WHERE
-    //  " . $config['member']['db_seller_product'] . "." . $config['member']['db_seller_product'] . "_status = 'Enable' AND
-    //  " . $config['member']['db_seller_product'] . "." . $config['member']['db_seller_product'] . "_masterkey = '" . $config['member']['db_product_masterkey'] . "' AND
-    //  " . $config['member']['db_store'] . "." . $config['member']['db_store'] . "_mid = " . $id;
-    //
-    //    if (!empty($type)) {
-    //        $sql .= " AND " . $config['member']['db_seller_product'] . "." . $config['member']['db_seller_product'] . "_slot IS NULL";
-    //        $sql .= " AND " . $config['member']['db_seller_product'] . "." . $config['member']['db_seller_product'] . "_slotpack = " . $type;
-    //    } else {
-    //        $sql .= " AND " . $config['member']['db_seller_product'] . "." . $config['member']['db_seller_product'] . "_slotpack IS NULL";
-    //    }
-    //
-    //
-    //    $sql .= " GROUP BY
-    //  " . $config['member']['db_store'] . "." . $config['member']['db_store'] . "_mid";
-    //
-    //    print_pre($sql);
-    //    $result = $db->execute($sql);
-    //    return $result;
-    return false;
-}
-
-## call stamp ##
-
-function callstamp($id)
-{
-    global $db, $config;
-    $sql = "SELECT *
-FROM
-  " . $config['member']['db_stamp'] . "
-WHERE
-  " . $config['member']['db_stamp'] . "." . $config['member']['db_stamp'] . "_mid = $id and
-  " . $config['member']['db_stamp'] . "." . $config['member']['db_stamp'] . "_status = 'Enable' AND
-TO_DAYS(" . $config['member']['db_stamp'] . "." . $config['member']['db_stamp'] . "_dateexp)>=TO_DAYS(NOW())
-  ";
-
-    $result = $db->execute($sql);
-    return $result;
-}
-
-## call brand ##
-
-function callbrand($idbrand, $sort = 'DESC')
-{
-    global $db, $config;
-    //$config['member']['db_brand']
-    $sql = "SELECT
-  *
-FROM
-  " . $config['member']['db_brand'] . "
-WHERE
-  " . $config['member']['db_brand'] . "." . $config['member']['db_brand'] . "_status = 'Enable' AND
-  " . $config['member']['db_brand'] . "." . $config['member']['db_brand'] . "_masterkey = '" . $config['member']['db_product_masterkey'] . "'
-  ";
-    if (!empty($idbrand)) {
-        $sql .= " AND " . $config['member']['db_brand'] . "." . $config['member']['db_brand'] . "_id = $idbrand";
-    }
-    $sql .= " ORDER BY
-  " . $config['member']['db_brand'] . "." . $config['member']['db_brand'] . "_order $sort";
-    $result = $db->execute($sql);
-    return $result;
-}
-
 ## add sql date start end ##
-
 function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
 {
     if (!empty($dbname)) {
-        //   $sqlReturn = " and (( " . $dbname . "." . $dbname . "_sdate <= Now() and " . $dbname . "." . $dbname . "_edate >= Now() ) ";
-        //   $sqlReturn .= " or ( " . $dbname . "." . $dbname . "_sdate Is Null and " . $dbname . "." . $dbname . "_edate Is Null )) ";
 
         $sqlReturn = " and ((" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00')  ";
-        $sqlReturn .= " OR (" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND TO_DAYS(" . $dbname . "" . $nameend . ")>=TO_DAYS(NOW()) )";
-        $sqlReturn .= " OR (TO_DAYS(" . $dbname . "" . $namestart . ")<=TO_DAYS(NOW()) AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00' ) ";
-        $sqlReturn .= " OR (TO_DAYS(" . $dbname . "" . $namestart . ")<=TO_DAYS(NOW()) AND  TO_DAYS(" . $dbname . "" . $nameend . ")>=TO_DAYS(NOW())  )";
+        $sqlReturn .= " OR (" . $dbname . "" . $namestart . "='0000-00-00 00:00:00' AND TO_dayS(" . $dbname . "" . $nameend . ")>=TO_dayS(NOW()) )";
+        $sqlReturn .= " OR (TO_dayS(" . $dbname . "" . $namestart . ")<=TO_dayS(NOW()) AND " . $dbname . "" . $nameend . "='0000-00-00 00:00:00' ) ";
+        $sqlReturn .= " OR (TO_dayS(" . $dbname . "" . $namestart . ")<=TO_dayS(NOW()) AND  TO_dayS(" . $dbname . "" . $nameend . ")>=TO_dayS(NOW())  )";
         $sqlReturn .= " OR ( " . $dbname . "." . $dbname . "_sdate Is Null and " . $dbname . "." . $dbname . "_edate Is Null )) ";
 
 
@@ -588,52 +210,37 @@ function checkStartEnd($dbname, $namestart = "_sdate", $nameend = "_edate")
 
 ##############################################
 
-function DateThai($strDate, $function = null, $lang = "th", $type = "shot")
+function dateThai($strDate, $function = null, $lang = "th", $type = "shot")
 {
+    global $strMonthCut;
 
-    global $strMonthCut, $url;
-
-    // $lang = $url->pagelang[2];
-    // $lang = 'en';
-    // print_pre($strMonthCut);
-    //  global $slug;
-    //   $lang = $slug['pageLang'];
-    ##############################################
     $strYear = date("Y", strtotime($strDate)) + 543;
-    $strYear2 = date("Y", strtotime($strDate));
-    $strYear_mini = substr($strYear, 2, 4);
-    $strYear_mini_en = substr($strYear2, 2, 4);
-    $strMonth = date("n", strtotime($strDate));
     $strMonth_real = date("n", strtotime($strDate));
-    $strMonth_full = date("n", strtotime($strDate));
-    $strMonth_number = date("n", strtotime($strDate));
-    $strDay = date("j", strtotime($strDate));
+    $strMonth = $strMonthCut[$type][$lang][$strMonth_real];
+    $strday = date("j", strtotime($strDate));
     $strHour = date("H", strtotime($strDate));
     $strMinute = date("i", strtotime($strDate));
     $strSeconds = date("s", strtotime($strDate));
 
-    $strMonth = $strMonthCut[$type][$lang][$strMonth];
-    $strMonth_full = $strMonthCut['full'][$lang][$strMonth_full];
     if (!empty($strDate)) {
         switch ($function) {
             case '1':
-                $day = "$strDay $strMonth $strYear";
+                $day = "$strday $strMonth $strYear";
                 break;
             case '2':
-                $day = "$strDay $strMonth $strYear2";
+                $day = "$strday $strMonth " . date("Y", strtotime($strDate));
                 break;
             case '3':
-                $day = "$strDay $strMonth $strYear_mini";
+                $day = "$strday $strMonth " . substr($strYear, 2, 4);
                 break;
             case '4':
-                $day = "$strDay $strMonth $strYear , $strHour:$strMinute ";
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute ";
                 break;
-
             case '5':
-                $day = "$strDay $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
+                $day = "$strday $strMonth $strYear , $strHour:$strMinute:$strSeconds ";
                 break;
             case '6':
-                $day = "$strDay";
+                $day = "$strday";
                 break;
             case '7':
                 $day = "$strMonth $strYear";
@@ -648,146 +255,96 @@ function DateThai($strDate, $function = null, $lang = "th", $type = "shot")
                 $day = "$strYear";
                 break;
             case '11':
-                $day = "วันที่ $strDay $strMonth $strYear | เวลา $strHour:$strMinute น.";
+                $day = "วันที่ $strday $strMonth $strYear | เวลา $strHour:$strMinute น.";
                 break;
             case '12':
-
+                // Calculate time difference
                 $previousTimeStamp = strtotime(str_replace("-", "/", $strDate));
                 $lastTimeStamp = strtotime(str_replace("-", "/", date("Y-m-d H:i:s")));
+                $difference = $lastTimeStamp - $previousTimeStamp;
 
-                // strtotime("2013/09/17 12:34:11");
-
-                $menos = $lastTimeStamp - $previousTimeStamp;
-
-                $mins = $menos / 60;
-                if ($mins < 1) {
-                    $showing = $menos . " วินาที";
-                } else {
-                    $minsfinal = floor($mins);
-                    $secondsfinal = $menos - ($minsfinal * 60);
-                    $hours = $minsfinal / 60;
-                    if ($hours < 1) {
-                        $showing = $minsfinal . " นาที " . $secondsfinal . " วินาที";
-                    } else {
-                        $hoursfinal = floor($hours);
-                        $minssuperfinal = $minsfinal - ($hoursfinal * 60);
-                        $days = $hoursfinal / 24;
-                        if ($days < 1) {
-                            $showing = $hoursfinal . " ชั่วโมง " . $minssuperfinal . " นาที " . $secondsfinal . " วินาที";
-                        } else {
-                            $daysfinal = floor($days);
-                            $hourssuperfinal = $hoursfinal - ($daysfinal * 24);
-                            $showing = "ผ่านมาแล้ว " . $daysfinal . " วัน " . $hourssuperfinal . " ชั่วโมง " . $minssuperfinal . " นาที " . $secondsfinal . " วินาที";
-                        }
-                    }
-                }
-                $day = $showing;
+                // Format time difference
+                $day = formatTimeDifference($difference);
                 break;
-
             case '13':
-                $day = "$strDay<br/>$strMonth";
+                $day = "$strday<br/>$strMonth";
                 break;
             case '14':
-                $day = "$strDay" . "th" . " $strMonth_full $strYear2";
+                $day = "$strday" . "th" . " $strMonth " . date("Y", strtotime($strDate));
                 break;
             case '15':
-                $day = "$strMonth_full $strDay, $strYear2";
+                $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
                 break;
             case '16':
-                $day = "$strDay.$strMonth_number.$strYear_mini_en";
+                $day = "$strday.$strMonth_real.$strYear";
                 break;
             case '17':
-                $day = "$strDay.$strMonth_number.$strYear2";
+                $day = "$strday.$strMonth_real." . date("Y", strtotime($strDate));
                 break;
             case '18':
-                $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "<strong>$strDay</strong>$strMonth_number.$strYear2";
+                $strMonth_real = sprintf("%02d", $strMonth_real);
+                $day = "<strong>$strday</strong>$strMonth_real." . date("Y", strtotime($strDate));
                 break;
             case '19':
-                $strMonth_number = sprintf("%02d", $strMonth_number);
-                $day = "$strDay.$strMonth_number.$strYear2";
+                $strMonth_real = sprintf("%02d", $strMonth_real);
+                $day = "$strday.$strMonth_real." . date("Y", strtotime($strDate));
                 break;
             case '20':
-                $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
-                $day = "$strMonth $strDay, $strYear2";
+                // Check if month translation exists
+                if (isset($strMonthCut['shot2']['en'][$strMonth_real])) {
+                    $strMonth = $strMonthCut['shot2']['en'][$strMonth_real];
+                    $day = "$strMonth $strday, " . date("Y", strtotime($strDate));
+                } else {
+                    $day = "-";
+                }
                 break;
             case '21':
-                $day = "$strDay $strMonth";
+                $day = "$strday $strMonth";
                 break;
             case '22':
-                $day = "$strDay $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
+                $day = "$strday $strMonth $strYear " . "เวลา" . $strHour . ":" . $strMinute . " น. ";
                 break;
             case '23':
-                $day = "$strDay $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
+                $day = "$strday $strMonth $strYear - " . $strHour . ":" . $strMinute . " น. ";
                 break;
             case '24':
-                $day = "$strDay $strMonth $strYear";
+                $day = "$strday $strMonth $strYear";
                 break;
             case '25':
-                $day = $strYear . '' . sprintf("%02d", $strMonth_number);
+                $day = $strYear . '' . sprintf("%02d", $strMonth_real);
                 break;
             default:
+                $day = "-";
                 break;
         }
     } else {
         $day = "-";
     }
 
-
     return $day;
 }
 
-## check date expire ##
 
-function checkexpire($date)
-{
-    //  $startdate = "16-May-2016";
-    $expire = strtotime($date);
-    $today = strtotime("today midnight");
-
-    if ($today >= $expire) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-## checkstatus ##
-
-function checkstatus($status)
-{
-    global $lang;
-
-    if (!empty($lang['status'][$status])) {
-        return $lang['status'][$status];
-    } else {
-        return $status;
-    }
-}
 
 ############################################
 
-function changeQuot($Data)
+function changeQuot($daTa)
 {
     ############################################
     global $coreLanguageSQL;
 
-    $valTrim = trim($Data);
-    //    $valChangeQuot = wewebEscape($coreLanguageSQL, $valTrim);
+    $valTrim = trim($daTa);
     $valChangeQuot = $valTrim;
-    //$valChangeQuot=str_replace("'","&rsquo;",str_replace('"','&quot;',$valChangeQuot));
     $valChangeQuot = str_replace("'", "&rsquo;", str_replace('"', '&quot;', $valChangeQuot));
 
     return $valChangeQuot;
 }
 
-function rechangeQuot($Data)
+function rechangeQuot($daTa)
 {
     ############################################
-    $valChangeQuot = sanitize($Data);
-    // $valChangeQuot = htmlspecialchars(str_replace("&rsquo;", "'", str_replace('&quot;', '"', $valChangeQuot)));
+    $valChangeQuot = sanitize($daTa);
     $valChangeQuot = str_replace("&rsquo;", "'", str_replace('&quot;', '"', $valChangeQuot));
-    //$valChangeQuot = str_replace('\r\n','<br/>',$valChangeQuot);
     return $valChangeQuot;
 }
 
@@ -800,9 +357,7 @@ function sanitize($input)
     //     $input = stripslashes($input); //it is, so strip any slashes and prepare for next step;
     // }
     //if get_magic_quotes_gpc() is on, slashes were already stripped .. if it's off, mysqli_real_escape_string() will take care of the rest;
-    $output = addslashes($input);
-
-    return $output;
+    return addslashes($input);
 }
 
 ## page pagination ##
@@ -810,7 +365,6 @@ function sanitize($input)
 function pagepagination($uri, $limit = null)
 {
     global $limitpage;
-    //print_pre($uri->pagelang[2]);
     $pageOn = array();
     if (!empty($limit)) {
         $pageOn['limit'] = $limit;
@@ -898,7 +452,7 @@ function resize($img, $w, $h, $newfilename)
     $newImg = imagecreatetruecolor($nWidth, $nHeight);
 
     /* Check if this image is PNG or GIF, then set if Transparent */
-    if (($imgInfo[2] == 1) or ($imgInfo[2] == 3)) {
+    if (($imgInfo[2] == 1) || ($imgInfo[2] == 3)) {
         imagealphablending($newImg, false);
         imagesavealpha($newImg, true);
         $transparent = imagecolorallocatealpha($newImg, 255, 255, 255, 127);
@@ -925,42 +479,15 @@ function resize($img, $w, $h, $newfilename)
     return $newfilename;
 }
 
-## loadpicproduct ##
+function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false) {
 
-function loadpicproduct($name, $masterkey, $type = "real")
-{
-    global $path_upload, $path_template, $templateweb;
-    if (!empty($name)) {
-        if (file_exists($path_upload . "/" . $masterkey . "/" . $type . "/" . $name)) {
-            return str_replace(_DIR . "/", _URL, $path_upload . "/" . $masterkey . "/" . $type . "/" . $name);
-        } else {
-            return $path_template[$templateweb][0] . "/public/image/icon/none-img.png";
-        }
-    } else {
-        return $path_template[$templateweb][0] . "/public/image/icon/none-img.png";
-    }
-}
-
-function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false)
-{
     global $path_upload, $path_upload_url, $path_template, $templateweb, $core_pathname_upload, $detectDivice;
-
-    //     if ($detectDivice->isMobile()) {
-    //         if ($fileType == "real") {
-    //             $fileType = "pictures";
-    //         }
-
-    // //        if ($fileType == "album") {
-    // //            $fileType = "album/reB_";
-    // //        }
-    //     }
 
     if ($for == 'linkthumb') {
         $fileType = "album";
         $filename = "reO_" . $filename;
     }
 
-    //print_pre($detectDivice);
     if (!empty($fileType)) {
         $checkFile = $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
     } else {
@@ -972,44 +499,32 @@ function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $fo
     if (!empty($cropthumb)) {
         $checkFileCropThumb = $path_upload . "/" . $mod_tb_about_masterkey . "/cropthumb/" . $filename;
     }
-    //   print_pre(file_exists($checkFile));
 
     if (file_exists($checkFile) && $filename) {
         $setFoldet = $path_upload_url;
         $setimg = str_replace($path_upload, "", $checkFile);
 
-        if (!empty($crop)) {
-            if (file_exists($checkFileCrop)) {
-                $setimg = str_replace($path_upload, "", $checkFileCrop);
-            }
+        if (!empty($crop) && file_exists($checkFileCrop)) {
+            $setimg = str_replace($path_upload, "", $checkFileCrop);
         }
-
-        if (!empty($cropthumb)) {
-            if (file_exists($checkFileCropThumb)) {
-                // print_pre("have");
-                $setimg = str_replace($path_upload, "", $checkFileCropThumb);
-            }
+        
+        if (!empty($cropthumb) && file_exists($checkFileCropThumb)) {
+            $setimg = str_replace($path_upload, "", $checkFileCropThumb);
         }
+        
     } else {
         $setFoldet = _URL . $path_template[$templateweb][0];
-        // $setimg = "/public/image/upload/s3.png";
-        if ($mod_tb_about_masterkey == 'cu') {
-            $setimg = "/public/image/asset/default_boss.png";
-        } else {
-            $setimg = "/nopic.jpg";
-        }
+        $setimg = "/assets/img/static/brand.png";
     }
 
     switch ($for) {
         case 'linkthumb':
         case 'link':
-            // $pathFile = _URL . $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
             $pathFile = $setFoldet . $setimg;
             break;
 
         case 'download':
             $fileLoad = encodeStr($path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename);
-            //$fileLoad = $core_pathname_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
             $pathFile = "?file=" . $fileLoad;
             break;
         case 'vdo':
@@ -1020,171 +535,6 @@ function fileinclude($filename, $fileType = 'html', $mod_tb_about_masterkey, $fo
             $pathFile = $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
             break;
     }
-
-
-    return $pathFile;
-}
-
-function img_cover($filename, $fileType = 'html', $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false)
-{
-    global $path_upload, $path_upload_url, $path_template, $templateweb, $core_pathname_upload, $detectDivice;
-
-    //     if ($detectDivice->isMobile()) {
-    //         if ($fileType == "real") {
-    //             $fileType = "pictures";
-    //         }
-
-    // //        if ($fileType == "album") {
-    // //            $fileType = "album/reB_";
-    // //        }
-    //     }
-
-    if ($for == 'linkthumb') {
-        $fileType = "album";
-        $filename = "reO_" . $filename;
-    }
-
-    //print_pre($detectDivice);
-    if (!empty($fileType)) {
-        $checkFile = $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-    } else {
-        $checkFile = $path_upload . "/" . $mod_tb_about_masterkey . "/" . $filename;
-    }
-    $path_url_vdo = _URL . 'upload/';
-    $checkFileCrop = $path_upload . "/" . $mod_tb_about_masterkey . "/crop/" . $filename;
-
-    if (!empty($cropthumb)) {
-        $checkFileCropThumb = $path_upload . "/" . $mod_tb_about_masterkey . "/cropthumb/" . $filename;
-    }
-    // print_pre($checkFile);
-    //   print_pre(file_exists($checkFile));
-
-    if (file_exists($checkFile) && $filename) {
-        $setFoldet = $path_upload_url;
-        $setimg = str_replace($path_upload, "", $checkFile);
-
-        if (!empty($crop)) {
-            if (file_exists($checkFileCrop)) {
-                $setimg = str_replace($path_upload, "", $checkFileCrop);
-            }
-        }
-
-        if (!empty($cropthumb)) {
-            if (file_exists($checkFileCropThumb)) {
-                // print_pre("have");
-                $setimg = str_replace($path_upload, "", $checkFileCropThumb);
-            }
-        }
-    } else {
-        $setFoldet = _URL . $path_template[$templateweb][0];
-        $setimg = "/assets/img/upload/cover.jpg";
-    }
-
-
-    switch ($for) {
-        case 'linkthumb':
-        case 'link':
-            // $pathFile = _URL . $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            $pathFile = $setFoldet . $setimg;
-            break;
-
-        case 'download':
-            $fileLoad = encodeStr($path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename);
-            //$fileLoad = $core_pathname_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            $pathFile = "?file=" . $fileLoad;
-            break;
-        case 'vdo':
-            $pathFile = $path_url_vdo . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            break;
-
-        default:
-            $pathFile = $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            break;
-    }
-
-
-    return $pathFile;
-}
-
-function fileinclude_m($filename, $fileType = 'html', $mod_tb_about_masterkey, $for = 'check', $crop = false, $cropthumb = false)
-{
-    global $path_upload, $path_upload_url, $path_template, $templateweb, $core_pathname_upload, $detectDivice;
-
-    if ($detectDivice->isMobile()) {
-        if ($fileType == "real") {
-            $fileType = "pictures";
-        }
-
-        //        if ($fileType == "album") {
-        //            $fileType = "album/reB_";
-        //        }
-    }
-
-    if ($for == 'linkthumb') {
-        $fileType = "album";
-        $filename = "reO_" . $filename;
-    }
-
-    //print_pre($detectDivice);
-    $checkFile = $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-    $path_url_vdo = _URL . 'upload/';
-    $checkFileCrop = $path_upload . "/" . $mod_tb_about_masterkey . "/crop/" . $filename;
-
-    if (!empty($cropthumb)) {
-        $checkFileCropThumb = $path_upload . "/" . $mod_tb_about_masterkey . "/cropthumb/" . $filename;
-    }
-    // print_pre($checkFile);
-    //   print_pre(file_exists($checkFile));
-
-    if (file_exists($checkFile) && $filename) {
-        $setFoldet = $path_upload_url;
-        $setimg = str_replace($path_upload, "", $checkFile);
-
-        if (!empty($crop)) {
-            if (file_exists($checkFileCrop)) {
-                $setimg = str_replace($path_upload, "", $checkFileCrop);
-            }
-        }
-
-        if (!empty($cropthumb)) {
-            if (file_exists($checkFileCropThumb)) {
-                // print_pre("have");
-                $setimg = str_replace($path_upload, "", $checkFileCropThumb);
-            }
-        }
-    } else {
-        $setFoldet = _URL . $path_template[$templateweb][0];
-        // $setimg = "/public/image/upload/s3.png";
-        if ($mod_tb_about_masterkey == 'cu') {
-            $setimg = "/public/image/asset/default_boss.png";
-        } else {
-            $setimg = "/public/image/upload/admin.jpg";
-        }
-    }
-
-
-    switch ($for) {
-        case 'linkthumb':
-        case 'link':
-            // $pathFile = _URL . $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            $pathFile = $setFoldet . $setimg;
-            break;
-
-        case 'download':
-            $fileLoad = encodeStr($path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename);
-            //$fileLoad = $core_pathname_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            $pathFile = "?file=" . $fileLoad;
-            break;
-        case 'vdo':
-            $pathFile = $path_url_vdo . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            break;
-
-        default:
-            $pathFile = $path_upload . "/" . $mod_tb_about_masterkey . "/" . $fileType . "/" . $filename;
-            break;
-    }
-
-
     return $pathFile;
 }
 
@@ -1202,120 +552,60 @@ function callhtml($valhtml)
 
 function txtReplaceHTML($data)
 {
-    ####################################################
-    $dataHTML = str_replace("\\", "", $data);
-    return $dataHTML;
-}
-
-## texttolink ##
-
-function texttolink($txt)
-{
-    $txt = trim($txt);
-    $txt = str_replace(" ", "-", $txt);
-    return $txt;
-}
-
-## gennerateencode to include image ##
-
-function gennerateencode($namefile, $masterkey, $folder, $crop = false)
-{
-    return _URL . "file?p=" . encodeStr($namefile . "," . $masterkey . "," . $folder . "," . $crop) . "&d=" . date('YmdH');
-}
-
-## clear method ##
-
-function clearmethod()
-{
-    if (empty($_SESSION['sessionMetod'])) {
-        $_SESSION['sessionMetod'] = true;
-        header("Location:" . $_SERVER['REQUEST_URI']);
-    } else {
-        $_SESSION['sessionMetod'] = false;
-    }
-}
-
-## goto 404 ##
-
-function page404()
-{
-    global $linklang;
-    header("Location:" . $linklang . "/404");
-}
-
-function checkDiscount($price, $discount, $type = null)
-{
-    switch ($type) {
-        default:
-            if ($discount >= 1) {
-                return ((($price - $discount) / $price) * 100);
-            } else {
-                return 0;
-            }
-            break;
-    }
-}
-
-function embetyoutube($link)
-{
-    ####################################
-    return str_replace("watch?v=", "embed/", $link);
+    return str_replace("\\", "", $data);
 }
 
 ####################################################
 
-function get_IconSize($LinkRelativePath)
+function getIconSize($linkRelativePath)
 {
     ####################################################
-    $filesize = @filesize($LinkRelativePath);
+    $filesize = @filesize($linkRelativePath);
     if ($filesize < 10485) {
         $sizeFile = number_format($filesize / 1024, 2) . " Kb";
     } else {
         $sizeFile = number_format($filesize / (1024 * 1024), 2) . " Mb";
     }
-    return ($sizeFile);
+    return $sizeFile;
 }
-
 ####################################################
 
-function get_Icon($DownloadFile, $type = "")
+function getIcon($downloadFile, $type = "")
 {
     ####################################################
 
-    $ImageType = strrchr($DownloadFile, '.');
+    $imageType = strrchr($downloadFile, '.');
 
-    // print_pre($ImageType);
-
-    if (($ImageType == ".jpg") || ($ImageType == ".png") || ($ImageType == ".gif") || ($ImageType == ".bmp")) {
+    if (($imageType == ".jpg") || ($imageType == ".png") || ($imageType == ".gif") || ($imageType == ".bmp")) {
         $tocss = "picture";
-        $TypeImgFile = "file-picture-o";
-    } elseif ($ImageType == ".pdf") {
+        $typeImgFile = "file-picture-o";
+    } elseif ($imageType == ".pdf") {
         $tocss = "pdf";
-        $TypeImgFile = "file-pdf-o";
-    } elseif ($ImageType == ".txt") {
+        $typeImgFile = "file-pdf-o";
+    } elseif ($imageType == ".txt") {
         $tocss = "txt";
-        $TypeImgFile = "file-text-o";
-    } elseif (($ImageType == ".zip") || ($ImageType == ".rar")) {
+        $typeImgFile = "file-text-o";
+    } elseif (($imageType == ".zip") || ($imageType == ".rar")) {
         $tocss = "achive";
-        $TypeImgFile = "file-zip-o";
-    } elseif ($ImageType == ".xls" || $ImageType == ".xlsx") {
+        $typeImgFile = "file-zip-o";
+    } elseif ($imageType == ".xls" || $imageType == ".xlsx") {
         $tocss = "xls";
-        $TypeImgFile = "file-excel-o";
-    } elseif ($ImageType == ".ppt" || $ImageType == ".pptx") {
+        $typeImgFile = "file-excel-o";
+    } elseif ($imageType == ".ppt" || $imageType == ".pptx") {
         $tocss = "ppt";
-        $TypeImgFile = "file-powerpoint-o";
-    } elseif ($ImageType == ".rtf" || $ImageType == ".doc" || $ImageType == ".docx") {
+        $typeImgFile = "file-powerpoint-o";
+    } elseif ($imageType == ".rtf" || $imageType == ".doc" || $imageType == ".docx") {
         $tocss = "doc";
-        $TypeImgFile = "file-word-o";
+        $typeImgFile = "file-word-o";
     } else {
         $tocss = "other";
-        $TypeImgFile = "file-o";
+        $typeImgFile = "file-o";
     }
 
 
     $fileCheck = array(
-        "icon" => $TypeImgFile,
-        "type" => $ImageType,
+        "icon" => $typeImgFile,
+        "type" => $imageType,
         "tocss" => $tocss
     );
     if (!empty($type)) {
@@ -1325,689 +615,129 @@ function get_Icon($DownloadFile, $type = "")
     }
 }
 
-# log web ######################################################################
-
-function logs($action, $actionType, $ccheck = true)
+// FN loadSendEmailTo //
+function loadSendEmailTo($mailTo, $subjectMail = null, $messageMail = null)
 {
+    global $array_mailer;
+    require_once './front/libs/PHPMailer/src/Exception.php';
+    require_once './front/libs/PHPMailer/src/PHPMailer.php';
+    require_once './front/libs/PHPMailer/src/SMTP.php';
 
+    $mailTo = trim($mailTo);
 
-    // global $core_tb_user_counter;
-    //$sqlLog = "INSERT INTO " . $core_tb_log . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
-    //$logResult = $db->execute($sqlLog);
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    $mail->CharSet = "utf-8";
+    // $mail->SMTPDebug = 2; // Enable verbose debug output
+    $mail->IsSMTP(); // Set mailer to use SMTP
+    $mail->SMTPOptions = array('ssl' => array('verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true));
+    // die('test');
+    $mail->IsHTML(true);
+    $mail->SMTPAuth = true; // enable SMTP authentication
+    $mail->SMTPSecure = "tls"; // sets the prefix to the servier
+    $mail->Host = $array_mailer['host']; // sets GMAIL as the SMTP server
+    $mail->Port = $array_mailer['post']; // set the SMTP port for the GMAIL server
+    $mail->Username = $array_mailer['username']; // GMAIL username
+    $mail->Password = $array_mailer['password']; // GMAIL password
+    $mail->From = $array_mailer['from']; // "name@yourdomain.com";
+    $mail->FromName = "กรมวิทยาศาสตร์การแพทย์";  // set from Name
+    $mail->Subject = $subjectMail;
+    $mail->Body = $messageMail;
 
-
-    if (!empty($_SESSION['front_session_ssid'])) {
-        $typeUserAction = 1;
-        $sessionOnlogs_ssid = $_SESSION["front_session_ssid"];
-        $sessionOnlogs_name = $_SESSION["front_session_name"];
+    $mail->AddAddress($mailTo); // to Address
+    if (!$mail->Send()) {
+        $valSendMailStatus = 0;
     } else {
-        $typeUserAction = 0;
-        $sessionOnlogs_ssid = null;
-        $sessionOnlogs_name = null;
+        $valSendMailStatus = 1;
     }
 
-
-    if (!empty($_COOKIE["log-" . $actionType . "-" . $action . "-" . $typeUserAction]) && !empty($ccheck)) {
-    } else {
-        global $core_tb_log, $db, $cookie_log, $setcookie, $core_pathname_logs;
-
-        $myDateNow = date("Y-m-d");
-        $myTimeNow = date("H:i:s");
-        $ipOnligs = getIP();
-
-        #save log file  start
-        $CurrentPath = _DIR . $core_pathname_logs . "";
-
-        if (strpos($action, "view") !== false) {
-            $dirLog = "view";
-        } else {
-            $dirLog = $actionType;
-        }
-
-        if (!is_dir($CurrentPath)) {
-            mkdir($CurrentPath, 0777);
-        }
-
-        if (!is_dir($CurrentPath . "/front")) {
-            mkdir($CurrentPath . "/front", 0777);
-        }
-
-        if (!is_dir($CurrentPath . "/front/" . $dirLog)) {
-            mkdir($CurrentPath . "/front/" . $dirLog, 0777);
-        }
-
-        $logsfile = $CurrentPath . "/front/" . $dirLog . "/" . $myDateNow . ".logs";
-
-        if (!is_file($logsfile)) {
-            $fp = @fopen($logsfile, 'w+');
-            fwrite($fp, $action . "|:|" . session_id() . "|:|" . $actionType . "|:|" . $sessionOnlogs_ssid . "|:|" . $sessionOnlogs_name . "|:|" . $ipOnligs . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
-            fclose($fp);
-            chmod($logsfile, 0666);
-        } else {
-            $fp = @fopen($logsfile, 'a');
-            fwrite($fp, $action . "|:|" . session_id() . "|:|front-" . $actionType . "|:|" . $sessionOnlogs_ssid . "|:|" . $sessionOnlogs_name . "|:|" . $ipOnligs . "|:|" . $myDateNow . " " . $myTimeNow . "\n");
-            fclose($fp);
-        }
-        #save log file  end
-
-        $insert[$core_tb_log . "_action"] = "'" . $action . "'";
-        $insert[$core_tb_log . "_sessid"] = "'" . session_id() . "'";
-
-        if (!empty($sessionOnlogs_ssid)) {
-            $insert[$core_tb_log . "_sid"] = "'" . $sessionOnlogs_ssid . "'";
-            $insert[$core_tb_log . "_sname"] = "'" . $sessionOnlogs_name . "'";
-        }
-
-        $insert[$core_tb_log . "_ip"] = "'" . $ipOnligs . "'";
-        $insert[$core_tb_log . "_time"] = "'" . date("Y-m-d H:i:s") . "'";
-        $insert[$core_tb_log . "_type"] = "'front-" . $actionType . "'";
-        $insert[$core_tb_log . "_actiontype"] = "'" . $typeUserAction . "'";
-        $insert[$core_tb_log . "_url"] = "'" . _FullUrl . "'";
-        //        print_pre($insert);
-
-        $sqlLog = "INSERT INTO " . $core_tb_log . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
-        $logResult = $db->execute($sqlLog);
-
-
-        if (!empty($logResult)) {
-            setcookie("log-" . $actionType . "-" . $action . "-" . $typeUserAction, $setcookie, time() + (60 * $cookie_log), _FullUrl);
-        }
-    }
+    return $valSendMailStatus;
 }
-
-function checkOnline()
-{
-    global $config, $db, $memberID, $member;
-    // print_pre($member);
-    //print_pre($memberID['member_info']);
-    $memberLogin = method_exists($member, 'login_status') ? $member->login_status() : 0;
-
-    $listlogin[$config['member']['db'] . '_online'] = null;
-    $serWere = "DATE_ADD(" . $config['member']['db'] . '_online' . ", INTERVAL 5 MINUTE) <= NOW()";
-    $updatelogin = sqlupdate($listlogin, $config['member']['db'], $serWere);
-    //print_pre($updatelogin);
-    if (!empty($memberID['member_info']['id']) && !empty($memberLogin)) {
-        $listloginUpdate[$config['member']['db'] . '_online'] = date("Y-m-d H:i:s");
-
-
-        $serWereMem = $config['member']['db'] . "_id = " . $memberID['member_info']['id'];
-        $serWereMem .= " and ( DATE_ADD(" . $config['member']['db'] . '_online' . ", INTERVAL 5 MINUTE) >= NOW() or " . $config['member']['db'] . "_online is null )";
-        //and ( DATE_ADD(md_mem_online, INTERVAL 5 MINUTE) >= NOW() or md_mem_online is null)
-        $updateloginUpdate = sqlupdate($listloginUpdate, $config['member']['db'], $serWereMem);
-    }
-
-    // print_pre($updateloginUpdate);
-}
-
-/* =Function
-  -------------------------------------------------------------- */
-
-function generate_date_today($Timestamp, $Language = "en", $TimeText = true)
-{
-    global $SuffixTime, $DateThai;
-    $Format = "d M Y H:i";
-    // $Timestamp = time();
-    //return date("i:H d-m-Y", $Timestamp) ." | ". date("i:H d-m-Y", time());
-    if (date("Ymd", $Timestamp) >= date("Ymd", (time() - 345600)) && $TimeText) {    // Less than 3 days.
-        $TimeStampAgo = (time() - $Timestamp);
-
-        if (($TimeStampAgo < 86400)) {   // Less than 1 day.
-            $TimeDay = "time";    // Use array time
-
-            if ($TimeStampAgo < 60) {    // Less than 1 minute.
-                $Return = (time() - $Timestamp);
-                $Values = "Seconds";
-            } else if ($TimeStampAgo < 3600) {   // Less than 1 hour.
-                $Return = floor((time() - $Timestamp) / 60);
-                $Values = "Minutes";
-            } else {   // Less than 1 day.
-                $Return = floor((time() - $Timestamp) / 3600);
-                $Values = "Hours";
-            }
-        } else if ($TimeStampAgo < 172800) {   // Less than 2 day.
-            $Return = date("H:i", $Timestamp);
-            $TimeDay = "day";
-            $Values = "Yesterday";
-        } else {  // More than 2 hours..
-            $Return = date("H:i", $Timestamp);
-            $TimeDay = "day";
-            $Values = date("l", $Timestamp);
-        }
-
-        if ($TimeDay == "time")
-            $Return .= $SuffixTime[$Language][$TimeDay][$Values];
-        else if ($TimeDay == "day")
-            $Return = $SuffixTime[$Language][$TimeDay][$Values] . $Return;
-
-        return $Return;
-    } else {
-        if ($Language == "en") {
-            return date($Format, $Timestamp);
-        } else if ($Language == "th") {
-            $Format = str_replace("l", "|1|", $Format);
-            $Format = str_replace("D", "|2|", $Format);
-            $Format = str_replace("F", "|3|", $Format);
-            $Format = str_replace("M", "|4|", $Format);
-            $Format = str_replace("y", "|x|", $Format);
-            $Format = str_replace("Y", "|X|", $Format);
-
-            $DateCache = date($Format, $Timestamp);
-
-            $AR1 = array("", "l", "D", "F", "M");
-            $AR2 = array("", "l", "l", "F", "F");
-
-            for ($i = 1; $i <= 4; $i++) {
-                if (strstr($DateCache, "|" . $i . "|")) {
-                    //$Return .= $i;
-                    $StrCache = "";
-                    $split = explode("|" . $i . "|", $DateCache);
-                    for ($j = 0; $j < count($split) - 1; $j++) {
-                        $StrCache .= $split[$j];
-                        $StrCache .= $DateThai[$AR1[$i]][date($AR2[$i], $Timestamp)];
-                    }
-                    $StrCache .= $split[count($split) - 1];
-                    $DateCache = $StrCache;
-                    $StrCache = "";
-                    empty($split);
-                }
-            }
-
-            if (strstr($DateCache, "|x|")) {
-
-                $split = explode("|x|", $DateCache);
-
-                for ($i = 0; $i < count($split) - 1; $i++) {
-                    $StrCache .= $split[$i];
-                    $StrCache .= substr((date("Y", $Timestamp) + 543), -2);
-                }
-                $StrCache .= $split[count($split) - 1];
-                $DateCache = $StrCache;
-                $StrCache = "";
-                empty($split);
-            }
-
-            if (strstr($DateCache, "|X|")) {
-
-                $split = explode("|X|", $DateCache);
-
-                for ($i = 0; $i < count($split) - 1; $i++) {
-                    $StrCache .= $split[$i];
-                    $StrCache .= (date("Y", $Timestamp) + 543);
-                }
-                $StrCache .= $split[count($split) - 1];
-                $DateCache = $StrCache;
-                $StrCache = "";
-                empty($split);
-            }
-
-            $Return = $DateCache;
-
-            return $Return;
-        }
-    }
-}
-
-function callFileCareer($id, $type = 1)
-{
-    global $db, $config, $url;
-    $lang = $url->pagelang[4];
-    $sql = "SELECT
-  *,
-  '" . $config['career-file']['db'] . "' as td
-  FROM
-  " . $config['career-file']['db'] . "
-  WHERE
-  " . $config['career-file']['db'] . "." . $config['career-file']['db'] . "_contantid = $id and
-  " . $config['career-file']['db'] . "." . $config['career-file']['db'] . "_language = '$lang'
-  ";
-    $result = $db->execute($sql);
-    if ($type == 1) {
-        return $result;
-    } else {
-        return $result->_numOfRows;
-    }
-}
-
-function multiexplode($delimiters, $string)
-{
-
-    $ready = str_replace($delimiters, $delimiters[0], $string);
-    $launch = explode($delimiters[0], $ready);
-    return $launch;
-}
-
-/* =Function
-  -------------------------------------------------------------- */
-
-
-/* ############################################### */
-
-function loadSendEmailTo($mailTo, $mailFrom = null, $subjectMail = null, $messageMail = null, $typeMail = 1, $pdfFile = null)
-{
-}
-
-
 
 
 ///  FORMAT FORM NUM VALUE /////
-function formatreplace($value)
+function addZero($value)
 {
-    $valuelen = strlen($value);
-    switch ($valuelen) {
-        case 16:
-            return preg_replace("/(\d{4})(\d{4})(\d{4})(\d{4})/", "**** **** **** $4", $value);
-            break;
-        case 13:
-            return preg_replace("/(\d{1})(\d{4})(\d{5})(\d{2})(\d{1})/", "$1-$2-$3-$4-$5", $value);
-            break;
-        case 10:
-            return preg_replace("/(\d{3})(\d{3})(\d{4})/", "$1-$2-$3", $value);
-            break;
-        case 9:
-            return preg_replace("/(\d{2})(\d{3})(\d{4})/", "$1-$2-$3", $value);
-            break;
-        default:
-    }
-}
-
-///  FORMAT FORM NUM VALUE /////
-function addzero($value)
-{
-    $valuelen = strlen($value);
-    switch ($valuelen) {
-        case 1:
-            return '000000' . $value;
-            break;
-        case 2:
-            return '00000' . $value;
-            break;
-        case 3:
-            return '0000' . $value;
-            break;
-        case 4:
-            return '000' . $value;
-            break;
-        case 5:
-            return '00' . $value;
-            break;
-        case 6:
-            return '0' . $value;
-            break;
-        case 7:
-            return $value;
-            break;
-        default:
-            return $value;
-            break;
-    }
-}
-//////////////////////HOW TO USE CURRENCY CONVERTER///////////////////////
-// $ratechage = $_GET['bath'];
-
-// $rateshow = exchangerate("THB", "JPY", $ratechage);
-
-// echo "<pre>";
-// print_r(number_format($rateshow,2));
-// echo "</pre>";
-
-function exchangerateperday($from, $tocurent, $rate)
-{
-    $bath = $rate;
-    $homepage = file_get_contents('https://coinmill.com/THB_calculator.html#THB=' . $bath);
-
-    preg_match_all("/currency_data\=\'(.*)\'/i", $homepage, $matches);
-
-    $listCountry = explode("|", $matches['1']['0']);
-
-    $listCurency = array();
-    foreach ($listCountry as $createList) {
-        $explord = explode(",", $createList);
-        $listCurency[$explord[0]]['rate'] = $explord[1];
-        $listCurency[$explord[0]]['ex'] = $explord[2];
-    }
-    $cal = ($listCurency[$from]['rate'] / $listCurency[$tocurent]['rate']) * $bath;
-    return $cal;
-}
-
-
-function exchangeraterealtime($from, $tocurent, $rate)
-{
-    $bath = $rate;
-    $homepage = file_get_contents('https://th.exchange-rates.org/converter/' . $from . '/' . $tocurent . '/' . $bath);
-    preg_match("/\<span id\=\"ctl00_M_lblToAmount\"\>([\d.]+?)\<\/span\>/", $homepage, $matches);
-    return $matches['1'];
-}
-
-function calestimate($value, $type)
-{
-    switch ($type) {
-
-        case 1:
-            if ($value <= 5000) {
-                $price = 250;
-            } else {
-                $price = $value * 5 / 100;
-            }
-            break;
-
-        case 2:
-            if ($value <= 5000) {
-                $price = $value + 250;
-            } else {
-                $price = ($value * 5 / 100) + $value;
-            }
-            break;
-
-        default:
-            if ($value <= 5000) {
-                $price = 250;
-            } else {
-                $price = $value * 5 / 100;
-            };
-    }
-
-    return $price;
-}
-
-function callFaq($masterkey, $status)
-{
-    global $config, $db, $url;
-    $lang = $url->pagelang[3];
-    $sql = "SELECT
-" . $config['faq']['db'] . "." . $config['faq']['db'] . "_id,
-" . $config['faq']['db'] . "." . $config['faq']['db'] . "_masterkey,
-" . $config['faq']['db'] . "." . $config['faq']['db'] . "_htmlfilename$lang,
-" . $config['faq']['db'] . "." . $config['faq']['db'] . "_crebyid,
-" . $config['faq']['db'] . "." . $config['faq']['db'] . "_subject$lang,
-" . $config['faq']['db'] . "." . $config['faq']['db'] . "_question$lang
-
-FROM
-" . $config['faq']['db'] . "
-WHERE
-" . $config['faq']['db'] . "." . $config['faq']['db'] . "_masterkey = '$masterkey' AND
-((" . $config['faq']['db'] . "." . $config['faq']['db'] . "_sdate='0000-00-00 00:00:00' AND
-     " . $config['faq']['db'] . "." . $config['faq']['db'] . "_edate='0000-00-00 00:00:00')   OR
-     (" . $config['faq']['db'] . "." . $config['faq']['db'] . "_sdate='0000-00-00 00:00:00' AND
-     TO_DAYS(" . $config['faq']['db'] . "." . $config['faq']['db'] . "_edate)>=TO_DAYS(NOW()) ) OR
-     (TO_DAYS(" . $config['faq']['db'] . "." . $config['faq']['db'] . "_sdate)<=TO_DAYS(NOW()) AND
-     " . $config['faq']['db'] . "." . $config['faq']['db'] . "_edate='0000-00-00 00:00:00' )  OR
-     (TO_DAYS(" . $config['faq']['db'] . "." . $config['faq']['db'] . "_sdate)<=TO_DAYS(NOW()) AND
-     TO_DAYS(" . $config['faq']['db'] . "." . $config['faq']['db'] . "_edate)>=TO_DAYS(NOW())  ))
-
-
-
-";
-    if (!empty($status)) {
-        $sql .= "and " . $config['faq']['db'] . "." . $config['faq']['db'] . "_status != 'Disable' ";
+    $valueLen = strlen($value);
+    $paddingLength = 7 - $valueLen;
+    if ($paddingLength > 0 && $paddingLength <= 6) {
+        return str_repeat('0', $paddingLength) . $value;
     } else {
-        $sql .= "and " . $config['faq']['db'] . "." . $config['faq']['db'] . "_status = 'Enable' ";
-    }
-    $sql .= "ORDER BY " . $config['faq']['db'] . "." . $config['faq']['db'] . "_order DESC ";
-    $result = $db->execute($sql);
-    return $result;
-}
-
-function callFaqFile($id)
-{
-    global $config, $db, $url;
-    $lang = $url->pagelang[4];
-    $sql = "SELECT
-   *,
-   '" . $config['faq-file']['db'] . "' as td
- FROM
-   " . $config['faq-file']['db'] . "
- WHERE
-   " . $config['faq-file']['db'] . "." . $config['faq-file']['db'] . "_contantid = $id and
-   " . $config['faq-file']['db'] . "." . $config['faq-file']['db'] . "_language = '$lang'
-   ";
-    $result = $db->execute($sql);
-    // print_pre($sql);
-    return $result;
-}
-
-function round_up($value, $decimal_places = 0)
-{
-    if ($decimal_places < 0) {
-        $decimal_places = 0;
-    }
-    $mult = pow(10, $decimal_places);
-    return ceil($value * $mult) / $mult;
-}
-
-function callBDay($date, $month = null, $year = null, $type = "shot", $fun = null, $lang = null)
-{
-    global $db, $config, $url, $strMonthCut;
-    $lang = $url->pagelang[2];
-
-    if ($fun == 1) {
-        $strMonth = $strMonthCut[$type][$lang][$month];
-        return $strMonth;
-    } elseif ($fun == 2) {
-        if ($lang == "th") {
-            $strYear = $year;
-        } elseif ($lang == "en") {
-            $strYear = $year;
-        }
-        return $strYear;
-    } else {
-        $strMonth = $strMonthCut[$type][$lang][$month];
-        if ($lang == "th" && !empty($year)) {
-            $strYear = $year;
-        } elseif ($lang == "en" && !empty($year)) {
-            $strYear = $year;
-        }
-
-        $BD = $date . ' ' . $strMonth . ' ' . $strYear;
-        return $BD;
+        return $value;
     }
 }
 
-
-function checkLink($varlink = "#")
-{
-    if ($varlink == '#' || $varlink == '') {
-        $link = 'javascript:void(0)';
-    } else {
-        $link = $varlink;
-    }
-    return $link;
-}
-
-function checkTarget($vartarget = 1, $varlink = "#")
-{
-    if ($varlink != '#' && $varlink != '') {
-        if ($vartarget == 1) {
-            $target = "_self";
-        } else {
-            $target = "_blank";
-        }
-    } else {
-        $target = "_self";
-    }
-    return $target;
-}
-
-
-function checkUrlShap($url, $type, $link)
-{
-
-
-
-    if (!empty($type) && ($type == 2)) {
-        if ($link == "#") {
-            $urlReturn = "#";
-        } else {
-            $urlReturn = $url;
-        }
-    } else {
-        $urlReturn = $url;
-    }
-
-    return $urlReturn;
-}
-
-
-function checkUrlSiteMap($url, $type, $link)
-{
-    // print_pre($url .' - '. $type);
-    if (!empty($type) && ($type == 2)) {
-        if ($link == "#") {
-            $urlReturn = "javascript:void(0);";
-        } else {
-            $urlReturn = $link;
-        }
-    } else {
-        $urlReturn = $url;
-    }
-    // print_pre($urlReturn);
-    return $urlReturn;
-}
-
-
-function checkMenuActive($munu, $menuActive)
-{
-    if ($munu == $menuActive) {
-        return 'class="active"';
-    }
-}
-
-
-
-############################################
-function repair_content($Content)
-{
-    ############################################
-    global $config, $db, $url;
-    $sql_ob = "SELECT 
-        " . $config['webboard']['obsence'] . "_word,
-        " . $config['webboard']['obsence'] . "_replace 
-        FROM " . $config['webboard']['obsence'] . " 
-        WHERE  " . $config['webboard']['obsence'] . "_status 	='Enable' ";
-    //     $query_ob=mysql_query($sql_ob) ;
-    $query_ob = $db->execute($sql_ob);
-
-    // $RecordCount=mysql_num_rows($query_ob);
-    if ($query_ob->_numOfRows > 0) {
-
-        foreach ($query_ob as $row_ob) {
-            $Content = str_replace($row_ob[$config['webboard']['obsence'] . "_word"], $row_ob[$config['webboard']['obsence'] . "_replace"], $Content);
-            // $index++;
-        }
-    }
-    return $Content;
-}
-
-
-function checkText($text1, $text2 = null)
-{
-    $text_re = $text1;
-    if (empty($text1)) {
-        $text_re = $text2;
-    }
-    return $text_re;
-}
-
-
-function changeDatePramool($date = null)
-{
-    $d = explode('/', $date);
-    return ($d[2] - 543) . '-' . $d[1] . '-' . $d[0] . ' 00:00:00';
-}
-
-function sDatePramool($date = null, $hour = '00', $minute = '00')
-{
-    $d = explode('/', $date);
-    return ($d[2] - 543) . '-' . $d[1] . '-' . $d[0] . ' ' . $hour . ':' . $minute . ':00';
-}
-
-function randomNameUpdate($valType)
-{
-    if ($valType == 1) {
-        $valRandomName = date('Ydm') . "" . time() . rand(111, 999);
-    } else {
-        $valRandomName = time() . rand(111, 999);
-    }
-    return $valRandomName;
-}
-
-function callStrCut($pathUploadPicAl = null, $row_filetemp = null)
-{
-    $result = $pathUploadPicAl . "/" . $row_filetemp;
-    return $result;
-}
 
 ############################################
 function getDateNow()
 {
-    ############################################
     $today = getdate();
-    $Day = $today['mday'];
-    $Month = $today['mon'];
-    $Year = $today['year'];
-    $DateIs = sprintf("%04d-%02d-%02d", $Year, $Month, $Day);
-    return ($DateIs);
+    $day = $today['mday'];
+    $month = $today['mon'];
+    $year = $today['year'];
+    return sprintf("%04d-%02d-%02d", $year, $month, $day);
 }
 
+
 //#################################################
-function getEndDayOfMonth($myDate)
+function getEnddayOfMonth($myDate)
 {
-    //#################################################
     $myEndOfMonth = array(0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-    $myDateArray = explode("-", $myDate);
-    $myMonth = $myDateArray[1] * 1;
-    $myYear = $myDateArray[0] * 1;
+    $mydataArray = explode("-", $myDate);
+    $myMonth = $mydataArray[1] * 1;
+    $myYear = $mydataArray[0] * 1;
+    $endDay = 0;
     if ($myMonth >= 1 && $myMonth <= 12) {
         if ($myMonth == 2) {
-            //check leap year ---
+            // Check leap year
             if (($myYear % 4) == 0) {
-                return 29;
+                $endDay = 29;
             } else {
-                return 28;
+                $endDay = 28;
             }
         } else {
-            return $myEndOfMonth[$myMonth];
+            $endDay = $myEndOfMonth[$myMonth];
         }
-    } else {
-        return 0;
     }
+    return $endDay;
 }
 
+
 //#################################################
-function DateFormatInsert($DateTime, $timeAgre = null)
+function dateFormatInsert($dateTime, $timeAgre = null)
 {
     //#################################################
     global $url;
-    if ($DateTime == "") {
-        $DateTime = "00-00-0000";
+    if ($dateTime == "") {
+        $dateTime = "00-00-0000";
     }
 
     if (!empty($timeAgre)) {
-        $Time = $timeAgre;
+        $time = $timeAgre;
     } else {
-        $Time = "00:00:00";
+        $time = "00:00:00";
     }
 
-    $DateArr = explode("/", $DateTime);
-    $dataYear = $DateArr[2];
-    if ($DateArr[1] >= 1) {
-        $dataM = $DateArr[1];
+    $dataArr = explode("/", $dateTime);
+    $dataYear = $dataArr[2];
+    if ($dataArr[1] >= 1) {
+        $dataM = $dataArr[1];
     } else {
         $dataM = "00";
     }
 
-    if ($DateArr[0] >= 1) {
-        $dataD = $DateArr[0];
+    if ($dataArr[0] >= 1) {
+        $dataD = $dataArr[0];
     } else {
         $dataD = "00";
     }
 
-    $valReturn = $dataYear . "-" . $dataM . "-" . $dataD . " " . $Time;
-    return $valReturn;
+    return $dataYear . "-" . $dataM . "-" . $dataD . " " . $time;
+
 }
 
-function page_redirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
+function pageRedirect($table = '', $masterkey = '', $id = '', $language = '', $download = '')
 {
-    return encodeStr($table) . "|" . encodeStr($masterkey) . "|" . encodeStr($id) . "|" . encodeStr($language) . "|" . encodeStr($download);
+    return encodeStr($table) . "@" . encodeStr($masterkey) . "@" . encodeStr($id) . "@" . encodeStr($language) . "@" . encodeStr($download);
 }
 
 
@@ -2016,7 +746,7 @@ function chkSyntaxAnd($var)
     return str_replace("&", "And", $var);
 }
 
-function check_url($url){
+function checkUrl($url){
     return ($url != "" && $url != "#") ? true : false;
 }
 
@@ -2033,15 +763,21 @@ function format($num,$length) {
 
 //#################################################
 function formatNum($myNumber) {
-//#################################################
+    //#################################################
     $myNumber = intval($myNumber);
-    if ($myNumber<10) return ("0".$myNumber);
-    else return ($myNumber);
+    if ($myNumber < 10) {
+        return "0" . $myNumber;
+    } else {
+        return $myNumber;
+    }
 }
 
-function header_active($link){
-    global $sitemapWeb, $currentLangWeb;
+
+function headerActive($link){
+    global $sitemapWeb, $currentLangWeb, $url;
     $array_page = array();
+
+    $link = str_replace("?".$url->parametter, "", $link);
     if (!empty($link)) {
         foreach ($sitemapWeb->level_1->$currentLangWeb as $valueSitemapLv1) {
             if (count((array)$valueSitemapLv1->level_2) > 0){
@@ -2068,5 +804,34 @@ function header_active($link){
             }
         }
     }
+
     return $array_page;
+}
+
+function isLinkInLevel($level, $link, &$array_page) {
+    $found = false;
+
+    if (str_contains($level->url, $link)) {
+        $array_page['page'][] = $level->subject;
+        $array_page['header'][] = "menu-" . $level->id;
+        $found = true;
+    } elseif (count((array)$level->level_2) > 0) {
+        foreach ($level->level_2 as $valueLv2) {
+            if (isLinkInLevel($valueLv2, $link, $array_page)) {
+                $found = true;
+                break;
+            }
+        }
+    } elseif (count((array)$level->level_3) > 0) {
+        foreach ($level->level_3 as $valueLv3) {
+            if (str_contains($valueLv3->url, $link)) {
+                $array_page['page'][] = $valueLv3->subject;
+                $array_page['header'][] = "menu-" . $level->id;
+                $found = true;
+                break;
+            }
+        }
+    }
+    
+    return $found;
 }

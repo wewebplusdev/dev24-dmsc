@@ -26,7 +26,7 @@ if ($_REQUEST['execute'] == "insert") {
       $filename = $_POST["valEditID"] . "-" . $_SESSION[$valSiteManage . 'core_session_language'] . "-" . $randomNumber . ".html";
       $HTMLToolContent = str_replace("\\\"", "\"", rechangeText($_POST['inputHtml']));
       $fp = fopen($mod_path_html . "/" . $filename, "w");
-      chmod($mod_path_html . "/" . $filename, 0777);
+      // chmod($mod_path_html . "/" . $filename, 0777);
       fwrite($fp, $HTMLToolContent);
       fclose($fp);
    }
@@ -93,6 +93,7 @@ if ($_REQUEST['execute'] == "insert") {
             $insertLang[$mod_tb_root_lang . "_cid"] = "'" . $contantID1 . "'";
             $insertLang[$mod_tb_root_lang . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
             $insertLang[$mod_tb_root_lang . "_language"] = "'" . $valueLang['key'] . "'";
+            $insertLang[$mod_tb_root_lang . "_typec"] = "'" . changeQuot($_REQUEST['inputTypeC']) . "'";
             $insertLang[$mod_tb_root_lang . "_lastbyid"] = "'" . $_SESSION[$valSiteManage . 'core_session_id'] . "'";
             $insertLang[$mod_tb_root_lang . "_lastby"] = "'" . $_SESSION[$valSiteManage . 'core_session_name'] . "'";
             $insertLang[$mod_tb_root_lang . "_lastdate"] = "NOW()";

@@ -14,6 +14,7 @@ $mod_fd_root = "mod_sitemap";
 ## Setting Value ###################################
 $modTxtTarget = array("", "เปิดหน้าต่างเดิม", "เปิดหน้าต่างใหม่");
 $modStatus = array("Enable", "Disable");
+$modLayout = array("", "Column-1", "Column-3");
 
 ## Size Pic ###################################
 $sizeWidthReal = "1920";

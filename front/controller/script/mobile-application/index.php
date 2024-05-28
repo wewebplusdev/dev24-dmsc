@@ -1,15 +1,22 @@
 <?php
 $menuActive = "mobile-application";
-$listjs[] = '<script type="text/javascript" src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
-$mobileApplicationPage = new mobileApplicationPage;
+$MobileApplicationPage = new MobileApplicationPage;
 
 $masterkey = $url->segment[1];
 switch ($url->segment[0]) {
+    case 'special_case':
+        // Handle special case
+        break;
+        
+    case 'another_case':
+        // Handle another case
+        break;
+
     default:
         if (empty($masterkey) && $masterkey != 'mobile') {
             $masterkey = 'mobile';
-            // header('location:' . $linklang . "/" . $menuActive . "/" . $masterkey);
         }
         $smarty->assign("masterkey", $masterkey);
         
@@ -27,9 +34,9 @@ switch ($url->segment[0]) {
         $limit = 12;
 
         $data_group = [
-            "action" => $mobileApplicationPage->method_module[$menuActive]['action'],
-            "method" => $mobileApplicationPage->method_module[$menuActive]['method_group'],
-            "language" => $mobileApplicationPage->language,
+            "action" => $MobileApplicationPage->medthodModule[$menuActive]['action'],
+            "method" => $MobileApplicationPage->medthodModule[$menuActive]['method_group'],
+            "language" => $MobileApplicationPage->language,
             "order" => 'desc',
             "page" => $page['on'],
             "limit" => $limit,
@@ -37,17 +44,15 @@ switch ($url->segment[0]) {
         ];
         
         // call group
-        $load_group = $mobileApplicationPage->load_data($data_group);
-        // print_pre($data_group);
-        // print_pre($load_group);die;
+        $load_group = $MobileApplicationPage->loadData($data_group);
         if ($load_group->code == 1001 && $load_group->_numOfRows > 0) {
             $smarty->assign("load_group", $load_group);
         }
 
         $data = [
-            "action" => $mobileApplicationPage->method_module[$menuActive]['action'],
-            "method" => $mobileApplicationPage->method_module[$menuActive]['method_list'],
-            "language" => $mobileApplicationPage->language,
+            "action" => $MobileApplicationPage->medthodModule[$menuActive]['action'],
+            "method" => $MobileApplicationPage->medthodModule[$menuActive]['method_list'],
+            "language" => $MobileApplicationPage->language,
             "order" => $req['order'],
             "page" => $page['on'],
             "limit" => $limit,
@@ -57,18 +62,16 @@ switch ($url->segment[0]) {
         ];
 
         // call list
-        $load_data = $mobileApplicationPage->load_data($data);
-        // print_pre($data);
-        // print_pre($load_data);die;
-        $smarty->assign("load_data", $load_data);
+        $loadData = $MobileApplicationPage->loadData($data);
+        $smarty->assign("loadData", $loadData);
 
         // setup seo and text modules
         $language_modules = array();
         // active menu header
-        $header_active = header_active($url->url);
-        if (gettype($header_active) == 'array' && count($header_active) > 0) {
-            $language_modules['breadcrumb2'] = $header_active['page'][0];
-            $language_modules['metatitle'] = $header_active['page'][0];
+        $headerActive = headerActive($url->url);
+        if (is_array($headerActive) && !empty($headerActive)) {
+            $language_modules['breadcrumb2'] = $headerActive['page'][0];
+            $language_modules['metatitle'] = $headerActive['page'][0];
         }
         $smarty->assign("language_modules", $language_modules);
        
@@ -77,11 +80,11 @@ switch ($url->segment[0]) {
         $seo_title = $language_modules['metatitle'];
         $seo_keyword = "";
         $seo_pic = "";
-        $mobileApplicationPage->search_engine($mainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
+        $MobileApplicationPage->searchEngine($MainPage->settingWeb->setting, $seo_title, $seo_desc, $seo_keyword, $seo_pic);
         /*## End SEO #####*/
         
         /*## Set up pagination #####*/
-        $pagination['total'] = $load_data->_maxRecordCount;
+        $pagination['total'] = $loadData->_maxRecordCount;
         $pagination['totalpage'] = ceil(($pagination['total'] / $limit));
         $pagination['limit'] = $limit;
         $pagination['curent'] = $page['on'];

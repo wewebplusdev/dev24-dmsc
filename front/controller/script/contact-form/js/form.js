@@ -2,15 +2,19 @@
     load_recaptch();
 })();
 
+const reload_form = () => {
+    $('#form-contact')[0].reset();
+    $('.-form-contact').show();
+    $('.-form-success').hide();
+}
+
 $('#form-contact').validator().on('submit', function (e) {
     if (e.isDefaultPrevented()) {
         $('#form-contact').validator('validate');
     } else {
         e.preventDefault();
-        console.log('in come');
-
         $("#submit-form").attr("disabled", true);
-        var formData = new FormData($("#form-contact")[0]);
+        let formData = new FormData($("#form-contact")[0]);
         $.ajax({
             url: `${path}${language}/contact-form/insert-global`,
             type: "POST",
@@ -19,10 +23,33 @@ $('#form-contact').validator().on('submit', function (e) {
             contentType: false,
             success: function (res, textStatus, jqXHR) {
                 if (res?.code == 1001) {
-                    alert('insert success');
+                    $('#form-contact')[0].reset();
+                    $('.-form-contact').hide();
+                    $('.-form-success').show();
                 }else{
-                    alert('insert fail');
+                    Swal.fire({
+                        icon: res.icon,
+                        title: res.title,
+                        text: res.text,
+                        timerProgressBar: true,
+                        showConfirmButton: true,
+                        showCancelButton: false,
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                            setInterval(() => {}, 100);
+                        },
+                        willClose: () => {
+                            clearInterval();
+                        },
+                        timer: 3000,
+                    });
+                    load_recaptch();
+                    $('#form-contact')[0].reset();
+                    $('.-form-contact').show();
+                    $('.-form-success').hide();
                 }
+                $("#submit-form").attr("disabled", false);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
@@ -31,15 +58,3 @@ $('#form-contact').validator().on('submit', function (e) {
     }
     return false;
 });
-
-function load_recaptch() {
-    grecaptcha.ready(function() {
-    // do request for recaptcha token
-    // response is promise with passed token
-        grecaptcha.execute($('#g-recaptcha-response').data('secret'), {action:'validate_captcha'})
-                .then(function(token) {
-            // add token value to form
-            document.getElementById('g-recaptcha-response').value = token;
-        });
-    });
-}

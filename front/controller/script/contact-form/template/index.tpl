@@ -23,19 +23,19 @@
             </li>
           </ol>
         </div>
-        <h1 class="title">
+        <h2 class="title">
           {$language_modules.breadcrumb1}
-        </h1>
+        </h2>
         <div class="graphic">
           <div class="obj">
-            <img src="{$template}/assets/img/uploads/obj-banner-about.png" alt="obj-banner-about"
+            <img src="{$template}/assets/img/uploads/inner2.png" alt="obj-banner-about"
               class="lazy img-cover">
           </div>
         </div>
       </div>
     </div>
     <figure class="cover">
-      <img src="{$template}/assets/img/static/banner.jpg" alt="" class="lazy img-cover">
+      <img src="{$template}/assets/img/static/banner.jpg" alt="background-bannner" class="lazy img-cover">
     </figure>
   </div>
 
@@ -65,41 +65,58 @@
                 </div>
               </div>
               <div class="form-body">
-                <div class="form-group">
-                  <label for="topic" class="control-label">{$languageFrontWeb->contact_subject->display->$currentLangWeb}<span>*</span></label>
-                  <input type="text" id="topic" value="" name="topic" placeholder="{$languageFrontWeb->contact_subject->display->$currentLangWeb}" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label for="detail" class="control-label">{$languageFrontWeb->contact_detail->display->$currentLangWeb}<span>*</span></label>
-                  <textarea id="detail" name="detail" placeholder="{$languageFrontWeb->contact_detail->display->$currentLangWeb}" class="form-control form-textarea" required></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="topic" class="control-label">{$languageFrontWeb->contact_name->display->$currentLangWeb}<span>*</span></label>
-                  <input type="text" id="topic" value="" name="topic" placeholder="{$languageFrontWeb->contact_name->display->$currentLangWeb}" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label for="detail" class="control-label">{$languageFrontWeb->contact_address->display->$currentLangWeb}<span>*</span></label>
-                  <textarea id="detail" name="detail" placeholder="{$languageFrontWeb->contact_address->display->$currentLangWeb}" class="form-control form-textarea" required></textarea>
-                </div>
-                
-                <div class="row gutters-40">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="tell" class="control-label">{$languageFrontWeb->contact_tel->display->$currentLangWeb}<span>*</span></label>
-                      <input type="text" id="tell" value="" name="tell" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control" required>
+                <div class="-form-contact">
+                  <div class="form-group">
+                    <label for="inputTopic" class="control-label">{$languageFrontWeb->contact_subject->display->$currentLangWeb}<span>*</span></label>
+                    <input type="text" id="inputTopic" value="" name="inputTopic" placeholder="{$languageFrontWeb->contact_subject->display->$currentLangWeb}" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputDesc" class="control-label">{$languageFrontWeb->contact_detail->display->$currentLangWeb}<span>*</span></label>
+                    <textarea id="inputDesc" name="inputDesc" placeholder="{$languageFrontWeb->contact_detail->display->$currentLangWeb}" class="form-control form-textarea" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="control-label">{$languageFrontWeb->contact_name->display->$currentLangWeb}<span>*</span></label>
+                    <input type="text" id="inputName" value="" name="inputName" placeholder="{$languageFrontWeb->contact_name->display->$currentLangWeb}" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress" class="control-label">{$languageFrontWeb->contact_address->display->$currentLangWeb}<span>*</span></label>
+                    <textarea id="inputAddress" name="inputAddress" placeholder="{$languageFrontWeb->contact_address->display->$currentLangWeb}" class="form-control form-textarea" required></textarea>
+                  </div>
+                  
+                  <div class="row gutters-40">
+                    <div class="col-md">
+                      <div class="form-group">
+                        <label for="inputTel" class="control-label">{$languageFrontWeb->contact_tel->display->$currentLangWeb}<span>*</span></label>
+                        <input type="text" minlength="10" maxlength="10" id="inputTel" value="" name="inputTel" placeholder="{$languageFrontWeb->contact_tel->display->$currentLangWeb}" class="form-control" required>
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="form-group">
+                        <label for="inputEmail" class="control-label">{$languageFrontWeb->contact_email->display->$currentLangWeb}<span>*</span></label>
+                        <input type="email" id="inputEmail" value="" name="inputEmail" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control" required>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="email" class="control-label">{$languageFrontWeb->contact_email->display->$currentLangWeb}<span>*</span></label>
-                      <input type="text" id="email" value="" name="email" placeholder="{$languageFrontWeb->contact_email->display->$currentLangWeb}" class="form-control" required>
-                    </div>
+                  <div class="action">
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptchaSitekey}">
+                    <button type="submit" id="submit-form" class="btn btn-primary disabled">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
+                    <button type="button" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</button>
                   </div>
                 </div>
-                <div class="action">
-                  <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" data-secret="{$recaptcha_sitekey}">
-                  <button type="submit" id="submit-form" class="btn btn-primary disabled">{$languageFrontWeb->contact_send->display->$currentLangWeb}</button>
-                  <button type="button" class="btn btn-primary btn-cancel">{$languageFrontWeb->contact_cancel->display->$currentLangWeb}</button>
+
+                <div class="-form-success" style="display: none;">
+                  <div class="form-success">
+                    <div class="icon">
+                      <svg id="check-2" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                        <path id="Path_452749" data-name="Path 452749" d="M50,0a50,50,0,1,0,50,50A50.055,50.055,0,0,0,50,0Zm0,0" fill="#2ab170" />
+                        <path id="Path_452750" data-name="Path 452750" d="M75.342,39.4,48.258,66.487a4.163,4.163,0,0,1-5.891,0L28.825,52.946a4.166,4.166,0,0,1,5.891-5.891l10.6,10.6L69.45,33.513A4.166,4.166,0,0,1,75.342,39.4Zm0,0" fill="#fafafa" />
+                      </svg>
+                    </div>
+                    <h3 class="title">{$languageFrontWeb->contact_success->display->$currentLangWeb}</h3>
+                  </div>
+                  <div class="action">
+                    <a href="javascript:void(0);"  class="btn btn-primary btn-reload-form">{$languageFrontWeb->contact_ok->display->$currentLangWeb}</a>
+                  </div>
                 </div>
               </div>
             </form>

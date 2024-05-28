@@ -2,12 +2,20 @@
 const path = $("base").attr("href");
 const language = $("html").attr("lang");
 
+
+
+
 $(function () {
   AOS.init({
+    // disable: true,  
     duration: 1000,
     once: true,
     // offset: 0,
     // anchorPlacement: 'top-bottom',
+    disable: function() {
+      var maxWidth = 1024;
+      return window.innerWidth < maxWidth;
+    }
   });
 });
 
@@ -157,24 +165,6 @@ $(document).ready(function () {
     $(".asw-widget.-mb ~ div").removeClass("bg-asw-popup");
   });
 
-  Fancybox.bind('[data-fancybox="gallery"]', {
-    Toolbar: {
-      display: {
-        left: ["infobar"],
-        middle: [
-          "zoomIn",
-          "zoomOut",
-          "toggle1to1",
-          "rotateCCW",
-          "rotateCW",
-          "flipX",
-          "flipY",
-        ],
-        right: ["slideshow", "thumbs", "close"],
-      },
-    },
-  });
-
  
 
   var gallerySwiper = new Swiper(".gallery-swiper-", {
@@ -215,6 +205,34 @@ $(document).ready(function () {
 
   $('.sitmap-full .close').click(function(){
     $('.sitmap-full').removeClass('show');
+  })
+
+
+  $("a").each(function () {
+    if ($(this).attr("title")?.length > 0) {
+      strHTML = `
+        <span class="fontContantTbManage" style="display:none;">${$(this).attr(
+          "title"
+        )}</span>
+      `;
+      $(this).append(strHTML);
+    }
+  });
+
+  // $("img").each(function () {
+  //   if ($(this).attr("alt")?.length > 0) {
+  //     strHTML = `
+  //       <figcaption class="visually-hidden">${$(this).attr(
+  //         "alt"
+  //       )}</figcaption>
+  //     `;
+  //     $(this).append(strHTML);
+  //   }
+  // });
+
+  $('.layout-guide.guide-1 .btn').click(function(){
+    $('.layout-header .top-bar').addClass('guides-current-element');
+    console.log( $('.layout-guide.guide-1 .btn'));
   })
 
 });

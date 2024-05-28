@@ -18,7 +18,7 @@
 </div>
 
 <!-- Popup -->
-{if $load_popup->_numOfRows gte 1}
+{if $loadPopup->_numOfRows gte 1}
     <div class="modal popup-modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -31,43 +31,44 @@
                     <div class="popup-slide">
                         <div class="swiper swiper-default">
                             <div class="swiper-wrapper">
-                                {foreach $load_popup->item as $keyload_popup => $valueload_popup}
-                                    {if $valueload_popup->type eq 1}
+                                {foreach $loadPopup->item as $keyloadPopup => $valueloadPopup}
+                                    {if $valueloadPopup->type eq 1}
                                         <div class="swiper-slide">
                                             <figure class="cover">
                                                 <picture>
-                                                    <img src="{$valueload_popup->pic->pictures}" alt="{$valueload_popup->pic->pictures}">
+                                                    <img src="{$valueloadPopup->pic->webp}" alt="{$valueloadPopup->pic->webp}">
                                                 </picture>
                                             </figure>
                                         </div>
-                                    {elseif $valueload_popup->type eq 2}
-
+                                    {elseif $valueloadPopup->type eq 2}
+                                        {$myUrlArray = "v="|explode:$valueloadPopup->video}
+                                        {$myUrlCut = $myUrlArray[1]}
+                                        {$myUrlCutArray = "&"|explode:$myUrlCut}
+                                        {$myUrlCutAnd= $myUrlCutArray.0}
+                                        <div class="swiper-slide">
+                                            <div class="iframe-container">
+                                                <iframe
+                                                    src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1"
+                                                    title="Inside Of Saturn&#39;s Rings" style="border: none;"
+                                                    referrerpolicy="strict-origin-when-cross-origin">
+                                                    </iframe>
+                                            </div>
+                                        </div>
                                     {else}
-                                        
+                                        <div class="swiper-slide">
+                                            <div class="video-container">
+                                                {* <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                                                <source src="{$valueTgp->video->real}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                                </video> *}
+                                                <video loop="" autoplay="" muted="" controls>
+                                                <source src="{$valueloadPopup->video}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                                </video>
+                                            </div>
+                                        </div>
                                     {/if}
-                                {/foreach}
-                                <div class="swiper-slide">
-                                  <div class="video-container">
-                                    {* <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
-                                    <source src="{$valueTgp->video->real}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                    </video> *}
-                                    <video loop="" autoplay="" muted="" controls>
-                                      <source src="{$template}/assets/video/petri-dish-pandas.mp4" type="video/mp4">
-                                      Your browser does not support the video tag.
-                                    </video>
-                                  </div>
-                                </div>
-                                
-                                <div class="swiper-slide">
-                                  <div class="iframe-container">
-                                      <iframe
-                                          src="https://www.youtube.com/embed/kETLbg89qA0"
-                                          title="Inside Of Saturn&#39;s Rings" style="border: none;
-                                          referrerpolicy="strict-origin-when-cross-origin">
-                                        </iframe>
-                                  </div>
-                                </div>
+                                {/foreach}                                
                             </div>
                             <div class="swiper-pagination"></div>
                             <!-- <div class="autoplay-progress">
@@ -80,6 +81,11 @@
                         <div class="swiper-default">
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
+                        </div>
+
+                        <div class="custom-control form-control-lg custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-popup">
+                            <label class="custom-control-label" for="checkbox-popup">ไม่แสดงในวันนี้อีก</label>
                         </div>
                     </div>
                 </div>

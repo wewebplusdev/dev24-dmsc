@@ -20,6 +20,7 @@ class sitemapWebsite {
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['url'] = $valuecallGroup['url'];
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['tb'] = $mod_tb_group;
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['masterkey'] = $_REQUEST['masterkey'];
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['layout'] = $valuecallGroup['layout'];
                     if ($valuecallGroup['target'] == 2) {
                         $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['target'] = '_blank';
                     }else{
@@ -92,7 +93,8 @@ class sitemapWebsite {
         " . $mod_tb_group . "_id as id,
         " . $mod_tb_group_lang . "_subject as subject,
         " . $mod_tb_group_lang . "_target as target,
-        " . $mod_tb_group_lang . "_url as url 
+        " . $mod_tb_group_lang . "_url as url,
+        " . $mod_tb_group_lang . "_layout as layout 
         FROM " . $mod_tb_group . " 
         INNER JOIN " . $mod_tb_group_lang . " ON " . $mod_tb_group_lang . "_cid = " . $mod_tb_group . "_id 
         WHERE " . $mod_tb_group . "_masterkey = '" . $masterkey . "' 

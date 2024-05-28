@@ -38,11 +38,19 @@ $mod_url_search_th = "|weweb|";
 $mod_url_search_en = "|weweb|";
 
 ## Size Photo ###################################
-$sizeWidthPic = "600";
-$sizeHeightPic = "600";
-
-$sizeWidthOff = "50";
-$sizeHeightOff = "50";
+if ($_REQUEST['masterkey'] == 'sv') {
+    $sizeWidthPic = "100";
+    $sizeHeightPic = "100";
+    
+    $sizeWidthOff = "50";
+    $sizeHeightOff = "50";
+}else{
+    $sizeWidthPic = "600";
+    $sizeHeightPic = "600";
+    
+    $sizeWidthOff = "50";
+    $sizeHeightOff = "50";
+}
 
 $sizeWidthAlbum = "1080";
 $sizeHeightAlbum = "720";
@@ -75,6 +83,9 @@ $mod_path_album_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/album
 
 $mod_path_vdo = $core_pathname_upload . "/" . $masterkey . "/vdo";
 $mod_path_vdo_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/vdo";
+
+$mod_path_webp = $core_pathname_upload . "/" . $masterkey . "/webp";
+$mod_path_webp_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/webp";
 
 $mod_pathTheme_pictures = $core_pathname_upload . "/" . $masterkeyTheme . "/pictures";
 $mod_pathTheme_pictures_fornt = $core_pathname_upload_fornt . "/" . $masterkeyTheme . "/pictures";
