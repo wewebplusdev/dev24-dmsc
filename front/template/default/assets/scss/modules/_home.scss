@@ -84,6 +84,7 @@
 .wg-services {
   padding: 80px 0 140px 0;
   // background-image: url("../img/background/bg-services.webp");
+  background-color: gray;
   @include bg($position: top center);
   min-height: 600px;
 }
