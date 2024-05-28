@@ -8,20 +8,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 
 <!-- mCustomScrollbar -->
-<link rel="stylesheet" type="text/css" href="{$template}/assets/css/jquery.mCustomScrollbar.css{$LastVersionCache}">
+<link rel="stylesheet" href="{$template}/assets/css/jquery.mCustomScrollbar.css{$LastVersionCache}">
 
 <!-- Custom -->
-<link rel="stylesheet" type="text/css" href="{$template}/assets/css/import.min.css{$LastVersionCache}">
-<link rel="stylesheet" type="text/css" href="{$template}/assets/css/source.min.css{$LastVersionCache}">
-<link rel="stylesheet" type="text/css" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}">
-<link rel="stylesheet" type="text/css" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}">
+<link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}">
+<link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}">
+<link rel="stylesheet" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}">
+<link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}">
 
 <!-- asw css -->
-<link type="text/css" rel="stylesheet" href="{$template}/assets/css/accessibility.css{$LastVersionCache}">
-<link type="text/css" rel="stylesheet" href="{$template}/assets/css/wcag-theme.min.css{$LastVersionCache}">
+<link rel="stylesheet" href="{$template}/assets/css/accessibility.css{$LastVersionCache}">
+<link rel="stylesheet" href="{$template}/assets/css/wcag-theme.min.css{$LastVersionCache}">
 
 <!-- guide css -->
-{* <link type="text/css" rel="stylesheet" href="{$template}/assets/css/guides.css{$LastVersionCache}"> *}
+{* <link rel="stylesheet" href="{$template}/assets/css/guides.css{$LastVersionCache}"> *}
 
 <!-- asw icon -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;text=format_size,add,remove,restart_alt,close,title,link,local_parking,nightlight,brightness_5,tonality,filter_vintage,gradient,filter_b_and_w,local_library,zoom_in,mouse,format_bold,format_line_spacing,space_bar,spellcheck" rel="stylesheet">
