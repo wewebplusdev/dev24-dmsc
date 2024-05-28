@@ -11,7 +11,7 @@
 <script src="{$template}/assets/js/libs/lazyload.min.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/select2.min.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/sweetalert.min.js{$LastVersionCache}"></script>
-<script src="{$template}/assets/js/libs/swiper-bundle.min.js{$LastVersionCache}"></script>
+{* <script src="{$template}/assets/js/libs/swiper-bundle.min.js{$LastVersionCache}"></script> *}
 <script src="{$template}/assets/js/libs/slick.min.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/trunk8.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/cookie.js{$LastVersionCache}"></script>
