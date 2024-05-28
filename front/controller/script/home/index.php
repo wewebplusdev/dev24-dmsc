@@ -5,6 +5,7 @@ $listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . 
 $listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/guides_popup.js'.$lastModify.'"></script>';
 
 $HomePage = new HomePage;
+define('SCRIPT_PATH', '/front/controller/script/');
 
 switch ($url->segment[0]) {
     case 'special_case':
@@ -13,6 +14,10 @@ switch ($url->segment[0]) {
         
     case 'another_case':
         // Handle another case
+        break;
+
+    case 'load-service':
+        require_once _DIR . SCRIPT_PATH . $menuActive . '/service/load-service.php';
         break;
 
     default:

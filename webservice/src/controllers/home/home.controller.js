@@ -766,11 +766,13 @@ async function getService(req, res) {
                                     'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
                                     'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
                                     'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
+                                    'webp': modulus.getUploadPath(defaultPic.masterkey, 'pictures', `${defaultPic.file}`),
                                 }
                                 arr_data[i].pic2 = {
                                     'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
                                     'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
                                     'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
+                                    'webp': modulus.getUploadPath(defaultPic.masterkey, 'pictures', `${defaultPic.file}`),
                                 }
                             } else {
                                 let type_file = select[i]?.pic?.split(".");

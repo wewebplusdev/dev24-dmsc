@@ -157,7 +157,7 @@ let aboutGroupListSwiper = new Swiper(".wg-about-group-list .swiper", {
 $('.layout-body-home').closest('.global-container').addClass('global-container-home');
 
 
-reload_swiper();
+// reload_swiper();
 
 // // mock for adjust poistion
 $('body').click(function(){

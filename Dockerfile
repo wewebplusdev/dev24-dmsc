@@ -8,6 +8,8 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
+# Enable Apache mod_header
+RUN a2enmod headers
 
 # update apt && apache2
 RUN apt-get update && apt-get install apache2 -y

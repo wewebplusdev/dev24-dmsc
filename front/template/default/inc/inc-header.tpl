@@ -10,7 +10,7 @@
                         <div class="col-auto">
                             <a title="{$valueLangWeb->subject}" class="nav-lang-th{if $currentLangWeb eq $valueLangWeb->subject} active{/if}" target="_self" href="{$ul}/lang/{$valueLangWeb->short}">
                                 <span class="visually-hidden">{$valueLangWeb->subject}</span>
-                                <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag">
+                                <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag" width="30" height="30px">
                             </a>
                         </div>
                     {/foreach}
@@ -22,7 +22,7 @@
         <div class="container align-items-lg-end">
             <a class="navbar-brand" href="{$ul}/home" data-aos="fade-right">
                 <div class="brand-logo">
-                    <img src="{$template}/assets/img/static/brand-header.webp" alt="DMSC LOGO">
+                    <img src="{$template}/assets/img/static/brand-header.webp" alt="DMSC LOGO" width="80" height="91">
                 </div>
                 <div class="brand-txt">
                     <div class="title">
@@ -162,7 +162,7 @@
                           <div class="col-auto">
                               <a title="{$valueLangWeb->subject}" class="nav-lang-th{if $currentLangWeb eq $valueLangWeb->subject} active{/if}" target="_self" href="{$ul}/lang/{$valueLangWeb->short}">
                                   <span class="visually-hidden">{$valueLangWeb->subject}</span>
-                                  <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag">
+                                  <img src="{$template}/assets/img/icon/lang-{$valueLangWeb->short}.svg" alt="th" class="flag" width="30" height="30px">
                               </a>
                           </div>
                       {/foreach}
