@@ -62,7 +62,7 @@
 
     {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
-            <div class="wg-services lazy" >
+            <div class="wg-services lazy" data-bg="{$template}/assets/img/background/bg-services.webp{$LastVersionCache}">
                 <div class="container">
                     <div class="row align-items-center text-sm-left text-center">
                         <div class="col-sm mb-sm-0 mb-3">
@@ -98,7 +98,7 @@
                         <div class="service-slide">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper" id="service-append">
-                                    {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
+                                    {* {foreach $loadServices->item->list as $keyload_services_list => $valueload_services_list}
                                         {assign var="checkUrl" value="{$valueload_services_list->url|checkUrl}"}
                                         {assign var="target" value="_self"}
                                         {if $checkUrl}
@@ -126,7 +126,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    {/foreach}
+                                    {/foreach} *}
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
