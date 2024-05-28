@@ -34,7 +34,6 @@ function onComplete() {
         $('#popupModal').modal('show');
     } else {
         $('#popupModal').modal('hide');
-
     }
 }
 
@@ -293,6 +292,12 @@ function onComplete() {
         }
     }else{
         $('.guides-overlay-custom').hide();
+        // check condition popup
+        if (typeof $.cookie("POPUP") === "undefined") {
+            $('#popupModal').modal('show');
+        } else {
+            $('#popupModal').modal('hide');
+        }
     }
 })();
 
