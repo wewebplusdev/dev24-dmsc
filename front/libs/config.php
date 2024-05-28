@@ -73,7 +73,8 @@ $path_template = array(
 );
 
 $lastModify = "?u=" . date("YdmHis");
-$LastVersionCache = "?v=4";
+$LastVersionCache = "?v=".date("YdmHis");
+// $LastVersionCache = "?v=6";
 
 ##  Config inc-file
 $incfile['header'] = "inc/inc-header.tpl";
