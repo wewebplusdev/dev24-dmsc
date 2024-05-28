@@ -264,9 +264,9 @@
                                     {$languageFrontWeb->aboutdepartment->display->$currentLangWeb}
                                 </p>
                             </div>
-                            <div class="action">
+                            {* <div class="action">
                                 <a href="{$ul}/about" class="btn btn-primary">{$languageFrontWeb->readmore->display->$currentLangWeb}</a>
-                            </div>
+                            </div> *}
                         </div>
                     </div>
                     {if $loadAbout->_numOfRows gte 1}
