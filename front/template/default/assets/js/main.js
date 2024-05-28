@@ -165,24 +165,6 @@ $(document).ready(function () {
     $(".asw-widget.-mb ~ div").removeClass("bg-asw-popup");
   });
 
-  Fancybox.bind('[data-fancybox="gallery"]', {
-    Toolbar: {
-      display: {
-        left: ["infobar"],
-        middle: [
-          "zoomIn",
-          "zoomOut",
-          "toggle1to1",
-          "rotateCCW",
-          "rotateCW",
-          "flipX",
-          "flipY",
-        ],
-        right: ["slideshow", "thumbs", "close"],
-      },
-    },
-  });
-
  
 
   var gallerySwiper = new Swiper(".gallery-swiper-", {
