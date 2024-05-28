@@ -21,6 +21,7 @@
 
     transform: translate(0, 100%);
     transition: all 400ms ease-in-out;
+    z-index: -1;
     &.show {
         transform: translate(0, 0);
         opacity: 1;
