@@ -13,7 +13,6 @@
 <script src="{$template}/assets/js/libs/sweetalert.min.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/swiper-bundle.min.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/slick.min.js{$LastVersionCache}"></script>
-<script src="{$template}/assets/js/libs/fancybox.umd.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/trunk8.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/cookie.js{$LastVersionCache}"></script>
 <script src="{$template}/assets/js/libs/moment.min.js{$LastVersionCache}"></script>
@@ -22,6 +21,10 @@
 {* <script src="{$template}/assets/js/libs/guides.min.js{$LastVersionCache}"></script> *}
 <script src="{$template}/assets/js/libs/guides.js{$LastVersionCache}"></script>
 
+{if $urlWeb->segment[0] neq 'home'}
+  <script src="{$template}/assets/js/libs/fancybox.umd.js{$LastVersionCache}"></script>
+  <script src="{$template}/assets/js/inner-detail.js{$LastVersionCache}"></script>
+{/if}
 
 <script>
   feather.replace();
