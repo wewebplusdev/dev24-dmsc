@@ -17,7 +17,7 @@ let tpgSwiper = new Swiper(".top-graphic .swiper", {
 
 const preloadNextTG = (n) => {
   tpgSwiper.slides
-    .slice(swiper.activeIndex, swiper.activeIndex + n + 1)
+    .slice(tpgSwiper.activeIndex, tpgSwiper.activeIndex + n + 1)
     .map((slide) => slide.querySelector("img"))
     .forEach((s) => s.setAttribute("loading", "eager"));
 };
@@ -53,7 +53,7 @@ let scSwiper = new Swiper(".service-category-list .swiper", {
 
 const preloadNextSC = (n) => {
   scSwiper.slides
-    .slice(swiper.activeIndex, swiper.activeIndex + n + 1)
+    .slice(scSwiper.activeIndex, scSwiper.activeIndex + n + 1)
     .map((slide) => slide.querySelector("img"))
     .forEach((s) => s.setAttribute("loading", "eager"));
 };
@@ -86,7 +86,7 @@ let researchSwiper = new Swiper(".wg-research-list .swiper", {
 
 const preloadNextR = (n) => {
   researchSwiper.slides
-    .slice(swiper.activeIndex, swiper.activeIndex + n + 1)
+    .slice(researchSwiper.activeIndex, researchSwiper.activeIndex + n + 1)
     .map((slide) => slide.querySelector("img"))
     .forEach((s) => s.setAttribute("loading", "eager"));
 };
@@ -121,7 +121,7 @@ let newsSwiper = new Swiper(".wg-news-slide .swiper", {
 
 const preloadNext = (n) => {
   newsSwiper.slides
-    .slice(swiper.activeIndex, swiper.activeIndex + n + 1)
+    .slice(newsSwiper.activeIndex, newsSwiper.activeIndex + n + 1)
     .map((slide) => slide.querySelector("img"))
     .forEach((s) => s.setAttribute("loading", "eager"));
 };

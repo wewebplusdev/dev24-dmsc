@@ -10,8 +10,9 @@
 
 <!-- Custom -->
 {*<link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}">*}
-<link rel="preload" href="{$template}/assets/css/import.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}"></noscript>
+{*<link rel="preload" href="{$template}/assets/css/import.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}"></noscript>*}
+<link rel="preload" href="{$template}/assets/css/style-home.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="{$template}/assets/css/source.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}"></noscript>
 {*<link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}">*}
