@@ -9,19 +9,19 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"> *}
 
 <!-- Custom -->
-{*<link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}">*}
-<link rel="preload" href="{$template}/assets/css/import.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}"></noscript>
+<link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}">
+{*<link rel="preload" href="{$template}/assets/css/import.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}"></noscript>*}
 {*<link rel="preload" href="{$template}/assets/css/style-home.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">*}
-<link rel="preload" href="{$template}/assets/css/source.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}"></noscript>
-{*<link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}">
+{*<link rel="preload" href="{$template}/assets/css/source.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}"></noscript>*}
+<link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}">
 <link rel="stylesheet" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}">
-<link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}">*}
-<link rel="preload" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}">
+{*<link rel="preload" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}"></noscript>
 <link rel="preload" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}"></noscript>
+<noscript><link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}"></noscript>*}
 
 <!-- asw css -->
 {*<link rel="stylesheet" href="{$template}/assets/css/accessibility.css{$LastVersionCache}">
