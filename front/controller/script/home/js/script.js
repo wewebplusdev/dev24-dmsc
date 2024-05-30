@@ -51,19 +51,6 @@ let scSwiper = new Swiper(".service-category-list .swiper", {
   },
 });
 
-const preloadNextSC = (n) => {
-  scSwiper.slides
-    .slice(scSwiper.activeIndex, scSwiper.activeIndex + n + 1)
-    .map((slide) => slide.querySelector("img"))
-    .forEach((s) => s.setAttribute("loading", "eager"));
-};
-
-// preload the next 2 images immediately
-preloadNextSC(2);
-
-// preload the next 2 images after changing slides
-scSwiper.on("slideChange", () => preloadNextSC(2));
-
 let researchSwiper = new Swiper(".wg-research-list .swiper", {
   slidesPerView: 3,
   watchSlidesProgress: true,
@@ -83,19 +70,6 @@ let researchSwiper = new Swiper(".wg-research-list .swiper", {
     },
   },
 });
-
-const preloadNextR = (n) => {
-  researchSwiper.slides
-    .slice(researchSwiper.activeIndex, researchSwiper.activeIndex + n + 1)
-    .map((slide) => slide.querySelector("img"))
-    .forEach((s) => s.setAttribute("loading", "eager"));
-};
-
-// preload the next 2 images immediately
-preloadNextR(2);
-
-// preload the next 2 images after changing slides
-researchSwiper.on("slideChange", () => preloadNextR(2));
 
 let newsSwiper = new Swiper(".wg-news-slide .swiper", {
   // slidesPerView: "auto",
@@ -118,16 +92,6 @@ let newsSwiper = new Swiper(".wg-news-slide .swiper", {
     },
   },
 });
-
-const preloadNext = (n) => {
-  newsSwiper.slides
-    .slice(newsSwiper.activeIndex, newsSwiper.activeIndex + n + 1)
-    .map((slide) => slide.querySelector("img"))
-    .forEach((s) => s.setAttribute("loading", "eager"));
-};
-
-// preload the next 2 images immediately
-preloadNext(2);
 
 // preload the next 2 images after changing slides
 newsSwiper.on("slideChange", () => preloadNext(2));
