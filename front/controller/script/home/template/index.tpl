@@ -38,13 +38,13 @@
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
                                     <figure class="contain">
                                         <picture>
-                                            <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="eager" width="1900" height="720">
+                                            <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="eager" width="1903" height="743">
                                         </picture>
                                     </figure>
                                     <div class="fill-blur">
                                       <figure class="cover">
                                           <picture>
-                                              <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="eager" width="1900" height="720">
+                                              <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="eager" width="1903" height="743">
                                           </picture>
                                       </figure>
                                     </div>
