@@ -138,7 +138,6 @@
             </div>
         </div>
     {/if}
-
     {if $loadInnovation->_numOfRows gte 1}
         <div class="section section-ii">
             <div class="wg-research">
