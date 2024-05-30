@@ -207,7 +207,6 @@
       background-color: var(--color-light);
       border: 1px solid transparent;
       // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.25em), calc(100% - 1.25em) 100%, 0 100%);
-      // clip-path: polygon(0 0, 100% 0, 100% 100%, 1em 100%, 0 calc(100% - 1em));
       text-decoration: none;
       transition: all 200ms ease;
       &::before {
@@ -272,6 +271,11 @@
         background-color: var(--color-primary);
       }
     }
+    .chart-box-main {
+      background: linear-gradient(to left, #01377d 0%, #2ab170 100%);
+      border: none;
+      &::before {display: none;}
+    }
     // .chart-box-primary-light {
     //   border-color: #64C856;
     //   &::before {
@@ -285,4 +289,54 @@
       }
     }
   }
+}
+
+
+
+@media (max-width: 1600px) {
+  .organizational-chart .chart-section .txt-main {font-size: 26px;}
+  .organizational-chart .chart-section .chart-box {min-width: 475px;}
+}
+
+
+@media (max-width: 1199px) {
+  .organizational-chart .chart-section .txt-main {font-size: 24px;}
+  .organizational-chart .chart-section .chart-box {min-width: 410px;}
+  .organizational-chart .chart-section.III ul {margin: 0 -60px;}
+  .organizational-chart .chart-section.III li {padding: 0 60px;}
+}
+
+
+@media (max-width: 991px) {
+  .organizational-chart.line-h-100::before {height: 100%;}
+  .organizational-chart  br {display: none;}
+  .organizational-chart .chart-section .txt-main {font-size: 18px;}
+  .organizational-chart .chart-section .txt {font-size: 16px;padding: 15px;}
+  .organizational-chart .chart-section .chart-box {min-width: 100%;min-height: 80px;}
+  .organizational-chart .chart-section.II {margin-top: 10px;}
+  .organizational-chart .chart-section.III {width: auto;margin-top: 20px;}
+  .organizational-chart .chart-section.III ul {margin: 0;width: 100%;}
+  .organizational-chart .chart-section.III li {padding: 0; width: 100%;}
+  .organizational-chart .chart-section.III li + li {margin-top: 15px;}
+  // .organizational-chart .chart-section.needs-line-chart ul {display: block;}
+  .organizational-chart .chart-section.needs-line-chart ul .chart-hidden {display: none;}
+  .organizational-chart .chart-section.needs-line-chart ul:nth-child(3) {display: block;margin: 0;}
+  .organizational-chart .chart-section.needs-line-chart ul li {margin-top: 15px;}
+  .organizational-chart .chart-section.needs-line-chart ul .chart-hidden ~ li {margin-top: 15px;}
+  .organizational-chart .chart-section.needs-line-chart ul+ul {margin-top: 0;}
+  .organizational-chart .chart-section.needs-line-chart ul::before {display: none;}
+
+  .organizational-chart .chart-section.needs-multi-line-chart ul {display: block;}
+  .organizational-chart .chart-section.needs-multi-line-chart ul+ul {padding: 0;margin: 0;}
+  .organizational-chart .chart-section.needs-multi-line-chart ul::before {display: none;}
+  .organizational-chart .chart-section.IV {margin: 0;}
+  .organizational-chart .chart-section.IV ul {margin: 0;}
+  .organizational-chart .chart-section.IV li {width: 100%;margin-top: 15px; padding: 0;}
+  .organizational-chart .chart-section .chart-box .dot::before {display: none;}
+
+  .organizational-chart .chart-section {width: 100%;}
+  .organizational-chart .chart-section .chart-box::before {width: 6px;}
+  .organizational-chart .chart-section ul {width: 100%;}
+  .organizational-chart .chart-section ul li {width: 100%;}
+  .organizational-chart .chart-section .chart-box .dot {width: 12px;height: 12px;}
 }

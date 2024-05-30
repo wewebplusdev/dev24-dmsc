@@ -12,7 +12,7 @@
     <?php include('inc/header.php'); ?>
 
     <section class="layout-body">
-      <div class="default-header">
+      <!-- <div class="default-header">
         <div class="wrapper">
           <div class="container">
             <div class="breadcrumb-block">
@@ -52,7 +52,7 @@
         <figure class="cover">
           <img src="<?php echo $core_template; ?>/img/static/banner.jpg" alt="" class="lazy img-cover">
         </figure>
-      </div>
+      </div> -->
 
       <div class="default-body">
         <!-- ck editor -->
@@ -63,8 +63,8 @@
                 <div class="chart-section I">
                   <ul>
                     <li>
-                      <a href="javascript:void(0);" class="chart-box chart-box-secondary">
-                        <div class="txt txt-main text-secondary">อธิบดีกรมวิทยาศาสตร์การแพทย์</div>
+                      <a href="javascript:void(0);" class="chart-box chart-box-main">
+                        <div class="txt txt-main text-light">อธิบดีกรมวิทยาศาสตร์การแพทย์</div>
                       </a>
                     </li>
                   </ul>
@@ -72,8 +72,8 @@
                 <div class="chart-section II">
                   <ul>
                     <li>
-                      <a href="javascript:void(0);" class="chart-box chart-box-primary">
-                        <div class="txt txt-main text-primary">รองอธิบดี</div>
+                      <a href="javascript:void(0);" class="chart-box chart-box-secondary">
+                        <div class="txt txt-main text-secondary">รองอธิบดี</div>
                       </a>
                     </li>
                   </ul>
@@ -308,11 +308,11 @@
                     </li>
                   </ul>
                 </div>
-                <div class="parallelogram-container">
+                <!-- <div class="parallelogram-container">
                   <div class="parallelogram"></div>
                   <div class="parallelogram-vertical-borders"></div>
                   <div class="small-parallelogram"></div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
