@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"> *}
 
 <!-- Custom -->
-<link rel="stylesheet" href="{$template}/assets/css/style-home.css{$LastVersionCache}" media="all" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="{$template}/assets/css/style-home.css{$LastVersionCache}" media="all" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="{$template}/assets/css/import.min.css{$LastVersionCache}" media="all" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="{$template}/assets/css/source.min.css{$LastVersionCache}" media="all" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}" media="all" as="style" onload="this.onload=null;this.rel='stylesheet'">
