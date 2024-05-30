@@ -38,13 +38,13 @@
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
                                     <figure class="contain">
                                         <picture>
-                                            <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="eager" width="1903" height="743">
+                                            <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743">
                                         </picture>
                                     </figure>
                                     <div class="fill-blur">
                                       <figure class="cover">
                                           <picture>
-                                              <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="eager" width="1903" height="743">
+                                              <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743">
                                           </picture>
                                       </figure>
                                     </div>
@@ -115,9 +115,9 @@
                                                             <div class="thumbnail">
                                                                 <figure class="contain">
                                                                     <img src="{$valueload_services_list->pic->webp}{$LastVersionCache}"
-                                                                        alt="{$valueload_services_list->pic->webp}" class="thumb-img lazy" loading="eager" width="100" height="100">
+                                                                        alt="{$valueload_services_list->pic->webp}" class="thumb-img lazy" loading="lazy" width="100" height="100">
                                                                     <img src="{$valueload_services_list->pic2->webp}{$LastVersionCache}"
-                                                                        alt="{$valueload_services_list->pic2->webp}" class="thumb-hover lazy" loading="eager" width="100" height="100">
+                                                                        alt="{$valueload_services_list->pic2->webp}" class="thumb-hover lazy" loading="lazy" width="100" height="100">
                                                                 </figure>
                                                             </div>
                                                             <h5 class="title">{$valueload_services_list->subject}</h5>
@@ -185,14 +185,14 @@
                                             </div>
                                             <div class="col-auto">
                                                 <div class="graphic">
-                                                    <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}" loading="eager" width="400" height="380">
+                                                    <img src="{$template}/assets/img/static/{$backgroud_img}" alt="{$backgroud_img}" loading="lazy" width="400" height="380">
                                                     {* <picture>
                                                     </picture> *}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="bg-obj">
-                                            <img src="{$valueload_innovation->pic->webp}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="eager" class="lazy" width="240" height="240">
+                                            <img src="{$valueload_innovation->pic->webp}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="lazy" class="lazy" width="240" height="240">
                                         </div>
                                     </div>
                                 </a>
@@ -230,7 +230,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="bg-obj">
-                                                                <img src="{$valueload_innovation->pic->pictures}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="eager" class="lazy" width="200" height="200">
+                                                                <img src="{$valueload_innovation->pic->pictures}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="lazy" class="lazy" width="200" height="200">
                                                             </div>
                                                         </div>
                                                     </a>
@@ -295,7 +295,7 @@
                                                                 <div class="grphic-obj">
                                                                     <div class="contain">
                                                                         <img src="{$valueload_about->pic->pictures}{$LastVersionCache}"
-                                                                            alt="{$valueload_about->subject}" loading="eager" class="img-contain lazy">
+                                                                            alt="{$valueload_about->subject}" loading="lazy" class="img-contain lazy">
                                                                     </div>
                                                                 </div>
                                                                 <div class="action">
@@ -334,7 +334,7 @@
                                   <div class="grphic-obj">
                                     <div class="contain">
                                       <img src="{$valueload_about->pic->pictures}"
-                                          alt="{$valueload_about->subject}" loading="eager" class="img-contain lazy">
+                                          alt="{$valueload_about->subject}" loading="lazy" class="img-contain lazy">
                                     </div>
                                   </div>
                                   <div class="action">
@@ -355,7 +355,7 @@
                         type="image/webp">
                     <img src="{$template}/assets/img/static/wg-about-graphic.png"
                         data-src="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" alt="image-graphic"
-                        class="lazy" loading="eager" width="866" height="500">
+                        class="lazy" loading="lazy" width="866" height="500">
                     {* <picture>
                     </picture> *}
                 </div>
@@ -413,7 +413,7 @@
                                                                     <div class="news-card card">
                                                                         <div class="thumbnail">
                                                                             <figure class="cover">
-                                                                                <img src="{$valueNewsList->pic->webp}{$LastVersionCache}" alt="{$valueNewsList->pic->webp}" loading="eager">
+                                                                                <img src="{$valueNewsList->pic->webp}{$LastVersionCache}" alt="{$valueNewsList->pic->webp}" loading="lazy">
                                                                             </figure>
                                                                         </div>
                                                                         <div class="card-body">
@@ -461,7 +461,7 @@
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
                                     <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj"
-                                        class="lazy" loading="eager" width="135" height="135">
+                                        class="lazy" loading="lazy" width="135" height="135">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
                             </div>
@@ -474,7 +474,7 @@
                                 data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
                                 type="image/webp">
                             <img src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" loading="eager" alt="background-lab"
+                                data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" loading="lazy" alt="background-lab"
                                 class="lazy">
                             {* <picture>
                             </picture> *}
@@ -493,7 +493,7 @@
                                     <div class="row no-gutters">
                                         <div class="col-auto">
                                             <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="eager" width="37" height="37">
+                                                class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
@@ -508,7 +508,7 @@
                                     <div class="row no-gutters">
                                         <div class="col-auto">
                                             <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="eager" width="37" height="37">
+                                                class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
@@ -523,7 +523,7 @@
                                     <div class="row no-gutters">
                                         <div class="col-auto">
                                             <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
-                                                alt="" class="icon" loading="eager" width="37" height="37">
+                                                alt="" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
@@ -544,7 +544,7 @@
                                     <div class="row no-gutters">
                                         <div class="col-auto">
                                             <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="eager" width="37" height="37">
+                                                class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
@@ -562,7 +562,7 @@
                                 data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
                                 type="image/webp">
                             <img src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" loading="eager" alt="background-contact"
+                                data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" loading="lazy" alt="background-contact"
                                 class="lazy">
                             {* <picture>
                             </picture> *}
