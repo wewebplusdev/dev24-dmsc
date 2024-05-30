@@ -9,27 +9,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"> *}
 
 <!-- Custom -->
+{if $urlWeb->segment[0] neq 'home'}
+<link rel="stylesheet" href="{$template}/assets/css/style-home.css{$LastVersionCache}" media="all">
+{else}
 <link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}" media="all">
-{*<link rel="preload" href="{$template}/assets/css/import.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}"></noscript>*}
-{*<link rel="preload" href="{$template}/assets/css/style-home.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">*}
-{*<link rel="preload" href="{$template}/assets/css/source.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}"></noscript>*}
 <link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}" media="all">
 <link rel="stylesheet" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}" media="all">
 <link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}" media="all">
-{*<link rel="preload" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}"></noscript>
-<link rel="preload" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}"></noscript>*}
+{/if}
 
 <!-- asw css -->
 {*<link rel="stylesheet" href="{$template}/assets/css/accessibility.css{$LastVersionCache}">
 <link rel="stylesheet" href="{$template}/assets/css/wcag-theme.min.css{$LastVersionCache}">*}
 <link rel="preload" href="{$template}/assets/css/accessibility.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/accessibility.css{$LastVersionCache}"></noscript>
 <link rel="preload" href="{$template}/assets/css/wcag-theme.min.css{$LastVersionCache}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{$template}/assets/css/wcag-theme.min.css{$LastVersionCache}"></noscript>
 
 <!-- guide css -->
 {* <link rel="stylesheet" href="{$template}/assets/css/guides.css{$LastVersionCache}"> *}
