@@ -12,9 +12,9 @@
 <script defer src="{$template}/assets/js/libs/select2.min.js{$LastVersionCache}"></script>
 <script defer src="{$template}/assets/js/libs/sweetalert.min.js{$LastVersionCache}"></script>
 <script defer src="{$template}/assets/js/libs/swiper-bundle.min.js{$LastVersionCache}"></script>
-<script src="{$template}/assets/js/libs/slick.min.js{$LastVersionCache}"></script>
-<script src="{$template}/assets/js/libs/trunk8.js{$LastVersionCache}"></script>
-<script src="{$template}/assets/js/cookie.js{$LastVersionCache}"></script>
+<script defer src="{$template}/assets/js/libs/slick.min.js{$LastVersionCache}"></script>
+<script defer src="{$template}/assets/js/libs/trunk8.js{$LastVersionCache}"></script>
+<script defer src="{$template}/assets/js/cookie.js{$LastVersionCache}"></script>
 <script defer src="{$template}/assets/js/libs/moment.min.js{$LastVersionCache}"></script>
 <script defer src="{$template}/assets/js/libs/validator.min.js{$LastVersionCache}"></script>
 <script defer src="{$template}/assets/js/libs/feather.js{$LastVersionCache}"></script>
