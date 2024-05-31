@@ -15,19 +15,6 @@ let tpgSwiper = new Swiper(".top-graphic .swiper", {
   // }
 });
 
-const preloadNextTG = (n) => {
-  tpgSwiper.slides
-    .slice(tpgSwiper.activeIndex, tpgSwiper.activeIndex + n + 1)
-    .map((slide) => slide.querySelector("img"))
-    .forEach((s) => s.setAttribute("loading", "eager"));
-};
-
-// preload the next 2 images immediately
-preloadNextTG(2);
-
-// preload the next 2 images after changing slides
-tpgSwiper.on("slideChange", () => preloadNextTG(2));
-
 let scSwiper = new Swiper(".service-category-list .swiper", {
   slidesPerView: 5,
   watchSlidesProgress: true,
@@ -92,9 +79,6 @@ let newsSwiper = new Swiper(".wg-news-slide .swiper", {
     },
   },
 });
-
-// preload the next 2 images after changing slides
-newsSwiper.on("slideChange", () => preloadNext(2));
 
 let serviceSwiper;
 function reload_swiper() {
