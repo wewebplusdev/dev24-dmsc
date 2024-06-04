@@ -136,7 +136,7 @@
         visibility: hidden;
       }
       .swiper-slide {
-        opacity: 0;
+        // opacity: 0;
         &.swiper-slide-visible,
         &.swiper-slide-visible.swiper-slide-fully-visible,
         &.swiper-slide-visible.swiper-slide-fully-visible + .swiper-slide {
