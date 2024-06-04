@@ -31,14 +31,8 @@
                         <div class="swiper-slide">
                             <div class="item">
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
-                                    <figure class="contain">
-                                        <picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture>
-                                    </figure>
-                                    <div class="fill-blur">
-                                      <figure class="cover">
-                                          <picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture>
-                                      </figure>
-                                    </div>
+                                    <figure class="contain"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure>
+                                    <div class="fill-blur"><figure class="cover"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure></div>
                                 </a>
                             </div>
                         </div>
@@ -73,9 +67,7 @@
                                 <div class="swiper-wrapper">
                                     {foreach $loadServices->item->group as $keyload_services_group => $load_services_group}
                                         <div class="swiper-slide">
-                                            <div class="item">
-                                                <button type="button" class="btn services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</button>
-                                            </div>
+                                            <div class="item"><button type="button" class="btn services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</button></div>
                                         </div>
                                     {/foreach}
                                 </div>
@@ -180,9 +172,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="bg-obj">
-                                            <img src="{$valueload_innovation->pic->webp}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="lazy" class="lazy" width="240" height="240">
-                                        </div>
+                                        <div class="bg-obj"><img src="{$valueload_innovation->pic->webp}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="lazy" class="lazy" width="240" height="240"></div>
                                     </div>
                                 </a>
                             </div>
@@ -190,9 +180,7 @@
                     {/foreach}
                 </div>
                 {if $loadInnovation->item|count gte 2}
-                    <div class="wg-research-list lazy"
-                        data-bg="{$template}/assets/img/background/bg-wg-research.webp{$LastVersionCache}"
-                        data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp{$LastVersionCache}">
+                    <div class="wg-research-list lazy" data-bg="{$template}/assets/img/background/bg-wg-research.webp{$LastVersionCache}" data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp{$LastVersionCache}">
                         <div class="container">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper">
@@ -234,8 +222,7 @@
     {/if}
 
     <div class="section section-iii" data-aos="fade-up">
-        <div class="wg-about lazy" data-bg="{$template}/assets/img/background/bg-wg-about.webp{$LastVersionCache}"
-            data-bg-hidpi="{$template}/assets/img/background/bg-wg-about@2x.webp{$LastVersionCache}">
+        <div class="wg-about lazy" data-bg="{$template}/assets/img/background/bg-wg-about.webp{$LastVersionCache}" data-bg-hidpi="{$template}/assets/img/background/bg-wg-about@2x.webp{$LastVersionCache}">
             <div class="container">
                 <div class="row align-items-center no-gutters">
                     <div class="col-lg" data-aos="fade-right">
@@ -341,8 +328,7 @@
 
     {if $array_news_list['group']|count gte 1 && $array_news_list['list']|count gte 1}
         <div class="section section-iv overflow-hidden">
-            <div class="wg-news lazy" data-bg="{$template}/assets/img/background/bg-wg-news.webp{$LastVersionCache}"
-                data-bg-hidpi="{$template}/assets/img/background/bg-wg-news@2x.webp{$LastVersionCache}">
+            <div class="wg-news lazy" data-bg="{$template}/assets/img/background/bg-wg-news.webp{$LastVersionCache}" data-bg-hidpi="{$template}/assets/img/background/bg-wg-news@2x.webp{$LastVersionCache}">
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-lg">
