@@ -72,7 +72,7 @@
   width: 150px;
 }
 /* news area */
-.news-area .swiper {
+/* .news-area .swiper {
   overflow: visible;
 }
 .news-area .swiper-wrapper {
@@ -92,7 +92,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-}
+} */
 
 
 @media screen and (max-width: 1600px) {

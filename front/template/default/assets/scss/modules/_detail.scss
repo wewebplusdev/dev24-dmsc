@@ -131,11 +131,22 @@
 
   .news-area {
     .swiper {
-      .swiper-slide-fully-visible {
-        opacity: 1;
+      .link {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .swiper-slide {
+        opacity: 0;
+        &.swiper-slide-visible,
+        &.swiper-slide-visible.swiper-slide-fully-visible,
+        &.swiper-slide-visible.swiper-slide-fully-visible + .swiper-slide {
+          .link {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
       }
     }
-
   }
 }
 
