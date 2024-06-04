@@ -319,9 +319,6 @@
                           {/if}
                         {/if}
                     {/foreach}
-                      
-                      
-              
                     </ul>
                 
                     {else}
