@@ -12,29 +12,23 @@
                         {$myUrlCutArray = "&"|explode:$myUrlCut}
                         {$myUrlCutAnd= $myUrlCutArray.0}
                         <div class="swiper-slide">
-                            <div class="item">
-                                <div class="iframe-container">
-                                    <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                                </div>
+                            <div class="iframe-container">
+                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                             </div>
                         </div>
                     {elseif $valueTgp->type eq 3}
                         <div class="swiper-slide">
-                            <div class="item">
-                                <div class="video-container">
-                                    <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
-                                    <source src="{$valueTgp->video->real}" type="video/mp4">Your browser does not support the video tag.</video>
-                                </div>
+                            <div class="video-container">
+                                <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                                <source src="{$valueTgp->video->real}" type="video/mp4">Your browser does not support the video tag.</video>
                             </div>
                         </div>
                     {else}
                         <div class="swiper-slide">
-                            <div class="item">
-                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
-                                    <figure class="contain"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure>
-                                    <div class="fill-blur"><figure class="cover"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure></div>
-                                </a>
-                            </div>
+                            <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
+                                <figure class="contain"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure>
+                                <div class="fill-blur"><figure class="cover"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure></div>
+                            </a>
                         </div>
                     {/if}
                     {/foreach}
