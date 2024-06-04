@@ -32,15 +32,11 @@
                             <div class="item">
                                 <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
                                     <figure class="contain">
-                                        <picture>
-                                            <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743">
-                                        </picture>
+                                        <picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture>
                                     </figure>
                                     <div class="fill-blur">
                                       <figure class="cover">
-                                          <picture>
-                                              <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743">
-                                          </picture>
+                                          <picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture>
                                       </figure>
                                     </div>
                                 </a>
@@ -190,9 +186,7 @@
                                     </div>
                                 </a>
                             </div>
-                        {else}
-                            {break}
-                        {/if}
+                        {else}{break}{/if}
                     {/foreach}
                 </div>
                 {if $loadInnovation->item|count gte 2}
@@ -209,16 +203,14 @@
                                                     <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target|default:'_self'}">
                                                         <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                                                             <div class="card">
-                                                                <div class="card-body">
-                                                                    <div class="whead">
-                                                                        <h3 class="title">{$valueload_innovation->subject}</h3>
-                                                                        <p class="subtitle">{$valueload_innovation->des}</p>
-                                                                        <div class="total">{$valueload_innovation->number|number_format}</div>
-                                                                        <div class="unit">
-                                                                            {$valueload_innovation->suffix}
-                                                                            <span class="material-symbols-rounded">expand_circle_right</span>
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="card-body whead">
+                                                                    <h3 class="title">{$valueload_innovation->subject}</h3>
+                                                                    <p class="subtitle">{$valueload_innovation->des}</p>
+                                                                    <span class="total d-block">{$valueload_innovation->number|number_format}</span>
+                                                                    <span class="unit d-block">
+                                                                        {$valueload_innovation->suffix}
+                                                                        <span class="material-symbols-rounded">expand_circle_right</span>
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                             <div class="bg-obj">
@@ -284,14 +276,12 @@
                                                                 <h4 class="title">{$valueload_about->subject}</h4>
                                                                 <div class="grphic-obj">
                                                                     <div class="contain">
-                                                                        <img src="{$valueload_about->pic->pictures}{$LastVersionCache}"
-                                                                            alt="{$valueload_about->subject}" loading="lazy" class="img-contain lazy">
+                                                                        <img src="{$valueload_about->pic->pictures}{$LastVersionCache}" alt="{$valueload_about->subject}" loading="lazy" class="img-contain lazy">
                                                                     </div>
                                                                 </div>
                                                                 <div class="action">
                                                                     {$languageFrontWeb->readmore->display->$currentLangWeb}
-                                                                    <span
-                                                                        class="material-symbols-rounded">expand_circle_right</span>
+                                                                    <span class="material-symbols-rounded">expand_circle_right</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -340,12 +330,8 @@
                     {/if}
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
-                    <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
-                        data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
-                        type="image/webp">
-                    <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                        data-src="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" alt="image-graphic"
-                        class="lazy" loading="lazy" width="866" height="500">
+                    <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" type="image/webp">
+                    <img src="{$template}/assets/img/static/wg-about-graphic.png" data-src="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" alt="image-graphic" class="lazy" loading="lazy" width="866" height="500">
                     {* <picture>
                     </picture> *}
                 </div>
@@ -368,8 +354,7 @@
                                 </div>
                                 <div class="nav nav-default flex-column" id="news-tab" role="tablist" aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
-                                        <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill"
-                                            data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
+                                        <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill" data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
                                     {/foreach}
                                 </div>
                                 <div class="action">
