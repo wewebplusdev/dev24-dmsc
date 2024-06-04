@@ -39,7 +39,6 @@
         </div>
     {/if}
     
-    <!--
     {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
             <div class="wg-services lazy" >
@@ -506,6 +505,5 @@
         </div>
     </div>
     <div class="guides-overlay-custom"></div>
-    -->
 
 </section>
