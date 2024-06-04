@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <base href="" />
+    <!-- <base href="http://localhost:8080/dev24-dmsc/"> -->
+    <title>หน้าแรก - กรมวิทยาศาสตร์การแพทย์</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <meta name="keywords" content="กรมวิทยาศาสตร์การแพทย์" />
+    <meta name="description" content="กรมวิทยาศาสตร์การแพทย์" />
+    <meta name="author" content="" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="กรมวิทยาศาสตร์การแพทย์" />
+    <meta property="og:description" content="กรมวิทยาศาสตร์การแพทย์" />
+    <meta
+      property="og:image"
+      content="front/template/default/assets/img/static/brand.png"
+    />
+    <meta property="og:site_name" content="" />
+    <meta property="og:locale" content="" />
+    <meta property="og:locale:alternate" content="" />
+
+    <!--  Generate favicon.ico by https://realfavicongenerator.net/ -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="front/template/default/assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="front/template/default/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="front/template/default/assets/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="front/template/default/assets/favicon/site.webmanifest"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      type="text/css"
+      href="front/template/default/assets/fonts/fonts.css?v=15"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+
+    <link
+      rel="preload"
+      href="front/template/default/assets/css/import.min.css?v=15"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="front/template/default/assets/css/source.min.css?v=15"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="front/template/default/assets/css/jin_modify.css?v=15"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="front/template/default/assets/css/plug_modify.css?v=15"
+      as="style"
+    />
+    <!-- Custom -->
+    <link
+      rel="stylesheet"
+      href="front/template/default/assets/css/import.min.css?v=15"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="front/template/default/assets/css/source.min.css?v=15"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="front/template/default/assets/css/jin_modify.css?v=15"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="front/template/default/assets/css/plug_modify.css?v=15"
+      media="all"
+    />
+
+    <!-- asw css -->
+    <link
+      rel="preload"
+      href="front/template/default/assets/css/accessibility.css?v=15"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="front/template/default/assets/css/accessibility.css?v=15"
+    /></noscript>
+    <link
+      rel="preload"
+      href="front/template/default/assets/css/wcag-theme.min.css?v=15"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="front/template/default/assets/css/wcag-theme.min.css?v=15"
+    /></noscript>
+
+    <!-- guide css -->
+
+    <!-- mCustomScrollbar -->
+    <link
+      rel="preload"
+      href="front/template/default/assets/css/jquery.mCustomScrollbar.css?v=15"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="front/template/default/assets/css/jquery.mCustomScrollbar.css?v=15"
+    /></noscript>
+
+    <!-- asw icon -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;text=format_size,add,remove,restart_alt,close,title,link,local_parking,nightlight,brightness_5,tonality,filter_vintage,gradient,filter_b_and_w,local_library,zoom_in,mouse,format_bold,format_line_spacing,space_bar,spellcheck"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+  </head>
+
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/jquery-3.6.0.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/jquery.easing.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/jquery.mCustomScrollbar.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/modernizr.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/aos.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/popper.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/bootstrap.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/lazyload.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/select2.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/sweetalert.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/swiper-bundle.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/slick.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/trunk8.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/cookie.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/moment.min.js?v=15"
+    as="script"
+  />
+  <link
+    rel="preload"
+    href="front/template/default/assets/js/libs/validator.min.js?v=15"
+    as="script"
+  />
+  <body>
+    <header class="layout-header">
+      <div class="top-bar" data-aos="fade-down" data-aos-delay="200">
+        <div class="container">
+          <div class="nav-lang d-lg-block d-none guide-nav-lang">
+            <div class="row justify-content-end align-items-center gutters-10">
+              <div class="col-auto">
+                <div class="nav-label">เลือกภาษา</div>
+              </div>
+              <div class="col-auto">
+                <a
+                  title="Thai"
+                  class="nav-lang-th active"
+                  target="_self"
+                  href="/th/lang/th"
+                >
+                  <span class="visually-hidden">Thai</span>
+                  <img
+                    loading="lazy"
+                    src="front/template/default/assets/img/icon/lang-th.svg"
+                    alt="th"
+                    class="flag"
+                    width="30"
+                    height="30px"
+                  />
+                </a>
+              </div>
+              <div class="col-auto">
+                <a
+                  title="Eng"
+                  class="nav-lang-th"
+                  target="_self"
+                  href="/th/lang/en"
+                >
+                  <span class="visually-hidden">Eng</span>
+                  <img
+                    loading="lazy"
+                    src="front/template/default/assets/img/icon/lang-en.svg"
+                    alt="th"
+                    class="flag"
+                    width="30"
+                    height="30px"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container align-items-lg-end">
+          <a class="navbar-brand" href="/th/home" data-aos="fade-right">
+            <div class="brand-logo">
+              <img
+                loading="lazy"
+                src="front/template/default/assets/img/static/brand-header.webp"
+                alt="DMSC LOGO"
+                width="80"
+                height="91"
+              />
+            </div>
+            <div class="brand-txt">
+              <div class="title">
+                กรมวิทยาศาสตร์การแพทย์<br />กระทรวงสาธารณสุข
+              </div>
+              <div class="subtitle">
+                Department of Medical Sciences<br />Ministry of Public Health
+              </div>
+            </div>
+          </a>
+        </div>
+      </nav>
+      <div class="guides-overlay-custom"></div>
+    </header>
+    <main>
+        <!-- Critical LCP Element -->
+        <img src="large-image.jpg" alt="Beautiful Scenery" width="600" height="400" loading="lazy">
+        <p>Some initial text content...</p>
+    </main>
+    <footer>
+      <h4>mfooterain body</h4>
+      <p>Some initial text content...</p>
+    </footer>
+    <!-- Core -->
+    <!-- Core -->
+    <script src="front/template/default/assets/js/libs/jquery-3.6.0.js?v=15"></script>
+    <script src="front/template/default/assets/js/libs/jquery.easing.min.js?v=15"></script>
+    <script
+      defer
+      src="front/template/default/assets/js/libs/jquery.mCustomScrollbar.js?v=15"
+    ></script>
+    <script src="front/template/default/assets/js/libs/modernizr.min.js?v=15"></script>
+    <script src="front/template/default/assets/js/libs/aos.js?v=15"></script>
+    <script src="front/template/default/assets/js/libs/popper.min.js?v=15"></script>
+    <script src="front/template/default/assets/js/libs/bootstrap.min.js?v=15"></script>
+    <script src="front/template/default/assets/js/libs/lazyload.min.js?v=15"></script>
+    <script
+      defer
+      src="front/template/default/assets/js/libs/select2.min.js?v=15"
+    ></script>
+    <script
+      defer
+      src="front/template/default/assets/js/libs/sweetalert.min.js?v=15"
+    ></script>
+    <script src="front/template/default/assets/js/libs/swiper-bundle.min.js?v=15"></script>
+    <script src="front/template/default/assets/js/libs/slick.min.js?v=15"></script>
+    <script
+      defer
+      src="front/template/default/assets/js/libs/trunk8.js?v=15"
+    ></script>
+    <script src="front/template/default/assets/js/cookie.js?v=15"></script>
+    <script
+      defer
+      src="front/template/default/assets/js/libs/moment.min.js?v=15"
+    ></script>
+    <script
+      defer
+      src="front/template/default/assets/js/libs/validator.min.js?v=15"
+    ></script>
+    <script src="front/template/default/assets/js/libs/feather.js?v=15"></script>
+    <script
+      defer
+      src="front/template/default/assets/js/libs/guides.js?v=15"
+    ></script>
+
+    <!-- Module -->
+    <script
+      type="module"
+      src="front/template/default/assets/js/controller.js?v=15"
+    ></script>
+
+    <!-- Main -->
+    <script src="front/template/default/assets/js/main.js?v=15"></script>
+    <!-- Dev -->
+    <script src="front/template/default/assets/js/developer.js?v=15"></script>
+
+    <script>
+      var raf =
+        window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame;
+    </script>
+
+    <script src="front/controller/script/home/js/script.js?u=20243005173814"></script>
+    <script src="front/controller/script/home/js/controller.js?u=20243005173814"></script>
+    <script src="front/controller/script/home/js/guides_popup.js?u=20243005173814"></script>
+
+    <!-- asw js -->
+    <script src="front/template/default/assets/js/accessibility.js?u=20243005173814"></script>
+
+    <script>
+      // Lazy load images
+      document.addEventListener("DOMContentLoaded", function () {
+        const lazyImages = document.querySelectorAll("img[loading='lazy']");
+        if ("IntersectionObserver" in window) {
+          let lazyImageObserver = new IntersectionObserver(function (
+            entries,
+            observer
+          ) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                let lazyImage = entry.target;
+                console.log(lazyImage.src);
+                lazyImage.src = lazyImage.src;
+                lazyImage.removeAttribute("loading");
+                lazyImageObserver.unobserve(lazyImage);
+              }
+            });
+          });
+
+          lazyImages.forEach(function (lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
