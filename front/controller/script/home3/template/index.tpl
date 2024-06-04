@@ -24,12 +24,12 @@
                     {elseif $valueTgp->type eq 3}
                         <div class="swiper-slide">
                             <div class="item">
-                            <div class="video-container">
-                                <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
-                                <source src="{$valueTgp->video->real}" type="video/mp4">
-                                Your browser does not support the video tag.
-                                </video>
-                            </div>
+                                <div class="video-container">
+                                    <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                                    <source src="{$valueTgp->video->real}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                </div>
                             </div>
                         </div>
                     {else}
@@ -49,7 +49,6 @@
                                       </figure>
                                     </div>
                                 </a>
-                                
                             </div>
                         </div>
                     {/if}
@@ -60,6 +59,7 @@
         </div>
     {/if}
 
+    <!--
     {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
             <div class="wg-services lazy" >
@@ -67,7 +67,7 @@
                     <div class="row align-items-center text-sm-left text-center">
                         <div class="col-sm mb-sm-0 mb-3">
                             <div class="whead mb-0" data-aos="fade-right">
-                                <h5 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h5>
+                                <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->serviceen->display->$currentLangWeb}</p>
                             </div>
                         </div>
@@ -571,5 +571,6 @@
             </div>
         </div>
     </div>
-                                <div class="guides-overlay-custom"></div>
+    <div class="guides-overlay-custom"></div>
+    -->
 </section>
