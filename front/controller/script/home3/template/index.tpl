@@ -1,6 +1,6 @@
 <section class="layout-body layout-body-home">
     
-    <!--
+    
     {if $loadTopgraphic->_numOfRows gte 1}
         <div id="banner" class="text-righ w-25 ml-auto"></div>
         <div class="top-graphic" data-aos="fade-down">
@@ -38,8 +38,8 @@
             </div>
         </div>
     {/if}
-    -->
-
+    
+    <!--
     {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
             <div class="wg-services lazy" >
@@ -506,5 +506,6 @@
         </div>
     </div>
     <div class="guides-overlay-custom"></div>
+    -->
 
 </section>
