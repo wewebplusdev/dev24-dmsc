@@ -126,7 +126,6 @@ if ($_REQUEST['execute'] == "insert") {
          }
       }
 
-
       $sql_filetemp = "SELECT " . $mod_tb_fileTemp . "_id," . $mod_tb_fileTemp . "_filename," . $mod_tb_fileTemp . "_name  FROM " . $mod_tb_fileTemp . " WHERE " . $mod_tb_fileTemp . "_contantid 	='" . $_REQUEST['valEditID'] . "' ORDER BY " . $mod_tb_fileTemp . "_id ASC";
       $query_filetemp = wewebQueryDB($coreLanguageSQL, $sql_filetemp);
       $number_filetemp = wewebNumRowsDB($coreLanguageSQL, $query_filetemp);
