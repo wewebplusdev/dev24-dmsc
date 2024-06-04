@@ -335,7 +335,7 @@
                                 </div>
                                 <div class="nav nav-default flex-column" id="news-tab" role="tablist" aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
-                                        <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill" data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
+                                        <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill" data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}">{$valueNewsGroup->subject}</button>
                                     {/foreach}
                                 </div>
                                 <div class="action">
