@@ -1,4 +1,20 @@
 <?php
+
+$data = array();
+$data['action'] = 'contact';
+$data['method'] = 'getAdmin';
+$data['masterkey'] = 'cum';
+$data['language'] = $ContactPage->language;
+$insert_data = $ContactPage->loadData($data);
+// require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+// loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+$array_email = array();
+$array_email[] = trim($_POST["inputEmail"]);
+print_pre($array_email);
+die;
+
+
+
 header('Content-Type: application/json; charset=utf-8');
 
 $requestParams = [
@@ -27,8 +43,10 @@ if ($responseData->success) {
     $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
 
-        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
-        loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+        // require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+        // loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+        $array_email = array();
+        $array_email[] = trim($_POST["inputEmail"]);
 
         $arrJson = array(
             'code' => 1001,

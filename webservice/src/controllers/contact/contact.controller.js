@@ -11,6 +11,7 @@ exports.init = function (req, res) {
     funcRoute(req, res, {
         "insertContact": "insertContact",
         "insertCorruption": "insertCorruption",
+        "getAdmin": "getAdmin",
     });
 }
 
@@ -158,6 +159,86 @@ async function insertCorruption(req, res) {
             // enable check foreign key
             await query('SET FOREIGN_KEY_CHECKS=1;');
 
+        } catch (error) {
+            result.code = code.error_wrong.code;
+            result.msg = code.error_wrong.msg;
+        }
+        conn.destroy();
+    }
+    res.json(result);
+}
+
+async function getAdmin(req, res) {
+    const method = req.body.method;
+    const language = req.body.language;
+    const masterkey = req.body.masterkey;
+    const search_keyword = req.body.keyword;
+    const result = general.checkParam([method, language, masterkey]);
+    const code = config.returncode;
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_cue'] = config.fieldDB.main.md_cue
+
+    if (result.code == code.success.code) {
+        let conn = config.configDB.connectDB();
+        const query = util.promisify(conn.query).bind(conn);
+        try {
+            result.code = code.success.code;
+            result.msg = code.success.msg;
+            let sql_list = `SELECT 
+                ${config_array_db['md_cue']}_id as id 
+                ,${config_array_db['md_cue']}_key as masterkey 
+                ,${config_array_db['md_cue']}_gid as gid 
+                ,${config_array_db['md_cue']}_email as email 
+                FROM ${config_array_db['md_cue']} 
+                WHERE ${config_array_db['md_cue']}_key = '${masterkey}' `;
+                const select_list = await query(sql_list);
+                console.log(sql_list);
+            if (select_list.length > 0) {
+                let count_totalrecord;
+                let module_pagesize = limit;
+                // Find total data
+                if (select_list.length >= 1) {
+                    total_data = select_list.length;
+                    count_totalrecord = total_data;
+                }
+                // Find max page size
+                let numberofpage;
+                if (count_totalrecord > limit) {
+                    numberofpage = Math.ceil(count_totalrecord / limit);
+                } else {
+                    numberofpage = 1;
+                }
+                // Recover page show into range
+                let module_pageshow = page;
+                if (module_pageshow > numberofpage) {
+                    module_pageshow = numberofpage;
+                } else {
+                    module_pageshow = page;
+                }
+                // Select only paging range
+                let recordstart = (module_pageshow - 1) * module_pagesize;
+                limit_order = recordstart + "," + module_pagesize;
+                sql_list += `LIMIT ${limit_order}`
+                const select = await query(sql_list);
+                if (select.length > 0) {
+                    let arr_data = [];
+                    result.code = code.success.code;
+                    result.msg = code.success.msg;
+                    for (let i = 0; i < select.length; i++) {
+                        arr_data[i] = {};
+                        arr_data[i].id = select[i].id;
+                        arr_data[i].masterkey = select[i].masterkey;
+                        arr_data[i].email = select[i].email;
+                    }
+                } else {
+                    result.code = code.missing_data.code;
+                    result.msg = code.missing_data.msg;
+                }
+            } else {
+                result.code = code.missing_data.code;
+                result.msg = code.missing_data.msg;
+            }
         } catch (error) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;
