@@ -88,9 +88,9 @@
     flex-direction: column;
     justify-content: center;
  } */
-  .action {
+  /* .action {
     text-align: center;
- }
+ } */
   .action .button-full {
     display: none;
  }
