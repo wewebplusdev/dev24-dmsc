@@ -1,6 +1,5 @@
 <section class="layout-body layout-body-home">
     
-    
     {if $loadTopgraphic->_numOfRows gte 1}
         <div id="banner" class="text-righ w-25 ml-auto"></div>
         <div class="top-graphic" data-aos="fade-down">

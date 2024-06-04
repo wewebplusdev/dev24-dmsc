@@ -100,5 +100,4 @@
   .event-list .link{clip-path: polygon(0 0, 100% 0, 100% 100%, 1.25em 100%, 0 calc(100% - 1em));}
   .event-list .link::before{width: 75px;height: 75px;}
   .event-list .dot{width: 14px;height: 14px;}
-
 }
