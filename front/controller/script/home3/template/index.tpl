@@ -1,5 +1,6 @@
 <section class="layout-body layout-body-home">
     
+    <!--
     {if $loadTopgraphic->_numOfRows gte 1}
         <div id="banner" class="text-righ w-25 ml-auto"></div>
         <div class="top-graphic" data-aos="fade-down">
@@ -37,6 +38,7 @@
             </div>
         </div>
     {/if}
+    -->
 
     {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
@@ -347,8 +349,7 @@
                                 <div class="tab-content" id="news-tabContent">
                                     {$index_news = 0}
                                     {foreach $array_news_list['list'] as $keyNewsListGroup => $valueNewsListGroup}
-                                    <div class="tab-pane fade {if $index_news eq 0}show active{/if}" id="news-0{$keyNewsListGroup}" role="tabpanel"
-                                        aria-labelledby="news-0{$keyNewsListGroup}-tab">
+                                    <div class="tab-pane fade {if $index_news eq 0}show active{/if}" id="news-0{$keyNewsListGroup}" role="tabpanel" aria-labelledby="news-0{$keyNewsListGroup}-tab">
                                         <div class="wg-news-slide">
                                             <div class="swiper swiper-default">
                                                 <div class="swiper-wrapper">
