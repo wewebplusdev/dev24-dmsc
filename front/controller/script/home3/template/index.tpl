@@ -14,10 +14,7 @@
                         <div class="swiper-slide">
                             <div class="item">
                                 <div class="iframe-container">
-                                    <iframe
-                                        src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1"
-                                        title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;"
-                                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                    <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -26,9 +23,7 @@
                             <div class="item">
                                 <div class="video-container">
                                     <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
-                                    <source src="{$valueTgp->video->real}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                    </video>
+                                    <source src="{$valueTgp->video->real}" type="video/mp4">Your browser does not support the video tag.</video>
                                 </div>
                             </div>
                         </div>
@@ -221,8 +216,7 @@
                                                                         <div class="total">{$valueload_innovation->number|number_format}</div>
                                                                         <div class="unit">
                                                                             {$valueload_innovation->suffix}
-                                                                            <span
-                                                                                class="material-symbols-rounded">expand_circle_right</span>
+                                                                            <span class="material-symbols-rounded">expand_circle_right</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -258,9 +252,7 @@
                                 <h3 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h3>
                                 <p class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</p>
                                 <div class="line"></div>
-                                <p class="desc">
-                                    {$languageFrontWeb->aboutdepartment->display->$currentLangWeb}
-                                </p>
+                                <p class="desc">{$languageFrontWeb->aboutdepartment->display->$currentLangWeb}</p>
                             </div>
                             {* <div class="action">
                                 <a href="{$ul}/about" class="btn btn-primary">{$languageFrontWeb->readmore->display->$currentLangWeb}</a>
@@ -374,8 +366,7 @@
                                     <p class="subtitle">{$languageFrontWeb->titlenewsen->display->$currentLangWeb}</p>
                                     <div class="line"></div>
                                 </div>
-                                <div class="nav nav-default flex-column" id="news-tab" role="tablist"
-                                    aria-orientation="vertical">
+                                <div class="nav nav-default flex-column" id="news-tab" role="tablist" aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
                                         <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill"
                                             data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
@@ -417,13 +408,10 @@
                                                                         <div class="card-body">
                                                                             <h5 class="title">{$valueNewsList->subject}</h5>
                                                                             <div class="line"></div>
-                                                                            <p class="desc">
-                                                                                {$valueNewsList->title}
-                                                                            </p>
+                                                                            <p class="desc">{$valueNewsList->title}</p>
                                                                             <div class="action">
                                                                                 {$languageFrontWeb->readmore->display->$currentLangWeb}
-                                                                                <span
-                                                                                    class="material-symbols-rounded">expand_circle_right</span>
+                                                                                <span class="material-symbols-rounded">expand_circle_right</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -458,8 +446,7 @@
                                 <h2 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
-                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj"
-                                        class="lazy" loading="lazy" width="135" height="135">
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj" class="lazy" loading="lazy" width="135" height="135">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
                             </div>
@@ -468,12 +455,8 @@
                             </div>
                         </div>
                         <div class="bg" data-aos="fade-right">
-                            <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                type="image/webp">
-                            <img src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" loading="lazy" alt="background-lab"
-                                class="lazy">
+                            <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" type="image/webp">
+                            <img src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" loading="lazy" alt="background-lab" class="lazy">
                             {* <picture>
                             </picture> *}
                         </div>
@@ -490,14 +473,12 @@
                                 {if $settingWeb.contact->email2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->contactinfo->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email2}"
-                                                        class="link">{$settingWeb.contact->email2}</a></span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email2}" class="link">{$settingWeb.contact->email2}</a></span>
                                             </p>
                                         </div>
                                     </div>
@@ -505,14 +486,12 @@
                                 {if $settingWeb.contact->email3 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->inqairebout->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="{$settingWeb.contact->email3}"
-                                                        class="link">{$settingWeb.contact->email3}</a></span>
+                                                <span class="d-block">E-mail : <a href="{$settingWeb.contact->email3}" class="link">{$settingWeb.contact->email3}</a></span>
                                             </p>
                                         </div>
                                     </div>
@@ -520,19 +499,15 @@
                                 {if $settingWeb.contact->tel neq "" && $settingWeb.contact->tel2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
-                                                alt="" class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 {if $settingWeb.contact->tel neq ""}
-                                                <span class="d-block">{$languageFrontWeb->contact_tel->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}"
-                                                        class="link">{$settingWeb.contact->tel}</a></span>
+                                                <span class="d-block">{$languageFrontWeb->contact_tel->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}" class="link">{$settingWeb.contact->tel}</a></span>
                                                 {/if}
                                                 {if $settingWeb.contact->tel2 neq ""}
-                                                <span class="d-block">{$languageFrontWeb->contact_mobile->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}"
-                                                        class="link">{$settingWeb.contact->tel2}</a></span>
-
+                                                <span class="d-block">{$languageFrontWeb->contact_mobile->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></span>
                                                 {/if}
                                             </p>
                                         </div>
@@ -541,14 +516,12 @@
                                 {if $settingWeb.contact->email4 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->contact_desc->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email4}"
-                                                        class="link">{$settingWeb.contact->email4}</a></span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email4}" class="link">{$settingWeb.contact->email4}</a></span>
                                             </p>
                                         </div>
                                     </div>
@@ -556,12 +529,8 @@
                             </div>
                         </div>
                         <div class="bg" data-aos="fade-left">
-                            <source srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                type="image/webp">
-                            <img src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" loading="lazy" alt="background-contact"
-                                class="lazy">
+                            <source srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" type="image/webp">
+                            <img src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" loading="lazy" alt="background-contact" class="lazy">
                             {* <picture>
                             </picture> *}
                         </div>
