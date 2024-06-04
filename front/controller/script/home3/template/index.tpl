@@ -1,11 +1,3 @@
-<!-- Preload : START -->
-<div class="preload-load-div">
-    <div class="preload-loader-wrapper">
-        <div class="preload-loader"></div>
-    </div>
-</div>
-<!-- Preload : START -->
-
 <section class="layout-body layout-body-home">
     
     {if $loadTopgraphic->_numOfRows gte 1}

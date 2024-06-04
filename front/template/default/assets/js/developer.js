@@ -53,13 +53,3 @@ if ($.cookie("UNIQID_LOGS") === undefined) {
         $('#navbarSupportedContent').find(`.${menu}`).addClass('active');
     }
 })();
-
-
-// Preload
-const closeLoading = function() {
-    const loadingElm = document.querySelector(".preload-load-div");
-    loadingElm.style.display = "none";
-}
-window.addEventListener("load", function(){
-    closeLoading();
-});
