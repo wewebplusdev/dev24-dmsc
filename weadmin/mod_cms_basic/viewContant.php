@@ -267,7 +267,7 @@ logs_access('3', 'View');
           </td>
         </tr>
         <tr>
-          <td colspan="7" align="left" valign="top" class="formTileTxt">
+          <td colspan="7" align="left" valign="top" class="formLeftContantTb">
             <div class="viewEditorTileTxt">
               <?php
               if (file_exists($valHtml)) {

@@ -30,6 +30,11 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <script language="JavaScript" type="text/javascript" src="../js/jquery.toolbar.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scripttoolbarjs.js?v=<?php echo date('YmdHis'); ?>"></script>
    <script language="JavaScript" type="text/javascript" src="./js/script.js?v=1"></script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>

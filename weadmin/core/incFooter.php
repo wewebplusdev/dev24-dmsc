@@ -1,4 +1,5 @@
 <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
+
 <script type="text/javascript">
     $(window).scroll(function() {
         if ($(this).scrollTop() > 120){  

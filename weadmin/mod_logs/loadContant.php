@@ -32,6 +32,11 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 
 
    </script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -143,10 +148,10 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       <div class="divRightHeadSearch">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
-               <td class="selectSearch2">
+               <td class="selectSearch2" style=" padding-bottom: 10px !important; ">
                   <input name="sdateInput" type="text" id="sdateInput" placeholder="<?= $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle "/>
                </td>
-               <td class="selectSearch4">
+               <td class="selectSearch4" style=" padding-bottom: 10px !important; ">
                   <input name="edateInput" type="text" id="edateInput" placeholder="<?= $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle " />
                </td>
                <td class="buttonSearchStyle" align="right" width="4%">&nbsp;</td>

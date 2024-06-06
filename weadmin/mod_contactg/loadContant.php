@@ -198,7 +198,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
 
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td class="buttonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
             </tr>
          </table>
       </div>

@@ -81,6 +81,11 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          });
       });
    </script>
+    <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>

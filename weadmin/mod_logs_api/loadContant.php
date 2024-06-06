@@ -52,6 +52,11 @@ if (!empty($_REQUEST['inputGh2'])) {
 
       });
    </script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -165,16 +170,16 @@ if (!empty($_REQUEST['inputGh2'])) {
       <div class="divRightHeadSearch tableHeadFilter table-insub">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
-               <td class="selectSearch2">
+               <td class="selectSearch2" width="50%">
                   <input style="margin-bottom: 10px;" name="sdateInput" type="text" id="sdateInput" placeholder="<?php echo $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle sdateInput" />
                </td>
-               <td class="selectSearch4">
+               <td class="selectSearch4" width="50%">
                   <input style="margin-bottom: 10px;" name="edateInput" type="text" id="edateInput" placeholder="<?php echo $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle" />
                </td>
-               <td class="buttonSearchStyle" align="right" width="4%">&nbsp;</td>
+               <!-- <td class="buttonSearchStyleStyle" align="right" width="4%">&nbsp;</td> -->
             </tr>
             <tr>
-               <td class="selectSearch2">
+               <td class="selectSearch2" style=" padding-bottom: 10px !important; ">
                   <select name="inputGh2" id="inputGh2" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="0"><?php echo $langMod["tit:typeAPI"] ?> </option>
                      <option value="999" <?php if ($_REQUEST['inputGh2'] == 999) { ?> selected="selected" <?php } ?>>Unknown User</option>
@@ -192,7 +197,7 @@ if (!empty($_REQUEST['inputGh2'])) {
                      <?php } ?>
                   </select>
                </td>
-               <td>
+               <td style=" padding-bottom: 10px !important; ">
                   <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="0"><?php echo $langMod["tit:typeAccessSle"] ?> </option>
                      <?php
@@ -202,13 +207,15 @@ if (!empty($_REQUEST['inputGh2'])) {
                      <?php } ?>
                   </select>
                </td>
-               <td class="buttonSearchStyle" align="right" width="4%">&nbsp;</td>
+               <!-- <td class="buttonSearchStyleStyle" align="right" width="4%">&nbsp;</td> -->
             </tr>
-            <tr>
-               <td class="textSearch2">
+         </table>
+         <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:0;" align="center">
+         <tr>
+               <td class="textSearch2" style=" padding-bottom: 0 !important; ">
                   <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
                </td>
-               <td class="buttonSearch">
+               <td class="buttonSearchStyle" style=" padding-bottom: 0 !important; ">
                   <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
                </td>
             </tr>
