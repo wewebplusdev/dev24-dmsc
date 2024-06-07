@@ -2732,4 +2732,4 @@ $(".divRightHead .borderBottom tr")
   });
 
 
-$('.formEndContantTb a[href="#defTop"]').closest("table").addClass("d-none");
+$('.formEndContantTb a[href="#defTop"]').closest("tr").addClass("d-none");
