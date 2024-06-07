@@ -155,7 +155,7 @@
 .select2-container--default .select2-selection--single {
     background-color: #fff;
     border: 1px solid var(--color-border);;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: var(--color-default);

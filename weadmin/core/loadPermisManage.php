@@ -28,6 +28,11 @@ $valNav2 = $langTxt["nav:perManage2"];
 
 
    </script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -99,7 +104,7 @@ $valNav2 = $langTxt["nav:perManage2"];
          <table border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
                <td class="selectSearch2">
-                  <select name="inputGh" id="inputGh" onchange="document.myForm.submit();"  class="formSelectSearch" >
+                  <select name="inputGh" id="inputGh" onchange="document.myForm.submit();"  class="formSelectSearchStyle" >
                      <option value="0"><?= $langTxt["pr:select"] ?></option>
                      <option value="admin" <? if ($_REQUEST['inputGh'] == "admin") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select1"] ?></option>
                      <option value="staff" <? if ($_REQUEST['inputGh'] == "staff") { ?>selected="selected" <? } ?>><?= $langTxt["pr:select2"] ?></option>

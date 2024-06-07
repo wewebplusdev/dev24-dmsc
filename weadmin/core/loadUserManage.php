@@ -28,6 +28,11 @@ $valNav2 = $langTxt["nav:userManage2"];
 
 
 	</script>
+  <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
