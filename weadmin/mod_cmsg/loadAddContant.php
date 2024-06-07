@@ -44,11 +44,11 @@ foreach ($listAuthen as $key => $value) {
    <link href="../css/table_css.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
    <link href="js/uploadfile.css" rel="stylesheet" />
    <title><?php echo $core_name_title ?></title>
-   <link href="../js/select2/css/select2.css" rel="stylesheet" />
+   <!-- <link href="../js/select2/css/select2.css" rel="stylesheet" />
 
-   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
-   <!-- <script src="https://code.jquery.com/jquery-1.11.3.js"></script> -->
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script> -->
+   <!-- <script src="https://code.jquery.com/jquery-1.11.3.js"></script> 
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js?v=<?php echo date('Ymdhis'); ?>"></script>
    <script language="JavaScript" type="text/javascript" src="./js/script.js?v=<?php echo date('Ymdhis'); ?>"></script>
 

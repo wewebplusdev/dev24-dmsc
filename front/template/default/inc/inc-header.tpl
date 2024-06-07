@@ -144,7 +144,7 @@
                         <span data-feather="x" title="X"></span>
                     </a>
                 </div>
-                <div class="nav-lang d-lg-none d-block guides-current-element">
+                <div class="nav-lang d-lg-none d-block">
                   <div class="row align-items-center gutters-10">
                       <div class="col-12">
                           <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
@@ -159,7 +159,7 @@
                       {/foreach}
                   </div>
                 </div>
-                <div class="guides-overlay-custom d-lg-none d-block"></div>
+                <div class="guides-overlay-custom d-lg-none"></div>
             </div>
         </div>
     </nav>

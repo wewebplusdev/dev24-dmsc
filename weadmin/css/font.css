@@ -2,6 +2,9 @@
 /* CSS Document */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400&family=IBM+Plex+Sans&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
+
+
 @font-face {
     font-family: 'Helvethaica Mon';
     src: url('../fonts/helvethaicamon/db_helvethaicamon_x_bd_v3.2-webfont.eot');

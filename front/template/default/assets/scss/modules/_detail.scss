@@ -131,11 +131,23 @@
 
   .news-area {
     .swiper {
-      .swiper-slide-fully-visible {
-        opacity: 1;
+      overflow: visible;
+      // .swiper-wrapper {
+      //   pointer-events: none;
+      
+      .swiper-slide {
+        .link {
+          opacity: 0;
+          visibility: hidden;
+        }
+        &.swiper-slide-visible {
+          .link {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
       }
     }
-
   }
 }
 
@@ -357,4 +369,6 @@
   .default-bar .whead .title {font-size: 20px;}
   .default-bar .box,
   .default-bar .box strong{font-size: 15px;}
+
+  .detail-body .whead .title {font-size: 24px;}
 }

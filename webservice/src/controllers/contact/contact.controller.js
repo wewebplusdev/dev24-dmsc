@@ -11,6 +11,7 @@ exports.init = function (req, res) {
     funcRoute(req, res, {
         "insertContact": "insertContact",
         "insertCorruption": "insertCorruption",
+        "getAdmin": "getAdmin",
     });
 }
 
@@ -158,6 +159,55 @@ async function insertCorruption(req, res) {
             // enable check foreign key
             await query('SET FOREIGN_KEY_CHECKS=1;');
 
+        } catch (error) {
+            result.code = code.error_wrong.code;
+            result.msg = code.error_wrong.msg;
+        }
+        conn.destroy();
+    }
+    res.json(result);
+}
+
+async function getAdmin(req, res) {
+    const method = req.body.method;
+    const language = req.body.language;
+    const masterkey = req.body.masterkey;
+    const search_keyword = req.body.keyword;
+    const result = general.checkParam([method, language, masterkey]);
+    const code = config.returncode;
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_cue'] = config.fieldDB.main.md_cue
+    
+    if (result.code == code.success.code) {
+        let conn = config.configDB.connectDB();
+        const query = util.promisify(conn.query).bind(conn);
+        try {
+            result.code = code.success.code;
+            result.msg = code.success.msg;
+            let sql_list = `SELECT 
+            ${config_array_db['md_cue']}_id as id 
+            ,${config_array_db['md_cue']}_key as masterkey 
+            ,${config_array_db['md_cue']}_gid as gid 
+            ,${config_array_db['md_cue']}_email as email 
+            FROM ${config_array_db['md_cue']} 
+            WHERE ${config_array_db['md_cue']}_key = '${masterkey}' `;
+            const select = await query(sql_list);
+            if (select.length > 0) {
+                let arr_data = [];
+                result.code = code.success.code;
+                result.msg = code.success.msg;
+                for (let i = 0; i < select.length; i++) {
+                    arr_data[i] = {};
+                    arr_data[i].id = select[i].id;
+                    arr_data[i].masterkey = select[i].masterkey;
+                    arr_data[i].email = select[i].email;
+                }
+                result.item = arr_data;
+            } else {
+                result.code = code.missing_data.code;
+                result.msg = code.missing_data.msg;
+            }
         } catch (error) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;

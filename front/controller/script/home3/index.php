@@ -1,8 +1,8 @@
 <?php
 $menuActive = "home3";
-$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js'.$lastModify.'"></script>';
-$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js'.$lastModify.'"></script>';
-$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/guides_popup.js'.$lastModify.'"></script>';
+$listjs[] = '<script defer src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js'.$lastModify.'"></script>';
+$listjs[] = '<script defer src="' . _URL . 'front/controller/script/' . $menuActive . '/js/controller.js'.$lastModify.'"></script>';
+$listjs[] = '<script defer src="' . _URL . 'front/controller/script/' . $menuActive . '/js/guides_popup.js'.$lastModify.'"></script>';
 
 $HomePage = new HomePage;
 define('SCRIPT_PATH', '/front/controller/script/');

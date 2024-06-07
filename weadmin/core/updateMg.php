@@ -26,6 +26,8 @@ include("../lib/checkMember.php");
 		$update[]=$core_tb_menu."_moduletype  	='".$inputModuleName."'";
 		$update[]=$core_tb_menu."_masterkey  	='".changeQuot($_REQUEST['inputmasterkey'])."'";
 		$update[]=$core_tb_menu."_linkpath  	='".$inputlinkpath."'";
+		$update[]=$core_tb_menu."_icontype  	='".$_REQUEST['inputIconType']."'";
+		$update[]=$core_tb_menu."_classname  	='".$_REQUEST['inputClassIcon']."'";
 
 		$sql="UPDATE ".$core_tb_menu." SET ".implode(",",$update)." WHERE ".$core_tb_menu."_id='".$_REQUEST["valEditID"]."' ";
 		$Query=wewebQueryDB($coreLanguageSQL,$sql);		

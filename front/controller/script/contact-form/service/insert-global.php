@@ -1,17 +1,38 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
 
-$requestParams = [
-    'secret' => $recaptchaSecretkey,
-    'response' => $_POST['g-recaptcha-response']
-];
-$requestQuery = http_build_query($requestParams);
+$data = array();
+$data['action'] = 'contact';
+$data['method'] = 'getAdmin';
+$data['masterkey'] = 'cum';
+$data['language'] = $ContactPage->language;
+$insert_data = $ContactPage->loadData($data);
 
-$verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
+$array_email = array();
+$array_email[] = trim($_POST["inputEmail"]);
 
-$verifyResponse = file_get_contents($verifyUrl);
+if ($insert_data->code == 1001) {
+    foreach ($insert_data->item as $keyEmail => $valueEmail) {
+        $array_email[] = trim($valueEmail->email);
+    }
+}
+require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+loadSendEmailTo($array_email, 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+printPre($array_email);
+die;
 
-$responseData = json_decode($verifyResponse);
+// header('Content-Type: application/json; charset=utf-8');
+
+// $requestParams = [
+//     'secret' => $recaptchaSecretkey,
+//     'response' => $_POST['g-recaptcha-response']
+// ];
+// $requestQuery = http_build_query($requestParams);
+
+// $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
+
+// $verifyResponse = file_get_contents($verifyUrl);
+
+// $responseData = json_decode($verifyResponse);
 
 if ($responseData->success) {
     $arrData = array();
@@ -26,9 +47,8 @@ if ($responseData->success) {
     // insert
     $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
-
-        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
-        loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+        // require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+        // loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
 
         $arrJson = array(
             'code' => 1001,

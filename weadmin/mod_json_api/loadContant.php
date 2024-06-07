@@ -108,7 +108,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                <td id="boxSelectTest">
                   <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
                </td>
-               <td class="bottonSearch" align="right">
+               <td class="buttonSearchStyle" align="right">
                   <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
                </td>
             </tr>

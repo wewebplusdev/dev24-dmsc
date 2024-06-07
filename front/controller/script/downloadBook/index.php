@@ -1,6 +1,6 @@
 <?php
 $menuActive = "downloadBook";
-$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script defer src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
 $DownloadBookPage = new DownloadBookPage;
 

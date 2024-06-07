@@ -29,8 +29,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
   <link href="../css/theme.css" rel="stylesheet" />
   <title><?= $core_name_title ?></title>
-  <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
-  <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+  <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
   <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
   <script type="text/javascript" language="javascript">
     function changeRibbon(tablename, statusname, statusid, fileAc) {
@@ -142,11 +142,11 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
         <tr>
 
-          <td class="selectSearch2"></td>
+          <!-- <td class="selectSearch2"></td> -->
           <td id="boxSelectTest">
             <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
           </td>
-          <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+          <td class="buttonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
         </tr>
       </table>
 
@@ -484,13 +484,6 @@ FROM " . $mod_tb_root . "";
       </table>
       <input name="TotalCheckBoxID" type="hidden" id="TotalCheckBoxID" value="<?= $index - 1 ?>" />
       <div class="divRightContantEnd"></div>
-      <div class="divRightHeadSearch">
-        <!-- <span class="fontContantNoteUrl">
-    <?= $langTxt["mini:siteth"] ?> : <a href="<?= loadGetURLByMod($core_full_path, 'th', $mod_fd_frontUrl, "") ?>" target="_blank"><?= loadGetURLByMod($core_full_path, 'th', $mod_fd_frontUrl, "") ?></a><br />
-
-    <?= $langTxt["mini:siteen"] ?> : <a href="<?= loadGetURLByMod($core_full_path, 'en', $mod_fd_frontUrl, "") ?>" target="_blank"><?= loadGetURLByMod($core_full_path, 'en', $mod_fd_frontUrl, "") ?></a>
-    </span> -->
-      </div>
     </div>
 
   </form>
