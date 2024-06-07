@@ -1,6 +1,6 @@
 <?php
 $menuActive = "weblinkAll";
-$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script defer src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
 $WeblinkAllPage = new WeblinkAllPage;
 

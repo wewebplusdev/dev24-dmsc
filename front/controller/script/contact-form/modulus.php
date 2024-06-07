@@ -14,7 +14,9 @@ class ContactPage extends Controller
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->tokenAccess,
         ];
-        
+        // printPre($data);
+        // printPre($url);
+        // die;
         return $this->sendCURL($url, $header, 'POST', json_encode($data));
     }
 }

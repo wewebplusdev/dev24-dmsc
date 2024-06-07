@@ -623,8 +623,6 @@ function loadSendEmailTo($mailTo, $subjectMail = null, $messageMail = null)
     require_once './front/libs/PHPMailer/src/PHPMailer.php';
     require_once './front/libs/PHPMailer/src/SMTP.php';
 
-    $mailTo = trim($mailTo);
-
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);
     $mail->CharSet = "utf-8";
     // $mail->SMTPDebug = 2; // Enable verbose debug output
@@ -643,7 +641,15 @@ function loadSendEmailTo($mailTo, $subjectMail = null, $messageMail = null)
     $mail->Subject = $subjectMail;
     $mail->Body = $messageMail;
 
-    $mail->AddAddress($mailTo); // to Address
+    // $mail->AddAddress($mailTo); // to Address
+    if (gettype($mailTo) == "string") {
+        $mailTo = trim($mailTo);
+        $mail->addAddress($mailTo); //ส่งถึงใคร
+    } else {
+        foreach ($mailTo as $to) {
+          $mail->AddAddress($to); 
+        }
+    }
     if (!$mail->Send()) {
         $valSendMailStatus = 0;
     } else {

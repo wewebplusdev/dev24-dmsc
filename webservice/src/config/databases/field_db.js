@@ -37,6 +37,7 @@ const main = {
     "md_cus": "md_cus",
     "md_js": "md_js",
     "md_jsl": "md_jsl",
+    "md_cue": "md_cue",
 }
 
 //Masterkey

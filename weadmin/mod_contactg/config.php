@@ -6,6 +6,8 @@ $mod_tb_root_group = "md_cug";
 $mod_tb_root_group_lang = "md_cugl";
 $mod_tb_root_sylang = 'sy_lang';
 
+$mod_tb_root_email = "md_cue";
+
 ## Mod Folder ###################################
 $mod_fd_root = "mod_contactg";
 

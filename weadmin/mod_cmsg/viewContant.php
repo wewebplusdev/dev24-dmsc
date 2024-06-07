@@ -59,6 +59,7 @@ if ($valStatus == "Enable") {
    $valStatusClass = "fontContantTbDisable";
 }
 
+
 if ($Row['sdate'] == "0000-00-00 00:00:00") {
    $valSdate = "-";
 } else {

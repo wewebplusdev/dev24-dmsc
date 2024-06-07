@@ -250,4 +250,9 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
 	$langMod["txt:corruption_report"] = "กระทำความผิดต่อตำแหน่งหน้าที่ราชการ";
 	$langMod["txt:rich_report"] = "ร่ำรวยผิดปกติ";
 	$langMod["txt:confirm_report"] = "ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวที่ข้าพเจ้าได้ร้องเรียน/แจ้งเบาะแสข้างต้น เป็นเรื่องจริง";
+	$langMod["txt:email2"] = "อีเมล์แจ้งเตือน";
+	$langMod["txt:titleedits"] = "แก้ไขข้อมูล" . $langMod["txt:email2"];
+	$langMod["txt:email3"] = "ข้อมูลอีเมล์";
+	$langMod["txt:setDe"] = "กรุณากรอกข้อมูลอีเมล์เพื่อใช้ในการแสดงผลในหน้าเว็บไซต์ของคุณ";
+	$langMod["tit:email4"] = "อีเมล์";
 }
