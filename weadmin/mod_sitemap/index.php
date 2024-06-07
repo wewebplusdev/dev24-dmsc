@@ -23,7 +23,8 @@ include("config.php");
             boxContantLoad('../<?php echo $mod_fd_root ?>/loadContant.php');
          });
       </script>
-
+      <!-- <link href="../js/select2/css/select2.css" rel="stylesheet" />
+      <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script> -->
    </head>
    <body>
       <div class="allBackOffice">

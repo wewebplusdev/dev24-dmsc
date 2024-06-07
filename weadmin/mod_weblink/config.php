@@ -29,7 +29,6 @@ $modStatusHome = array("Enable", "Disable", "Home");
 $array_masterkey_2link = array("mobile");
 $array_masterkey_pic_number = array("rein");
 $array_masterkey_group = array();
-$array_masterkey_home = array('rein');
 
 $modPeriodType = array(
     1 => "ตามช่วงเวลา",

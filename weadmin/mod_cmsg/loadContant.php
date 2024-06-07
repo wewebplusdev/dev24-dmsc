@@ -24,8 +24,8 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
    <link href="../js/jquery.toolbar.css" rel="stylesheet" />
    <title><?php echo $core_name_title ?></title>
    <link rel="stylesheet" href="../js/jquery-ui-1.9.0.css" />
-   <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery.toolbar.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scripttoolbarjs.js?v=<?php echo date('YmdHis'); ?>"></script>
@@ -81,6 +81,11 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          });
       });
    </script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -172,12 +177,12 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
          </table>
       </div>
+      
       <div class="divRightHeadSearch">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
-
             <tr>
                <?php if (!in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
-                  <td>
+                  <td style="padding-bottom:  0 !important;">
                      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                         <tr>
                            <td>
@@ -241,10 +246,10 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
 
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
             </tr>
          </table>
       </div>
+
       <div class="divRightHead">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
@@ -278,9 +283,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
             </tr>
          </table>
       </div>
-      <div class="divRightMain showJumpPage">
-
-
+      <div class="divRightMain showJumpPage list-responsive">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td width="3%" class="divRightTitleTbL" valign="middle" align="center">

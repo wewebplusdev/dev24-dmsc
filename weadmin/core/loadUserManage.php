@@ -21,8 +21,8 @@ $valNav2 = $langTxt["nav:userManage2"];
 
 	<link href="../css/theme.css" rel="stylesheet" />
 	<title><?= $core_name_title ?></title>
-	<script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
-	<script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+	<!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
 	<script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
 	<script type="text/javascript" language="javascript">
 
@@ -103,45 +103,51 @@ $valNav2 = $langTxt["nav:userManage2"];
 				<tr>
 					<td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?= $valLinkNav1 ?>" target="_self"><?= $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?= $valNav2 ?></span></td>
 					<td class="divRightNavTb" align="right">
-						<table border="0" cellspacing="0" cellpadding="0" align="right">
-							<tr>
-								<!-- <td>
-									<select name="inputUT" id="inputUT" class="formSelectSearch" onchange="document.myForm.submit(); ">
-										<option value="0"><?= $langTxt["txt:typeuserSel"] ?> </option>
-										<?php
-										foreach ($arrTypeUser as $key => $value) {
-										?>
-											<option value="<?= $key ?>" <? if ($_REQUEST['inputUT'] == $key) { ?> selected="selected" <?  } ?>><?= $value ?></option>
-										<? } ?>
-									</select>
-								</td> -->
-								<td>
-									<select name="inputGh" id="inputGh" class="formSelectSearch" onchange="document.myForm.submit(); ">
-										<option value="0"><?= $langTxt["us:selectpermission"] ?> </option>
-										<?
-										$sql_group = "SELECT " . $core_tb_group . "_id," . $core_tb_group . "_name  FROM " . $core_tb_group . " WHERE " . $core_tb_group . "_status='Enable' ";
-										$sql_group .= "AND  " . $core_tb_group . "_typemini != '1'";
-										$sql_group .= "ORDER BY " . $core_tb_group . "_order DESC ";
-										$query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
-										while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
-											$row_groupid = $row_group[0];
-											$row_groupname = $row_group[1];
-
-										?>
-											<option value="<?= $row_groupid ?>" <? if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?  } ?>><?= $row_groupname ?></option>
-										<? } ?>
-									</select>
-								</td>
-								<td align="right"><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb" /></td>
-								<td align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
-							</tr>
-						</table>
-
 
 					</td>
 				</tr>
 			</table>
 		</div>
+		<div class="divRightHeadSearch" >
+			<table border="0" cellspacing="0" cellpadding="0" align="right">
+				<tr>
+					<!-- <td>
+						<select name="inputUT" id="inputUT" class="formSelectSearch" onchange="document.myForm.submit(); ">
+							<option value="0"><?= $langTxt["txt:typeuserSel"] ?> </option>
+							<?php
+							foreach ($arrTypeUser as $key => $value) {
+							?>
+								<option value="<?= $key ?>" <? if ($_REQUEST['inputUT'] == $key) { ?> selected="selected" <?  } ?>><?= $value ?></option>
+							<? } ?>
+						</select>
+					</td> -->
+					<td class="selectSearch2">
+						<select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+							<option value="0"><?= $langTxt["us:selectpermission"] ?> </option>
+							<?
+							$sql_group = "SELECT " . $core_tb_group . "_id," . $core_tb_group . "_name  FROM " . $core_tb_group . " WHERE " . $core_tb_group . "_status='Enable' ";
+							$sql_group .= "AND  " . $core_tb_group . "_typemini != '1'";
+							$sql_group .= "ORDER BY " . $core_tb_group . "_order DESC ";
+							$query_group = wewebQueryDB($coreLanguageSQL, $sql_group);
+							while ($row_group = wewebFetchArrayDB($coreLanguageSQL, $query_group)) {
+								$row_groupid = $row_group[0];
+								$row_groupname = $row_group[1];
+
+							?>
+								<option value="<?= $row_groupid ?>" <? if ($_REQUEST['inputGh'] == $row_groupid) { ?> selected="selected" <?  } ?>><?= $row_groupname ?></option>
+							<? } ?>
+						</select>
+					</td>
+					<td class="textSearch2">
+						<input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb formInputSearchStyle" />
+					</td>
+					<td class="buttonSearchStyle">
+						<input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+					</td>
+				</tr>
+			</table>
+		</div>
+
 		<div class="divRightHead">
 			<table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
 				<tr>
@@ -168,7 +174,7 @@ if(Paging_CountChecked('CheckBoxID',document.myForm.TotalCheckBoxID.value)>0) {
 				</tr>
 			</table>
 		</div>
-		<div class="divRightMain">
+		<div class="divRightMain list-responsive">
 			<br />
 			<table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
 				<tr>

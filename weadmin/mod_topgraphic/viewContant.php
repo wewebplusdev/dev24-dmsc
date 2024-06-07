@@ -59,7 +59,7 @@ if ($Row['edate'] == "0000-00-00 00:00:00" || $Row['edate'] == "") {
 
 $valLastdate = DateFormat($Row['lastdate']);
 $valSubject = rechangeQuot($Row['subject']);
-$valLastby = $Row['lastbyid'];
+$valLastby = $Row['lastyid'];
 
 $valTarget = $Row['target'];
 $valPicName = $Row['pic'];

@@ -30,6 +30,13 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery.toolbar.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scripttoolbarjs.js?v=<?php echo date('YmdHis'); ?>"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
+   <link href="../js/select2/css/selectList2.css" rel="stylesheet" />
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -124,7 +131,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
 
             <tr>
-               <td>
+               <td style=" padding-bottom: 0 !important; ">
                   <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="">เลือกสถานะ</option>
                      <?php
@@ -140,7 +147,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                <td id="boxSelectTest">
                   <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td class="buttonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
             </tr>
 
          </table>

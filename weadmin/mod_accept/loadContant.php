@@ -254,46 +254,22 @@ if ($_REQUEST['inputSearch'] != "") {
   <div class="divRightHeadSearch">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
       <tr>
-        <td style="width: 48%;">
-          <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td class="selectSearch1">
-                  <input name="sdateInputSe" type="text" id="sdateInputH" autocomplete="off" placeholder="<?php echo $langMod["tit:sSedate"] ?>" value="<?php echo trim($_REQUEST['sdateInput']) ?>" class="formInputSearchStyle datepicker-input" />
-                </td>
-                <td class="selectSearch1">
-                  <input name="edateInputSe" type="text" id="edateInputH" autocomplete="off" placeholder="<?php echo $langMod["tit:eSedate"] ?>" value="<?php echo trim($_REQUEST['edateInput']) ?>" class="formInputSearchStyle datepicker-input" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <td class="selectSearch2" style="width: 25%">
+          <input name="sdateInputSe" type="text" id="sdateInputH" autocomplete="off" placeholder="<?php echo $langMod["tit:sSedate"] ?>" value="<?php echo trim($_REQUEST['sdateInput']) ?>" class="formInputSearchStyle datepicker-input" />
         </td>
-        <td style="width: 48%;">
-          <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td>
-                  <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <td class="selectSearch2" style="width: 25%">
+          <input name="edateInputSe" type="text" id="edateInputH" autocomplete="off" placeholder="<?php echo $langMod["tit:eSedate"] ?>" value="<?php echo trim($_REQUEST['edateInput']) ?>" class="formInputSearchStyle datepicker-input" />
         </td>
-        <td>
-          <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td class="bottonSearch" align="right">
-                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <td class="textSearch2">
+          <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
+        </td>
+        <td class="buttonSearchStyle">
+          <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
         </td>
       </tr>
     </table>
-
   </div>
+
   <div class="divRightHead">
     <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
       <tr>
@@ -326,7 +302,7 @@ if ($_REQUEST['inputSearch'] != "") {
       </tr>
     </table>
   </div>
-  <div class="divRightMain">
+  <div class="divRightMain list-responsive">
     <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
       <tr>
         <td width="3%" class="divRightTitleTbL" valign="middle" align="center">

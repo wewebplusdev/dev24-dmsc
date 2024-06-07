@@ -35,6 +35,13 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
 
 
   </script>
+  <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
+   <link href="../js/select2/css/selectList2.css" rel="stylesheet" />
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -116,7 +123,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
       <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
         <tr>
           <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_group)) { ?>
-            <td>
+            <td style="padding-bottom: 0 !important;">
               <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                 <tr>
                   <td>
@@ -163,7 +170,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
           <td id="boxSelectTest" class="textSearch2">
             <input name="inputSearch" type="text" id="inputSearch" value="<?php echo  trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo  $langTxt["sch:search"] ?>" />
           </td>
-          <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+          <td class="buttonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
         </tr>
       </table>
     </div>
