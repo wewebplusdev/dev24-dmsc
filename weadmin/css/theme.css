@@ -7035,3 +7035,6 @@ a[rel="viewAlbum"] img {
 
 .divOverTbAddon td {padding-left: 0;}
 .divSubOverTbAddon td {vertical-align: middle;}
+
+.selectLayout .checkboxLayout .cover {margin: 0; background-size: cover; background-position: center; background-repeat: no-repeat;padding-top: 220px;}
+.selectLayout .checkboxLayout .cover img {-o-object-fit: cover; object-fit: cover; -o-object-position: center; object-position: center;max-width: 100%; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
