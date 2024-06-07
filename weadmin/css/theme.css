@@ -7032,3 +7032,6 @@ a[rel="viewAlbum"] img {
     background-size: 30px;
     z-index: 1;
 }
+
+.divOverTbAddon td {padding-left: 0;}
+.divSubOverTbAddon td {vertical-align: middle;}
