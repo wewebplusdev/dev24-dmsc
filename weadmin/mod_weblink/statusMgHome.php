@@ -20,6 +20,8 @@ $valMasterkey = $rowSch[0];
 if ($statusname == "Enable") {
 	$inputstatusname = "Disable";
 } else if ($statusname == "Disable") {
+	$inputstatusname = "Home";
+} else if ($statusname == "Home") {
 	$inputstatusname = "Enable";
 }
 
