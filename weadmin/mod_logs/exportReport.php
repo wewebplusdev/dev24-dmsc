@@ -1,7 +1,7 @@
 <?php
 @include("../lib/session.php");
-// header("Content-Type: application/vnd.ms-excel");
-// header('Content-Disposition: attachment; filename="report_log_' . date('Y-m-d') . '.xls"'); #ชื่อไฟล์
+header("Content-Type: application/vnd.ms-excel");
+header('Content-Disposition: attachment; filename="report_log_' . date('Y-m-d') . '.xls"'); #ชื่อไฟล์
 include("../lib/config.php");
 include("../lib/connect.php");
 include("../lib/function.php");
