@@ -301,20 +301,15 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                         </table>
                      </td>
 
-
+                     <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_home)){ ?>
                      <td class="divRightContantOverTb" valign="top" align="center">
                         <?php if ($valPermission == "RW") { ?>
                            <div id="load_status<?php echo $valID ?>">
                               <?php if ($valStatus == "Enable") { ?>
-
-                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"><span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span></a>
-
+                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMgHome.php')"><span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span></a>
                               <?php } else { ?>
-
-                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"> <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span> </a>
-
+                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMgHome.php')"> <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span> </a>
                               <?php } ?>
-
                               <img src="../img/loader/ajax-loaderstatus.gif" alt="waiting" style="display:none;" id="load_waiting<?php echo $valID ?>" />
                            </div>
                         <?php } else { ?>
@@ -323,9 +318,28 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                            <?php } else { ?>
                               <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
                            <?php } ?>
-
                         <?php } ?>
                      </td>
+                     <?php }else{ ?>
+                        <td class="divRightContantOverTb" valign="top" align="center">
+                           <?php if ($valPermission == "RW") { ?>
+                              <div id="load_status<?php echo $valID ?>">
+                                 <?php if ($valStatus == "Enable") { ?>
+                                    <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"><span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span></a>
+                                 <?php } else { ?>
+                                    <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"> <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span> </a>
+                                 <?php } ?>
+                                 <img src="../img/loader/ajax-loaderstatus.gif" alt="waiting" style="display:none;" id="load_waiting<?php echo $valID ?>" />
+                              </div>
+                           <?php } else { ?>
+                              <?php if ($valStatus == "Enable") { ?>
+                                 <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
+                              <?php } else { ?>
+                                 <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
+                              <?php } ?>
+                           <?php } ?>
+                        </td>
+                     <?php } ?>
                      <td class="divRightContantOverTb" valign="top" align="center">
                         <span class="fontContantTbupdate"><?php echo $valDateCredate ?></span><br />
                         <span class="fontContantTbTime"><?php echo $valTimeCredate ?></span>
