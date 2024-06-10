@@ -595,7 +595,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </td>
             </tr>
          </table>
-         <!-- <br class="TypeDetail" <?php if($valTypeC != 1 || true){ echo "style='display:none;'"; } ?>/>
+         <br class="TypeDetail" <?php if($valTypeC != 1 || true){ echo "style='display:none;'"; } ?>/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDownload" <?php if($valTypeC == 3){ echo "style='display:none;'"; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -643,7 +643,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                   </div>
                </td>
             </tr>
-         </table> -->
+         </table>
          <br class="TypeDownload" <?php if($valTypeC != 2){ echo "style='display:none;'"; } ?>/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail" <?php if($valTypeC != 1 || true){ echo "style='display:none;'"; } ?>>
             <tr>
