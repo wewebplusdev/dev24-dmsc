@@ -487,7 +487,7 @@ $valinTheme = '1';
             </tr>
 
          </table>
-         <!-- <br class="TypeDetail" style="display: none;"/>
+         <br class="TypeDetail" style="display: none;"/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDownload">
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -516,7 +516,7 @@ $valinTheme = '1';
                   <div id="boxFileNew" class="formFontTileTxt"></div>
                </td>
             </tr>
-         </table> -->
+         </table>
          <br class="TypeDownload" />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder TypeDetail" style="display: none;">
             <tr>
