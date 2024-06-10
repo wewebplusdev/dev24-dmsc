@@ -224,7 +224,7 @@
                             <div class="block-control">
                                     <div class="radio-control">
                                     <label for="inputComplaintFac2" class="visually-hidden">radio</label>
-                                    <input type="radio" id="inputComplaintFac2" value="2" name="inputComplaintFac2" class="form-control">
+                                    <input type="radio" id="inputComplaintFac2" value="2" name="inputComplaintFac1" class="form-control">
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_fac_etc2->display->$currentLangWeb}</div>
                                     </div>
@@ -271,7 +271,7 @@
                                 <div class="block-control">
                                     <div class="radio-control">
                                     <label for="inputComplaintConfirm2" class="visually-hidden">radio</label>
-                                    <input type="radio" id="inputComplaintConfirm2" value="2" name="inputComplaintConfirm2" class="form-control">
+                                    <input type="radio" id="inputComplaintConfirm2" value="2" name="inputComplaintConfirm1" class="form-control">
                                     <div class="icon"></div>
                                     <div class="title">{$languageFrontWeb->recommend_confirm_note2->display->$currentLangWeb}</div>
                                     </div>
