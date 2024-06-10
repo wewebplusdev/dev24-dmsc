@@ -96,13 +96,12 @@ async function insertCorruption(req, res) {
 
     const complaint_name = req.body.inputComplaintName;
     const complaint_time = req.body.inputComplaintTime;
-    const complaint_fac = req.body.inputComplaintFac;
+    const complaint_fac = req.body.inputComplaintFac1;
     const complaint_desc1 = req.body.inputComplaintDesc1;
     const complaint_desc2 = req.body.inputComplaintDesc2;
-    const complaint_confirm = req.body.inputComplaintConfirm;
+    const complaint_confirm = req.body.inputComplaintConfirm1;
 
     const ip = req.body.ip;
-
     const result = general.checkParam([method, language, subject, title, tel, email, name, address, complaint_name, complaint_time, complaint_fac, complaint_desc1, complaint_desc2, complaint_confirm, ip]);
     const code = config.returncode;
     // db tables
@@ -111,7 +110,6 @@ async function insertCorruption(req, res) {
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['rec'] = config.fieldDB.masterkey.rec
-
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
