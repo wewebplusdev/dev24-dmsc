@@ -89,7 +89,7 @@ if(!in_array($_REQUEST['masterkey'], $array_masterkey_2link)){
             // } else {
             //   jQuery("#inputDescription").removeClass("formInputContantTbAlertY");
             // }
-
+            
             let inputTypeC = document.myForm.inputTypeC.value;
             if (inputTypeC == 1) {
                var alleditDetail = CKEDITOR.instances.editDetail.getData();
