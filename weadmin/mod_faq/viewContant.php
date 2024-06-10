@@ -294,7 +294,7 @@ logs_access('3', 'View');
                </td>
             </tr>
             <tr>
-               <td colspan="7" align="left" valign="top" class="formTileTxt">
+               <td colspan="7" align="left" valign="top">
                   <div class="viewEditorTileTxt">
                      <?
                      if (file_exists($valHtml)) {
@@ -393,7 +393,7 @@ logs_access('3', 'View');
                </td>
             </tr>
          </table>
-         <br <?php if ($valTypeC != 1 || true) { echo 'style="display:none;"'; } ?>/>
+         <!-- <br <?php if ($valTypeC != 1 || true) { echo 'style="display:none;"'; } ?>/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC == 3) { echo 'style="display:none;"'; } ?>>
             <tr>
                <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -432,7 +432,7 @@ logs_access('3', 'View');
                   </div>
                </td>
             </tr>
-         </table>
+         </table> -->
          <br <?php if ($valTypeC == 3) { echo 'style="display:none;"'; } ?>/>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder " <?php if ($valTypeC != 1 || true) { echo 'style="display:none;"'; } ?>>
             <tr>
