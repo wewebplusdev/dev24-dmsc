@@ -89,4 +89,16 @@ $mod_inputseach = array(
     , "inputTh"
     , "inputSearch"
 );
+
+## Mod Table ###################################
+$array_link = array(
+    'mobile' => 'th/mobile-application',
+    'ele' => 'th/weblinkAll/ele',
+    'esv' => 'th/weblinkAll/esv',
+    'svp' => 'th/weblinkAll/svp',
+    'svb' => 'th/weblinkAll/svb',
+    'svf' => 'th/weblinkAll/svf',
+    'wel' => 'th/weblinkAll/wel',
+    'rein' => 'th/services/rein',
+);
 ?>
