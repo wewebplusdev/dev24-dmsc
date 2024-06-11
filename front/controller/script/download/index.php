@@ -20,20 +20,35 @@ switch ($url->segment[0]) {
         if (empty($contentid) || empty($masterkey) || empty($file_id)) {
             header('location:' . $linklang . "/home");
         }
-
+        
         $req['gid'] = $_REQUEST['gid'];
 
-        $data = [
-            "action" => $DownloadPage->medthodModule[$menuActive]['action'],
-            "method" => $DownloadPage->medthodModule[$menuActive]['method_list'],
-            "language" => $DownloadPage->language,
-            "order" => 'DESC',
-            "page" => 1,
-            "limit" => 1,
-            "contentid" => $contentid,
-            "file_id" => $file_id,
-            "masterkey" => $masterkey,
-        ];
+        
+        if ($masterkey == 'cal') {
+            $data = [
+                "action" => 'calendar',
+                "method" => 'getCalendar',
+                "language" => $DownloadPage->language,
+                "order" => 'DESC',
+                "page" => 1,
+                "limit" => 1,
+                "contentid" => $contentid,
+                "file_id" => $file_id,
+                "masterkey" => $masterkey,
+            ];
+        }else{
+            $data = [
+                "action" => $DownloadPage->medthodModule[$menuActive]['action'],
+                "method" => $DownloadPage->medthodModule[$menuActive]['method_list'],
+                "language" => $DownloadPage->language,
+                "order" => 'DESC',
+                "page" => 1,
+                "limit" => 1,
+                "contentid" => $contentid,
+                "file_id" => $file_id,
+                "masterkey" => $masterkey,
+            ];
+        }
 
         // call detail
         $loadData = $DownloadPage->loadData($data);

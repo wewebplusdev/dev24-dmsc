@@ -41,4 +41,27 @@ $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
 $smarty->assign("recaptchaSitekey", $recaptchaSitekey);
 $smarty->assign("urlWeb", $url);
-// printPre($settingWeb['addresspic']);
+// printPre($settingWeb);
+
+// check language
+if (gettype($languageWeb) == 'array' && !empty($languageWeb)) {
+    // Function to find the object with 'short' equal to 'th'
+    function findObjectByShort($array, $short) {
+        foreach ($array as $obj) {
+            if (isset($obj->short) && $obj->short === $short) {
+                return $obj;
+            }
+        }
+        return null; // Return null if not found
+    }
+    // Find the object with 'short' equal to 'th'
+    $foundObject = findObjectByShort($languageWeb, $url->pagelang[2]);
+    
+    if (!$foundObject) {
+        header('location:' . $path_root . '/' . $languageWeb[0]->short . '/intro');
+    }
+}else{
+    if ($url->segment[0] != '404') {
+        header('location:' . $linklang . '/404');
+    }
+}

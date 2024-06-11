@@ -619,6 +619,7 @@ function getIcon($downloadFile, $type = "")
 function loadSendEmailTo($mailTo, $subjectMail = null, $messageMail = null)
 {
     global $array_mailer;
+
     require_once './front/libs/PHPMailer/src/Exception.php';
     require_once './front/libs/PHPMailer/src/PHPMailer.php';
     require_once './front/libs/PHPMailer/src/SMTP.php';
@@ -645,9 +646,10 @@ function loadSendEmailTo($mailTo, $subjectMail = null, $messageMail = null)
     if (gettype($mailTo) == "string") {
         $mailTo = trim($mailTo);
         $mail->addAddress($mailTo); //ส่งถึงใคร
-    } else {
+    }
+    else {
         foreach ($mailTo as $to) {
-          $mail->AddAddress($to); 
+            $mail->addAddress($to); 
         }
     }
     if (!$mail->Send()) {

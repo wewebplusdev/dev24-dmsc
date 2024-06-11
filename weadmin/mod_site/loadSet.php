@@ -101,6 +101,16 @@ foreach ($ValFac2 as $key => $value4) {
 $valPicName = $Row['addresspic'];
 $valPic = $mod_path_pictures . "/" . $Row['addresspic'];
 
+$valStatus = $ValConfig['popupstatus'];
+if (empty($valStatus)) {
+    $valStatus = "Disable";
+}
+if ($valStatus == "Enable") {
+  $valStatusClass =  "fontContantTbEnable";
+} else {
+  $valStatusClass =  "fontContantTbDisable";
+}
+
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_REQUEST["menukeyid"]);
 logs_access('3', 'View');
 ?>
@@ -289,6 +299,23 @@ logs_access('3', 'View');
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["social:cfb"] ?> :<span class="fontContantAlert"></span></td>
                     <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
                         <div class="formDivView"><a href="<?php echo $ValSocial[$langMod["social:cfb2"]]['link'] ?>" target="_blank"><?php echo $ValSocial[$langMod["social:cfb2"]]['link'] ?></a></div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+                <tr>
+                    <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom" style="padding-top:10px;">
+                        <span class="formFontSubjectTxt"><?php echo $langMod["txt:setPopup"] ?></span><br />
+                        <span class="formFontTileTxt"><?php echo $langMod["txt:setPopupDe"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:closeday"] ?> :<span class="fontContantAlert"></span></td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="formDivView">
+                            <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
+                        </div>
                     </td>
                 </tr>
             </table>
