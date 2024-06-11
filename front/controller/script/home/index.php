@@ -36,6 +36,16 @@ switch ($url->segment[0]) {
         // call about
         $loadAbout = $HomePage->loadAbout();
         $smarty->assign("loadAbout", $loadAbout);
+        $array_about = array();
+        $startIndex = 0;
+        foreach ($loadAbout->item as $keyAbout => $valueAbout) {
+            if ($keyAbout % 3 == 0 && $keyAbout != 0) {
+                $startIndex++;
+            }
+            $array_about[$startIndex][] = $valueAbout;
+        }
+        $smarty->assign("loadAboutList", $array_about);
+
         // call news
         $loadNews = $HomePage->loadNews();
         $array_news_list = array();
