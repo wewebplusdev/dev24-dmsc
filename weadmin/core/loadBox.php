@@ -38,7 +38,7 @@ $valNav2 = $langTxt["home:box"];
       <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
         <tr>
           <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?= $valLinkNav1 ?>" target="_self"><?= $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?= $valNav2 ?></span></td>
-          <td class="divRightNavTb" align="right">
+          <!-- <td class="divRightNavTb" align="right">
             <table border="0" cellspacing="0" cellpadding="0" align="right">
               <tr>
                 <td align="right"><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb" /></td>
@@ -47,15 +47,23 @@ $valNav2 = $langTxt["home:box"];
             </table>
 
 
-          </td>
+          </td> -->
+        </tr>
+      </table>
+    </div>
+    <div class="divRightHeadSearch">
+      <table border="0" cellspacing="0" cellpadding="0" align="right">
+        <tr>
+          <td align="right" style=" padding-bottom: 0 !important; "><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" /></td>
+          <td align="right" class="buttonSearchStyle" style=" padding-bottom: 0 !important; "><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
         </tr>
       </table>
     </div>
     <div class="divRightHead">
       <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
         <tr>
-          <td width="93%" height="77" align="left"><span class="fontHeadRight"><?= $valNav2 ?></span></td>
-          <td width="7%" align="right">
+          <td><span class="fontHeadRight"><?= $valNav2 ?></span></td>
+          <td width="40" align="right">
             <div class="btnBack" title="<?= $langTxt["btn:back"] ?>" onclick="window.open('<?= $valLinkNav1 ?>','_self');"></div>
           </td>
         </tr>
