@@ -7048,3 +7048,5 @@ a[rel="viewAlbum"] img {
 .ui-sortable .boxHomeSortli {width: 100%;padding: 0;}
 .ui-sortable::before,
 .ui-sortable .boxHomeSortli::before {display: none;}
+
+.viewEditorTileTxt p {line-height: 1.6em;}

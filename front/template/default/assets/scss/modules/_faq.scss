@@ -41,7 +41,19 @@
 
   .document-download-list {
     margin-bottom: 0;
+    .whead {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      .title {
+        font-size: 22px;
+        font-weight: 700;
+      }
+    }
+    .swiper {overflow: hidden;}
     .swiper-slide .item {opacity: 1;}
+    .swiper:not(.gallery-slide .swiper) .swiper-pagination {margin: 30px 0 0 0;}
+    .link {padding: 20px 15px 20px 25px;}
+
   }
   // .detail-body .whead  {
   //   border: none;
