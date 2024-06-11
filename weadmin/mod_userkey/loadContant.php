@@ -76,7 +76,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
     if ($inputSearch <> "") {
         $sqlSearch = $sqlSearch . "  AND  (
 		" . $mod_tb_root . "_subject LIKE '%$inputSearch%'  OR  
-		" . $mod_tb_root . "_note LIKE '%$inputSearch%'  
+		" . $mod_tb_root . "_note LIKE '%$inputSearch%'  OR
+		" . $mod_tb_root . "_controlkey LIKE '%$inputSearch%'  
 		) ";
     }
 
@@ -222,7 +223,6 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                 } else {
                     $sql .= " ORDER BY $module_orderby $module_adesc LIMIT $recordstart , $module_pagesize ";
                 }
-                // print_pre($sql);
 
                 $query = wewebQueryDB($coreLanguageSQL,  $sql);
                 $count_record = wewebNumRowsDB($coreLanguageSQL, $query);
