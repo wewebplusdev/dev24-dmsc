@@ -20,6 +20,7 @@ $sql = "SELECT
 " . $mod_tb_set . "_crebyid as crebyid,
 " . $mod_tb_set . "_lastdate as lastdate,
 " . $mod_tb_set . "_lastbyid as lastbyid,
+" . $mod_tb_setlang . "_id as lid,
 " . $mod_tb_setlang . "_description as description,
 " . $mod_tb_setlang . "_keywords as keywords,
 " . $mod_tb_setlang . "_metatitle as metatitle,
@@ -40,6 +41,7 @@ $sql = "SELECT
 $Query = wewebQueryDB($coreLanguageSQL, $sql);
 $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
 $valID = $Row['id'];
+$valLID = $Row['lid'];
 $valCredate = DateFormat($Row['credate']);
 $valCreby = $Row['crebyid'];
 $valLastdate = DateFormat($Row['lastdate']);
@@ -63,6 +65,15 @@ foreach ($ValFac2 as $key => $value4) {
 $valPicName = $Row['addresspic'];
 $valPic = $mod_path_pictures . "/" . $Row['addresspic'];
 
+$valStatus = $ValConfig['popupstatus'];
+if (empty($valStatus)) {
+    $valStatus = "Disable";
+}
+if ($valStatus == "Enable") {
+  $valStatusClass =  "fontContantTbEnable";
+} else {
+  $valStatusClass =  "fontContantTbDisable";
+}
 $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_session_groupid"], $_POST["menukeyid"]);
 
 $myRand = time() . rand(111, 999);
@@ -407,7 +418,6 @@ $myRand = time() . rand(111, 999);
                 </tr>
             </table>
             <br />
-            <!-- add social media by nut -->
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
                 <tr>
                     <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
@@ -452,6 +462,41 @@ $myRand = time() . rand(111, 999);
                     <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["social:cfb"] ?> <?php echo  $langMod['social:link']; ?><span class="fontContantAlert"></span></td>
                     <td colspan="6" align="left" valign="top" class="formRightContantTb"><input name="social[<?php echo   $langMod["social:cfb2"] ?>][link]" id="socialLi" type="text" class="formInputContantTb" value="<?php echo  $ValSocial[$langMod["social:cfb2"]]['link'] ?>" /><br />
                         <span class="formFontNoteTxt"><?php echo  $langMod["social:note"] ?></span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder">
+                <tr>
+                    <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                        <span class="formFontSubjectTxt"><?php echo  $langMod["txt:setPopup"] ?></span><br />
+                        <span class="formFontTileTxt"><?php echo  $langMod["txt:setPopupDe"] ?></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" align="right" valign="top" height="15"></td>
+                </tr>
+                <tr>
+                    <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["txt:closeday"] ?>:</td>
+                    <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                        <div class="formDivView">
+                        <? if ($valPermission == "RW") { ?>
+                            <div id="load_status<?php echo $valLID ?>">
+                            <? if ($valStatus == "Enable") { ?>
+                                <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valLID ?>', '<?php echo $mod_tb_setlang ?>', '<?php echo $valStatus ?>', '<?php echo $valLID ?>', 'load_status<?php echo $valLID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"><span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span></a>
+                            <? } else { ?>
+                                <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valLID ?>', '<?php echo $mod_tb_setlang ?>', '<?php echo $valStatus ?>', '<?php echo $valLID ?>', 'load_status<?php echo $valLID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"> <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span> </a>
+                            <? } ?>
+                            <img src="../img/loader/ajax-loaderstatus.gif" alt="waiting" style="display:none;" id="load_waiting<?php echo $valLID ?>" />
+                            </div>
+                        <? } else { ?>
+                            <? if ($valStatus == "Enable") { ?>
+                            <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
+                            <? } else { ?>
+                            <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
+                            <? } ?>
+                        <? } ?>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -567,9 +612,9 @@ $myRand = time() . rand(111, 999);
                         <div class="clearAll"></div>
                         <div id="boxPicNew" class="formFontTileTxt">
                             <? if (is_file($valPic)) { ?>
-                                <img src="<?= $valPic ?>"  style="float:left;border:#c8c7cc solid 1px;max-width:650px;"   />
+                                <img src="<?php echo $valPic ?>"  style="float:left;border:#c8c7cc solid 1px;max-width:650px;"   />
                                 <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePic.php')"  title="Delete file" ><img src="../img/btn/delete.png" width="22" height="22"  border="0"/></div>
-                                <input type="hidden" name="picname" id="picname" value="<?= $valPicName ?>" />
+                                <input type="hidden" name="picname" id="picname" value="<?php echo $valPicName ?>" />
                             <? } ?>
                         </div>
                     </td>
