@@ -190,6 +190,22 @@
         background-color: #cccccc30;
         .num {
           opacity: 1;
+          color: var(--color-light);
+          &::before {
+            content: "";
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--color-secondary);
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
         }
       }
 
@@ -582,6 +598,8 @@
   .event-list .link {padding: 20px;}
   .event-list .date {font-size: 22px;}
   .event-list .desc {font-size: 18px;}
+
+  .event-calendar table .box.tody .num::before {width: 30px;height: 30px;}
 }
 
 @media (max-width: 767px) {
