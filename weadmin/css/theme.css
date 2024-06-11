@@ -7043,3 +7043,8 @@ a[rel="viewAlbum"] img {
 .divRightHead.divHight {
     margin-top: 10px;
 }
+
+.ui-sortable {margin: 0 !important; display: grid; grid-template-columns: repeat(3, 1fr);gap: 15px;}
+.ui-sortable .boxHomeSortli {width: 100%;padding: 0;}
+.ui-sortable::before,
+.ui-sortable .boxHomeSortli::before {display: none;}
