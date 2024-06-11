@@ -108,7 +108,7 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                 </tr>
             </table>
         </div>
-        <div class="divRightHead">
+        <div class="divRightHead divHight">
             <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
                 <tr>
                     <td height="77" align="left"><span class="fontHeadRight"><?php echo $langMod["txt:titleedits"] ?></span></td>

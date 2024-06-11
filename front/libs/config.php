@@ -241,8 +241,16 @@ $dateThai = array(
 
 #########Setting Email##########
 $array_mailer = array();
-$array_mailer['from'] = "bonzqbet.p@gmail.com";
-$array_mailer['username'] = "bonzqbet.p@gmail.com";
-$array_mailer['password'] = "heqtxtdojffssyad";
-$array_mailer['host'] = "smtp.gmail.com";
-$array_mailer['port'] = 587;
+if ($_CORE_ENV == 'DEV') {
+    $array_mailer['from'] = "bonzqbet.p@gmail.com";
+    $array_mailer['username'] = "bonzqbet.p@gmail.com";
+    $array_mailer['password'] = "heqtxtdojffssyad";
+    $array_mailer['host'] = "smtp.gmail.com";
+    $array_mailer['port'] = 587;
+    }else{
+    $array_mailer['from'] = "mailer.wewebplus@gmail.com";
+    $array_mailer['username'] = "mailer.wewebplus@gmail.com";
+    $array_mailer['password'] = "rmvnlwrtixxomeaw";
+    $array_mailer['host'] = "smtp.gmail.com";
+    $array_mailer['port'] = 587;
+}
