@@ -1,4 +1,4 @@
-<footer class="layout-footer footer-contact">
+<footer class="layout-footer footer-contact mt-xl-5 mt-lg-4 mt-0">
     <div class="container">
         <div class="footer-top">
             <div class="row">
