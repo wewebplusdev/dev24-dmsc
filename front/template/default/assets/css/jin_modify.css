@@ -439,6 +439,8 @@
   .breadcrumb li:nth-child(3) .link {
     max-width: 200px;
  }
+
+
 }
 @media (max-width: 400px) {
   .wg-about .graphic {

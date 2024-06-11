@@ -311,6 +311,8 @@
     width: 14px;
     height: 14px;
   }
+
+  .intro-slider .cover {height: calc(100dvh - 232px);}
   
 }
 
