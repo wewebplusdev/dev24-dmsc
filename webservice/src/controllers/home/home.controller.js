@@ -313,6 +313,7 @@ async function getNews(req, res) {
     const order = req.body.order;
     const page = req.body.page;
     const limit = req.body.limit;
+    const file_id = req.body.file_id;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
@@ -321,6 +322,7 @@ async function getNews(req, res) {
     config_array_db['md_cmsl'] = config.fieldDB.main.md_cmsl
     config_array_db['md_cmg'] = config.fieldDB.main.md_cmg
     config_array_db['md_cmgl'] = config.fieldDB.main.md_cmgl
+    config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['nw'] = config.fieldDB.masterkey.nw
@@ -379,6 +381,8 @@ async function getNews(req, res) {
                 ,${config_array_db['md_cmsl']}_urlc as urlc 
                 ,${config_array_db['md_cmsl']}_target as target 
                 ,'${config_array_db['md_cms']}' as tb 
+                ,${config_array_db['md_cms']}_view as view 
+                ,${config_array_db['md_cmsl']}_id as lid 
                 FROM ${config_array_db['md_cms']} 
                 INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
                 WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['nw']}' 
@@ -438,6 +442,39 @@ async function getNews(req, res) {
                             arr_data[i].title = select[i].title;
                             arr_data[i].gid = select[i].gid;
                             arr_data[i].typec = select[i].typec;
+                            arr_data[i].tb = select[i].tb;
+                            arr_data[i].view = select[i].view;
+                            
+                            // attachments
+                            let sql_video = `SELECT 
+                            ${config_array_db['md_cmf']}_id as id
+                            ,${config_array_db['md_cmf']}_contantid as contantid
+                            ,${config_array_db['md_cmf']}_filename as filename
+                            ,${config_array_db['md_cmf']}_name as name 
+                            ,${config_array_db['md_cmf']}_download as download 
+                            FROM ${config_array_db['md_cmf']} 
+                            WHERE ${config_array_db['md_cmf']}_contantid = '${select[i].lid}' 
+                            AND ${config_array_db['md_cmf']}_language = '${language}' 
+                            `;
+                            if (file_id > 0) {
+                                sql_video = sql_video + ` AND ${config_array_db['md_cmf']}_id = '${file_id}' `;
+                            }
+                            const select_attachments = await query(sql_video);
+                            if (select_attachments.length > 0) {
+                                let array_attachments = [];
+                                for (let index = 0; index < select_attachments.length; index++) {
+                                    array_attachments[index] = {};
+                                    array_attachments[index].id = select_attachments[index].id;
+                                    array_attachments[index].name = select_attachments[index].name;
+                                    array_attachments[index].filename = select_attachments[index].filename;
+                                    array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);
+                                    array_attachments[index].download = select_attachments[index].download;
+                                }
+                                arr_data[i].attachment = array_attachments;
+                            } else {
+                                arr_data[i].attachment = ``;
+                            }
+                            
                             if (select[i].typec == 2) {
                                 // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
                                 const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
@@ -992,12 +1029,14 @@ async function getAbout(req, res) {
     const order = req.body.order;
     const page = req.body.page;
     const limit = req.body.limit;
+    const file_id = req.body.file_id;
     const result = general.checkParam([method, language, order, page, limit]);
     const code = config.returncode;
     // db tables
     let config_array_db = new Array();
     config_array_db['md_cms'] = config.fieldDB.main.md_cms
     config_array_db['md_cmsl'] = config.fieldDB.main.md_cmsl
+    config_array_db['md_cmf'] = config.fieldDB.main.md_cmf
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['abs'] = config.fieldDB.masterkey.abs
@@ -1023,6 +1062,8 @@ async function getAbout(req, res) {
             ,${config_array_db['md_cmsl']}_target as target 
             ,${config_array_db['md_cms']}_tid as tid 
             ,'${config_array_db['md_cms']}' as tb 
+            ,${config_array_db['md_cms']}_view as view 
+            ,${config_array_db['md_cmsl']}_id as lid 
             FROM ${config_array_db['md_cms']} 
             INNER JOIN ${config_array_db['md_cmsl']} ON ${config_array_db['md_cmsl']}_cid = ${config_array_db['md_cms']}_id
             WHERE ${config_array_db['md_cms']}_masterkey = '${config_array_masterkey['abs']}' 
@@ -1082,6 +1123,38 @@ async function getAbout(req, res) {
                         arr_data[i].subject = select[i].subject;
                         arr_data[i].title = select[i].title;
                         arr_data[i].typec = select[i].typec;
+                        arr_data[i].view = select[i].view;
+
+                        // attachments
+                        let sql_video = `SELECT 
+                        ${config_array_db['md_cmf']}_id as id
+                        ,${config_array_db['md_cmf']}_contantid as contantid
+                        ,${config_array_db['md_cmf']}_filename as filename
+                        ,${config_array_db['md_cmf']}_name as name 
+                        ,${config_array_db['md_cmf']}_download as download 
+                        FROM ${config_array_db['md_cmf']} 
+                        WHERE ${config_array_db['md_cmf']}_contantid = '${select[i].lid}' 
+                        AND ${config_array_db['md_cmf']}_language = '${language}' 
+                        `;
+                        if (file_id > 0) {
+                            sql_video = sql_video + ` AND ${config_array_db['md_cmf']}_id = '${file_id}' `;
+                        }
+                        const select_attachments = await query(sql_video);
+                        if (select_attachments.length > 0) {
+                            let array_attachments = [];
+                            for (let index = 0; index < select_attachments.length; index++) {
+                                array_attachments[index] = {};
+                                array_attachments[index].id = select_attachments[index].id;
+                                array_attachments[index].name = select_attachments[index].name;
+                                array_attachments[index].filename = select_attachments[index].filename;
+                                array_attachments[index].link = modulus.getUploadPath(select[i].masterkey, 'file', select_attachments[index].filename);
+                                array_attachments[index].download = select_attachments[index].download;
+                            }
+                            arr_data[i].attachment = array_attachments;
+                        } else {
+                            arr_data[i].attachment = ``;
+                        }
+                        
                         if (select[i].typec == 2) {
                             // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, select[i].typec, short_language);
                             const getUrlWeb = await modulus.getUrlWebsiteCmsg(select[i].typec, short_language);
