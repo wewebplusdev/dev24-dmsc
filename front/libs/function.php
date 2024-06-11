@@ -649,7 +649,7 @@ function loadSendEmailTo($mailTo, $subjectMail = null, $messageMail = null)
     }
     else {
         foreach ($mailTo as $to) {
-            $mail->AddAddress($to); 
+            $mail->addAddress($to); 
         }
     }
     if (!$mail->Send()) {

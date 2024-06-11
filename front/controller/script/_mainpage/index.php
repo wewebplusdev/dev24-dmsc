@@ -41,6 +41,7 @@ $smarty->assign("currentLangWeb", $currentLangWeb);
 $smarty->assign("logsView", $logsView);
 $smarty->assign("recaptchaSitekey", $recaptchaSitekey);
 $smarty->assign("urlWeb", $url);
+// printPre($settingWeb);
 
 // check language
 if (gettype($languageWeb) == 'array' && !empty($languageWeb)) {

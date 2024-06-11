@@ -39,9 +39,9 @@ if ($responseData->success) {
             }
         }
         $array_email = array_filter($array_email);
-        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-corruption.php'; #load service
         loadSendEmailTo($array_email, 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
-
+        
         // loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - แจ้งเบาะแสการทุจริตประพฤติมิชอบ', $message);
 
         $arrJson = array(
