@@ -83,4 +83,9 @@ $mod_inputseach = array(
     , "inputTh"
     , "inputSearch"
 );
+
+## Mod Table ###################################
+$array_link = array(
+    'faq' => 'th/faq',
+);
 ?>

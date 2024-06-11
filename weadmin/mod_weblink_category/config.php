@@ -94,4 +94,9 @@ $mod_inputseach = array(
     , "inputTh"
     , "inputSearch"
 );
+
+## Mod Table ###################################
+$array_link = array(
+    'sv' => 'th/services/sv',
+);
 ?>

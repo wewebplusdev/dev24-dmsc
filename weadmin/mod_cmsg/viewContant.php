@@ -207,7 +207,7 @@ logs_access('3', 'View');
             <tr <?php if ($valTypeC != 1) { echo 'style="display:none;"'; } ?>>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["tit:front_url"] ?>:<span class="fontContantAlert"></span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <div class="formDivView"><?php echo $core_full_path."/".$modConfFrontURL[$_REQUEST['inputLt']]."/detailAll/".$valID ."/".$_REQUEST["masterkey"]."/".$valGid ?></div>
+                  <div class="formDivView"><a href="<?php echo $core_full_path."/".$modConfFrontURL[$_REQUEST['inputLt']]."/detailAll/".$valID ."/".$_REQUEST["masterkey"]."/".$valGid ?>" target="_blank" rel="noopener noreferrer"><?php echo $core_full_path."/".$modConfFrontURL[$_REQUEST['inputLt']]."/detailAll/".$valID ."/".$_REQUEST["masterkey"]."/".$valGid ?></a></div>
                </td>
             </tr>
            

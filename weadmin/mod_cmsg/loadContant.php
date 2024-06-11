@@ -457,9 +457,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                  <div style="width:29px; height:29px;  background:url(<?php echo $valPic ?>) center no-repeat; background-size: cover;background-repeat: no-repeat; border-radius: 50%;  "></div>
                               </td>
                               <td align="left">
-                                 <a href="javascript:void(0)" class="btnview" onclick="
-                                                document.myFormHome.valEditID.value = '<?php echo  $valID ?>';
-                                       "><?php echo  $valName ?></a>
+                                 <a href="javascript:void(0)" class="btnview" onclick="document.myFormHome.valEditID.value = '<?php echo  $valID ?>';"><?php echo  $valName ?></a>
                               </td>
                            </tr>
                         </table>
@@ -652,6 +650,13 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                </td>
             </tr>
          </table>
+         <?php if(array_key_exists($_REQUEST['masterkey'], $array_link)){ ?>
+         <table width="96%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 20px;">
+            <tr>
+               <td><a href="<?php echo $core_full_path . '/' . $array_link[$_REQUEST['masterkey']]; ?>" target="_blank" rel="noopener noreferrer"><?php echo $core_full_path . '/' . $array_link[$_REQUEST['masterkey']]; ?></a><td>
+            </tr>
+         </table>
+         <?php } ?>
          <input name="TotalCheckBoxID" type="hidden" id="TotalCheckBoxID" value="<?php echo $index - 1 ?>" />
          <div class="divRightContantEnd"></div>
       </div>
