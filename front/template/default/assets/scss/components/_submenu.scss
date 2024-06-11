@@ -151,6 +151,7 @@
     .main-menu .dropdown-menu {
         position: relative !important;
         transform: none !important;
+        z-index: 1;
     }
     .full-dropdown-menu.show {
         top: auto !important;
