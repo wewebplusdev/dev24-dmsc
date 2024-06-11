@@ -36,10 +36,10 @@ $message = '
 
                                                     ชื่อ-นามสกุล ของผู้ถูกร้อง : ' . $_POST["inputComplaintName"] . '<br/><br/>
                                                     ช่วงเวลาที่กระทำความผิด : ' . $_POST["inputComplaintTime"] . '<br/><br/>
-                                                    ข้อเท็จจริง : ' . $array_text_fac[$_POST["inputComplaintFac"]] . '<br/><br/>
+                                                    ข้อเท็จจริง : ' . $array_text_fac[$_POST["inputComplaintFac1"]] . '<br/><br/>
                                                     กรณีการกระทำทุจริตต่อหน้าที่ : ' . $_POST["inputComplaintDesc1"] . '<br/><br/>
                                                     กรณีการกล่าวหาว่าร่ำรวยผิดปกติ : ' . $_POST["inputComplaintDesc2"] . '<br/><br/>
-                                                    ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวเป็นเรื่องจริง : ' . $array_text_confirm[$_POST["inputComplaintConfirm"]] . '<br/><br/>
+                                                    ข้าพเจ้าขอรับรองว่าเรื่องดังกล่าวเป็นเรื่องจริง : ' . $array_text_confirm[$_POST["inputComplaintConfirm1"]] . '<br/><br/>
                                                     <br/> กรมวิทยาศาสตร์การแพทย์ ได้รับข้อมูลของท่านเรียบร้อยแล้ว 
                                                     <br/>
                                                     <br/> ติดต่อสอบถามข้อมูลเพิ่มเติมได้ที่โทร '.$settingWeb['contact']->tel.'

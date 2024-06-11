@@ -1,38 +1,40 @@
 <?php
 
-$data = array();
-$data['action'] = 'contact';
-$data['method'] = 'getAdmin';
-$data['masterkey'] = 'cum';
-$data['language'] = $ContactPage->language;
-$insert_data = $ContactPage->loadData($data);
+// $data = array();
+// $data['action'] = 'contact';
+// $data['method'] = 'getAdmin';
+// $data['masterkey'] = 'cum';
+// $data['language'] = $ContactPage->language;
+// $contact_data = $ContactPage->loadData($data);
 
-$array_email = array();
-$array_email[] = trim($_POST["inputEmail"]);
+// $array_email = array();
+// $array_email[] = trim($_POST["inputEmail"]);
 
-if ($insert_data->code == 1001) {
-    foreach ($insert_data->item as $keyEmail => $valueEmail) {
-        $array_email[] = trim($valueEmail->email);
-    }
-}
-require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
-loadSendEmailTo($array_email, 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
-printPre($array_email);
-die;
+// if ($contact_data->code == 1001) {
+//     foreach ($contact_data->item as $keyEmail => $valueEmail) {
+//         $array_email[] = trim($valueEmail->email);
+//     }
+// }
+// $array_email = array_filter($array_email);
+// require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+// loadSendEmailTo($array_email, 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
 
-// header('Content-Type: application/json; charset=utf-8');
+// printPre($array_email);die;
+// die;
 
-// $requestParams = [
-//     'secret' => $recaptchaSecretkey,
-//     'response' => $_POST['g-recaptcha-response']
-// ];
-// $requestQuery = http_build_query($requestParams);
+header('Content-Type: application/json; charset=utf-8');
 
-// $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
+$requestParams = [
+    'secret' => $recaptchaSecretkey,
+    'response' => $_POST['g-recaptcha-response']
+];
+$requestQuery = http_build_query($requestParams);
 
-// $verifyResponse = file_get_contents($verifyUrl);
+$verifyUrl = 'https://www.google.com/recaptcha/api/siteverify?' . $requestQuery;
 
-// $responseData = json_decode($verifyResponse);
+$verifyResponse = file_get_contents($verifyUrl);
+
+$responseData = json_decode($verifyResponse);
 
 if ($responseData->success) {
     $arrData = array();
@@ -47,7 +49,25 @@ if ($responseData->success) {
     // insert
     $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
-        // require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+
+        $data = array();
+        $data['action'] = 'contact';
+        $data['method'] = 'getAdmin';
+        $data['masterkey'] = 'cum';
+        $data['language'] = $ContactPage->language;
+        $contact_data = $ContactPage->loadData($data);
+
+        $array_email = array();
+        $array_email[] = trim($_POST["inputEmail"]);
+
+        if ($contact_data->code == 1001) {
+            foreach ($contact_data->item as $keyEmail => $valueEmail) {
+                $array_email[] = trim($valueEmail->email);
+            }
+        }
+        $array_email = array_filter($array_email);
+        require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+        loadSendEmailTo($array_email, 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
         // loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
 
         $arrJson = array(

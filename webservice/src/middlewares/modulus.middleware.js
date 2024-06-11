@@ -81,6 +81,13 @@ exports.getDefaultPic = async function () {
                 if (!arr_data[select_nopic[i].id]) {
                     arr_data[select_nopic[i].id] = {};
                 }
+                if (i == 0) {
+                    arr_data[0] = {};
+                    arr_data[0].id = select_nopic[i].id;
+                    arr_data[0].subject = select_nopic[i].subject;
+                    arr_data[0].masterkey = select_nopic[i].masterkey;
+                    arr_data[0].file = select_nopic[i].file;
+                }
                 // Assign properties to the initialized element
                 arr_data[select_nopic[i].id].id = select_nopic[i].id;
                 arr_data[select_nopic[i].id].subject = select_nopic[i].subject;
