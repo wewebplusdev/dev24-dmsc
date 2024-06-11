@@ -31,9 +31,9 @@ if (!empty($_REQUEST['inputGh2'])) {
    <link href="../css/theme.css" rel="stylesheet" />
    <title><?php echo $core_name_title ?></title>
    <link rel="stylesheet" href="../js/jquery-ui-1.9.0.css">
-   <script language="JavaScript" type="text/javascript" src="../js/jquery-3.7.0.min.js"></script>
+   <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-3.7.0.min.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery-ui-1.13.2.js"></script>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script type="text/javascript" language="javascript">
       jQuery(document).ready(function() {
@@ -52,6 +52,11 @@ if (!empty($_REQUEST['inputGh2'])) {
 
       });
    </script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -165,81 +170,58 @@ if (!empty($_REQUEST['inputGh2'])) {
       <div class="divRightHeadSearch tableHeadFilter table-insub">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
-               <td width="48%">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-                     <tr>
-                        <td>
-                           <input style="margin-bottom: 10px;" name="sdateInput" type="text" id="sdateInput" placeholder="<?php echo $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle sdateInput" />
-                        </td>
-                     </tr>
-                  </table>
+               <td class="selectSearch2" width="50%">
+                  <input style="margin-bottom: 10px;" name="sdateInput" type="text" id="sdateInput" placeholder="<?php echo $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle sdateInput" />
                </td>
-               <td width="48%">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-                     <tr>
-                        <td>
-                           <input style="margin-bottom: 10px;" name="edateInput" type="text" id="edateInput" placeholder="<?php echo $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle" />
-                        </td>
-                     </tr>
-                  </table>
+               <td class="selectSearch4" width="50%">
+                  <input style="margin-bottom: 10px;" name="edateInput" type="text" id="edateInput" placeholder="<?php echo $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?php echo trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle" />
                </td>
+               <!-- <td class="buttonSearchStyleStyle" align="right" width="4%">&nbsp;</td> -->
             </tr>
             <tr>
-               <td width="48%">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-                     <tr>
-                        <td>
-                           <select name="inputGh2" id="inputGh2" onchange="document.myForm.submit();" class="formSelectSearchStyle">
-                              <option value="0"><?php echo $langMod["tit:typeAPI"] ?> </option>
-                              <option value="999" <?php if ($_REQUEST['inputGh2'] == 999) { ?> selected="selected" <?php } ?>>Unknown User</option>
-                              <?php
-                              $sql_key = "SELECT
-                              " . $mod_tb_key . "_id as id,
-                              " . $mod_tb_key . "_subject as subject 
-                              FROM " . $mod_tb_key . " 
-                              WHERE " . $mod_tb_key . "_masterkey = '" . $modMasterkeyAccess[0] . "' 
-                              ORDER BY " . $mod_tb_key . "_order DESC";
-                              $query_key = wewebQueryDB($coreLanguageSQL, $sql_key);
-                              while ($rows_key = wewebFetchArrayDB($coreLanguageSQL, $query_key)) {
-                              ?>
-                                 <option value="<?php echo $rows_key['id'] ?>" <?php if ($_REQUEST['inputGh2'] == $rows_key['id']) { ?> selected="selected" <?php } ?>><?php echo $rows_key['subject'] ?></option>
-                              <?php } ?>
-                           </select>
-                        </td>
-                        <td>
-                           <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
-                              <option value="0"><?php echo $langMod["tit:typeAccessSle"] ?> </option>
-                              <?php
-                              foreach ($modTxtTypeAccess as $keymodTxtTypeAccess => $valuemodTxtTypeAccess) {
-                              ?>
-                                 <option value="<?php echo $keymodTxtTypeAccess ?>" <?php if ($_REQUEST['inputGh'] == $keymodTxtTypeAccess) { ?> selected="selected" <?php } ?>><?php echo $valuemodTxtTypeAccess ?></option>
-                              <?php } ?>
-                           </select>
-                        </td>
-                     </tr>
-                  </table>
+               <td class="selectSearch2" style=" padding-bottom: 10px !important; ">
+                  <select name="inputGh2" id="inputGh2" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                     <option value="0"><?php echo $langMod["tit:typeAPI"] ?> </option>
+                     <option value="999" <?php if ($_REQUEST['inputGh2'] == 999) { ?> selected="selected" <?php } ?>>Unknown User</option>
+                     <?php
+                     $sql_key = "SELECT
+                     " . $mod_tb_key . "_id as id,
+                     " . $mod_tb_key . "_subject as subject 
+                     FROM " . $mod_tb_key . " 
+                     WHERE " . $mod_tb_key . "_masterkey = '" . $modMasterkeyAccess[0] . "' 
+                     ORDER BY " . $mod_tb_key . "_order DESC";
+                     $query_key = wewebQueryDB($coreLanguageSQL, $sql_key);
+                     while ($rows_key = wewebFetchArrayDB($coreLanguageSQL, $query_key)) {
+                     ?>
+                        <option value="<?php echo $rows_key['id'] ?>" <?php if ($_REQUEST['inputGh2'] == $rows_key['id']) { ?> selected="selected" <?php } ?>><?php echo $rows_key['subject'] ?></option>
+                     <?php } ?>
+                  </select>
                </td>
-               <td width="48%">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-                     <tr>
-                        <td>
-                           <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
-                        </td>
-                     </tr>
-                  </table>
+               <td style=" padding-bottom: 10px !important; ">
+                  <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
+                     <option value="0"><?php echo $langMod["tit:typeAccessSle"] ?> </option>
+                     <?php
+                     foreach ($modTxtTypeAccess as $keymodTxtTypeAccess => $valuemodTxtTypeAccess) {
+                     ?>
+                        <option value="<?php echo $keymodTxtTypeAccess ?>" <?php if ($_REQUEST['inputGh'] == $keymodTxtTypeAccess) { ?> selected="selected" <?php } ?>><?php echo $valuemodTxtTypeAccess ?></option>
+                     <?php } ?>
+                  </select>
                </td>
-               <td>
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-                     <tr>
-                        <td align="right">
-                           <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
-                        </td>
-                     </tr>
-                  </table>
+               <!-- <td class="buttonSearchStyleStyle" align="right" width="4%">&nbsp;</td> -->
+            </tr>
+         </table>
+         <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:0;" align="center">
+         <tr>
+               <td class="textSearch2" style=" padding-bottom: 0 !important; ">
+                  <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
+               </td>
+               <td class="buttonSearchStyle" style=" padding-bottom: 0 !important; ">
+                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
                </td>
             </tr>
          </table>
       </div>
+
       <div class="divRightHead">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
@@ -249,8 +231,6 @@ if (!empty($_REQUEST['inputGh2'])) {
                      <tr>
                         <td align="right">
                            <?php if ($valPermission == "RW") { ?>
-
-
                               <div class="btnExport" title="<?php echo $langTxt["btn:export"] ?>" onclick="
                                                       document.myFormExport.action = 'exportReport.php';
                                                       document.myFormExport.submit();
@@ -263,7 +243,7 @@ if (!empty($_REQUEST['inputGh2'])) {
             </tr>
          </table>
       </div>
-      <div class="divRightMain">
+      <div class="divRightMain list-responsive">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td align="left" valign="middle" class="divRightTitleTbL" style="height:30px; padding-left:10px;"><span class="fontTitlTbRight"><?php echo $langMod["mg:subject"] ?></span></td>

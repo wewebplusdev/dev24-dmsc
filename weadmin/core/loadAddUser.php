@@ -223,7 +223,7 @@ $valNav2 = $langTxt["nav:userManage2"];
         <tr>
           <td width="18%" align="right" valign="top" class="formLeftContantTb"><?= $langTxt["us:permission"] ?><span class="fontContantAlert">*</span></td>
           <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-            <select name="inputgroupid" id="inputgroupid" class="formSelectContantTb">
+            <select name="inputgroupid" id="inputgroupid" class="formSelectContantTb select2">
               <option value="0"><?= $langTxt["us:selectpermission"] ?> </option>
               <?
               $sql_group = "SELECT " . $core_tb_group . "_id," . $core_tb_group . "_name  FROM " . $core_tb_group . " WHERE " . $core_tb_group . "_status='Enable'  ";

@@ -20,7 +20,6 @@ include("../core/incLang.php");
 <script language="JavaScript"  type="text/javascript" src="../js/jquery.blockUI.js"></script>
 <script language="JavaScript"  type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
 <script language="JavaScript"  type="text/javascript" src="../js/checkemail.js"></script>
-<script language="JavaScript"  type="text/javascript" src="../lib/ActiveDirectory/js/scriptName.js"></script>
 
 <script type="text/javascript">
 	jQuery(function() {

@@ -1,4 +1,27 @@
 <?php
+
+// $data = array();
+// $data['action'] = 'contact';
+// $data['method'] = 'getAdmin';
+// $data['masterkey'] = 'cum';
+// $data['language'] = $ContactPage->language;
+// $contact_data = $ContactPage->loadData($data);
+
+// $array_email = array();
+// $array_email[] = trim($_POST["inputEmail"]);
+
+// if ($contact_data->code == 1001) {
+//     foreach ($contact_data->item as $keyEmail => $valueEmail) {
+//         $array_email[] = trim($valueEmail->email);
+//     }
+// }
+// $array_email = array_filter($array_email);
+// require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
+// loadSendEmailTo($array_email, 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+
+// printPre($array_email);die;
+// die;
+
 header('Content-Type: application/json; charset=utf-8');
 
 $requestParams = [
@@ -27,8 +50,25 @@ if ($responseData->success) {
     $insert_data = $ContactPage->loadData($arrData);
     if ($insert_data->code == 1001) {
 
+        $data = array();
+        $data['action'] = 'contact';
+        $data['method'] = 'getAdmin';
+        $data['masterkey'] = 'cum';
+        $data['language'] = $ContactPage->language;
+        $contact_data = $ContactPage->loadData($data);
+
+        $array_email = array();
+        $array_email[] = trim($_POST["inputEmail"]);
+
+        if ($contact_data->code == 1001) {
+            foreach ($contact_data->item as $keyEmail => $valueEmail) {
+                $array_email[] = trim($valueEmail->email);
+            }
+        }
+        $array_email = array_filter($array_email);
         require_once _DIR . FULL_SCRIPT_PATH . $menuActive . '/service/mailer-global.php'; #load service
-        loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+        loadSendEmailTo($array_email, 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
+        // loadSendEmailTo(trim($_POST["inputEmail"]), 'กรมวิทยาศาสตร์การแพทย์ - ติดต่อเรา', $message);
 
         $arrJson = array(
             'code' => 1001,

@@ -25,11 +25,16 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
    <link href="../css/theme.css" rel="stylesheet" />
    <link href="../js/jquery.toolbar.css" rel="stylesheet" />
    <title><?php echo $core_name_title ?></title>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery.toolbar.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/scripttoolbarjs.js?v=<?php echo date('YmdHis'); ?>"></script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -120,11 +125,9 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          </table>
       </div>
       <div class="divRightHeadSearch">
-
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
-
             <tr>
-               <td>
+               <td class="selectSearch2">
                   <select name="inputSrchStatus" id="inputSrchStatus" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="">เลือกสถานะ</option>
                      <?php
@@ -137,14 +140,14 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                      ?>
                   </select>
                </td>
-               <td id="boxSelectTest">
+               <td id="boxSelectTest" class="textSearch2">
                   <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td class="buttonSearchStyle">
+                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+               </td>
             </tr>
-
          </table>
-
       </div>
 
       <div class="divRightHead">
@@ -181,8 +184,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
             </tr>
          </table>
       </div>
-      <div class="divRightMain">
-
+      <div class="divRightMain list-responsive">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td width="3%" class="divRightTitleTbL" valign="middle" align="center">
@@ -191,8 +193,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
                <td align="left" valign="middle" class="divRightTitleTb"><span class="fontTitlTbRight"><?php echo $langMod["tit:subjectg"] ?></span></td>
 
-
-
+               
                <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["mg:status"] ?></span></td>
                <td width="12%" class="divRightTitleTb" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["us:lastdate"] ?></span></td>
                <td width="12%" class="divRightTitleTbR" valign="middle" align="center"><span class="fontTitlTbRight"><?php echo $langTxt["mg:manage"] ?></span></td>
@@ -300,20 +301,15 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                         </table>
                      </td>
 
-
+                     <?php if(in_array($_REQUEST['masterkey'], $array_masterkey_home)){ ?>
                      <td class="divRightContantOverTb" valign="top" align="center">
                         <?php if ($valPermission == "RW") { ?>
                            <div id="load_status<?php echo $valID ?>">
                               <?php if ($valStatus == "Enable") { ?>
-
-                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"><span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span></a>
-
+                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMgHome.php')"><span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span></a>
                               <?php } else { ?>
-
-                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"> <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span> </a>
-
+                                 <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMgHome.php')"> <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span> </a>
                               <?php } ?>
-
                               <img src="../img/loader/ajax-loaderstatus.gif" alt="waiting" style="display:none;" id="load_waiting<?php echo $valID ?>" />
                            </div>
                         <?php } else { ?>
@@ -322,9 +318,28 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                            <?php } else { ?>
                               <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
                            <?php } ?>
-
                         <?php } ?>
                      </td>
+                     <?php }else{ ?>
+                        <td class="divRightContantOverTb" valign="top" align="center">
+                           <?php if ($valPermission == "RW") { ?>
+                              <div id="load_status<?php echo $valID ?>">
+                                 <?php if ($valStatus == "Enable") { ?>
+                                    <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"><span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span></a>
+                                 <?php } else { ?>
+                                    <a href="javascript:void(0)" onclick="changeStatus('load_waiting<?php echo $valID ?>', '<?php echo $mod_tb_root_group ?>', '<?php echo $valStatus ?>', '<?php echo $valID ?>', 'load_status<?php echo $valID ?>', '../<?php echo $mod_fd_root ?>/statusMg.php')"> <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span> </a>
+                                 <?php } ?>
+                                 <img src="../img/loader/ajax-loaderstatus.gif" alt="waiting" style="display:none;" id="load_waiting<?php echo $valID ?>" />
+                              </div>
+                           <?php } else { ?>
+                              <?php if ($valStatus == "Enable") { ?>
+                                 <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
+                              <?php } else { ?>
+                                 <span class="<?php echo $valStatusClass ?>"><?php echo $valStatus ?></span>
+                              <?php } ?>
+                           <?php } ?>
+                        </td>
+                     <?php } ?>
                      <td class="divRightContantOverTb" valign="top" align="center">
                         <span class="fontContantTbupdate"><?php echo $valDateCredate ?></span><br />
                         <span class="fontContantTbTime"><?php echo $valTimeCredate ?></span>

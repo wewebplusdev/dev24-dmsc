@@ -261,4 +261,8 @@ if ($_SESSION[$valSiteManage . "core_session_language"] == "Eng") {
   $langMod["info:email2"] = "อีเมล์ติดต่อ/สอบถามข้อมูล";
   $langMod["info:email3"] = "อีเมล์สอบถามข้อมูลการตรวจวิเคราะห์";
   $langMod["info:email4"] = "อีเมล์รับ-ส่งหนังสือราชการ";
+
+  $langMod["txt:setPopup"] = "ข้อมูล Pop-up";
+  $langMod["txt:setPopupDe"] = "ข้อมูลนี้คือส่วนที่ใช้ในการตั้งค่าการแสดงผล Pop-up ในเว็บไซต์ของคุณ";
+  $langMod["txt:closeday"] = "ปิดการแสดงผลวันนี้";
 }

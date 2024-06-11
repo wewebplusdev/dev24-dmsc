@@ -1,6 +1,6 @@
 <?php
 $menuActive = "downloadAll";
-$listjs[] = '<script src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
+$listjs[] = '<script defer src="' . _URL . 'front/controller/script/' . $menuActive . '/js/script.js"></script>';
 
 $DownloadAllPage = new DownloadAllPage;
 
@@ -61,9 +61,10 @@ switch ($url->segment[0]) {
             "gid" => $req['gid'],
             "masterkey" => $masterkey,
         ];
-
+        // printPre($data);
         // call list
         $loadData = $DownloadAllPage->loadData($data);
+        // printPre($loadData);
         $smarty->assign("loadData", $loadData);
         
         // setup seo and text modules

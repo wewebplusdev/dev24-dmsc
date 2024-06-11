@@ -157,12 +157,12 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </tr>
 
 
-               <tr >
+               <!-- <tr >
                   <td colspan="7" align="right"  valign="top" height="20"></td>
                </tr>
                <tr >
                   <td colspan="7" align="right"  valign="middle" class="formEndContantTb"><a href="#defTop" title="<?php echo $langTxt["btn:gototop"] ?>"><?php echo $langTxt["btn:gototop"] ?> <img src="../img/btn/top.png"  align="absmiddle"/></a></td>
-               </tr>
+               </tr> -->
             </table>
          </div>
       </form>

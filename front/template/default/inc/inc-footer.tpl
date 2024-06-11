@@ -1,6 +1,5 @@
 <footer class="layout-footer">
-    <div class="footer-content lazy" data-bg="{$template}/assets/img/background/bg-footer.webp"
-        data-bg-hidpi="{$template}/assets/img/background/bg-footer@2x.webp">
+    <div class="footer-content lazy" data-bg="{$template}/assets/img/background/bg-footer.webp" data-bg-hidpi="{$template}/assets/img/background/bg-footer@2x.webp">
         <div class="container">
             <div class="footer-top">
                 <div class="row">
@@ -22,13 +21,10 @@
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
-                                    <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt="icon-address"
-                                        class="icon" width="37" height="43">
+                                    <img src="{$template}/assets/img/icon/contact-icon-address.svg" alt="icon-address" class="icon" width="37" height="43">
                                 </div>
                                 <div class="col">
-                                    <p class="desc">
-                                        {$settingWeb.contact->address}
-                                    </p>
+                                    <p class="desc">{$settingWeb.contact->address}</p>
                                 </div>
                             </div>
                         </div>
@@ -38,8 +34,7 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="icon-telephone"
-                                            class="icon" width="37" height="43">
+                                        <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="icon-telephone" class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -56,8 +51,7 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
-                                            class="icon" width="37" height="43">
+                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax" class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
@@ -74,16 +68,13 @@
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                            class="icon" width="37" height="43">
+                                        <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
                                             <span class="d-block">{$languageFrontWeb->email->display->$currentLangWeb}</span>
-                                            <a href="mailto:{$settingWeb.contact->email2}" class="link"><span
-                                                    class="d-block">{$settingWeb.contact->email2}</span></a>
-                                            <a href="mailto:{$settingWeb.contact->email}" class="link"><span
-                                                    class="d-block">{$settingWeb.contact->email}</span></a>
+                                            <a href="mailto:{$settingWeb.contact->email2}" class="link"><span class="d-block">{$settingWeb.contact->email2}</span></a>
+                                            <a href="mailto:{$settingWeb.contact->email}" class="link"><span class="d-block">{$settingWeb.contact->email}</span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -97,14 +88,12 @@
                             <div class="contact pt-md-3">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
-                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax"
-                                            class="icon" width="37" height="43">
+                                        <img src="{$template}/assets/img/icon/contact-icon-fax.svg" alt="icon-fax" class="icon" width="37" height="43">
                                     </div>
                                     <div class="col">
                                         <p class="desc">
                                             <span class="d-block">{$languageFrontWeb->idso->display->$currentLangWeb}</span>
-                                            <span class="d-block">E-mail : <a href="{$settingWeb.contact->email2}"
-                                                    class="link">{$settingWeb.contact->email2}</a></span>
+                                            <span class="d-block">E-mail : <a href="{$settingWeb.contact->email2}" class="link">{$settingWeb.contact->email2}</a></span>
                                         </p>
                                     </div>
                                 </div>
@@ -147,8 +136,7 @@
                                                 <li>
                                                     <a href="tel:{" "|str_replace:"":$settingWeb.social->Tel->link}" class="link tele" title="Telephone">
                                                         <div class="rounded-0">
-                                                            <img src="{$template}/assets/img/icon/old-typical-phone.svg"
-                                                                alt="icon-phone" class="icon">
+                                                            <img src="{$template}/assets/img/icon/old-typical-phone.svg" alt="icon-phone" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -158,8 +146,7 @@
                                                     <a href="{$settingWeb.social->Facebook->link}" class="link fb"
                                                         title="Facebook" target="_blank">
                                                         <div class="rounded-0">
-                                                            <img src="{$template}/assets/img/icon/facebook.svg"
-                                                                alt="icon-facebook" class="icon">
+                                                            <img src="{$template}/assets/img/icon/facebook.svg" alt="icon-facebook" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -169,8 +156,7 @@
                                                     <a href="{$settingWeb.social->Twitter->link}" class="link tw" title="X"
                                                         target="_blank">
                                                         <div class="rounded-0">
-                                                            <img src="{$template}/assets/img/icon/twitter.svg"
-                                                                alt="icon-twitter" class="icon">
+                                                            <img src="{$template}/assets/img/icon/twitter.svg" alt="icon-twitter" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -180,8 +166,7 @@
                                                     <a href="{$settingWeb.social->Youtube->link}" class="link yt"
                                                         title="YouTube" target="_blank">
                                                         <div class="rounded-0">
-                                                            <img src="{$template}/assets/img/icon/youtube.svg"
-                                                                alt="icon-youtube" class="icon">
+                                                            <img src="{$template}/assets/img/icon/youtube.svg" alt="icon-youtube" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -191,8 +176,7 @@
                                                     <a href="{$settingWeb.social->Line->link}" class="link line"
                                                         title="Line" target="_blank">
                                                         <div class="rounded-0">
-                                                            <img src="{$template}/assets/img/icon/line.svg"
-                                                                alt="icon-line" class="icon">
+                                                            <img src="{$template}/assets/img/icon/line.svg" alt="icon-line" class="icon">
                                                         </div>
                                                     </a>
                                                 </li>
@@ -335,9 +319,6 @@
                           {/if}
                         {/if}
                     {/foreach}
-                      
-                      
-              
                     </ul>
                 
                     {else}

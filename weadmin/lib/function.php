@@ -322,8 +322,10 @@ function rechangeQuot($Data)
 // }
 
 ## encodeStr ##
+
 function encodeStr($variable)
 {
+
     ############################################
     $key = "xitgmLwmp";
     $index = 0;
@@ -345,6 +347,7 @@ function encodeStr($variable)
 }
 
 ## decodeStr ##
+
 function decodeStr($enVariable)
 {
     $enVariable = str_replace("WewEb", "%", $enVariable);

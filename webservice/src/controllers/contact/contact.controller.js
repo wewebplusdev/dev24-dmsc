@@ -11,6 +11,7 @@ exports.init = function (req, res) {
     funcRoute(req, res, {
         "insertContact": "insertContact",
         "insertCorruption": "insertCorruption",
+        "getAdmin": "getAdmin",
     });
 }
 
@@ -95,13 +96,12 @@ async function insertCorruption(req, res) {
 
     const complaint_name = req.body.inputComplaintName;
     const complaint_time = req.body.inputComplaintTime;
-    const complaint_fac = req.body.inputComplaintFac;
+    const complaint_fac = req.body.inputComplaintFac1;
     const complaint_desc1 = req.body.inputComplaintDesc1;
     const complaint_desc2 = req.body.inputComplaintDesc2;
-    const complaint_confirm = req.body.inputComplaintConfirm;
+    const complaint_confirm = req.body.inputComplaintConfirm1;
 
     const ip = req.body.ip;
-
     const result = general.checkParam([method, language, subject, title, tel, email, name, address, complaint_name, complaint_time, complaint_fac, complaint_desc1, complaint_desc2, complaint_confirm, ip]);
     const code = config.returncode;
     // db tables
@@ -110,7 +110,6 @@ async function insertCorruption(req, res) {
     // db masterkey
     let config_array_masterkey = new Array();
     config_array_masterkey['rec'] = config.fieldDB.masterkey.rec
-
     if (result.code == code.success.code) {
         let conn = config.configDB.connectDB();
         const query = util.promisify(conn.query).bind(conn);
@@ -158,6 +157,55 @@ async function insertCorruption(req, res) {
             // enable check foreign key
             await query('SET FOREIGN_KEY_CHECKS=1;');
 
+        } catch (error) {
+            result.code = code.error_wrong.code;
+            result.msg = code.error_wrong.msg;
+        }
+        conn.destroy();
+    }
+    res.json(result);
+}
+
+async function getAdmin(req, res) {
+    const method = req.body.method;
+    const language = req.body.language;
+    const masterkey = req.body.masterkey;
+    const search_keyword = req.body.keyword;
+    const result = general.checkParam([method, language, masterkey]);
+    const code = config.returncode;
+    // db tables
+    let config_array_db = new Array();
+    config_array_db['md_cue'] = config.fieldDB.main.md_cue
+    
+    if (result.code == code.success.code) {
+        let conn = config.configDB.connectDB();
+        const query = util.promisify(conn.query).bind(conn);
+        try {
+            result.code = code.success.code;
+            result.msg = code.success.msg;
+            let sql_list = `SELECT 
+            ${config_array_db['md_cue']}_id as id 
+            ,${config_array_db['md_cue']}_key as masterkey 
+            ,${config_array_db['md_cue']}_gid as gid 
+            ,${config_array_db['md_cue']}_email as email 
+            FROM ${config_array_db['md_cue']} 
+            WHERE ${config_array_db['md_cue']}_key = '${masterkey}' `;
+            const select = await query(sql_list);
+            if (select.length > 0) {
+                let arr_data = [];
+                result.code = code.success.code;
+                result.msg = code.success.msg;
+                for (let i = 0; i < select.length; i++) {
+                    arr_data[i] = {};
+                    arr_data[i].id = select[i].id;
+                    arr_data[i].masterkey = select[i].masterkey;
+                    arr_data[i].email = select[i].email;
+                }
+                result.item = arr_data;
+            } else {
+                result.code = code.missing_data.code;
+                result.msg = code.missing_data.msg;
+            }
         } catch (error) {
             result.code = code.error_wrong.code;
             result.msg = code.error_wrong.msg;

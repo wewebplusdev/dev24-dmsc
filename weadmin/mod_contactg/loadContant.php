@@ -138,16 +138,16 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?php echo $valLinkNav1 ?>" target="_self"><?php echo $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?php echo $valNav2 ?></span></td>
                <td class="divRightNavTb" align="right">
                   <!-- ######### Start Menu Sub Mod ########## -->
-                  <!-- <div class="menuSubMod">
-                     <a href="group.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
-                        <?php echo $langMod["meu:group2"] ?>
+                  <div class="menuSubMod">
+                     <a href="set.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
+                        <?php echo $langMod["txt:email2"] ?>
                      </a>
                   </div>
                   <div class="menuSubMod active">
                      <a href="index.php?masterkey=<?php echo $_REQUEST['masterkey'] ?>&menukeyid=<?php echo $_REQUEST['menukeyid'] ?>">
                         <?php echo $langMod["meu:contant"] ?>
                      </a>
-                  </div> -->
+                  </div>
                   <!-- ######### End Menu Sub Mod ########## -->
                </td>
             </tr>
@@ -198,7 +198,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
 
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td class="buttonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
             </tr>
          </table>
       </div>
@@ -221,10 +221,10 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                           }
                                       "></div>
                               <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_detail)) { ?>
-                              <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel2.php';document.myFormExport.submit()">
-                              <?php }else{ ?>
-                              <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel.php';document.myFormExport.submit()">
-                              <?php } ?>
+                                 <div class="btnExport" title="<?php echo $langTxt["btn:export"] ?>" onclick="document.myFormExport.action = 'exportExcel2.php';document.myFormExport.submit()">
+                                 <?php } else { ?>
+                                    <div class="btnExport" title="<?php echo $langTxt["btn:export"] ?>" onclick="document.myFormExport.action = 'exportExcel.php';document.myFormExport.submit()">
+                                    <?php } ?>
                         </td>
                      <?php } ?>
                      </tr>

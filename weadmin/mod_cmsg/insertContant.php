@@ -36,6 +36,9 @@ if ($_REQUEST['execute'] == "insert") {
    $Row = wewebFetchArrayDB($coreLanguageSQL, $Query);
    $maxOrder = $Row[0] + 1;
 
+   $sql_check = "SET FOREIGN_KEY_CHECKS = 0";
+   $Query = wewebQueryDB($coreLanguageSQL, $sql_check);
+
    $insert = array();
    $insert[$mod_tb_root . "_masterkey"] = "'" . $_REQUEST["masterkey"] . "'";
    $insert[$mod_tb_root . "_gid"] = "'" . $_POST["inputGroupID"] . "'";
@@ -54,7 +57,7 @@ if ($_REQUEST['execute'] == "insert") {
    $insert[$mod_tb_root . "_status"] = "'Disable'";
    $insert[$mod_tb_root . "_order"] = "'" . $maxOrder . "'";
    $sql = "INSERT INTO " . $mod_tb_root . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
-
+   
    $Query = wewebQueryDB($coreLanguageSQL, $sql);
    $contantID1 = wewebInsertID($coreLanguageSQL);
    $array_sch = array();
@@ -126,7 +129,6 @@ if ($_REQUEST['execute'] == "insert") {
          }
       }
 
-
       $sql_filetemp = "SELECT " . $mod_tb_fileTemp . "_id," . $mod_tb_fileTemp . "_filename," . $mod_tb_fileTemp . "_name  FROM " . $mod_tb_fileTemp . " WHERE " . $mod_tb_fileTemp . "_contantid 	='" . $_REQUEST['valEditID'] . "' ORDER BY " . $mod_tb_fileTemp . "_id ASC";
       $query_filetemp = wewebQueryDB($coreLanguageSQL, $sql_filetemp);
       $number_filetemp = wewebNumRowsDB($coreLanguageSQL, $query_filetemp);
@@ -197,6 +199,8 @@ if ($_REQUEST['execute'] == "insert") {
       }
 
    }
+   $sql_check = "SET FOREIGN_KEY_CHECKS = 1";
+   $Query = wewebQueryDB($coreLanguageSQL, $sql_check);
 }
 ?>
 <?php include("../lib/disconnect.php"); ?>

@@ -81,6 +81,13 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
          });
       });
    </script>
+   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
+   <link href="../js/select2/css/selectList2.css" rel="stylesheet" />
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -177,7 +184,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
             <tr>
                <?php if(!in_array($_REQUEST['masterkey'], $array_masterkey_group)){ ?>
-               <td>
+               <td style="padding-bottom: 0 !important;">
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px;">
                      <tr>
                         <td>
@@ -241,7 +248,7 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
 
 
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td class="buttonSearchStyle" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
             </tr>
          </table>
       </div>
@@ -649,6 +656,13 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                </td>
             </tr>
          </table>
+         <?php if(array_key_exists($_REQUEST['masterkey'], $array_link)){ ?>
+         <table width="96%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 20px;">
+            <tr>
+               <td><a href="<?php echo $core_full_path . '/' . $array_link[$_REQUEST['masterkey']]; ?>" target="_blank" rel="noopener noreferrer"><?php echo $core_full_path . '/' . $array_link[$_REQUEST['masterkey']]; ?></a><td>
+            </tr>
+         </table>
+         <?php } ?>
          <input name="TotalCheckBoxID" type="hidden" id="TotalCheckBoxID" value="<?php echo $index - 1 ?>" />
          <div class="divRightContantEnd"></div>
       </div>

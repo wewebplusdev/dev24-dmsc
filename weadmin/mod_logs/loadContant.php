@@ -24,14 +24,19 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
    <link href="../css/theme.css" rel="stylesheet" />
    <title><?= $core_name_title ?></title>
    <link rel="stylesheet" href="../js/jquery-ui-1.9.0.css">
-   <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
+   <!-- <script language="JavaScript" type="text/javascript" src="../js/jquery-1.9.0.js"></script>
    <script language="JavaScript" type="text/javascript" src="../js/jquery-ui-1.9.0.js"></script>
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js"></script>
    <script type="text/javascript" language="javascript">
 
 
    </script>
+   <script>
+    jQuery(document).ready(function ($) {
+      $('.formSelectSearchStyle').select2();  
+    });
+  </script>
 </head>
 
 <body>
@@ -139,18 +144,20 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             </tr>
          </table>
       </div>
+
       <div class="divRightHeadSearch">
          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:20px;" align="center">
             <tr>
-               <td>
-                  <input name="sdateInput" type="text" id="sdateInput" placeholder="<?= $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle " style="width: 97%;"/>
+               <td class="selectSearch2" style=" padding-bottom: 10px !important; ">
+                  <input name="sdateInput" type="text" id="sdateInput" placeholder="<?= $langMod["tit:sSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['sdateInputSe']) ?>" class="formInputSearchStyle "/>
                </td>
-               <td>
+               <td class="selectSearch4" style=" padding-bottom: 10px !important; ">
                   <input name="edateInput" type="text" id="edateInput" placeholder="<?= $langMod["tit:eSedate"] ?>" autocomplete="off" value="<?= trim($_REQUEST['edateInputSe']) ?>" class="formInputSearchStyle " />
                </td>
+               <td class="buttonSearchStyle" align="right" width="4%">&nbsp;</td>
             </tr>
             <tr>
-               <td>
+               <td class="selectSearch2">
                   <select name="inputGh" id="inputGh" onchange="document.myForm.submit();" class="formSelectSearchStyle">
                      <option value="0"><?= $langMod["tit:typeAccessSle"] ?> </option>
                      <?
@@ -161,13 +168,16 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                      <? } ?>
                   </select>
                </td>
-               <td id="boxSelectTest">
+               <td id="boxSelectTest" class="textSearch2">
                   <input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?= $langTxt["sch:search"] ?>" />
                </td>
-               <td class="bottonSearch" align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+               <td class="buttonSearch" align="right">
+                  <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
+               </td>
             </tr>
          </table>
       </div>
+
       <div class="divRightHead">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
             <tr>
@@ -189,7 +199,8 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
             </tr>
          </table>
       </div>
-      <div class="divRightMain">
+
+      <div class="divRightMain list-responsive">
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
             <tr>
                <td align="left" valign="middle" class="divRightTitleTbL" style="height:30px; padding-left:10px;"><span class="fontTitlTbRight"><?= $langTxt["mg:subject"] ?></span></td>

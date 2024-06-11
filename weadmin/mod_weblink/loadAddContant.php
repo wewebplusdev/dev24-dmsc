@@ -52,11 +52,11 @@ if(!in_array($_REQUEST['masterkey'], $array_masterkey_2link)){
    <link href="../css/table_css.css?v=<?php echo date('Ymdhis'); ?>" rel="stylesheet" />
    <link href="js/uploadfile.css" rel="stylesheet" />
    <title><?php echo $core_name_title ?></title>
-   <link href="../js/select2/css/select2.css" rel="stylesheet" />
+   <!-- <link href="../js/select2/css/select2.css" rel="stylesheet" />
 
-   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script>
-   <!-- <script src="https://code.jquery.com/jquery-1.11.3.js"></script> -->
-   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script>
+   <script language="JavaScript" type="text/javascript" src="../js/select2/js/select2.js"></script> -->
+   <!-- <script src="https://code.jquery.com/jquery-1.11.3.js"></script> 
+   <script language="JavaScript" type="text/javascript" src="../js/jquery.blockUI.js"></script> -->
    <script language="JavaScript" type="text/javascript" src="../js/scriptCoreWeweb.js?v=<?php echo date('Ymdhis'); ?>"></script>
    <script language="JavaScript" type="text/javascript" src="./js/script.js?v=<?php echo date('Ymdhis'); ?>"></script>
 
@@ -89,7 +89,7 @@ if(!in_array($_REQUEST['masterkey'], $array_masterkey_2link)){
             // } else {
             //   jQuery("#inputDescription").removeClass("formInputContantTbAlertY");
             // }
-
+            
             let inputTypeC = document.myForm.inputTypeC.value;
             if (inputTypeC == 1) {
                var alleditDetail = CKEDITOR.instances.editDetail.getData();
@@ -247,7 +247,7 @@ if(!in_array($_REQUEST['masterkey'], $array_masterkey_2link)){
             <tr>
                <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["meu:group2"]; ?><span class="fontContantAlert">*</span></td>
                <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
-                  <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb">
+                  <select name="inputGroupID" id="inputGroupID" class="formSelectContantTb select2">
                      <option value="0"><?php echo $langMod["tit:selectg2"]; ?></option>
                      <?php
                      $sql_group = "SELECT " . $mod_tb_root_group . "_id," . $mod_tb_root_group_lang . "_subject FROM " . $mod_tb_root_group . " INNER JOIN " . $mod_tb_root_group_lang . " ON " . $mod_tb_root_group . "_id = " . $mod_tb_root_group_lang . "_cid WHERE  " . $mod_tb_root_group . "_masterkey ='" . $_REQUEST['masterkey'] . "' AND " . $mod_tb_root_group_lang . "_language='Thai'  ";

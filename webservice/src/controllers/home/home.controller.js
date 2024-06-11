@@ -926,20 +926,30 @@ async function getInnovationGroup(req, res) {
                         arr_data[i].des = select[i].des;
                         arr_data[i].number = select[i].number;
                         arr_data[i].suffix = select[i].suffix;
-                        let type_file = select[i]?.pic?.split(".");
-                        if (type_file[type_file?.length-1] == 'svg') {
-                            arr_data[i].pic = {
-                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                                'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                        if (select[i]?.pic.length > 0) {
+                            let type_file = select[i]?.pic?.split(".");
+                            if (type_file[type_file?.length-1] == 'svg') {
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'pictures', `${select[i].pic}`),
+                                }
+                            }else{
+                                arr_data[i].pic = {
+                                    'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
+                                    'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
+                                    'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
+                                    'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                }
                             }
                         }else{
+                            let defaultPic = default_pic[0];
                             arr_data[i].pic = {
-                                'real': modulus.getUploadPath(select[i].masterkey, 'real', select[i].pic),
-                                'pictures': modulus.getUploadPath(select[i].masterkey, 'pictures', select[i].pic),
-                                'office': modulus.getUploadPath(select[i].masterkey, 'office', select[i].pic),
-                                'webp': modulus.getUploadPath(select[i].masterkey, 'webp', `${select[i].pic}.webp`),
+                                'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
+                                'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
+                                'office': modulus.getUploadPath(defaultPic.masterkey, 'office', defaultPic.file),
+                                'webp': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
                             }
                         }
                         // const getUrlWeb = await modulus.getUrlWebsite(select[i].masterkey, 'group', short_language);
@@ -1087,7 +1097,8 @@ async function getAbout(req, res) {
                             arr_data[i].target = `_self`;
                         }
                         if (select[i].picType == 1) {
-                            let defaultPic = default_pic[select[i].picDefault];
+                            // let defaultPic = default_pic[select[i].picDefault];
+                            let defaultPic = (default_pic[select[i].picDefault] !== undefined) ? default_pic[select[i].picDefault] : default_pic[0];
                             arr_data[i].pic = {
                                 'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
                                 'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),

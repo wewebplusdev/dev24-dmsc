@@ -10,7 +10,8 @@ $mod_tb_permisGroup = "md_cmsp";
 ## Mod Folder ###################################
 $mod_fd_root = "mod_agency";
 
-$keyGoogleMap = 'AIzaSyCurPGwavTFgJOilsQYTEjdCme657vfa7I';
+// $keyGoogleMap = 'AIzaSyCurPGwavTFgJOilsQYTEjdCme657vfa7I';
+$keyGoogleMap = 'AIzaSyAyvyH6IEwyyi_J_P2PEcSN_24IqApkga8';
 ## Setting Value ###################################
 $modTxtShowPic = array("ประเภทการแสดงผลรูปภาพ", "เลือกจากระบบ", "อัพโหลด");
 

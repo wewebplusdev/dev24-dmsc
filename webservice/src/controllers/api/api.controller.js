@@ -69,7 +69,7 @@ async function loadRedirect(req, res) {
                         let arr_data = {};
                         if (action == 'link') {
                             if (select_list[0].typec == 3) {
-                                if (urlc2?.length > 0) {
+                                if (download?.length > 0) {
                                     arr_data.url = select_list[0].urlc2;
                                 }else{
                                     arr_data.url = select_list[0].urlc;

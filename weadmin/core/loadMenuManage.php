@@ -38,18 +38,21 @@ $valNav2 = $langTxt["nav:menuManage2"];
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
                 <tr>
                     <td class="divRightNavTb" align="left"><span class="fontContantTbNav"><a href="<?= $valLinkNav1 ?>" target="_self"><?= $valNav1 ?></a> <img src="../img/btn/nav.png" align="absmiddle" vspace="5" /> <?= $valNav2 ?></span></td>
-                    <td class="divRightNavTb" align="right">
-                        <table border="0" cellspacing="0" cellpadding="0" align="right">
-                            <tr>
-                                <td align="right"><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb" /></td>
-                                <td align="right"><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
-                            </tr>
-                        </table>
+                    <!-- <td class="divRightNavTb" align="right">
+                        
 
 
-                    </td>
+                    </td> -->
                 </tr>
             </table>
+        </div>
+        <div class="divRightHeadSearch">
+          <table border="0" cellspacing="0" cellpadding="0" align="right">
+            <tr>
+                <td align="right" style=" padding-bottom: 0 !important; "><input name="inputSearch" type="text" id="inputSearch" value="<?= trim($_REQUEST['inputSearch']) ?>" class="inputContantTb formInputSearchStyle" /></td>
+                <td class="buttonSearchStyle" align="right" style=" padding-bottom: 0 !important; "><input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " /></td>
+            </tr>
+          </table>
         </div>
         <div class="divRightHead">
             <table width="96%" border="0" cellspacing="0" cellpadding="0" class="borderBottom" align="center">
@@ -77,6 +80,7 @@ $valNav2 = $langTxt["nav:menuManage2"];
                 </tr>
             </table>
         </div>
+        
         <div class="divRightMain">
             <br />
             <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxListwBorder">
@@ -135,7 +139,7 @@ $valNav2 = $langTxt["nav:menuManage2"];
                             $valShowmenu = "Show";
                         }
                 ?>
-                        <tr class="divOverTb">
+                        <tr class="divOverTb divOverTbAddon" style=" background-color: #f5f5f5; ">
                             <td class="divRightContantOverTbL" valign="top" align="center"><input id="CheckBoxID<?= $index ?>" name="CheckBoxID<?= $index ?>" type="checkbox" class="formCheckboxList" onClick="Paging_CheckAllHandle(document.myForm.CheckBoxAll, 'CheckBoxID', document.myForm.TotalCheckBoxID.value)" value="<?= $valID ?>" /> </td>
                             <td class="divRightContantOverTb" valign="top" align="left"><a href="javascript:void(0)" onclick="
                                                     document.myFormHome.valEditID.value =<?= $valID ?>;
@@ -186,7 +190,7 @@ $valNav2 = $langTxt["nav:menuManage2"];
                                 <span class="fontContantTbTime"><?= $valTimeCredate ?></span>
                             </td>
                             <td class="divRightContantOverTbR" valign="top" align="center">
-                                <table border="0" cellspacing="0" cellpadding="0" align="right">
+                                <table border="0" cellspacing="0" cellpadding="0" align="center">
                                     <tr>
                                         <? if ($valType == "Group") { ?>
                                             <td valign="top" align="center" width="30">
@@ -257,7 +261,7 @@ $valNav2 = $langTxt["nav:menuManage2"];
                                         $valShowmenu = "Show";
                                     }
                         ?>
-                                    <tr class="divSubOverTb">
+                                    <tr class="divSubOverTb divSubOverTbAddon">
                                         <td class="divRightContantTbL" valign="top" align="center" style="padding-left:20px;"><input id="CheckBoxID<?= $index ?>" name="CheckBoxID<?= $index ?>" type="checkbox" class="formCheckboxList" onClick="Paging_CheckAllHandle(document.myForm.CheckBoxAll, 'CheckBoxID', document.myForm.TotalCheckBoxID.value)" value="<?= $valIDSub ?>" /> </td>
                                         <td class="divRightContantTb" valign="top" align="left" style="padding-left:20px;"><a href="javascript:void(0)" onclick="
                                                                 document.myFormHome.myParentID.value =<?= $valID ?>;
@@ -303,7 +307,7 @@ $valNav2 = $langTxt["nav:menuManage2"];
                                             <span class="fontContantTbTime"><?= $valTimeCredateSub ?></span>
                                         </td>
                                         <td class="divRightContantTbR" valign="top" align="center">
-                                            <table border="0" cellspacing="0" cellpadding="0" align="right">
+                                            <table border="0" cellspacing="0" cellpadding="0" align="center">
                                                 <tr>
                                                     <td valign="top" align="center" width="30">
                                                         <div class="divRightManage" title="<?= $langTxt["btn:sort"] ?>" onclick="

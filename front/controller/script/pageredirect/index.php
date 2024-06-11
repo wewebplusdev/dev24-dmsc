@@ -40,8 +40,9 @@ if (!empty($url->segment[1])) {
         'urlc2' => decodeStr($case_slug[5]),
         'view' => $view,
     );
-    
+    // printPre($array_req);
     $loadUrlRedirect = $Pageredirectage->loadUrlRedirect($array_req);
+    // printPre($loadUrlRedirect);die;
     if ($loadUrlRedirect->code === 1001 && !empty($loadUrlRedirect->item->url)) {
         header(LOCATION_HEADER . $loadUrlRedirect->item->url);
     }else{

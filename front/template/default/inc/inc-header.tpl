@@ -25,17 +25,11 @@
                     <img src="{$template}/assets/img/static/brand-header.webp" alt="DMSC LOGO" width="80" height="91">
                 </div>
                 <div class="brand-txt">
-                    <div class="title">
-                        {$settingWeb.subject}
-                    </div>
-                    <div class="subtitle">
-                        {$settingWeb.subjectoffice}
-                    </div>
+                    <div class="title">{$settingWeb.subject}</div>
+                    <div class="subtitle">{$settingWeb.subjectoffice}</div>
                 </div>
             </a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation" data-aos="fade-left">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-aos="fade-left">
                 <span class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -60,9 +54,7 @@
                             {if count((array)$valueSitemapLv1->level_2) gte 1}
                                 <li class="nav-item">
                                     <div class="dropdown">
-                                        <a class="nav-link dropdown-toggle menu-{$valueSitemapLv1->id}" href="javascript:void;" title="{$valueSitemapLv1->subject}"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                            data-aos="fade-left">{$valueSitemapLv1->subject}</a>
+                                        <a class="nav-link dropdown-toggle menu-{$valueSitemapLv1->id}" href="javascript:void;" title="{$valueSitemapLv1->subject}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">{$valueSitemapLv1->subject}</a>
                                         <div class="dropdown-menu full-dropdown-menu">
                                             <div class="container-dropdown-menu">
                                                 <div class="submenu-row{if $valueSitemapLv1->layout eq 1} submenu-grid{/if}">
@@ -83,8 +75,7 @@
                                                                     {/if}
                                                                     {if count((array)$valueLv2->level_3) gte 1}
                                                                         <li class="has-submenu">
-                                                                            <a href="javascript:void(0)" title="{$valueLv2->subject}"  class="link"
-                                                                                id="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">{$valueLv2->subject}</a>
+                                                                            <a href="javascript:void(0)" title="{$valueLv2->subject}"  class="link" id="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">{$valueLv2->subject}</a>
                                                                         </li>
                                                                     {else}
                                                                         <li>
@@ -153,7 +144,7 @@
                         <span data-feather="x" title="X"></span>
                     </a>
                 </div>
-                <div class="nav-lang d-lg-none d-block guides-current-element">
+                <div class="nav-lang d-lg-none d-block">
                   <div class="row align-items-center gutters-10">
                       <div class="col-12">
                           <div class="nav-label">{$languageFrontWeb->choose_lang->display->$currentLangWeb}</div>
@@ -168,7 +159,7 @@
                       {/foreach}
                   </div>
                 </div>
-                <div class="guides-overlay-custom d-lg-none d-block"></div>
+                <div class="guides-overlay-custom d-lg-none"></div>
             </div>
         </div>
     </nav>

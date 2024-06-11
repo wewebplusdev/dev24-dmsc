@@ -108,7 +108,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                <td id="boxSelectTest">
                   <input name="inputSearch" type="text" id="inputSearch" value="<?php echo trim($_REQUEST['inputSearch']) ?>" class="formInputSearchStyle" placeholder="<?php echo $langTxt["sch:search"] ?>" />
                </td>
-               <td class="bottonSearch" align="right">
+               <td class="buttonSearchStyle" align="right">
                   <input name="searchOk" id="searchOk" onClick="document.myForm.submit();" type="button" class="btnSearch" value=" " />
                </td>
             </tr>
@@ -124,7 +124,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                      <tr>
                         <td align="right">
                            <?php if ($is_super == "SuperAdmin" || true) { ?>
-                              <div class="btnAdd" title="<?php echo $langTxt["btn:add"] ?>" onclick="document.myFormHome.inputLt.value = 'Thai';
+                              <!-- <div class="btnAdd" title="<?php echo $langTxt["btn:add"] ?>" onclick="document.myFormHome.inputLt.value = 'Thai';
                                           addContactNew('addContant.php');"></div>
                               <div class="btnDel" title="<?php echo $langTxt["btn:del"] ?>" onclick="
                                           if (Paging_CountChecked('CheckBoxID', document.myForm.TotalCheckBoxID.value) > 0) {
@@ -134,7 +134,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                                           } else {
                                              alert('<?php echo $langTxt["mg:selpermis"] ?>');
                                           }
-                                       "></div>
+                                       "></div> -->
                               <div class="btnSort" title="<?php echo $langTxt["btn:sortting"] ?>" onclick="sortContactNew('sortContant.php');"></div>
                            <?php }
                            ?>
@@ -305,7 +305,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                                     </div>
                                  </td>
 
-                                 <td valign="top" align="center" width="30">
+                                 <!-- <td valign="top" align="center" width="30">
                                     <div class="divRightManage" title="<?php echo $langTxt["btn:del"] ?>" onClick="
                                                       if (confirm('<?php echo $langTxt["mg:delpermis"] ?>')) {
                                                          Paging_CheckedThisItem(document.myForm.CheckBoxAll, <?php echo $index ?>, 'CheckBoxID', document.myForm.TotalCheckBoxID.value);
@@ -315,7 +315,7 @@ $is_super = $_SESSION[$valSiteManage . "core_session_level"];
                                        <img src="../img/btn/delete.png" /><br />
                                        <span class="fontContantTbManage"><?php echo $langTxt["btn:del"] ?></span>
                                     </div>
-                                 </td>
+                                 </td> -->
                               </tr>
                            </table>
                         <?php } ?>
