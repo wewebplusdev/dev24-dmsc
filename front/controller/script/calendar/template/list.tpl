@@ -22,8 +22,8 @@
                                 <div class="dot" ></div>
                             </div>
                             <div class="col">
-                                <div class="date">{$valueload_data->date_display}</div>
-                                <div class="desc">{$valueload_data->subject}</div>
+                                <div class="date mb-md-3 mb-2">{$valueload_data->date_display}</div>
+                                <div class="desc mb-md-3 mb-2">{$valueload_data->subject}</div>
                                 {if $valueload_data->period eq 1}                  
                                     <div class="desc">8.30 {$languageFrontWeb->suffixtime->display->$currentLangWeb} - 16.30 {$languageFrontWeb->suffixtime->display->$currentLangWeb}</div>
                                 {else}
