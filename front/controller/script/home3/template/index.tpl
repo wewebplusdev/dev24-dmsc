@@ -1,5 +1,5 @@
 <section class="layout-body layout-body-home">
-
+    
     {if $loadTopgraphic->_numOfRows gte 1}
         <div id="banner" class="text-righ w-25 ml-auto"></div>
         <div class="top-graphic" data-aos="fade-down">
@@ -12,44 +12,23 @@
                         {$myUrlCutArray = "&"|explode:$myUrlCut}
                         {$myUrlCutAnd= $myUrlCutArray.0}
                         <div class="swiper-slide">
-                            <div class="item">
-                                <div class="iframe-container">
-                                    <iframe
-                                        src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1"
-                                        title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;"
-                                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                                </div>
+                            <div class="iframe-container">
+                                <iframe src="https://www.youtube.com/embed/{$myUrlCutAnd}?controls=0&autoplay=1&mute=1&loop=1&enablejsapi=1" title="Inside Of Saturn&#39;s Rings" style="border: none; pointer-events: none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                             </div>
                         </div>
                     {elseif $valueTgp->type eq 3}
                         <div class="swiper-slide">
-                            <div class="item">
-                                <div class="video-container">
-                                    <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
-                                    <source src="{$valueTgp->video->real}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                    </video>
-                                </div>
+                            <div class="video-container">
+                                <video loop="" autoplay="" muted="" controlsList="nofullscreen" style="pointer-events: none;" playsinline>
+                                <source src="{$valueTgp->video->real}" type="video/mp4">Your browser does not support the video tag.</video>
                             </div>
                         </div>
                     {else}
                         <div class="swiper-slide">
-                            <div class="item">
-                                <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
-                                    <figure class="contain">
-                                        <picture>
-                                            <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743">
-                                        </picture>
-                                    </figure>
-                                    <div class="fill-blur">
-                                      <figure class="cover">
-                                          <picture>
-                                              <img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743">
-                                          </picture>
-                                      </figure>
-                                    </div>
-                                </a>
-                            </div>
+                            <a href="{$valueTgp->url}" class="link" target="{$valueTgp->pic->target|default:'_self'}">
+                                <figure class="contain"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure>
+                                <div class="fill-blur"><figure class="cover"><picture><img src="{$valueTgp->pic->webp}{$LastVersionCache}"  class="lazy" loading="lazy" width="1903" height="743"></picture></figure></div>
+                            </a>
                         </div>
                     {/if}
                     {/foreach}
@@ -58,8 +37,7 @@
             </div>
         </div>
     {/if}
-
-    <!--
+    
     {if $loadServices->_numOfRows gte 1}
         <div class="section section-i overflow-hidden" data-aos="fade-up">
             <div class="wg-services lazy" >
@@ -83,9 +61,7 @@
                                 <div class="swiper-wrapper">
                                     {foreach $loadServices->item->group as $keyload_services_group => $load_services_group}
                                         <div class="swiper-slide">
-                                            <div class="item">
-                                                <button type="button" class="btn services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</button>
-                                            </div>
+                                            <div class="item"><button type="button" class="btn services-filter" data-id="{$load_services_group->id}">{$load_services_group->subject}</button></div>
                                         </div>
                                     {/foreach}
                                 </div>
@@ -190,21 +166,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="bg-obj">
-                                            <img src="{$valueload_innovation->pic->webp}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="lazy" class="lazy" width="240" height="240">
-                                        </div>
+                                        <div class="bg-obj"><img src="{$valueload_innovation->pic->webp}{$LastVersionCache}" alt="{$valueload_innovation->subject}" loading="lazy" class="lazy" width="240" height="240"></div>
                                     </div>
                                 </a>
                             </div>
-                        {else}
-                            {break}
-                        {/if}
+                        {else}{break}{/if}
                     {/foreach}
                 </div>
                 {if $loadInnovation->item|count gte 2}
-                    <div class="wg-research-list lazy"
-                        data-bg="{$template}/assets/img/background/bg-wg-research.webp{$LastVersionCache}"
-                        data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp{$LastVersionCache}">
+                    <div class="wg-research-list lazy" data-bg="{$template}/assets/img/background/bg-wg-research.webp{$LastVersionCache}" data-bg-hidpi="{$template}/assets/img/background/bg-wg-research@2x.webp{$LastVersionCache}">
                         <div class="container">
                             <div class="swiper swiper-default">
                                 <div class="swiper-wrapper">
@@ -215,17 +185,14 @@
                                                     <a href="{$valueload_innovation->url}" class="link" target="{$valueload_innovation->target|default:'_self'}">
                                                         <div class="wg-research-group" data-aos="fade-down" data-aos-delay="400">
                                                             <div class="card">
-                                                                <div class="card-body">
-                                                                    <div class="whead">
-                                                                        <h3 class="title">{$valueload_innovation->subject}</h3>
-                                                                        <p class="subtitle">{$valueload_innovation->des}</p>
-                                                                        <div class="total">{$valueload_innovation->number|number_format}</div>
-                                                                        <div class="unit">
-                                                                            {$valueload_innovation->suffix}
-                                                                            <span
-                                                                                class="material-symbols-rounded">expand_circle_right</span>
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="card-body whead">
+                                                                    <h3 class="title">{$valueload_innovation->subject}</h3>
+                                                                    <p class="subtitle">{$valueload_innovation->des}</p>
+                                                                    <span class="total d-block">{$valueload_innovation->number|number_format}</span>
+                                                                    <span class="unit d-block">
+                                                                        {$valueload_innovation->suffix}
+                                                                        <span class="material-symbols-rounded">expand_circle_right</span>
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                             <div class="bg-obj">
@@ -249,8 +216,7 @@
     {/if}
 
     <div class="section section-iii" data-aos="fade-up">
-        <div class="wg-about lazy" data-bg="{$template}/assets/img/background/bg-wg-about.webp{$LastVersionCache}"
-            data-bg-hidpi="{$template}/assets/img/background/bg-wg-about@2x.webp{$LastVersionCache}">
+        <div class="wg-about lazy" data-bg="{$template}/assets/img/background/bg-wg-about.webp{$LastVersionCache}" data-bg-hidpi="{$template}/assets/img/background/bg-wg-about@2x.webp{$LastVersionCache}">
             <div class="container">
                 <div class="row align-items-center no-gutters">
                     <div class="col-lg" data-aos="fade-right">
@@ -259,9 +225,7 @@
                                 <h3 class="title">{$languageFrontWeb->department->display->$currentLangWeb}</h3>
                                 <p class="subtitle">{$languageFrontWeb->ministry->display->$currentLangWeb}</p>
                                 <div class="line"></div>
-                                <p class="desc">
-                                    {$languageFrontWeb->aboutdepartment->display->$currentLangWeb}
-                                </p>
+                                <p class="desc">{$languageFrontWeb->aboutdepartment->display->$currentLangWeb}</p>
                             </div>
                             {* <div class="action">
                                 <a href="{$ul}/about" class="btn btn-primary">{$languageFrontWeb->readmore->display->$currentLangWeb}</a>
@@ -293,14 +257,12 @@
                                                                 <h4 class="title">{$valueload_about->subject}</h4>
                                                                 <div class="grphic-obj">
                                                                     <div class="contain">
-                                                                        <img src="{$valueload_about->pic->pictures}{$LastVersionCache}"
-                                                                            alt="{$valueload_about->subject}" loading="lazy" class="img-contain lazy">
+                                                                        <img src="{$valueload_about->pic->pictures}{$LastVersionCache}" alt="{$valueload_about->subject}" loading="lazy" class="img-contain lazy">
                                                                     </div>
                                                                 </div>
                                                                 <div class="action">
                                                                     {$languageFrontWeb->readmore->display->$currentLangWeb}
-                                                                    <span
-                                                                        class="material-symbols-rounded">expand_circle_right</span>
+                                                                    <span class="material-symbols-rounded">expand_circle_right</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -349,12 +311,8 @@
                     {/if}
                 </div>
                 <div class="graphic" data-aos="fade-up" data-aos-delay="400">
-                    <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
-                        data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}"
-                        type="image/webp">
-                    <img src="{$template}/assets/img/static/wg-about-graphic.png"
-                        data-src="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" alt="image-graphic"
-                        class="lazy" loading="lazy" width="866" height="500">
+                    <source srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" data-srcset="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" type="image/webp">
+                    <img src="{$template}/assets/img/static/wg-about-graphic.png" data-src="{$template}/assets/img/static/wg-about-graphic01.webp{$LastVersionCache}" alt="image-graphic" class="lazy" loading="lazy" width="866" height="500">
                     {* <picture>
                     </picture> *}
                 </div>
@@ -364,8 +322,7 @@
 
     {if $array_news_list['group']|count gte 1 && $array_news_list['list']|count gte 1}
         <div class="section section-iv overflow-hidden">
-            <div class="wg-news lazy" data-bg="{$template}/assets/img/background/bg-wg-news.webp{$LastVersionCache}"
-                data-bg-hidpi="{$template}/assets/img/background/bg-wg-news@2x.webp{$LastVersionCache}">
+            <div class="wg-news lazy" data-bg="{$template}/assets/img/background/bg-wg-news.webp{$LastVersionCache}" data-bg-hidpi="{$template}/assets/img/background/bg-wg-news@2x.webp{$LastVersionCache}">
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-lg">
@@ -375,11 +332,9 @@
                                     <p class="subtitle">{$languageFrontWeb->titlenewsen->display->$currentLangWeb}</p>
                                     <div class="line"></div>
                                 </div>
-                                <div class="nav nav-default flex-column" id="news-tab" role="tablist"
-                                    aria-orientation="vertical">
+                                <div class="nav nav-default flex-column" id="news-tab" role="tablist" aria-orientation="vertical">
                                     {foreach $array_news_list['group'] as $keyNewsGroup => $valueNewsGroup}
-                                        <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill"
-                                            data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}" aria-selected="true">{$valueNewsGroup->subject}</button>
+                                        <button class="nav-link {if $keyNewsGroup eq 0}active{/if}" id="news-0{$valueNewsGroup->id}-tab" data-toggle="pill" data-target="#news-0{$valueNewsGroup->id}" type="button" role="tab" aria-controls="news-0{$valueNewsGroup->id}">{$valueNewsGroup->subject}</button>
                                     {/foreach}
                                 </div>
                                 <div class="action">
@@ -392,8 +347,7 @@
                                 <div class="tab-content" id="news-tabContent">
                                     {$index_news = 0}
                                     {foreach $array_news_list['list'] as $keyNewsListGroup => $valueNewsListGroup}
-                                    <div class="tab-pane fade {if $index_news eq 0}show active{/if}" id="news-0{$keyNewsListGroup}" role="tabpanel"
-                                        aria-labelledby="news-0{$keyNewsListGroup}-tab">
+                                    <div class="tab-pane fade {if $index_news eq 0}show active{/if}" id="news-0{$keyNewsListGroup}" role="tabpanel" aria-labelledby="news-0{$keyNewsListGroup}-tab">
                                         <div class="wg-news-slide">
                                             <div class="swiper swiper-default">
                                                 <div class="swiper-wrapper">
@@ -418,13 +372,10 @@
                                                                         <div class="card-body">
                                                                             <h5 class="title">{$valueNewsList->subject}</h5>
                                                                             <div class="line"></div>
-                                                                            <p class="desc">
-                                                                                {$valueNewsList->title}
-                                                                            </p>
+                                                                            <p class="desc">{$valueNewsList->title}</p>
                                                                             <div class="action">
                                                                                 {$languageFrontWeb->readmore->display->$currentLangWeb}
-                                                                                <span
-                                                                                    class="material-symbols-rounded">expand_circle_right</span>
+                                                                                <span class="material-symbols-rounded">expand_circle_right</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -459,8 +410,7 @@
                                 <h2 class="title">{$languageFrontWeb->labanalysis->display->$currentLangWeb}</h2>
                                 <p class="subtitle">{$languageFrontWeb->labtext->display->$currentLangWeb}</p>
                                 <div class="bg-obj">
-                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj"
-                                        class="lazy" loading="lazy" width="135" height="135">
+                                    <img src="{$template}/assets/img/background/bg-destination.svg" alt="image-obj" class="lazy" loading="lazy" width="135" height="135">
                                 </div>
                                 <p class="subtitle">{$languageFrontWeb->checkservice->display->$currentLangWeb}</p>
                             </div>
@@ -469,12 +419,8 @@
                             </div>
                         </div>
                         <div class="bg" data-aos="fade-right">
-                            <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                type="image/webp">
-                            <img src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}"
-                                data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" loading="lazy" alt="background-lab"
-                                class="lazy">
+                            <source srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" data-srcset="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" type="image/webp">
+                            <img src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" data-src="{$template}/assets/img/background/bg-wg-lab2.webp{$LastVersionCache}" loading="lazy" alt="background-lab" class="lazy">
                             {* <picture>
                             </picture> *}
                         </div>
@@ -491,14 +437,12 @@
                                 {if $settingWeb.contact->email2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->contactinfo->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email2}"
-                                                        class="link">{$settingWeb.contact->email2}</a></span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email2}" class="link">{$settingWeb.contact->email2}</a></span>
                                             </p>
                                         </div>
                                     </div>
@@ -506,14 +450,12 @@
                                 {if $settingWeb.contact->email3 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->inqairebout->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="{$settingWeb.contact->email3}"
-                                                        class="link">{$settingWeb.contact->email3}</a></span>
+                                                <span class="d-block">E-mail : <a href="{$settingWeb.contact->email3}" class="link">{$settingWeb.contact->email3}</a></span>
                                             </p>
                                         </div>
                                     </div>
@@ -521,19 +463,15 @@
                                 {if $settingWeb.contact->tel neq "" && $settingWeb.contact->tel2 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-telephone.svg"
-                                                alt="" class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-telephone.svg" alt="" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 {if $settingWeb.contact->tel neq ""}
-                                                <span class="d-block">{$languageFrontWeb->contact_tel->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}"
-                                                        class="link">{$settingWeb.contact->tel}</a></span>
+                                                <span class="d-block">{$languageFrontWeb->contact_tel->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel}" class="link">{$settingWeb.contact->tel}</a></span>
                                                 {/if}
                                                 {if $settingWeb.contact->tel2 neq ""}
-                                                <span class="d-block">{$languageFrontWeb->contact_mobile->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}"
-                                                        class="link">{$settingWeb.contact->tel2}</a></span>
-
+                                                <span class="d-block">{$languageFrontWeb->contact_mobile->display->$currentLangWeb} <a href="tel:{" "|str_replace:"":$settingWeb.contact->tel2}" class="link">{$settingWeb.contact->tel2}</a></span>
                                                 {/if}
                                             </p>
                                         </div>
@@ -542,14 +480,12 @@
                                 {if $settingWeb.contact->email4 neq ""}
                                     <div class="row no-gutters">
                                         <div class="col-auto">
-                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email"
-                                                class="icon" loading="lazy" width="37" height="37">
+                                            <img src="{$template}/assets/img/icon/contact-icon-email.svg" alt="icon-email" class="icon" loading="lazy" width="37" height="37">
                                         </div>
                                         <div class="col">
                                             <p class="desc">
                                                 <span class="d-block">{$languageFrontWeb->contact_desc->display->$currentLangWeb}</span>
-                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email4}"
-                                                        class="link">{$settingWeb.contact->email4}</a></span>
+                                                <span class="d-block">E-mail : <a href="mailto:{$settingWeb.contact->email4}" class="link">{$settingWeb.contact->email4}</a></span>
                                             </p>
                                         </div>
                                     </div>
@@ -557,12 +493,8 @@
                             </div>
                         </div>
                         <div class="bg" data-aos="fade-left">
-                            <source srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                type="image/webp">
-                            <img src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}"
-                                data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" loading="lazy" alt="background-contact"
-                                class="lazy">
+                            <source srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" data-srcset="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" type="image/webp">
+                            <img src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" data-src="{$template}/assets/img/background/bg-wg-contact2.webp{$LastVersionCache}" loading="lazy" alt="background-contact" class="lazy">
                             {* <picture>
                             </picture> *}
                         </div>
@@ -572,5 +504,5 @@
         </div>
     </div>
     <div class="guides-overlay-custom"></div>
-    -->
+
 </section>
