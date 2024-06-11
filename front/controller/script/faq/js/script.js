@@ -2,7 +2,7 @@ let eachYearSwiper = new Swiper(".each-year .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 4,
   // freeMode: true,
-  spaceBetween: 30,
+  spaceBetween: 45,
   watchSlidesProgress: true,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -25,7 +25,7 @@ let downloadSwiper = new Swiper(".document-download-list .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 2,
   // freeMode: true,
-  spaceBetween: 35,
+  spaceBetween: 15,
   watchSlidesProgress: true,
   pagination: {
     el: ".swiper-pagination",
@@ -41,7 +41,7 @@ let downloadSwiper = new Swiper(".document-download-list .swiper", {
     },
     1199: {
       slidesPerView: 2,
-      spaceBetween: 35,
+      spaceBetween: 15,
     },
   },
 });
