@@ -106,6 +106,16 @@ $mod_inputseach = array(
 
 ## Mod Table ###################################
 $array_link = array(
-    'nw' => 'th/listAll',
+    'nw' => 'th/listAll/nw',
+    'dcio_d' => 'th/downloadAll/dcio_d',
+    'pln' => 'th/downloadAll/pln',
+    'yar' => 'th/downloadAll/yar',
+    'lar' => 'th/downloadAll/lar',
+    'nwa' => 'th/listAll/nwa',
+    'god' => 'th/listAll/god',
+    'nwp' => 'th/listAll/nwp',
+    'km' => 'th/downloadBook/km',
+    'pus' => 'th/downloadAll/pus',
+    'inr' => 'th/listAll/inr',
 );
 ?>

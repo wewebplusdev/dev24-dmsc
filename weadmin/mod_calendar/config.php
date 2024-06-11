@@ -89,4 +89,9 @@ $mod_inputseach = array(
     , "inputTh"
     , "inputSearch"
 );
+
+## Mod Table ###################################
+$array_link = array(
+    'cal' => 'th/calendar',
+);
 ?>
