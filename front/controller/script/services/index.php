@@ -92,7 +92,7 @@ switch ($url->segment[2]) {
             "tid" => $init_gid,
         ];
         $smarty->assign("dataOption",$data);
-
+        
         // call list
         $loadData = $ServicePage->loadData($data);
         $smarty->assign("loadData", $loadData);
