@@ -279,8 +279,12 @@
                                         {foreach $loadAbout->item as $keyload_about => $valueload_about}
                                             {assign var="checkUrl" value="{$valueload_about->url|checkUrl}"}
                                             {assign var="target" value="_self"}
+                                            {assign var="downloadID" value=""}
+                                            {if $valueload_about->typec eq 2}
+                                                {$downloadID = $valueload_about->attachment[0]->id}
+                                            {/if}
                                             {if $checkUrl}
-                                                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|pageRedirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language}"}
+                                                {assign var="news_url" value="{$ul}/pageredirect/{$valueload_about->tb|pageRedirect:$valueload_about->masterkey:$valueload_about->id:$valueload_about->language:$downloadID}"}
                                                 {$target = $valueload_about->target}
                                             {else}
                                                 {assign var="news_url" value="javascript:void(0);"}
@@ -400,8 +404,12 @@
                                                     {foreach $valueNewsListGroup as $keyNewsList => $valueNewsList}
                                                         {assign var="checkUrl" value="{$valueNewsList->url|checkUrl}"}
                                                         {assign var="target" value="_self"}
+                                                        {assign var="downloadID" value=""}
+                                                        {if $valueNewsList->typec eq 2}
+                                                            {$downloadID = $valueNewsList->attachment[0]->id}
+                                                        {/if}
                                                         {if $checkUrl}
-                                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueNewsList->tb|pageRedirect:$valueNewsList->masterkey:$valueNewsList->id:$valueNewsList->language}"}
+                                                            {assign var="news_url" value="{$ul}/pageredirect/{$valueNewsList->tb|pageRedirect:$valueNewsList->masterkey:$valueNewsList->id:$valueNewsList->language:$downloadID}"}
                                                             {$target = $valueNewsList->target}
                                                         {else}
                                                             {assign var="news_url" value="javascript:void(0);"}
