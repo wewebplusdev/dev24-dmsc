@@ -122,7 +122,8 @@ async function getAbout(req, res) {
                             arr_data[i].target = `_self`;
                         }
                         if (select[i].picType == 1) {
-                            let defaultPic = default_pic[select[i].picDefault];
+                            // let defaultPic = default_pic[select[i].picDefault];
+                            let defaultPic = (default_pic[select[i].picDefault] !== undefined) ? default_pic[select[i].picDefault] : default_pic[0];
                             arr_data[i].pic = {
                                 'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
                                 'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
@@ -257,7 +258,8 @@ async function getAboutDetail(req, res) {
                     arr_data[i].title = select[i].title;
                     arr_data[i].typec = select[i].typec;
                     if (select[i].picType == 1) {
-                        let defaultPic = default_pic[select[i].picDefault];
+                        // let defaultPic = default_pic[select[i].picDefault];
+                        let defaultPic = (default_pic[select[i].picDefault] !== undefined) ? default_pic[select[i].picDefault] : default_pic[0];
                         arr_data[i].pic = {
                             'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
                             'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),

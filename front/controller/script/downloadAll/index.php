@@ -61,9 +61,10 @@ switch ($url->segment[0]) {
             "gid" => $req['gid'],
             "masterkey" => $masterkey,
         ];
-
+        // printPre($data);
         // call list
         $loadData = $DownloadAllPage->loadData($data);
+        // printPre($loadData);
         $smarty->assign("loadData", $loadData);
         
         // setup seo and text modules

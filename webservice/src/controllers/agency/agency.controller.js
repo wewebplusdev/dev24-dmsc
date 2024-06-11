@@ -258,7 +258,8 @@ async function getService(req, res) {
                             style: new Intl.DateTimeFormat(short_language, { dateStyle: 'long', }).format(new Date(select[i].credate))
                         };
                         if (select[i].picType == 1) {
-                            let defaultPic = default_pic[select[i].picDefault];
+                            // let defaultPic = default_pic[select[i].picDefault];
+                            let defaultPic = (default_pic[select[i].picDefault] !== undefined) ? default_pic[select[i].picDefault] : default_pic[0];
                             arr_data[i].pic = {
                                 'real': modulus.getUploadPath(defaultPic.masterkey, 'real', defaultPic.file),
                                 'pictures': modulus.getUploadPath(defaultPic.masterkey, 'pictures', defaultPic.file),
