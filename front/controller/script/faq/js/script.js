@@ -25,6 +25,7 @@ let downloadSwiper = new Swiper(".document-download-list .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 2,
   // freeMode: true,
+  loop: true,
   spaceBetween: 15,
   watchSlidesProgress: true,
   pagination: {
@@ -45,6 +46,7 @@ let downloadSwiper = new Swiper(".document-download-list .swiper", {
     },
   },
 });
+// downloadSwiper.slidesPerView();
 
 $(".layout-view button").click(function () {
   if ($(this).hasClass("btn-grid")) {

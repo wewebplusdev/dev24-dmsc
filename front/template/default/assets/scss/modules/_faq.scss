@@ -49,9 +49,10 @@
         font-weight: 700;
       }
     }
-    .swiper {overflow: hidden;}
+    // .swiper {overflow: hidden;}
     .swiper-slide .item {opacity: 1;}
     .swiper:not(.gallery-slide .swiper) .swiper-pagination {margin: 30px 0 0 0;}
+    .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet {width: 17px; height: 17px;}
     .link {padding: 20px 15px 20px 25px;}
 
   }
@@ -72,4 +73,10 @@
   .layout-faq .card-header .link .title {font-size: 16px;}
   .layout-faq .card-body {padding: 20px 15px;}
   .layout-faq .card-body p {font-size: 16px;}
+
+  .layout-faq .document-download-list .whead {margin-bottom: 20px; padding-bottom: 10px;}
+  .layout-faq .document-download-list .whead .title {font-size: 20px;}
+  .layout-faq .document-download-list .item {padding: 0;}
+  .layout-faq .document-download-list .swiper:not(.gallery-slide .swiper) .swiper-pagination {margin: 20px 0 0 0;}
+  .layout-faq .document-download-list .swiper:not(.gallery-slide .swiper) .swiper-pagination .swiper-pagination-bullet {width: 15px; height: 15px;}
 }
