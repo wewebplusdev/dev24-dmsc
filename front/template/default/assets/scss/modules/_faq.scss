@@ -29,6 +29,7 @@
     }
   }
   .card-body {
+    overflow: hidden;
     position: relative;
     top: -1px;
     padding: 30px;
@@ -37,6 +38,16 @@
       line-height: 1.5em;
     }
   }
+
+  .document-download-list {
+    margin-bottom: 0;
+    .swiper-slide .item {opacity: 1;}
+  }
+  // .detail-body .whead  {
+  //   border: none;
+  //   padding: 0;
+  //   margin: 0;
+  // }
 }
 
 @media (max-width: 1199px) {

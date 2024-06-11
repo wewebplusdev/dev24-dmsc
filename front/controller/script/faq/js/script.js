@@ -2,7 +2,7 @@ let eachYearSwiper = new Swiper(".each-year .swiper", {
   // slidesPerView: "auto",
   slidesPerView: 4,
   // freeMode: true,
-  spaceBetween: 45,
+  spaceBetween: 30,
   watchSlidesProgress: true,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -17,6 +17,31 @@ let eachYearSwiper = new Swiper(".each-year .swiper", {
     },
     1200: {
       slidesPerView: 4,
+    },
+  },
+});
+
+let downloadSwiper = new Swiper(".document-download-list .swiper", {
+  // slidesPerView: "auto",
+  slidesPerView: 2,
+  // freeMode: true,
+  spaceBetween: 35,
+  watchSlidesProgress: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    991: {
+      slidesPerView: 2,
+      spaceBetween: 15,
+    },
+    1199: {
+      slidesPerView: 2,
+      spaceBetween: 35,
     },
   },
 });
