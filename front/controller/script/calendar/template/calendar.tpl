@@ -30,8 +30,11 @@
                             
                             {assign var="checkUrlShow" value="{$myCalendarEventList[$mCount][$firstKey]['url']|checkUrl}"}
                             {assign var="targetShow" value="_self"}
+                            {if $myCalendarEventList[$mCount][$firstKey]['typec'] eq 2}
+                            {$downloadIDFirst = $myCalendarEventList[$mCount][$firstKey]['attachment'][0]->id}
+                            {/if}
                             {if $checkUrlShow}
-                                {assign var="news_urlShow" value="{$ul}/pageredirect/{$myCalendarEventList[$mCount][$firstKey]['tb']|pageRedirect:$myCalendarEventList[$mCount][$firstKey]['masterkey']:$myCalendarEventList[$mCount][$firstKey]['id']:$myCalendarEventList[$mCount][$firstKey]['language']}"}
+                                {assign var="news_urlShow" value="{$ul}/pageredirect/{$myCalendarEventList[$mCount][$firstKey]['tb']|pageRedirect:$myCalendarEventList[$mCount][$firstKey]['masterkey']:$myCalendarEventList[$mCount][$firstKey]['id']:$myCalendarEventList[$mCount][$firstKey]['language']:$downloadIDFirst}"}
                                 {$target = $myCalendarEventList[$mCount][$firstKey]['target']}
                             {else}
                                 {assign var="news_urlShow" value="javascript:void(0);"}
@@ -57,8 +60,12 @@
                                                 {foreach $myCalendarEventList[$mCount] as $keyList => $valueList}
                                                     {assign var="checkUrl" value="{$valueList['url']|checkUrl}"}
                                                     {assign var="target" value="_self"}
+                                                    {assign var="downloadID" value=""}
+                                                    {if $valueList['typec'] eq 2}
+                                                    {$downloadID = $valueList['attachment'][0]->id}
+                                                    {/if}
                                                     {if $checkUrl}
-                                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueList['tb']|pageRedirect:$valueList['masterkey']:$valueList['id']:$valueList['language']}"}
+                                                        {assign var="news_url" value="{$ul}/pageredirect/{$valueList['tb']|pageRedirect:$valueList['masterkey']:$valueList['id']:$valueList['language']:$downloadID}"}
                                                         {$target = $valueList['target']}
                                                     {else}
                                                         {assign var="news_url" value="javascript:void(0);"}
@@ -103,8 +110,11 @@
 
                         {assign var="checkUrlShow" value="{$myCalendarEventList[$mCount][$firstKey]['url']|checkUrl}"}
                         {assign var="targetShow" value="_self"}
+                        {if $myCalendarEventList[$mCount][$firstKey]['typec'] eq 2}
+                        {$downloadIDFirst = $myCalendarEventList[$mCount][$firstKey]['attachment'][0]->id}
+                        {/if}
                         {if $checkUrlShow}
-                            {assign var="news_urlShow" value="{$ul}/pageredirect/{$myCalendarEventList[$mCount][$firstKey]['tb']|pageRedirect:$myCalendarEventList[$mCount][$firstKey]['masterkey']:$myCalendarEventList[$mCount][$firstKey]['id']:$myCalendarEventList[$mCount][$firstKey]['language']}"}
+                            {assign var="news_urlShow" value="{$ul}/pageredirect/{$myCalendarEventList[$mCount][$firstKey]['tb']|pageRedirect:$myCalendarEventList[$mCount][$firstKey]['masterkey']:$myCalendarEventList[$mCount][$firstKey]['id']:$myCalendarEventList[$mCount][$firstKey]['language']:$downloadIDFirst}"}
                             {$target = $myCalendarEventList[$mCount][$firstKey]['target']}
                         {else}
                             {assign var="news_urlShow" value="javascript:void(0);"}
@@ -130,8 +140,12 @@
                                             {foreach $myCalendarEventList[$mCount] as $keyList => $valueList}
                                                 {assign var="checkUrl" value="{$valueList['url']|checkUrl}"}
                                                 {assign var="target" value="_self"}
+                                                {assign var="downloadID" value=""}
+                                                {if $valueList['typec'] eq 2}
+                                                {$downloadID = $valueList['attachment'][0]->id}
+                                                {/if}
                                                 {if $checkUrl}
-                                                    {assign var="news_url" value="{$ul}/pageredirect/{$valueList['tb']|pageRedirect:$valueList['masterkey']:$valueList['id']:$valueList['language']}"}
+                                                    {assign var="news_url" value="{$ul}/pageredirect/{$valueList['tb']|pageRedirect:$valueList['masterkey']:$valueList['id']:$valueList['language']:$downloadID}"}
                                                     {$target = $valueList['target']}
                                                 {else}
                                                     {assign var="news_url" value="javascript:void(0);"}

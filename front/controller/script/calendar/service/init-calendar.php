@@ -14,6 +14,7 @@ $data = [
 
 // call list
 $loadData = $CalendarPage->loadData($data);
+// printPre($loadData);
 $myCalendarEventCounter = array();
 $myCalendarEventCounter[0] = 0;
 $myCalendarEventList = array();
@@ -57,6 +58,14 @@ if ($loadData->code == 1001 && $loadData->_numOfRows > 0) {
                 $myCalendarEventList[$myStart][$valueload_data->id]['masterkey'] = $valueload_data->masterkey;
                 $myCalendarEventList[$myStart][$valueload_data->id]['url'] = $valueload_data->url;
                 $myCalendarEventList[$myStart][$valueload_data->id]['id'] = $valueload_data->id;
+                $myCalendarEventList[$myStart][$valueload_data->id]['typec'] = $valueload_data->typec;
+                $myCalendarEventList[$myStart][$valueload_data->id]['attachment'] = $valueload_data->attachment;
+
+                $myCalendarEventList[$myStart][$valueload_data->id]['isdateto'] = $valueload_data->isdateto;
+                $myCalendarEventList[$myStart][$valueload_data->id]['istimeto'] = $valueload_data->istimeto;
+                $myCalendarEventList[$myStart][$valueload_data->id]['period'] = $valueload_data->period;
+                $myCalendarEventList[$myStart][$valueload_data->id]['stime'] = $valueload_data->stime;
+                $myCalendarEventList[$myStart][$valueload_data->id]['etime'] = $valueload_data->etime;
             }else{
                 $myEnd = substr($myCalendarDateEnd, 8, 2) * 1;
                 for ($i = $myStart; $i <= $myEnd; $i++) {
@@ -68,6 +77,14 @@ if ($loadData->code == 1001 && $loadData->_numOfRows > 0) {
                     $myCalendarEventList[$i][$valueload_data->id]['masterkey'] = $valueload_data->masterkey;
                     $myCalendarEventList[$i][$valueload_data->id]['url'] = $valueload_data->url;
                     $myCalendarEventList[$i][$valueload_data->id]['id'] = $valueload_data->id;
+                    $myCalendarEventList[$i][$valueload_data->id]['typec'] = $valueload_data->typec;
+                    $myCalendarEventList[$i][$valueload_data->id]['attachment'] = $valueload_data->attachment;
+
+                    $myCalendarEventList[$i][$valueload_data->id]['isdateto'] = $valueload_data->isdateto;
+                    $myCalendarEventList[$i][$valueload_data->id]['istimeto'] = $valueload_data->istimeto;
+                    $myCalendarEventList[$i][$valueload_data->id]['period'] = $valueload_data->period;
+                    $myCalendarEventList[$i][$valueload_data->id]['stime'] = $valueload_data->stime;
+                    $myCalendarEventList[$i][$valueload_data->id]['etime'] = $valueload_data->etime;
                 }
             }
         }

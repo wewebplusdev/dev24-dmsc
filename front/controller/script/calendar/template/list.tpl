@@ -24,10 +24,15 @@
                             <div class="col">
                                 <div class="date">{$valueload_data->date_display}</div>
                                 <div class="desc">{$valueload_data->subject}</div>
+                                {if $valueload_data->period eq 1}                  
+                                    <div class="desc">8.30 {$languageFrontWeb->suffixtime->display->$currentLangWeb} - 16.30 {$languageFrontWeb->suffixtime->display->$currentLangWeb}</div>
+                                {else}
+                                    <div class="desc">{$valueload_data->stime} {$languageFrontWeb->suffixtime->display->$currentLangWeb} - {$valueload_data->etime} {$languageFrontWeb->suffixtime->display->$currentLangWeb}</div>
+                                {/if}
                             </div>
                             <div class="col-auto">
                                 <div class="read-more">
-                                    อ่านต่อ
+                                    {$languageFrontWeb->readmore->display->$currentLangWeb}
                                     <span class="material-symbols-rounded">expand_circle_right</span>
                                 </div>
                             </div>
