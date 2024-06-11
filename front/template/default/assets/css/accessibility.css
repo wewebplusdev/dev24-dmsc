@@ -138,6 +138,11 @@
   transition: 200ms all ease;
 }
 
+.asw-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .asw-btn .asw-translate {
   font-size: 14px !important;
   -webkit-transition: 200ms all ease;
@@ -675,4 +680,7 @@
     margin-top: 75px;
     right: 0;
   }
+
+  .asw-btn {position: relative; aspect-ratio: unset;width: 100%; padding-top: 100%; /* 1:1 Aspect Ratio */}
+  .asw-btn .asw-btn-wrapper {position:  absolute; top: 0; left: 0; bottom: 0; right: 0;justify-content: center;padding: 0 10px;}
 }
