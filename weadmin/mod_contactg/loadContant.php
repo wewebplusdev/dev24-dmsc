@@ -221,9 +221,9 @@ $arrLang = $_SESSION[$valSiteManage . "core_session_multilang"];
                                           }
                                       "></div>
                               <?php if (in_array($_REQUEST['masterkey'], $array_masterkey_detail)) { ?>
-                                 <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel2.php';document.myFormExport.submit()">
+                                 <div class="btnExport" title="<?php echo $langTxt["btn:export"] ?>" onclick="document.myFormExport.action = 'exportExcel2.php';document.myFormExport.submit()">
                                  <?php } else { ?>
-                                    <div class="btnExport" onclick="document.myFormExport.action = 'exportExcel.php';document.myFormExport.submit()">
+                                    <div class="btnExport" title="<?php echo $langTxt["btn:export"] ?>" onclick="document.myFormExport.action = 'exportExcel.php';document.myFormExport.submit()">
                                     <?php } ?>
                         </td>
                      <?php } ?>
