@@ -108,7 +108,7 @@
                         <div class="contact-card">
                           <div class="head">{$valueList->subject}</div>
                           <div class="body">
-                            <div class="desc">
+                            {* <div class="desc">
                               {$valueList->address}
                               {if $valueList->tel neq ""}
                                 <br>
@@ -117,6 +117,17 @@
                               {if $valueList->fax neq "" && $valueList->email neq ""}
                                 <br>
                                 {if $valueList->fax neq ""}{$languageFrontWeb->fax->display->$currentLangWeb}:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}{/if}
+                              {/if}
+                            </div> *}
+                            <div class="inner-desc">
+                              <div class="desc">{$valueList->address}</div>
+                              {if $valueList->tel neq ""}
+                                {* <br> *}
+                                <div class="desc">{$languageFrontWeb->centraltelephone->display->$currentLangWeb} : {$valueList->tel}</div>
+                              {/if}
+                              {if $valueList->fax neq "" && $valueList->email neq ""}
+                                {* <br> *}
+                                {if $valueList->fax neq ""}<div class="desc">{$languageFrontWeb->fax->display->$currentLangWeb}:  {$valueList->fax}{/if}{if $valueList->email neq ""}| E-mail: {$valueList->email}</div>{/if}
                               {/if}
                             </div>
                             <div class="action">
