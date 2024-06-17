@@ -106,14 +106,10 @@
 }
 
 @media (min-width: 992px) {
-    .popup-modal .modal-dialog {
-        max-width: 1024px;
-    }
+    .popup-modal .modal-dialog {max-width: 860px;}
 }
 @media (min-width: 1200px) {
-    // .popup-modal .modal-dialog {
-    //     max-width: 1180px;
-    // }
+    .popup-modal .modal-dialog {max-width: 1024px;}
 }
 @media (min-width: 1441px) {
     // .popup-modal .modal-dialog {

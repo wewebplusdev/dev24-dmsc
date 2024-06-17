@@ -17,7 +17,7 @@
             </div>
             <div class="footer-middle">
                 <div class="row justify-content-lg-between">
-                    <div class="col-md-auto" data-aos="fade-up">
+                    <div class="col-md-12 col-lg-12 col-xl-auto" data-aos="fade-up">
                         <div class="contact">
                             <div class="row no-gutters">
                                 <div class="col-auto">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     {if $settingWeb.contact->tel neq ""}
-                        <div class="col-md-auto" data-aos="fade-up">
+                        <div class="col-md-6 col-lg-6 col-xl-auto" data-aos="fade-up">
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
@@ -47,7 +47,7 @@
                         </div>
                     {/if}
                     {if $settingWeb.contact->fax neq ""}
-                        <div class="col-md-auto" data-aos="fade-up">
+                        <div class="col-md-6 col-lg-6 col-xl-auto" data-aos="fade-up">
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
@@ -64,7 +64,7 @@
                         </div>
                     {/if}
                     {if $settingWeb.contact->email2 neq "" && $settingWeb.contact->email neq ""}
-                        <div class="col-md-auto" data-aos="fade-up">
+                        <div class="col-md-6 col-lg-6 col-xl-auto" data-aos="fade-up">
                             <div class="contact">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
@@ -84,7 +84,7 @@
                     {if $settingWeb.contact->email2 neq ""}
                         <!-- Force next columns to break to new line -->
                         <div class="w-100 p-0 d-xl-block d-none"></div>
-                        <div class="col-md" data-aos="fade-up">
+                        <div class="col-md-6 col-lg-6 col-xl-auto" data-aos="fade-up">
                             <div class="contact pt-md-3">
                                 <div class="row no-gutters">
                                     <div class="col-auto">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                     {/if}
-                    <div class="w-100 p-0 d-lg-none"></div>
+                    <div class="w-100 p-0 d-xl-none"></div>
                     <div class="col-sm-auto guide-ipv6" data-aos="fade-up">
                         <div class="ipv6">
                             <picture>
@@ -192,7 +192,7 @@
             <div class="footer-bottom">
                 <div class="row">
                     {if $loadPolicy->_numOfRows gte 1}
-                    <div class="col-md align-self-center" data-aos="fade-left">
+                    <div class="col-md align-self-center" data-aos="fade-up">
                         <div class="policy">
                             <ul class="item-list">
                                 {foreach $loadPolicy->item as $keyPolicy => $valuePolicy}
@@ -216,7 +216,7 @@
                         </div>
                     </div>
                     {/if}
-                    <div class="col-md-auto guide-sitemap" data-aos="fade-right">
+                    <div class="col-md-auto guide-sitemap" data-aos="fade-down">
                         {* <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a> *}
                         <a href="javascript:void(0);" class="link sitemap">{$languageFrontWeb->sitemap->display->$currentLangWeb}</a>
                     </div>
@@ -225,7 +225,7 @@
         </div>
         <div class="guides-overlay-custom"></div>
     </div>
-    <div class="footer-bar" data-aos="fade-up">
+    <div class="footer-bar">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg">

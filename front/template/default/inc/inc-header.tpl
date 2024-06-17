@@ -58,7 +58,13 @@
                                         <div class="dropdown-menu full-dropdown-menu">
                                             <div class="container-dropdown-menu">
                                                 <div class="submenu-row{if $valueSitemapLv1->layout eq 1} submenu-grid{/if}">
-                                                    <div class="submenu-col"></div>
+                                                    <div class="submenu-col">
+                                                        <div class="submenu-thumb">
+                                                            <figure class="cover">
+                                                                <img class="lazy" loading="lazy" src="{$template}/assets/img/static/brand-header.webp" alt="DMSC LOGO">
+                                                            </figure>
+                                                        </div>
+                                                    </div>
                                                     <div class="submenu-col sub1menu">
                                                         <div class=" mCustomScrollbar">
                                                             <!-- sub1menu -->
