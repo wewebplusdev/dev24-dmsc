@@ -17,11 +17,11 @@ $modStatus = array("Enable", "Disable");
 $modLayout = array("", "Column-1", "Column-3");
 
 ## Size Pic ###################################
-$sizeWidthReal = "1920";
-$sizeHeightReal = "310";
+$sizeWidthReal = "280";
+$sizeHeightReal = "280";
 
-$sizeWidthPic = "800";
-$sizeHeightPic = "800";
+$sizeWidthPic = "280";
+$sizeHeightPic = "280";
 
 $sizeWidthOff = "50";
 $sizeHeightOff = "50";
@@ -36,6 +36,9 @@ $mod_path_real_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/real";
 
 $mod_path_pictures = $core_pathname_upload . "/" . $masterkey . "/pictures";
 $mod_path_pictures_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/pictures";
+
+$mod_path_webp = $core_pathname_upload . "/" . $masterkey . "/webp";
+$mod_path_webp_fornt = $core_pathname_upload_fornt . "/" . $masterkey . "/webp";
 
 $mod_inputseach = array("inputGh"
     ,"inputTh"

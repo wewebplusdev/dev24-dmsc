@@ -171,6 +171,27 @@ logs_access('3', 'View Group');
                </td>
             </tr>
          </table>
+         <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:pic"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo $langMod["txt:picDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><span class="fontContantAlert"></span></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="formDivView">
+                     <?php if (is_file($valPic)) { ?>
+                        <a href="<?php echo $valPic ?>" target="_blank"><img style="float:left;border:#c8c7cc solid 1px;max-width:650px;" src="<?php echo $valPic ?>" /></a>
+                     <?php } else { ?>
+                        <img src='<?php echo "../img/btn/nopic.jpg" ?>' style="float:left;border:#c8c7cc solid 1px;max-width:300;" />
+                     <?php } ?>
+                  </div>
+               </td>
+            </tr>
+         </table>
          <br>
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
             <tr>
