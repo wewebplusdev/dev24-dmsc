@@ -240,6 +240,8 @@
 
     .section .whead .title{font-size: 34px;}
     .section .whead .subtitle{font-size: 24px;}
+
+    .event-list .date {font-size: 20px;}
     
 }
 @media screen and (max-width: 1199px) {
@@ -279,9 +281,11 @@
   .document-download-list .item .txt {
     font-size: 16px;
  }
-  .form-contact .form-head .title {
-    font-size: 28px;
- }
+    .form-contact .form-head .icon{width: 30px;}
+    .form-contact .form-head .icon svg{width: 100%;}
+    .form-contact .form-head .title {font-size: 26px;}
+    .form-contact .form-group .form-control{height: 50px;}
+
   .default-header .wrapper .graphic .obj img {
     margin-right: 40px;
  }
@@ -376,6 +380,10 @@
  .document-download-list .item-wrapper .col-head{min-height: inherit;}
 
  .document-download-list .swiper-slide .item{opacity: 1; visibility: visible; pointer-events: visible;}
+
+ .form-contact .form-head .icon{width: 25px;}
+ .form-contact .form-head .title{font-size: 18px;}
+ .form-contact .form-group .form-control{height: 40px;}
 }
 @media (max-width: 575px) {
  /* .document-download-list.-layout-list .row{
@@ -456,9 +464,7 @@
   .breadcrumb .link {
     font-size: 14px;
  }
-  .breadcrumb li:nth-child(3) .link {
-    max-width: 200px;
- }
+  .breadcrumb li:nth-child(3) .link {max-width: 200px; text-overflow: ellipsis; display: block;}
 
 
 }

@@ -329,9 +329,21 @@
     .layout-swiper .type-file .item-list li + li {margin-left: 0; margin-top: 10px; padding: 0;border: none;}
 
 
+    .layout-vision .text-content h2 {font-size: 42px;}
+    .layout-vision .text-content p {font-size: 34px;}
+
+
+    .layout-logo .logo{width: 300px; margin: 0 auto;}
+    .layout-logo .title-text h2{font-size: 40px;}
+
+
 }
 
 @media (max-width: 1199px) {
+    .layout-dcio .top-dcio {padding: 30px 0;}
+    .layout-dcio .top-dcio .bg-text{height: 150px;}
+    .layout-dcio .top-dcio .name {font-size: 34px;}
+
     .layout-dcio .contact-dcio .title-contact {
         h3 {
             font-size: var(--typo-md);
@@ -350,13 +362,12 @@
         }
     }
 
+    .layout-vision .content {padding: 60px 0;}
+    .layout-vision .title-content img{width: 40px;}
     .layout-vision .text-content {
-        h2 {
-            font-size: var(--typo-xl);
-        }
-        p {
-            font-size: var(--typo-lg);
-        }
+        h2 {font-size: var(--typo-xl);}
+        p {font-size: var(--typo-lg);}
+        img{width: 40px;}
     }
     .layout-vision .title-content {
         h2 {
@@ -375,9 +386,13 @@
             font-size: 32px;
         }
     }
-    .layout-vision .image-content {
-        margin-left: 110px;
-    }
+    .layout-vision .image-content {margin: 0 auto; max-width: 70%; position: relative; right: -40px;}
+
+
+    .layout-logo .background-logo {padding: 250px 0;}
+    .layout-logo .center {margin-top: 50px;}
+    .layout-logo .logo{width: 250px;}
+    .layout-logo .title-text h2{font-size: 35px;}
 }
 
 @media (max-width: 991px) {
@@ -410,6 +425,12 @@
         font-size: 18px;
     }
 
+
+    .layout-logo .background-logo {padding: 220px 0;}
+    .layout-logo .center {margin-top: 90px;}
+    .layout-logo .logo{width: 200px;}
+    .layout-logo .title-text h2{font-size: 30px;}
+
 }
 
 @media (max-width: 767px) {
@@ -426,7 +447,7 @@
     }
 
     .layout-dcio .top-dcio .bg-text {
-        height: 150px;
+        height: 110px;
     }
 
     .layout-dcio .top-dcio .bg-text-img {
@@ -465,12 +486,18 @@
         border-left: 1px solid rgba(67, 67, 67, 0.4);
     }
 
+
+    .layout-logo .background-logo {padding: 150px 0;}
+    .layout-logo .center {margin-top: 10px;}
+    .layout-logo .logo{width: 180px;}
+    .layout-logo .title-text h2{font-size: 24px;}
+
 }
 
 @media (max-width: 575px) {
     .layout-dcio .top-dcio .name {
         font-size: var(--typo-md);
-        margin-bottom: 5px;
+        margin-bottom: 0px;
     }
 
     .layout-dcio .top-dcio .position-work {
@@ -482,9 +509,6 @@
             font-size: var(--typo-sm);
             
         }
-    }
-    .layout-logo .center {
-        margin-top: 50px;
     }
 
     .layout-dcio .contact-dcio .d-contact {
@@ -517,14 +541,11 @@
     }
 
     .layout-vision .text-content {
-        h2 {
-            font-size: var(--typo-lg);
-        }
-
-        p {
-            font-size: var(--typo-md);
-        }
+        h2 {font-size: var(--typo-md);}
+        p {font-size: var(--typo-sm);}
+        img {width: 30px;}
     }
+    .layout-vision .title-content img {width: 30px;}
 
     .layout-vision .image-content {
         display: none;
@@ -536,20 +557,9 @@
         }
     }
 
-    .layout-logo .background-logo {
-        padding: 250px 0;
-    }
-
     .layout-vision .title-content {
         h2 {
             font-size: var(--typo-lg);
-        }
-    }
-
-    .layout-logo .title-text {
-        h2 {
-            font-size: 24px;
-            margin-top: 0;
         }
     }
 

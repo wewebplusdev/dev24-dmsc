@@ -60,12 +60,9 @@
   border: 1px solid var(--color-light);
 }
 @media (max-width: 1199px) {
-  .detail-body .news-area .comment .btn-facebook button {
-    font-size: 16px;
- }
-  .detail-body .news-area .comment .btn-back button {
-    font-size: 16px;
- }
+  .detail-body .news-area .comment .btn-facebook button {font-size: 16px; padding: 10px 20px;}
+  .detail-body .news-area .comment .btn-facebook button img { margin-right: 7px;}
+  .detail-body .news-area .comment .btn-back button {font-size: 16px; padding: 10px 20px;}
 }
 /***********/
 /* intro */
@@ -298,8 +295,9 @@
     line-height: 1.5;
   }
 
+  .event-list .link > .row > div:nth-child(3){position: absolute; right: 16px; bottom: 15px;}
   .event-list .read-more{
-    font-size: 16px;
+    font-size: 16px; 
   }
   .event-list .item{
     margin-bottom: 10px;

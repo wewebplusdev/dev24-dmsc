@@ -474,6 +474,8 @@
   .layout-view .btn-group > button svg {width: 18px;}
 
   .document-download-list.-layout-grid .item {flex: 0 0 100%; max-width:100%;}
+
+  .each-year .nav-link{font-size: var(--typo-xs);}
 }
 
 @media (max-width: 575px) {
