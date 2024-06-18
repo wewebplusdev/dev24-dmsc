@@ -5,7 +5,7 @@ class sitemapWebsite {
     private $menu_masterkey;
 
     function __construct($masterkey){
-        global $valSiteManage, $mod_tb_root, $mod_tb_group, $mod_tb_subgroup;
+        global $valSiteManage, $mod_tb_root, $mod_tb_group, $mod_tb_subgroup, $core_full_path;
 
         $this->menu_masterkey = $masterkey;
 
@@ -21,6 +21,24 @@ class sitemapWebsite {
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['tb'] = $mod_tb_group;
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['masterkey'] = $_REQUEST['masterkey'];
                     $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['layout'] = $valuecallGroup['layout'];
+                    
+                    $upload_path = "../../upload/" . $valuecallGroup['masterkey'];
+                    $fullpath_upload_path = $core_full_path . "/upload/" . $valuecallGroup['masterkey'];
+                    $valPic = $upload_path . "/pictures/" . $valuecallGroup['pic'];
+                    $valPicWebp = $upload_path . "/webp/" . $valuecallGroup['pic'] . ".webp";
+                    if (!empty($valuecallGroup['pic'])) {
+                        if (is_file($valPicWebp)) {
+                            $valPic = $fullpath_upload_path . "/webp/" . $valuecallGroup['pic'] . ".webp";
+                        }else if(is_file($valPic)) {
+                            $valPic = $fullpath_upload_path . "/pictures/" . $valuecallGroup['pic'];
+                        }else{
+                            $valPic = "";
+                        }
+                    }else{
+                        $valPic = "";
+                    }
+                    $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['pic'] = $valPic;
+
                     if ($valuecallGroup['target'] == 2) {
                         $array_sitemap['level_1'][$valueLang['key']][$valuecallGroup['id'].'-'.$keycallGroup]['target'] = '_blank';
                     }else{
@@ -91,9 +109,11 @@ class sitemapWebsite {
         global $dbConnect,$mod_tb_group,$mod_tb_group_lang;
         $sql = "SELECT
         " . $mod_tb_group . "_id as id,
+        " . $mod_tb_group . "_masterkey as masterkey,
         " . $mod_tb_group_lang . "_subject as subject,
         " . $mod_tb_group_lang . "_target as target,
         " . $mod_tb_group_lang . "_url as url,
+        " . $mod_tb_group_lang . "_pic as pic,
         " . $mod_tb_group_lang . "_layout as layout 
         FROM " . $mod_tb_group . " 
         INNER JOIN " . $mod_tb_group_lang . " ON " . $mod_tb_group_lang . "_cid = " . $mod_tb_group . "_id 

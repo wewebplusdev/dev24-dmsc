@@ -60,9 +60,11 @@
                                                 <div class="submenu-row{if $valueSitemapLv1->layout eq 1} submenu-grid{/if}">
                                                     <div class="submenu-col">
                                                         <div class="submenu-thumb">
-                                                            <figure class="cover">
-                                                                <img class="lazy" loading="lazy" src="{$template}/assets/img/static/brand-header.webp" alt="DMSC LOGO">
-                                                            </figure>
+                                                            {if $valueSitemapLv1->pic neq ""}
+                                                                <figure class="cover">
+                                                                    <img class="lazy" loading="lazy" src="{$valueSitemapLv1->pic}" alt="{$valueSitemapLv1->pic}">
+                                                                </figure>
+                                                            {/if}
                                                         </div>
                                                     </div>
                                                     <div class="submenu-col sub1menu">
