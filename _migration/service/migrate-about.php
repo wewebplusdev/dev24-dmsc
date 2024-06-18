@@ -56,7 +56,6 @@ if ($callOldpage->_numOfRows > 0) {
     $maxOrderGroup = $QueryNumRows->fields[0] + 1;
 
     foreach ($callOldpage as $keycallOldpage => $valuecallOldpage) {
-        // print_pre($valuecallOldpage);
 
         // ckeditor
         if (!is_dir(_DIR . "/" . $core_pathname_ckeditor . "/upload/files/id1")) {
