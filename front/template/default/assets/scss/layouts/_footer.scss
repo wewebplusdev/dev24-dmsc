@@ -330,6 +330,20 @@
     height: 44px;
     width: 44px;
   }
+  .layout-footer .policy ul.item-list {
+    margin: 0;
+  }
+  .layout-footer .policy ul.item-list > li {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .layout-footer .policy ul.item-list > li + li {
+    border-left: none;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
   .layout-footer .footer-bar,
   .layout-footer .policy,
   .layout-footer .sitemap {
@@ -371,8 +385,8 @@
   }
   .layout-footer .policy ul.item-list > li + li {
     border-left: none;
-    padding-top: 10px;
-    margin-top: 10px;
+    padding-top: 15px;
+    margin-top: 15px;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
   .layout-footer .footer-bar {

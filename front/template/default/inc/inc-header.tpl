@@ -25,17 +25,11 @@
                     <img src="{$template}/assets/img/static/brand-header.webp" alt="DMSC LOGO" width="80" height="91">
                 </div>
                 <div class="brand-txt">
-                    <div class="title">
-                        {$settingWeb.subject}
-                    </div>
-                    <div class="subtitle">
-                        {$settingWeb.subjectoffice}
-                    </div>
+                    <div class="title">{$settingWeb.subject}</div>
+                    <div class="subtitle">{$settingWeb.subjectoffice}</div>
                 </div>
             </a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation" data-aos="fade-left">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-aos="fade-left">
                 <span class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -60,13 +54,17 @@
                             {if count((array)$valueSitemapLv1->level_2) gte 1}
                                 <li class="nav-item">
                                     <div class="dropdown">
-                                        <a class="nav-link dropdown-toggle menu-{$valueSitemapLv1->id}" href="javascript:void;" title="{$valueSitemapLv1->subject}"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                            data-aos="fade-left">{$valueSitemapLv1->subject}</a>
+                                        <a class="nav-link dropdown-toggle menu-{$valueSitemapLv1->id}" href="javascript:void;" title="{$valueSitemapLv1->subject}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-aos="fade-left">{$valueSitemapLv1->subject}</a>
                                         <div class="dropdown-menu full-dropdown-menu">
                                             <div class="container-dropdown-menu">
                                                 <div class="submenu-row{if $valueSitemapLv1->layout eq 1} submenu-grid{/if}">
-                                                    <div class="submenu-col"></div>
+                                                    <div class="submenu-col">
+                                                        <div class="submenu-thumb">
+                                                            <figure class="cover">
+                                                                <img class="lazy" loading="lazy" src="{$template}/assets/img/static/brand-header.webp" alt="DMSC LOGO">
+                                                            </figure>
+                                                        </div>
+                                                    </div>
                                                     <div class="submenu-col sub1menu">
                                                         <div class=" mCustomScrollbar">
                                                             <!-- sub1menu -->
@@ -83,8 +81,7 @@
                                                                     {/if}
                                                                     {if count((array)$valueLv2->level_3) gte 1}
                                                                         <li class="has-submenu">
-                                                                            <a href="javascript:void(0)" title="{$valueLv2->subject}"  class="link"
-                                                                                id="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">{$valueLv2->subject}</a>
+                                                                            <a href="javascript:void(0)" title="{$valueLv2->subject}"  class="link" id="sub{$valueSitemapLv1->id}menu-{$valueLv2->id}">{$valueLv2->subject}</a>
                                                                         </li>
                                                                     {else}
                                                                         <li>

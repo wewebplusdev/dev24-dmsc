@@ -160,24 +160,31 @@
             <h2 class="title">{$languageFrontWeb->serviceth->display->$currentLangWeb}</h2>
           </div>
           <div class="contact-service-list">
-            {foreach $load_data_service->item as $keyload_data_service => $valueload_data_service}
-              <div class="item">
-                <div class="row no-gutters align-items-start mb-3">
-                  <div class="col-auto">
-                    <div class="icon">
-                      <img src="{$valueload_data_service->pic->real}" alt="contact icon">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+              {foreach $load_data_service->item as $keyload_data_service => $valueload_data_service}
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="row no-gutters align-items-start mb-3">
+                      <div class="col-auto">
+                        <div class="icon">
+                          <img src="{$valueload_data_service->pic->real}" alt="contact icon">
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="title">{$valueload_data_service->subject}</div>
+                      </div>
+                    </div>
+                    <div class="tel">
+                      <span class="fw-bold">{$languageFrontWeb->contact_tel->display->$currentLangWeb} :</span>
+                      {$valueload_data_service->tel}
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="title">{$valueload_data_service->subject}</div>
-                  </div>
                 </div>
-                <div class="tel">
-                  <span class="fw-bold">{$languageFrontWeb->contact_tel->display->$currentLangWeb} :</span>
-                  {$valueload_data_service->tel}
-                </div>
+              {/foreach}
               </div>
-            {/foreach}
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
         </div>
       </div>

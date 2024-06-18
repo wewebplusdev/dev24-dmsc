@@ -107,7 +107,7 @@
     background-color: var(--color-secondary);
  }
   .intro-slider .cover {
-    height: 60dvh;
+    height: calc(100dvh - 242.45px); padding-top: 0;
  }
   /* .intro-content .logo .symbol {
     width: 150px;
@@ -154,6 +154,9 @@
     min-width: 70%;
  }
 } */
+@media (max-width: 767px) {
+  .intro-slider .cover {height: calc(100dvh - 231.25px);}
+}
 /*******/
 /* fix horizontal */
 .service-list .service-slide .swiper-wrapper {
@@ -206,6 +209,10 @@
   background-color: var(--color-primary);
   color: var(--color-light);
   border: 2px solid var(--color-light);
+}
+@media screen and (max-width: 1200px) {
+  .detail-body .swiper-button-prev,
+  .detail-body .swiper-button-next{display: none;}
 }
 /**********/
 
@@ -312,7 +319,7 @@
     height: 14px;
   }
 
-  .intro-slider .cover {height: calc(100dvh - 232px);}
+  .intro-slider .cover {height: calc(100dvh - 231.25px);}
   
 }
 

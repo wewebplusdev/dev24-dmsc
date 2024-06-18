@@ -11,7 +11,7 @@
 <!-- Custom -->
 
 <link rel="stylesheet" href="{$template}/assets/css/import.min.css{$LastVersionCache}" media="all">
-<link rel="stylesheet" href="{$template}/assets/css/source.min.css{$LastVersionCache}" media="all">
+<link rel="stylesheet" href="{$template}/assets/css/source.css{$LastVersionCache}" media="all">
 <link rel="stylesheet" href="{$template}/assets/css/jin_modify.css{$LastVersionCache}" media="all">
 <link rel="stylesheet" href="{$template}/assets/css/plug_modify.css{$LastVersionCache}" media="all">
 

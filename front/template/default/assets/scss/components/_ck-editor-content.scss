@@ -87,8 +87,9 @@
   }
   
   
-  @media screen and (max-width: 1400px) {
-  
+  @media screen and (max-width: 1440px) {
+    .layout-structure .title{font-size: 32px;}
+    .layout-structure .image-cover { width: 180px;}
   }
   
   @media screen and (max-width: 1200px) {
@@ -100,7 +101,7 @@
       .item-wrapper {
         .card-bottom {
           .title-name{
-            font-size: var(--typo-lg);
+            font-size: var(--typo-md);
           }
           .font20 {
             font-size: var(--typo-xs);
@@ -112,6 +113,7 @@
         }
       }
       }
+      .layout-structure .image-cover {width: 160px;}
   }
   
   @media screen and (max-width: 768px) {
@@ -297,7 +299,6 @@
   }
 
   @media screen and (max-width: 1400px) {
-  
   }
   
   @media screen and (max-width: 1200px) {
