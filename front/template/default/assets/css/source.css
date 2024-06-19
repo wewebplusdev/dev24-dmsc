@@ -7973,11 +7973,15 @@ picture {
   .document-download-list.-layout-list .action {
     margin-top: 20px;
   }
-}
-@media (max-width: 1199px) {
   .layout-view .btn-group > button {
     width: 60px;
     height: 60px;
+  }
+}
+@media (max-width: 1199px) {
+  .layout-view .btn-group > button {
+    width: 56px;
+    height: 56px;
   }
   .layout-view .btn-group > button svg {
     width: 25px;

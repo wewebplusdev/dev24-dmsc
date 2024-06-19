@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                     <div class="col-auto ml-auto">
-                                        <div class="layout-view layout-grid">
+                                        <div class="layout-view layout-list">
                                             <div class="btn-group">
                                                 <button type="button" class="btn-grid">
                                                     <span class="icon">
@@ -217,7 +217,7 @@
         </div>
         <div class="container">
             {if $loadData->_numOfRows gte 1}
-                <div class="document-download-list -layout-grid" id="download-list">
+                <div class="document-download-list -layout-list" id="download-list">
                     {foreach $loadData->item as $keyload_data => $valueload_data}
                         {assign var="checkUrl" value="{$valueload_data->url|checkUrl}"}
                         {assign var="target" value="_self"}
@@ -237,7 +237,7 @@
                         <div class="item">
                             <div class="item-wrapper">
                                 <div class="row no-gutters align-items-center">
-                                    <div class="col-12 col-thumb">
+                                    <div class="col-auto col-thumb">
                                         <div class="thumbnail">
                                             <figure class="cover">
                                                 <img src="{$valueload_data->pic->pictures}"
@@ -248,7 +248,7 @@
                                     <div class="col">
                                         <div class="content">
                                             <div class="row align-items-center">
-                                                <div class="col col-head col-12">
+                                                <div class="col col-head">
                                                     <div class="head">
                                                         <div class="title">{$valueload_data->subject}</div>
                                                         <div class="date">{$valueload_data->createDate->style}</div>
@@ -287,49 +287,45 @@
                                                 </div>
                                                 {if $valueload_data->typec eq 2}
                                                     <div class="col-auto">
-                                                    <div class="action">
-                                                        <a href="{$news_url}" target="{$target}" class="link">
-                                                            <div class="d-flex align-items-center">
-                                                                <span class="icon mr-2">
-                                                                <img src="{$template}/assets/img/static/download.png" alt="image-download">
-                                                                </span>
-                                                                <div class="txt  fw-bold">{$languageFrontWeb->downloads->display->$currentLangWeb}</div>
-                                                            </div>
-                                                        </a>
+                                                        <div class="action">
+                                                            <a href="{$news_url}" target="{$target}" class="link">
+                                                                <div class="d-flex align-items-center">
+                                                                    <span class="icon mr-2">
+                                                                    <img src="{$template}/assets/img/static/download.png" alt="image-download">
+                                                                    </span>
+                                                                    <div class="txt  fw-bold">{$languageFrontWeb->downloads->display->$currentLangWeb}</div>
+                                                                </div>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 {else}
-                                                    <div class="col-xl-auto col-12">
+                                                    <div class="col-auto">
                                                         <div class="action">
-                                                            <div class="row">
-                                                                <div class="col-auto">
-                                                                    <a href="{$news_url}" target="{$target}" class="link -read-more">
-                                                                        <div class="d-flex align-items-center">
-                                                                            {* <span class="icon mr-2">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                                                                    height="20" viewBox="0 0 20 20">
-                                                                                    <g id="ARROW_48" data-name="ARROW 48"
-                                                                                        transform="translate(-0.006)">
-                                                                                        <path id="Path_452117"
-                                                                                            data-name="Path 452117"
-                                                                                            d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
-                                                                                            fill="#2ab170" />
-                                                                                        <path id="Path_452118"
-                                                                                            data-name="Path 452118"
-                                                                                            d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
-                                                                                            fill="#2ab170" />
-                                                                                    </g>
-                                                                                </svg>
-                                                                            </span> *}
-                                                                            <span class="icon mr-2">
-                                                                              <img src="{$template}/assets/img/static/icon-chevron-box.svg" alt="icon-chevron-box">
-                                                                            </span>
-                                                                            
-                                                                            <div class="txt fw-bold">{$languageFrontWeb->readmore->display->$currentLangWeb}</div>
-                                                                        </div>
-                                                                    </a>
+                                                            <a href="{$news_url}" target="{$target}" class="link -read-more">
+                                                                <div class="d-flex align-items-center">
+                                                                    {* <span class="icon mr-2">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                            height="20" viewBox="0 0 20 20">
+                                                                            <g id="ARROW_48" data-name="ARROW 48"
+                                                                                transform="translate(-0.006)">
+                                                                                <path id="Path_452117"
+                                                                                    data-name="Path 452117"
+                                                                                    d="M19.062,10.662a.938.938,0,0,0-.938.938v3.775a2.753,2.753,0,0,1-2.75,2.75H4.632a2.753,2.753,0,0,1-2.75-2.75V4.632a2.753,2.753,0,0,1,2.75-2.75H8.407a.938.938,0,0,0,0-1.876H4.632A4.631,4.631,0,0,0,.006,4.632V15.374A4.631,4.631,0,0,0,4.632,20H15.374A4.631,4.631,0,0,0,20,15.374V11.6a.938.938,0,0,0-.938-.938Z"
+                                                                                    fill="#2ab170" />
+                                                                                <path id="Path_452118"
+                                                                                    data-name="Path 452118"
+                                                                                    d="M19.042,0h-5.83a.938.938,0,0,0-.938.92.955.955,0,0,0,.959.956H16.8L9.333,9.347a.938.938,0,0,0,1.326,1.326L18.131,3.2V6.786a.938.938,0,1,0,1.876,0V.964A.964.964,0,0,0,19.042,0Z"
+                                                                                    fill="#2ab170" />
+                                                                            </g>
+                                                                        </svg>
+                                                                    </span> *}
+                                                                    <span class="icon mr-2">
+                                                                        <img src="{$template}/assets/img/static/icon-chevron-box.svg" alt="icon-chevron-box">
+                                                                    </span>
+                                                                    
+                                                                    <div class="txt fw-bold">{$languageFrontWeb->readmore->display->$currentLangWeb}</div>
                                                                 </div>
-                                                            </div>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 {/if}
