@@ -150,6 +150,7 @@ $smarty->assign("base", _URL);
 $smarty->assign("fullurl", _FullUrl);
 $smarty->assign("Domain", _Domain);
 $smarty->assign("path_root", $path_root);
+$smarty->assign("core_env", $_CORE_ENV);
 $smarty->assign("headerActive", $headerActive);
 
 $smarty->assign("urlPagination", _URLPagination);
