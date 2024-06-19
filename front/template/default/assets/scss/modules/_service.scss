@@ -1,11 +1,12 @@
 .service-area {
   margin-bottom: 100px;
-  .service-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+  .service-list {margin: -20px;
+    // display: grid;
+    // grid-template-columns: repeat(5, 1fr);
+    // gap: 40px;
+    display: flex; flex-wrap: wrap;
     .item {
-      padding: 0;
+      padding: 20px; flex: 0 0 20%; max-width: calc(100%/5);
     }
   }
 }
@@ -90,7 +91,9 @@
 
 @media (max-width: 1199px) {
   .service-area {margin-bottom: 80px;}
-  .service-area .service-list {grid-template-columns: repeat(4, 1fr); gap: 20px;}
+  // .service-area .service-list {grid-template-columns: repeat(4, 1fr); gap: 20px;}
+  .service-area .service-list {margin: -10px;}
+  .service-area .service-list .item{padding: 10px; flex: 0 0 25%; max-width: 25%;}
 
   .innovation-area .innovation-list {grid-template-columns: repeat(3, 1fr);gap: 20px;}
   .innovation-area .innovation-list .content .title {font-size: 20px;}
@@ -101,7 +104,7 @@
 
 @media (max-width: 991px) {
   .service-area {margin-bottom: 40px;}
-  .service-area .service-list {gap: 15px; margin: 0}
+  // .service-area .service-list {gap: 15px; margin: 0}
 
   .innovation-area .innovation-list {grid-template-columns: repeat(2, 1fr);gap: 15px;}
   .innovation-area .innovation-list .content {padding: 20px 15px;}
@@ -116,11 +119,13 @@
 }
 
 @media (max-width: 767px) {
-  .service-area .service-list {grid-template-columns: repeat(3, 1fr);}
+  // .service-area .service-list {grid-template-columns: repeat(3, 1fr);}
+  .service-area .service-list {margin: -7.5px;}
+  .service-area .service-list .item{padding: 7.5px; flex: 0 0 50%; max-width: 50%;}
 }
 
 @media (max-width: 575px) {
-  .service-area .service-list {grid-template-columns: repeat(2, 1fr);}
+  // .service-area .service-list {grid-template-columns: repeat(2, 1fr);}
 
   .innovation-area .innovation-list {grid-template-columns: repeat(1, 1fr);}
 }

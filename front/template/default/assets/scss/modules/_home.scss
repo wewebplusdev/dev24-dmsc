@@ -1,3 +1,5 @@
+.global-container-home{overflow: hidden;}
+
 .top-graphic {
   position: relative;
   .swiper-default {
@@ -542,7 +544,7 @@
     position: absolute;
     bottom: -160px;
     left: 50%;
-    margin-left: -420px;
+    margin-left: -350px;
     // width: 1020px;
     pointer-events: none;
     img {
@@ -1301,8 +1303,9 @@
     padding: 50px 0;
   }
   .wg-research-group .graphic {
-    width: 240px;
+    width: 273px;
   }
+  .wg-research-group.-right .graphic{right: 0;}
   .wg-research-group .whead .subtitle {
     margin-top: 5px;
   }
@@ -1348,8 +1351,10 @@
     color: var(--color-secondary);
   }
   .wg-about .content {
-    padding: 50px 0 30px 0;
+    padding: 50px 230px 30px 0;
   }
+  .wg-about{background-size: 260%;}
+  .wg-about .content .whead {padding: 0;}
   .wg-about .content .whead .subtitle,
   .wg-about .content .whead .title {
     color: var(--color-secondary);
@@ -1452,13 +1457,14 @@
   }
   .wg-research-group.-left .whead,
   .wg-research-group.-right .whead {
-    padding: 30px 15px;
+    padding: 10px 15px;
   }
   .wg-about-group .title {
     font-size: 22px;
   }
+  .wg-about{background-size: 350%;}
   .wg-about .content {
-    padding-top: 40px;
+    padding-top: 40px; padding-right: 0;
   }
   .wg-about .content .desc {
     font-size: 16px;
@@ -1552,7 +1558,7 @@
   }
   .wg-research-group .whead .total {
     font-size: 36px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   .wg-research-group .whead .unit {
     font-size: 16px;

@@ -6,6 +6,9 @@ include("../lib/function.php");
 include("../lib/checkMember.php");
 include("config.php");
 
+$sql_check = "SET FOREIGN_KEY_CHECKS = 0";
+$Query = wewebQueryDB($coreLanguageSQL, $sql_check);
+
 for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
    $myVar = $_REQUEST['CheckBoxID' . $i];
 
@@ -101,7 +104,9 @@ for ($i = 1; $i <= $_REQUEST['TotalCheckBoxID']; $i++) {
    }
 }
 logs_access('3', 'Delete');
-include("../lib/incRss.php");
+$sql_check = "SET FOREIGN_KEY_CHECKS = 1";
+$Query = wewebQueryDB($coreLanguageSQL, $sql_check);
+
 ?>
 <?php include("../lib/disconnect.php"); ?>
 <form action="index.php" method="post" name="myFormAction" id="myFormAction">

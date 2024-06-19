@@ -148,16 +148,16 @@
     display: table;
   }
 
-  &.-layout-grid {
-    display: table;
-    margin: 0 -20px;
-    margin-top: -20px;
+  &.-layout-grid { display: flex; flex-wrap: wrap; margin: 0 -20px; margin-top: -20px; width: auto;
 
     // transition: all 0.2s ease-in-out;
     .item {
-      float: left;
       width: calc(100% / 3);
       padding: 10px 20px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.333333%;
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
     }
 
     .item-wrapper {
@@ -435,11 +435,13 @@
   .document-download-list.-layout-grid .box {margin-top: 30px;}
 
   .document-download-list.-layout-list .action {margin-top: 20px;}
+
+  .layout-view .btn-group > button{width: 60px; height: 60px;}
 } 
 
 
 @media (max-width: 1199px) {
-  .layout-view .btn-group > button {width: 60px; height: 60px;}
+  .layout-view .btn-group > button {width: 56px; height: 56px;}
   .layout-view .btn-group > button svg {width: 25px;}
 
   .document-download-list.-layout-grid .item {width: calc(100% / 2);}
@@ -462,7 +464,7 @@
   .document-download-list .action .link svg {width: 18px;}
   .document-download-list.-layout-grid .box {margin-top: 20px;}
   .document-download-list.-layout-grid {margin: 0 -7.5px; margin-top: -7.5px;}
-  .document-download-list.-layout-grid .item {padding:7.5px;}
+  .document-download-list.-layout-grid .item {padding:7.5px; flex: 0 0 50%; max-width:50%;}
   .document-download-list.-layout-grid .content {padding: 25px 20px;}
   .document-download-list.-layout-grid .action {margin-top: 25px;}
 
@@ -472,9 +474,12 @@
   .layout-view .btn-group {margin-top: 10px;}
   .layout-view .btn-group > button {width: 40px; height: 40px;}
   .layout-view .btn-group > button svg {width: 18px;}
+
+  .document-download-list.-layout-grid .item {flex: 0 0 100%; max-width:100%;}
+
+  .each-year .nav-link{font-size: var(--typo-xs);}
 }
 
 @media (max-width: 575px) {
   .document-download-list.-layout-grid .item {width: 100%;}
-  
 }

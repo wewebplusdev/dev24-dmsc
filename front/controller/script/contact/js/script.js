@@ -23,3 +23,41 @@ let contactMap = new Swiper(".contact-center .swiper", {
       // }
     }
   });
+window.addEventListener('DOMContentLoaded', function() {
+  let contactService = new Swiper(".contact-service-list .swiper", {
+    // slidesPerView: "auto",
+    // freeMode: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      0: {
+        spaceBetween: 15,
+        slidesPerView: 1,
+      },
+      767: {
+        spaceBetween: 0,
+        slidesPerView: 2,
+        grid: {
+          rows: 2,
+        },
+      },
+      991: {
+        spaceBetween: 0,
+        slidesPerView: 3,
+        grid: {
+          rows: 2,
+        },
+      },
+      1199: {
+        spaceBetween: 0,
+        slidesPerView: 4,
+        grid: {
+          rows: 2,
+        },
+      }
+    }
+  });
+});

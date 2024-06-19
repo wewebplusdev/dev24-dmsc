@@ -206,9 +206,9 @@
   }
 
   .contact-service-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    // display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    // gap: 40px;
     .item {
       min-height: 200px;
       padding: 20px;
@@ -233,8 +233,8 @@
       }
       .title {
         font-weight: var(--fw-bold);
-        color: var(--color-light);
-        @include text-limit(3, 1.5em, max);
+        color: var(--color-light); min-height: 3em;
+        @include text-limit(2, 1.5em, max);
       }
       .tel {
         font-size: 16px;
@@ -242,6 +242,25 @@
         color: var(--color-light);
         .link {
           color: var(--color-light);
+        }
+      }
+    }
+    .swiper-grid-column{margin: -15px;
+        >.swiper-wrapper{flex-direction: row;}
+        .swiper-slide{padding: 15px;}
+    }
+    .swiper-pagination {
+      bottom: 0; position: relative; margin-top: 15px;
+      .swiper-pagination-bullet {
+        opacity: 1;
+        margin: 0 7.5px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: #ebebeb;
+        transition: all 200ms ease-in-out;
+        &.swiper-pagination-bullet-active {
+          background-color: var(--color-primary);
         }
       }
     }
@@ -497,7 +516,7 @@
   .contact-center {margin: 30px 0;}
   .contact-center .whead .title {font-size: 30px;margin-bottom: 20px;}
   .contact-center .contact-card .head {font-size: 18px;}
-  .contact-center .contact-card .body {padding: 15px;}
+  .contact-center .contact-card .body {padding: 15px; min-height: 222px;}
   .contact-center .contact-card .body .desc {font-size: 16px;}
   .contact-center .contact-card .body .action .text {font-size: 18px;}
   .contact-center .contact-card .body .action .link {font-size: 16px;}
@@ -538,8 +557,9 @@
   .contact-map .tab-content .iframe-container,
   .contact-map .tab-content .cover {padding-top: 450px;}
 
-  .contact-center .contact-card .head {padding: 15px;}
   .contact-center .whead .title {font-size: 28px;margin-bottom: 15px;}
+  .contact-center .contact-card .head {padding: 15px;}
+  .contact-center .contact-card .body {min-height: 225px;}
 
   .contact-service {padding: 30px 0 0 0;}
   .contact-service .whead .title {font-size: 28px;}
@@ -610,6 +630,9 @@
 
 
   .form-contact .form-success .title {font-size: 20px; margin-top: 0;}
+
+
+  .contact-service .contact-service-list .swiper-pagination .swiper-pagination-bullet {width: 15px; height: 15px; margin: 0 3px;}
   
 }
 

@@ -58,7 +58,15 @@
                                         <div class="dropdown-menu full-dropdown-menu">
                                             <div class="container-dropdown-menu">
                                                 <div class="submenu-row{if $valueSitemapLv1->layout eq 1} submenu-grid{/if}">
-                                                    <div class="submenu-col"></div>
+                                                    <div class="submenu-col">
+                                                        <div class="submenu-thumb">
+                                                            {if $valueSitemapLv1->pic neq ""}
+                                                                <figure class="cover">
+                                                                    <img class="lazy" loading="lazy" src="{$valueSitemapLv1->pic}" alt="{$valueSitemapLv1->pic}">
+                                                                </figure>
+                                                            {/if}
+                                                        </div>
+                                                    </div>
                                                     <div class="submenu-col sub1menu">
                                                         <div class=" mCustomScrollbar">
                                                             <!-- sub1menu -->

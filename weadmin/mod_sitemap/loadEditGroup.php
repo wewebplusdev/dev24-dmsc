@@ -218,6 +218,36 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
                </tr>
          </table>
          <br />
+         <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center" class="tbBoxViewBorder ">
+            <tr>
+               <td colspan="7" align="left" valign="middle" class="formTileTxt tbBoxViewBorderBottom">
+                  <span class="formFontSubjectTxt"><?php echo $langMod["txt:pic"] ?></span><br />
+                  <span class="formFontTileTxt"><?php echo $langMod["txt:picDe"] ?></span>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="7" align="right" valign="top" height="15"></td>
+            </tr>
+            <tr>
+               <td width="18%" align="right" valign="top" class="formLeftContantTb"><?php echo $langMod["inp:album"] ?></td>
+               <td width="82%" colspan="6" align="left" valign="top" class="formRightContantTb">
+                  <div class="file-input-wrapper">
+                     <button class="btn-file-input"><?php echo $langTxt["us:inputpicselect"] ?></button>
+                     <input type="file" name="fileToUpload" id="fileToUpload" onchange="ajaxFileUpload();" />
+                  </div>
+                  <span class="formFontNoteTxt"><?php echo $langMod["inp:notepic"] ?></span>
+                  <div class="clearAll"></div>
+                  <div id="boxPicNew" class="formFontTileTxt">
+                     <?php if (is_file($valPic)) { ?>
+                        <img src="<?php echo $valPic ?>" style="float:left;border:#c8c7cc solid 1px;max-width:650px;" />
+                        <div style="width:22px; height:22px;float:left;z-index:1; margin-left:-22px;cursor:pointer;" onclick="delPicUpload('deletePicG.php')" title="Delete file"><img src="../img/btn/delete.png" width="22" height="22" border="0" /></div>
+                        <input type="hidden" name="picname" id="picname" value="<?php echo $valPicName ?>" />
+                     <?php } ?>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <br />
          <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
             <tr>
                <td colspan="7" align="right" valign="top" height="20"></td>
@@ -228,6 +258,51 @@ $valPermission = getUserPermissionOnMenu($_SESSION[$valSiteManage . "core_sessio
          </table>
       </div>
    </form>
+   <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+   <script type="text/javascript" language="javascript">
+      /*################################# Upload Pic #######################*/
+      function ajaxFileUpload() {
+         var valuepicname = jQuery("input#picname").val();
+
+         jQuery.blockUI({
+            message: jQuery('#tallContent'),
+            css: {
+               border: 'none',
+               padding: '35px',
+               backgroundColor: '#000',
+               '-webkit-border-radius': '10px',
+               '-moz-border-radius': '10px',
+               opacity: .9,
+               color: '#fff'
+            }
+         });
+
+         jQuery.ajaxFileUpload({
+            url: 'loadUpdatePicG.php?myID=<?php echo $valSGid ?>&masterkey=<?php echo $_REQUEST['masterkey'] ?>&langt=<?php echo $_REQUEST['inputLt'] ?>&delpicname=' + valuepicname + '&menuid=<?php echo $_REQUEST['menukeyid'] ?>',
+            secureuri: false,
+            fileElementId: 'fileToUpload',
+            dataType: 'json',
+            success: function(data, status) {
+               if (typeof(data.error) != 'undefined') {
+
+                  if (data.error != '') {
+                     alert(data.error);
+
+                  } else {
+                     jQuery("#boxPicNew").show();
+                     jQuery("#boxPicNew").html(data.msg);
+                     setTimeout(jQuery.unblockUI, 200);
+                  }
+               }
+            },
+            error: function(data, status, e) {
+               alert(e);
+            }
+         })
+         return false;
+
+      }
+   </script>
    <?php include("../lib/disconnect.php"); ?>
 
 </body>
