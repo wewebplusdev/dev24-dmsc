@@ -533,16 +533,39 @@
 
 
 
-@media (max-width: 1440px) {
-  .event-calendar .header .top {padding: 20px 30px;}
+@media (max-width: 1600px) {
   .event-calendar .header .top .title-left {font-size: 22px;}
 
   .event-calendar .month-topic {font-size: 22px;}
   .event-calendar table th {padding: 20px 15px;font-size: 22px;}
 
-  .event-list .link {padding: 30px;}
   .event-list .date {font-size: 28px;}
   .event-list .desc {font-size: 22px;}
+
+  .event-calendar .calendar-note .whead .title{font-size: 30px;}
+}
+@media (max-width: 1440px) {
+  .event-calendar .header .top {padding: 20px 30px;}
+  .event-calendar .header .top .title-left {font-size: 20px;}
+
+  .event-calendar .month-topic {font-size: 20px;}
+  .event-calendar table th {padding: 20px 15px;font-size: 20px;}
+
+  .event-list .link {padding: 30px;}
+  .event-list .date {font-size: 26px;}
+  .event-list .desc {font-size: 20px;}
+
+  .event-calendar .default-filter .form-search .form-control {height: 50px;}
+  .event-calendar .form-group-calendar.-group .select2-container .select2-selection--single{padding: 0 20px;}
+  .event-calendar .form-group-calendar .select2-container .select2-selection--single{height: 50px;}
+  .event-calendar .form-group-calendar .select2-container .select2-selection--single .select2-selection__rendered{line-height: 50px;}
+  .event-calendar .calendar-nav .link .icon{width: 10px;}
+  .event-calendar .calendar-nav .link .icon svg{width: 100%;}
+  .event-calendar .calendar-note .whead {margin-bottom: 20px; padding-bottom: 20px; border-bottom-width: 2px;}
+  .event-calendar .calendar-note .whead .title{font-size: 28px;}
+  .event-calendar .calendar-note .box {width: 40px;height: 40px;margin-right: 16px;}
+  .event-calendar .calendar-note .txt{font-size: var(--typo-sm);}
+  
 }
 
 @media (max-width: 1199px) {
@@ -557,10 +580,10 @@
   .event-calendar table .event-group .action .link {font-size: 13px;}
 
   .event-calendar .calendar-note .whead {margin-bottom: 20px; padding-bottom: 15px;}
-  .event-calendar .calendar-note .whead .title {font-size: 32px;}
+  .event-calendar .calendar-note .whead .title {font-size: 26px;}
   .event-calendar .calendar-note .item-list li {min-width: auto; width: 100%;padding: 0;}
   .event-calendar .calendar-note .item-list li + li {margin-top: 15px;}
-  .event-calendar .calendar-note .box {width: 40px;height: 40px;margin-right: 10px;}
+  .event-calendar .calendar-note .box {width: 35px;height: 35px;margin-right: 10px;}
   .event-calendar .calendar-note .txt {font-size: 20px;}
 
   .event-list .title {font-size: 28px;}
@@ -578,10 +601,13 @@
   .event-calendar .header .top .title-left {text-align: left;margin-bottom: 8px; font-size: 20px;}
   .event-calendar .form-group-calendar .control-label {font-size: 16px;}
   .event-calendar .form-group-calendar .select2-container .select2-selection--single {height: 50px;}
-  .event-calendar .form-group-calendar .select2-container .select2-selection--single .select2-selection__rendered {font-size: 16px;line-height: 48px;}
+  .event-calendar .form-group-calendar .select2-container .select2-selection--single .select2-selection__rendered {font-size: 16px;line-height: 50px;}
   .select2-container--option-calendar .select2-results__option {font-size: 16px;padding: 15px;}
   .event-calendar .form-group-calendar.-group .select2-container .select2-selection--single {padding: 0 15px;}
   .event-calendar .default-filter .form-search .form-control {font-size: 16px;height: 50px;}
+
+  .event-calendar .form-group-calendar.-year .select2-container .select2-selection--single{padding: 0 30px 0 50px;}
+  .event-calendar .form-group-calendar.-month .select2-container .select2-selection--single{padding: 0 30px 0 70px;}
 
   .event-calendar .header .middle {padding: 20px;}
   .event-calendar .calendar-nav svg {width: 10px;}
@@ -613,7 +639,7 @@
   .event-calendar table .event-group .action .link {font-size: 11px;}
 
   .event-calendar .calendar-note .whead .title {font-size: 28px;}
-  .event-calendar .calendar-note .box {width: 35px; height: 35px;}
+  .event-calendar .calendar-note .box {width: 30px; height: 30px;}
 }
 
 @media (max-width: 575px) {

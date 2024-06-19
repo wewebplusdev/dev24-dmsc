@@ -69,11 +69,16 @@
 @media (max-width: 991px) {
   .breadcrumb-block {margin-bottom: 10px;}
   .breadcrumb .link .icon {margin-right: 5px;}
-  .breadcrumb li + li::before {padding: 0 5px;}
+  .breadcrumb li + li::before {padding: 0 5px; top: 1px;}
 }
 
 @media (max-width: 767px) {
-  .breadcrumb .link {font-size: 16px;}
+    .breadcrumb-block{overflow: auto;}
+    .breadcrumb{display: flex; flex-wrap: nowrap;}
+    .breadcrumb li{display: flex; flex-wrap: nowrap;}
+    .breadcrumb li + li::before {top: 0px;}
+    .breadcrumb .link {font-size: 16px; white-space: nowrap; display: block;}
+    .breadcrumb .link .icon{top: -1px;}
 }
 
 @media (max-width: 575px) {
