@@ -36,15 +36,15 @@
     {/if}
 {/strip}
 
-{literal}
-    {if $core_env eq "PROD"}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3HT10PW8R"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-R3HT10PW8R');
-    </script>
-    {/if}
-{/literal}
+{if $core_env eq "PROD"}
+    {literal}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3HT10PW8R"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-R3HT10PW8R');
+        </script>
+    {/literal}
+{/if}
