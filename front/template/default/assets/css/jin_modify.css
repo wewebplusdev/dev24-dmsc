@@ -73,9 +73,10 @@
   width: 150px;
 }
 .document-download-list.-layout-list .item-wrapper .col-head{min-height: inherit;}
-.document-download-list.-layout-list .item-wrapper .head .title {
-  -webkit-line-clamp: 1;  min-height: 1.5em;
-}
+.document-download-list.-layout-list .item-wrapper .head{width: auto;}
+.document-download-list.-layout-list .item-wrapper .head .title {min-height: 3em;}
+.document-download-list.-layout-list .item-wrapper .action .link{margin-right: 0; min-width: 137px;}
+.document-download-list.-layout-list .item-wrapper .action .link > .d-flex{justify-content: center;}
 /* news area */
 /* .news-area .swiper {
   overflow: visible;
@@ -339,6 +340,8 @@
  .layout-footer .footer-top .title{font-size: 30px;}
 
  .document-download-list .item-wrapper .col-head {min-height: 186px;}
+
+ .document-download-list.-layout-list .item-wrapper .thumbnail{width: 220px;}
 }
 @media screen and (max-width: 767px) {
  /* .document-download-list .item .txt{
@@ -384,6 +387,19 @@
  .form-contact .form-head .icon{width: 25px;}
  .form-contact .form-head .title{font-size: 18px;}
  .form-contact .form-group .form-control{height: 40px;}
+
+ .document-download-list.-layout-list{margin: -7.5px -7.5px 0 -7.5px; width: auto;}
+ .document-download-list.-layout-list .item{padding: 7.5px; width: 100%;}
+ .document-download-list.-layout-list .item-wrapper{
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25em), calc(100% - 2.25em) 100%, 0 100%);
+ }
+ .document-download-list.-layout-list .item-wrapper > .row > div{flex: 0 0 100%; max-width: 100%;}
+ .document-download-list.-layout-list .item-wrapper .thumbnail{width: 100%;}
+ .document-download-list.-layout-list .item-wrapper .thumbnail .cover{padding-top: 300px;}
+ .document-download-list.-layout-list .item-wrapper .content{padding: 25px 20px;}
+ .document-download-list.-layout-list .item-wrapper .col-head{flex: 0 0 100%; max-width: 100%;}
+ .document-download-list.-layout-list .item-wrapper .action .link{min-width: inherit;}
 }
 @media (max-width: 575px) {
  /* .document-download-list.-layout-list .row{
