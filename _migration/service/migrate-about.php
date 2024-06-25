@@ -91,7 +91,7 @@ if ($callOldpage->_numOfRows > 0) {
                             if (@file_exists(_DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName)) {
                                 @unlink(_DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName);
                             }
-                            // copy($inputGallery_html, _DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName);
+                            copy($inputGallery_html, _DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName);
                         }
                     }
                     if (str_contains($src, 'assets/post/')) {
@@ -100,7 +100,7 @@ if ($callOldpage->_numOfRows > 0) {
                             if (@file_exists(_DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName)) {
                                 @unlink(_DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName);
                             }
-                            // copy($inputGallery_html, _DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName);
+                            copy($inputGallery_html, _DIR . $core_pathname_ckeditor . "/upload/files/id1" . "/" . $imageName);
                         }
                     }
                 }
@@ -119,10 +119,10 @@ if ($callOldpage->_numOfRows > 0) {
                 if (@file_exists(_DIR . $core_pathname_upload . "/abs/html" . "/" . $filename_html)) {
                     @unlink(_DIR . $core_pathname_upload . "/abs/html" . "/" . $filename_html);
                 }
-                // $HTMLToolContent = str_replace("\\\"", "\"", $html);
-                // $fp = fopen(_DIR . $core_pathname_upload . "/abs/html/" . $filename_html, "w");
-                // fwrite($fp, $HTMLToolContent);
-                // fclose($fp);
+                $HTMLToolContent = str_replace("\\\"", "\"", $html);
+                $fp = fopen(_DIR . $core_pathname_upload . "/abs/html/" . $filename_html, "w");
+                fwrite($fp, $HTMLToolContent);
+                fclose($fp);
             }
         }
 
@@ -166,26 +166,26 @@ if ($callOldpage->_numOfRows > 0) {
                         @unlink(_DIR . "/" . $core_pathname_upload . "/abs/webp/" . $picname);
                     }
 
-                    // ##  Real ################################################################################
-                    // copy($inputGallery_pic, _DIR . "/" . $core_pathname_upload . "/abs/real/" . $picname);
+                    ##  Real ################################################################################
+                    copy($inputGallery_pic, _DIR . "/" . $core_pathname_upload . "/abs/real/" . $picname);
 
-                    // ##  Pictures ################################################################################
-                    // $arrImgInfo = getimagesize($inputGallery_pic);
-                    // if ($arrImgInfo[0] <= ($sizeWidthPic + 10)) {
+                    ##  Pictures ################################################################################
+                    $arrImgInfo = getimagesize($inputGallery_pic);
+                    if ($arrImgInfo[0] <= ($sizeWidthPic + 10)) {
 
-                    //     copy($inputGallery_pic, _DIR . "/" . $core_pathname_upload . "/abs/pictures/" . $picname);
-                    // } else {
-                    //     $newfilename = _DIR . "/" . $core_pathname_upload . "/abs/pictures/" . $picname; // New file name for thumb
-                    //     $w = $sizeWidthPic_abs;
-                    //     $h = $sizeHeightPic_abs;
-                    //     $thumbnail = resize($inputGallery_pic, $w, $h, $newfilename);
-                    // }
+                        copy($inputGallery_pic, _DIR . "/" . $core_pathname_upload . "/abs/pictures/" . $picname);
+                    } else {
+                        $newfilename = _DIR . "/" . $core_pathname_upload . "/abs/pictures/" . $picname; // New file name for thumb
+                        $w = $sizeWidthPic_abs;
+                        $h = $sizeHeightPic_abs;
+                        $thumbnail = resize($inputGallery_pic, $w, $h, $newfilename);
+                    }
                     
-                    // ##  Office ################################################################################
-                    // $newfilename = _DIR . "/" . $core_pathname_upload . "/abs/office/" . $picname;; // New file name for thumb
-                    // $w = $sizeWidthOff;
-                    // $h = $sizeHeightOff;
-                    // $thumbnail = resize($inputGallery_pic, $w, $h, $newfilename);
+                    ##  Office ################################################################################
+                    $newfilename = _DIR . "/" . $core_pathname_upload . "/abs/office/" . $picname;; // New file name for thumb
+                    $w = $sizeWidthOff;
+                    $h = $sizeHeightOff;
+                    $thumbnail = resize($inputGallery_pic, $w, $h, $newfilename);
                 }
             }
         }
@@ -212,110 +212,110 @@ if ($callOldpage->_numOfRows > 0) {
                     if (file_exists(_DIR . "/" . $core_pathname_upload . "/abs/file/" . $filename_path['basename'])) {
                         @unlink(_DIR . "/" . $core_pathname_upload . "/abs/file/" . $filename_path['basename']);
                     }
-                    // copy($inputGallery_file, _DIR . "/" . $core_pathname_upload . "/abs/file/" . $filename_path['basename']);
+                    copy($inputGallery_file, _DIR . "/" . $core_pathname_upload . "/abs/file/" . $filename_path['basename']);
                 }
             }
         }
 
-        // // insert
-        // $insert_group = array();
-        // $insert_group[$config['new']['cmg'] . "_masterkey"] = "'abs'";
-        // $insert_group[$config['new']['cmg'] . "_crebyid"] = "'1'";
-        // $insert_group[$config['new']['cmg'] . "_migrate"] = "'1'";
-        // $insert_group[$config['new']['cmg'] . "_creby"] = "'dmscadmin dmscadmin'";
-        // $insert_group[$config['new']['cmg'] . "_lastbyid"] = "'1'";
-        // $insert_group[$config['new']['cmg'] . "_lastby"] = "'dmscadmin dmscadmin'";
-        // $insert_group[$config['new']['cmg'] . "_credate"] = "'" . $valuecallOldpage['created_date'] . "'";
-        // $insert_group[$config['new']['cmg'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
-        // $insert_group[$config['new']['cmg'] . "_status"] = "'Disable'";
-        // $insert_group[$config['new']['cmg'] . "_order"] = "'" . $maxOrderGroup . "'";
-        // $sql_group = "INSERT INTO " . $config['new']['cmg'] . "(" . implode(",", array_keys($insert_group)) . ") VALUES (" . implode(",", array_values($insert_group)) . ")";
-        // $db->execute($sql_group);
-        // $group_id = $db->insert_id();
-        // if ($group_id > 0) {
-        //     $insertLang = array();
-        //     $insertLang[$config['new']['cmgl'] . "_cid"] = "'" . $group_id . "'";
-        //     $insertLang[$config['new']['cmgl'] . "_masterkey"] = "'abs'";
-        //     $insertLang[$config['new']['cmgl'] . "_language"] = "'Thai'";
-        //     $insertLang[$config['new']['cmgl'] . "_subject"] = "'" . $valuecallOldpage['title'] . "'";
-        //     $sql2 = "INSERT INTO " . $config['new']['cmgl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
-        //     $db->execute($sql2);
-        //     $contantID =$db->insert_id();
+        // insert
+        $insert_group = array();
+        $insert_group[$config['new']['cmg'] . "_masterkey"] = "'abs'";
+        $insert_group[$config['new']['cmg'] . "_crebyid"] = "'1'";
+        $insert_group[$config['new']['cmg'] . "_migrate"] = "'1'";
+        $insert_group[$config['new']['cmg'] . "_creby"] = "'dmscadmin dmscadmin'";
+        $insert_group[$config['new']['cmg'] . "_lastbyid"] = "'1'";
+        $insert_group[$config['new']['cmg'] . "_lastby"] = "'dmscadmin dmscadmin'";
+        $insert_group[$config['new']['cmg'] . "_credate"] = "'" . $valuecallOldpage['created_date'] . "'";
+        $insert_group[$config['new']['cmg'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
+        $insert_group[$config['new']['cmg'] . "_status"] = "'Disable'";
+        $insert_group[$config['new']['cmg'] . "_order"] = "'" . $maxOrderGroup . "'";
+        $sql_group = "INSERT INTO " . $config['new']['cmg'] . "(" . implode(",", array_keys($insert_group)) . ") VALUES (" . implode(",", array_values($insert_group)) . ")";
+        $db->execute($sql_group);
+        $group_id = $db->insert_id();
+        if ($group_id > 0) {
+            $insertLang = array();
+            $insertLang[$config['new']['cmgl'] . "_cid"] = "'" . $group_id . "'";
+            $insertLang[$config['new']['cmgl'] . "_masterkey"] = "'abs'";
+            $insertLang[$config['new']['cmgl'] . "_language"] = "'Thai'";
+            $insertLang[$config['new']['cmgl'] . "_subject"] = "'" . $valuecallOldpage['title'] . "'";
+            $sql2 = "INSERT INTO " . $config['new']['cmgl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
+            $db->execute($sql2);
+            $contantID =$db->insert_id();
 
-        //     $insertLang = array();
-        //     $insertLang[$config['new']['cmgl'] . "_cid"] = "'" . $group_id . "'";
-        //     $insertLang[$config['new']['cmgl'] . "_masterkey"] = "'abs'";
-        //     $insertLang[$config['new']['cmgl'] . "_language"] = "'Eng'";
-        //     $sqllang = "INSERT INTO " . $config['new']['cmgl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
-        //     $db->execute($sqllang);
-        // }
+            $insertLang = array();
+            $insertLang[$config['new']['cmgl'] . "_cid"] = "'" . $group_id . "'";
+            $insertLang[$config['new']['cmgl'] . "_masterkey"] = "'abs'";
+            $insertLang[$config['new']['cmgl'] . "_language"] = "'Eng'";
+            $sqllang = "INSERT INTO " . $config['new']['cmgl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
+            $db->execute($sqllang);
+        }
 
-        // $insert = array();
-        // $insert[$config['new']['cms'] . "_masterkey"] = "'abs'";
-        // $insert[$config['new']['cms'] . "_crebyid"] = "'1'";
-        // $insert[$config['new']['cms'] . "_gid"] = "'" . $group_id . "'";
-        // $insert[$config['new']['cms'] . "_migrate"] = "'1'";
-        // $insert[$config['new']['cms'] . "_creby"] = "'dmscadmin dmscadmin'";
-        // $insert[$config['new']['cms'] . "_lastbyid"] = "'1'";
-        // $insert[$config['new']['cms'] . "_lastby"] = "'dmscadmin dmscadmin'";
+        $insert = array();
+        $insert[$config['new']['cms'] . "_masterkey"] = "'abs'";
+        $insert[$config['new']['cms'] . "_crebyid"] = "'1'";
+        $insert[$config['new']['cms'] . "_gid"] = "'" . $group_id . "'";
+        $insert[$config['new']['cms'] . "_migrate"] = "'1'";
+        $insert[$config['new']['cms'] . "_creby"] = "'dmscadmin dmscadmin'";
+        $insert[$config['new']['cms'] . "_lastbyid"] = "'1'";
+        $insert[$config['new']['cms'] . "_lastby"] = "'dmscadmin dmscadmin'";
 
-        // $insert[$config['new']['cms'] . "_sdate"] = "'" . $valuecallOldpage['publish_start'] . "'";
-        // $insert[$config['new']['cms'] . "_edate"] = "'" . $valuecallOldpage['publish_end'] . "'";
+        $insert[$config['new']['cms'] . "_sdate"] = "'" . $valuecallOldpage['publish_start'] . "'";
+        $insert[$config['new']['cms'] . "_edate"] = "'" . $valuecallOldpage['publish_end'] . "'";
 
-        // $insert[$config['new']['cms'] . "_credate"] = "'" . $valuecallOldpage['created_date'] . "'";
+        $insert[$config['new']['cms'] . "_credate"] = "'" . $valuecallOldpage['created_date'] . "'";
 
-        // $insert[$config['new']['cms'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
-        // $insert[$config['new']['cms'] . "_status"] = "'Disable'";
-        // $insert[$config['new']['cms'] . "_order"] = "'" . $maxOrder . "'";
-        // $insert[$config['new']['cms'] . "_view"] = "'" . $valuecallOldpage['view'] . "'";
-        // $sql = "INSERT INTO " . $config['new']['cms'] . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
-        // $db->execute($sql);
-        // $content_id = $db->insert_id();
-        // if ($content_id > 0) {
-        //     $insertLang = array();
-        //     $insertLang[$config['new']['cmsl'] . "_cid"] = "'" . $content_id . "'";
-        //     $insertLang[$config['new']['cmsl'] . "_masterkey"] = "'abs'";
-        //     $insertLang[$config['new']['cmsl'] . "_language"] = "'Thai'";
-        //     $insertLang[$config['new']['cmsl'] . "_subject"] = "'" . $valuecallOldpage['title'] . "'";
-        //     $insertLang[$config['new']['cmsl'] . "_typec"] = "'" . $filename_status . "'";
-        //     $insertLang[$config['new']['cmsl'] . "_picType"] = "'" . $picname_status . "'";
-        //     $insertLang[$config['new']['cmsl'] . "_picDefault"] = "'1'";
-        //     $insertLang[$config['new']['cmsl'] . "_pic"] = "'" . $picname . "'";
-        //     $insertLang[$config['new']['cmsl'] . "_type"] = "'url'";
-        //     $insertLang[$config['new']['cmsl'] . "_htmlfilename"] = "'" . $filename_html . "'";
-        //     $insertLang[$config['new']['cmsl'] . "_lastbyid"] = "'1'";
-        //     $insertLang[$config['new']['cmsl'] . "_lastby"] = "'dmscadmin dmscadmin'";
-        //     $insertLang[$config['new']['cmsl'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
-        //     $sql2 = "INSERT INTO " . $config['new']['cmsl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
-        //     $db->execute($sql2);
-        //     $contantID =$db->insert_id();
+        $insert[$config['new']['cms'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
+        $insert[$config['new']['cms'] . "_status"] = "'Disable'";
+        $insert[$config['new']['cms'] . "_order"] = "'" . $maxOrder . "'";
+        $insert[$config['new']['cms'] . "_view"] = "'" . $valuecallOldpage['view'] . "'";
+        $sql = "INSERT INTO " . $config['new']['cms'] . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
+        $db->execute($sql);
+        $content_id = $db->insert_id();
+        if ($content_id > 0) {
+            $insertLang = array();
+            $insertLang[$config['new']['cmsl'] . "_cid"] = "'" . $content_id . "'";
+            $insertLang[$config['new']['cmsl'] . "_masterkey"] = "'abs'";
+            $insertLang[$config['new']['cmsl'] . "_language"] = "'Thai'";
+            $insertLang[$config['new']['cmsl'] . "_subject"] = "'" . $valuecallOldpage['title'] . "'";
+            $insertLang[$config['new']['cmsl'] . "_typec"] = "'" . $filename_status . "'";
+            $insertLang[$config['new']['cmsl'] . "_picType"] = "'" . $picname_status . "'";
+            $insertLang[$config['new']['cmsl'] . "_picDefault"] = "'1'";
+            $insertLang[$config['new']['cmsl'] . "_pic"] = "'" . $picname . "'";
+            $insertLang[$config['new']['cmsl'] . "_type"] = "'url'";
+            $insertLang[$config['new']['cmsl'] . "_htmlfilename"] = "'" . $filename_html . "'";
+            $insertLang[$config['new']['cmsl'] . "_lastbyid"] = "'1'";
+            $insertLang[$config['new']['cmsl'] . "_lastby"] = "'dmscadmin dmscadmin'";
+            $insertLang[$config['new']['cmsl'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
+            $sql2 = "INSERT INTO " . $config['new']['cmsl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
+            $db->execute($sql2);
+            $contantID =$db->insert_id();
 
-        //     $insertLang = array();
-        //     $insertLang[$config['new']['cmsl'] . "_cid"] = "'" . $content_id . "'";
-        //     $insertLang[$config['new']['cmsl'] . "_masterkey"] = "'abs'";
-        //     $insertLang[$config['new']['cmsl'] . "_language"] = "'Eng'";
-        //     $insertLang[$config['new']['cmsl'] . "_lastbyid"] = "'1'";
-        //     $insertLang[$config['new']['cmsl'] . "_lastby"] = "'dmscadmin dmscadmin'";
-        //     $insertLang[$config['new']['cmsl'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
-        //     $sqllang = "INSERT INTO " . $config['new']['cmsl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
-        //     $db->execute($sqllang);
+            $insertLang = array();
+            $insertLang[$config['new']['cmsl'] . "_cid"] = "'" . $content_id . "'";
+            $insertLang[$config['new']['cmsl'] . "_masterkey"] = "'abs'";
+            $insertLang[$config['new']['cmsl'] . "_language"] = "'Eng'";
+            $insertLang[$config['new']['cmsl'] . "_lastbyid"] = "'1'";
+            $insertLang[$config['new']['cmsl'] . "_lastby"] = "'dmscadmin dmscadmin'";
+            $insertLang[$config['new']['cmsl'] . "_lastdate"] = "'" . $valuecallOldpage['ts'] . "'";
+            $sqllang = "INSERT INTO " . $config['new']['cmsl'] . "(" . implode(",", array_keys($insertLang)) . ") VALUES (" . implode(",", array_values($insertLang)) . ")";
+            $db->execute($sqllang);
 
-        //     // file
-        //     $sql_del = "DELETE FROM " . $config['new']['cmf'] . " WHERE   " . $config['new']['cmf'] . "_contantid='" . $contantID . "'";
-        //     $db->execute($sql_del);
+            // file
+            $sql_del = "DELETE FROM " . $config['new']['cmf'] . " WHERE   " . $config['new']['cmf'] . "_contantid='" . $contantID . "'";
+            $db->execute($sql_del);
 
-        //     if ($filename_status == 2) {
-        //         $insert = array();
-        //         $insert[$config['new']['cmf'] . "_contantid"] = "'" . $contantID . "'";
-        //         $insert[$config['new']['cmf'] . "_filename"] = "'" . $file_path . "'";
-        //         $insert[$config['new']['cmf'] . "_name"] = "'" . $filename . "'";
-        //         $insert[$config['new']['cmf'] . "_language"] = "'Thai'";
-        //         $insert[$config['new']['cmf'] . "_credate"] = "'" . $filenameCredate . "'";
+            if ($filename_status == 2) {
+                $insert = array();
+                $insert[$config['new']['cmf'] . "_contantid"] = "'" . $contantID . "'";
+                $insert[$config['new']['cmf'] . "_filename"] = "'" . $file_path . "'";
+                $insert[$config['new']['cmf'] . "_name"] = "'" . $filename . "'";
+                $insert[$config['new']['cmf'] . "_language"] = "'Thai'";
+                $insert[$config['new']['cmf'] . "_credate"] = "'" . $filenameCredate . "'";
     
-        //         $sql_file = "INSERT INTO " . $config['new']['cmf'] . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
-        //         $db->execute($sql_file);
-        //     }
-        // }
+                $sql_file = "INSERT INTO " . $config['new']['cmf'] . "(" . implode(",", array_keys($insert)) . ") VALUES (" . implode(",", array_values($insert)) . ")";
+                $db->execute($sql_file);
+            }
+        }
         $maxOrder++;
         $maxOrderGroup++;
     }

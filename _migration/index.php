@@ -10,10 +10,24 @@ $segment = array_values(array_filter(explode("/", str_replace($path_root, "", $_
 switch ($segment[1]) {
     case 'about':
         require_once 'service/migrate-about.php';
+        header('Content-Type: application/json; charset=utf');
+        $arrJson = array(
+            'code' => 200,
+            'msg' => 'success'
+        );
+        echo json_encode($arrJson);
+        exit();
         break;
 
     case 'news':
         require_once 'service/migrate-news.php';
+        header('Content-Type: application/json; charset=utf');
+        $arrJson = array(
+            'code' => 200,
+            'msg' => 'success'
+        );
+        echo json_encode($arrJson);
+        exit();
         break;
     
     default:
